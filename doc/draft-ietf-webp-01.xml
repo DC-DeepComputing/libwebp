@@ -9,7 +9,7 @@
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
       category="info"
-      docName="draft-ietf-xml2rfc-template-06"
+      docName="draft-ietf-webp-01"
       ipr="trust200902"
       obsoletes=""
       updates=""
@@ -34,7 +34,7 @@
         full title is longer than 39 characters -->
 
    <title>WebP Image Format</title>
-    <seriesInfo name="Internet-Draft" value="draft-ietf-xml2rfc-template-06"/>
+   <seriesInfo name="Internet-Draft" value="draft-ietf-webp-01"/>
     <!-- add 'role="editor"' below for the editors if appropriate -->
 
    <author fullname="James Zern" initials="J." surname="Zern">
