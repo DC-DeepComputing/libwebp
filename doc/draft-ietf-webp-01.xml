@@ -95,6 +95,24 @@
          document are to be interpreted as described in <xref target="RFC2119" format="default">RFC 2119</xref>.</t>
      </section>
    </section>
+   <section numbered="true" toc="default">
+     <name>Interchange Recommendations</name>
+     <t></t>
+   </section>
+   <section numbered="true" toc="default">
+     <name>Security Requirements</name>
+     <t></t>
+   </section>
+   <section numbered="true" toc="default">
+     <name>Encoding Requirements</name>
+     <t>This media type consists of binary data. The
+        <xref target="RFC4648">base64 encoding</xref> should be used on
+        transports that cannot accommodate binary data directly.</t>
+   </section>
+   <section numbered="true" toc="default">
+     <name>Additional Information</name>
+     <t></t>
+   </section>
    <section anchor="simple_list" numbered="true" toc="default">
      <name>Simple List</name>
      <t>List styles: 'empty', 'symbols', 'letters', 'numbers', 'hanging',
@@ -335,6 +353,21 @@
            </author>
            <date year="2006"/>
          </front>
+       </reference>
+
+       <reference anchor="RFC4648" target="https://www.rfc-editor.org/info/rfc4648">
+         <front>
+           <title>The Base16, Base32, and Base64 Data Encodings</title>
+           <author initials="S." surname="Josefsson" fullname="S. Josefsson">
+             <organization/>
+           </author>
+           <date year="2006" month="October"/>
+           <abstract>
+             <t>This document describes the commonly used base 64, base 32, and base 16 encoding schemes. It also discusses the use of line-feeds in encoded data, use of padding in encoded data, use of non-alphabet characters in encoded data, use of different encoding alphabets, and canonical encodings. [STANDARDS-TRACK]</t>
+           </abstract>
+         </front>
+         <seriesInfo name="RFC" value="4648"/>
+         <seriesInfo name="DOI" value="10.17487/RFC4648"/>
        </reference>
      </references>
      <references>
