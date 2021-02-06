@@ -38,21 +38,21 @@
     <!-- add 'role="editor"' below for the editors if appropriate -->
 
    <author fullname="James Zern" initials="J." surname="Zern">
-      <organization>Google LLC</organization>
-      <address>
-        <postal>
-          <street>1600 Amphitheatre Parkway<street/>
-          <city>Mountain View</city>
-          <region>CA<region/>
-          <code>94043<code/>
-          <country>United States of America</country>
-        </postal>
-        <phone>+1 650 253-0000</phone>
-        <email>jzern@google.com</email>
-      </address>
-    </author>
+     <organization>Google LLC</organization>
+     <address>
+       <postal>
+         <street>1600 Amphitheatre Parkway</street>
+         <city>Mountain View</city>
+         <region>CA</region>
+         <code>94043</code>
+         <country>United States of America</country>
+       </postal>
+       <phone>+1 650 253-0000</phone>
+       <email>jzern@google.com</email>
+     </address>
+   </author>
 
-    <date year="2021" />
+   <date year="2021" />
 
    <!-- Meta-data Declarations -->
 
