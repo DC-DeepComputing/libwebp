@@ -34,7 +34,7 @@
         full title is longer than 39 characters -->
 
    <title>WebP Image Format</title>
-   <seriesInfo name="Internet-Draft" value="draft-ietf-webp-01"/>
+   <!-- TODO: <seriesInfo> name/value? -->
     <!-- add 'role="editor"' below for the editors if appropriate -->
 
    <author fullname="James Zern" initials="J." surname="Zern">
