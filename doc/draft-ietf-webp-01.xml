@@ -41,10 +41,7 @@
       <organization>Google LLC</organization>
       <address>
         <postal>
-          <street>1600 Amphitheatre Parkway
-          <street/>
-          <!-- Reorder these if your country does things differently -->
-
+          <street>1600 Amphitheatre Parkway<street/>
           <city>Mountain View</city>
           <region>CA<region/>
           <code>94043<code/>
@@ -54,13 +51,8 @@
         <email>jzern@google.com</email>
       </address>
     </author>
-    <date month="February" year="2021" />
-    <!-- If the month and year are both specified and are the current ones, xml2rfc will fill
-        in the current day for you. If only the current year is specified, xml2rfc will fill
-   in the current day and month for you. If the year is not the current one, it is
-   necessary to specify at least a month (xml2rfc assumes day="1" if not specified for the
-   purpose of calculating the expiry date).  With drafts it is normally sufficient to
-   specify just the year. -->
+
+    <date year="2021" />
 
    <!-- Meta-data Declarations -->
 
