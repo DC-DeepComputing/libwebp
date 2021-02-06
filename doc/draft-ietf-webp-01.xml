@@ -81,154 +81,154 @@
        GIF.</t>
    </abstract>
  </front>
-  <middle>
-    <section numbered="true" toc="default">
-      <name>Introduction</name>
-      <t>The original specification of xml2rfc format is in <xref target="RFC2629" format="default">RFC&nbsp;2629</xref>.</t>
-      <section numbered="true" toc="default">
-        <name>Requirements Language</name>
-        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-       "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-       document are to be interpreted as described in <xref target="RFC2119" format="default">RFC 2119</xref>.</t>
-      </section>
-    </section>
-    <section anchor="simple_list" numbered="true" toc="default">
-      <name>Simple List</name>
-      <t>List styles: 'empty', 'symbols', 'letters', 'numbers', 'hanging',
-     'format'.</t>
-      <ul spacing="normal">
-        <li>First bullet</li>
-        <li>Second bullet</li>
-      </ul>
-      <t> You can write text here as well.</t>
-    </section>
-    <section numbered="true" toc="default">
-      <name>Figures</name>
-      <t>Figures should not exceed 69 characters wide to allow for the indent
-     of sections.</t>
-      <t>Preamble text - can be omitted or empty.</t>
-      <figure anchor="xml_happy">
-        <artwork align="left" name="" type="" alt=""><![CDATA[
-+-----------------------+
-| Use XML, be Happy :-) |
-|_______________________|
-           ]]></artwork>
-      </figure>
-      <t>Cross-references allowed in pre- and postamble. <xref target="min_ref" format="default"/>.</t>
-      <t>The CDATA means you don't need to escape meta-characters (especially
-     &lt;&nbsp;(&amp;lt;) and &amp;&nbsp;(&amp;amp;)) but is not essential.
-     Figures may also have a title attribute but it won't be displayed unless
-     there is also an anchor. White space, both horizontal and vertical, is
-     significant in figures even if you don't use CDATA.</t>
-    </section>
-    <!-- This PI places the pagebreak correctly (before the section title) in the text output. -->
+ <middle>
+   <section numbered="true" toc="default">
+     <name>Introduction</name>
+     <t>The original specification of xml2rfc format is in <xref target="RFC2629" format="default">RFC&nbsp;2629</xref>.</t>
+     <section numbered="true" toc="default">
+       <name>Requirements Language</name>
+       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+         "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+         document are to be interpreted as described in <xref target="RFC2119" format="default">RFC 2119</xref>.</t>
+     </section>
+   </section>
+   <section anchor="simple_list" numbered="true" toc="default">
+     <name>Simple List</name>
+     <t>List styles: 'empty', 'symbols', 'letters', 'numbers', 'hanging',
+       'format'.</t>
+     <ul spacing="normal">
+       <li>First bullet</li>
+       <li>Second bullet</li>
+     </ul>
+     <t> You can write text here as well.</t>
+   </section>
+   <section numbered="true" toc="default">
+     <name>Figures</name>
+     <t>Figures should not exceed 69 characters wide to allow for the indent
+       of sections.</t>
+     <t>Preamble text - can be omitted or empty.</t>
+     <figure anchor="xml_happy">
+       <artwork align="left" name="" type="" alt=""><![CDATA[
+         +-----------------------+
+         | Use XML, be Happy :-) |
+         |_______________________|
+         ]]></artwork>
+     </figure>
+     <t>Cross-references allowed in pre- and postamble. <xref target="min_ref" format="default"/>.</t>
+     <t>The CDATA means you don't need to escape meta-characters (especially
+       &lt;&nbsp;(&amp;lt;) and &amp;&nbsp;(&amp;amp;)) but is not essential.
+       Figures may also have a title attribute but it won't be displayed unless
+       there is also an anchor. White space, both horizontal and vertical, is
+       significant in figures even if you don't use CDATA.</t>
+   </section>
+   <!-- This PI places the pagebreak correctly (before the section title) in the text output. -->
 
    <section numbered="true" toc="default">
-      <name>Subsections and Tables</name>
-      <section numbered="true" toc="default">
-        <name>A Subsection</name>
-        <t>By default 3 levels of nesting show in table of contents but that
-       can be adjusted with the value of the "tocdepth" processing
-       instruction.</t>
-      </section>
-      <section numbered="true" toc="default">
-        <name>Tables</name>
-        <t>.. are very similar to figures:</t>
-        <t>Tables use ttcol to define column headers and widths.
+     <name>Subsections and Tables</name>
+     <section numbered="true" toc="default">
+       <name>A Subsection</name>
+       <t>By default 3 levels of nesting show in table of contents but that
+         can be adjusted with the value of the "tocdepth" processing
+         instruction.</t>
+     </section>
+     <section numbered="true" toc="default">
+       <name>Tables</name>
+       <t>.. are very similar to figures:</t>
+       <t>Tables use ttcol to define column headers and widths.
          Every cell then has a "c" element for its content.</t>
-        <table anchor="table_example" align="center">
-          <name>A Very Simple Table</name>
-          <thead>
-            <tr>
-              <th align="center">ttcol #1</th>
-              <th align="center">ttcol #2</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td align="center">c #1</td>
-              <td align="center">c #2</td>
-            </tr>
-            <tr>
-              <td align="center">c #3</td>
-              <td align="center">c #4</td>
-            </tr>
-            <tr>
-              <td align="center">c #5</td>
-              <td align="center">c #6</td>
-            </tr>
-          </tbody>
-        </table>
-        <t>which is a very simple example.</t>
-      </section>
-    </section>
-    <section anchor="nested_lists" numbered="true" toc="default">
-      <name>More about Lists</name>
-      <t>Lists with 'hanging labels': the list item is indented the amount of
-     the hangIndent: </t>
-      <dl newline="true" spacing="normal" indent="8">
-        <dt>short</dt>
-        <dd>With a label shorter than the hangIndent.</dd>
-        <dt>fantastically long label</dt>
-        <dd>With a label longer than the
+       <table anchor="table_example" align="center">
+         <name>A Very Simple Table</name>
+         <thead>
+           <tr>
+             <th align="center">ttcol #1</th>
+             <th align="center">ttcol #2</th>
+           </tr>
+         </thead>
+         <tbody>
+           <tr>
+             <td align="center">c #1</td>
+             <td align="center">c #2</td>
+           </tr>
+           <tr>
+             <td align="center">c #3</td>
+             <td align="center">c #4</td>
+           </tr>
+           <tr>
+             <td align="center">c #5</td>
+             <td align="center">c #6</td>
+           </tr>
+         </tbody>
+       </table>
+       <t>which is a very simple example.</t>
+     </section>
+   </section>
+   <section anchor="nested_lists" numbered="true" toc="default">
+     <name>More about Lists</name>
+     <t>Lists with 'hanging labels': the list item is indented the amount of
+       the hangIndent: </t>
+     <dl newline="true" spacing="normal" indent="8">
+       <dt>short</dt>
+       <dd>With a label shorter than the hangIndent.</dd>
+       <dt>fantastically long label</dt>
+       <dd>With a label longer than the
          hangIndent.</dd>
-        <dt>vspace_trick</dt>
-        <dd>Forces the new
+       <dt>vspace_trick</dt>
+       <dd>Forces the new
          item to start on a new line.</dd>
-      </dl>
-      <!-- It would be nice to see the next piece (12 lines) all on one page. -->
+     </dl>
+     <!-- It would be nice to see the next piece (12 lines) all on one page. -->
 
      <t>Simulating more than one paragraph in a list item using
-     &lt;vspace&gt;: </t>
-      <ol spacing="normal" type="a">
-        <li>First, a short item.</li>
-        <li>
-          <t>Second, a longer list item.</t>
-          <t> And
-         something that looks like a separate pararaph..</t>
-        </li>
-      </ol>
-      <t>Simple indented paragraph using the "empty" style: </t>
-      <ul empty="true" spacing="normal">
-        <li>The quick, brown fox jumped over the lazy dog and lived to fool
+       &lt;vspace&gt;: </t>
+     <ol spacing="normal" type="a">
+       <li>First, a short item.</li>
+       <li>
+         <t>Second, a longer list item.</t>
+         <t> And
+           something that looks like a separate pararaph..</t>
+       </li>
+     </ol>
+     <t>Simple indented paragraph using the "empty" style: </t>
+     <ul empty="true" spacing="normal">
+       <li>The quick, brown fox jumped over the lazy dog and lived to fool
          many another hunter in the great wood in the west.</li>
-      </ul>
-      <section numbered="true" toc="default">
-        <name>Numbering Lists across Lists and Sections</name>
-        <t>Numbering items continuously although they are in separate
-       &lt;list&gt; elements, maybe in separate sections using the "format"
-       style and a "counter" variable.</t>
-        <t>First list: </t>
-        <ol group="reqs" spacing="normal" type="R%d">
-          <li>#1</li>
-          <li>#2</li>
-          <li>#3</li>
-        </ol>
-        <t> Specify the indent explicitly so that all the items line up
-       nicely.</t>
-        <t>Second list: </t>
-        <ol group="reqs" spacing="normal" type="R%d">
-          <li>#4</li>
-          <li>#5</li>
-          <li>#6</li>
-        </ol>
-      </section>
-      <section numbered="true" toc="default">
-        <name>Where the List Numbering Continues</name>
-        <t>List continues here.</t>
-        <t>Third list: </t>
-        <ol group="reqs" spacing="normal" type="R%d">
-          <li>#7</li>
-          <li>#8</li>
-          <li>#9</li>
-          <li>#10</li>
-        </ol>
-        <t> The end of the list.</t>
-      </section>
-    </section>
-    <section anchor="codeExample" numbered="true" toc="default">
-      <name>Example of Code or MIB Module To Be Extracted</name>
-      <t>The &lt;artwork&gt; element has a number of extra attributes
+     </ul>
+     <section numbered="true" toc="default">
+       <name>Numbering Lists across Lists and Sections</name>
+       <t>Numbering items continuously although they are in separate
+         &lt;list&gt; elements, maybe in separate sections using the "format"
+         style and a "counter" variable.</t>
+       <t>First list: </t>
+       <ol group="reqs" spacing="normal" type="R%d">
+         <li>#1</li>
+         <li>#2</li>
+         <li>#3</li>
+       </ol>
+       <t> Specify the indent explicitly so that all the items line up
+         nicely.</t>
+       <t>Second list: </t>
+       <ol group="reqs" spacing="normal" type="R%d">
+         <li>#4</li>
+         <li>#5</li>
+         <li>#6</li>
+       </ol>
+     </section>
+     <section numbered="true" toc="default">
+       <name>Where the List Numbering Continues</name>
+       <t>List continues here.</t>
+       <t>Third list: </t>
+       <ol group="reqs" spacing="normal" type="R%d">
+         <li>#7</li>
+         <li>#8</li>
+         <li>#9</li>
+         <li>#10</li>
+       </ol>
+       <t> The end of the list.</t>
+     </section>
+   </section>
+   <section anchor="codeExample" numbered="true" toc="default">
+     <name>Example of Code or MIB Module To Be Extracted</name>
+     <t>The &lt;artwork&gt; element has a number of extra attributes
        that can be used to substitute a more aesthetically pleasing rendition
        into HTML output while continuing to use the ASCII art version in the
        text and nroff outputs (see the xml2rfc README for details). It also
@@ -240,52 +240,52 @@
        also be colorized in HTML output to highlight the syntactic
        components. Checking of additional "types" may be provided in future
        versions of xml2rfc.</t>
-      <artwork name="" type="" align="left" alt=""><![CDATA[
+     <artwork name="" type="" align="left" alt=""><![CDATA[
 
-/**** an example C program */
+       /**** an example C program */
 
-#include <stdio.h>
+       #include <stdio.h>
 
-void
-main(int argc, char *argv[])
-{
-   int i;
+           void
+           main(int argc, char *argv[])
+           {
+           int i;
 
-   printf("program arguments are:\n");
-   for (i = 0; i < argc; i++) {
-       printf("%d: \"%s\"\n", i, argv[i]);
-   }
+           printf("program arguments are:\n");
+           for (i = 0; i < argc; i++) {
+           printf("%d: \"%s\"\n", i, argv[i]);
+           }
 
-   exit(0);
-} /* main */
+           exit(0);
+           } /* main */
 
-/* end of file */
+           /* end of file */
 
            ]]></artwork>
-    </section>
-    <section anchor="Acknowledgements" numbered="true" toc="default">
-      <name>Acknowledgements</name>
-      <t>This template was derived from an initial version written by Pekka
-     Savola and contributed by him to the xml2rfc project.</t>
-      <t>This document is part of a plan to make xml2rfc indispensable <xref target="DOMINATION" format="default"/>.</t>
-    </section>
-    <!-- Possibly a 'Contributors' section ... -->
+       </section>
+       <section anchor="Acknowledgements" numbered="true" toc="default">
+         <name>Acknowledgements</name>
+         <t>This template was derived from an initial version written by Pekka
+           Savola and contributed by him to the xml2rfc project.</t>
+         <t>This document is part of a plan to make xml2rfc indispensable <xref target="DOMINATION" format="default"/>.</t>
+       </section>
+       <!-- Possibly a 'Contributors' section ... -->
 
-   <section anchor="IANA" numbered="true" toc="default">
-      <name>IANA Considerations</name>
-      <t>This memo includes no request to IANA.</t>
-      <t>All drafts are required to have an IANA considerations section (see
-     <xref target="RFC5226" format="default">Guidelines for Writing an IANA Considerations Section in RFCs</xref> for a guide). If the draft does not require IANA to do
-     anything, the section contains an explicit statement that this is the
-     case (as above). If there are no requirements for IANA, the section will
-     be removed during conversion into an RFC by the RFC Editor.</t>
-    </section>
-    <section anchor="Security" numbered="true" toc="default">
-      <name>Security Considerations</name>
-      <t>All drafts are required to have a security considerations section.
-     See <xref target="RFC3552" format="default">RFC 3552</xref> for a guide.</t>
-    </section>
-  </middle>
+       <section anchor="IANA" numbered="true" toc="default">
+         <name>IANA Considerations</name>
+         <t>This memo includes no request to IANA.</t>
+         <t>All drafts are required to have an IANA considerations section (see
+         <xref target="RFC5226" format="default">Guidelines for Writing an IANA Considerations Section in RFCs</xref> for a guide). If the draft does not require IANA to do
+           anything, the section contains an explicit statement that this is the
+           case (as above). If there are no requirements for IANA, the section will
+           be removed during conversion into an RFC by the RFC Editor.</t>
+       </section>
+       <section anchor="Security" numbered="true" toc="default">
+         <name>Security Considerations</name>
+         <t>All drafts are required to have a security considerations section.
+           See <xref target="RFC3552" format="default">RFC 3552</xref> for a guide.</t>
+       </section>
+     </middle>
   <!--  *****BACK MATTER ***** -->
 
  <back>
