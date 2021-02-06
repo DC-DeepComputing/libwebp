@@ -74,7 +74,10 @@
 
    <abstract>
      <!-- TODO: What are the best references for JPEG and GIF? Is a wikipedia
-          link accepted in this context? -->
+          link accepted in this context?
+          RIFF: https://en.wikipedia.org/wiki/Resource_Interchange_File_Format#cite_note-1
+          JPEG: https://en.wikipedia.org/wiki/JPEG#cite_note-w3-1
+          GIF: https://www.w3.org/Graphics/GIF/spec-gif89a.txt -->
      <t>WebP is a RIFF-based image file format which supports lossless and
        lossy compression as well as alpha (transparency) and animation. It
        covers use cases similar to JPEG, <xref target="RFC2083">PNG</xref> and
