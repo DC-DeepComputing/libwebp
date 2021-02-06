@@ -33,14 +33,11 @@
     <!-- The abbreviated title is used in the page header - it is only necessary if the
         full title is longer than 39 characters -->
 
-   <title abbrev="Abbreviated Title">Put Your Internet Draft Title
-   Here</title>
+   <title>WebP Image Format</title>
     <seriesInfo name="Internet-Draft" value="draft-ietf-xml2rfc-template-06"/>
     <!-- add 'role="editor"' below for the editors if appropriate -->
 
-   <!-- Another author who claims to be an editor -->
-
-   <author fullname="James Zern" initials="J." role="editor" surname="Zern">
+   <author fullname="James Zern" initials="J." surname="Zern">
       <organization>Google LLC</organization>
       <address>
         <postal>
