@@ -95,8 +95,10 @@
          document are to be interpreted as described in <xref target="RFC2119" format="default">RFC 2119</xref>.</t>
      </section>
    </section>
+
    <section numbered="true" toc="default">
      <name>Interchange Recommendations</name>
+     <!-- TODO: should little-endian be defined in a terminology section? -->
      <t>The format is defined using little-endian byte ordering, but demuxing
        and decoding are possible on platforms using a different ordering with
        the appropriate conversion.
@@ -105,20 +107,24 @@
        chunks, but nothing beyond the chunks defined by the container format
      <xref target="webp-riff"/> are required for decoding of the image.</t>
    </section>
+
    <section numbered="true" toc="default">
      <name>Security Requirements</name>
      <t></t>
    </section>
+
    <section numbered="true" toc="default">
      <name>Encoding Requirements</name>
      <t>This media type consists of binary data. The
         <xref target="RFC4648">base64 encoding</xref> should be used on
         transports that cannot accommodate binary data directly.</t>
    </section>
+
    <section numbered="true" toc="default">
      <name>Additional Information</name>
      <t></t>
    </section>
+
    <section anchor="simple_list" numbered="true" toc="default">
      <name>Simple List</name>
      <t>List styles: 'empty', 'symbols', 'letters', 'numbers', 'hanging',
