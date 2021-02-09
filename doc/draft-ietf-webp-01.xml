@@ -122,9 +122,9 @@
 
    <section numbered="true" toc="default">
      <name>Encoding Requirements</name>
-     <t>This media type consists of binary data. The
-        <xref target="RFC4648">base64 encoding</xref> should be used on
-        transports that cannot accommodate binary data directly.</t>
+     <t>This media type consists of binary data.
+       The <xref target="RFC4648">Base64 encoding</xref> should be used on
+       transports that cannot accommodate binary data directly.</t>
    </section>
 
    <section numbered="true" toc="default">
