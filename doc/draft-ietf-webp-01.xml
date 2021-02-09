@@ -111,8 +111,13 @@
    </section>
 
    <section numbered="true" toc="default">
-     <name>Security Requirements</name>
-     <t></t>
+     <!-- TODO: 'Security Requirements' from 6838 or the following based on the
+       prose? -->
+     <name>Security Considerations</name>
+     <t>Security risks are similar to other media content and may include
+       buffer overruns and uninitialized data usage as part of the demuxing
+       and decoding process <xref target="cve.mitre.org"/>
+       <xref target="crbug-security"/>.</t>
    </section>
 
    <section numbered="true" toc="default">
@@ -412,6 +417,26 @@
              <organization>Google LLC</organization>
            </author>
            <date month="April" year="2018" />
+         </front>
+       </reference>
+
+       <reference anchor="cve.mitre.org"
+         target="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=libwebp">
+         <front>
+           <title>libwebp CVE List</title>
+           <author>
+             <organization/>
+           </author>
+         </front>
+       </reference>
+
+       <reference anchor="crbug-security"
+         target="https://bugs.chromium.org/p/webp/issues/list?q=label%3ASecurity">
+         <front>
+           <title>libwebp Security Issues</title>
+           <author>
+             <organization/>
+           </author>
          </front>
        </reference>
 
