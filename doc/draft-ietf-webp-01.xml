@@ -369,10 +369,6 @@
          <seriesInfo name="RFC" value="4648"/>
          <seriesInfo name="DOI" value="10.17487/RFC4648"/>
        </reference>
-     </references>
-     <references>
-       <name>Informative References</name>
-         <!-- Here we use entities that we defined at the beginning. -->
 
        <!-- <?rfc include="reference.RFC.2083" ?> -->
        <reference anchor="RFC2083" target="https://www.rfc-editor.org/info/rfc2083">
@@ -389,6 +385,11 @@
          <seriesInfo name="RFC" value="2083"/>
          <seriesInfo name="DOI" value="10.17487/RFC2083"/>
        </reference>
+     </references>
+
+     <references>
+       <name>Informative References</name>
+         <!-- Here we use entities that we defined at the beginning. -->
 
        <!-- <?rfc include="reference.RFC.6386" ?> -->
        <reference anchor="RFC6386" target="https://www.rfc-editor.org/info/rfc6386">
