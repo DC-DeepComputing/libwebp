@@ -97,7 +97,9 @@
    </section>
 
    <section numbered="true" toc="default">
-     <name>Interchange Recommendations</name>
+     <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
+     on the prose? -->
+     <name>Interoperability Considerations</name>
      <!-- TODO: should little-endian be defined in a terminology section? -->
      <t>The format is defined using little-endian byte ordering, but demuxing
        and decoding are possible on platforms using a different ordering with
@@ -105,7 +107,7 @@
 
        The container is RIFF-based and allows extension via user defined
        chunks, but nothing beyond the chunks defined by the container format
-     <xref target="webp-riff"/> are required for decoding of the image.</t>
+       <xref target="webp-riff"/> are required for decoding of the image.</t>
    </section>
 
    <section numbered="true" toc="default">
