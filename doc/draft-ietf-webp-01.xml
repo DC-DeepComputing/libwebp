@@ -97,7 +97,13 @@
    </section>
    <section numbered="true" toc="default">
      <name>Interchange Recommendations</name>
-     <t></t>
+     <t>The format is defined using little-endian byte ordering, but demuxing
+       and decoding are possible on platforms using a different ordering with
+       the appropriate conversion.
+
+       The container is RIFF-based and allows extension via user defined
+       chunks, but nothing beyond the chunks defined by the container format
+     <xref target="webp-riff"/> are required for decoding of the image.</t>
    </section>
    <section numbered="true" toc="default">
      <name>Security Requirements</name>
@@ -389,7 +395,17 @@
 
      <references>
        <name>Informative References</name>
-         <!-- Here we use entities that we defined at the beginning. -->
+
+       <reference anchor="webp-riff"
+         target="https://developers.google.com/speed/webp/docs/riff_container">
+         <front>
+           <title>WebP RIFF Container</title>
+           <author>
+             <organization>Google LLC</organization>
+           </author>
+           <date month="April" year="2018" />
+         </front>
+       </reference>
 
        <!-- <?rfc include="reference.RFC.6386" ?> -->
        <reference anchor="RFC6386" target="https://www.rfc-editor.org/info/rfc6386">
