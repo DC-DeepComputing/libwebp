@@ -138,19 +138,6 @@
  </middle>
 
  <back>
-    <!-- References split into informative and normative -->
-
-   <!-- There are 2 ways to insert reference entries from the citation libraries:
-    1. define an ENTITY at the top, and use "ampersand character"RFC2629; here (as shown)
-    2. simply use a PI "less than character"?rfc include="reference.RFC.2119.xml"?> here
-       (for I-Ds: include="reference.I-D.narten-iana-considerations-rfc2434bis.xml")
-
-    Both are cited textually in the same manner: by using xref elements.
-    If you use the PI option, xml2rfc will, by default, try to find included files in the same
-    directory as the including file. You can also define the XML_LIBRARY environment variable
-    with a value containing a set of directories to search.  These can be either in the local
-    filing system or remote ones accessed by http (http://domain/dir/... ).-->
-
    <references>
      <name>References</name>
      <references>
@@ -200,7 +187,7 @@
          <seriesInfo name="DOI" value="10.17487/RFC4648"/>
        </reference>
 
-       <!-- <?rfc include="reference.RFC.2083" ?> -->
+       <!--?rfc include="reference.RFC.2083" ?-->
        <reference anchor="RFC2083" target="https://www.rfc-editor.org/info/rfc2083">
          <front>
            <title>PNG (Portable Network Graphics) Specification Version 1.0</title>
@@ -255,7 +242,7 @@
          </front>
        </reference>
 
-       <!-- <?rfc include="reference.RFC.6386" ?> -->
+       <!--?rfc include="reference.RFC.6386" ?-->
        <reference anchor="RFC6386" target="https://www.rfc-editor.org/info/rfc6386">
          <front>
            <title>VP8 Data Format and Decoding Guide</title>
