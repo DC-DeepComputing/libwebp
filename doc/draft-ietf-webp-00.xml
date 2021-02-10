@@ -61,6 +61,20 @@
  <middle>
    <section numbered="true" toc="default">
      <name>Introduction</name>
+     <t>This document provides references for the WebP image format and
+       considerations for its use across platforms.</t>
+
+     <t>WebP consists of two compression algorithms used to reduce the size of
+       image pixel data, including alpha (transparency) information. Lossy
+       compression is achieved using VP8 intra-frame encoding
+       <xref target="RFC6386"/>. The lossless algorithm
+       <xref target="webp-lossless"/> stores and restores the pixel values
+         exactly, including the color values for zero alpha pixels. The format
+         uses subresolution images, recursively embedded into the format
+         itself, for storing statistical data about the images, such as the
+         used entropy codes, spatial predictors, color space conversion, and
+         color table. LZ77, Huffman coding, and a color cache are used for
+         compression of the bulk data.</t>
    </section>
 
    <section numbered="true" toc="default">
@@ -146,6 +160,17 @@
              <organization>Google LLC</organization>
            </author>
            <date month="April" year="2018" />
+         </front>
+       </reference>
+
+       <reference anchor="webp-lossless"
+         target="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">
+         <front>
+           <title>WebP Lossless Bitstream Specification</title>
+           <author initials="J." surname="Alakuijala" fullname="Jyrki Alakuijala">
+             <organization>Google LLC</organization>
+           </author>
+           <date month="September" year="2014" />
          </front>
        </reference>
 
