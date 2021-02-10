@@ -96,6 +96,9 @@
      <t>This memo includes no request to IANA.</t>
    </section>
 
+   <!-- TODO: how self-contained is this expected to be, should we bring
+     [webp-riff] into this doc? -->
+
    <section numbered="true" toc="default">
      <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
      on the prose? -->
