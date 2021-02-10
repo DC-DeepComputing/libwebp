@@ -9,7 +9,7 @@
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
       category="info"
-      docName="draft-ietf-webp-01"
+      docName="draft-ietf-webp-00"
       ipr="trust200902"
       obsoletes=""
       updates=""
@@ -36,7 +36,7 @@
    <title>WebP Image Format</title>
    <!-- TODO: What's the correct seriesInfo to use? This should not expire in
         the end. -->
-   <seriesInfo name="Internet-Draft" value="draft-ietf-webp-01" />
+   <seriesInfo name="Internet-Draft" value="draft-ietf-webp-00" />
     <!-- add 'role="editor"' below for the editors if appropriate -->
 
    <author fullname="James Zern" initials="J." surname="Zern">
