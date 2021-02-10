@@ -125,7 +125,7 @@
      <name>Additional Information</name>
      <ul spacing="normal">
        <li>Deprecated alias names for this type: None</li>
-       <li>Magic number(s): RIFFxxxxWEBP / RIFFxxxxWEBPVP8</li>
+       <li>Magic number(s): RIFFxxxxWEBPVP8</li>
        <li>File extension(s): webp</li>
        <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
        <li>Object Identifiers: N/A</li>
