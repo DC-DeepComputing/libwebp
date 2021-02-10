@@ -135,11 +135,6 @@
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
      <t>This memo includes no request to IANA.</t>
-     <t>All drafts are required to have an IANA considerations section (see
-     <xref target="RFC5226" format="default">Guidelines for Writing an IANA Considerations Section in RFCs</xref> for a guide). If the draft does not require IANA to do
-       anything, the section contains an explicit statement that this is the
-       case (as above). If there are no requirements for IANA, the section will
-       be removed during conversion into an RFC by the RFC Editor.</t>
    </section>
  </middle>
 
