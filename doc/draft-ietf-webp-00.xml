@@ -77,6 +77,11 @@
      </section>
    </section>
 
+   <section anchor="IANA" numbered="true" toc="default">
+     <name>IANA Considerations</name>
+     <t>This memo includes no request to IANA.</t>
+   </section>
+
    <section numbered="true" toc="default">
      <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
      on the prose? -->
@@ -115,11 +120,6 @@
        <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
        <li>Object Identifiers: N/A</li>
      </ul>
-   </section>
-
-   <section anchor="IANA" numbered="true" toc="default">
-     <name>IANA Considerations</name>
-     <t>This memo includes no request to IANA.</t>
    </section>
  </middle>
 
