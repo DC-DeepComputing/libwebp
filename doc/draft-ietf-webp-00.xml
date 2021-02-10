@@ -187,25 +187,7 @@
          <seriesInfo name="DOI" value="10.17487/RFC4648"/>
        </reference>
 
-       <!--?rfc include="reference.RFC.2083" ?-->
-       <reference anchor="RFC2083" target="https://www.rfc-editor.org/info/rfc2083">
-         <front>
-           <title>PNG (Portable Network Graphics) Specification Version 1.0</title>
-           <author initials="T." surname="Boutell" fullname="T. Boutell">
-             <organization/>
-           </author>
-           <date year="1997" month="March"/>
-           <abstract>
-             <t>This document describes PNG (Portable Network Graphics), an
-               extensible file format for the lossless, portable,
-               well-compressed storage of raster images. This memo provides
-               information for the Internet community. This memo does not
-               specify an Internet standard of any kind.</t>
-           </abstract>
-         </front>
-         <seriesInfo name="RFC" value="2083"/>
-         <seriesInfo name="DOI" value="10.17487/RFC2083"/>
-       </reference>
+       <?rfc include="reference.RFC.2083.xml" ?>
      </references>
 
      <references>
@@ -242,36 +224,7 @@
          </front>
        </reference>
 
-       <!--?rfc include="reference.RFC.6386" ?-->
-       <reference anchor="RFC6386" target="https://www.rfc-editor.org/info/rfc6386">
-         <front>
-           <title>VP8 Data Format and Decoding Guide</title>
-           <author initials="J." surname="Bankoski" fullname="J. Bankoski">
-             <organization/>
-           </author>
-           <author initials="J." surname="Koleszar" fullname="J. Koleszar">
-             <organization/>
-           </author>
-           <author initials="L." surname="Quillio" fullname="L. Quillio">
-             <organization/>
-           </author>
-           <author initials="J." surname="Salonen" fullname="J. Salonen">
-             <organization/>
-           </author>
-           <author initials="P." surname="Wilkins" fullname="P. Wilkins">
-             <organization/>
-           </author>
-           <author initials="Y." surname="Xu" fullname="Y. Xu">
-             <organization/>
-           </author>
-           <date year="2011" month="November"/>
-           <abstract>
-             <t>This document describes the VP8 compressed video data format, together with a discussion of the decoding procedure for the format. This document is not an Internet Standards Track specification; it is published for informational purposes.</t>
-           </abstract>
-         </front>
-         <seriesInfo name="RFC" value="6386"/>
-         <seriesInfo name="DOI" value="10.17487/RFC6386"/>
-       </reference>
+       <?rfc include="reference.RFC.6386.xml" ?>
      </references>
    </references>
    <!-- Change Log
