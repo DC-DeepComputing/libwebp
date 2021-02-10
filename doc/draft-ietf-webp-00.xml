@@ -155,14 +155,23 @@
        <?rfc include="reference.RFC.2083.xml" ?>
        <?rfc include="reference.RFC.6386.xml" ?>
 
-       <reference anchor="webp-riff"
-         target="https://developers.google.com/speed/webp/docs/riff_container">
+       <reference anchor="crbug-security"
+         target="https://bugs.chromium.org/p/webp/issues/list?q=label%3ASecurity">
          <front>
-           <title>WebP RIFF Container</title>
+           <title>libwebp Security Issues</title>
            <author>
-             <organization>Google LLC</organization>
+             <organization/>
            </author>
-           <date month="April" year="2018" />
+         </front>
+       </reference>
+
+       <reference anchor="cve.mitre.org"
+         target="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=libwebp">
+         <front>
+           <title>libwebp CVE List</title>
+           <author>
+             <organization/>
+           </author>
          </front>
        </reference>
 
@@ -177,23 +186,14 @@
          </front>
        </reference>
 
-       <reference anchor="cve.mitre.org"
-         target="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=libwebp">
+       <reference anchor="webp-riff"
+         target="https://developers.google.com/speed/webp/docs/riff_container">
          <front>
-           <title>libwebp CVE List</title>
+           <title>WebP RIFF Container</title>
            <author>
-             <organization/>
+             <organization>Google LLC</organization>
            </author>
-         </front>
-       </reference>
-
-       <reference anchor="crbug-security"
-         target="https://bugs.chromium.org/p/webp/issues/list?q=label%3ASecurity">
-         <front>
-           <title>libwebp Security Issues</title>
-           <author>
-             <organization/>
-           </author>
+           <date month="April" year="2018" />
          </front>
        </reference>
      </references>
