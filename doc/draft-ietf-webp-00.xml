@@ -69,12 +69,12 @@
        compression is achieved using VP8 intra-frame encoding
        <xref target="RFC6386"/>. The lossless algorithm
        <xref target="webp-lossless"/> stores and restores the pixel values
-         exactly, including the color values for zero alpha pixels. The format
-         uses subresolution images, recursively embedded into the format
-         itself, for storing statistical data about the images, such as the
-         used entropy codes, spatial predictors, color space conversion, and
-         color table. LZ77, Huffman coding, and a color cache are used for
-         compression of the bulk data.</t>
+       exactly, including the color values for zero alpha pixels. The format
+       uses subresolution images, recursively embedded into the format
+       itself, for storing statistical data about the images, such as the
+       used entropy codes, spatial predictors, color space conversion, and
+       color table. LZ77, Huffman coding, and a color cache are used for
+       compression of the bulk data.</t>
    </section>
 
    <section numbered="true" toc="default">
