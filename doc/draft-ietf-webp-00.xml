@@ -61,11 +61,19 @@
  <middle>
    <section numbered="true" toc="default">
      <name>Introduction</name>
-     <section numbered="true" toc="default">
-       <name>Requirements Language</name>
-       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-         "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-         document are to be interpreted as described in <xref target="RFC2119" format="default">RFC 2119</xref>.</t>
+   </section>
+
+   <section numbered="true" toc="default">
+     <name>Terminology and Defintions</name>
+     <t>This section defines terms used in the rest of the document.</t>
+     <section title="Conventions Used in This Document">
+       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+         NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+         "MAY", and "OPTIONAL" in this document are to be interpreted as
+         described in BCP&nbsp;14 <xref target="RFC2119"/>
+         <xref target="RFC8174"/> when, and only when, they appear in all
+         capitals, as shown here.
+       </t>
      </section>
    </section>
 
@@ -122,6 +130,7 @@
        <name>Normative References</name>
        <?rfc include="reference.RFC.2119.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
+       <?rfc include="reference.RFC.8174.xml" ?>
      </references>
 
      <references>
