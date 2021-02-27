@@ -46,6 +46,18 @@
    <keyword>WebP</keyword>
 
    <abstract>
+   <t>WebP is a RIFF-based image file format which supports lossless and lossy
+     compression as well as alpha (transparency) and animation. It covers use
+     cases similar to JPEG, PNG and GIF.</t>
+   </abstract>
+ </front>
+
+ <middle>
+   <section numbered="true" toc="default">
+     <name>Introduction</name>
+     <t>This document provides references for the WebP image format and
+       considerations for its use across platforms.</t>
+
      <!-- TODO: What are the best references for JPEG and GIF? Is a wikipedia
           link accepted in this context?
           RIFF: https://en.wikipedia.org/wiki/Resource_Interchange_File_Format#cite_note-1
@@ -55,14 +67,6 @@
        supports lossless and lossy compression as well as alpha (transparency)
        and animation. It covers use cases similar to JPEG,
        <xref target="RFC2083">PNG</xref> and GIF.</t>
-   </abstract>
- </front>
-
- <middle>
-   <section numbered="true" toc="default">
-     <name>Introduction</name>
-     <t>This document provides references for the WebP image format and
-       considerations for its use across platforms.</t>
 
      <t>WebP consists of two compression algorithms used to reduce the size of
        image pixel data, including alpha (transparency) information. Lossy
