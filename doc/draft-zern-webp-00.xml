@@ -97,7 +97,8 @@
 
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
-     <t>This memo includes no request to IANA.</t>
+     <t>This memo requests the registration of the image/webp mime-type in the
+       standards tree with IANA.</t>
    </section>
 
    <!-- TODO: how self-contained is this expected to be, should we bring
