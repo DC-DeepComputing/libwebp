@@ -95,6 +95,13 @@
      </section>
    </section>
 
+   <section numbered="true" toc="default">
+     <name>The 'image/webp' Media Type</name>
+     <section numbered="true" toc="default">
+       <name>Registration Details</name>
+     </section>
+   </section>
+
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
      <t>IANA has updated the "Image Media Types" registry to include
