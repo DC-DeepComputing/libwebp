@@ -156,6 +156,15 @@
      </references>
 
      <references>
+       <!--
+          [1] Huffman, D. A., "A Method for the Construction of Minimum
+              Redundancy Codes", Proceedings of the Institute of Radio
+              Engineers, September 1952, Volume 40, Number 9, pp. 1098-1101.
+
+          [2] Ziv J., Lempel A., "A Universal Algorithm for Sequential Data
+              Compression", IEEE Transactions on Information Theory, Vol. 23,
+                No. 3, pp. 337-343.
+       -->
        <name>Informative References</name>
        <?rfc include="reference.RFC.2083.xml" ?>
        <?rfc include="reference.RFC.6386.xml" ?>
