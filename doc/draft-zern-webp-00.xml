@@ -97,8 +97,8 @@
 
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
-     <t>This memo requests the registration of the image/webp mime-type in the
-       standards tree with IANA.</t>
+     <t>IANA has updated the "Image Media Types" registry to include
+       'image/webp' as described in Section 2.</t>
    </section>
 
    <!-- TODO: how self-contained is this expected to be, should we bring
