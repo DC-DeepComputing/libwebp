@@ -99,6 +99,31 @@
      <name>The 'image/webp' Media Type</name>
      <section numbered="true" toc="default">
        <name>Registration Details</name>
+       <t>Media type name: image</t>
+       <t>Media subtype name: webp</t>
+       <t>Required parameters: N/A</t>
+       <t>Optional parameters: N/A</t>
+       <t>Encoding considerations: Binary. The <xref target="RFC4648">Base64
+         encoding</xref> should be used on transports that cannot accommodate
+         binary data directly.</t>
+       <t>Security considerations: See <xref target="Security">Security
+         Considerations</xref> below.</t>
+       <t>Interoperability considerations: See <xref
+         target="Interop">Interoperability Considerations</xref> below.</t>
+       <t>Applications which use this media: Anywhere image size is an
+         issue.</t>
+       <t>Fragment identifier considerations: N/A</t>
+       <t>Restrictions on usage: N/A</t>
+       <t>Additional information:</t>
+       <ul empty="true" spacing="normal">
+         <li>Deprecated alias names for this type: N/A</li>
+         <li>Magic number(s): The first 4 bytes are 0x52, 0x49, 0x46, 0x46
+           ('RIFF'), followed by 4 bytes for the RIFF chunk size. The next 7
+           bytes are 0x57, 0x45 0x42, 0x50, 0x56, 0x50, 0x38 ('WEBPVP8').</li>
+         <li>File extension(s): webp</li>
+         <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
+         <li>Object Identifiers: N/A</li>
+       </ul>
      </section>
    </section>
 
@@ -111,7 +136,7 @@
    <!-- TODO: how self-contained is this expected to be, should we bring
      [webp-riff] into this doc? -->
 
-   <section numbered="true" toc="default">
+   <section anchor="Interop" numbered="true" toc="default">
      <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
      on the prose? -->
      <name>Interoperability Considerations</name>
