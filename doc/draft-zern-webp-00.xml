@@ -127,12 +127,6 @@
      </section>
    </section>
 
-   <section anchor="IANA" numbered="true" toc="default">
-     <name>IANA Considerations</name>
-     <t>IANA has updated the "Image Media Types" registry to include
-       'image/webp' as described in Section 2.</t>
-   </section>
-
    <!-- TODO: how self-contained is this expected to be, should we bring
      [webp-riff] into this doc? -->
 
@@ -174,6 +168,12 @@
        <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
        <li>Object Identifiers: N/A</li>
      </ul>
+   </section>
+
+   <section anchor="IANA" numbered="true" toc="default">
+     <name>IANA Considerations</name>
+     <t>IANA has updated the "Image Media Types" registry to include
+       'image/webp' as described in Section 2.</t>
    </section>
  </middle>
 
