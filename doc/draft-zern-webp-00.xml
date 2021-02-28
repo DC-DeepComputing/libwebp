@@ -77,8 +77,9 @@
        uses subresolution images, recursively embedded into the format
        itself, for storing statistical data about the images, such as the
        used entropy codes, spatial predictors, color space conversion, and
-       color table. LZ77, Huffman coding, and a color cache are used for
-       compression of the bulk data.</t>
+       color table. <xref target="lz77">LZ77</xref>,
+       <xref target="huffman">Huffman coding</xref>, and a color cache are used
+       for compression of the bulk data.</t>
    </section>
 
    <section numbered="true" toc="default">
@@ -166,15 +167,6 @@
      </references>
 
      <references>
-       <!--
-          [1] Huffman, D. A., "A Method for the Construction of Minimum
-              Redundancy Codes", Proceedings of the Institute of Radio
-              Engineers, September 1952, Volume 40, Number 9, pp. 1098-1101.
-
-          [2] Ziv J., Lempel A., "A Universal Algorithm for Sequential Data
-              Compression", IEEE Transactions on Information Theory, Vol. 23,
-                No. 3, pp. 337-343.
-       -->
        <name>Informative References</name>
        <?rfc include="reference.RFC.2083.xml" ?>
        <?rfc include="reference.RFC.6386.xml" ?>
@@ -197,6 +189,32 @@
              <organization/>
            </author>
          </front>
+       </reference>
+
+       <reference anchor="huffman">
+         <front>
+           <title>A Method for the Construction of Minimum Redundancy Codes</title>
+           <author initials="D. A." surname="Huffman">
+             <organization/>
+           </author>
+           <date month="September" year="1952" />
+         </front>
+         <seriesInfo name="Proceedings of the Institute of Radio Engineers"
+           value="Number 9, pp. 1098-1101."/>
+       </reference>
+
+       <reference anchor="lz77">
+         <front>
+           <title>A Universal Algorithm for Sequential Data Compression</title>
+           <author initials="J." surname="Ziv">
+             <organization/>
+           </author>
+           <author initials="A." surname="Lempel">
+             <organization/>
+           </author>
+         </front>
+         <seriesInfo name="IEEE Transactions on Information Theory"
+           value="Vol. 23, No. 3, pp. 337-343."/>
        </reference>
 
        <reference anchor="webp-lossless"
