@@ -136,7 +136,9 @@
 
    <section anchor="Interop" numbered="true" toc="default">
      <name>Interoperability Considerations</name>
-     <!-- TODO: should little-endian be defined in a terminology section? -->
+       <!-- TODO: should little-endian be defined in a terminology section? 
+         https://www.ietf.org/rfc/rfc2781.html#section-3.1
+       -->
      <t>The format is defined using little-endian byte ordering, but demuxing
        and decoding are possible on platforms using a different ordering with
        the appropriate conversion.
