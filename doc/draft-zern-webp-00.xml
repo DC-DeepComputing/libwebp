@@ -95,7 +95,7 @@
      </section>
    </section>
 
-   <section numbered="true" toc="default">
+   <section anchor="webp-media-type" numbered="true" toc="default">
      <name>The 'image/webp' Media Type</name>
      <section numbered="true" toc="default">
        <name>Registration Details</name>
@@ -106,10 +106,9 @@
        <t>Encoding considerations: Binary. The <xref target="RFC4648">Base64
          encoding</xref> should be used on transports that cannot accommodate
          binary data directly.</t>
-       <t>Security considerations: See <xref target="Security">Security
-         Considerations</xref> below.</t>
-       <t>Interoperability considerations: See <xref
-         target="Interop">Interoperability Considerations</xref> below.</t>
+       <t>Security considerations: See <xref target="Security"/> below.</t>
+       <t>Interoperability considerations: See <xref target="Interop"/>
+         below.</t>
        <t>Applications which use this media: Anywhere image size is an
          issue.</t>
        <t>Fragment identifier considerations: N/A</t>
@@ -152,7 +151,7 @@
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
      <t>IANA has updated the "Image Media Types" registry to include
-       'image/webp' as described in Section 2.</t>
+       'image/webp' as described in <xref target="webp-media-type"/>.</t>
    </section>
  </middle>
 
