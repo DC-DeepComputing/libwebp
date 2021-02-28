@@ -126,9 +126,15 @@
      </section>
    </section>
 
+   <section anchor="Security" numbered="true" toc="default">
+     <name>Security Considerations</name>
+     <t>Security risks are similar to other media content and may include
+       buffer overruns and uninitialized data usage as part of the demuxing
+       and decoding process <xref target="cve.mitre.org"/>
+       <xref target="crbug-security"/>.</t>
+   </section>
+
    <section anchor="Interop" numbered="true" toc="default">
-     <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
-     on the prose? -->
      <name>Interoperability Considerations</name>
      <!-- TODO: should little-endian be defined in a terminology section? -->
      <t>The format is defined using little-endian byte ordering, but demuxing
@@ -138,14 +144,6 @@
        The container is RIFF-based and allows extension via user defined
        chunks, but nothing beyond the chunks defined by the container format
        <xref target="webp-riff"/> are required for decoding of the image.</t>
-   </section>
-
-   <section anchor="Security" numbered="true" toc="default">
-     <name>Security Considerations</name>
-     <t>Security risks are similar to other media content and may include
-       buffer overruns and uninitialized data usage as part of the demuxing
-       and decoding process <xref target="cve.mitre.org"/>
-       <xref target="crbug-security"/>.</t>
    </section>
 
    <section anchor="IANA" numbered="true" toc="default">
