@@ -127,9 +127,6 @@
      </section>
    </section>
 
-   <!-- TODO: how self-contained is this expected to be, should we bring
-     [webp-riff] into this doc? -->
-
    <section anchor="Interop" numbered="true" toc="default">
      <!-- TODO: 'Interchange Recommendations' from 6838 or the following based
      on the prose? -->
@@ -150,24 +147,6 @@
        buffer overruns and uninitialized data usage as part of the demuxing
        and decoding process <xref target="cve.mitre.org"/>
        <xref target="crbug-security"/>.</t>
-   </section>
-
-   <section numbered="true" toc="default">
-     <name>Encoding Requirements</name>
-     <t>This media type consists of binary data.
-       The <xref target="RFC4648">Base64 encoding</xref> should be used on
-       transports that cannot accommodate binary data directly.</t>
-   </section>
-
-   <section numbered="true" toc="default">
-     <name>Additional Information</name>
-     <ul spacing="normal">
-       <li>Deprecated alias names for this type: None</li>
-       <li>Magic number(s): RIFFxxxxWEBPVP8</li>
-       <li>File extension(s): webp</li>
-       <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
-       <li>Object Identifiers: N/A</li>
-     </ul>
    </section>
 
    <section anchor="IANA" numbered="true" toc="default">
