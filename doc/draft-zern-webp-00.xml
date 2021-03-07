@@ -133,12 +133,10 @@
 
    <section anchor="Interop" numbered="true" toc="default">
      <name>Interoperability Considerations</name>
-       <!-- TODO: should little-endian be defined in a terminology section? 
-         https://www.ietf.org/rfc/rfc2781.html#section-3.1
-       -->
-     <t>The format is defined using little-endian byte ordering, but demuxing
-       and decoding are possible on platforms using a different ordering with
-       the appropriate conversion.
+     <t>The format is defined using little-endian byte ordering (see
+       <xref target="RFC2781" section="3.1"/>), but demuxing and decoding are
+       possible on platforms using a different ordering with the appropriate
+       conversion.
 
        The container is RIFF-based and allows extension via user defined
        chunks, but nothing beyond the chunks defined by the container format
@@ -158,6 +156,7 @@
      <references>
        <name>Normative References</name>
        <?rfc include="reference.RFC.2119.xml" ?>
+       <?rfc include="reference.RFC.2781.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
        <?rfc include="reference.RFC.8174.xml" ?>
      </references>
