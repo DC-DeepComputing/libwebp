@@ -198,7 +198,8 @@
 
        <reference anchor="huffman">
          <front>
-           <title>A Method for the Construction of Minimum Redundancy Codes</title>
+           <title>A Method for the Construction of Minimum Redundancy
+             Codes</title>
            <author initials="D. A." surname="Huffman">
              <organization/>
            </author>
@@ -248,7 +249,8 @@
          target="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">
          <front>
            <title>WebP Lossless Bitstream Specification</title>
-           <author initials="J." surname="Alakuijala" fullname="Jyrki Alakuijala">
+           <author initials="J." surname="Alakuijala"
+             fullname="Jyrki Alakuijala">
              <organization>Google LLC</organization>
            </author>
            <date month="September" year="2014" />
