@@ -190,13 +190,13 @@
          <front>
            <title>A Method for the Construction of Minimum Redundancy
              Codes</title>
+           <seriesInfo name="Proceedings of the Institute of Radio Engineers"
+             value="Number 9, pp. 1098-1101."/>
            <author initials="D. A." surname="Huffman">
              <organization/>
            </author>
            <date month="September" year="1952" />
          </front>
-         <seriesInfo name="Proceedings of the Institute of Radio Engineers"
-           value="Number 9, pp. 1098-1101."/>
        </reference>
 
        <reference anchor="jpeg-spec"
@@ -213,6 +213,8 @@
        <reference anchor="lz77">
          <front>
            <title>A Universal Algorithm for Sequential Data Compression</title>
+           <seriesInfo name="IEEE Transactions on Information Theory"
+             value="Vol. 23, No. 3, pp. 337-343."/>
            <author initials="J." surname="Ziv">
              <organization/>
            </author>
@@ -221,8 +223,6 @@
            </author>
            <date year="1977" month="May" />
          </front>
-         <seriesInfo name="IEEE Transactions on Information Theory"
-           value="Vol. 23, No. 3, pp. 337-343."/>
        </reference>
 
        <reference anchor="riff-spec"
