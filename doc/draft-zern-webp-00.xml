@@ -5,12 +5,13 @@
 
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
-      category="info"
+      category="std"
       docName="draft-zern-webp-00"
       ipr="trust200902"
       obsoletes=""
       updates=""
       submissionType="IETF"
+      consensus="true"
       xml:lang="en"
       tocInclude="true"
       tocDepth="4"
@@ -21,6 +22,7 @@
  <front>
    <title>WebP Image Format</title>
    <seriesInfo name="Internet-Draft" value="draft-zern-webp-00" />
+   <seriesInfo status="standard" name="" value="draft-zern-webp-00" />
 
    <author fullname="James Zern" initials="J." surname="Zern">
      <organization>Google LLC</organization>
