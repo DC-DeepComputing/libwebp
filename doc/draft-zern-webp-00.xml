@@ -219,6 +219,7 @@
            <author initials="A." surname="Lempel">
              <organization/>
            </author>
+           <date year="1977" month="May" />
          </front>
          <seriesInfo name="IEEE Transactions on Information Theory"
            value="Vol. 23, No. 3, pp. 337-343."/>
