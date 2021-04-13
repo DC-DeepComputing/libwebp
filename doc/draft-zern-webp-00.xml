@@ -118,7 +118,7 @@
      <name>Security Considerations</name>
      <t>Security risks are similar to other media content and may include
        buffer overruns and uninitialized data usage as part of the demuxing
-       and decoding process <xref target="cve.mitre.org"/>
+       and decoding process <xref target="cve.mitre.org-libwebp"/>
        <xref target="crbug-security"/>.</t>
    </section>
 
@@ -166,7 +166,7 @@
          </front>
        </reference>
 
-       <reference anchor="cve.mitre.org"
+       <reference anchor="cve.mitre.org-libwebp"
          target="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=libwebp">
          <front>
            <title>libwebp CVE List</title>
