@@ -83,6 +83,8 @@
 
    <section anchor="webp-media-type" numbered="true" toc="default">
      <name>The 'image/webp' Media Type</name>
+     <t>This section contains the media type registration details as per <xref
+       target="RFC6838"/>.</t>
      <section numbered="true" toc="default">
        <name>Registration Details</name>
        <t>Media type name: image</t>
@@ -146,6 +148,7 @@
        <name>Normative References</name>
        <?rfc include="reference.RFC.2781.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
+       <?rfc include="reference.RFC.6838.xml" ?>
      </references>
 
      <references>
