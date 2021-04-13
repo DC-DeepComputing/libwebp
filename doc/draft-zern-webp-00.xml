@@ -97,7 +97,7 @@
        <t>Security considerations: See <xref target="Security"/> below.</t>
        <t>Interoperability considerations: See <xref target="Interop"/>
          below.</t>
-       <t>Applications which use this media: Anywhere image size is an
+       <t>Applications which use this media type: Anywhere image size is an
          issue.</t>
        <t>Fragment identifier considerations: N/A</t>
        <t>Restrictions on usage: N/A</t>
@@ -106,7 +106,7 @@
          <li>Deprecated alias names for this type: N/A</li>
          <li>Magic number(s): The first 4 bytes are 0x52, 0x49, 0x46, 0x46
            ('RIFF'), followed by 4 bytes for the RIFF chunk size. The next 7
-           bytes are 0x57, 0x45 0x42, 0x50, 0x56, 0x50, 0x38 ('WEBPVP8').</li>
+           bytes are 0x57, 0x45, 0x42, 0x50, 0x56, 0x50, 0x38 ('WEBPVP8').</li>
          <li>File extension(s): webp</li>
          <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
          <li>Object Identifiers: N/A</li>
