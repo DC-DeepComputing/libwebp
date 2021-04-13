@@ -60,12 +60,13 @@
      <t>This document provides references for the WebP image format and
        considerations for its use across platforms.</t>
 
-     <t>WebP is a <xref target="riff-spec">RIFF</xref>-based image file format
+     <t>WebP is a <xref target="riff-spec">Resource Interchange File Format
+       (RIFF)</xref> based image file format
        <xref target="webp-riff"/> which supports lossless and lossy compression
        as well as alpha (transparency) and animation. It covers use cases
        similar to <xref target="jpeg-spec">JPEG</xref>,
-       <xref target="RFC2083">PNG</xref> and
-       <xref target="gif-spec">GIF</xref>.</t>
+       <xref target="RFC2083">PNG</xref> and the
+       <xref target="gif-spec">Graphics Interchange Format (GIF)</xref>.</t>
      <t>WebP consists of two compression algorithms used to reduce the size of
        image pixel data, including alpha (transparency) information. Lossy
        compression is achieved using VP8 intra-frame encoding
