@@ -108,7 +108,8 @@
            ('RIFF'), followed by 4 bytes for the RIFF chunk size. The next 7
            bytes are 0x57, 0x45, 0x42, 0x50, 0x56, 0x50, 0x38 ('WEBPVP8').</li>
          <li>File extension(s): webp</li>
-         <li>Macintosh file type code: UTTypeWebP com.google.webp</li>
+         <li>Apple Uniform Type Identifier: org.webmproject.webp conforms to
+             public.image</li>
          <li>Object Identifiers: N/A</li>
        </ul>
      </section>
