@@ -6,7 +6,7 @@
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
       category="std"
-      docName="draft-zern-webp-00"
+      docName="draft-zern-webp-01"
       ipr="trust200902"
       obsoletes=""
       updates=""
@@ -21,8 +21,8 @@
 
  <front>
    <title>WebP Image Format Media Type Registration</title>
-   <seriesInfo name="Internet-Draft" value="draft-zern-webp-00" />
-   <seriesInfo status="standard" name="" value="draft-zern-webp-00" />
+   <seriesInfo name="Internet-Draft" value="draft-zern-webp-01" />
+   <seriesInfo status="standard" name="" value="draft-zern-webp-01" />
 
    <author fullname="James Zern" initials="J." surname="Zern">
      <organization>Google LLC</organization>
@@ -263,6 +263,7 @@
    </references>
    <!-- Change Log
 
+v01 2021-05-03  JWZ   Updated title, corrected Apple uniform type text
 v00 2021-04-29  JWZ   Initial version
    -->
  </back>
