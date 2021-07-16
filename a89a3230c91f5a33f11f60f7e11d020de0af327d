@@ -57,6 +57,30 @@
       },
       "revId": "a89a3230c91f5a33f11f60f7e11d020de0af327d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3163c819_cec84b86",
+        "filename": "imageio/wicdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-07-16T23:58:44Z",
+      "side": 1,
+      "message": "\u003e Why not use GUID_ContainerFormatWebp directly? It is not available in older but still used wincodec.h versions?\n\nyes, exactly. We have this for compatibility against different toolchains and windows SDKs (or Kits as they\u0027re known now)",
+      "parentUuid": "0dce2b6c_143463e3",
+      "range": {
+        "startLine": 284,
+        "startChar": 5,
+        "endLine": 284,
+        "endChar": 30
+      },
+      "revId": "a89a3230c91f5a33f11f60f7e11d020de0af327d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
