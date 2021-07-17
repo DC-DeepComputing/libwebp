@@ -81,6 +81,30 @@
       },
       "revId": "a89a3230c91f5a33f11f60f7e11d020de0af327d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64e70913_fab87199",
+        "filename": "imageio/wicdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-07-17T01:58:45Z",
+      "side": 1,
+      "message": "\u003e \u003e Why not use GUID_ContainerFormatWebp directly? It is not available in older but still used wincodec.h versions?\n\u003e \n\u003e yes, exactly. We have this for compatibility against different toolchains and windows SDKs (or Kits as they\u0027re known now)\n\nfor example VS2013:\nimageio\\wicdec.c(286) : error C2065: \u0027GUID_ContainerFormatWebp\u0027 : undeclared identifier\nimageio\\wicdec.c(288) : warning C4133: \u0027initializing\u0027 : incompatible types - from \u0027int *\u0027 to \u0027const GUID *\u0027\n\nand probably some older versions of msys/mingw",
+      "parentUuid": "3163c819_cec84b86",
+      "range": {
+        "startLine": 284,
+        "startChar": 5,
+        "endLine": 284,
+        "endChar": 30
+      },
+      "revId": "a89a3230c91f5a33f11f60f7e11d020de0af327d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
