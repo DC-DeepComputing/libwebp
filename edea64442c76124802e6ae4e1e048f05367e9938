@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84a5276c_861eb38e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-07-19T19:31:15Z",
+      "side": 1,
+      "message": "Thanks for looking into this. I know that this is mixed among projects. For abseil you need to manually specify the includes for example.\n\nIf you look at it one way this could pollute the parent project\u0027s build, but maybe this is acceptable in this case. I\u0027d like to look at the side-effects and compare other projects since cmake\u0027s docs don\u0027t really touch on it.",
+      "revId": "edea64442c76124802e6ae4e1e048f05367e9938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
