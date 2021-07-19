@@ -34,6 +34,24 @@
       "parentUuid": "84a5276c_861eb38e",
       "revId": "edea64442c76124802e6ae4e1e048f05367e9938",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8f39ec_87e6daca",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2021-07-19T20:39:23Z",
+      "side": 1,
+      "message": "Yes there is an example with that syntax here:\nhttps://cmake.org/cmake/help/latest/command/target_include_directories.html",
+      "parentUuid": "0f3800e0_f547d825",
+      "revId": "edea64442c76124802e6ae4e1e048f05367e9938",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
