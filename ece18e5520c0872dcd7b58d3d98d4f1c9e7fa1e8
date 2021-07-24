@@ -16,6 +16,24 @@
       "message": "this actually needs to be refined to allow the Init() calls to be enabled. I may split this to a USE / TARGETING pair to distinguish them.",
       "revId": "ece18e5520c0872dcd7b58d3d98d4f1c9e7fa1e8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0240880_6a769ba8",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-07-24T02:51:04Z",
+      "side": 1,
+      "message": "\u003e this actually needs to be refined to allow the Init() calls to be enabled. I may split this to a USE / TARGETING pair to distinguish them.\n\nthat or we rely on the fact that we have stubs so we could safely compile the sse2, etc in all configs.",
+      "parentUuid": "91f6101c_fb25591f",
+      "revId": "ece18e5520c0872dcd7b58d3d98d4f1c9e7fa1e8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
