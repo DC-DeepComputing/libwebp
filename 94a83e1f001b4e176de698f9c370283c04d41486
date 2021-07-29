@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0d25ca3_ebc60bea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-07-29T00:05:37Z",
+      "side": 1,
+      "message": "we don\u0027t use clang-format or cpplint in this project; we do check other things like man page format for man/ and long lines for source as well as a suggested commit subject length.",
+      "revId": "94a83e1f001b4e176de698f9c370283c04d41486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
