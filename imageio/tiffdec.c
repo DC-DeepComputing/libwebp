@@ -22,6 +22,7 @@
 #ifdef WEBP_HAVE_TIFF
 #include <tiffio.h>
 
+#include "src/dsp/dsp.h"
 #include "webp/encode.h"
 #include "./imageio_util.h"
 #include "./metadata.h"
@@ -117,40 +118,6 @@ static tsize_t MyRead(thandle_t opaque, void* dst, tsize_t size) {
   return size;
 }
 
-// Unmultiply Argb data. Taken from dsp/alpha_processing
-// (we don't want to force a dependency to a libdspdec library).
-#define MFIX 24    // 24bit fixed-point arithmetic
-#define HALF ((1u << MFIX) >> 1)
-
-static uint32_t Unmult(uint8_t x, uint32_t mult) {
-  const uint32_t v = (x * mult + HALF) >> MFIX;
-  return (v > 255u) ? 255u : v;
-}
-
-static WEBP_INLINE uint32_t GetScale(uint32_t a) {
-  return (255u << MFIX) / a;
-}
-
-#undef MFIX
-#undef HALF
-
-static void MultARGBRow(uint8_t* ptr, int width) {
-  int x;
-  for (x = 0; x < width; ++x, ptr += 4) {
-    const uint32_t alpha = ptr[3];
-    if (alpha < 255) {
-      if (alpha == 0) {   // alpha == 0
-        ptr[0] = ptr[1] = ptr[2] = 0;
-      } else {
-        const uint32_t scale = GetScale(alpha);
-        ptr[0] = Unmult(ptr[0], scale);
-        ptr[1] = Unmult(ptr[1], scale);
-        ptr[2] = Unmult(ptr[2], scale);
-      }
-    }
-  }
-}
-
 int ReadTIFF(const uint8_t* const data, size_t data_size,
              WebPPicture* const pic, int keep_alpha,
              Metadata* const metadata) {
@@ -240,13 +207,15 @@ int ReadTIFF(const uint8_t* const data, size_t data_size,
 #ifdef WORDS_BIGENDIAN
       TIFFSwabArrayOfLong(raster, image_width * image_height);
 #endif
-      // if we have an alpha channel, we must un-multiply from rgbA to RGBA
-      if (extra_samples == 1 && extra_samples_ptr != NULL &&
-          extra_samples_ptr[0] == EXTRASAMPLE_ASSOCALPHA) {
+      // TIFFReadRGBAImageXXX will always return pre-multiplied alpha unless the
+      // extra channel is 'UNSPECIFIED'. We must un-multiply from rgbA to RGBA.
+      if (extra_samples != 1 || extra_samples_ptr == NULL ||
+          extra_samples_ptr[0] != EXTRASAMPLE_UNSPECIFIED) {
         uint32_t y;
         uint8_t* tmp = (uint8_t*)raster;
+        WebPInitAlphaProcessing();
         for (y = 0; y < image_height; ++y) {
-          MultARGBRow(tmp, image_width);
+          WebPMultARGBRow((uint32_t*)tmp, image_width, /*inverse=*/1);
           tmp += stride;
         }
       }
