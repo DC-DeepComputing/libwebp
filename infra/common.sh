@@ -47,3 +47,17 @@ make_build_dir() {
   rm -rf "${build_dir}"
   mkdir -p "${build_dir}"
 }
+
+#######################################
+# Cleanup files from the backup directory.
+# Globals:
+#   BUILD_DIR     build directory
+#   LIBWEBP_ROOT  repository's root path
+#######################################
+cleanup() {
+  # BUILD_DIR is not completely removed to allow for binary artifacts to be
+  # extracted.
+  find "${BUILD_DIR:?}" \( -name "*.[ao]" -o -name "*.l[ao]" \) -exec rm \
+    -f {} +
+  make -C "${LIBWEBP_ROOT:?}" -f makefile.unix clean
+}
