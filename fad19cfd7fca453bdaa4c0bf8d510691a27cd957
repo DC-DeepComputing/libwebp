@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "726c6bbd_62cbb3fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-08-27T01:06:50Z",
+      "side": 1,
+      "message": "Renamed to libwebp.\nChanged message description.",
+      "revId": "fad19cfd7fca453bdaa4c0bf8d510691a27cd957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

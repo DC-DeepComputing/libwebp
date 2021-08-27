@@ -16,6 +16,24 @@
       "message": "we don\u0027t use clang-format or cpplint in this project; we do check other things like man page format for man/ and long lines for source as well as a suggested commit subject length.",
       "revId": "94a83e1f001b4e176de698f9c370283c04d41486",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03650299_ccb91d97",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-08-27T01:06:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a0d25ca3_ebc60bea",
+      "revId": "94a83e1f001b4e176de698f9c370283c04d41486",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
