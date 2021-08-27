@@ -16,6 +16,63 @@
       "message": "Renamed to libwebp.\nChanged message description.",
       "revId": "fad19cfd7fca453bdaa4c0bf8d510691a27cd957",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43f6406b_778ec76a",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-27T01:33:50Z",
+      "side": 1,
+      "message": "this is out of sync with libwebp2\u0027s copy",
+      "revId": "fad19cfd7fca453bdaa4c0bf8d510691a27cd957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f116f0_bfd583c0",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-27T01:33:50Z",
+      "side": 1,
+      "message": "this is out of sync with libwebp2\u0027s copy",
+      "revId": "fad19cfd7fca453bdaa4c0bf8d510691a27cd957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8554417a_545fde3e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-27T01:33:50Z",
+      "side": 1,
+      "message": "\u0027long lines\u0027 should not be capitalized. it should read \u0027... extra EOLs or long lines\u0027",
+      "range": {
+        "startLine": 79,
+        "startChar": 67,
+        "endLine": 79,
+        "endChar": 77
+      },
+      "revId": "fad19cfd7fca453bdaa4c0bf8d510691a27cd957",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
