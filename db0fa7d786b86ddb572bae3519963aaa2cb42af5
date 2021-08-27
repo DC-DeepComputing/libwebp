@@ -16,6 +16,29 @@
       "message": "Addressed comments",
       "revId": "db0fa7d786b86ddb572bae3519963aaa2cb42af5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e1e5131_05948f90",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-27T18:53:48Z",
+      "side": 1,
+      "message": "this should be \u0027extra EOLs\u0027 or something similar, since we do want one EOL in the file. Instead of \u0027and\u0027 it should be \u0027or\u0027",
+      "range": {
+        "startLine": 76,
+        "startChar": 57,
+        "endLine": 76,
+        "endChar": 61
+      },
+      "revId": "db0fa7d786b86ddb572bae3519963aaa2cb42af5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
