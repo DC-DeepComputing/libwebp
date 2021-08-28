@@ -119,14 +119,14 @@ make_build_dir "${BUILD_DIR}"
 
 config_flags+=()
 case "${BUILD_TYPE}" in
-  shared*) ;;  # Valid BUILD_TYPE but no step required
-  static*) config_flags+=("--disable-shared") ;;
-  experimental) config_flags+=("--enable-experimental") ;;
-  *)
-    log_err "Not a valid BUILD_TYPE"
-    usage
-    exit 1
-    ;; # No a case
+shared*) ;; # Valid BUILD_TYPE but no step required
+static*) config_flags+=("--disable-shared") ;;
+experimental) config_flags+=("--enable-experimental") ;;
+*)
+  log_err "Not a valid BUILD_TYPE"
+  usage
+  exit 1
+  ;; # No a case
 esac
 
 if grep -m 1 -q "enable-asserts" "${LIBWEBP_ROOT}/configure.ac"; then
@@ -134,203 +134,203 @@ if grep -m 1 -q "enable-asserts" "${LIBWEBP_ROOT}/configure.ac"; then
 fi
 
 case "${TARGET}" in
-  aarch64-linux-clang)
-    TARGET="aarch64-linux-gnu"
-    CC="clang"
-    CC="${CC} --target=aarch64-linux-gnu"
-    export CC
-    export CFLAGS="-isystem /usr/aarch64-linux-gnu/include"
-    ;;
-  arm-linux-gnueabi)
-    export CFLAGS="-O3 -march=armv7-a -mfloat-abi=softfp -ftree-vectorize"
-    ;;
-  arm-neon-linux-gnueabi)
-    TARGET="arm-linux-gnueabi"
-    CFLAGS="-O3 -march=armv7-a -mfpu=neon -mfloat-abi=softfp -ftree-vectorize"
-    export CFLAGS
-    ;;
-  mips2el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips2"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips32el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips32"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips32r2el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips32r2"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips32dspr2el-linux-gnu)
-    export CFLAGS="-EL -O2 -mdspr2"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips32r5el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips32r5 -mmsa -mnan=2008"
-    TARGET="mips-mti-linux-gnu"
-    ;;
-  mips32eb-linux-gnu)
-    export CFLAGS="-EB -O2 -mips32"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips64r2el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips64r2 -mabi=64"
-    TARGET="mips-linux-gnu"
-    ;;
-  mips64r6el-linux-gnu)
-    export CFLAGS="-EL -O2 -mips64r6 -mabi=64 -mmsa"
-    TARGET="mips-img-linux-gnu"
-    ;;
-  i686-pc-linux-gnu)
-    export CC="gcc -m32"
-    ;;
-  i686-pc-linux-clang)
-    TARGET="i686-pc-linux-gnu"
-    export CC="clang -m32"
-    ;;
-  i686-pc-linux-asan)
-    TARGET="i686-pc-linux-gnu"
-    export CC="clang -m32 -fsanitize=address"
-    ;;
-  i686-pc-linux-msan)
-    # XXX: unsupported as of clang-4.0.1
-    TARGET="i686-pc-linux-gnu"
-    export CC="clang -m32 -fsanitize=memory"
-    ;;
-  x86_64-unknown-linux-clang)
-    TARGET="x86_64-unknown-linux-gnu"
+aarch64-linux-clang)
+  TARGET="aarch64-linux-gnu"
+  CC="clang"
+  CC="${CC} --target=aarch64-linux-gnu"
+  export CC
+  export CFLAGS="-isystem /usr/aarch64-linux-gnu/include"
+  ;;
+arm-linux-gnueabi)
+  export CFLAGS="-O3 -march=armv7-a -mfloat-abi=softfp -ftree-vectorize"
+  ;;
+arm-neon-linux-gnueabi)
+  TARGET="arm-linux-gnueabi"
+  CFLAGS="-O3 -march=armv7-a -mfpu=neon -mfloat-abi=softfp -ftree-vectorize"
+  export CFLAGS
+  ;;
+mips2el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips2"
+  TARGET="mips-linux-gnu"
+  ;;
+mips32el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips32"
+  TARGET="mips-linux-gnu"
+  ;;
+mips32r2el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips32r2"
+  TARGET="mips-linux-gnu"
+  ;;
+mips32dspr2el-linux-gnu)
+  export CFLAGS="-EL -O2 -mdspr2"
+  TARGET="mips-linux-gnu"
+  ;;
+mips32r5el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips32r5 -mmsa -mnan=2008"
+  TARGET="mips-mti-linux-gnu"
+  ;;
+mips32eb-linux-gnu)
+  export CFLAGS="-EB -O2 -mips32"
+  TARGET="mips-linux-gnu"
+  ;;
+mips64r2el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips64r2 -mabi=64"
+  TARGET="mips-linux-gnu"
+  ;;
+mips64r6el-linux-gnu)
+  export CFLAGS="-EL -O2 -mips64r6 -mabi=64 -mmsa"
+  TARGET="mips-img-linux-gnu"
+  ;;
+i686-pc-linux-gnu)
+  export CC="gcc -m32"
+  ;;
+i686-pc-linux-clang)
+  TARGET="i686-pc-linux-gnu"
+  export CC="clang -m32"
+  ;;
+i686-pc-linux-asan)
+  TARGET="i686-pc-linux-gnu"
+  export CC="clang -m32 -fsanitize=address"
+  ;;
+i686-pc-linux-msan)
+  # XXX: unsupported as of clang-4.0.1
+  TARGET="i686-pc-linux-gnu"
+  export CC="clang -m32 -fsanitize=memory"
+  ;;
+x86_64-unknown-linux-clang)
+  TARGET="x86_64-unknown-linux-gnu"
+  export CC=clang
+  ;;
+x86_64-unknown-linux-msan)
+  TARGET="x86_64-unknown-linux-gnu"
+  export CC="clang -fsanitize=memory"
+  ;;
+force-aligned-32)
+  config_flags+=("--enable-aligned")
+  TARGET="i686-pc-linux-gnu"
+  export CC="gcc -m32"
+  ;;
+force-aligned-64)
+  config_flags+=("--enable-aligned")
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+visibility-default-*)
+  export CFLAGS="-O2 -g -fvisibility=default"
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+visibility-hidden-*)
+  export CFLAGS="-O2 -g -fvisibility=hidden"
+  if [[ "${TARGET}" = "visibility-hidden-clang" ]]; then
     export CC=clang
+  fi
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+disable-sse4.1)
+  grep "${TARGET}" "${LIBWEBP_ROOT}/configure.ac" || exit 0
+  config_flags+=("--${TARGET}")
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+disable-near-lossless)
+  grep "${TARGET}" "${LIBWEBP_ROOT}/configure.ac" || exit 0
+  config_flags+=("--${TARGET}")
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+disable-stats)
+  git -C "${LIBWEBP_ROOT}" grep WEBP_DISABLE_STATS || exit 0
+  export CFLAGS="-O2 -g -DWEBP_DISABLE_STATS"
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+reduce-size)
+  git -C "${LIBWEBP_ROOT}" grep WEBP_REDUCE_SIZE || exit 0
+  export CFLAGS="-O2 -g -DWEBP_REDUCE_SIZE"
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+reduce-size-disable-stats)
+  git -C "${LIBWEBP_ROOT}" grep -e WEBP_DISABLE_STATS -e WEBP_REDUCE_SIZE \
+    || exit 0
+  export CFLAGS="-O2 -g -DWEBP_DISABLE_STATS -DWEBP_REDUCE_SIZE"
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+reduce-csp)
+  git -C "${LIBWEBP_ROOT}" grep WEBP_REDUCE_CSP || exit 0
+  export CFLAGS="-O2 -g -DWEBP_REDUCE_CSP"
+  TARGET="x86_64-unknown-linux-gnu"
+  ;;
+# non-configure based builds
+native)
+  setup_ccache
+  # exercise makefile.unix then quit
+  make -C "${LIBWEBP_ROOT}" -f makefile.unix -j all
+  for tgt in extras examples/anim_diff; do
+    grep -q -m 1 "${tgt}" "${LIBWEBP_ROOT}/makefile.unix" \
+      && make -C "${LIBWEBP_ROOT}" -f makefile.unix -j "${tgt}"
+  done
+  [[ -d "${LIBWEBP_ROOT}/tests/fuzzer" ]] \
+    && make -j -C "${LIBWEBP_ROOT}/tests/fuzzer" -f makefile.unix
+  exit 0
+  ;;
+cmake*)
+  setup_ccache
+  # exercise cmake then quit
+  [ -f "${LIBWEBP_ROOT}/CMakeLists.txt" ] || exit 0
+  opts=()
+  case "${TARGET}" in
+  cmake-clang)
+    opts+=("-DCMAKE_C_COMPILER=clang")
     ;;
-  x86_64-unknown-linux-msan)
-    TARGET="x86_64-unknown-linux-gnu"
-    export CC="clang -fsanitize=memory"
-    ;;
-  force-aligned-32)
-    config_flags+=("--enable-aligned")
-    TARGET="i686-pc-linux-gnu"
-    export CC="gcc -m32"
-    ;;
-  force-aligned-64)
-    config_flags+=("--enable-aligned")
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  visibility-default-*)
-    export CFLAGS="-O2 -g -fvisibility=default"
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  visibility-hidden-*)
-    export CFLAGS="-O2 -g -fvisibility=hidden"
-    if [[ "${TARGET}" = "visibility-hidden-clang" ]]; then
-      export CC=clang
-    fi
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  disable-sse4.1)
-    grep "${TARGET}" "${LIBWEBP_ROOT}/configure.ac" || exit 0
-    config_flags+=("--${TARGET}")
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  disable-near-lossless)
-    grep "${TARGET}" "${LIBWEBP_ROOT}/configure.ac" || exit 0
-    config_flags+=("--${TARGET}")
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  disable-stats)
-    git -C "${LIBWEBP_ROOT}" grep WEBP_DISABLE_STATS || exit 0
-    export CFLAGS="-O2 -g -DWEBP_DISABLE_STATS"
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  reduce-size)
-    git -C "${LIBWEBP_ROOT}" grep WEBP_REDUCE_SIZE || exit 0
-    export CFLAGS="-O2 -g -DWEBP_REDUCE_SIZE"
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  reduce-size-disable-stats)
-    git -C "${LIBWEBP_ROOT}" grep -e WEBP_DISABLE_STATS -e WEBP_REDUCE_SIZE \
-      || exit 0
-    export CFLAGS="-O2 -g -DWEBP_DISABLE_STATS -DWEBP_REDUCE_SIZE"
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  reduce-csp)
-    git -C "${LIBWEBP_ROOT}" grep WEBP_REDUCE_CSP || exit 0
-    export CFLAGS="-O2 -g -DWEBP_REDUCE_CSP"
-    TARGET="x86_64-unknown-linux-gnu"
-    ;;
-  # non-configure based builds
-  native)
-    setup_ccache
-    # exercise makefile.unix then quit
-    make -C "${LIBWEBP_ROOT}" -f makefile.unix -j all
-    for tgt in extras examples/anim_diff; do
-      grep -q -m 1 "${tgt}" "${LIBWEBP_ROOT}/makefile.unix" \
-        && make -C "${LIBWEBP_ROOT}" -f makefile.unix -j "${tgt}"
-    done
-    [[ -d "${LIBWEBP_ROOT}/tests/fuzzer" ]] \
-      && make -j -C "${LIBWEBP_ROOT}/tests/fuzzer" -f makefile.unix
-    exit 0
-    ;;
-  cmake*)
-    setup_ccache
-    # exercise cmake then quit
-    [ -f "${LIBWEBP_ROOT}/CMakeLists.txt" ] || exit 0
-    opts=()
-    case "${TARGET}" in
-      cmake-clang)
-        opts+=("-DCMAKE_C_COMPILER=clang")
-        ;;
-      cmake-arm)
-        opts+=("-DCMAKE_C_COMPILER=arm-linux-gnueabi-gcc")
-        case "${GERRIT_BRANCH:-}" in
-          portable-intrinsics | 0.6.1) exit 0 ;;
-          *) ;; # Skip configuration
-        esac
-        ;;
-      cmake-aarch64)
-        opts+=("-DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc")
-        case "${GERRIT_BRANCH:-}" in
-          portable-intrinsics | 0.6.1) exit 0 ;;
-          *) ;; # Skip configuration
-        esac
-        ;;
-      *) ;;  # Skip configuration
+  cmake-arm)
+    opts+=("-DCMAKE_C_COMPILER=arm-linux-gnueabi-gcc")
+    case "${GERRIT_BRANCH:-}" in
+    portable-intrinsics | 0.6.1) exit 0 ;;
+    *) ;; # Skip configuration
     esac
-    case "${BUILD_TYPE}" in
-      static*)
-        opts+=("-DBUILD_SHARED_LIBS=OFF")
-        ;;
-      experimental)
-        opts+=("-DWEBP_EXPERIMENTAL_FEATURES=ON" "-DBUILD_SHARED_LIBS=ON")
-        ;;
-      *)
-        opts+=("-DBUILD_SHARED_LIBS=ON")
-        ;;
+    ;;
+  cmake-aarch64)
+    opts+=("-DCMAKE_C_COMPILER=aarch64-linux-gnu-gcc")
+    case "${GERRIT_BRANCH:-}" in
+    portable-intrinsics | 0.6.1) exit 0 ;;
+    *) ;; # Skip configuration
     esac
-    case "${BUILD_TYPE}" in
-      *debug) opts+=("-DCMAKE_BUILD_TYPE=Debug") ;;
-      *) opts+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo") ;;
-    esac
-    cd "${BUILD_DIR}"
-    opts+=("-DWEBP_BUILD_CWEBP=ON" "-DWEBP_BUILD_DWEBP=ON")
-    grep -m 1 -q WEBP_BUILD_GIF2WEBP "${LIBWEBP_ROOT}/CMakeLists.txt" \
-      && opts+=("-DWEBP_BUILD_GIF2WEBP=ON")
-    grep -m 1 -q WEBP_BUILD_IMG2WEBP "${LIBWEBP_ROOT}/CMakeLists.txt" \
-      && opts+=("-DWEBP_BUILD_IMG2WEBP=ON")
-    cmake "${opts[@]}" "${LIBWEBP_ROOT}"
-    make VERBOSE=1 -j
-    case "${BUILD_TYPE}" in
-      static)
-        mkdir -p examples
-        cp [cd]webp examples
-        ;;
-      *) ;;  # Skip configuration.
-    esac
+    ;;
+  *) ;; # Skip configuration
+  esac
+  case "${BUILD_TYPE}" in
+  static*)
+    opts+=("-DBUILD_SHARED_LIBS=OFF")
+    ;;
+  experimental)
+    opts+=("-DWEBP_EXPERIMENTAL_FEATURES=ON" "-DBUILD_SHARED_LIBS=ON")
+    ;;
+  *)
+    opts+=("-DBUILD_SHARED_LIBS=ON")
+    ;;
+  esac
+  case "${BUILD_TYPE}" in
+  *debug) opts+=("-DCMAKE_BUILD_TYPE=Debug") ;;
+  *) opts+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo") ;;
+  esac
+  cd "${BUILD_DIR}"
+  opts+=("-DWEBP_BUILD_CWEBP=ON" "-DWEBP_BUILD_DWEBP=ON")
+  grep -m 1 -q WEBP_BUILD_GIF2WEBP "${LIBWEBP_ROOT}/CMakeLists.txt" \
+    && opts+=("-DWEBP_BUILD_GIF2WEBP=ON")
+  grep -m 1 -q WEBP_BUILD_IMG2WEBP "${LIBWEBP_ROOT}/CMakeLists.txt" \
+    && opts+=("-DWEBP_BUILD_IMG2WEBP=ON")
+  cmake "${opts[@]}" "${LIBWEBP_ROOT}"
+  make VERBOSE=1 -j
+  case "${BUILD_TYPE}" in
+  static)
+    mkdir -p examples
+    cp [cd]webp examples
+    ;;
+  *) ;; # Skip configuration.
+  esac
 
-    grep "install" "${LIBWEBP_ROOT}/CMakeLists.txt" || exit 0
+  grep "install" "${LIBWEBP_ROOT}/CMakeLists.txt" || exit 0
 
-    make DESTDIR="${BUILD_DIR}/webp-install" install/strip
-    mkdir tmp
-    cd tmp
-    cat > CMakeLists.txt << EOF
+  make DESTDIR="${BUILD_DIR}/webp-install" install/strip
+  mkdir tmp
+  cd tmp
+  cat > CMakeLists.txt << EOF
 cmake_minimum_required(VERSION 2.8.7)
 
 project(libwebp C)
@@ -345,69 +345,69 @@ message("WebP_LIBRARIES: \${WebP_LIBRARIES}")
 message("WEBP_INCLUDE_DIRS: \${WEBP_INCLUDE_DIRS}")
 message("WEBP_LIBRARIES: \${WEBP_LIBRARIES}")
 EOF
-    cmake . "${opts[@]}" \
-      "-DCMAKE_PREFIX_PATH=${BUILD_DIR}/webp-install/usr/local"
-    exit 0
-    ;;
-  gradle)
-    setup_ccache
-    # exercise gradle then quit
-    [[ -f "${LIBWEBP_ROOT}/gradlew" ]] || exit 0
-    debian_version="$(< /etc/debian_version)"
-    if [[ "${debian_version%%.*}" -gt 9 ]]; then
-      # d6c2285d update gradle to 6.1.1
-      git rev-list d6c2285d7c5c4ca9862abd5f2200b32041edc9d6 || exit 0
-    fi
+  cmake . "${opts[@]}" \
+    "-DCMAKE_PREFIX_PATH=${BUILD_DIR}/webp-install/usr/local"
+  exit 0
+  ;;
+gradle)
+  setup_ccache
+  # exercise gradle then quit
+  [[ -f "${LIBWEBP_ROOT}/gradlew" ]] || exit 0
+  debian_version="$(< /etc/debian_version)"
+  if [[ "${debian_version%%.*}" -gt 9 ]]; then
+    # d6c2285d update gradle to 6.1.1
+    git rev-list d6c2285d7c5c4ca9862abd5f2200b32041edc9d6 || exit 0
+  fi
 
-    GRADLE_OPTS="-Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128"
-    GRADLE_OPTS=" -Dhttps.proxyHost=localhost -Dhttps.proxyPort=3128"
-    export GRADLE_OPTS
-    cd "${BUILD_DIR}"
-    # TODO -g / --gradle-user-home could be used if there"s a race between jobs
-    "${LIBWEBP_ROOT}/gradlew" -p "${LIBWEBP_ROOT}" buildAllExecutables
-    exit 0
+  GRADLE_OPTS="-Dhttp.proxyHost=localhost -Dhttp.proxyPort=3128"
+  GRADLE_OPTS=" -Dhttps.proxyHost=localhost -Dhttps.proxyPort=3128"
+  export GRADLE_OPTS
+  cd "${BUILD_DIR}"
+  # TODO -g / --gradle-user-home could be used if there"s a race between jobs
+  "${LIBWEBP_ROOT}/gradlew" -p "${LIBWEBP_ROOT}" buildAllExecutables
+  exit 0
+  ;;
+wasm)
+  grep -m 1 -q WEBP_ENABLE_WASM "${LIBWEBP_ROOT}/CMakeLists.txt" || exit 0
+  opts+=("-DCMAKE_C_COMPILER=clang" "-DWEBP_ENABLE_WASM=ON")
+  opts+=("-DWEBP_BUILD_CWEBP=ON" "-DWEBP_BUILD_DWEBP=ON")
+  case "${BUILD_TYPE}" in
+  *debug) opts+=("-DCMAKE_BUILD_TYPE=Debug") ;;
+  *) opts+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo") ;;
+  esac
+  cd "${BUILD_DIR}"
+  cmake "${opts[@]}" "${LIBWEBP_ROOT}"
+  make VERBOSE=1 -j
+  mkdir examples
+  case "${BUILD_TYPE}" in
+  static)
+    mkdir -p examples
+    cp [cd]webp examples
     ;;
-  wasm)
-    grep -m 1 -q WEBP_ENABLE_WASM "${LIBWEBP_ROOT}/CMakeLists.txt" || exit 0
-    opts+=("-DCMAKE_C_COMPILER=clang" "-DWEBP_ENABLE_WASM=ON")
-    opts+=("-DWEBP_BUILD_CWEBP=ON" "-DWEBP_BUILD_DWEBP=ON")
-    case "${BUILD_TYPE}" in
-      *debug) opts+=("-DCMAKE_BUILD_TYPE=Debug") ;;
-      *) opts+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo") ;;
-    esac
-    cd "${BUILD_DIR}"
-    cmake "${opts[@]}" "${LIBWEBP_ROOT}"
-    make VERBOSE=1 -j
-    mkdir examples
-    case "${BUILD_TYPE}" in
-      static)
-        mkdir -p examples
-        cp [cd]webp examples
-        ;;
-      *) ;;  # No other configuration
-    esac
-    exit 0
-    ;;
-    *)
-      log_err "Not a valid TARGET"
-      usage
-      exit 1
-      ;;
+  *) ;; # No other configuration
+  esac
+  exit 0
+  ;;
+*)
+  log_err "Not a valid TARGET"
+  usage
+  exit 1
+  ;;
 esac
 
 case "${TARGET}" in
-  *mingw32) ;;
+*mingw32) ;;
 
-  *)
-    case "${TARGET}-${CC}" in
-      static-debug-gcc* | static-debug-)
-        CFLAGS="${CFLAGS} -fprofile-arcs -ftest-coverage -O0 -g"
-        CXXFLAGS="${CXXFLAGS} -fprofile-arcs -ftest-coverage -O0 -g"
-        export CFLAGS CXXFLAGS
-        ;;
-      *) ;; # This case should not be reached.
-    esac
+*)
+  case "${TARGET}-${CC}" in
+  static-debug-gcc* | static-debug-)
+    CFLAGS="${CFLAGS} -fprofile-arcs -ftest-coverage -O0 -g"
+    CXXFLAGS="${CXXFLAGS} -fprofile-arcs -ftest-coverage -O0 -g"
+    export CFLAGS CXXFLAGS
     ;;
+  *) ;; # This case should not be reached.
+  esac
+  ;;
 esac
 
 setup_ccache
