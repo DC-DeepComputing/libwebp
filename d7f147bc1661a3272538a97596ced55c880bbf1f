@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ddf0059e_27866bc5",
+        "filename": "infra/common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-30T19:22:31Z",
+      "side": 1,
+      "message": "the -f takes care of this",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f387e12f_df9b152a",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-30T19:22:31Z",
+      "side": 1,
+      "message": "let\u0027s do a normalization pass while we\u0027re here and drop \u0027-pc\u0027 and \u0027-unknown\u0027 like we did with libwebm. Also some of the -clang/-asan are somewhat misnomers we should clarify what those are like in the libwebm script",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97697a72_b857edf4",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-30T19:22:31Z",
+      "side": 1,
+      "message": "I\u0027m not sure what this comment is referring to",
+      "range": {
+        "startLine": 129,
+        "startChar": 9,
+        "endLine": 129,
+        "endChar": 18
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7fe1694f_d84a2fa8",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-30T19:22:31Z",
+      "side": 1,
+      "message": "this will fail on non-debian distros",
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d51aa80_db3cd2b7",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-08-30T19:22:31Z",
+      "side": 1,
+      "message": "this is a little jenkins specific; for compatibility it can stay, but I think you should check whether we\u0027re running under jenkins before setting it",
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
