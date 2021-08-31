@@ -63,5 +63,3 @@ cleanup() {
     -f {} +
   make -C "${LIBWEBP_ROOT:?}" -f makefile.unix clean
 }
-
-
