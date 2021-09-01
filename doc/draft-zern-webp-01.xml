@@ -149,13 +149,36 @@
        <name>Normative References</name>
        <?rfc include="reference.RFC.2781.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
+       <?rfc include="reference.RFC.6386.xml" ?>
        <?rfc include="reference.RFC.6838.xml" ?>
+
+       <reference anchor="webp-lossless"
+         target="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">
+         <front>
+           <title>WebP Lossless Bitstream Specification</title>
+           <author initials="J." surname="Alakuijala"
+             fullname="Jyrki Alakuijala">
+             <organization>Google LLC</organization>
+           </author>
+           <date month="September" year="2014" />
+         </front>
+       </reference>
+
+       <reference anchor="webp-riff"
+         target="https://developers.google.com/speed/webp/docs/riff_container">
+         <front>
+           <title>WebP RIFF Container</title>
+           <author>
+             <organization>Google LLC</organization>
+           </author>
+           <date month="April" year="2018" />
+         </front>
+       </reference>
      </references>
 
      <references>
        <name>Informative References</name>
        <?rfc include="reference.RFC.2083.xml" ?>
-       <?rfc include="reference.RFC.6386.xml" ?>
 
        <reference anchor="crbug-security"
          target="https://bugs.chromium.org/p/webp/issues/list?q=label%3ASecurity">
@@ -236,33 +259,11 @@
            </author>
          </front>
        </reference>
-
-       <reference anchor="webp-lossless"
-         target="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">
-         <front>
-           <title>WebP Lossless Bitstream Specification</title>
-           <author initials="J." surname="Alakuijala"
-             fullname="Jyrki Alakuijala">
-             <organization>Google LLC</organization>
-           </author>
-           <date month="September" year="2014" />
-         </front>
-       </reference>
-
-       <reference anchor="webp-riff"
-         target="https://developers.google.com/speed/webp/docs/riff_container">
-         <front>
-           <title>WebP RIFF Container</title>
-           <author>
-             <organization>Google LLC</organization>
-           </author>
-           <date month="April" year="2018" />
-         </front>
-       </reference>
      </references>
    </references>
    <!-- Change Log
 
+v02 2021-08-31  JWZ   Moved WebP references to Normative section
 v01 2021-05-03  JWZ   Updated title, corrected Apple uniform type text
 v00 2021-04-29  JWZ   Initial version
    -->
