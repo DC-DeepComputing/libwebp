@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3dda4db7_a7c00794",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-01T15:40:38Z",
+      "side": 1,
+      "message": "emscripten sdk compilation.\nhttps://chrome-internal-review.googlesource.com/c/infradata/config/+/4098190 handles emsdk installation ",
+      "revId": "3809b6c09b359c1bc144bab96b3fdce85b7a5b9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
