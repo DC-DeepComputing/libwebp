@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85733e3c_502d460b",
+        "filename": "infra/common.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddf0059e_27866bc5",
+      "range": {
+        "startLine": 49,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 28
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f387e12f_df9b152a",
@@ -71,6 +95,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "33fe5a78_5102ff7e",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Removed the unknown and pc. \nwe use -clang suffix in libwebm. Not sure why we compile asan here. Also checked if we used -asan builds on https://build.webmproject.org/jenkins/view/webp/job/libwebp__test/ \n\nso we have not determine how we going to handle the build here, so we can narrow down the targets without *-asan sanitizer. we can build sanitizers in the test script.",
+      "parentUuid": "fcb9c57e_3e574061",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5727da96_7bc77697",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fcb9c57e_3e574061",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97697a72_b857edf4",
@@ -84,6 +156,30 @@
       "writtenOn": "2021-08-30T19:22:31Z",
       "side": 1,
       "message": "I\u0027m not sure what this comment is referring to",
+      "range": {
+        "startLine": 129,
+        "startChar": 9,
+        "endLine": 129,
+        "endChar": 18
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eec3f98_8cb6a407",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "97697a72_b857edf4",
       "range": {
         "startLine": 129,
         "startChar": 9,
@@ -111,6 +207,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c63a9139_8ad79047",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 356,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7fe1694f_d84a2fa8",
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4d51aa80_db3cd2b7",
@@ -124,6 +238,24 @@
       "writtenOn": "2021-08-30T19:22:31Z",
       "side": 1,
       "message": "this is a little jenkins specific; for compatibility it can stay, but I think you should check whether we\u0027re running under jenkins before setting it",
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e02df6f0_6c98e191",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T20:27:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4d51aa80_db3cd2b7",
       "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
