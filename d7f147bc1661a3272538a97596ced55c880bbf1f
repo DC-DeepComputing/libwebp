@@ -49,6 +49,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fcb9c57e_3e574061",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-02T19:30:59Z",
+      "side": 1,
+      "message": "\u003e let\u0027s do a normalization pass while we\u0027re here and drop \u0027-pc\u0027 and \u0027-unknown\u0027 like we did with libwebm. Also some of the -clang/-asan are somewhat misnomers we should clarify what those are like in the libwebm script\n\nI made a first pass in the job to remove -pc and -unknown",
+      "parentUuid": "f387e12f_df9b152a",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97697a72_b857edf4",
         "filename": "infra/compile.sh",
         "patchSetId": 1
