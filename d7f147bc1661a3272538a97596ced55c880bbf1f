@@ -145,6 +145,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "77b6a916_c0c458f4",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-02T20:39:22Z",
+      "side": 1,
+      "message": "\u003e so we have not determine how we going to handle the build here, so we can narrow down the targets without *-asan sanitizer. we can build sanitizers in the test script.\n\ni686-linux-asan is used, x86-64 may have been lost at one point",
+      "parentUuid": "5727da96_7bc77697",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "97697a72_b857edf4",
         "filename": "infra/compile.sh",
         "patchSetId": 1
