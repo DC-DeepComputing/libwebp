@@ -167,6 +167,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "846c4a3f_fa164a71",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T23:24:02Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "77b6a916_c0c458f4",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d08aab_5fceb48f",
+        "filename": "infra/compile.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-02T23:24:02Z",
+      "side": 1,
+      "message": "x86-64 is a default target, i changed script to make it more obvious. same with mingw targets.",
+      "parentUuid": "77b6a916_c0c458f4",
+      "range": {
+        "startLine": 45,
+        "startChar": 19,
+        "endLine": 45,
+        "endChar": 22
+      },
+      "revId": "d7f147bc1661a3272538a97596ced55c880bbf1f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97697a72_b857edf4",
