@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d96dee12_761fdb39",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:45:54Z",
+      "side": 1,
+      "message": "this formatting is incorrect. I think we should add a shfmt presubmit check",
+      "revId": "521b1ec16c80e381f97e73ea8a606204b0b7e5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
