@@ -16,6 +16,103 @@
       "message": "rebased relation chain to latest",
       "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49beb381_541ca97a",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:42:31Z",
+      "side": 1,
+      "message": "this can come after the globals more where we\u0027d normally put an include I think.",
+      "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11da2fd4_f48e64e4",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:42:31Z",
+      "side": 1,
+      "message": "this could be a little clearer saying EMSDK_DIR is not a valid directory",
+      "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f06901a6_d6d7e58f",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:42:31Z",
+      "side": 1,
+      "message": "these can be {}s and the commands separated with a \u0027;\u0027 and maybe say: EMSDK_DIR is not a valid emscripten install.\n\nGiven set -e though this can be removed entirely since the source command will fail",
+      "range": {
+        "startLine": 53,
+        "startChar": 5,
+        "endLine": 53,
+        "endChar": 6
+      },
+      "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba5b8804_0881a228",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:42:31Z",
+      "side": 1,
+      "message": "this is not a valid line break, it will join the previous line with whitespace making it \u0027-DCMAKE_TOOLCHAIN_FILE\u003d \"${EMSCRIPTEN}/cmake/Modules/Platform/Emscripten.cmake\"\u0027\n\neither break the toolchain file to a separate variable or keep the long line",
+      "range": {
+        "startLine": 63,
+        "startChar": 27,
+        "endLine": 63,
+        "endChar": 28
+      },
+      "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "074a0c21_79f11dec",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-08T22:42:31Z",
+      "side": 1,
+      "message": "let\u0027s make these both explicit -G \"Unix Makefiles\" for the generator",
+      "revId": "7796dada681c33225ee5f2e16b068e12608fa385",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
