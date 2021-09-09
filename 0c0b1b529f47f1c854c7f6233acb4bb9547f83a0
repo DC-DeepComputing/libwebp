@@ -34,6 +34,41 @@
       "parentUuid": "f46e528e_e0e252ad",
       "revId": "0c0b1b529f47f1c854c7f6233acb4bb9547f83a0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a37b9ac_9f2338ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-09T19:41:33Z",
+      "side": 1,
+      "message": "replied to comment",
+      "revId": "0c0b1b529f47f1c854c7f6233acb4bb9547f83a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "818eaa1d_ec91bd1c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-09T19:41:33Z",
+      "side": 1,
+      "message": "The setup_ccache step is still executed in lines: 260 (native unix makefile), 272 (cmake), 352(gradle), 403 (other cmakes)",
+      "parentUuid": "abced849_4f30fdea",
+      "revId": "0c0b1b529f47f1c854c7f6233acb4bb9547f83a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
