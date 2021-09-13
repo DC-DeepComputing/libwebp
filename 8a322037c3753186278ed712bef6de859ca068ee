@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4575c19c_d67d3f82",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-13T20:39:56Z",
+      "side": 1,
+      "message": "running in luci builder with led launcher https://chromium-swarm.appspot.com/task?id\u003d55f9a194808a2a10",
+      "revId": "8a322037c3753186278ed712bef6de859ca068ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
