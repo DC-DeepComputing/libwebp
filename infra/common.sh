@@ -49,6 +49,20 @@ make_build_dir() {
 }
 
 #######################################
+# Cleanup files from the backup directory.
+# Args:
+#   $1 build directory
+# Globals:
+#   LIBWEBP_ROOT  repository's root path
+#######################################
+cleanup() {
+  # BUILD_DIR is not completely removed to allow for binary artifacts to be
+  # extracted.
+  find "${1:?}" \( -name "*.[ao]" -o -name "*.l[ao]" \) -exec rm \
+    -f {} +
+}
+
+#######################################
 # Setup ccache for toolchain.
 #######################################
 setup_ccache() {
