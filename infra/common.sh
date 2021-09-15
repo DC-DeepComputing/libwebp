@@ -63,3 +63,13 @@ cleanup() {
     -f {} +
   make -C "${LIBWEBP_ROOT:?}" -f makefile.unix clean
 }
+
+#######################################
+# Setup ccache for toolchain.
+#######################################
+setup_ccache() {
+  if [[ -x "$(command -v ccache)" ]]; then
+    export CCACHE_CPP2=yes
+    export PATH="/usr/lib/ccache:${PATH}"
+  fi
+}

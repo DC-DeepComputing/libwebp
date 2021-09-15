@@ -85,16 +85,6 @@ WORKSPACE   directory where the build is done
 EOF
 }
 
-#######################################
-# Setup ccache for toolchain.
-#######################################
-setup_ccache() {
-  if [[ -x "$(command -v ccache)" ]]; then
-    export CCACHE_CPP2=yes
-    export PATH="/usr/lib/ccache:${PATH}"
-  fi
-}
-
 ################################################################################
 echo "Building libwebp in ${WORKSPACE}"
 
