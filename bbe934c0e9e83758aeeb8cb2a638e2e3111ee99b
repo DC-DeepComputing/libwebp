@@ -16,6 +16,23 @@
       "message": "Addressed comments.\n",
       "revId": "bbe934c0e9e83758aeeb8cb2a638e2e3111ee99b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "826b6439_e4ffa267",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-17T22:31:17Z",
+      "side": 1,
+      "message": "why don\u0027t you reorder these so the simpler checks can land first while you work through the compile issues.",
+      "revId": "bbe934c0e9e83758aeeb8cb2a638e2e3111ee99b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
