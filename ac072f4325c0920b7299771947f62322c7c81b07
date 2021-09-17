@@ -22,6 +22,30 @@
       },
       "revId": "ac072f4325c0920b7299771947f62322c7c81b07",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86a831ed_7ec4468e",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-17T16:28:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4ab428ae_f8b0014d",
+      "range": {
+        "startLine": 74,
+        "startChar": 26,
+        "endLine": 74,
+        "endChar": 27
+      },
+      "revId": "ac072f4325c0920b7299771947f62322c7c81b07",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
