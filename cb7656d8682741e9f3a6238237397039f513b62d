@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1442917f_68d779ce",
+        "filename": "infra/common.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-21T01:25:21Z",
+      "side": 1,
+      "message": "this isn\u0027t true",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9f1a5bf_002a9373",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-21T01:25:21Z",
+      "side": 1,
+      "message": "is this annotation needed given it\u0027s a relative path? shellcheck -x infra/compile_js.sh would be the normal invocation, right?",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f82d8c8_dbf3edc7",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-21T01:25:21Z",
+      "side": 1,
+      "message": "without a line break \u0027\\\u0027 this will output the readonly variables",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c0203547_19feb79a",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-21T01:25:21Z",
+      "side": 1,
+      "message": "this is missing in the other branch. collect the cmake args to a common variable",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
