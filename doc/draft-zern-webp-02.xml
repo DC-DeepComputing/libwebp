@@ -97,8 +97,9 @@
        <t>Security considerations: See <xref target="Security"/> below.</t>
        <t>Interoperability considerations: See <xref target="Interop"/>
          below.</t>
-       <t>Applications which use this media type: Anywhere image size is an
-         issue.</t>
+       <t>Applications which use this media type: Applications that are used to
+         display and process images, especially when smaller image file sizes
+         are important.</t>
        <t>Fragment identifier considerations: N/A</t>
        <t>Restrictions on usage: N/A</t>
        <t>Additional information:</t>
