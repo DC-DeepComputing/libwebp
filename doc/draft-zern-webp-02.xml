@@ -153,7 +153,7 @@
        <?rfc include="reference.RFC.6838.xml" ?>
 
        <reference anchor="webp-lossless"
-         target="https://developers.google.com/speed/webp/docs/webp_lossless_bitstream_specification">
+         target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-lossless-bitstream-spec.txt">
          <front>
            <title>WebP Lossless Bitstream Specification</title>
            <author initials="J." surname="Alakuijala"
@@ -165,7 +165,7 @@
        </reference>
 
        <reference anchor="webp-riff"
-         target="https://developers.google.com/speed/webp/docs/riff_container">
+         target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-container-spec.txt">
          <front>
            <title>WebP RIFF Container</title>
            <author>
