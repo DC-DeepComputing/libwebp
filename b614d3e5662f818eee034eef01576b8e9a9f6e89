@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cb3586e0_28bce8db",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-22T20:25:31Z",
+      "side": 1,
+      "message": "in jenkins this is informational only, a difference isn\u0027t a blocker, but added to the gerrit comments for ease of inspection.",
+      "revId": "b614d3e5662f818eee034eef01576b8e9a9f6e89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
