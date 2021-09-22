@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "125d2621_f4a91a66",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-22T18:51:53Z",
+      "side": 1,
+      "message": "\u003e Yes, that is the invocation I use.\n\nSo then the annotation doesn\u0027t seem to be needed in this case, right?",
+      "parentUuid": "409f2a42_46a202c7",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f82d8c8_dbf3edc7",
         "filename": "infra/compile_js.sh",
         "patchSetId": 5
@@ -108,6 +126,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3d397025_941a2930",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-22T18:51:53Z",
+      "side": 1,
+      "message": "\u003e Done\n\nthis is still an issue in patchset 6, did you miss an amend?",
+      "parentUuid": "7fb02cf2_276d3456",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c0203547_19feb79a",
         "filename": "infra/compile_js.sh",
         "patchSetId": 5
@@ -137,6 +173,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "c0203547_19feb79a",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc9d24a7_992d4d1f",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-22T18:51:53Z",
+      "side": 1,
+      "message": "\u003e Done\n\nthis is still an issue in patchset 6, did you miss an amend?",
+      "parentUuid": "27ce8c90_40dd050c",
       "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
