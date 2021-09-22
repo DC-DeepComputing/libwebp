@@ -5,7 +5,7 @@
 
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
-      category="std"
+      category="info"
       docName="draft-zern-webp-02"
       ipr="trust200902"
       obsoletes=""
@@ -22,7 +22,7 @@
  <front>
    <title>WebP Image Format Media Type Registration</title>
    <seriesInfo name="Internet-Draft" value="draft-zern-webp-02" />
-   <seriesInfo status="standard" name="" value="draft-zern-webp-02" />
+   <seriesInfo status="informational" name="" value="draft-zern-webp-02" />
 
    <author fullname="James Zern" initials="J." surname="Zern">
      <organization>Google LLC</organization>
