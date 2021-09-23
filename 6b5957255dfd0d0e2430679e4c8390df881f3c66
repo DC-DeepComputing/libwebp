@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8f1000a_0250f9c0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-23T14:43:59Z",
+      "side": 1,
+      "message": "Added LIBWEBP_ROOT to source common.sh",
+      "revId": "6b5957255dfd0d0e2430679e4c8390df881f3c66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

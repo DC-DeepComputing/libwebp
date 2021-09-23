@@ -125,6 +125,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba8a5de6_783551d3",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-23T14:43:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c84513ac_ddc51c5a",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0f82d8c8_dbf3edc7",
