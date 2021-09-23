@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c84513ac_ddc51c5a",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-23T02:41:09Z",
+      "side": 1,
+      "message": "\u003e Done\n\nlooks like the annotation is still there. if it\u0027s unneeded I think it should be removed, but in other cases the *_ROOT variable is used so it may still be necessary after the line is fixed. This script will fail if it isn\u0027t run at the top-level of the repo currently.",
+      "parentUuid": "dccaa92b_3ad2119e",
+      "revId": "cb7656d8682741e9f3a6238237397039f513b62d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0f82d8c8_dbf3edc7",
         "filename": "infra/compile_js.sh",
         "patchSetId": 5
