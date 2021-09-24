@@ -39,6 +39,30 @@
       },
       "revId": "6b5957255dfd0d0e2430679e4c8390df881f3c66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c01afcd3_158fa868",
+        "filename": "infra/compile_js.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-24T15:36:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e65d2dff_73d1aa9f",
+      "range": {
+        "startLine": 46,
+        "startChar": 20,
+        "endLine": 46,
+        "endChar": 24
+      },
+      "revId": "6b5957255dfd0d0e2430679e4c8390df881f3c66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
