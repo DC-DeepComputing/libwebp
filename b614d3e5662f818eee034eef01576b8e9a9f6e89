@@ -16,6 +16,24 @@
       "message": "in jenkins this is informational only, a difference isn\u0027t a blocker, but added to the gerrit comments for ease of inspection.",
       "revId": "b614d3e5662f818eee034eef01576b8e9a9f6e89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74ada1f4_5571f874",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-24T22:14:45Z",
+      "side": 1,
+      "message": "\u003e in jenkins this is informational only, a difference isn\u0027t a blocker, but added to the gerrit comments for ease of inspection.\n\nSee the \u0027Chromium Binary Size\u0027 Info Check as one potential way to add output as an fyi:\nhttps://chromium-review.googlesource.com/c/chromium/src/+/3182742",
+      "parentUuid": "cb3586e0_28bce8db",
+      "revId": "b614d3e5662f818eee034eef01576b8e9a9f6e89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
