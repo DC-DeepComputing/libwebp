@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c9141f8_022609ba",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-27T19:12:41Z",
+      "side": 1,
+      "message": "Normalized output: using BUILD_TYPE and APP_ABI.",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "40368c48_ac721ee2",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-27T19:12:41Z",
+      "side": 1,
+      "message": "I don\u0027t think this would apply anymore.\nPlease confirm",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

@@ -16,6 +16,24 @@
       "message": "this formatting is incorrect. I think we should add a shfmt presubmit check",
       "revId": "521b1ec16c80e381f97e73ea8a606204b0b7e5f2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39e035d5_f75d305e",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-27T19:12:41Z",
+      "side": 1,
+      "message": "Ack.\nwe can update steps to handle shfmt and shellcheck.",
+      "parentUuid": "d96dee12_761fdb39",
+      "revId": "521b1ec16c80e381f97e73ea8a606204b0b7e5f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
