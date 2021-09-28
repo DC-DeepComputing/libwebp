@@ -20,6 +20,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec8dcde0_23dcc5f9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-28T22:02:36Z",
+      "side": 1,
+      "message": "let\u0027s get the shellcheck change landed first before moving forward with this one",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "55534f6e_a3c465d4",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-28T22:02:36Z",
+      "side": 1,
+      "message": "I think shfmt may have an issue with these lines. I was using v3.3.1",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40368c48_ac721ee2",
         "filename": "infra/compile_android.sh",
         "patchSetId": 7
@@ -67,6 +101,29 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "4aa93c6e_81d0ebf7",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e17c96b_7345fa18",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-28T22:02:36Z",
+      "side": 1,
+      "message": "convert this to [[ ]].",
+      "range": {
+        "startLine": 167,
+        "startChar": 52,
+        "endLine": 167,
+        "endChar": 53
+      },
       "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
