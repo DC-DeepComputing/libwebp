@@ -37,6 +37,7 @@ import subprocess2
 USE_PYTHON3 = True
 _INCLUDE_MAN_FILES_ONLY = [r"man/.+\.1$"]
 _LIBWEBP_MAX_LINE_LENGTH = 80
+_INCLUDE_BASH_FILES_ONLY = [r".*\.sh$"]
 
 
 def _RunManCmd(input_api, output_api, man_file):
@@ -72,6 +73,38 @@ def _CheckManFiles(input_api, output_api):
     return results
 
 
+def _RunShellCheckCmd(input_api, output_api, bash_file):
+    """shellcheck command wrapper."""
+    cmd = ["shellcheck", "-x", "-oall", "-sbash", bash_file]
+    name = "Check %s file." % bash_file
+    start = input_api.time.time()
+    output, rc = subprocess2.communicate(cmd,
+                                         stdout=None,
+                                         stderr=subprocess2.PIPE,
+                                         universal_newlines=True)
+    duration = input_api.time.time() - start
+    if rc == 0:
+        return output_api.PresubmitResult("%s\n%s (%4.2fs)\n" %
+                                          (name, " ".join(cmd), duration))
+    return output_api.PresubmitError(
+        "%s\n%s (%4.2fs) failed\n%s" %
+        (name, " ".join(cmd), duration, output[1]))
+
+
+def _CheckChangedShellCheckClean(input_api, output_api):
+    """Ensure shell scripts are clean"""
+    bash_sources = lambda x: input_api.FilterSourceFile(
+        x, files_to_check=_INCLUDE_BASH_FILES_ONLY, files_to_skip=None)
+
+    affected_bash_files = input_api.change.AffectedFiles(
+        file_filter=bash_sources)
+    results = [
+        _RunShellCheckCmd(input_api, output_api, bash_file.AbsoluteLocalPath())
+        for bash_file in affected_bash_files
+    ]
+    return results
+
+
 def _CommonChecks(input_api, output_api):
     """Ensures this patch does not have trailing spaces, extra EOLs,
        or long lines.
@@ -103,6 +136,7 @@ def CheckChangeOnUpload(input_api, output_api):
     results = []
     results.extend(_CommonChecks(input_api, output_api))
     results.extend(_CheckManFiles(input_api, output_api))
+    results.extend(_CheckChangedShellCheckClean(input_api, output_api))
     return results
 
 
@@ -110,4 +144,5 @@ def CheckChangeOnCommit(input_api, output_api):
     results = []
     results.extend(_CommonChecks(input_api, output_api))
     results.extend(_CheckManFiles(input_api, output_api))
+    results.extend(_CheckChangedShellCheckClean(input_api, output_api))
     return results
