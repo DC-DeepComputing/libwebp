@@ -125,6 +125,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "df3dcf78_99ee2e0f",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-29T18:12:12Z",
+      "side": 1,
+      "message": "did you miss an amend or upload? I don\u0027t seen any difference on these lines and there\u0027s an incorrectly indented esac later in the file.",
+      "parentUuid": "1f08fd7b_6039b55a",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "40368c48_ac721ee2",
         "filename": "infra/compile_android.sh",
         "patchSetId": 7
