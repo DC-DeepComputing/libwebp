@@ -35,6 +35,59 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69061dff_7748aa66",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec8dcde0_23dcc5f9",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec0d906d_cb8309d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ec8dcde0_23dcc5f9",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28c23482_9a5d4903",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:59:25Z",
+      "side": 1,
+      "message": "Addressed shfmt comments.",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "55534f6e_a3c465d4",
@@ -48,6 +101,24 @@
       "writtenOn": "2021-09-28T22:02:36Z",
       "side": 1,
       "message": "I think shfmt may have an issue with these lines. I was using v3.3.1",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f08fd7b_6039b55a",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55534f6e_a3c465d4",
       "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -118,6 +189,30 @@
       "writtenOn": "2021-09-28T22:02:36Z",
       "side": 1,
       "message": "convert this to [[ ]].",
+      "range": {
+        "startLine": 167,
+        "startChar": 52,
+        "endLine": 167,
+        "endChar": 53
+      },
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "faca9157_c3d940bc",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:59:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e17c96b_7345fa18",
       "range": {
         "startLine": 167,
         "startChar": 52,
