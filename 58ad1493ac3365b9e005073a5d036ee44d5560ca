@@ -16,6 +16,23 @@
       "message": "Addressed comments.\nI noticed I could refactor the file checker, so I added this change for a simpler change.",
       "revId": "58ad1493ac3365b9e005073a5d036ee44d5560ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6c273ed_387f867e",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 7
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-29T18:19:29Z",
+      "side": 1,
+      "message": "same comment as the change, let\u0027s normalize these to have --version output.  The fact that we have this in each PRESUBMIT is a little unfortunate for the duplication, but to be able to run it locally I don\u0027t know if there\u0027s a good workaround.",
+      "revId": "58ad1493ac3365b9e005073a5d036ee44d5560ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
