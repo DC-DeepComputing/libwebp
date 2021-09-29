@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1f4115b_bfd509d9",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c066c3d5_4de01db8",
+      "range": {
+        "startLine": 40,
+        "startChar": 37,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "ad1e13e9873ea4d87e74d3162d57e246014bd28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f15e16b1_70f406ea",
@@ -37,6 +61,30 @@
       "writtenOn": "2021-09-28T22:05:35Z",
       "side": 1,
       "message": "shellcheck",
+      "range": {
+        "startLine": 77,
+        "startChar": 7,
+        "endLine": 77,
+        "endChar": 10
+      },
+      "revId": "ad1e13e9873ea4d87e74d3162d57e246014bd28c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4871a6d1_75d077c2",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:46:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f15e16b1_70f406ea",
       "range": {
         "startLine": 77,
         "startChar": 7,

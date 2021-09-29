@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e0d17dc_50e3ac5d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T14:46:59Z",
+      "side": 1,
+      "message": "Addressed comments.\nI noticed I could refactor the file checker, so I added this change for a simpler change.",
+      "revId": "58ad1493ac3365b9e005073a5d036ee44d5560ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
