@@ -141,6 +141,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad271a17_06303a21",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T18:16:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df3dcf78_99ee2e0f",
+      "revId": "3cc252f3865b4ee0b8f731df315b55d9744a99d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "40368c48_ac721ee2",
