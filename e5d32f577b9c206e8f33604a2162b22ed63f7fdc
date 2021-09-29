@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67ec03ce_637a448f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-09-29T18:53:22Z",
+      "side": 1,
+      "message": "Added setup ccache from other changes.\nRemoved CC redefinition\nRemoved unnecessary comments",
+      "revId": "e5d32f577b9c206e8f33604a2162b22ed63f7fdc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
