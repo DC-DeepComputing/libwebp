@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c8fc21f_cdc8ab6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T20:03:18Z",
+      "side": 1,
+      "message": "Since this is beginning to diverge from the jenkins implementation please test the script locally. Add the new files to a checkout and try checking out v1.2.0 and setting PREV_VERSION to v1.1.0",
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbc1a8cf_b02c1ce3",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T20:03:18Z",
+      "side": 1,
+      "message": "this should be ${HEAD_VERSION}",
+      "range": {
+        "startLine": 87,
+        "startChar": 31,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2220d2e4_7e73f1a6",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T20:03:18Z",
+      "side": 1,
+      "message": "we should check for the existence of this tool early in the script",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 9
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59d30be8_23e18c3f",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T20:03:18Z",
+      "side": 1,
+      "message": "we should only exit here if the tool itself encounters an error:\nhttps://sourceware.org/libabigail/manual/abidiff.html#return-values",
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8cfd39a_00de840e",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T20:03:18Z",
+      "side": 1,
+      "message": "this should not return an error code when the tool only reports a diff. Since we\u0027re not posting a message from here we can remove this line and the check_passed variable",
+      "range": {
+        "startLine": 96,
+        "startChar": 18,
+        "endLine": 96,
+        "endChar": 27
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
