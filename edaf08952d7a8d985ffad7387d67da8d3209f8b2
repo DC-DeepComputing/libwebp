@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d3a1f19_53ab3633",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T19:13:04Z",
+      "side": 0,
+      "message": "this should have triggered a python formatting error. Is it reported in the output of the patch check run?",
+      "revId": "edaf08952d7a8d985ffad7387d67da8d3209f8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
