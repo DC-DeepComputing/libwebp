@@ -16,6 +16,24 @@
       "message": "this should have triggered a python formatting error. Is it reported in the output of the patch check run?",
       "revId": "edaf08952d7a8d985ffad7387d67da8d3209f8b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18c89f60_729259d8",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-09-30T19:43:16Z",
+      "side": 0,
+      "message": "\u003e this should have triggered a python formatting error. Is it reported in the output of the patch check run?\n\nusing git cl format -v -v --dry-run --presubmit --no-clang-format --python\u0027\nthe range looks correct:\nvpython .../depot_tools/yapf --style pep8 PRESUBMIT.py -l 38-38 -l 61-78 -l 80-81 -l 83-86 -l 88-89 -l 123-128 -l 135-140 --diff\n\nbut yapf is having trouble recognized the issue without more context, --diff alone works so does \u0027-l 61-91\u0027. This seems like a bug or limitation with yapf. I think we should move to running it on the whole file.\n\nThis is still present with version 0.31.0 (my depot_tools checkout is using 0.27.0 currently). yapf-diff from upstream fails in the same way.",
+      "parentUuid": "5d3a1f19_53ab3633",
+      "revId": "edaf08952d7a8d985ffad7387d67da8d3209f8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
