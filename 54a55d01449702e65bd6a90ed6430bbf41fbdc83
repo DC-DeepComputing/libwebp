@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abd51acd_0b08cf03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-01T15:41:45Z",
+      "side": 1,
+      "message": "Created another change to reformat and added .style.yapf.\nWe can go with this for now, then add another change to use yapf directly.\nAre we sure to use yapf? yapf tool is the least invasive of all formatter, we could use pep8 or pyformat if yapf is getting a lot in the way.",
+      "revId": "54a55d01449702e65bd6a90ed6430bbf41fbdc83",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

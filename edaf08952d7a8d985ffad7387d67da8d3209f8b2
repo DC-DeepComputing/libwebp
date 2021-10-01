@@ -34,6 +34,24 @@
       "parentUuid": "5d3a1f19_53ab3633",
       "revId": "edaf08952d7a8d985ffad7387d67da8d3209f8b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b2365fd_7aadd568",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-01T15:41:45Z",
+      "side": 0,
+      "message": "I added .style.yapf, which was not in here, so yapf uses chromium style.",
+      "parentUuid": "18c89f60_729259d8",
+      "revId": "edaf08952d7a8d985ffad7387d67da8d3209f8b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
