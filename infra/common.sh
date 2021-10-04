@@ -38,7 +38,8 @@ log_err() {
 #   mkdir result
 #######################################
 make_build_dir() {
-  if [[ "$#" -ne 1 ]]; then
+  if [[ "$#" -ne 1 ]];
+  then
     return 1
   fi
 
