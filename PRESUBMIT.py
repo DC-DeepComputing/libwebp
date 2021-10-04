@@ -36,6 +36,7 @@ details on the presubmit API built into depot_tools.
 import subprocess2
 
 USE_PYTHON3 = True
+_BASH_INDENTATION = "2"
 _INCLUDE_BASH_FILES_ONLY = [r".*\.sh$"]
 _INCLUDE_MAN_FILES_ONLY = [r"man/.+\.1$"]
 _LIBWEBP_MAX_LINE_LENGTH = 80
@@ -75,7 +76,24 @@ def _RunShellCheckCmd(input_api, output_api, bash_file):
   cmd = ["shellcheck", "-x", "-oall", "-sbash", bash_file]
   name = "Check %s file." % bash_file
   start = input_api.time.time()
-  subprocess2.communicate(["shellcheck", "--version"])
+  output, rc = subprocess2.communicate(
+      cmd, stdout=None, stderr=subprocess2.PIPE, universal_newlines=True)
+  duration = input_api.time.time() - start
+  if rc == 0:
+    return output_api.PresubmitResult("%s\n%s (%4.2fs)\n" %
+                                      (name, " ".join(cmd), duration))
+  return output_api.PresubmitError("%s\n%s (%4.2fs) failed\n%s" %
+                                   (name, " ".join(cmd), duration, output[1]))
+
+
+def _RunShfmtCheckCmd(input_api, output_api, bash_file):
+  """shfmt command wrapper."""
+  cmd = [
+      "shfmt", "-i", _BASH_INDENTATION, "-bn", "-ci", "-sr", "-kp", "-d",
+      bash_file
+  ]
+  name = "Check %s file." % bash_file
+  start = input_api.time.time()
   output, rc = subprocess2.communicate(
       cmd, stdout=None, stderr=subprocess2.PIPE, universal_newlines=True)
   duration = input_api.time.time() - start
@@ -134,6 +152,9 @@ def CheckChangeOnUpload(input_api, output_api):
   results.extend(
       _RunCmdOnCheckedFiles(input_api, output_api, _RunShellCheckCmd,
                             _INCLUDE_BASH_FILES_ONLY))
+  results.extend(
+      _RunCmdOnCheckedFiles(input_api, output_api, _RunShfmtCheckCmd,
+                            _INCLUDE_BASH_FILES_ONLY))
   return results
 
 
@@ -143,7 +164,12 @@ def CheckChangeOnCommit(input_api, output_api):
   results.extend(
       _RunCmdOnCheckedFiles(input_api, output_api, _RunManCmd,
                             _INCLUDE_MAN_FILES_ONLY))
+  subprocess2.communicate(["shellcheck", "--version"])
   results.extend(
       _RunCmdOnCheckedFiles(input_api, output_api, _RunShellCheckCmd,
+                            _INCLUDE_BASH_FILES_ONLY))
+  subprocess2.communicate(["shfmt", "-version"])
+  results.extend(
+      _RunCmdOnCheckedFiles(input_api, output_api, _RunShfmtCheckCmd,
                             _INCLUDE_BASH_FILES_ONLY))
   return results
