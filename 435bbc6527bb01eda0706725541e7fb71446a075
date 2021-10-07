@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cafa8287_954b0bb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-07T20:13:10Z",
+      "side": 1,
+      "message": "for documentation purposes let\u0027s use the preferred form:\nGO111MODULE\u003don go install mvdan.cc/sh/v3/cmd/shfmt@latest",
+      "revId": "435bbc6527bb01eda0706725541e7fb71446a075",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
