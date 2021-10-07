@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60c6040e_f96212fc",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-07T02:27:18Z",
+      "side": 1,
+      "message": "this sits at the top of ANDROID_NDK_DIR, so use that path to check for the exe",
+      "range": {
+        "startLine": 82,
+        "startChar": 12,
+        "endLine": 82,
+        "endChar": 36
+      },
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d3bbabdc_545f43da",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-07T02:27:18Z",
+      "side": 1,
+      "message": "add TODO(b/185520507): remove this and use the binaries from toolchains/llvm/prebuilt/ directly.",
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
