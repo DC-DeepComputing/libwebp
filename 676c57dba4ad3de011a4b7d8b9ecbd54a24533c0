@@ -16,6 +16,23 @@
       "message": "Addressed comments.\n\nNoticed that shfmt --version was printing each time a file was inspected. Also, I added a warning if shftm or shellcheck are not installed. refactored to avoid duplication.",
       "revId": "676c57dba4ad3de011a4b7d8b9ecbd54a24533c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0da99c5_13238017",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-08T23:58:00Z",
+      "side": 1,
+      "message": "This project could use a .pylintrc",
+      "revId": "676c57dba4ad3de011a4b7d8b9ecbd54a24533c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
