@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "abb71c78_d72a79b8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 18
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-08T05:19:13Z",
+      "side": 1,
+      "message": "Change ndk-build.\nAdded PATH to run locally.\nAdded comments.",
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60c6040e_f96212fc",
@@ -24,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee17dae9_80a0736e",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-08T05:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60c6040e_f96212fc",
+      "range": {
+        "startLine": 82,
+        "startChar": 12,
+        "endLine": 82,
+        "endChar": 36
+      },
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d3bbabdc_545f43da",
@@ -37,6 +78,41 @@
       "writtenOn": "2021-10-07T02:27:18Z",
       "side": 1,
       "message": "add TODO(b/185520507): remove this and use the binaries from toolchains/llvm/prebuilt/ directly.",
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5de35a3_631ce9eb",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-08T05:19:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d3bbabdc_545f43da",
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c75ae44_bebd05ee",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-08T05:19:13Z",
+      "side": 1,
+      "message": "This is never going to pass in the current LUCI setup. Do we need to check for these gerrit refspec/branch?",
       "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
