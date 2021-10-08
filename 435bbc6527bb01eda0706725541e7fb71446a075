@@ -16,6 +16,24 @@
       "message": "for documentation purposes let\u0027s use the preferred form:\nGO111MODULE\u003don go install mvdan.cc/sh/v3/cmd/shfmt@latest",
       "revId": "435bbc6527bb01eda0706725541e7fb71446a075",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6eb2f47a_62444c85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-08T05:06:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cafa8287_954b0bb4",
+      "revId": "435bbc6527bb01eda0706725541e7fb71446a075",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
