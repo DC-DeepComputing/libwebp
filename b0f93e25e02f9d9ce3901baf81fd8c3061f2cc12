@@ -115,6 +115,24 @@
       "message": "This is never going to pass in the current LUCI setup. Do we need to check for these gerrit refspec/branch?",
       "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34092be7_eabb0814",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 18
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T00:00:18Z",
+      "side": 1,
+      "message": "\u003e This is never going to pass in the current LUCI setup. Do we need to check for these gerrit refspec/branch?\n\nI want it to land so that it\u0027s there for historical reference, then it can be removed from this branch. Starting with what\u0027s in Jenkins is best if we wanted to cherry-pick things over and use the scripts as the basis for testing there.",
+      "parentUuid": "4c75ae44_bebd05ee",
+      "revId": "b0f93e25e02f9d9ce3901baf81fd8c3061f2cc12",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
