@@ -16,6 +16,109 @@
       "message": "rebased shfmt with changes",
       "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79b38253_8c4409d8",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T02:19:16Z",
+      "side": 1,
+      "message": "maybe APP_ABI to make it line up with the others and the usage output",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "336397b2_cafb80c0",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T02:19:16Z",
+      "side": 1,
+      "message": "this shouldn\u0027t be needed if like the check above we just access the binary using the full path. that might help keep set -x logging a bit simpler too.",
+      "range": {
+        "startLine": 87,
+        "startChar": 20,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "649fbe2d_ea316350",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T02:19:16Z",
+      "side": 1,
+      "message": "since we used the full path to check for the binary could just invoke it that way",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf09d378_9cb3d7ec",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T02:19:16Z",
+      "side": 1,
+      "message": "this should just be clang or to be certain we get things correct with the PATH ccache should be checked here (or we could set a variable for the binary). The way /usr/lib/ccache works depends on the PATH order, it needs to come first to map clang, gcc, etc. to ccache and then the right version of that compiler needs to be next.",
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82bd73d2_7f4303dc",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-09T02:19:16Z",
+      "side": 1,
+      "message": "remove this line",
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
