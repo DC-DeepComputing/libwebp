@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d23c4629_bb8d58fa",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-11T22:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79b38253_8c4409d8",
+      "range": {
+        "startLine": 71,
+        "startChar": 23,
+        "endLine": 71,
+        "endChar": 51
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "336397b2_cafb80c0",
@@ -54,6 +78,30 @@
       "writtenOn": "2021-10-09T02:19:16Z",
       "side": 1,
       "message": "this shouldn\u0027t be needed if like the check above we just access the binary using the full path. that might help keep set -x logging a bit simpler too.",
+      "range": {
+        "startLine": 87,
+        "startChar": 20,
+        "endLine": 87,
+        "endChar": 39
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bc2250b_0332b764",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-11T22:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "336397b2_cafb80c0",
       "range": {
         "startLine": 87,
         "startChar": 20,
@@ -87,6 +135,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "da984e29_1698238a",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-11T22:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "649fbe2d_ea316350",
+      "range": {
+        "startLine": 123,
+        "startChar": 0,
+        "endLine": 123,
+        "endChar": 9
+      },
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf09d378_9cb3d7ec",
@@ -104,6 +176,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "853bb50e_83b4695a",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-11T22:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf09d378_9cb3d7ec",
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82bd73d2_7f4303dc",
@@ -117,6 +207,24 @@
       "writtenOn": "2021-10-09T02:19:16Z",
       "side": 1,
       "message": "remove this line",
+      "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a78e38fb_afb7adc9",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 19
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-11T22:52:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "82bd73d2_7f4303dc",
       "revId": "932e5122b22b1f9e2fa5b334878b709f3b03f5d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
