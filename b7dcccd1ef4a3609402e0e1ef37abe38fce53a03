@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a8fb775_5234f342",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "pending to try abicheck until the refs issue is fixed",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

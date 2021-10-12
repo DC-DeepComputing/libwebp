@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "074731c5_ece115b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4c8fc21f_cdc8ab6e",
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbc1a8cf_b02c1ce3",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-09-30T20:03:18Z",
       "side": 1,
       "message": "this should be ${HEAD_VERSION}",
+      "range": {
+        "startLine": 87,
+        "startChar": 31,
+        "endLine": 87,
+        "endChar": 35
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee3f1236_0e8b9565",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbc1a8cf_b02c1ce3",
       "range": {
         "startLine": 87,
         "startChar": 31,
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "88ab7079_91f40cf6",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2220d2e4_7e73f1a6",
+      "range": {
+        "startLine": 88,
+        "startChar": 2,
+        "endLine": 88,
+        "endChar": 9
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "59d30be8_23e18c3f",
@@ -81,6 +147,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83b9399d_2ec490cb",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59d30be8_23e18c3f",
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e8cfd39a_00de840e",
@@ -94,6 +178,30 @@
       "writtenOn": "2021-09-30T20:03:18Z",
       "side": 1,
       "message": "this should not return an error code when the tool only reports a diff. Since we\u0027re not posting a message from here we can remove this line and the check_passed variable",
+      "range": {
+        "startLine": 96,
+        "startChar": 18,
+        "endLine": 96,
+        "endChar": 27
+      },
+      "revId": "e3f08dca04b5af967a0c484731d46c07bcfe4236",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23c8127d_6f410af6",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-12T01:11:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8cfd39a_00de840e",
       "range": {
         "startLine": 96,
         "startChar": 18,
