@@ -39,6 +39,30 @@
       },
       "revId": "48e003d3905026793c3c98e0b6360c0a068af27e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "12964af0_521f72ea",
+        "filename": "infra/compile_android.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-13T18:53:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea7066c7_24da5608",
+      "range": {
+        "startLine": 83,
+        "startChar": 35,
+        "endLine": 83,
+        "endChar": 36
+      },
+      "revId": "48e003d3905026793c3c98e0b6360c0a068af27e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
