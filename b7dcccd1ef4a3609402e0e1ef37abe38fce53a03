@@ -16,6 +16,97 @@
       "message": "pending to try abicheck until the refs issue is fixed",
       "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69828677_45a3f545",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-13T18:26:09Z",
+      "side": 1,
+      "message": "this is never called. it can be made into a comment at the top of the file",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5918601d_d0cf8663",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-13T18:26:09Z",
+      "side": 1,
+      "message": "PREV_VERSION is optional too",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "deb50e80_ef5c836e",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-13T18:26:09Z",
+      "side": 1,
+      "message": "this isn\u0027t guaranteed to do what the comment claims now. it should be mostly safe to remove the rest of the sentence since the only reason to check a non-src/ affecting range would be to verify abidiff was a noop.",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5bfd922f_fa0d0040",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-13T18:26:09Z",
+      "side": 1,
+      "message": "if you wanted to restore the tree to its original state you\u0027d want to checkout the HEAD from the start since HEAD_VERSION might be set to something different.",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "086c743a_a4f0d1b1",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-13T18:26:09Z",
+      "side": 1,
+      "message": "delete this line",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
