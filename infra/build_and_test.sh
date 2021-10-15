@@ -29,9 +29,10 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+# shellcheck disable=SC2310
 set -xe
-LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
-readonly LIBWEBP_TEST_DATA_REPO
+shopt -s inherit_errexit
+
 LIBWEBP_ROOT="$(realpath "$(dirname "$0")/..")"
 readonly LIBWEBP_ROOT
 readonly WORKSPACE=${WORKSPACE:-"$(mktemp -d -t webp.test.XXX)"}
@@ -45,7 +46,9 @@ Usage: $(basename "$0") BUILD_TYPE TARGET
 Options:
 BUILD_TYPE  supported build type: (static, static-debug)
 TARGET      supported target platforms:
+              i686-linux-clang
               i686-w64-mingw32
+              x86_64-linux-clang
               x86_64-w64-mingw32
 Environment variables:
 WORKSPACE   directory where the build is done. If workspace already has
@@ -53,6 +56,7 @@ WORKSPACE   directory where the build is done. If workspace already has
 EOF
 }
 
+################################################################################
 BUILD_TYPE=${1:?"Build type not defined.$(
   echo
   usage
@@ -76,7 +80,7 @@ TEST_DATA_DIR="$(ensure_libwebp_dependency_repo "${LIBWEBP_TEST_DATA_REPO}")"
 DECODE_WEBP_BINARIES=()
 while IFS='' read -r line; do
   DECODE_WEBP_BINARIES+=("${line}")
-done < <(find "${ARTIFACTS_DIR}" -name 'dwebp' -o -name 'dwebp.exe')
+done < <(find "${ARTIFACTS_DIR}" -name 'dwebp' -o -name 'dwebp.exe' || true)
 
 pushd "${ARTIFACTS_DIR}"
 
@@ -88,7 +92,7 @@ TEST_LOSSLESS="${TEST_DATA_DIR}/test_lossless.sh"
 for dwebp in "${DECODE_WEBP_BINARIES[@]}"; do
   perl_strip='/dwebp.*\.gcda/ or next; print scalar(split /\//) - 4; last;'
   # strip up to 'build-static'
-  GCOV_PREFIX_STRIP="$(strings "${dwebp}" | perl -ne "${perl_strip}")"
+  GCOV_PREFIX_STRIP="$(strings "${dwebp}" | perl -ne "${perl_strip}" || true)"
   export GCOV_PREFIX_STRIP
   exe="$(get_driver "${TARGET}" "${dwebp}")"
   if [[ -n "${exe}" ]]; then
@@ -103,7 +107,7 @@ date
 ENCODE_WEBP_BINARIES=()
 while IFS='' read -r line; do
   ENCODE_WEBP_BINARIES+=("${line}")
-done < <(find "${ARTIFACTS_DIR}" -name 'cwebp' -o -name 'cwebp.exe')
+done < <(find "${ARTIFACTS_DIR}" -name 'cwebp' -o -name 'cwebp.exe' || true)
 
 echo "Running encode tests for ${TARGET}."
 ls -R
@@ -120,7 +124,7 @@ files+=("${TEST_DATA_DIR}/vp80-05-sharpness-1443.webp")
 for cwebp in "${ENCODE_WEBP_BINARIES[@]}"; do
   perl_strip='/cwebp.*\.gcda/ or next; print scalar(split /\//) - 4; last;'
   # strip up to 'build-static'
-  GCOV_PREFIX_STRIP="$(strings "${cwebp}" | perl -ne "${perl_strip}")"
+  GCOV_PREFIX_STRIP="$(strings "${cwebp}" | perl -ne "${perl_strip}" || true)"
   export GCOV_PREFIX_STRIP
 
   exe="$(get_driver "${TARGET}" "${cwebp}")"
@@ -139,3 +143,6 @@ done
 
 popd
 date
+
+export WORKSPACE
+"${LIBWEBP_ROOT}/infra/run_crop_tests.sh" "${BUILD_TYPE}" "${TARGET}"

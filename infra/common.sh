@@ -28,8 +28,10 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+export LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
+
 log_err() {
-  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $*" >&2
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z' || true)]: $*" >&2
 }
 
 #######################################
@@ -72,7 +74,9 @@ cleanup() {
 #   None
 #######################################
 setup_ccache() {
-  if [[ -x "$(command -v ccache)" ]]; then
+  local found_ccache
+  found_ccache="$(command -v ccache || true)"
+  if [[ -x "${found_ccache}"  ]]; then
     export CCACHE_CPP2=yes
     export PATH="/usr/lib/ccache:${PATH}"
   fi
@@ -172,7 +176,8 @@ ensure_artifacts() {
 get_driver() {
   local exe
   case "$1" in
-    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *-w64-mingw32) exe="wine" ;;
+    *-linux-clang) ;;
     *) return 1 ;;  # Unsupported target host.
   esac
   echo "${exe} $2"
