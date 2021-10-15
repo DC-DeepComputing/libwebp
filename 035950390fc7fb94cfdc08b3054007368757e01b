@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e8cde8b_1c2b04c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "it looks like the only failing builders are ones that are missing packages.",
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0b17f7b_4ebe5588",
+        "filename": "infra/common.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "build?",
+      "range": {
+        "startLine": 52,
+        "startChar": 25,
+        "endLine": 52,
+        "endChar": 31
+      },
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b08bec2_2f5b65f0",
+        "filename": "infra/common.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "say \u0027$1\u0027 here to make it a little clearer",
+      "range": {
+        "startLine": 54,
+        "startChar": 4,
+        "endLine": 54,
+        "endChar": 5
+      },
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a90867_d23bd92c",
+        "filename": "infra/common.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "this will wipe out binaries if we wanted to use them in a test stage.",
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "037f2e5e_aec0f2f5",
+        "filename": "infra/compile.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "supported target platforms",
+      "range": {
+        "startLine": 44,
+        "startChar": 12,
+        "endLine": 44,
+        "endChar": 49
+      },
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a939f04c_3036c2f1",
+        "filename": "infra/compile.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "we can sort this list here, I made a pass in jenkins to do that some time ago I think",
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5331d376_87b02005",
+        "filename": "infra/compile.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T20:18:16Z",
+      "side": 1,
+      "message": "\u003d()",
+      "range": {
+        "startLine": 109,
+        "startChar": 12,
+        "endLine": 109,
+        "endChar": 14
+      },
+      "revId": "035950390fc7fb94cfdc08b3054007368757e01b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
