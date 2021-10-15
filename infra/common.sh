@@ -35,7 +35,7 @@ log_err() {
 #######################################
 # Create build directory. Build directory will be deleted if it exists.
 # Arguments:
-#   None.
+#   $1 build directory's path
 # Returns:
 #   mkdir result.
 #######################################
@@ -69,7 +69,7 @@ cleanup() {
 # Globals:
 #   PATH
 # Arguments:
-#   None.
+#   None
 #######################################
 setup_ccache() {
   if [[ -x "$(command -v ccache)" ]]; then
@@ -103,4 +103,77 @@ shard_should_run() {
   fi
 
   [[ "$((libwebp_test_id % TEST_TOTAL_SHARDS))" -eq "${TEST_SHARD_INDEX}" ]]
+}
+
+#######################################
+# Ensures libwebp's dependency repository is setup.
+# Globals:
+#  WORKSPACE directory where the build is done
+# Arguments:
+#  $1 repository url
+# Outputs:
+#  Path to repo
+#######################################
+ensure_libwebp_dependency_repo() {
+  local repo_url
+  repo_url="$1"
+  local repo_dir
+  repo_dir="${WORKSPACE:?WORKSPACE is not defined.}/${repo_url##*/}"
+
+  if [[ ! -d "${repo_dir}" ]] \
+    || ! git -C "${repo_dir}" pull > /dev/null; then
+    rm -rf "${repo_dir}"
+    git clone --depth 1 "${repo_url}" "${repo_dir}"
+  fi
+  echo "${repo_dir}"
+}
+
+#######################################
+# Ensure test artifacts are in WORKSPACE/artifacts.
+# Globals:
+#  WORKSPACE directory where the build is done.
+# Arguments:
+#   $1 build directory's path
+# Outputs:
+#   artifacts directory
+# Returns:
+#   0 when artifacts' dir is created/found
+#   non-zero for errors.
+#######################################
+ensure_artifacts() {
+  local build_dir="$1"
+  local artifacts_dir="${WORKSPACE}/artifacts"
+
+  if [[ "$#" -ne 1 ]]; then
+    return 1
+  fi
+
+  if [[ -d "${artifacts_dir}" ]]; then
+    echo "${artifacts_dir}"
+    return 0
+  fi
+
+  make_build_dir "${artifacts_dir}"
+
+  cp "${build_dir}/examples/dwebp"* "${artifacts_dir}"
+  cp "${build_dir}/examples/cwebp"* "${artifacts_dir}"
+  cp "${build_dir}/extras/get_disto"* "${artifacts_dir}"
+  echo "${artifacts_dir}"
+}
+
+#######################################
+# Get driver to run cross-platform tests.
+# Arguments:
+#   $1 target host
+#   $2 target binary
+# Output:
+#   command executable (i.e. wine webp.exe)
+#######################################
+get_driver() {
+  local exe
+  case "$1" in
+    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *) return 1 ;;  # Unsupported target host.
+  esac
+  echo "${exe} $2"
 }
