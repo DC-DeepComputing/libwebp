@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d35d716e_56caaae2",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-15T14:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "69828677_45a3f545",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5918601d_d0cf8663",
@@ -48,6 +66,30 @@
       "writtenOn": "2021-10-13T18:26:09Z",
       "side": 1,
       "message": "PREV_VERSION is optional too",
+      "range": {
+        "startLine": 42,
+        "startChar": 19,
+        "endLine": 42,
+        "endChar": 31
+      },
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b11d10e_fde4e394",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-15T14:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5918601d_d0cf8663",
       "range": {
         "startLine": 42,
         "startChar": 19,
@@ -75,6 +117,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de8cf37b_abe993d0",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-15T14:54:25Z",
+      "side": 1,
+      "message": "I see the guaranteed, we have to check diff between PREV_VERSION and HEAD_VERSION.",
+      "parentUuid": "deb50e80_ef5c836e",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5bfd922f_fa0d0040",
@@ -92,6 +152,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4b77ed0_3dfac9d3",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-15T14:54:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5bfd922f_fa0d0040",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "086c743a_a4f0d1b1",
@@ -105,6 +183,24 @@
       "writtenOn": "2021-10-13T18:26:09Z",
       "side": 1,
       "message": "delete this line",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a2c8a9f_b06c1a27",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-15T14:54:25Z",
+      "side": 1,
+      "message": "why? This lets fail the abidiff result on ABIDIFF_ERROR and not when there is ABIDIFF_CHANGE \nhttps://sourceware.org/libabigail/manual/abidiff.html#return-values",
+      "parentUuid": "086c743a_a4f0d1b1",
       "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
