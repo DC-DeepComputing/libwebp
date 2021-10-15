@@ -104,3 +104,43 @@ shard_should_run() {
 
   [[ "$((libwebp_test_id % TEST_TOTAL_SHARDS))" -eq "${TEST_SHARD_INDEX}" ]]
 }
+
+#######################################
+# Ensures libwebp's dependency repository is setup.
+# Globals:
+#  WORKSPACE directory where the build is done
+# Arguments:
+#  $1 repository url
+# Outputs:
+#  Path to repo
+#######################################
+ensure_libwebp_dependency_repo() {
+  local repo_url
+  repo_url="$1"
+  local repo_dir
+  repo_dir="${WORKSPACE:?WORKSPACE is not defined.}/${repo_url##*/}"
+
+  if [[ ! -d "${repo_dir}" ]] \
+    || ! git -C "${repo_dir}" pull > /dev/null; then
+    rm -rf "${repo_dir}"
+    git clone --depth 1 "${repo_url}" "${repo_dir}"
+  fi
+  echo "${repo_dir}"
+}
+
+#######################################
+# Get driver to run cross-platform tests.
+# Args:
+#   $1 target host
+#   $2 target binary
+# Output:
+#   command executable (i.e. wine webp.exe)
+#######################################
+get_driver() {
+  local exe
+  case "$1" in
+    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *) return 1 ;;  # Unsupported target host.
+  esac
+  echo "${exe} $2"
+}
