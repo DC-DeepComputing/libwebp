@@ -72,3 +72,20 @@ setup_ccache() {
     export PATH="/usr/lib/ccache:${PATH}"
   fi
 }
+
+#######################################
+# Get driver to run cross-platform tests
+# Args:
+#   $1 target host
+#   $2 target binary
+# Output:
+#   command executable (i.e. wine webp.exe)
+#######################################
+get_driver() {
+  local exe
+  case "$1" in
+    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *) return 1 ;;  # Unsupported target host.
+  esac
+  echo "${exe} $2"
+}
