@@ -203,6 +203,24 @@
       "parentUuid": "086c743a_a4f0d1b1",
       "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ecdfe8d_3320734e",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-15T23:40:32Z",
+      "side": 1,
+      "message": "\u003e why? This lets fail the abidiff result on ABIDIFF_ERROR and not when there is ABIDIFF_CHANGE \n\u003e https://sourceware.org/libabigail/manual/abidiff.html#return-values\n\nI was referring to the blank line between the end of the if and the end of the loop",
+      "parentUuid": "5a2c8a9f_b06c1a27",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
