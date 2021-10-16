@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a47cd3a5_0d56aa3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-16T01:12:48Z",
+      "side": 1,
+      "message": "Addressed minor comments. Replied to cleanup question",
+      "revId": "869df3508d1294301a77dc6c4829c11428a4f663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
