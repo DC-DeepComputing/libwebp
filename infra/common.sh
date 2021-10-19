@@ -77,3 +77,26 @@ setup_ccache() {
     export PATH="/usr/lib/ccache:${PATH}"
   fi
 }
+
+#######################################
+# Ensures libwebp's dependency repository is setup.
+# Globals:
+#  WORKSPACE directory where the build is done.
+# Arguments:
+#  $1 repository url.
+# Outputs:
+#  Path to repository directory.
+#######################################
+ensure_libwebp_dependency_repo() {
+  local repo_url
+  repo_url="$1"
+  local repo_dir
+  repo_dir="${WORKSPACE:?WORKSPACE is not defined.}/${repo_url##*/}"
+
+  if [[ ! -d "${repo_dir}" ]] \
+    || ! git -C "${repo_dir}" pull > /dev/null; then
+    rm -rf "${repo_dir}"
+    git clone --depth 1 "${repo_url}" "${repo_dir}"
+  fi
+  echo "${repo_dir}"
+}
