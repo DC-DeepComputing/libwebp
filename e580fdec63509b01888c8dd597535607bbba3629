@@ -1,0 +1,107 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f79c5e58_49f1441a",
+        "filename": "infra/analyze.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:51:52Z",
+      "side": 1,
+      "message": "analyze might be overly generic. run_static_analysis.sh could work",
+      "revId": "e580fdec63509b01888c8dd597535607bbba3629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91ba8b0b_1b2b780b",
+        "filename": "infra/analyze.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:51:52Z",
+      "side": 1,
+      "message": "this extra whitespace can be removed, it\u0027s not aligning to any other text; horizontal whitespace is fragile too, needing updates if other lines change",
+      "range": {
+        "startLine": 47,
+        "startChar": 9,
+        "endLine": 47,
+        "endChar": 11
+      },
+      "revId": "e580fdec63509b01888c8dd597535607bbba3629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62ddccb4_db9689fc",
+        "filename": "infra/analyze.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:51:52Z",
+      "side": 1,
+      "message": "MODE is also used",
+      "revId": "e580fdec63509b01888c8dd597535607bbba3629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eebbf5a_eeea4446",
+        "filename": "infra/analyze.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:51:52Z",
+      "side": 1,
+      "message": "[[ ]]",
+      "range": {
+        "startLine": 87,
+        "startChar": 3,
+        "endLine": 87,
+        "endChar": 4
+      },
+      "revId": "e580fdec63509b01888c8dd597535607bbba3629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d0e49e_fde55691",
+        "filename": "infra/analyze.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:51:52Z",
+      "side": 1,
+      "message": "let\u0027s use \u0027empty\u0027 here, it\u0027s a more inclusive term:\nhttps://source.android.com/setup/contribute/respectful-code",
+      "range": {
+        "startLine": 90,
+        "startChar": 11,
+        "endLine": 90,
+        "endChar": 16
+      },
+      "revId": "e580fdec63509b01888c8dd597535607bbba3629",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
