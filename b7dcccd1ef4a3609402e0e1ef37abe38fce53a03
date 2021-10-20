@@ -137,6 +137,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b33026d_a4a8c08e",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:37:38Z",
+      "side": 1,
+      "message": "\u003e I see the guaranteed, we have to check diff between PREV_VERSION and HEAD_VERSION.\n\nThe comment could still use an update.",
+      "parentUuid": "de8cf37b_abe993d0",
+      "revId": "b7dcccd1ef4a3609402e0e1ef37abe38fce53a03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5bfd922f_fa0d0040",
         "filename": "infra/abicheck.sh",
         "patchSetId": 9

@@ -16,6 +16,46 @@
       "message": "Addressed comments",
       "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee2b65bd_540bf769",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:37:38Z",
+      "side": 1,
+      "message": "this extra whitespace can be removed",
+      "range": {
+        "startLine": 37,
+        "startChar": 11,
+        "endLine": 37,
+        "endChar": 13
+      },
+      "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8f8791f_325cdfd8",
+        "filename": "infra/common.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-20T18:37:38Z",
+      "side": 1,
+      "message": "In thinking about it, we can have 2 classes of cleanup. One for jobs that want to keep artifacts and other that want to clear the build. In this case the entire build directory can be deleted I think.\n\nIn practice under LUCI though, the workspace should be deleted after the job runs right?",
+      "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
