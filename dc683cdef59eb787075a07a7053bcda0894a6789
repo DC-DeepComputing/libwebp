@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "338b639d_40b17dda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-21T01:00:22Z",
+      "side": 1,
+      "message": "Addressed comments",
+      "revId": "dc683cdef59eb787075a07a7053bcda0894a6789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf00c0ef_e233c8fb",
+        "filename": "infra/run_static_analysis.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-21T01:00:22Z",
+      "side": 1,
+      "message": "what are the expectations when creating html reports. I talked to LUCI team and we could use gcs and add links to the build page.",
+      "revId": "dc683cdef59eb787075a07a7053bcda0894a6789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
