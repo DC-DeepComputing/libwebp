@@ -150,14 +150,17 @@
 
    <section anchor="Interop" numbered="true" toc="default">
      <name>Interoperability Considerations</name>
-     <t>The format is defined using little-endian byte ordering (see
-       <xref target="RFC2781" section="3.1"/>), but demuxing and decoding are
+     <t>The format is defined using little-endian byte ordering (see <xref
+       target="RFC2781" section="3.1"/>), but demuxing and decoding are
        possible on platforms using a different ordering with the appropriate
        conversion.
 
        The container is RIFF-based and allows extension via user defined
        chunks, but nothing beyond the chunks defined by the container format
-       <xref target="webp-riff"/> are required for decoding of the image.</t>
+       <xref target="webp-riff"/> are required for decoding of the image. These
+       have been finalized, but were extended in the format's early stages so
+       some older readers may not support lossless or animated image
+       decoding.</t>
    </section>
 
    <section anchor="IANA" numbered="true" toc="default">
@@ -288,7 +291,7 @@
    </references>
    <!-- Change Log
 
-v05 2021-10-22  JWZ   Expanded Security Considerations based on last call feedback
+v05 2021-10-22  JWZ   Expanded Interop/Security based on last call feedback
 v04 2021-10-02  JWZ   Added missing fields from rfc6838#section-5.6
 v03 2021-09-22  JWZ   Set type to informational, updated format links
 v02 2021-08-31  JWZ   Moved WebP references to Normative section
