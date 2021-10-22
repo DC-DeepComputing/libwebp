@@ -139,9 +139,13 @@
    <section anchor="Security" numbered="true" toc="default">
      <name>Security Considerations</name>
      <t>Security risks are similar to other media content and may include
-       buffer overruns and uninitialized data usage as part of the demuxing
-       and decoding process <xref target="cve.mitre.org-libwebp"/>
-       <xref target="crbug-security"/>.</t>
+       integer overflows, out-of-bounds reads and writes to both heap and
+       stack, uninitialized data usage, null pointer references, resource
+       (disk, memory) exhaustion and extended resource usage (long running
+       time) as part of the demuxing and decoding process. These may cause
+       information leakage (memory layout and contents) or crashes and thereby
+       denial of service to an application using the format. <xref
+         target="cve.mitre.org-libwebp"/> <xref target="crbug-security"/>.</t>
    </section>
 
    <section anchor="Interop" numbered="true" toc="default">
@@ -284,6 +288,7 @@
    </references>
    <!-- Change Log
 
+v05 2021-10-22  JWZ   Expanded Security Considerations based on last call feedback
 v04 2021-10-02  JWZ   Added missing fields from rfc6838#section-5.6
 v03 2021-09-22  JWZ   Set type to informational, updated format links
 v02 2021-08-31  JWZ   Moved WebP references to Normative section
