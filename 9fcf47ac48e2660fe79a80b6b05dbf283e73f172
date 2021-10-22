@@ -98,6 +98,24 @@
       "parentUuid": "c8f8791f_325cdfd8",
       "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e858cc1_ba773f17",
+        "filename": "infra/common.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-22T02:03:28Z",
+      "side": 1,
+      "message": "\u003e yes, the LUCI manages a independent /tmp called /cleanup. We wanted the binary check here, right?\n\nNo, in this test all we\u0027re doing is comparing shared object (.so) files and capturing the result. It doesn\u0027t have anything that needs to be archived as part of the process. I don\u0027t think the job is setup to do that anyway.\n\nSo we can just delete the build / temp directory. That\u0027s at least useful in a jenkins run to cleanup a little more quickly, with LUCI it doesn\u0027t matter. As a user it might be helpful to keep the output, but the script can be updated in that case.",
+      "parentUuid": "adad23bd_dd7fb274",
+      "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
