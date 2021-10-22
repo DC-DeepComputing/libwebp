@@ -33,6 +33,24 @@
       "message": "what are the expectations when creating html reports. I talked to LUCI team and we could use gcs and add links to the build page.",
       "revId": "dc683cdef59eb787075a07a7053bcda0894a6789",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d69f53c_3857bec8",
+        "filename": "infra/run_static_analysis.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-22T02:16:42Z",
+      "side": 1,
+      "message": "\u003e what are the expectations when creating html reports. I talked to LUCI team and we could use gcs and add links to the build page.\n\nthese are meant to live as long as the build log does, so it would be good if the results were subject to whatever cleanup is done there.",
+      "parentUuid": "bf00c0ef_e233c8fb",
+      "revId": "dc683cdef59eb787075a07a7053bcda0894a6789",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
