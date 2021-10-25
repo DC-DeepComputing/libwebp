@@ -116,6 +116,24 @@
       "parentUuid": "adad23bd_dd7fb274",
       "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9b22f8e_718d651d",
+        "filename": "infra/common.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-25T20:48:14Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "3e858cc1_ba773f17",
+      "revId": "9fcf47ac48e2660fe79a80b6b05dbf283e73f172",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

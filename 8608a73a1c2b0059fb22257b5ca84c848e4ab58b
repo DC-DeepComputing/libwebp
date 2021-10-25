@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c28ba0d_ed01f46c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-25T20:48:14Z",
+      "side": 1,
+      "message": "replied on cleanup comments",
+      "revId": "8608a73a1c2b0059fb22257b5ca84c848e4ab58b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca9a5527_77b5fde1",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 16
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-25T20:48:14Z",
+      "side": 1,
+      "message": "I updated cleanup here. we remove build directories in workspace. We dont\u0027 remove /tmp dir because we use Jenkin\u0027s $WORKSPACE anyway and that is cleaned up aswell.",
+      "revId": "8608a73a1c2b0059fb22257b5ca84c848e4ab58b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
