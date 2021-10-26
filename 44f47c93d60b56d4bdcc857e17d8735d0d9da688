@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4971195e_bd6376b6",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-26T19:55:39Z",
+      "side": 1,
+      "message": "Not needed, the script will look for the either build-*/ or artifacts/ when $WORKSPACE is set",
+      "parentUuid": "ad37a498_3f20dd22",
+      "revId": "44f47c93d60b56d4bdcc857e17d8735d0d9da688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "72c8a2d2_005c896f",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d48e5ec4_b6266641",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-26T19:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "72c8a2d2_005c896f",
+      "revId": "44f47c93d60b56d4bdcc857e17d8735d0d9da688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78029415_fad9ab5f",
@@ -48,6 +84,24 @@
       "writtenOn": "2021-10-26T00:54:27Z",
       "side": 1,
       "message": "let\u0027s not carry these comments over. I think the script could be simplified since there\u0027s no sharding going on here. The decode0/1 and encode0/1 labels are shards in the other script and to keep the change minimal when forking this one they were serialized.",
+      "revId": "44f47c93d60b56d4bdcc857e17d8735d0d9da688",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe395ff7_afd1b5b9",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 7
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-26T19:55:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78029415_fad9ab5f",
       "revId": "44f47c93d60b56d4bdcc857e17d8735d0d9da688",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
