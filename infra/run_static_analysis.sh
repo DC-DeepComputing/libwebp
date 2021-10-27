@@ -50,14 +50,13 @@ EOF
 
 #######################################
 # Wrap clang-tools scan-build.
-#
-# Args:
-#   $* scan-build additional args.
-# Returns:
-#   scan-build retcode
 # Global:
 #   OUTPUT_DIR target directory where scan-build report is generated.
 #   MODE scan-build mode
+# Arguments:
+#   $* scan-build additional args.
+# Returns:
+#   scan-build retcode
 #######################################
 scan_build() {
   scan-build -o "${OUTPUT_DIR}" --use-analyzer="$(command -v clang)" \
