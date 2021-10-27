@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca2db25a_ee748901",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-27T00:38:30Z",
+      "side": 1,
+      "message": "the logic in jenkins when this script is present is incorrect. It will fail to post a message with the differences if there are any and call a non-existent function given where the block is defined.",
+      "revId": "e325dbe7ffa89036ea78484f4fe7b42abe037e89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
