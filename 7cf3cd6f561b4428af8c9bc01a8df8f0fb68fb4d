@@ -16,6 +16,40 @@
       "message": "Removed comments",
       "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30eb5a3a_1f2db4ea",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-27T00:51:06Z",
+      "side": 1,
+      "message": "use [[ ]]",
+      "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fc22fa7_614a834b",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-27T00:51:06Z",
+      "side": 1,
+      "message": "indent is off, -kp is breaking this, let\u0027s remove it. horizontal whitespace in comments is fragile anyway.",
+      "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
