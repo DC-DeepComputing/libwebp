@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d10437ed_ca90c5f2",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-27T17:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30eb5a3a_1f2db4ea",
+      "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5fc22fa7_614a834b",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b73d0e8_291ed04a",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 165,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-27T17:56:44Z",
+      "side": 1,
+      "message": "Ack to remove -kp",
+      "parentUuid": "5fc22fa7_614a834b",
+      "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2444d6bd_ef92e270",
@@ -65,6 +101,24 @@
       "writtenOn": "2021-10-27T00:53:01Z",
       "side": 1,
       "message": "this should be \u0027Arguments:\u0027 and \u0027Globals:\u0027 should come first:\nhttps://google.github.io/styleguide/shellguide.html#function-comments",
+      "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "443bc081_2e5156c4",
+        "filename": "infra/common.sh",
+        "patchSetId": 10
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-10-27T17:56:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2444d6bd_ef92e270",
       "revId": "7cf3cd6f561b4428af8c9bc01a8df8f0fb68fb4d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
