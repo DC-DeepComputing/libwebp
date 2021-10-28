@@ -87,6 +87,24 @@
       "parentUuid": "2aa2d60c_7561254e",
       "revId": "e325dbe7ffa89036ea78484f4fe7b42abe037e89",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9663ad70_7dd6e060",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 17
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-28T21:02:01Z",
+      "side": 1,
+      "message": "\u003e \u003e changed post_message function\n\u003e \n\u003e This part was still wrong:\n\u003e   if [[ $failed \u003d 0 ]];then\n\u003e     exit 0\n\u003e   else\n\u003e     post_message \"ABI check passed\"\n\u003e     exit 1\n\u003e   fi\n\u003e   \n\u003e The job is non-blocking so always would exit 0:\n\u003e failed\u003dtrue  # true sets $? to 0\n\u003e ...\n\u003e $failed || post_message ...\n\u003e \n\u003e The issue going forward will be that the jenkins job is now duplicating the check even in the presence of the script.\n\n\nLooks like the invocation is also bad and that the binaries will be gone once the script exits:\n\nhttps://build.webmproject.org/jenkins/view/webp/job/libwebp__abi_check/default/2460/console",
+      "parentUuid": "7509e106_550a9d58",
+      "revId": "e325dbe7ffa89036ea78484f4fe7b42abe037e89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
