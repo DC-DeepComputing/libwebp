@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d354f23_c4187446",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "using -sbash with shellcheck misses the fact that this file should have #!/bin/bash.",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da1a9e8_2d4c644a",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "supported target platforms",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12539bad_869fee48",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "this comes first in the list, no space is needed between it and Outputs",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b869c8a_b6c7463f",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "this can be merged with the line above",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7101282_f56cb776",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "I don\u0027t think we\u0027re using this yet",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6005285c_e11bae73",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "this has a couple problems:\n1) it requires the globstar shell option\n2) it will flatten the directory structure",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d4b69b2_69222984",
+        "filename": "infra/common.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "Arguments",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 6
+      },
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f64bdf4a_58cb5145",
+        "filename": "infra/compile.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-10-29T00:39:57Z",
+      "side": 1,
+      "message": "this is unrelated to the change, it can be split out",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
