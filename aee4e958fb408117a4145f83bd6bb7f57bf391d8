@@ -1,0 +1,152 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "698086e5_a76bf588",
+        "filename": "infra/common.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "merge this and the line above",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e465a547_5ecfa3ca",
+        "filename": "infra/common.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "merge this and the line above",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14044e87_5494e7f4",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "merge this and the line above",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d651749_66b849f6",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "merge this and the line below",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "338d5009_ac5d17e7",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "add readonly TEST_DATA_DIR",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b611c3a7_1ceedd5c",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "only x86/x86_64 are given as TARGETs.",
+      "range": {
+        "startLine": 111,
+        "startChar": 2,
+        "endLine": 111,
+        "endChar": 18
+      },
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7f15cbd_cf3fbb9b",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "gcc doesn\u0027t support -fsanitize\u003dinteger or -fsanitize\u003dcfi, we should use clang for consistency",
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d761009_33520c0a",
+        "filename": "infra/run_sanitizer_tests.sh",
+        "patchSetId": 6
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-02T01:54:16Z",
+      "side": 1,
+      "message": "delete this extra space",
+      "range": {
+        "startLine": 308,
+        "startChar": 63,
+        "endLine": 308,
+        "endChar": 64
+      },
+      "revId": "aee4e958fb408117a4145f83bd6bb7f57bf391d8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
