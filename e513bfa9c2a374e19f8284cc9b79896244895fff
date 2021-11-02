@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d09ab974_5e2a43e0",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d354f23_c4187446",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0da1a9e8_2d4c644a",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-10-29T00:39:57Z",
       "side": 1,
       "message": "supported target platforms",
+      "range": {
+        "startLine": 46,
+        "startChar": 12,
+        "endLine": 46,
+        "endChar": 50
+      },
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b7f626_20ca95be",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0da1a9e8_2d4c644a",
       "range": {
         "startLine": 46,
         "startChar": 12,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd55594a_8fb0efe7",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12539bad_869fee48",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1b869c8a_b6c7463f",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-10-29T00:39:57Z",
       "side": 1,
       "message": "this can be merged with the line above",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2582e250_fd6c6284",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 67,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1b869c8a_b6c7463f",
       "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +170,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab4a81d0_25e34c88",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7101282_f56cb776",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6005285c_e11bae73",
@@ -105,6 +201,24 @@
       "writtenOn": "2021-10-29T00:39:57Z",
       "side": 1,
       "message": "this has a couple problems:\n1) it requires the globstar shell option\n2) it will flatten the directory structure",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac62d1b0_80db2f9d",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6005285c_e11bae73",
       "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -132,6 +246,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1e88166_a705faa0",
+        "filename": "infra/common.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d4b69b2_69222984",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 6
+      },
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f64bdf4a_58cb5145",
@@ -145,6 +283,24 @@
       "writtenOn": "2021-10-29T00:39:57Z",
       "side": 1,
       "message": "this is unrelated to the change, it can be split out",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78bc7170_1cc1db58",
+        "filename": "infra/compile.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 264,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-02T23:04:37Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "f64bdf4a_58cb5145",
       "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
