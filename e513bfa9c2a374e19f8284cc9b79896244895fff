@@ -190,6 +190,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c4734c32_8c79cc19",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-03T01:03:34Z",
+      "side": 1,
+      "message": "\u003e Done\n\nthis is still present in the latest patchset. When reviewing your changes try using the range from the patchset with comments to the newest one:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3227734/12..15/infra/build_and_test.sh",
+      "parentUuid": "ab4a81d0_25e34c88",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6005285c_e11bae73",
         "filename": "infra/build_and_test.sh",
         "patchSetId": 12
@@ -219,6 +237,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "6005285c_e11bae73",
+      "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37f78b66_5cbfb994",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 12
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-03T01:03:34Z",
+      "side": 1,
+      "message": "\u003e Done\n\nThis is still present",
+      "parentUuid": "ac62d1b0_80db2f9d",
       "revId": "e513bfa9c2a374e19f8284cc9b79896244895fff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
