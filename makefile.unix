@@ -26,8 +26,8 @@ ifeq ($(strip $(shell uname)), Darwin)
   EXTRA_FLAGS += -fno-common
   EXTRA_FLAGS += -DHAVE_GLUT_GLUT_H
   EXTRA_FLAGS += -Wno-deprecated-declarations
-  EXTRA_FLAGS += -I/opt/local/include
-  EXTRA_LIBS  += -L/opt/local/lib
+  EXTRA_FLAGS += -I/usr/local/include
+  EXTRA_LIBS  += -L/usr/local/lib
   GL_LIBS = -framework GLUT -framework OpenGL
 else
   EXTRA_FLAGS += -I/usr/local/include
