@@ -100,7 +100,13 @@ static WEBP_INLINE uint64_t xgetbv(void) {
 #define xgetbv() 0U  // no AVX for older x64 or unrecognized toolchains.
 #endif
 
-#if defined(__i386__) || defined(__x86_64__) || defined(WEBP_HAVE_MSC_CPUID)
+#if defined(WEBP_USE_WASM)
+static int wasmCPUInfo(CPUFeature feature) {
+  if (feature != kWASM) return 0;
+  return 1;
+}
+VP8CPUInfo VP8GetCPUInfo = wasmCPUInfo;
+#elif defined(__i386__) || defined(__x86_64__) || defined(WEBP_HAVE_MSC_CPUID)
 
 // helper function for run-time detection of slow SSSE3 platforms
 static int CheckSlowModel(int info) {
