@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "055b6529_206fb4b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002029
+      },
+      "writtenOn": "2021-11-04T19:31:32Z",
+      "side": 1,
+      "message": "good catch!",
+      "revId": "50c97c301d7c958f1c76bf38c908f16f2d3ba1a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14a17417_f856e17a",
@@ -14,6 +31,24 @@
       "writtenOn": "2021-11-04T19:09:04Z",
       "side": 1,
       "message": "bad copy/paste",
+      "revId": "50c97c301d7c958f1c76bf38c908f16f2d3ba1a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a154ea0e_a2eb17ec",
+        "filename": "man/webpmux.1",
+        "patchSetId": 4
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002029
+      },
+      "writtenOn": "2021-11-04T19:31:32Z",
+      "side": 1,
+      "message": "ack, my bad.\nLet fix that in a follow-up patch",
+      "parentUuid": "14a17417_f856e17a",
       "revId": "50c97c301d7c958f1c76bf38c908f16f2d3ba1a3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
