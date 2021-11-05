@@ -832,6 +832,9 @@ WEBP_DSP_INIT_FUNC(VP8DspInit) {
       VP8DspInitMSA();
     }
 #endif
+#if defined(WEBP_USE_WASM_SIMD)
+    // TODO: No special implementation for Wasm yet, will be added later.
+#endif
   }
 
 #if defined(WEBP_HAVE_NEON)
