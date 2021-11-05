@@ -33,8 +33,6 @@
 set -xeo pipefail
 shopt -s inherit_errexit
 
-LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
-readonly LIBWEBP_TEST_DATA_REPO
 LIBWEBP_ROOT="$(realpath "$(dirname "$0")/..")"
 readonly LIBWEBP_ROOT
 readonly WORKSPACE=${WORKSPACE:-"$(mktemp -d -t webp.test.XXX)"}
@@ -48,13 +46,19 @@ Usage: $(basename "$0") BUILD_TYPE TARGET
 Options:
 BUILD_TYPE  supported build type: (static, static-debug)
 TARGET      supported target platforms:
+              i686-linux-clang
               i686-w64-mingw32
+              x86_64-linux-clang
               x86_64-w64-mingw32
 Environment variables:
 WORKSPACE   directory where the build is done. If workspace already has
             build-BUILD_TYPE/ or artifacts/, build will be skipped.
 EOF
 }
+
+################################################################################
+
+shard_should_run || exit 0
 
 BUILD_TYPE=${1:?"Build type not defined.$(
   echo
@@ -91,7 +95,7 @@ TEST_LOSSLESS="${TEST_DATA_DIR}/test_lossless.sh"
 for dwebp in "${DECODE_WEBP_BINARIES[@]}"; do
   perl_strip='/dwebp.*\.gcda/ or next; print scalar(split /\//) - 4; last;'
   # strip up to 'build-static'
-  GCOV_PREFIX_STRIP="$(strings "${dwebp}" | perl -ne "${perl_strip}")"
+  GCOV_PREFIX_STRIP="$(strings "${dwebp}" | perl -ne "${perl_strip}" || true)"
   export GCOV_PREFIX_STRIP
   exe="$(get_driver "${TARGET}" "${dwebp}")"
   if [[ -n "${exe}" ]]; then
@@ -142,3 +146,6 @@ done
 
 popd
 date
+
+export WORKSPACE
+"${LIBWEBP_ROOT}/infra/run_scale_tests.sh" "${BUILD_TYPE}" "${TARGET}"
