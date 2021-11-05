@@ -80,9 +80,9 @@ extern "C" {
 #endif
 #endif
 
-#if (defined(EMSCRIPTEN) || defined(WEBP_HAVE_WASM)) && \
-    !defined(WEBP_USE_WASM) && defined(__wasm_simd128__)
-#define WEBP_USE_WASM
+#if (defined(EMSCRIPTEN) || defined(WEBP_HAVE_WASM_SIMD)) && \
+    !defined(WEBP_USE_WASM_SIMD) && defined(__wasm_simd128__)
+#define WEBP_USE_WASM_SIMD
 #endif
 
 // WEBP_HAVE_* are used to indicate the presence of the instruction set in dsp

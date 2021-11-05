@@ -26,8 +26,8 @@
 // SSE2 detection.
 //
 
-// Skip SSE detection if using Wasm build.
-#if defined(WEBP_USE_WASM)
+// Skip SSE detection if using Wasm SIMD build.
+#if defined(WEBP_USE_WASM_SIMD)
 // apple/darwin gcc-4.0.1 defines __PIC__, but not __pic__ with -fPIC.
 #elif (defined(__pic__) || defined(__PIC__)) && defined(__i386__)
 static WEBP_INLINE void GetCPUInfo(int cpu_info[4], int info_type) {
@@ -71,8 +71,8 @@ static WEBP_INLINE void GetCPUInfo(int cpu_info[4], int info_type) {
 
 #endif
 
-// Skip xgetbv definition if using Wasm build.
-#if defined(WEBP_USE_WASM)
+// Skip xgetbv definition if using Wasm SIMD build.
+#if defined(WEBP_USE_WASM_SIMD)
 // NaCl has no support for xgetbv or the raw opcode.
 #elif !defined(__native_client__) && (defined(__i386__) || defined(__x86_64__))
 static WEBP_INLINE uint64_t xgetbv(void) {
@@ -104,7 +104,7 @@ static WEBP_INLINE uint64_t xgetbv(void) {
 #define xgetbv() 0U  // no AVX for older x64 or unrecognized toolchains.
 #endif
 
-#if defined(WEBP_USE_WASM)
+#if defined(WEBP_USE_WASM_SIMD)
 static int wasmCPUInfo(CPUFeature feature) {
   if (feature != kWASM) return 0;
   return 1;

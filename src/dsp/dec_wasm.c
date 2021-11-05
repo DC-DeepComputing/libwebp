@@ -7,9 +7,9 @@
 // be found in the AUTHORS file in the root of the source tree.
 // -----------------------------------------------------------------------------
 //
-// WebAssembly (WASM) version of some decoding functions.
+// WebAssembly (Wasm) version of some decoding functions.
 //
 // This will contain Wasm implementation of some decoding functions.
 
-#if defined(WEBP_USE_WASM)
-#endif  // WEBP_USE_WASM
+#if defined(WEBP_USE_WASM_SIMD)
+#endif  // WEBP_USE_WASM_SIMD

@@ -36,7 +36,7 @@ function(webp_check_compiler_flag WEBP_SIMD_FLAG ENABLE_SIMD)
 endfunction()
 
 # those are included in the names of WEBP_USE_* in c++ code.
-set(WEBP_SIMD_FLAGS "WASM;SSE41;SSE2;MIPS32;MIPS_DSP_R2;NEON;MSA")
+set(WEBP_SIMD_FLAGS "WASM_SIMD;SSE41;SSE2;MIPS32;MIPS_DSP_R2;NEON;MSA")
 set(WEBP_SIMD_FILE_EXTENSIONS
     "_wasm.c;_sse41.c;_sse2.c;_mips32.c;_mips_dsp_r2.c;_neon.c;_msa.c")
 if(MSVC AND CMAKE_C_COMPILER_ID STREQUAL "MSVC")
@@ -80,9 +80,9 @@ foreach(I_SIMD RANGE ${WEBP_SIMD_FLAGS_RANGE})
   if(EMSCRIPTEN AND ${I_SIMD} GREATER_EQUAL 5)
     break()
   endif()
-  # Emscripten supports SSE via compat headers, if WEBP_ENABLED_WASM is
+  # Emscripten supports SSE via compat headers, if WEBP_ENABLED_WASM_SIMD is
   # specified skip testing those (because it will succeed).
-  if (EMSCRIPTEN AND ${I_SIMD} GREATER_EQUAL 1 AND ${WEBP_ENABLE_WASM})
+  if (EMSCRIPTEN AND ${I_SIMD} GREATER_EQUAL 1 AND ${WEBP_ENABLE_WASM_SIMD})
     break()
   endif()
 
