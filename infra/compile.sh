@@ -30,8 +30,11 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 set -xe
+shopt -s inherit_errexit
+
 LIBWEBP_ROOT="$(realpath "$(dirname "$0")/..")"
-WORKSPACE=${WORKSPACE:-"$(mktemp -d -t webp.XXX)"}
+readonly LIBWEBP_ROOT
+readonly WORKSPACE=${WORKSPACE:-"$(mktemp -d -t webp.XXX)"}
 
 # shellcheck source=infra/common.sh
 source "${LIBWEBP_ROOT}/infra/common.sh"
@@ -396,6 +399,6 @@ cd "${LIBWEBP_ROOT}"
 
 cd "${BUILD_DIR}"
 "${LIBWEBP_ROOT}/configure" \
-  --host "${TARGET}" --build "$("${LIBWEBP_ROOT}/config.guess")" \
+  --host "${TARGET}" --build "$("${LIBWEBP_ROOT}/config.guess" || true)" \
   --enable-everything "${config_flags[@]}"
 make -j V=1
