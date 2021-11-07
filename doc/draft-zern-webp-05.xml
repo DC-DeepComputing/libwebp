@@ -48,9 +48,8 @@
    <keyword>WebP</keyword>
 
    <abstract>
-   <t>WebP is a RIFF-based image file format which supports lossless and lossy
-     compression as well as alpha (transparency) and animation. It covers use
-     cases similar to JPEG, PNG and GIF.</t>
+   <t>This document provides the Media Type Registration for the subtype
+     image/webp.</t>
    </abstract>
  </front>
 
