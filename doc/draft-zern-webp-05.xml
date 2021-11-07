@@ -144,8 +144,12 @@
        (disk, memory) exhaustion and extended resource usage (long running
        time) as part of the demuxing and decoding process. These may cause
        information leakage (memory layout and contents) or crashes and thereby
-       denial of service to an application using the format. <xref
+       denial of service to an application using the format <xref
          target="cve.mitre.org-libwebp"/> <xref target="crbug-security"/>.</t>
+     <t>The format does not employ "active content", but does allow metadata
+       (<xref target="XMP"/>, <xref target="Exif"/>) and custom chunks to be
+       embedded in a file. Applications that interpret these chunks may be
+       subject to security considerations for those formats.</t>
    </section>
 
    <section anchor="Interop" numbered="true" toc="default">
@@ -228,6 +232,20 @@
          </front>
        </reference>
 
+       <reference anchor="Exif"
+         target="https://www.cipa.jp/std/documents/e/DC-X008-Translation-2019-E.pdf">
+         <front>
+           <title>Exchangeable image file format for digital still cameras:
+             Exif Version 2.32</title>
+           <author>
+             <organization>Camera &amp; Imaging Products Association
+               (CIPA)</organization>
+             <organization>Japan Electronics and Information Technology
+               Industries Association (JEITA)</organization>
+           </author>
+         </front>
+       </reference>
+
        <reference anchor="gif-spec"
          target="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">
          <front>
@@ -284,6 +302,16 @@
              1.0</title>
            <author>
              <organization/>
+           </author>
+         </front>
+       </reference>
+
+       <reference anchor="XMP"
+         target="https://www.adobe.com/devnet/xmp.html">
+         <front>
+           <title>XMP Specification</title>
+           <author>
+             <organization>Adobe Inc.</organization>
            </author>
          </front>
        </reference>
