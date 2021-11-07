@@ -169,8 +169,9 @@
 
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
-     <t>IANA has updated the "Image Media Types" registry to include
-       'image/webp' as described in <xref target="webp-media-type"/>.</t>
+     <t>IANA has updated the <xref target="IANA-Media-Types">"Image Media
+       Types" registry</xref> to include 'image/webp' as described in <xref
+         target="webp-media-type"/>.</t>
    </section>
  </middle>
 
@@ -265,6 +266,17 @@
              <organization/>
            </author>
            <date month="September" year="1952" />
+         </front>
+       </reference>
+
+       <reference anchor="IANA-Media-Types"
+         target="https://www.iana.org/assignments/media-types/media-types.xhtml">
+         <front>
+           <title>Media Types</title>
+           <author>
+             <organization>Internet Assigned Numbers Authority
+               (IANA)</organization>
+           </author>
          </front>
        </reference>
 
