@@ -233,14 +233,13 @@
        </reference>
 
        <reference anchor="Exif"
-         target="https://www.cipa.jp/std/documents/e/DC-X008-Translation-2019-E.pdf">
+         target="https://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf">
          <front>
            <title>Exchangeable image file format for digital still cameras:
-             Exif Version 2.32</title>
+             Exif Version 2.3</title>
            <author>
              <organization>Camera &amp; Imaging Products Association
-               (CIPA)</organization>
-             <organization>Japan Electronics and Information Technology
+               (CIPA), Japan Electronics and Information Technology
                Industries Association (JEITA)</organization>
            </author>
          </front>
