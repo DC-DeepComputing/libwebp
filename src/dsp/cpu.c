@@ -106,7 +106,7 @@ static WEBP_INLINE uint64_t xgetbv(void) {
 
 #if defined(WEBP_USE_WASM_SIMD)
 static int wasmCPUInfo(CPUFeature feature) {
-  if (feature != kWASM) return 0;
+  if (feature != kWasmSIMD) return 0;
   return 1;
 }
 VP8CPUInfo VP8GetCPUInfo = wasmCPUInfo;

@@ -11,5 +11,22 @@
 //
 // This will contain Wasm implementation of some decoding functions.
 
+#include "./dsp.h"
+
 #if defined(WEBP_USE_WASM_SIMD)
+
+//------------------------------------------------------------------------------
+// Entry point
+
+extern void VP8DspInitWASM(void);
+
+WEBP_TSAN_IGNORE_FUNCTION void VP8DspInitWASM(void) {
+  // TODO(crbug.com/v8/12371): No special implementation for Wasm yet, will be
+  // added later.
+}
+
+#else
+
+WEBP_DSP_INIT_STUB(VP8DspInitWasmSIMD)
+
 #endif  // WEBP_USE_WASM_SIMD

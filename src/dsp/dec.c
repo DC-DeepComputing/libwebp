@@ -740,6 +740,7 @@ extern void VP8DspInitNEON(void);
 extern void VP8DspInitMIPS32(void);
 extern void VP8DspInitMIPSdspR2(void);
 extern void VP8DspInitMSA(void);
+extern void VP8DspInitWasmSIMD(void);
 
 WEBP_DSP_INIT_FUNC(VP8DspInit) {
   VP8InitClipTables();
@@ -833,7 +834,9 @@ WEBP_DSP_INIT_FUNC(VP8DspInit) {
     }
 #endif
 #if defined(WEBP_USE_WASM_SIMD)
-    // TODO: No special implementation for Wasm yet, will be added later.
+    if (VP8GetCPUInfo(kWasmSIMD)) {
+      VP8DspInitWasmSIMD();
+    }
 #endif
   }
 

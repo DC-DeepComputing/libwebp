@@ -263,7 +263,7 @@ typedef enum {
   kMIPS32,
   kMIPSdspR2,
   kMSA,
-  kWASM
+  kWasmSIMD
 } CPUFeature;
 // returns true if the CPU supports the feature.
 typedef int (*VP8CPUInfo)(CPUFeature feature);
