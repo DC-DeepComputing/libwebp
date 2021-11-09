@@ -28,6 +28,8 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+export LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
+
 log_err() {
   local date_fmt
   date_fmt="$(date +'%Y-%m-%dT%H:%M:%S%z')"
@@ -176,8 +178,9 @@ ensure_artifacts() {
 get_driver() {
   local exe
   case "$1" in
-    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *-w64-mingw32) exe="wine" ;;
+    *-linux-clang) ;;
     *) return 1 ;;  # Unsupported target host.
   esac
-  echo "${exe} $2"
+  echo "${exe:+${exe} }$2"
 }
