@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa239d13_cfc27887",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T00:51:45Z",
+      "side": 1,
+      "message": "Sorry for the delay on this one. I think we\u0027ll want to add a compile configuration in jenkins for this.",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "180f68e6_82517967",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T00:51:45Z",
+      "side": 1,
+      "message": "we had this forced version earlier",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "78d0e4a7_a298ddc1",
+        "filename": "src/dsp/dec.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T00:51:45Z",
+      "side": 1,
+      "message": "is there a tracking bug for this work so we can add TODO(b/..., webp:... or crbug.com/...)?",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73aed089_69d7af69",
+        "filename": "src/dsp/dec_wasm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T00:51:45Z",
+      "side": 1,
+      "message": "we like to have stubs in files like these so all the files can be built without producing any warnings regardless of the configuration; for example:\n\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.1/src/dsp/dec_sse2.c#1225",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
