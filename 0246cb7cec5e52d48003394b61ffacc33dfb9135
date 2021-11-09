@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "279aaf18_1566619f",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-09T15:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "84cea6e0_0f792dde",
+      "range": {
+        "startLine": 32,
+        "startChar": 39,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6081f8f0_2b800c6f",
@@ -37,6 +61,24 @@
       "writtenOn": "2021-11-09T02:21:49Z",
       "side": 1,
       "message": "this wouldn\u0027t trigger set -e",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b578021_350edf18",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-09T15:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6081f8f0_2b800c6f",
       "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d92f7f5_7ae5b66a",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-09T15:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d07e6e63_e4e788d8",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "37e9c5dd_fe15abda",
@@ -71,6 +131,24 @@
       "writtenOn": "2021-11-09T02:21:49Z",
       "side": 1,
       "message": "this isn\u0027t used yet. let\u0027s add it when it\u0027s needed",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63beeca4_ee619224",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-09T15:36:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "37e9c5dd_fe15abda",
       "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
