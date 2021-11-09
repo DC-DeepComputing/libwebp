@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84cea6e0_0f792dde",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T02:21:49Z",
+      "side": 1,
+      "message": "date should always succeed. I don\u0027t think we want to hide system configuration issues",
+      "range": {
+        "startLine": 32,
+        "startChar": 39,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6081f8f0_2b800c6f",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T02:21:49Z",
+      "side": 1,
+      "message": "this wouldn\u0027t trigger set -e",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d07e6e63_e4e788d8",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T02:21:49Z",
+      "side": 1,
+      "message": "sort these or use .../[cd]webp",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37e9c5dd_fe15abda",
+        "filename": "infra/common.sh",
+        "patchSetId": 20
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-09T02:21:49Z",
+      "side": 1,
+      "message": "this isn\u0027t used yet. let\u0027s add it when it\u0027s needed",
+      "revId": "0246cb7cec5e52d48003394b61ffacc33dfb9135",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
