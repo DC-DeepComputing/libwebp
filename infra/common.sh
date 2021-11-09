@@ -28,8 +28,12 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+export LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
+
 log_err() {
-  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z' || true)]: $*" >&2
+  local date_fmt
+  date_fmt="$(date +'%Y-%m-%dT%H:%M:%S%z')"
+  echo "[${date_fmt}]: $*" >&2
 }
 
 #######################################
@@ -72,7 +76,9 @@ cleanup() {
 #   None
 #######################################
 setup_ccache() {
-  if [[ -x "$(command -v ccache || true)" ]]; then
+  local command_ccache
+  command_ccache="$(command -v ccache)"
+  if [[ -x "${command_ccache}" ]]; then
     export CCACHE_CPP2=yes
     export PATH="/usr/lib/ccache:${PATH}"
   fi
@@ -155,9 +161,7 @@ ensure_artifacts() {
 
   make_build_dir "${artifacts_dir}"
 
-  cp "${build_dir}/examples/dwebp"* "${artifacts_dir}"
-  cp "${build_dir}/examples/cwebp"* "${artifacts_dir}"
-  cp "${build_dir}/extras/get_disto"* "${artifacts_dir}"
+  cp "${build_dir}/examples/"[cd]webp* "${artifacts_dir}"
   echo "${artifacts_dir}"
 }
 
@@ -166,14 +170,17 @@ ensure_artifacts() {
 # Arguments:
 #   $1 target host
 #   $2 target binary
-# Output:
+# Outputs:
 #   command executable (i.e. wine webp.exe)
+# Returns:
+#   non-zero when target host is not supported
 #######################################
 get_driver() {
   local exe
   case "$1" in
-    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *-w64-mingw32) exe="wine" ;;
+    *-linux-clang) ;;
     *) return 1 ;;  # Unsupported target host.
   esac
-  echo "${exe} $2"
+  echo "${exe:+${exe}}$2"
 }
