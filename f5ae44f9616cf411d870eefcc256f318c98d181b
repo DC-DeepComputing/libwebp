@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3afc1cc5_03a6c474",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-09T21:23:08Z",
+      "side": 1,
+      "message": "This is still useful if we want to use Emscripten\u0027s SSE compat headers.\n\nThese are the cases I can think of:\n-DWEBP_ENABLE_WASM_SIMD\u003dON -\u003e use Wasm intrinsics (dec_wasm.c)\n-WEBP_ENABLE_WASM_SIMD\u003dOFF -\u003e use SSE compat headers\n\nIf we remove this, users will have to pass CFLAGS\u003d\"-msimd128 -msse2\" to use compat headers.",
+      "parentUuid": "180f68e6_82517967",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "78d0e4a7_a298ddc1",
         "filename": "src/dsp/dec.c",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2021-11-09T00:51:45Z",
       "side": 1,
       "message": "is there a tracking bug for this work so we can add TODO(b/..., webp:... or crbug.com/...)?",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4cc09ce_cc791235",
+        "filename": "src/dsp/dec.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 836,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-09T21:23:08Z",
+      "side": 1,
+      "message": "Filed one and added.",
+      "parentUuid": "78d0e4a7_a298ddc1",
       "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2021-11-09T00:51:45Z",
       "side": 1,
       "message": "we like to have stubs in files like these so all the files can be built without producing any warnings regardless of the configuration; for example:\n\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.1/src/dsp/dec_sse2.c#1225",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94a17a2c_cb660399",
+        "filename": "src/dsp/dec_wasm.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-09T21:23:08Z",
+      "side": 1,
+      "message": "Tried adding stubs, getting linking errors:\n```\n: \u0026\u0026 /usr/local/google/home/zhin/src/emsdk/upstream/emscripten/emcc -pthread -O3 -DNDEBUG  CMakeFiles/cwebp.dir/examples/cwebp.c.o -o cwebp.js  libexampleutil.a  libimagedec.a  libwebp.a  libimageioutil.a  libwebpdemux.a  libwebp.a \u0026\u0026 :\nerror: undefined symbol: VP8DspInitWasmSIMD (referenced by top-level compiled C/C++ code)\nwarning: Link with `-s LLD_REPORT_UNDEFINED` to get more information on undefined symbols\nwarning: To disable errors for undefined symbols use `-s ERROR_ON_UNDEFINED_SYMBOLS\u003d0`\nwarning: _VP8DspInitWasmSIMD may need to be added to EXPORTED_FUNCTIONS if it arrives from a system library\nError: Aborting compilation due to previous errors\nemcc: error: \u0027/usr/local/google/home/zhin/ssd2/emsdk/node/14.15.5_64bit/bin/node /usr/local/google/home/zhin/ssd2/emsdk/upstream/emscripten/src/compiler.js /usr/local/google/home/zhin/tmp/tmp4v4q08x9.txt\u0027 failed (returned 1)\n[204/204] Linking C executable webpinfo.js\n```\n\nI think i\u0027m missing something.",
+      "parentUuid": "73aed089_69d7af69",
       "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
