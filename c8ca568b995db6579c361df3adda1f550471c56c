@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da96cb57_a32de0ee",
+        "filename": "infra/run_decode_tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:17:41Z",
+      "side": 1,
+      "message": "this is unneeded",
+      "revId": "c8ca568b995db6579c361df3adda1f550471c56c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7d4dd01_a54e5c74",
+        "filename": "infra/run_decode_tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:17:41Z",
+      "side": 1,
+      "message": "this isn\u0027t necessary",
+      "range": {
+        "startLine": 128,
+        "startChar": 69,
+        "endLine": 128,
+        "endChar": 77
+      },
+      "revId": "c8ca568b995db6579c361df3adda1f550471c56c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38b7d4d7_82fda140",
+        "filename": "infra/run_decode_tests.sh",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:17:41Z",
+      "side": 1,
+      "message": "this is a bit verbose. let\u0027s move some of the summary information into another function. I can send something for that.",
+      "revId": "c8ca568b995db6579c361df3adda1f550471c56c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
