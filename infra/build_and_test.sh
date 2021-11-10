@@ -33,8 +33,6 @@
 set -xeo pipefail
 shopt -s inherit_errexit
 
-LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
-readonly LIBWEBP_TEST_DATA_REPO
 LIBWEBP_ROOT="$(realpath "$(dirname "$0")/..")"
 readonly LIBWEBP_ROOT
 readonly WORKSPACE=${WORKSPACE:-"$(mktemp -d -t webp.test.XXX)"}
@@ -73,7 +71,7 @@ if [[ ! -d "${BUILD_DIR}" ]]; then
   [[ -d "${BUILD_DIR}" ]] || exit 1
 fi
 
-ARTIFACTS_DIR="$(ensure_artifacts "${BUILD_DIR}")"
+ARTIFACTS_DIR="$(ensure_artifacts "${BUILD_DIR}" "${TARGET}")"
 TEST_DATA_DIR="$(ensure_libwebp_dependency_repo "${LIBWEBP_TEST_DATA_REPO}")"
 
 find_artifacts="$(find "${ARTIFACTS_DIR}" -name 'dwebp' -o -name 'dwebp.exe')"

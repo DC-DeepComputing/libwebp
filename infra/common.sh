@@ -28,6 +28,8 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+export LIBWEBP_TEST_DATA_REPO="https://chromium.googlesource.com/webm/libwebp-test-data"
+
 log_err() {
   local date_fmt
   date_fmt="$(date +'%Y-%m-%dT%H:%M:%S%z')"
@@ -138,6 +140,7 @@ ensure_libwebp_dependency_repo() {
 #  WORKSPACE directory where the build is done.
 # Arguments:
 #   $1 build directory's path
+#   $2 supported target platform
 # Outputs:
 #   artifacts directory
 # Returns:
@@ -146,20 +149,32 @@ ensure_libwebp_dependency_repo() {
 #######################################
 ensure_artifacts() {
   local build_dir="$1"
+  local target="$2"
   local artifacts_dir="${WORKSPACE}/artifacts"
 
-  if [[ "$#" -ne 1 ]]; then
+  if [[ "$#" -ne 2 ]]; then
     return 1
   fi
 
-  if [[ -d "${artifacts_dir}" ]]; then
-    echo "${artifacts_dir}"
-    return 0
+  if [[ ! -d "${artifacts_dir}" ]]; then
+    make_build_dir "${artifacts_dir}"
+
+    cp "${build_dir}/examples/"[cd]webp* "${artifacts_dir}"
+    cp "${build_dir}/extras/"get_disto* "${artifacts_dir}"
   fi
 
-  make_build_dir "${artifacts_dir}"
+  # only the recently added cmake config should ever have no artifacts
+  empty_artifacts="$(ls "${artifacts_dir}")"
+  case "${target}" in
+    cmake | wasm)
+      [[ -z "${empty_artifacts}" ]] && exit 0
+      ;;
+    reduce-size | disable-stats | reduce-size-disable-stats | reduce-csp)
+      [[ -z "${empty_artifacts}" ]] && exit 0
+      ;;
+    *) ;;  # Skip configuration
+  esac
 
-  cp "${build_dir}/examples/"[cd]webp* "${artifacts_dir}"
   echo "${artifacts_dir}"
 }
 
@@ -176,8 +191,19 @@ ensure_artifacts() {
 get_driver() {
   local exe
   case "$1" in
-    i686-w64-mingw32 | x86_64-w64-mingw32) exe="wine" ;;
+    *-w64-mingw32) exe="wine" ;;
+    aarch64-linux-*)
+      exe="qemu-aarch64 -L /usr/aarch64-linux-gnu"
+      ;;
+    arm-linux-gnueabi | arm-neon-linux-gnueabi)
+      exe="qemu-arm -L /usr/arm-linux-gnueabi"
+      ;;
+    disable-near-lossless | disable-sse4.1 | disable-stats) ;;
+    visibility-*) ;;
+    i686-linux-* | x86_64-linux-*) ;;
+    cmake | wasm) ;;
+    reduce-size | reduce-size-disable-stats | reduce-csp) ;;
     *) return 1 ;;  # Unsupported target host.
   esac
-  echo "${exe} $2"
+  echo "${exe:+${exe} }$2"
 }
