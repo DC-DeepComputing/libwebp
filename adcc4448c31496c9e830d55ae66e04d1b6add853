@@ -16,6 +16,23 @@
       "message": "Addressed comments",
       "revId": "adcc4448c31496c9e830d55ae66e04d1b6add853",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "72354d50_189c7cb4",
+        "filename": "infra/build_and_test.sh",
+        "patchSetId": 21
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:12:17Z",
+      "side": 1,
+      "message": "this is inconsistent with the cwebp portion. I don\u0027t believe || true was ever necessary since this isn\u0027t a simple command so set -e won\u0027t have an effect.",
+      "revId": "adcc4448c31496c9e830d55ae66e04d1b6add853",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
