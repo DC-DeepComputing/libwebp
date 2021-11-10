@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b62d5ec_3ab20b79",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 22
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-10T06:21:55Z",
+      "side": 1,
+      "message": "Changed \u0027|| true\u0027 to use find_artifacts",
+      "revId": "8a7aa0db3b613222052fb0b1abf1b90684c101a9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
