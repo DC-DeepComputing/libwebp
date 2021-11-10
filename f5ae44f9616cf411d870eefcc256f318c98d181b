@@ -71,6 +71,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68dd9ca0_83e9ad60",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-10T18:52:46Z",
+      "side": 1,
+      "message": "I added the emscripten check back in here, CFLAGS won\u0027t work since the cpu check doesn\u0027t check it at all. If we remove it, there\u0027s no way to use the compat headers. I also added a comment to CMakeLists.txt documenting how to use Wasm SIMD intrinsics v.s. compat headers.",
+      "parentUuid": "6105a67f_d5daea56",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78d0e4a7_a298ddc1",
