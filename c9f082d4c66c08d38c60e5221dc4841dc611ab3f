@@ -16,6 +16,23 @@
       "message": "Updated checks from shellcheck 0.8.0.\ntested abicheck directly",
       "revId": "c9f082d4c66c08d38c60e5221dc4841dc611ab3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b3b11ee_e3d4a93f",
+        "filename": "infra/abicheck.sh",
+        "patchSetId": 25
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-11-10T06:26:00Z",
+      "side": 1,
+      "message": "set +e allows to evaluate all libraries without exit when abidiff returns non-zero",
+      "revId": "c9f082d4c66c08d38c60e5221dc4841dc611ab3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
