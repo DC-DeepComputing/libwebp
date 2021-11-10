@@ -33,6 +33,24 @@
       "message": "Also, I realize WEBP_ENABLE_WASM_SIMD doesn\u0027t work as I wanted, setting -D WEBP_ENABLE_WASM_SIMD\u003dOFF will still enable the Wasm SIMD it looks like.",
       "revId": "591c20160dba1cca904ffa393eecca894cb1cc25",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72326bb5_ec03cde8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:29:07Z",
+      "side": 1,
+      "message": "\u003e Sorry, I have no idea why things are failing, the logs don\u0027t show me anything useful:\n\u003e \n\u003e 13:33:05 + use_script\u003d\u0027[[\u0027\n\u003e 13:33:05 + -f /var/jenkins/workspace/libwebp__test/config/static-debug/host/disable-stats/type/encode6/libwebp/infra/run_encode_tests.sh \u0027]]\u0027\n\u003e 13:33:05 /var/jenkins/tmp/jenkins3055387708188308880.sh: line 29: -f: command not found\n\nLooks like there was a bad edit on the test script. I\u0027ll check it out.",
+      "parentUuid": "7a99d103_00fec2f6",
+      "revId": "591c20160dba1cca904ffa393eecca894cb1cc25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

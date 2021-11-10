@@ -53,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6105a67f_d5daea56",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-10T02:29:07Z",
+      "side": 1,
+      "message": "\u003e This is still useful if we want to use Emscripten\u0027s SSE compat headers.\n\u003e \n\u003e These are the cases I can think of:\n\u003e -DWEBP_ENABLE_WASM_SIMD\u003dON -\u003e use Wasm intrinsics (dec_wasm.c)\n\u003e -WEBP_ENABLE_WASM_SIMD\u003dOFF -\u003e use SSE compat headers\n\u003e \n\u003e If we remove this, users will have to pass CFLAGS\u003d\"-msimd128 -msse2\" to use compat headers.\n\nI forgot about the compat header path. This is fine, maybe we could use a comment.",
+      "parentUuid": "3afc1cc5_03a6c474",
+      "revId": "f5ae44f9616cf411d870eefcc256f318c98d181b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "78d0e4a7_a298ddc1",
