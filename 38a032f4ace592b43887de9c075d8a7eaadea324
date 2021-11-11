@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "56d58a89_42f7e136",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-11T23:27:44Z",
+      "side": 1,
+      "message": "I added some coverage for this target. The next failures should be legitimate.",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cadb9b0d_5d1b6964",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-11T23:27:44Z",
+      "side": 1,
+      "message": "the other examples here aren\u0027t a help, but for these flags we typically pull the from config.h with a WEBP_HAVE_xxx. Take a look at what is generated in src/webp/config.h for e.g., NEON and cmake/config.h.in",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
