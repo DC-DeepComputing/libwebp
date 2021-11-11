@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a58f84d9_4fdd983a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-11T03:56:26Z",
+      "side": 1,
+      "message": "add \u0027Bug: v8:12371\u0027",
+      "revId": "aaa8d31d5a208228563fce4e88f70ffb177db5e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "853773e8_3c70dd7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-11T03:56:26Z",
+      "side": 1,
+      "message": "I see about having jenkins target WEBP_ENABLE_WASM_SIMD. Is the change otherwise in a good state to review?",
+      "revId": "aaa8d31d5a208228563fce4e88f70ffb177db5e1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
