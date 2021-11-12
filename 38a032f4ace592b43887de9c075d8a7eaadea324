@@ -87,6 +87,24 @@
       "parentUuid": "6389272f_119f5bdf",
       "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28271092_cd75d759",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-12T18:08:25Z",
+      "side": 1,
+      "message": "I think this happens because:\n1. WEBP_ENABLE_WASM_SIMD\u003dON (this defines WEBP_USE_WASM_SIMD)\n2. WEBP_ENABLE_SIMD\u003dOFF\n\nFor 1. we then try to call VP8InitWasmSIMD\nBut due to 2, we skip including dec_wasm.c (in cpu.cmake)",
+      "parentUuid": "8b81fbab_073e6c6e",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
