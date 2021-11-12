@@ -69,6 +69,24 @@
       "parentUuid": "cadb9b0d_5d1b6964",
       "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b81fbab_073e6c6e",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-12T18:05:41Z",
+      "side": 1,
+      "message": "Something is probably wrong with the way the Wasm config is set up.\nIt looks like we have WEBP_USE_WASM_SIMD but dec_wasm is not included, thus link error.\nI can fix it by checking:\n\nif (WEBP_ENABLE_WASM_SIMD)\n  set(WEBP_ENABLE_SIMD ON)\nendif()\n\nNot sure if that\u0027s okay.",
+      "parentUuid": "6389272f_119f5bdf",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
