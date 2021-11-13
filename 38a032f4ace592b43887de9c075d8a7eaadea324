@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "eb1ca539_827218a0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-13T03:36:30Z",
+      "side": 1,
+      "message": "\u003e Thanks, i see from the failure logs that we are calling \"cmake\", not \"emcmake\", I think we need to use \"emcmake\" to test it correctly.\n\u003e And also we want -DWEBP_BUILD_WEBP_JS\u003dON?\n\nwe have a separate webp_js compile that I hadn\u0027t updated when I reran this one. I think that should cover both now.",
+      "parentUuid": "7dea45f3_b285fac5",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "cadb9b0d_5d1b6964",
         "filename": "CMakeLists.txt",
         "patchSetId": 9
@@ -103,6 +121,24 @@
       "side": 1,
       "message": "I think this happens because:\n1. WEBP_ENABLE_WASM_SIMD\u003dON (this defines WEBP_USE_WASM_SIMD)\n2. WEBP_ENABLE_SIMD\u003dOFF\n\nFor 1. we then try to call VP8InitWasmSIMD\nBut due to 2, we skip including dec_wasm.c (in cpu.cmake)",
       "parentUuid": "8b81fbab_073e6c6e",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9ea5532_14e5eed0",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-13T03:36:30Z",
+      "side": 1,
+      "message": "\u003e I think this happens because:\n\u003e 1. WEBP_ENABLE_WASM_SIMD\u003dON (this defines WEBP_USE_WASM_SIMD)\n\u003e 2. WEBP_ENABLE_SIMD\u003dOFF\n\u003e \n\u003e For 1. we then try to call VP8InitWasmSIMD\n\u003e But due to 2, we skip including dec_wasm.c (in cpu.cmake)\n\nThe point with the stubs is that it can always be included in the build. Then which path is used is based on this detection.",
+      "parentUuid": "28271092_cd75d759",
       "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
