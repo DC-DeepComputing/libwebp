@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97241649_ba5798c8",
+        "filename": "cmake/config.h.in",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-16T02:59:42Z",
+      "side": 1,
+      "message": "src/webp/config.in.h should get this change too. autoconf was the original build system and is the source of truth for config.h and source lists if not all configurations like emscripten.",
+      "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7123807c_640eca46",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-16T02:59:42Z",
+      "side": 1,
+      "message": "I\u0027m not sure if we need this extra flag if we rely on WEBP_HAVE_WASM_SIMD",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 62
+      },
+      "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
