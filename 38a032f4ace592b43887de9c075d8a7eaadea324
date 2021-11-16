@@ -159,6 +159,24 @@
       "parentUuid": "b9ea5532_14e5eed0",
       "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70d3ad90_30869b9e",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-16T02:54:53Z",
+      "side": 1,
+      "message": "\u003e The wasm simd stubs can always be included, by cmake isn\u0027t including them when we have WEBP_ENABLE_SIMD\u003dOFF and WEBP_ENABLE_WASM_SIMD\u003dON. I fixed this by disabled WASM_SIMD if SIMD is OFF.\n\nin that case there may have been a mismatch between WEBP_USE_WASM_SIMD and cmake since the call is guarded in dsp/dec.c",
+      "parentUuid": "d6dffa09_4591ae18",
+      "revId": "38a032f4ace592b43887de9c075d8a7eaadea324",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
