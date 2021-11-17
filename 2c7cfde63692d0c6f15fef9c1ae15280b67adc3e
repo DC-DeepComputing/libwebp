@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dbb31e7_ce69ac8e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-17T20:38:04Z",
+      "side": 1,
+      "message": "https might be overkill, but at least it forced some review of other links...",
+      "revId": "2c7cfde63692d0c6f15fef9c1ae15280b67adc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
