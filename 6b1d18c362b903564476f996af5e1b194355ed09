@@ -34,6 +34,24 @@
       "parentUuid": "3172dbe2_96fa9f57",
       "revId": "6b1d18c362b903564476f996af5e1b194355ed09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c4b6456_e56c1f7a",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-18T03:18:51Z",
+      "side": 0,
+      "message": "\u003e Yes, we want to build dwebp, we can build it without issues. And it\u0027s easier for testing.\n\nthe job on jenkins can handle that (the webp_js jobs is set to enable those now) and locally -DWEBP_BUILD_DWEBP\u003d1 works",
+      "parentUuid": "c1978521_0faf2c9a",
+      "revId": "6b1d18c362b903564476f996af5e1b194355ed09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e857a573_995f92ad",
+        "filename": "cmake/config.h.in",
+        "patchSetId": 12
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-18T03:18:51Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see the source file src/webp/config.in.h https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/webp/ which file is it?\n\nsorry about that, I may have been thinking of something different. these come from AC_DEFINEs in configure.ac. so if we don\u0027t want to support wasm through autoconf that\u0027s fine for now.",
+      "parentUuid": "434bc72a_7c1c353e",
+      "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7123807c_640eca46",
@@ -73,6 +91,30 @@
       "side": 1,
       "message": "I think we want this flag to support all these cases:\n1. Wasm (no SIMD)\n2. Wasm SIMD via SSE compat headers\n3. Wasm SIMD via intrinsics (dec_wasm)\n\nWEBP_USE_SIMD\u003dOFF will set WEBP_HAVE_WASM_SIMD\u003dOFF, so we will not use SIMD at all.\nWEBP_USE_SIMD\u003dON cannot distinguish between case 2 and 3 if we don\u0027t have WEBP_ENABLE_WASM_SIMD. Because in cpu.cmake, it tries -msimd128, and the compile check will succeed, so we always first hit case 3.",
       "parentUuid": "7123807c_640eca46",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 62
+      },
+      "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47d1353a_7a001cb6",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-18T03:18:51Z",
+      "side": 1,
+      "message": "\u003e I think we want this flag to support all these cases:\n\u003e 1. Wasm (no SIMD)\n\u003e 2. Wasm SIMD via SSE compat headers\n\u003e 3. Wasm SIMD via intrinsics (dec_wasm)\n\u003e \n\u003e WEBP_USE_SIMD\u003dOFF will set WEBP_HAVE_WASM_SIMD\u003dOFF, so we will not use SIMD at all.\n\u003e WEBP_USE_SIMD\u003dON cannot distinguish between case 2 and 3 if we don\u0027t have WEBP_ENABLE_WASM_SIMD. Because in cpu.cmake, it tries -msimd128, and the compile check will succeed, so we always first hit case 3.\n\nso then we just need WEBP_HAVE_WASM_SIMD and a check on __wasm_simd128__ to make sure we can target it, kind of like we\u0027re doing for NEON. The USE in this case means targeting the architecture so the intrinsics can be built.",
+      "parentUuid": "070a5782_6f5a36d8",
       "range": {
         "startLine": 84,
         "startChar": 41,
