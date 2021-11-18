@@ -16,6 +16,46 @@
       "message": "moved cfi",
       "revId": "2b1421ef6405873990272c5d95de2754a07f35b9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23678956_94e95cb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 14
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-18T03:05:52Z",
+      "side": 1,
+      "message": "just clearing a draft comment",
+      "revId": "2b1421ef6405873990272c5d95de2754a07f35b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2404584e_dab9c08f",
+        "filename": "infra/common.sh",
+        "patchSetId": 14
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-18T03:05:52Z",
+      "side": 1,
+      "message": "these can be removed here and at line 75 I don\u0027t think we necessarily want inherit_errexit, but in either case these are single commands from the subshell so they should be fine. if they fail they won\u0027t exit the script.",
+      "range": {
+        "startLine": 32,
+        "startChar": 39,
+        "endLine": 32,
+        "endChar": 46
+      },
+      "revId": "2b1421ef6405873990272c5d95de2754a07f35b9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
