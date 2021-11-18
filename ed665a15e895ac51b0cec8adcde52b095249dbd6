@@ -123,6 +123,30 @@
       },
       "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2196a04c_58ee131e",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1249724
+      },
+      "writtenOn": "2021-11-18T21:06:25Z",
+      "side": 1,
+      "message": "that isn\u0027t enough because __wasm_simd128__ can mean either SSE compat headers or wasm simd intrinsics. Both require __wasm_simd128__, so if we check for that we can\u0027t differentiate which case it is. (i.e. __wasm_simd128__ just means we have SIMD support, and both the SSE headers and Wasm SIMD intrinsics require SIMD support).",
+      "parentUuid": "47d1353a_7a001cb6",
+      "range": {
+        "startLine": 84,
+        "startChar": 41,
+        "endLine": 84,
+        "endChar": 62
+      },
+      "revId": "ed665a15e895ac51b0cec8adcde52b095249dbd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
