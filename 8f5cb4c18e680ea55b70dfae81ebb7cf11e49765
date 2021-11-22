@@ -51,6 +51,24 @@
       "parentUuid": "08cdaf90_20a6e5b9",
       "revId": "8f5cb4c18e680ea55b70dfae81ebb7cf11e49765",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "584256e1_1f5fe819",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-22T19:22:04Z",
+      "side": 1,
+      "message": "\u003e https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf seems to be an OK copy.\n\n\nthat\u0027s done in the next commit:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3290189/1",
+      "parentUuid": "0306366e_133a30cb",
+      "revId": "8f5cb4c18e680ea55b70dfae81ebb7cf11e49765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
