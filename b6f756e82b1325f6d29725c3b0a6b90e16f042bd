@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9c8123_7f32ec89",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 817,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-11-23T18:14:40Z",
+      "side": 1,
+      "message": "was a little overeager on the https in the target here. updated to match the developers site.",
+      "revId": "b6f756e82b1325f6d29725c3b0a6b90e16f042bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
