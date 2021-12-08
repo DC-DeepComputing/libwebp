@@ -26,7 +26,7 @@ extern "C" {
 // the types are left here for reference.
 // typedef enum VP8StatusCode VP8StatusCode;
 // typedef enum WEBP_CSP_MODE WEBP_CSP_MODE;
-typedef struct WebPRGBABuffer WebPRGBABuffer;
+typedef struct WebPRGBABuffer WebPRGBABuffer
 typedef struct WebPYUVABuffer WebPYUVABuffer;
 typedef struct WebPDecBuffer WebPDecBuffer;
 typedef struct WebPIDecoder WebPIDecoder;
