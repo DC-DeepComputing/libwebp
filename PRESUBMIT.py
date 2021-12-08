@@ -187,8 +187,7 @@ def _CommonChecks(input_api, output_api):
   # Installation is needed
   try:
     subprocess2.communicate(["shellcheck", "--version"])
-    results.extend(
-        _RunCmdOnCheckedFiles(input_api, output_api, _RunShellCheckCmd,
+    results.extend(_RunCmdOnCheckedFiles(input_api, output_api, _RunShellCheckCmd,
                               _INCLUDE_BASH_FILES_ONLY))
     print("shfmt")
     subprocess2.communicate(["shfmt", "-version"])
