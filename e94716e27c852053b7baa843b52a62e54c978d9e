@@ -16,6 +16,24 @@
       "message": "Thanks James, I built the XCFrameworks using this change and tested it out in Twitter Image Pipeline and I can confirm that it works as expected! ",
       "revId": "e94716e27c852053b7baa843b52a62e54c978d9e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1fd9809_fce2f3f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2021-12-13T18:53:05Z",
+      "side": 1,
+      "message": "\u003e Thanks James, I built the XCFrameworks using this change and tested it out in Twitter Image Pipeline and I can confirm that it works as expected! \n\nGreat, thanks for trying it out.",
+      "parentUuid": "d5955834_6b0d598e",
+      "revId": "e94716e27c852053b7baa843b52a62e54c978d9e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
