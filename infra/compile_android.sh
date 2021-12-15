@@ -59,8 +59,8 @@ EOF
 ################################################################################
 echo "Building libwebp for Android in ${WORKSPACE}"
 
-if [[ ! -d "${WORKSPACE}" ]]; then
-  log_err "${WORKSPACE} directory does not exist."
+if [[ ! -d "$WORKSPACE" ]]; then
+  log_err "${WORKSPACE} directory does not exist." 
   exit 1
 fi
 
