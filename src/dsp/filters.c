@@ -49,6 +49,7 @@ static WEBP_INLINE void DoHorizontalFilter_C(const uint8_t* in,
   const uint8_t* preds;
   const size_t start_offset = row * stride;
   const int last_row = row + num_rows;
+  const unused;
   SANITY_CHECK(in, out);
   in += start_offset;
   out += start_offset;
