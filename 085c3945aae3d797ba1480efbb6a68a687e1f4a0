@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "044cd544_d74aae55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-12-17T00:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "13486124_61cc3884",
+      "revId": "085c3945aae3d797ba1480efbb6a68a687e1f4a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c6ff9b39_78465917",
@@ -31,6 +49,30 @@
       "writtenOn": "2021-12-16T21:43:31Z",
       "side": 1,
       "message": "you can use values() here",
+      "range": {
+        "startLine": 94,
+        "startChar": 5,
+        "endLine": 94,
+        "endChar": 40
+      },
+      "revId": "085c3945aae3d797ba1480efbb6a68a687e1f4a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e934c452_ad09d00a",
+        "filename": "PRESUBMIT.py",
+        "patchSetId": 4
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1507873
+      },
+      "writtenOn": "2021-12-17T00:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6ff9b39_78465917",
       "range": {
         "startLine": 94,
         "startChar": 5,
