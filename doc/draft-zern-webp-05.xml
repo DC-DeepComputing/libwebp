@@ -311,6 +311,51 @@
          the RIFF header is also even. The contents of individual chunks will
          be described in the following sections.</t>
      </section>
+
+     <section>
+       <name>Simple File Format (Lossy)</name>
+
+       <t>This layout SHOULD be used if the image requires lossy encoding and
+         does not require transparency or other advanced features provided by
+         the extended format. Files with this layout are smaller and supported
+         by older software.</t>
+
+       <t>Simple WebP (lossy) file format:</t>
+       <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                    WebP file header (12 bytes)                |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                          VP8 chunk                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         ]]></artwork>
+
+       <t>VP8 chunk:</t>
+      <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('VP8 ')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           VP8 data                            |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+        ]]></artwork>
+
+      <dl newline="true" spacing="normal" indent="8">
+        <dt>VP8 data: <em>Chunk Size</em> bytes</dt>
+        <dd>VP8 bitstream data.</dd>
+      </dl>
+
+      <t>The VP8 bitstream format specification is described by <xref
+        target="RFC6386"/>. Note that the VP8 frame header contains the VP8
+        frame width and height. That is assumed to be the width and height of
+        the canvas.</t>
+
+      <t>The VP8 specification describes how to decode the image into Y'CbCr
+        format. To convert to RGB, <xref target="rec601">Rec. 601</xref> SHOULD
+          be used.</t>
+     </section>
    </section>
  </middle>
 
@@ -325,6 +370,18 @@
        <?rfc include="reference.RFC.4648.xml" ?>
        <?rfc include="reference.RFC.6386.xml" ?>
        <?rfc include="reference.RFC.6838.xml" ?>
+
+       <reference anchor="rec601"
+         target="https://www.itu.int/rec/R-REC-BT.601/">
+         <front>
+           <title>BT.601: Studio encoding parameters of digital television for
+             standard 4:3 and wide screen 16:9 aspect ratios</title>
+           <author>
+             <organization>ITU</organization>
+           </author>
+           <date month="March" year="2011" />
+         </front>
+       </reference>
 
        <reference anchor="webp-lossless"
          target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-lossless-bitstream-spec.txt">
