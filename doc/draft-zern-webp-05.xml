@@ -257,7 +257,7 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                         Chunk Payload                         |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-           ]]></artwork>
+         ]]></artwork>
          <dl newline="true" spacing="normal" indent="8">
            <dt>Chunk FourCC: 32 bits</dt>
            <dd>ASCII four-character code used for chunk identification.</dd>
@@ -277,6 +277,39 @@
            chunk FourCCs are standard chunks that apply to any RIFF file
            format, while FourCCs specific to a file format are all lowercase.
            WebP does not follow this convention.</t>
+     </section>
+
+     <section>
+       <name>WebP File Header</name>
+       <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      'R'      |      'I'      |      'F'      |      'F'      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                           File Size                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|      'W'      |      'E'      |      'B'      |      'P'      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         ]]></artwork>
+
+       <dl newline="true" spacing="normal" indent="8">
+         <dt>'RIFF': 32 bits</dt>
+         <dd>The ASCII characters 'R' 'I' 'F' 'F'.</dd>
+         <dt>File Size: 32 bits (<em>uint32</em>)</dt>
+         <dd>The size of the file in bytes starting at offset 8. The maximum
+           value of this field is 2^32 minus 10 bytes and thus the size of the
+           whole file is at most 4GiB minus 2 bytes.</dd>
+         <dt>'WEBP': 32 bits</dt>
+         <dd>The ASCII characters 'W' 'E' 'B' 'P'.</dd>
+       </dl>
+
+       <t>A WebP file MUST begin with a RIFF header with the FourCC 'WEBP'. The
+         file size in the header is the total size of the chunks that follow
+         plus 4 bytes for the 'WEBP' FourCC. The file SHOULD NOT contain
+         anything after it. As the size of any chunk is even, the size given by
+         the RIFF header is also even. The contents of individual chunks will
+         be described in the following sections.</t>
      </section>
    </section>
  </middle>
