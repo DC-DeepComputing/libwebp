@@ -413,8 +413,8 @@
          <li>An optional list of [unknown chunks](#unknown-chunks).</li>
        </ul>
 
-       <t>For a _still image_, the _image data_ consists of a single frame,
-         which is made up of:</t>
+       <t>For a <em>still image</em>, the <em>image data</em> consists of a
+         single frame, which is made up of:</t>
 
        <ul spacing="normal">
          <li>An optional [alpha subchunk](#alpha).</li>
@@ -434,6 +434,110 @@
          in its required position, a decoder can choose to stop searching for
          it. The rule of ignoring late chunks should make programs that need to
          do a full search give the same results as the ones stopping early.</t>
+
+       <t>Extended WebP file header:</t>
+       <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                   WebP file header (12 bytes)                 |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('VP8X')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Rsv|I|L|E|X|A|R|                   Reserved                    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Canvas Width Minus One               |             ...
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+...  Canvas Height Minus One    |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+         ]]></artwork>
+
+       <dl newline="true" spacing="normal" indent="8">
+         <dt>Reserved (Rsv): 2 bits</dt>
+         <dd>SHOULD be 0.</dd>
+         <dt>ICC profile (I): 1 bit</dt>
+         <dd>Set if the file contains an ICC profile.</dd>
+         <dt>Alpha (L): 1 bit</dt>
+         <dd>Set if any of the frames of the image contain transparency
+           information ("alpha").</dd>
+         <dt>EXIF metadata (E): 1 bit</dt>
+         <dd>Set if the file contains EXIF metadata.</dd>
+         <dt>XMP metadata (X): 1 bit</dt>
+         <dd>Set if the file contains XMP metadata.</dd>
+         <dt>Animation (A): 1 bit</dt>
+         <dd>Set if this is an animated image. Data in 'ANIM' and 'ANMF' chunks
+           should be used to control the animation.</dd>
+         <dt>Reserved (R): 1 bit</dt>
+         <dd>SHOULD be 0.</dd>
+         <dt>Reserved: 24 bits</dt>
+         <dd>SHOULD be 0.</dd>
+         <dt>Canvas Width Minus One: 24 bits</dt>
+         <dd><em>1-based</em> width of the canvas in pixels. The actual canvas
+           width is '1 + Canvas Width Minus One'</dd>
+         <dt>Canvas Height Minus One: 24 bits</dt>
+         <dd><em>1-based</em> height of the canvas in pixels. The actual canvas
+           height is '1 + Canvas Height Minus One'</dd>
+       </dl>
+
+       <t>The product of <em>Canvas Width</em> and <em>Canvas Height</em> MUST
+         be at most 2^32 - 1.</t>
+       <t>Future specifications MAY add more fields.</t>
+
+       <section>
+         <name>Chunks</name>
+         <section>
+           <name>Animation</name>
+
+           <t>An animation is controlled by ANIM and ANMF chunks.</t>
+
+           <t>ANIM Chunk:</t>
+
+           <t>For an animated image, this chunk contains the <em>global
+             parameters</em> of the animation.</t>
+
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('ANIM')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Background Color                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|          Loop Count           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             ]]></artwork>
+
+           <dl newline="true" spacing="normal" indent="8">
+             <dt>Background Color: 32 bits (<em>uint32</em>)</dt>
+
+             <dd>The default background color of the canvas in [Blue, Green,
+               Red, Alpha] byte order. This color MAY be used to fill the
+               unused space on the canvas around the frames, as well as the
+               transparent pixels of the first frame. Background color is also
+               used when disposal method is 1. </dd>
+
+             <dt>Loop Count: 16 bits (<em>uint16</em>)</dt>
+             <dd>The number of times to loop the animation. 0 means infinitely.</dd>
+           </dl>
+
+           <t><strong>Note:</strong></t>
+
+           <ul spacing="normal">
+             <li>Background color MAY contain a transparency value (alpha),
+               even if the <em>Alpha</em> flag in [VP8X
+                 chunk](#extended_header) is unset.</li>
+             <li>Viewer applications SHOULD treat the background color value
+               as a hint, and are not required to use it.</li>
+             <li>The canvas is cleared at the start of each loop. The
+               background color MAY be used to achieve this.</li>
+           </ul>
+
+
+           <t>This chunk MUST appear if the <em>Animation</em> flag in the VP8X
+             chunk is set. If the <em>Animation</em> flag is not set and this
+               chunk is present, it SHOULD be ignored.</t>
+         </section>
+       </section>
      </section>
    </section>
  </middle>
