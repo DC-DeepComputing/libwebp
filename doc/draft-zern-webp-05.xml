@@ -652,7 +652,120 @@ else
                individual <em>padded</em> chunks as described by the [RIFF file
                  format](#riff-file-format).</li>
            </ul>
+         </section>
+         <section>
+           <name>Alpha</name>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('ALPH')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|Rsv| P | F | C |     Alpha Bitstream...                        |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             ]]></artwork>
 
+           <dl newline="true" spacing="normal" indent="8">
+             <dt>Reserved (Rsv): 2 bits</dt>
+             <dd>SHOULD be 0.</dd>
+             <dt>Pre-processing (P): 2 bits</dt>
+             <dd><t>These INFORMATIVE bits are used to signal the
+               pre-processing that has been performed during compression. The
+               decoder can use this information to e.g. dither the values or
+               smooth the gradients prior to display.</t>
+               <ul spacing="normal">
+                 <li>0: no pre-processing</li>
+                 <li>1: level reduction</li>
+               </ul>
+             </dd>
+             <dt>Filtering method (F): 2 bits</dt>
+             <dd><t>The filtering method used:</t>
+               <ul spacing="normal">
+                 <li>0: None.</li>
+                 <li>1: Horizontal filter.</li>
+                 <li>2: Vertical filter.</li>
+                 <li>3: Gradient filter.</li>
+               </ul>
+
+               <t>For each pixel, filtering is performed using the following calculations.
+                 Assume the alpha values surrounding the current X position are labeled as:</t>
+               <artwork name="" type="" align="left" alt=""><![CDATA[
+ C | B |
+---+---+
+ A | X |
+                 ]]></artwork>
+
+               <t>We seek to compute the alpha value at position X. First, a prediction is
+                 made depending on the filtering method:</t>
+
+               <ul spacing="normal">
+                 <li>Method 0: predictor = 0</li>
+                 <li>Method 1: predictor = A</li>
+                 <li>Method 2: predictor = B</li>
+                 <li>Method 3: predictor = clip(A + B - C)</li>
+               </ul>
+
+               <t>where clip(v) is equal to:</t>
+               <ul spacing="normal">
+                 <li>0    if v &lt; 0</li>
+                 <li>255  if v &gt; 255</li>
+                 <li>v    otherwise</li>
+               </ul>
+
+               <t>The final value is derived by adding the decompressed value X
+                 to the predictor and using modulo-256 arithmetic to wrap the
+                 [256-511] range into the [0-255] one:</t>
+
+               <sourcecode><![CDATA[
+alpha = (predictor + X) % 256
+                 ]]></sourcecode>
+
+               <t>There are special cases for left-most and top-most pixel positions:</t>
+               <ul spacing="normal">
+                 <li>Top-left value at location (0,0) uses 0 as predictor value. Otherwise,</li>
+                 <li>For horizontal or gradient filtering methods, the left-most pixels at location (0, y) are predicted using the location (0, y-1) just above.</li>
+                 <li>For vertical or gradient filtering methods, the top-most pixels at location (x, 0) are predicted using the location (x-1, 0) on the left.</li>
+               </ul>
+               <t>Decoders are not required to use this information in any specified way.</t>
+             </dd>
+             <dt>Compression method (C): 2 bits</dt>
+             <dd><t>The compression method used:</t>
+               <ul spacing="normal">
+                 <li>0: No compression.</li>
+                 <li>1: Compressed using the WebP lossless format.</li>
+               </ul>
+             </dd>
+             <dt>Alpha bitstream: <em>Chunk Size</em> - 1 bytes</dt>
+             <dd>Encoded alpha bitstream.</dd>
+           </dl>
+
+           <t>This optional chunk contains encoded alpha data for this frame. A frame
+             containing a 'VP8L' chunk SHOULD NOT contain this chunk.</t>
+           <t><strong>Rationale:</strong> The transparency information is
+             already part of the 'VP8L' chunk.</t>
+           <t>The alpha channel data is stored as uncompressed raw data
+             (when compression method is '0') or compressed using the
+             lossless format (when the compression method is '1').</t>
+           <ul spacing="normal">
+             <li>Raw data: consists of a byte sequence of length width *
+               height, containing all the 8-bit transparency values in scan
+               order.</li>
+             <li><t>Lossless format compression: the byte sequence is a
+               compressed image-stream (as described in the [WebP Lossless
+               Bitstream Format] [webpllspec]) of implicit dimension width x
+               height. That is, this image-stream does NOT contain any headers
+               describing the image dimension.</t>
+             <t><strong>Rationale:</strong> the dimension is already known from
+               other sources, so storing it again would be redundant and
+               error-prone.</t>
+             <t>Once the image-stream is decoded into ARGB color values,
+               following the process described in the lossless format
+               specification, the transparency information must be extracted
+               from the *green* channel of the ARGB quadruplet.</t>
+             <t><strong>Rationale:</strong> the green channel is allowed extra
+               transformation steps in the specification -- unlike the other
+               channels -- that can improve compression.</t></li>
+           </ul>
          </section>
        </section>
      </section>
