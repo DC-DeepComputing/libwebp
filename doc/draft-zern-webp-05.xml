@@ -396,6 +396,45 @@
            that the VP8L header contains the VP8L image width and height. That
            is assumed to be the width and height of the canvas.</t>
      </section>
+
+     <section>
+       <name>Extended File Format</name>
+       <t><strong>Note:</strong> Older readers may not support files using the
+         extended format.</t>
+
+       <t>An extended format file consists of:</t>
+       <ul spacing="normal">
+         <li>A 'VP8X' chunk with information about features used in the file.</li>
+         <li>An optional 'ICCP' chunk with color profile.</li>
+         <li>An optional 'ANIM' chunk with animation control data.</li>
+         <li>Image data.</li>
+         <li>An optional 'EXIF' chunk with EXIF metadata.</li>
+         <li>An optional 'XMP ' chunk with XMP metadata.</li>
+         <li>An optional list of [unknown chunks](#unknown-chunks).</li>
+       </ul>
+
+       <t>For a _still image_, the _image data_ consists of a single frame,
+         which is made up of:</t>
+
+       <ul spacing="normal">
+         <li>An optional [alpha subchunk](#alpha).</li>
+         <li>A [bitstream subchunk](#bitstream-vp8vp8l).</li>
+       </ul>
+
+       <t>For an _animated image_, the _image data_ consists of multiple
+         frames. More details about frames can be found in the
+         [Animation](#animation) section.</t>
+
+       <t>All chunks SHOULD be placed in the same order as listed above. If a
+         chunk appears in the wrong place, the file is invalid, but readers MAY
+         parse the file, ignoring the chunks that come too late.</t>
+
+       <t><strong>Rationale:</strong> Setting the order of chunks should allow
+         quicker file parsing. For example, if an 'ALPH' chunk does not appear
+         in its required position, a decoder can choose to stop searching for
+         it. The rule of ignoring late chunks should make programs that need to
+         do a full search give the same results as the ones stopping early.</t>
+     </section>
    </section>
  </middle>
 
