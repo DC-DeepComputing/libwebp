@@ -173,6 +173,44 @@
        Types" registry</xref> to include 'image/webp' as described in <xref
          target="webp-media-type"/>.</t>
    </section>
+
+   <section anchor="webp-container" numbered="true" toc="default">
+     <name>WebP Container Specification</name>
+     <section numbered="true" toc="default">
+       <name>Introduction</name>
+       <t>WebP is an image format that uses either (i) the VP8 intra-frame
+         encoding <xref target="RFC6386"/> to compress image data in a lossy
+           way, or (ii) the WebP lossless encoding <xref
+             target="webp-lossless"/>. These encoding schemes should make it
+             more efficient than currently used formats. It is optimized for
+             fast image transfer over the network (e.g., for websites). The
+             WebP format has feature parity (color profile, metadata, animation
+             etc) with other formats as well. This section describes the
+             structure of a WebP file.</t>
+       <t>The WebP container (i.e., RIFF container for WebP) allows feature
+         support over and above the basic use case of WebP (i.e., a file
+         containing a single image encoded as a VP8 key frame). The WebP
+         container provides additional support for:</t>
+         <ul spacing="normal">
+           <li>Lossless compression. An image can be losslessly compressed,
+             using the WebP Lossless Format.</li>
+           <li>Metadata. An image may have metadata stored in <xref
+             target="Exif"/> or <xref target="XMP"/>formats.</li>
+           <li>Transparency. An image may have transparency, i.e., an alpha
+             channel.</li>
+           <li>Color Profile. An image may have an embedded <xref
+             target="ICC">ICC profile</xref>.</li>
+           <li>Animation. An image may have multiple frames with pauses between
+             them, making it an animation.</li>
+         </ul>
+       <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+         "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
+         document are to be interpreted as described in <xref
+           target="RFC2119"/>.</t>
+       <t>Bit numbering in chunk diagrams starts at 0 for the most significant
+         bit ('MSB 0') as described in <xref target="RFC1166"/>.</t>
+     </section>
+   </section>
  </middle>
 
  <back>
@@ -180,6 +218,8 @@
      <name>References</name>
      <references>
        <name>Normative References</name>
+       <?rfc include="reference.RFC.1166.xml" ?>
+       <?rfc include="reference.RFC.2119.xml" ?>
        <?rfc include="reference.RFC.2781.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
        <?rfc include="reference.RFC.6386.xml" ?>
@@ -277,6 +317,17 @@
              <organization>Internet Assigned Numbers Authority
                (IANA)</organization>
            </author>
+         </front>
+       </reference>
+
+       <reference anchor="ICC"
+         target="https://www.color.org/specification/ICC1v43_2010-12.pdf">
+         <front>
+           <title>ICC Specification</title>
+           <author>
+             <organization>International Color Consortium</organization>
+           </author>
+           <date month="December" year="2010"/>
          </front>
        </reference>
 
