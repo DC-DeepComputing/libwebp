@@ -93,9 +93,8 @@
        <t>Encoding considerations: Binary. The <xref target="RFC4648">Base64
          encoding</xref> should be used on transports that cannot accommodate
          binary data directly.</t>
-       <t>Security considerations: See <xref target="Security"/> below.</t>
-       <t>Interoperability considerations: See <xref target="Interop"/>
-         below.</t>
+       <t>Security considerations: See <xref target="Security"/>.</t>
+       <t>Interoperability considerations: See <xref target="Interop"/>.</t>
        <t>Published specification: <xref target="webp-riff"/></t>
        <t>Applications that use this media type: Applications that are used to
          display and process images, especially when smaller image file sizes
