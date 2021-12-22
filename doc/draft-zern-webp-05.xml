@@ -211,8 +211,8 @@
          bit ('MSB 0') as described in <xref target="RFC1166"/>.</t>
      </section>
 
-     <section numbered="true" toc="default">
-       <name>Terminology</name>
+     <section anchor="terminology-amp-basics" numbered="true" toc="default">
+       <name>Terminology &amp; Basics</name>
        <t>A WebP file contains either a still image (i.e., an encoded matrix of
          pixels) or an <xref target="animation">animation</xref>. Optionally,
            it can also contain transparency information, color profile and
@@ -239,11 +239,11 @@
            a field would store value <em>25</em> as <em>24</em>.</dd>
        </dl>
      </section>
-     <section numbered="true" toc="default">
+     <section anchor="riff-file-format" numbered="true" toc="default">
        <name>RIFF File Format</name>
 
-       <t>The WebP file format is based on the RIFF (resource interchange file format)
-         document format.</t>
+       <t>The WebP file format is based on the RIFF (resource interchange file
+         format) document format.</t>
 
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
          of:</t>
@@ -312,7 +312,7 @@
          be described in the following sections.</t>
      </section>
 
-     <section numbered="true" toc="default">
+     <section anchor="simple-file-format-lossy" numbered="true" toc="default">
        <name>Simple File Format (Lossy)</name>
 
        <t>This layout SHOULD be used if the image requires lossy encoding and
@@ -356,7 +356,8 @@
         format. To convert to RGB, <xref target="rec601">Rec. 601</xref> SHOULD
           be used.</t>
      </section>
-     <section numbered="true" toc="default">
+     <section anchor="simple-file-format-lossless" numbered="true"
+       toc="default">
        <name>Simple File Format (Lossless)</name>
        <t><strong>Note:</strong> Older readers may not support files using the
          lossless format.</t>
@@ -404,21 +405,23 @@
 
        <t>An extended format file consists of:</t>
        <ul spacing="normal">
-         <li>A 'VP8X' chunk with information about features used in the file.</li>
+         <li>A 'VP8X' chunk with information about features used in the
+           file.</li>
          <li>An optional 'ICCP' chunk with color profile.</li>
          <li>An optional 'ANIM' chunk with animation control data.</li>
          <li>Image data.</li>
          <li>An optional 'EXIF' chunk with EXIF metadata.</li>
          <li>An optional 'XMP ' chunk with XMP metadata.</li>
-         <li>An optional list of [unknown chunks](#unknown-chunks).</li>
+         <li>An optional list of <xref target="unknown-chunks">unknown
+           chunks</xref>.</li>
        </ul>
 
        <t>For a <em>still image</em>, the <em>image data</em> consists of a
          single frame, which is made up of:</t>
 
        <ul spacing="normal">
-         <li>An optional [alpha subchunk](#alpha).</li>
-         <li>A [bitstream subchunk](#bitstream-vp8vp8l).</li>
+         <li>An optional <xref target="alpha">alpha subchunk</xref>.</li>
+         <li>A <xref target="bitstream-vp8vp8l">bitstream subchunk</xref>.</li>
        </ul>
 
        <t>For an <em>animated image</em>, the <em>image data</em> consists of
@@ -435,7 +438,7 @@
          it. The rule of ignoring late chunks should make programs that need to
          do a full search give the same results as the ones stopping early.</t>
 
-       <t>Extended WebP file header:</t>
+       <t anchor="extended_header" >Extended WebP file header:</t>
        <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -490,7 +493,7 @@
 
            <t>An animation is controlled by ANIM and ANMF chunks.</t>
 
-           <t>ANIM Chunk:</t>
+           <t anchor="anim_chunk">ANIM Chunk:</t>
 
            <t>For an animated image, this chunk contains the <em>global
              parameters</em> of the animation.</t>
@@ -517,15 +520,16 @@
                used when disposal method is 1. </dd>
 
              <dt>Loop Count: 16 bits (<em>uint16</em>)</dt>
-             <dd>The number of times to loop the animation. 0 means infinitely.</dd>
+             <dd>The number of times to loop the animation. 0 means
+               infinitely.</dd>
            </dl>
 
            <t><strong>Note:</strong></t>
 
            <ul spacing="normal">
              <li>Background color MAY contain a transparency value (alpha),
-               even if the <em>Alpha</em> flag in [VP8X
-                 chunk](#extended_header) is unset.</li>
+               even if the <em>Alpha</em> flag in <xref
+                 target="extended_header">VP8X chunk</xref> is unset.</li>
              <li>Viewer applications SHOULD treat the background color value
                as a hint, and are not required to use it.</li>
              <li>The canvas is cleared at the start of each loop. The
@@ -588,35 +592,37 @@
                    previous canvas:</t>
                  <ul spacing="normal">
                    <li>0: Use alpha blending. After disposing of the previous
-                     frame, render the current frame on the canvas using
-                     [alpha-blending](#alpha-blending). If the current frame
-                     does not have an alpha channel, assume alpha value of 255,
-                     effectively replacing the rectangle.</li>
+                     frame, render the current frame on the canvas using <xref
+                       target="alpha-blending">alpha-blending</xref>. If the
+                         current frame does not have an alpha channel, assume
+                         alpha value of 255, effectively replacing the
+                         rectangle.</li>
                    <li>1: Do not blend. After disposing of the previous frame,
                      render the current frame on the canvas by overwriting the
                      rectangle covered by the current frame.</li>
                  </ul>
                </dd>
                <dt>Disposal method (D): 1 bit</dt>
-               <dd><t>Indicates how <em>the current frame</em> is to be treated after
-                 it has been displayed (before rendering the next frame) on the
-                 canvas:</t>
+               <dd><t>Indicates how <em>the current frame</em> is to be treated
+                 after it has been displayed (before rendering the next frame)
+                 on the canvas:</t>
                  <ul spacing="normal">
                    <li>0: Do not dispose. Leave the canvas as is.</li>
                    <li>1: Dispose to background color. Fill the
                    <em>rectangle</em> on the canvas covered by the <em>current
-                     frame</em> with background color specified in the [ANIM
-                       chunk](#anim_chunk).</li>
+                     frame</em> with background color specified in the <xref
+                       target="anim_chunk">ANIM chunk</xref>.</li>
                  </ul>
                </dd>
                <dt>Frame Data: <em>Chunk Size</em> - 16 bytes</dt>
                <dd><t>Consists of:</t>
                  <ul spacing="normal">
-                   <li>An optional [alpha subchunk](#alpha) for the frame.</li>
-                   <li>A [bitstream subchunk](#bitstream-vp8vp8l) for the
-                     frame.</li>
-                   <li>An optional list of [unknown
-                     chunks](#unknown-chunks).</li>
+                   <li>An optional <xref target="alpha">alpha subchunk</xref>
+                       for the frame.</li>
+                   <li>A <xref target="bitstream-vp8vp8l">bitstream
+                     subchunk</xref> for the frame.</li>
+                   <li>An optional list of <xref
+                     target="unknown-chunks">unknown chunks</xref>.</li>
                  </ul>
                </dd>
              </dl>
@@ -629,7 +635,7 @@
                    X</em>, <em>Frame Y</em>, <em>frame width</em> and <em>frame
                      height</em>. It may or may not cover the whole
                        canvas.</li>
-               <li><t>Alpha-blending:</t>
+               <li anchor="alpha-blending"><t>Alpha-blending:</t>
                  <t>Given that each of the R, G, B and A channels is 8-bit, and
                    the RGB channels are <em>not premultiplied</em> by alpha,
                      the formula for blending 'dst' onto 'src' is:</t>
@@ -644,16 +650,16 @@ else
                    ]]></sourcecode>
              </li>
              <li>Alpha-blending SHOULD be done in linear color space, by taking
-               into account the [color profile](#color-profile) of the image.
-               If the color profile is not present, sRGB is to be assumed.
-               (Note that sRGB also needs to be linearized due to a gamma of
-               ~2.2).</li>
+               into account the <xref target="color-profile">color
+                 profile</xref> of the image. If the color profile is not
+                   present, sRGB is to be assumed. (Note that sRGB also needs
+                   to be linearized due to a gamma of ~2.2).</li>
              <li>The 'ANMF' payload, <em>Frame Data</em> above, consists of
-               individual <em>padded</em> chunks as described by the [RIFF file
-                 format](#riff-file-format).</li>
+               individual <em>padded</em> chunks as described by the <xref
+                 target="riff-file-format">RIFF file format</xref>.</li>
            </ul>
          </section>
-         <section numbered="true" toc="default">
+         <section anchor="alpha" numbered="true" toc="default">
            <name>Alpha</name>
            <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
@@ -687,16 +693,17 @@ else
                  <li>3: Gradient filter.</li>
                </ul>
 
-               <t>For each pixel, filtering is performed using the following calculations.
-                 Assume the alpha values surrounding the current X position are labeled as:</t>
+               <t>For each pixel, filtering is performed using the following
+                 calculations. Assume the alpha values surrounding the current
+                 X position are labeled as:</t>
                <artwork name="" type="" align="left" alt=""><![CDATA[
  C | B |
 ---+---+
  A | X |
                  ]]></artwork>
 
-               <t>We seek to compute the alpha value at position X. First, a prediction is
-                 made depending on the filtering method:</t>
+               <t>We seek to compute the alpha value at position X. First, a
+                 prediction is made depending on the filtering method:</t>
 
                <ul spacing="normal">
                  <li>Method 0: predictor = 0</li>
@@ -720,13 +727,20 @@ else
 alpha = (predictor + X) % 256
                  ]]></sourcecode>
 
-               <t>There are special cases for left-most and top-most pixel positions:</t>
+               <t>There are special cases for left-most and top-most pixel
+                 positions:</t>
                <ul spacing="normal">
-                 <li>Top-left value at location (0,0) uses 0 as predictor value. Otherwise,</li>
-                 <li>For horizontal or gradient filtering methods, the left-most pixels at location (0, y) are predicted using the location (0, y-1) just above.</li>
-                 <li>For vertical or gradient filtering methods, the top-most pixels at location (x, 0) are predicted using the location (x-1, 0) on the left.</li>
+                 <li>Top-left value at location (0,0) uses 0 as predictor
+                   value. Otherwise,</li>
+                 <li>For horizontal or gradient filtering methods, the
+                   left-most pixels at location (0, y) are predicted using the
+                   location (0, y-1) just above.</li>
+                 <li>For vertical or gradient filtering methods, the top-most
+                   pixels at location (x, 0) are predicted using the location
+                   (x-1, 0) on the left.</li>
                </ul>
-               <t>Decoders are not required to use this information in any specified way.</t>
+               <t>Decoders are not required to use this information in any
+                 specified way.</t>
              </dd>
              <dt>Compression method (C): 2 bits</dt>
              <dd><t>The compression method used:</t>
@@ -739,8 +753,8 @@ alpha = (predictor + X) % 256
              <dd>Encoded alpha bitstream.</dd>
            </dl>
 
-           <t>This optional chunk contains encoded alpha data for this frame. A frame
-             containing a 'VP8L' chunk SHOULD NOT contain this chunk.</t>
+           <t>This optional chunk contains encoded alpha data for this frame. A
+             frame containing a 'VP8L' chunk SHOULD NOT contain this chunk.</t>
            <t><strong>Rationale:</strong> The transparency information is
              already part of the 'VP8L' chunk.</t>
            <t>The alpha channel data is stored as uncompressed raw data
@@ -767,18 +781,18 @@ alpha = (predictor + X) % 256
                channels -- that can improve compression.</t></li>
            </ul>
          </section>
-         <section numbered="true" toc="default">
+         <section anchor="bitstream-vp8vp8l" numbered="true" toc="default">
            <name>Bitstream (VP8/VP8L)</name>
-           <t>This chunk contains compressed bitstream data for a single frame.</t>
+           <t>This chunk contains compressed bitstream data for a single
+             frame.</t>
            <t>A bitstream chunk may be either (i) a VP8 chunk, using "VP8 "
              (note the significant fourth-character space) as its tag
            <em>or</em> (ii) a VP8L chunk, using "VP8L" as its tag.</t>
-           <t>The formats of VP8 and VP8L chunks are as described in sections
-             [Simple File Format (Lossy)](#simple-file-format-lossy) and
-             [Simple File Format (Lossless)](#simple-file-format-lossless)
-             respectively.</t>
+           <t>The formats of VP8 and VP8L chunks are as described in <xref
+             target="simple-file-format-lossy"/> and <xref
+               target="simple-file-format-lossless"/> respectively.</t>
          </section>
-         <section numbered="true" toc="default">
+         <section anchor="color-profile" numbered="true" toc="default">
            <name>Color profile</name>
            <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
@@ -843,19 +857,19 @@ alpha = (predictor + X) % 256
              Metadata Working Group's [Guidelines for Handling
              Metadata][metadata].</t>
          </section>
-         <section numbered="true" toc="default">
+         <section anchor="unknown-chunks" numbered="true" toc="default">
            <name>Unknown Chunks</name>
-           <t>A RIFF chunk (described in [this](#terminology-amp-basics)
-             section) whose <em>chunk tag</em> is different from any of the
-               chunks described in this document, is considered an <em>unknown
-                 chunk</em>.</t>
+           <t>A RIFF chunk (described in <xref
+             target="terminology-amp-basics"/>.) whose <em>chunk tag</em> is
+               different from any of the chunks described in this document, is
+               considered an <em>unknown chunk</em>.</t>
            <t><strong>Rationale:</strong> Allowing unknown chunks gives a
              provision for future extension of the format, and also allows
              storage of any application-specific data.</t>
            <t>A file MAY contain unknown chunks:</t>
            <ul spacing="normal">
-             <li>At the end of the file as described in [Extended WebP file
-               header](#extended_header) section.</li>
+             <li>At the end of the file as described in <xref
+               target="extended_header"/>.</li>
              <li>At the end of ANMF chunks as described in <xref
                target="animation"/>.</li>
            </ul>
