@@ -279,7 +279,7 @@
            WebP does not follow this convention.</t>
      </section>
 
-     <section>
+     <section numbered="true" toc="default">
        <name>WebP File Header</name>
        <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
@@ -312,7 +312,7 @@
          be described in the following sections.</t>
      </section>
 
-     <section>
+     <section numbered="true" toc="default">
        <name>Simple File Format (Lossy)</name>
 
        <t>This layout SHOULD be used if the image requires lossy encoding and
@@ -356,7 +356,7 @@
         format. To convert to RGB, <xref target="rec601">Rec. 601</xref> SHOULD
           be used.</t>
      </section>
-     <section>
+     <section numbered="true" toc="default">
        <name>Simple File Format (Lossless)</name>
        <t><strong>Note:</strong> Older readers may not support files using the
          lossless format.</t>
@@ -397,7 +397,7 @@
            is assumed to be the width and height of the canvas.</t>
      </section>
 
-     <section>
+     <section numbered="true" toc="default">
        <name>Extended File Format</name>
        <t><strong>Note:</strong> Older readers may not support files using the
          extended format.</t>
@@ -483,9 +483,9 @@
          be at most 2^32 - 1.</t>
        <t>Future specifications MAY add more fields.</t>
 
-       <section>
+       <section numbered="true" toc="default">
          <name>Chunks</name>
-         <section>
+         <section numbered="true" toc="default">
            <name>Animation</name>
 
            <t>An animation is controlled by ANIM and ANMF chunks.</t>
@@ -653,7 +653,7 @@ else
                  format](#riff-file-format).</li>
            </ul>
          </section>
-         <section>
+         <section numbered="true" toc="default">
            <name>Alpha</name>
            <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
@@ -767,7 +767,7 @@ alpha = (predictor + X) % 256
                channels -- that can improve compression.</t></li>
            </ul>
          </section>
-         <section>
+         <section numbered="true" toc="default">
            <name>Bitstream (VP8/VP8L)</name>
            <t>This chunk contains compressed bitstream data for a single frame.</t>
            <t>A bitstream chunk may be either (i) a VP8 chunk, using "VP8 "
@@ -778,7 +778,7 @@ alpha = (predictor + X) % 256
              [Simple File Format (Lossless)](#simple-file-format-lossless)
              respectively.</t>
          </section>
-         <section>
+         <section numbered="true" toc="default">
            <name>Color profile</name>
            <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
@@ -800,7 +800,7 @@ alpha = (predictor + X) % 256
              Specification][iccspec] for details.</t>
            <t>If this chunk is not present, sRGB SHOULD be assumed.</t>
          </section>
-         <section>
+         <section numbered="true" toc="default">
            <name>Metadata</name>
            <t>Metadata can be stored in 'EXIF' or 'XMP ' chunks.</t>
            <t>There SHOULD be at most one chunk of each type ('EXIF' and 'XMP
@@ -843,7 +843,7 @@ alpha = (predictor + X) % 256
              Metadata Working Group's [Guidelines for Handling
              Metadata][metadata].</t>
          </section>
-         <section>
+         <section numbered="true" toc="default">
            <name>Unknown Chunks</name>
            <t>A RIFF chunk (described in [this](#terminology-amp-basics)
              section) whose <em>chunk tag</em> is different from any of the
@@ -864,7 +864,7 @@ alpha = (predictor + X) % 256
              these chunks).</t>
          </section>
        </section>
-       <section>
+       <section numbered="true" toc="default">
          <name>Assembling the Canvas from frames</name>
          <t>Here we provide an overview of how a reader should assemble a
            canvas in the case of an animated image. The notation _VP8X.field_
@@ -908,7 +908,7 @@ for loop = 0..loop_count - 1
         Show the contents of the canvas for frame_params.frameDuration * 1ms.
            ]]></sourcecode>
        </section>
-       <section>
+       <section numbered="true" toc="default">
          <name>Example File Layouts</name>
          <t>A lossy encoded image with alpha may look as follows:</t>
            <artwork name="" type="" align="left" alt=""><![CDATA[
