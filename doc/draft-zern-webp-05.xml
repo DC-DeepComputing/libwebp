@@ -767,6 +767,17 @@ alpha = (predictor + X) % 256
                channels -- that can improve compression.</t></li>
            </ul>
          </section>
+         <section>
+           <name>Bitstream (VP8/VP8L)</name>
+           <t>This chunk contains compressed bitstream data for a single frame.</t>
+           <t>A bitstream chunk may be either (i) a VP8 chunk, using "VP8 "
+             (note the significant fourth-character space) as its tag _or_ (ii)
+             a VP8L chunk, using "VP8L" as its tag.</t>
+           <t>The formats of VP8 and VP8L chunks are as described in sections
+             [Simple File Format (Lossy)](#simple-file-format-lossy) and
+             [Simple File Format (Lossless)](#simple-file-format-lossless)
+             respectively.</t>
+         </section>
        </section>
      </section>
    </section>
