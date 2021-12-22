@@ -908,6 +908,43 @@ for loop = 0..loop_count - 1
         Show the contents of the canvas for frame_params.frameDuration * 1ms.
            ]]></sourcecode>
        </section>
+       <section>
+         <name>Example File Layouts</name>
+         <t>A lossy encoded image with alpha may look as follows:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+RIFF/WEBP
++- VP8X (descriptions of features used)
++- ALPH (alpha bitstream)
++- VP8 (bitstream)
+             ]]></artwork>
+           <t>A losslessly encoded image may look as follows:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+RIFF/WEBP
++- VP8X (descriptions of features used)
++- XYZW (unknown chunk)
++- VP8L (lossless bitstream)
+             ]]></artwork>
+           <t>A lossless image with ICC profile and XMP metadata may look as
+             follows:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+RIFF/WEBP
++- VP8X (descriptions of features used)
++- ICCP (color profile)
++- VP8L (lossless bitstream)
++- XMP  (metadata)
+             ]]></artwork>
+           <t>An animated image with EXIF metadata may look as follows:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+RIFF/WEBP
++- VP8X (descriptions of features used)
++- ANIM (global animation parameters)
++- ANMF (frame1 parameters + data)
++- ANMF (frame2 parameters + data)
++- ANMF (frame3 parameters + data)
++- ANMF (frame4 parameters + data)
++- EXIF (metadata)
+             ]]></artwork>
+       </section>
      </section>
    </section>
  </middle>
