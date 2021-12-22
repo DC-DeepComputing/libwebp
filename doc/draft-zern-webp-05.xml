@@ -843,6 +843,25 @@ alpha = (predictor + X) % 256
              Metadata Working Group's [Guidelines for Handling
              Metadata][metadata].</t>
          </section>
+         <section>
+           <name>Unknown Chunks</name>
+           <t>A RIFF chunk (described in [this](#terminology-amp-basics)
+             section) whose _chunk tag_ is different from any of the chunks
+             described in this document, is considered an _unknown chunk_.</t>
+           <t><strong>Rationale:</strong> Allowing unknown chunks gives a
+             provision for future extension of the format, and also allows
+             storage of any application-specific data.</t>
+           <t>A file MAY contain unknown chunks:</t>
+           <ul spacing="normal">
+             <li>At the end of the file as described in [Extended WebP file
+               header](#extended_header) section.</li>
+             <li>At the end of ANMF chunks as described in the
+               [Animation](#animation) section.</li>
+           </ul>
+           <t>Readers SHOULD ignore these chunks. Writers SHOULD preserve them
+             in their original order (unless they specifically intend to modify
+             these chunks).</t>
+         </section>
        </section>
      </section>
    </section>
