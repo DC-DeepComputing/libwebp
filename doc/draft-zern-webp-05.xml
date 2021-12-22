@@ -778,6 +778,28 @@ alpha = (predictor + X) % 256
              [Simple File Format (Lossless)](#simple-file-format-lossless)
              respectively.</t>
          </section>
+         <section>
+           <name>Color profile</name>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('ICCP')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                       Color Profile                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             ]]></artwork>
+
+           <dl>
+             <dt>Color Profile: _Chunk Size_ bytes</dt>
+             <dd>ICC profile.</dd>
+           </dl>
+           <t>This chunk MUST appear before the image data.</t>
+           <t>There SHOULD be at most one such chunk. If there are more such
+             chunks, readers MAY ignore all except the first one. >See the [ICC
+             Specification][iccspec] for details.</t>
+           <t>If this chunk is not present, sRGB SHOULD be assumed.</t>
+         </section>
        </section>
      </section>
    </section>
