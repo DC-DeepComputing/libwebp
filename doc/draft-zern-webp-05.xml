@@ -771,8 +771,8 @@ alpha = (predictor + X) % 256
            <name>Bitstream (VP8/VP8L)</name>
            <t>This chunk contains compressed bitstream data for a single frame.</t>
            <t>A bitstream chunk may be either (i) a VP8 chunk, using "VP8 "
-             (note the significant fourth-character space) as its tag _or_ (ii)
-             a VP8L chunk, using "VP8L" as its tag.</t>
+             (note the significant fourth-character space) as its tag
+           <em>or</em> (ii) a VP8L chunk, using "VP8L" as its tag.</t>
            <t>The formats of VP8 and VP8L chunks are as described in sections
              [Simple File Format (Lossy)](#simple-file-format-lossy) and
              [Simple File Format (Lossless)](#simple-file-format-lossless)
@@ -790,8 +790,8 @@ alpha = (predictor + X) % 256
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
              ]]></artwork>
 
-           <dl>
-             <dt>Color Profile: _Chunk Size_ bytes</dt>
+           <dl newline="true" spacing="normal" indent="8">
+             <dt>Color Profile: <em>Chunk Size</em> bytes</dt>
              <dd>ICC profile.</dd>
            </dl>
            <t>This chunk MUST appear before the image data.</t>
@@ -799,6 +799,49 @@ alpha = (predictor + X) % 256
              chunks, readers MAY ignore all except the first one. >See the [ICC
              Specification][iccspec] for details.</t>
            <t>If this chunk is not present, sRGB SHOULD be assumed.</t>
+         </section>
+         <section>
+           <name>Metadata</name>
+           <t>Metadata can be stored in 'EXIF' or 'XMP ' chunks.</t>
+           <t>There SHOULD be at most one chunk of each type ('EXIF' and 'XMP
+             '). If there are more such chunks, readers MAY ignore all except
+             the first one. Also, a file may possibly contain both 'EXIF' and
+             'XMP ' chunks.</t>
+           <t>The chunks are defined as follows:</t>
+           <t>EXIF chunk:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('EXIF')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        EXIF Metadata                          |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             ]]></artwork>
+
+           <dl newline="true" spacing="normal" indent="8">
+             <dt>EXIF Metadata: <em>Chunk Size</em> bytes</dt>
+             <dd>image metadata in EXIF format.</dd>
+           </dl>
+
+           <t>XMP chunk:</t>
+           <artwork name="" type="" align="left" alt=""><![CDATA[
+ 0                   1                   2                   3
+ 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                      ChunkHeader('XMP ')                      |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+|                        XMP Metadata                           |
++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+             ]]></artwork>
+
+           <dl newline="true" spacing="normal" indent="8">
+             <dt>XMP Metadata: <em>Chunk Size</em> bytes</dt>
+             <dd>image metadata in XMP format.</dd>
+           </dl>
+           <t>Additional guidance about handling metadata can be found in the
+             Metadata Working Group's [Guidelines for Handling
+             Metadata][metadata].</t>
          </section>
        </section>
      </section>
