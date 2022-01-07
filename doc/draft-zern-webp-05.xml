@@ -1605,8 +1605,8 @@ if (color_table_size <= 2) {
            <name>Huffman Coded Literals</name>
 
            <t>The pixel is stored as Huffman coded values of green, red, blue
-             and alpha (in that order). See [this
-             section](#decoding-entropy-coded-image-data) for details.</t>
+             and alpha (in that order). See <xref
+               target="decoding-entropy-coded-image-data"/> for details.</t>
          </section>
 
          <section numbered="true" toc="default">
@@ -1906,11 +1906,12 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              <tt>num_huff_groups</tt>).</t>
 
            <t>The decoder then uses Huffman code group <tt>huff_group</tt> to
-             decode the pixel (x, y) as explained in the [next
-             section](#decoding-entropy-coded-image-data).</t>
+             decode the pixel (x, y) as explained in <xref
+               target="decoding-entropy-coded-image-data"/>.</t>
          </section>
 
-         <section numbered="true" toc="default">
+         <section anchor="decoding-entropy-coded-image-data" numbered="true"
+           toc="default">
            <name>Decoding Entropy-coded Image Data</name>
            <t>For the current position (x, y) in the image, the decoder first
              identifies the corresponding Huffman code group (as explained in
