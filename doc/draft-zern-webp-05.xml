@@ -1413,6 +1413,28 @@ void InverseTransform(uint8 red, uint8 green, uint8 blue,
 }
            ]]></sourcecode>
        </section>
+
+       <section numbered="true" toc="default">
+         <name>Subtract Green Transform</name>
+         <t>The subtract green transform subtracts green values from red and
+           blue values of each pixel. When this transform is present, the
+           decoder needs to add the green value to both red and blue. There is
+           no data associated with this transform. The decoder applies the
+           inverse transform as follows:</t>
+
+         <sourcecode><![CDATA[
+void AddGreenToBlueAndRed(uint8 green, uint8 *red, uint8 *blue) {
+  *red  = (*red  + green) & 0xff;
+  *blue = (*blue + green) & 0xff;
+}
+           ]]></sourcecode>
+
+         <t>This transform is redundant as it can be modeled using the color
+           transform, but it is still often useful. Since it can extend the
+           dynamics of the color transform and there is no additional data
+           here, the subtract green transform can be coded using fewer bits
+           than a full-blown color transform.</t>
+       </section>
      </section>
    </section>
  </middle>
