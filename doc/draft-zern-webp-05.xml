@@ -1158,6 +1158,153 @@ enum TransformType {
          contains the information required to apply the inverse transform and
          depends on the transform type. Next we describe the transform data for
          different types.</t>
+
+       <section numbered="true" toc="default">
+         <name>Predictor Transform</name>
+         <t>The predictor transform can be used to reduce entropy by exploiting
+           the fact that neighboring pixels are often correlated. In the
+           predictor transform, the current pixel value is predicted from the
+           pixels already decoded (in scan-line order) and only the residual
+           value (actual - predicted) is encoded. The _prediction mode_
+           determines the type of prediction to use. We divide the image into
+           squares and all the pixels in a square use same prediction mode.</t>
+
+         <t>The first 3 bits of prediction data define the block width and
+           height in number of bits. The number of block columns,
+           `block_xsize`, is used in indexing two-dimensionally.</t>
+
+         <sourcecode><![CDATA[
+int size_bits = ReadBits(3) + 2;
+int block_width = (1 << size_bits);
+int block_height = (1 << size_bits);
+#define DIV_ROUND_UP(num, den) ((num) + (den) - 1) / (den))
+int block_xsize = DIV_ROUND_UP(image_width, 1 << size_bits);
+           ]]></sourcecode>
+
+         <t>The transform data contains the prediction mode for each block of
+           the image. All the 'block_width * block_height' pixels of a block
+           use same prediction mode. The prediction modes are treated as pixels
+           of an image and encoded using the same techniques described in
+           [Chapter 4](#image-data).</t>
+
+         <t>For a pixel <em>x, y</em>, one can compute the respective filter
+           block address by:</t>
+
+         <sourcecode><![CDATA[
+int block_index = (y >> size_bits) * block_xsize +
+                  (x >> size_bits);
+           ]]></sourcecode>
+
+         <t>There are 14 different prediction modes. In each prediction mode,
+           the current pixel value is predicted from one or more neighboring
+           pixels whose values are already known.</t>
+
+         <t>We choose the neighboring pixels (TL, T, TR, and L) of the current
+           pixel (P) as follows:</t>
+
+         <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+O    O    O    O    O    O    O    O    O    O    O
+O    O    O    O    O    O    O    O    O    O    O
+O    O    O    O    TL   T    TR   O    O    O    O
+O    O    O    O    L    P    X    X    X    X    X
+X    X    X    X    X    X    X    X    X    X    X
+X    X    X    X    X    X    X    X    X    X    X
+           ]]></artwork>
+
+         <t>where TL means top-left, T top, TR top-right, L left pixel. At the
+           time of predicting a value for P, all pixels O, TL, T, TR and L have
+           been already processed, and pixel P and all pixels X are
+           unknown.</t>
+
+         <t>Given the above neighboring pixels, the different prediction modes
+           are defined as follows.</t>
+
+         <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+| Mode   | Predicted value of each channel of the current pixel    |
+| ------ | ------------------------------------------------------- |
+|  0     | 0xff000000 (represents solid black color in ARGB)       |
+|  1     | L                                                       |
+|  2     | T                                                       |
+|  3     | TR                                                      |
+|  4     | TL                                                      |
+|  5     | Average2(Average2(L, TR), T)                            |
+|  6     | Average2(L, TL)                                         |
+|  7     | Average2(L, T)                                          |
+|  8     | Average2(TL, T)                                         |
+|  9     | Average2(T, TR)                                         |
+| 10     | Average2(Average2(L, TL), Average2(T, TR))              |
+| 11     | Select(L, T, TL)                                        |
+| 12     | ClampAddSubtractFull(L, T, TL)                          |
+| 13     | ClampAddSubtractHalf(Average2(L, T), TL)                |
+           ]]></artwork>
+
+
+         <t>'Average2' is defined as follows for each ARGB component:</t>
+
+         <sourcecode><![CDATA[
+uint8 Average2(uint8 a, uint8 b) {
+  return (a + b) / 2;
+}
+           ]]></sourcecode>
+
+         <t>The Select predictor is defined as follows:</t>
+
+         <sourcecode><![CDATA[
+uint32 Select(uint32 L, uint32 T, uint32 TL) {
+  // L = left pixel, T = top pixel, TL = top left pixel.
+
+  // ARGB component estimates for prediction.
+  int pAlpha = ALPHA(L) + ALPHA(T) - ALPHA(TL);
+  int pRed = RED(L) + RED(T) - RED(TL);
+  int pGreen = GREEN(L) + GREEN(T) - GREEN(TL);
+  int pBlue = BLUE(L) + BLUE(T) - BLUE(TL);
+
+  // Manhattan distances to estimates for left and top pixels.
+  int pL = abs(pAlpha - ALPHA(L)) + abs(pRed - RED(L)) +
+           abs(pGreen - GREEN(L)) + abs(pBlue - BLUE(L));
+  int pT = abs(pAlpha - ALPHA(T)) + abs(pRed - RED(T)) +
+           abs(pGreen - GREEN(T)) + abs(pBlue - BLUE(T));
+
+  // Return either left or top, the one closer to the prediction.
+  if (pL < pT) {
+    return L;
+  } else {
+    return T;
+  }
+}
+           ]]></sourcecode>
+
+         <t>The functions 'ClampAddSubtractFull' and 'ClampAddSubtractHalf' are
+           performed for each ARGB component as follows:</t>
+
+         <sourcecode><![CDATA[
+// Clamp the input value between 0 and 255.
+int Clamp(int a) {
+  return (a < 0) ? 0 : (a > 255) ?  255 : a;
+}
+
+int ClampAddSubtractFull(int a, int b, int c) {
+  return Clamp(a + b - c);
+}
+
+int ClampAddSubtractHalf(int a, int b) {
+  return Clamp(a + (a - b) / 2);
+}
+           ]]></sourcecode>
+
+         <t>There are special handling rules for some border pixels. If there
+           is a prediction transform, regardless of the mode [0..13] for these
+           pixels, the predicted value for the left-topmost pixel of the image
+           is 0xff000000, L-pixel for all pixels on the top row, and T-pixel
+           for all pixels on the leftmost column.</t>
+
+         <t>Addressing the TR-pixel for pixels on the rightmost column is
+           exceptional. The pixels on the rightmost column are predicted by
+           using the modes [0..13] just like pixels not on border, but by using
+           the leftmost pixel on the same row as the current TR-pixel. The
+           TR-pixel offset in memory is the same for border and non-border
+           pixels.</t>
+       </section>
      </section>
    </section>
  </middle>
