@@ -1305,6 +1305,114 @@ int ClampAddSubtractHalf(int a, int b) {
            TR-pixel offset in memory is the same for border and non-border
            pixels.</t>
        </section>
+
+       <section numbered="true" toc="default">
+         <name>Color Transform</name>
+         <t>The goal of the color transform is to decorrelate the R, G and B
+           values of each pixel. Color transform keeps the green (G) value as
+           it is, transforms red (R) based on green and transforms blue (B)
+           based on green and then based on red.</t>
+
+         <t>As is the case for the predictor transform, first the image is
+           divided into blocks and the same transform mode is used for all the
+           pixels in a block. For each block there are three types of color
+           transform elements.</t>
+
+         <sourcecode><![CDATA[
+typedef struct {
+  uint8 green_to_red;
+  uint8 green_to_blue;
+  uint8 red_to_blue;
+} ColorTransformElement;
+           ]]></sourcecode>
+
+         <t>The actual color transformation is done by defining a color
+           transform delta. The color transform delta depends on the
+           `ColorTransformElement`, which is the same for all the pixels in a
+           particular block. The delta is added during color transform. The
+           inverse color transform then is just subtracting those deltas.</t>
+
+         <t>The color transform function is defined as follows:</t>
+
+         <sourcecode><![CDATA[
+void ColorTransform(uint8 red, uint8 blue, uint8 green,
+                    ColorTransformElement *trans,
+                    uint8 *new_red, uint8 *new_blue) {
+  // Transformed values of red and blue components
+  uint32 tmp_red = red;
+  uint32 tmp_blue = blue;
+
+  // Applying transform is just adding the transform deltas
+  tmp_red  += ColorTransformDelta(trans->green_to_red, green);
+  tmp_blue += ColorTransformDelta(trans->green_to_blue, green);
+  tmp_blue += ColorTransformDelta(trans->red_to_blue, red);
+
+  *new_red = tmp_red & 0xff;
+  *new_blue = tmp_blue & 0xff;
+}
+           ]]></sourcecode>
+
+         <t>'ColorTransformDelta' is computed using a signed 8-bit integer
+           representing a 3.5-fixed-point number, and a signed 8-bit RGB color
+           channel (c) [-128..127] and is defined as follows:</t>
+
+         <sourcecode><![CDATA[
+int8 ColorTransformDelta(int8 t, int8 c) {
+  return (t * c) >> 5;
+}
+           ]]></sourcecode>
+
+         <t>A conversion from the 8-bit unsigned representation (uint8) to the
+           8-bit signed one (int8) is required before calling
+           ColorTransformDelta(). It should be performed using 8-bit two's
+           complement (that is: uint8 range [128-255] is mapped to the \[-128,
+           -1\] range of its converted int8 value).</t>
+
+         <t>The multiplication is to be done using more precision (with at
+           least 16-bit dynamics). The sign extension property of the shift
+           operation does not matter here: only the lowest 8 bits are used from
+           the result, and there the sign extension shifting and unsigned
+           shifting are consistent with each other.</t>
+
+         <t>Now we describe the contents of color transform data so that
+           decoding can apply the inverse color transform and recover the
+           original red and blue values. The first 3 bits of the color
+           transform data contain the width and height of the image block in
+           number of bits, just like the predictor transform:</t>
+
+         <sourcecode><![CDATA[
+int size_bits = ReadBits(3) + 2;
+int block_width = 1 << size_bits;
+int block_height = 1 << size_bits;
+           ]]></sourcecode>
+
+         <t>The remaining part of the color transform data contains
+           `ColorTransformElement` instances corresponding to each block of the
+           image. `ColorTransformElement` instances are treated as pixels of an
+           image and encoded using the methods described in [Chapter
+           4](#image-data).</t>
+
+         <t>During decoding, `ColorTransformElement` instances of the blocks
+           are decoded and the inverse color transform is applied on the ARGB
+           values of the pixels. As mentioned earlier, that inverse color
+           transform is just subtracting `ColorTransformElement` values from
+           the red and blue channels.</t>
+
+         <sourcecode><![CDATA[
+void InverseTransform(uint8 red, uint8 green, uint8 blue,
+                      ColorTransformElement *p,
+                      uint8 *new_red, uint8 *new_blue) {
+  // Applying inverse transform is just subtracting the
+  // color transform deltas
+  red  -= ColorTransformDelta(p->green_to_red_,  green);
+  blue -= ColorTransformDelta(p->green_to_blue_, green);
+  blue -= ColorTransformDelta(p->red_to_blue_, red & 0xff);
+
+  *new_red = red & 0xff;
+  *new_blue = blue & 0xff;
+}
+           ]]></sourcecode>
+       </section>
      </section>
    </section>
  </middle>
