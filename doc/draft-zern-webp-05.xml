@@ -1067,6 +1067,52 @@ b |= ReadBits(1) << 1;
          information in the bitstream contains the data required to apply the
          respective inverse transforms.</t>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>RIFF Header</name>
+       <t>The beginning of the header has the RIFF container. This consists of the
+         following 21 bytes:</t>
+
+       <ol spacing="normal">
+         <li>String "RIFF"</li>
+         <li>A little-endian 32 bit value of the block length, the whole size
+           of the block controlled by the RIFF header. Normally this equals the
+           payload size (file size minus 8 bytes: 4 bytes for the 'RIFF'
+           identifier and 4 bytes for storing the value itself).</li>
+         <li>String "WEBP" (RIFF container name).</li>
+         <li>String "VP8L" (chunk tag for lossless encoded image data).</li>
+         <li>A little-endian 32-bit value of the number of bytes in the
+           lossless stream.</li>
+         <li>One byte signature 0x2f.</li>
+       </ol>
+
+       <t>The first 28 bits of the bitstream specify the width and height of
+         the image. Width and height are decoded as 14-bit integers as
+         follows:</t>
+
+       <sourcecode><![CDATA[
+int image_width = ReadBits(14) + 1;
+int image_height = ReadBits(14) + 1;
+         ]]></sourcecode>
+
+       <t>The 14-bit dynamics for image size limit the maximum size of a WebP
+         lossless image to 16384x16384 pixels.</t>
+
+       <t>The alpha_is_used bit is a hint only, and should not impact
+         decoding. It should be set to 0 when all alpha values are 255 in the
+         picture, and 1 otherwise.</t>
+
+       <sourcecode><![CDATA[
+int alpha_is_used = ReadBits(1);
+         ]]></sourcecode>
+
+       <t>The version_number is a 3 bit code that must be set to 0. Any other
+         value should be treated as an error.</t>
+
+       <sourcecode><![CDATA[
+int version_number = ReadBits(3);
+         ]]></sourcecode>
+     </section>
    </section>
  </middle>
 
