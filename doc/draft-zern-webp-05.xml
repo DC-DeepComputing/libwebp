@@ -2035,6 +2035,13 @@ for (i = 0; i < num_code_lengths; ++i) {
          </section>
        </section>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>Overall Structure of the Format</name>
+       <t>Below is a view into the format in Backus-Naur form. It does not
+         cover all details. End-of-image (EOI) is only implicitly coded into
+         the number of pixels (xsize * ysize).</t>
+     </section>
    </section>
  </middle>
 
