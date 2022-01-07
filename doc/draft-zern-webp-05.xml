@@ -1435,6 +1435,105 @@ void AddGreenToBlueAndRed(uint8 green, uint8 *red, uint8 *blue) {
            here, the subtract green transform can be coded using fewer bits
            than a full-blown color transform.</t>
        </section>
+
+       <section numbered="true" toc="default">
+         <name>Color Indexing Transform</name>
+         <t>If there are not many unique pixel values, it may be more efficient
+           to create a color index array and replace the pixel values by the
+           array's indices. The color indexing transform achieves this. (In the
+           context of WebP lossless, we specifically do not call this a palette
+           transform because a similar but more dynamic concept exists in WebP
+           lossless encoding: color cache.)</t>
+
+         <t>The color indexing transform checks for the number of unique ARGB
+           values in the image. If that number is below a threshold (256), it
+           creates an array of those ARGB values, which is then used to replace
+           the pixel values with the corresponding index: the green channel of
+           the pixels are replaced with the index; all alpha values are set to
+           255; all red and blue values to 0.</t>
+
+         <t>The transform data contains color table size and the entries in the
+           color table. The decoder reads the color indexing transform data as
+           follows:</t>
+
+         <sourcecode><![CDATA[
+// 8 bit value for color table size
+int color_table_size = ReadBits(8) + 1;
+           ]]></sourcecode>
+
+         <t>The color table is stored using the image storage format itself.
+           The color table can be obtained by reading an image, without the
+           RIFF header, image size, and transforms, assuming a height of one
+           pixel and a width of `color_table_size`. The color table is always
+           subtraction-coded to reduce image entropy. The deltas of palette
+           colors contain typically much less entropy than the colors
+           themselves, leading to significant savings for smaller images. In
+           decoding, every final color in the color table can be obtained by
+           adding the previous color component values by each ARGB component
+           separately, and storing the least significant 8 bits of the
+           result.</t>
+
+         <t>The inverse transform for the image is simply replacing the pixel
+           values (which are indices to the color table) with the actual color
+           table values. The indexing is done based on the green component of
+           the ARGB color.</t>
+
+         <sourcecode><![CDATA[
+// Inverse transform
+argb = color_table[GREEN(argb)];
+           ]]></sourcecode>
+
+         <t>If the index is equal or larger than color_table_size, the argb
+           color value should be set to 0x00000000 (transparent black).</t>
+
+         <t>When the color table is small (equal to or less than 16 colors),
+           several pixels are bundled into a single pixel. The pixel bundling
+           packs several (2, 4, or 8) pixels into a single pixel, reducing the
+           image width respectively. Pixel bundling allows for a more efficient
+           joint distribution entropy coding of neighboring pixels, and gives
+           some arithmetic coding-like benefits to the entropy code, but it can
+           only be used when there are a small number of unique values.</t>
+
+         <t>`color_table_size` specifies how many pixels are combined
+           together:</t>
+
+         <sourcecode><![CDATA[
+int width_bits;
+if (color_table_size <= 2) {
+  width_bits = 3;
+} else if (color_table_size <= 4) {
+  width_bits = 2;
+} else if (color_table_size <= 16) {
+  width_bits = 1;
+} else {
+  width_bits = 0;
+}
+           ]]></sourcecode>
+
+         <t>`width_bits` has a value of 0, 1, 2 or 3. A value of 0 indicates no
+           pixel bundling to be done for the image. A value of 1 indicates that
+           two pixels are combined together, and each pixel has a range of
+           \[0..15\]. A value of 2 indicates that four pixels are combined
+           together, and each pixel has a range of \[0..3\]. A value of 3
+           indicates that eight pixels are combined together and each pixel has
+           a range of \[0..1\], i.e., a binary value.</t>
+
+         <t>The values are packed into the green component as follows:</t>
+         <ul spacing="normal">
+           <li>`width_bits` = 1: for every x value where x = 2k + 0, a green
+             value at x is positioned into the 4 least-significant bits of the
+             green value at x / 2, a green value at x + 1 is positioned into
+             the 4 most-significant bits of the green value at x / 2.</li>
+           <li>`width_bits` = 2: for every x value where x = 4k + 0, a green
+             value at x is positioned into the 2 least-significant bits of the
+             green value at x / 4, green values at x + 1 to x + 3 in order to
+             the more significant bits of the green value at x / 4.</li>
+           <li>`width_bits` = 3: for every x value where x = 8k + 0, a green
+             value at x is positioned into the least-significant bit of the
+             green value at x / 8, green values at x + 1 to x + 7 in order to
+             the more significant bits of the green value at x / 8.</li>
+         </ul>
+       </section>
      </section>
    </section>
  </middle>
