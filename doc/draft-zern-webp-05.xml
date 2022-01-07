@@ -2049,6 +2049,24 @@ for (i = 0; i < num_code_lengths; ++i) {
 <image stream> ::= <optional-transform><spatially-coded image>
            ]]></sourcecode>
         </section>
+
+        <section numbered="true" toc="default">
+          <name>Structure of Transforms</name>
+
+          <sourcecode><![CDATA[
+<optional-transform> ::= (1-bit value 1; <transform> <optional-transform>) |
+                         1-bit value 0
+<transform> ::= <predictor-tx> | <color-tx> | <subtract-green-tx> |
+                <color-indexing-tx>
+<predictor-tx> ::= 2-bit value 0; <predictor image>
+<predictor image> ::= 3-bit sub-pixel code ; <entropy-coded image>
+<color-tx> ::= 2-bit value 1; <color image>
+<color image> ::= 3-bit sub-pixel code ; <entropy-coded image>
+<subtract-green-tx> ::= 2-bit value 2
+<color-indexing-tx> ::= 2-bit value 3; <color-indexing image>
+<color-indexing image> ::= 8-bit color count; <entropy-coded image>
+            ]]></sourcecode>
+        </section>
      </section>
    </section>
  </middle>
