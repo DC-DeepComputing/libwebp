@@ -1733,6 +1733,48 @@ if (dist < 1) {
            <t>where 'distance_map' is the mapping noted above and `xsize` is
              the width of the image in pixels.</t>
          </section>
+
+         <section numbered="true" toc="default">
+           <name>Color Cache Coding</name>
+           <t>Color cache stores a set of colors that have been recently used
+             in the image.</t>
+
+           <t><strong>Rationale:</strong> This way, the recently used colors
+             can sometimes be referred to more efficiently than emitting them
+             using other two methods (described in
+             [4.2.1](#huffman-coded-literals) and
+             [4.2.2](#lz77-backward-reference)).</t>
+
+           <t>Color cache codes are stored as follows. First, there is a 1-bit
+             value that indicates if the color cache is used. If this bit is 0,
+             no color cache codes exist, and they are not transmitted in the
+             Huffman code that decodes the green symbols and the length prefix
+             codes. However, if this bit is 1, the color cache size is read
+             next:</t>
+
+           <sourcecode><![CDATA[
+int color_cache_code_bits = ReadBits(4);
+int color_cache_size = 1 << color_cache_code_bits;
+             ]]></sourcecode>
+
+           <t>`color_cache_code_bits` defines the size of the color_cache by (1
+             &lt;&lt; `color_cache_code_bits`). The range of allowed values for
+             `color_cache_code_bits` is \[1..11\]. Compliant decoders must
+             indicate a corrupted bitstream for other values.</t>
+
+           <t>A color cache is an array of size `color_cache_size`. Each entry
+             stores one ARGB color. Colors are looked up by indexing them by
+             (0x1e35a7bd * `color`) &gt;&gt; (32 - `color_cache_code_bits`).
+             Only one lookup is done in a color cache; there is no conflict
+             resolution.</t>
+
+           <t>In the beginning of decoding or encoding of an image, all entries
+             in all color cache values are set to zero. The color cache code is
+             converted to this color at decoding time. The state of the color
+             cache is maintained by inserting every pixel, be it produced by
+             backward referencing or as literals, into the cache in the order
+             they appear in the stream.</t>
+         </section>
        </section>
      </section>
    </section>
