@@ -1797,6 +1797,15 @@ int color_cache_size = 1 << color_cache_code_bits;
            entropy codes provides more flexibility and potentially a better
            compression.</t>
        </section>
+
+       <section numbered="true" toc="default">
+         <name>Details</name>
+         <t>The encoded image data consists of two parts:</t>
+         <ol spacing="normal">
+           <li>Meta Huffman codes</li>
+           <li>Entropy-coded image data</li>
+         </ol>
+       </section>
      </section>
    </section>
  </middle>
