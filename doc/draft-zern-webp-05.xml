@@ -1805,6 +1805,101 @@ int color_cache_size = 1 << color_cache_code_bits;
            <li>Meta Huffman codes</li>
            <li>Entropy-coded image data</li>
          </ol>
+
+         <section numbered="true" toc="default">
+           <name>Decoding of Meta Huffman Codes</name>
+           <t>As noted earlier, the format allows the use of different Huffman
+             codes for different blocks of the image. _Meta Huffman codes_ are
+             indexes identifying which Huffman codes to use in different parts
+             of the image.</t>
+
+           <t>Meta Huffman codes may be used <em>only</em> when the image is
+             being used in the [role](#roles-of-image-data) of an <em>ARGB
+               image</em>.</t>
+
+           <t>There are two possibilities for the meta Huffman codes, indicated
+             by a 1-bit value:</t>
+
+           <ul spacing="normal">
+             <li>If this bit is zero, there is only one meta Huffman code used
+               everywhere in the image. No more data is stored.</li>
+             <li>If this bit is one, the image uses multiple meta Huffman
+               codes. These meta Huffman codes are stored as an _entropy image_
+               (described below).</li>
+           </ul>
+
+           <t><strong>Entropy image:</strong></t>
+
+           <t>The entropy image defines which Huffman codes are used in
+             different parts of the image, as described below.</t>
+
+           <t>The first 3-bits contain the `huffman_bits` value. The dimensions
+             of the entropy image are derived from 'huffman_bits'.</t>
+
+           <sourcecode><![CDATA[
+int huffman_bits = ReadBits(3) + 2;
+int huffman_xsize = DIV_ROUND_UP(xsize, 1 << huffman_bits);
+int huffman_ysize = DIV_ROUND_UP(ysize, 1 << huffman_bits);
+             ]]></sourcecode>
+
+           <t>where `DIV_ROUND_UP` is as defined
+             [earlier](#predictor-transform).</t>
+
+           <t>Next bits contain an entropy image of width `huffman_xsize` and
+             height `huffman_ysize`.</t>
+
+           <t><strong>Interpretation of Meta Huffman Codes:</strong></t>
+
+           <t>For any given pixel (x, y), there is a set of five Huffman codes
+             associated with it. These codes are (in bitstream order):</t>
+
+           <ul spacing="normal">
+             <li><strong>Huffman code #1</strong>: used for green channel,
+               backward-reference length and color cache</li>
+             <li><strong>Huffman code #2, #3 and #4</strong>: used for red,
+               blue and alpha channels respectively.</li>
+             <li><strong>Huffman code #5</strong>: used for backward-reference
+               distance.</li>
+           </ul>
+
+           <t>From here on, we refer to this set as a <strong>Huffman code
+             group</strong>.</t>
+
+           <t>The number of Huffman code groups in the ARGB image can be
+             obtained by finding the _largest meta Huffman code_ from the
+             entropy image:</t>
+
+           <sourcecode><![CDATA[
+int num_huff_groups = max(entropy image) + 1;
+             ]]></sourcecode>
+           <t>where `max(entropy image)` indicates the largest Huffman code
+             stored in the entropy image.</t>
+
+           <t>As each Huffman code groups contains five Huffman codes, the
+             total number of Huffman codes is:</t>
+
+           <sourcecode><![CDATA[
+int num_huff_codes = 5 * num_huff_groups;
+             ]]></sourcecode>
+
+           <t>Given a pixel (x, y) in the ARGB image, we can obtain the
+             corresponding Huffman codes to be used as follows:</t>
+
+           <sourcecode><![CDATA[
+int position = (y >> huffman_bits) * huffman_xsize + (x >> huffman_bits);
+int meta_huff_code = (entropy_image[pos] >> 8) & 0xffff;
+HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
+             ]]></sourcecode>
+
+           <t>where, we have assumed the existence of `HuffmanCodeGroup`
+             structure, which represents a set of five Huffman codes. Also,
+             `huffman_code_groups` is an array of `HuffmanCodeGroup` (of size
+             `num_huff_groups`).</t>
+
+           <t>The decoder then uses Huffman code group `huff_group` to decode
+             the pixel (x, y) as explained in the [next
+             section](#decoding-entropy-coded-image-data).</t>
+         </section>
        </section>
      </section>
    </section>
