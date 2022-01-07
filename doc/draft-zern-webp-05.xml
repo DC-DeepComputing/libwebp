@@ -1594,6 +1594,14 @@ if (color_table_size <= 2) {
          </ol>
 
          <t>The following sub-sections describe each of these in detail.</t>
+
+         <section numbered="true" toc="default">
+           <name>Huffman Coded Literals</name>
+
+           <t>The pixel is stored as Huffman coded values of green, red, blue
+             and alpha (in that order). See [this
+             section](#decoding-entropy-coded-image-data) for details.</t>
+         </section>
        </section>
      </section>
    </section>
