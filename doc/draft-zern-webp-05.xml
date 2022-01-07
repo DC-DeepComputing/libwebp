@@ -1565,6 +1565,36 @@ if (color_table_size <= 2) {
              of width `color_table_size` and height `1`.</li>
          </ol>
        </section>
+
+       <section numbered="true" toc="default">
+         <name>Encoding of Image data</name>
+         <t>The encoding of image data is independent of its role.</t>
+
+         <t>The image is first divided into a set of fixed-size blocks
+           (typically 16x16 blocks). Each of these blocks are modeled using
+           their own entropy codes. Also, several blocks may share the same
+           entropy codes.</t>
+
+         <t><strong>Rationale:</strong> Storing an entropy code incurs a cost.
+           This cost can be minimized if statistically similar blocks share an
+           entropy code, thereby storing that code only once. For example, an
+           encoder can find similar blocks by clustering them using their
+           statistical properties, or by repeatedly joining a pair of randomly
+           selected clusters when it reduces the overall amount of bits needed
+           to encode the image.</t>
+
+         <t>Each pixel is encoded using one of the three possible methods:</t>
+         <ol spacing="normal">
+           <li>Huffman coded literal: each channel (green, red, blue and alpha)
+             is entropy-coded independently;</li>
+           <li>LZ77 backward reference: a sequence of pixels are copied from
+             elsewhere in the image; or</li>
+           <li>Color cache code: using a short multiplicative hash code (color
+             cache index) of a recently seen color.</li>
+         </ol>
+
+         <t>The following sub-sections describe each of these in detail.</t>
+       </section>
      </section>
    </section>
  </middle>
