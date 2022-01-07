@@ -1777,6 +1777,27 @@ int color_cache_size = 1 << color_cache_code_bits;
          </section>
        </section>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>Entropy Code</name>
+       <section numbered="true" toc="default">
+         <name>Overview</name>
+
+         <t>Most of the data is coded using [canonical Huffman
+           code][canonical_huff]. Hence, the codes are transmitted by sending
+           the <em>Huffman code lengths</em>, as opposed to the actual
+           <em>Huffman codes</em>.</t>
+
+         <t>In particular, the format uses <strong>spatially-variant Huffman
+           coding</strong>. In other words, different blocks of the image can
+             potentially use different entropy codes.</t>
+
+         <t><strong>Rationale:</strong> Different areas of the image may have
+           different characteristics. So, allowing them to use different
+           entropy codes provides more flexibility and potentially a better
+           compression.</t>
+       </section>
+     </section>
    </section>
  </middle>
 
