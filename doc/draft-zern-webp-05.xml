@@ -411,7 +411,7 @@
          <li>An optional 'ICCP' chunk with color profile.</li>
          <li>An optional 'ANIM' chunk with animation control data.</li>
          <li>Image data.</li>
-         <li>An optional 'EXIF' chunk with EXIF metadata.</li>
+         <li>An optional 'EXIF' chunk with Exif metadata.</li>
          <li>An optional 'XMP ' chunk with XMP metadata.</li>
          <li>An optional list of <xref target="unknown-chunks">unknown
            chunks</xref>.</li>
@@ -464,8 +464,8 @@
          <dt>Alpha (L): 1 bit</dt>
          <dd>Set if any of the frames of the image contain transparency
            information ("alpha").</dd>
-         <dt>EXIF metadata (E): 1 bit</dt>
-         <dd>Set if the file contains EXIF metadata.</dd>
+         <dt>Exif metadata (E): 1 bit</dt>
+         <dd>Set if the file contains Exif metadata.</dd>
          <dt>XMP metadata (X): 1 bit</dt>
          <dd>Set if the file contains XMP metadata.</dd>
          <dt>Animation (A): 1 bit</dt>
@@ -828,12 +828,12 @@ alpha = (predictor + X) % 256
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |                      ChunkHeader('EXIF')                      |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-|                        EXIF Metadata                          |
+|                        Exif Metadata                          |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
              ]]></artwork>
 
            <dl newline="true" spacing="normal" indent="8">
-             <dt>EXIF Metadata: <em>Chunk Size</em> bytes</dt>
+             <dt>Exif Metadata: <em>Chunk Size</em> bytes</dt>
              <dd>image metadata in <xref target="Exif"/> format.</dd>
            </dl>
 
@@ -947,7 +947,7 @@ RIFF/WEBP
 +- VP8L (lossless bitstream)
 +- XMP  (metadata)
              ]]></artwork>
-           <t>An animated image with EXIF metadata may look as follows:</t>
+           <t>An animated image with Exif metadata may look as follows:</t>
            <artwork name="" type="" align="left" alt=""><![CDATA[
 RIFF/WEBP
 +- VP8X (descriptions of features used)
