@@ -1539,6 +1539,32 @@ if (color_table_size <= 2) {
      <section numbered="true" toc="default">
        <name>Image Data</name>
        <t>Image data is an array of pixel values in scan-line order.</t>
+       <section numbered="true" toc="default">
+         <name>Roles of Image Data</name>
+         <t>We use image data in five different roles:</t>
+
+         <ol spacing="normal">
+           <li>ARGB image: Stores the actual pixels of the image.</li>
+           <li>Entropy image: Stores the [meta Huffman
+             codes](#decoding-of-meta-huffman-codes). The red and green
+             components of a pixel define the meta Huffman code used in a
+             particular block of the ARGB image.</li>
+           <li>Predictor image: Stores the metadata for [Predictor
+             Transform](#predictor-transform). The green component of a pixel
+             defines which of the 14 predictors is used within a particular
+             block of the ARGB image.</li>
+           <li>Color transform image. It is created by `ColorTransformElement`
+             values (defined in [Color Transform](#color-transform)) for
+             different blocks of the image. Each `ColorTransformElement`
+             `'cte'` is treated as a pixel whose alpha component is `255`, red
+             component is `cte.red_to_blue`, green component is
+             `cte.green_to_blue` and blue component is `cte.green_to_red`.</li>
+           <li>Color indexing image: An array of of size `color_table_size` (up
+             to 256 ARGB values) storing the metadata for the [Color Indexing
+             Transform](#color-indexing-transform). This is stored as an image
+             of width `color_table_size` and height `1`.</li>
+         </ol>
+       </section>
      </section>
    </section>
  </middle>
