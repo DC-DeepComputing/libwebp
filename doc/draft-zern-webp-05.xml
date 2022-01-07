@@ -427,7 +427,7 @@
 
        <t>For an <em>animated image</em>, the <em>image data</em> consists of
          multiple frames. More details about frames can be found in <xref
-           target="animation"/></t>
+           target="animation"/>.</t>
 
        <t>All chunks SHOULD be placed in the same order as listed above. If a
          chunk appears in the wrong place, the file is invalid, but readers MAY
