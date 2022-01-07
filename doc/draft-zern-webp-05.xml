@@ -195,7 +195,7 @@
            <li>Lossless compression. An image can be losslessly compressed,
              using the WebP Lossless Format.</li>
            <li>Metadata. An image may have metadata stored in <xref
-             target="Exif"/> or <xref target="XMP"/>formats.</li>
+             target="Exif"/> or <xref target="XMP"/> formats.</li>
            <li>Transparency. An image may have transparency, i.e., an alpha
              channel.</li>
            <li>Color Profile. An image may have an embedded <xref
@@ -242,8 +242,9 @@
      <section anchor="riff-file-format" numbered="true" toc="default">
        <name>RIFF File Format</name>
 
-       <t>The WebP file format is based on the RIFF (resource interchange file
-         format) document format.</t>
+       <t>The WebP file format is based on the <xref
+         target="riff-spec">RIFF</xref> (resource interchange file format)
+           document format.</t>
 
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
          of:</t>
@@ -762,10 +763,11 @@ alpha = (predictor + X) % 256
                height, containing all the 8-bit transparency values in scan
                order.</li>
              <li><t>Lossless format compression: the byte sequence is a
-               compressed image-stream (as described in the [WebP Lossless
-               Bitstream Format] [webpllspec]) of implicit dimension width x
-               height. That is, this image-stream does NOT contain any headers
-               describing the image dimension.</t>
+               compressed image-stream (as described in the <xref
+                 target="webp-lossless">WebP Lossless Bitstream Format</xref>)
+                   of implicit dimension width x height. That is, this
+                   image-stream does NOT contain any headers describing the
+                   image dimension.</t>
              <t><strong>Rationale:</strong> the dimension is already known from
                other sources, so storing it again would be redundant and
                error-prone.</t>
