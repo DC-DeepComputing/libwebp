@@ -2041,6 +2041,14 @@ for (i = 0; i < num_code_lengths; ++i) {
        <t>Below is a view into the format in Backus-Naur form. It does not
          cover all details. End-of-image (EOI) is only implicitly coded into
          the number of pixels (xsize * ysize).</t>
+
+       <section numbered="true" toc="default">
+         <name>Basic Structure</name>
+         <sourcecode><![CDATA[
+<format> ::= <RIFF header><image size><image stream>
+<image stream> ::= <optional-transform><spatially-coded image>
+           ]]></sourcecode>
+        </section>
      </section>
    </section>
  </middle>
