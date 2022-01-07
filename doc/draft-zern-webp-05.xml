@@ -1165,7 +1165,7 @@ enum TransformType {
            the fact that neighboring pixels are often correlated. In the
            predictor transform, the current pixel value is predicted from the
            pixels already decoded (in scan-line order) and only the residual
-           value (actual - predicted) is encoded. The _prediction mode_
+           value (actual - predicted) is encoded. The <em>prediction mode</em>
            determines the type of prediction to use. We divide the image into
            squares and all the pixels in a square use same prediction mode.</t>
 
@@ -1605,8 +1605,8 @@ if (color_table_size <= 2) {
 
          <section numbered="true" toc="default">
            <name>LZ77 Backward Reference</name>
-           <t>Backward references are tuples of <em>length_ and _distance
-             code</em>:</t>
+           <t>Backward references are tuples of <em>length</em> and
+            <em>distance code</em>:</t>
 
            <ul spacing="normal">
              <li>Length indicates how many pixels in scan-line order are to be
@@ -1620,9 +1620,9 @@ if (color_table_size <= 2) {
              prefix coding</strong>.</t>
 
            <t>LZ77 prefix coding divides large integer values into two parts:
-             the _prefix code_ and the _extra bits_: the prefix code is stored
-             using an entropy code, while the extra bits are stored as they are
-             (without an entropy code).</t>
+             the <em>prefix code</em> and the <em>extra bits</em>: the prefix
+               code is stored using an entropy code, while the extra bits are
+               stored as they are (without an entropy code).</t>
 
            <t><strong>Rationale:</strong> This approach reduces the storage
              requirement for the entropy code. Also, large values are usually
@@ -1809,9 +1809,9 @@ int color_cache_size = 1 << color_cache_code_bits;
          <section numbered="true" toc="default">
            <name>Decoding of Meta Huffman Codes</name>
            <t>As noted earlier, the format allows the use of different Huffman
-             codes for different blocks of the image. _Meta Huffman codes_ are
-             indexes identifying which Huffman codes to use in different parts
-             of the image.</t>
+             codes for different blocks of the image. <em>Meta Huffman
+               codes</em> are indexes identifying which Huffman codes to use in
+                 different parts of the image.</t>
 
            <t>Meta Huffman codes may be used <em>only</em> when the image is
              being used in the [role](#roles-of-image-data) of an <em>ARGB
@@ -1824,8 +1824,8 @@ int color_cache_size = 1 << color_cache_code_bits;
              <li>If this bit is zero, there is only one meta Huffman code used
                everywhere in the image. No more data is stored.</li>
              <li>If this bit is one, the image uses multiple meta Huffman
-               codes. These meta Huffman codes are stored as an _entropy image_
-               (described below).</li>
+               codes. These meta Huffman codes are stored as an <em>entropy
+                 image</em> (described below).</li>
            </ul>
 
            <t><strong>Entropy image:</strong></t>
@@ -1866,8 +1866,8 @@ int huffman_ysize = DIV_ROUND_UP(ysize, 1 << huffman_bits);
              group</strong>.</t>
 
            <t>The number of Huffman code groups in the ARGB image can be
-             obtained by finding the _largest meta Huffman code_ from the
-             entropy image:</t>
+             obtained by finding the <em>largest meta Huffman code</em> from
+               the entropy image:</t>
 
            <sourcecode><![CDATA[
 int num_huff_groups = max(entropy image) + 1;
@@ -1987,14 +1987,14 @@ if (num_code_lengths == 2) {
 }
              ]]></sourcecode>
 
-           <t><strong>Note:</strong> Another special case is when _all_ Huffman
-             code lengths are _zeros_ (an empty Huffman code). For example, a
-             Huffman code for distance can be empty if there are no backward
-             references. Similarly, Huffman codes for alpha, red, and blue can
-             be empty if all pixels within the same meta Huffman code are
-             produced using the color cache. However, this case doesn't need a
-             special handling, as empty Huffman codes can be coded as those
-             containing a single symbol `0`.</t>
+           <t><strong>Note:</strong> Another special case is when <em>all</em>
+             Huffman code lengths are <em>zeros</em> (an empty Huffman code).
+               For example, a Huffman code for distance can be empty if there
+               are no backward references. Similarly, Huffman codes for alpha,
+               red, and blue can be empty if all pixels within the same meta
+               Huffman code are produced using the color cache. However, this
+               case doesn't need a special handling, as empty Huffman codes can
+               be coded as those containing a single symbol `0`.</t>
 
            <t><strong>(ii) Normal Code Length Code:</strong></t>
 
