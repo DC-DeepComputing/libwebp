@@ -1602,6 +1602,137 @@ if (color_table_size <= 2) {
              and alpha (in that order). See [this
              section](#decoding-entropy-coded-image-data) for details.</t>
          </section>
+
+         <section numbered="true" toc="default">
+           <name>LZ77 Backward Reference</name>
+           <t>Backward references are tuples of <em>length_ and _distance
+             code</em>:</t>
+
+           <ul spacing="normal">
+             <li>Length indicates how many pixels in scan-line order are to be
+               copied.</li>
+             <li>Distance code is a number indicating the position of a
+               previously seen pixel, from which the pixels are to be copied.
+               The exact mapping is described [below](#distance-mapping).</li>
+           </ul>
+
+           <t>The length and distance values are stored using <strong>LZ77
+             prefix coding</strong>.</t>
+
+           <t>LZ77 prefix coding divides large integer values into two parts:
+             the _prefix code_ and the _extra bits_: the prefix code is stored
+             using an entropy code, while the extra bits are stored as they are
+             (without an entropy code).</t>
+
+           <t><strong>Rationale:</strong> This approach reduces the storage
+             requirement for the entropy code. Also, large values are usually
+             rare, and so extra bits would be used for very few values in the
+             image. Thus, this approach results in a better compression
+             overall.</t>
+
+           <t>The following table denotes the prefix codes and extra bits used
+             for storing different range of values.</t>
+
+           <t>Note: The maximum backward reference length is limited to 4096.
+             Hence, only the first 24 prefix codes (with the respective extra
+             bits) are meaningful for length values. For distance values,
+             however, all the 40 prefix codes are valid.</t>
+
+           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+| Value range     | Prefix code | Extra bits |
+| --------------- | ----------- | ---------- |
+| 1               | 0           | 0          |
+| 2               | 1           | 0          |
+| 3               | 2           | 0          |
+| 4               | 3           | 0          |
+| 5..6            | 4           | 1          |
+| 7..8            | 5           | 1          |
+| 9..12           | 6           | 2          |
+| 13..16          | 7           | 2          |
+| ...             | ...         | ...        |
+| 3072..4096      | 23          | 10         |
+| ...             | ...         | ...        |
+| 524289..786432  | 38          | 18         |
+| 786433..1048576 | 39          | 18         |
+             ]]></artwork>
+
+           <t>The pseudocode to obtain a (length or distance) value from the
+             prefix code is as follows:</t>
+
+           <sourcecode><![CDATA[
+if (prefix_code < 4) {
+  return prefix_code + 1;
+}
+int extra_bits = (prefix_code - 2) >> 1;
+int offset = (2 + (prefix_code & 1)) << extra_bits;
+return offset + ReadBits(extra_bits) + 1;
+             ]]></sourcecode>
+
+           <t>Distance Mapping:</t>
+
+           <t>As noted previously, distance code is a number indicating the
+             position of a previously seen pixel, from which the pixels are to
+             be copied. This sub-section defines the mapping between a distance
+             code and the position of a previous pixel.</t>
+
+           <t>The distance codes larger than 120 denote the pixel-distance in
+             scan-line order, offset by 120.</t>
+
+           <t>The smallest distance codes \[1..120\] are special, and are
+             reserved for a close neighborhood of the current pixel. This
+             neighborhood consists of 120 pixels:</t>
+
+           <ul spacing="normal">
+             <li>Pixels that are 1 to 7 rows above the current pixel, and are
+               up to 8 columns to the left or up to 7 columns to the right of
+               the current pixel. \[Total such pixels = `7 * (8 + 1 + 7) =
+               112`\].</li>
+             <li>Pixels that are in same row as the current pixel, and are up
+               to 8 columns to the left of the current pixel. \[`8` such
+               pixels\].</li>
+           </ul>
+
+           <t>The mapping between distance code `i` and the neighboring pixel
+             offset `(xi, yi)` is as follows:</t>
+
+           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+(0, 1),  (1, 0),  (1, 1),  (-1, 1), (0, 2),  (2, 0),  (1, 2),  (-1, 2),
+(2, 1),  (-2, 1), (2, 2),  (-2, 2), (0, 3),  (3, 0),  (1, 3),  (-1, 3),
+(3, 1),  (-3, 1), (2, 3),  (-2, 3), (3, 2),  (-3, 2), (0, 4),  (4, 0),
+(1, 4),  (-1, 4), (4, 1),  (-4, 1), (3, 3),  (-3, 3), (2, 4),  (-2, 4),
+(4, 2),  (-4, 2), (0, 5),  (3, 4),  (-3, 4), (4, 3),  (-4, 3), (5, 0),
+(1, 5),  (-1, 5), (5, 1),  (-5, 1), (2, 5),  (-2, 5), (5, 2),  (-5, 2),
+(4, 4),  (-4, 4), (3, 5),  (-3, 5), (5, 3),  (-5, 3), (0, 6),  (6, 0),
+(1, 6),  (-1, 6), (6, 1),  (-6, 1), (2, 6),  (-2, 6), (6, 2),  (-6, 2),
+(4, 5),  (-4, 5), (5, 4),  (-5, 4), (3, 6),  (-3, 6), (6, 3),  (-6, 3),
+(0, 7),  (7, 0),  (1, 7),  (-1, 7), (5, 5),  (-5, 5), (7, 1),  (-7, 1),
+(4, 6),  (-4, 6), (6, 4),  (-6, 4), (2, 7),  (-2, 7), (7, 2),  (-7, 2),
+(3, 7),  (-3, 7), (7, 3),  (-7, 3), (5, 6),  (-5, 6), (6, 5),  (-6, 5),
+(8, 0),  (4, 7),  (-4, 7), (7, 4),  (-7, 4), (8, 1),  (8, 2),  (6, 6),
+(-6, 6), (8, 3),  (5, 7),  (-5, 7), (7, 5),  (-7, 5), (8, 4),  (6, 7),
+(-6, 7), (7, 6),  (-7, 6), (8, 5),  (7, 7),  (-7, 7), (8, 6),  (8, 7)
+             ]]></artwork>
+
+           <t>For example, distance code `1` indicates offset of `(0, 1)` for
+             the neighboring pixel, that is, the pixel above the current pixel
+             (0-pixel difference in X-direction and 1 pixel difference in
+             Y-direction). Similarly, distance code `3` indicates left-top
+             pixel.</t>
+
+           <t>The decoder can convert a distances code 'i' to a scan-line order
+             distance 'dist' as follows:</t>
+
+           <sourcecode><![CDATA[
+(xi, yi) = distance_map[i]
+dist = x + y * xsize
+if (dist < 1) {
+  dist = 1
+}
+             ]]></sourcecode>
+
+           <t>where 'distance_map' is the mapping noted above and `xsize` is
+             the width of the image in pixels.</t>
+         </section>
        </section>
      </section>
    </section>
