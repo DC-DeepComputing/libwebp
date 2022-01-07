@@ -611,6 +611,33 @@
                      frame</em> with background color specified in the <xref
                        target="anim_chunk">ANIM chunk</xref>.</li>
                  </ul>
+                 <t><strong>Notes:</strong></t>
+                 <ul spacing="normal">
+                   <li>The frame disposal only applies to the <em>frame
+                     rectangle</em>, that is, the rectangle defined by
+                     <em>Frame X</em>, <em>Frame Y</em>, <em>frame width</em>
+                     and <em>frame height</em>. It may or may not cover the
+                     whole canvas.</li>
+                   <li anchor="alpha-blending"><t>Alpha-blending:</t>
+                     <t>Given that each of the R, G, B and A channels is 8-bit,
+                       and the RGB channels are <em>not premultiplied</em> by
+                       alpha, the formula for blending 'dst' onto 'src' is:</t>
+
+                     <sourcecode><![CDATA[
+blend.A = src.A + dst.A * (1 - src.A / 255)
+if blend.A = 0 then
+  blend.RGB = 0
+else
+  blend.RGB = (src.RGB * src.A +
+               dst.RGB * dst.A * (1 - src.A / 255)) / blend.A
+                       ]]></sourcecode>
+                   </li>
+                   <li>Alpha-blending SHOULD be done in linear color space, by
+                     taking into account the <xref target="color-profile">color
+                       profile</xref> of the image. If the color profile is not
+                         present, sRGB is to be assumed. (Note that sRGB also
+                         needs to be linearized due to a gamma of ~2.2).</li>
+                 </ul>
                </dd>
                <dt>Frame Data: <em>Chunk Size</em> - 16 bytes</dt>
                <dd><t>Consists of:</t>
@@ -624,38 +651,10 @@
                  </ul>
                </dd>
              </dl>
-
-             <t><strong>Note:</strong></t>
-
-             <ul spacing="normal">
-               <li>The frame disposal only applies to the <em>frame
-                 rectangle</em>, that is, the rectangle defined by <em>Frame
-                   X</em>, <em>Frame Y</em>, <em>frame width</em> and <em>frame
-                     height</em>. It may or may not cover the whole
-                       canvas.</li>
-               <li anchor="alpha-blending"><t>Alpha-blending:</t>
-                 <t>Given that each of the R, G, B and A channels is 8-bit, and
-                   the RGB channels are <em>not premultiplied</em> by alpha,
-                     the formula for blending 'dst' onto 'src' is:</t>
-
-                 <sourcecode><![CDATA[
-blend.A = src.A + dst.A * (1 - src.A / 255)
-if blend.A = 0 then
- blend.RGB = 0
-else
-  blend.RGB = (src.RGB * src.A +
-               dst.RGB * dst.A * (1 - src.A / 255)) / blend.A
-                   ]]></sourcecode>
-             </li>
-             <li>Alpha-blending SHOULD be done in linear color space, by taking
-               into account the <xref target="color-profile">color
-                 profile</xref> of the image. If the color profile is not
-                   present, sRGB is to be assumed. (Note that sRGB also needs
-                   to be linearized due to a gamma of ~2.2).</li>
-             <li>The 'ANMF' payload, <em>Frame Data</em> above, consists of
-               individual <em>padded</em> chunks as described by the <xref
-                 target="riff-file-format">RIFF file format</xref>.</li>
-           </ul>
+             <t><strong>Note:</strong> The 'ANMF' payload, <em>Frame Data</em>
+               above, consists of individual <em>padded</em> chunks as
+               described by the <xref target="riff-file-format">RIFF file
+               format</xref>.</t>
          </section>
          <section anchor="alpha" numbered="true" toc="default">
            <name>Alpha</name>
