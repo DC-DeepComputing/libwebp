@@ -807,8 +807,8 @@ alpha = (predictor + X) % 256
            </dl>
            <t>This chunk MUST appear before the image data.</t>
            <t>There SHOULD be at most one such chunk. If there are more such
-             chunks, readers MAY ignore all except the first one. >See the [ICC
-             Specification][iccspec] for details.</t>
+             chunks, readers MAY ignore all except the first one. See the <xref
+               target="ICC">ICC Specification</xref> for details.</t>
            <t>If this chunk is not present, sRGB SHOULD be assumed.</t>
          </section>
          <section numbered="true" toc="default">
