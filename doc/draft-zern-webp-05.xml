@@ -834,7 +834,7 @@ alpha = (predictor + X) % 256
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>EXIF Metadata: <em>Chunk Size</em> bytes</dt>
-             <dd>image metadata in EXIF format.</dd>
+             <dd>image metadata in <xref target="Exif"/> format.</dd>
            </dl>
 
            <t>XMP chunk:</t>
@@ -850,7 +850,7 @@ alpha = (predictor + X) % 256
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>XMP Metadata: <em>Chunk Size</em> bytes</dt>
-             <dd>image metadata in XMP format.</dd>
+             <dd>image metadata in <xref target="XMP"/> format.</dd>
            </dl>
            <t>Additional guidance about handling metadata can be found in the
              Metadata Working Group's <xref target="mwg">Guidelines for
