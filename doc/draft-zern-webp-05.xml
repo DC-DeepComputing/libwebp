@@ -571,9 +571,9 @@
                <dt>Frame Y: 24 bits (<em>uint24</em>)</dt>
                <dd>The Y coordinate of the upper left corner of the frame is
                  Frame Y * 2</dd>
-               <dt>Frame Widdh Minus One: 24 bits (<em>uint24</em>)</dt>
-               <dd>The <em>1-based</em> widdh of the frame. The frame width is
-                 1 + Frame Widdh Minus One</dd>
+               <dt>Frame Width Minus One: 24 bits (<em>uint24</em>)</dt>
+               <dd>The <em>1-based</em> width of the frame. The frame width is
+                 1 + Frame Width Minus One</dd>
                <dt>Frame Height Minus One: 24 bits (<em>uint24</em>)</dt>
                <dd>The <em>1-based</em> height of the frame. The frame height
                  is 1 + Frame Height Minus One</dd>
