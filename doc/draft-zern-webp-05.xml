@@ -1186,7 +1186,7 @@ int block_xsize = DIV_ROUND_UP(image_width, 1 << size_bits);
            the image. All the 'block_width * block_height' pixels of a block
            use same prediction mode. The prediction modes are treated as pixels
            of an image and encoded using the same techniques described in
-           [Chapter 4](#image-data).</t>
+           <xref target="image-data"/>.</t>
 
          <t>For a pixel <em>x, y</em>, one can compute the respective filter
            block address by:</t>
@@ -1391,8 +1391,8 @@ int block_height = 1 << size_bits;
          <t>The remaining part of the color transform data contains
            <tt>ColorTransformElement</tt> instances corresponding to each block
            of the image. <tt>ColorTransformElement</tt> instances are treated
-             as pixels of an image and encoded using the methods described in
-             [Chapter 4](#image-data).</t>
+           as pixels of an image and encoded using the methods described in
+           <xref target="image-data"/>.</t>
 
          <t>During decoding, <tt>ColorTransformElement</tt> instances of the
            blocks are decoded and the inverse color transform is applied on the
@@ -1539,7 +1539,7 @@ if (color_table_size <= 2) {
        </section>
      </section>
 
-     <section numbered="true" toc="default">
+     <section anchor="image-data" numbered="true" toc="default">
        <name>Image Data</name>
        <t>Image data is an array of pixel values in scan-line order.</t>
        <section numbered="true" toc="default">
