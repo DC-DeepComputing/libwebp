@@ -1535,6 +1535,11 @@ if (color_table_size <= 2) {
          </ul>
        </section>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>Image Data</name>
+       <t>Image data is an array of pixel values in scan-line order.</t>
+     </section>
    </section>
  </middle>
 
