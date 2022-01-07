@@ -61,9 +61,9 @@
 
      <t>WebP is a <xref target="riff-spec">Resource Interchange File Format
        (RIFF)</xref> based image file format
-       <xref target="webp-riff"/> which supports lossless and lossy compression
-       as well as alpha (transparency) and animation. It covers use cases
-       similar to <xref target="jpeg-spec">JPEG</xref>,
+       (<xref target="webp-container"/>) which supports lossless and lossy
+       compression as well as alpha (transparency) and animation. It covers use
+       cases similar to <xref target="jpeg-spec">JPEG</xref>,
        <xref target="RFC2083">PNG</xref> and the
        <xref target="gif-spec">Graphics Interchange Format (GIF)</xref>.</t>
      <t>WebP consists of two compression algorithms used to reduce the size of
@@ -161,9 +161,9 @@
 
        The container is RIFF-based and allows extension via user defined
        chunks, but nothing beyond the chunks defined by the container format
-       <xref target="webp-riff"/> are required for decoding of the image. These
-       have been finalized, but were extended in the format's early stages so
-       some older readers may not support lossless or animated image
+       (<xref target="webp-container"/>) are required for decoding of the image.
+       These have been finalized, but were extended in the format's early
+       stages so some older readers may not support lossless or animated image
        decoding.</t>
    </section>
 
