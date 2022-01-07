@@ -69,7 +69,7 @@
      <t>WebP consists of two compression algorithms used to reduce the size of
        image pixel data, including alpha (transparency) information. Lossy
        compression is achieved using VP8 intra-frame encoding <xref
-         target="RFC6386"/>. The <xref target="webp-lossless-local">lossless
+         target="RFC6386"/>. The <xref target="webp-lossless">lossless
            algorithm</xref> stores and restores the pixel values exactly,
              including the color values for zero alpha pixels. The format uses
              subresolution images, recursively embedded into the format itself,
@@ -180,7 +180,7 @@
        <name>Introduction</name>
        <t>WebP is an image format that uses either (i) the VP8 intra-frame
          encoding <xref target="RFC6386"/> to compress image data in a lossy
-           way, or (ii) the <xref target="webp-lossless-local">WebP lossless
+           way, or (ii) the <xref target="webp-lossless">WebP lossless
              encoding</xref>. These encoding schemes should make it more
                efficient than currently used formats. It is optimized for fast
                image transfer over the network (e.g., for websites). The WebP
@@ -394,7 +394,7 @@
        </dl>
 
        <t>The specification of the VP8L bitstream can be found in <xref
-         target="webp-lossless-local"/>. Note that the VP8L header contains the
+         target="webp-lossless"/>. Note that the VP8L header contains the
          VP8L image width and height. That is assumed to be the width and
          height of the canvas.</t>
      </section>
@@ -764,7 +764,7 @@ alpha = (predictor + X) % 256
                order.</li>
              <li><t>Lossless format compression: the byte sequence is a
                compressed image-stream (as described in <xref
-                 target="webp-lossless-local"/>) of implicit dimension width x
+                 target="webp-lossless"/>) of implicit dimension width x
                  height. That is, this image-stream does NOT contain any
                  headers describing the image dimension.</t>
              <t><strong>Rationale:</strong> the dimension is already known from
@@ -961,7 +961,7 @@ RIFF/WEBP
      </section>
    </section>
 
-   <section anchor="webp-lossless-local" numbered="true" toc="default">
+   <section anchor="webp-lossless" numbered="true" toc="default">
      <name>Specification for WebP Lossless Bitstream</name>
      <section numbered="true" toc="default">
        <name>Abstract</name>
@@ -2148,7 +2148,7 @@ for (i = 0; i < num_code_lengths; ++i) {
          </front>
        </reference>
 
-       <reference anchor="webp-lossless"
+       <reference anchor="webp-lossless-src"
          target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-lossless-bitstream-spec.txt">
          <front>
            <title>WebP Lossless Bitstream Specification</title>
