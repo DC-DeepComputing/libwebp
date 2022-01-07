@@ -1929,7 +1929,7 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
            <t>The interpretation of S depends on its value:</t>
            <ol spacing="normal">
              <li><t>if S &lt; 256</t>
-               <ol spacing="normal">
+               <ol spacing="normal" type="i">
                  <li>Use S as the green component</li>
                  <li>Read red from the bitstream using Huffman code #2</li>
                  <li>Read blue from the bitstream using Huffman code #3</li>
@@ -1937,7 +1937,7 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
                </ol>
              </li>
              <li><t>if S &lt; 256 + 24</t>
-               <ol spacing="normal">
+               <ol spacing="normal" type="i">
                  <li>Use S - 256 as a length prefix code</li>
                  <li>Read extra bits for length from the bitstream</li>
                  <li>Determine backward-reference length L from length prefix
@@ -1952,7 +1952,7 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
                </ol>
              </li>
              <li><t>if S >= 256 + 24</t>
-               <ol spacing="normal">
+               <ol spacing="normal" type="i">
                  <li>Use S - (256 + 24) as the index into the color cache.</li>
                  <li>Get ARGB color from the color cache at that index.</li>
                </ol>
