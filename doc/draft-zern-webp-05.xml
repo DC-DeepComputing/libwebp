@@ -982,7 +982,8 @@ RIFF/WEBP
        <name>Nomenclature</name>
        <dl newline="true" spacing="normal" indent="8">
          <dt>ARGB</dt>
-         <dd>A pixel value consisting of alpha, red, green, and blue values.</dd>
+         <dd>A pixel value consisting of alpha, red, green, and blue
+           values.</dd>
          <dt>ARGB image</dt>
          <dd>A two-dimensional array containing ARGB pixels.</dd>
          <dt>color cache</dt>
@@ -1031,15 +1032,15 @@ RIFF/WEBP
        <t>This document describes the compressed data representation of a WebP
          lossless image. It is intended as a detailed reference for WebP
          lossless encoder and decoder implementation.</t>
-       <t>In this document, we extensively use C programming language syntax
-         to describe the bitstream, and assume the existence of a function for
-         reading bits, `ReadBits(n)`. The bytes are read in the natural order
-         of the stream containing them, and bits of each byte are read in
-         least-significant-bit-first order. When multiple bits are read at the
-         same time, the integer is constructed from the original data in the
-         original order. The most significant bits of the returned integer are
-         also the most significant bits of the original data. Thus the
-         statement</t>
+       <t>In this document, we extensively use C programming language syntax to
+         describe the bitstream, and assume the existence of a function for
+         reading bits, <tt>ReadBits(n)</tt>. The bytes are read in the natural
+           order of the stream containing them, and bits of each byte are read
+           in least-significant-bit-first order. When multiple bits are read at
+           the same time, the integer is constructed from the original data in
+           the original order. The most significant bits of the returned
+           integer are also the most significant bits of the original data.
+           Thus the statement</t>
 
        <sourcecode><![CDATA[
 b = ReadBits(2);
@@ -1070,8 +1071,8 @@ b |= ReadBits(1) << 1;
 
      <section numbered="true" toc="default">
        <name>RIFF Header</name>
-       <t>The beginning of the header has the RIFF container. This consists of the
-         following 21 bytes:</t>
+       <t>The beginning of the header has the RIFF container. This consists of
+         the following 21 bytes:</t>
 
        <ol spacing="normal">
          <li>String "RIFF"</li>
@@ -1171,7 +1172,7 @@ enum TransformType {
 
          <t>The first 3 bits of prediction data define the block width and
            height in number of bits. The number of block columns,
-           `block_xsize`, is used in indexing two-dimensionally.</t>
+           <tt>block_xsize</tt>, is used in indexing two-dimensionally.</t>
 
          <sourcecode><![CDATA[
 int size_bits = ReadBits(3) + 2;
@@ -1328,9 +1329,10 @@ typedef struct {
 
          <t>The actual color transformation is done by defining a color
            transform delta. The color transform delta depends on the
-           `ColorTransformElement`, which is the same for all the pixels in a
-           particular block. The delta is added during color transform. The
-           inverse color transform then is just subtracting those deltas.</t>
+           <tt>ColorTransformElement</tt>, which is the same for all the pixels
+           in a particular block. The delta is added during color transform.
+           The inverse color transform then is just subtracting those
+           deltas.</t>
 
          <t>The color transform function is defined as follows:</t>
 
@@ -1387,16 +1389,16 @@ int block_height = 1 << size_bits;
            ]]></sourcecode>
 
          <t>The remaining part of the color transform data contains
-           `ColorTransformElement` instances corresponding to each block of the
-           image. `ColorTransformElement` instances are treated as pixels of an
-           image and encoded using the methods described in [Chapter
-           4](#image-data).</t>
+           <tt>ColorTransformElement</tt> instances corresponding to each block
+           of the image. <tt>ColorTransformElement</tt> instances are treated
+             as pixels of an image and encoded using the methods described in
+             [Chapter 4](#image-data).</t>
 
-         <t>During decoding, `ColorTransformElement` instances of the blocks
-           are decoded and the inverse color transform is applied on the ARGB
-           values of the pixels. As mentioned earlier, that inverse color
-           transform is just subtracting `ColorTransformElement` values from
-           the red and blue channels.</t>
+         <t>During decoding, <tt>ColorTransformElement</tt> instances of the
+           blocks are decoded and the inverse color transform is applied on the
+           ARGB values of the pixels. As mentioned earlier, that inverse color
+           transform is just subtracting <tt>ColorTransformElement</tt> values
+             from the red and blue channels.</t>
 
          <sourcecode><![CDATA[
 void InverseTransform(uint8 red, uint8 green, uint8 blue,
@@ -1464,14 +1466,14 @@ int color_table_size = ReadBits(8) + 1;
          <t>The color table is stored using the image storage format itself.
            The color table can be obtained by reading an image, without the
            RIFF header, image size, and transforms, assuming a height of one
-           pixel and a width of `color_table_size`. The color table is always
-           subtraction-coded to reduce image entropy. The deltas of palette
-           colors contain typically much less entropy than the colors
-           themselves, leading to significant savings for smaller images. In
-           decoding, every final color in the color table can be obtained by
-           adding the previous color component values by each ARGB component
-           separately, and storing the least significant 8 bits of the
-           result.</t>
+           pixel and a width of <tt>color_table_size</tt>. The color table is
+             always subtraction-coded to reduce image entropy. The deltas of
+             palette colors contain typically much less entropy than the colors
+             themselves, leading to significant savings for smaller images. In
+             decoding, every final color in the color table can be obtained by
+             adding the previous color component values by each ARGB component
+             separately, and storing the least significant 8 bits of the
+             result.</t>
 
          <t>The inverse transform for the image is simply replacing the pixel
            values (which are indices to the color table) with the actual color
@@ -1494,7 +1496,7 @@ argb = color_table[GREEN(argb)];
            some arithmetic coding-like benefits to the entropy code, but it can
            only be used when there are a small number of unique values.</t>
 
-         <t>`color_table_size` specifies how many pixels are combined
+         <t><tt>color_table_size</tt> specifies how many pixels are combined
            together:</t>
 
          <sourcecode><![CDATA[
@@ -1510,28 +1512,29 @@ if (color_table_size <= 2) {
 }
            ]]></sourcecode>
 
-         <t>`width_bits` has a value of 0, 1, 2 or 3. A value of 0 indicates no
-           pixel bundling to be done for the image. A value of 1 indicates that
-           two pixels are combined together, and each pixel has a range of
-           \[0..15\]. A value of 2 indicates that four pixels are combined
-           together, and each pixel has a range of \[0..3\]. A value of 3
-           indicates that eight pixels are combined together and each pixel has
-           a range of \[0..1\], i.e., a binary value.</t>
+         <t><tt>width_bits</tt> has a value of 0, 1, 2 or 3. A value of 0
+           indicates no pixel bundling to be done for the image. A value of 1
+           indicates that two pixels are combined together, and each pixel has
+           a range of \[0..15\]. A value of 2 indicates that four pixels are
+           combined together, and each pixel has a range of \[0..3\]. A value
+           of 3 indicates that eight pixels are combined together and each
+           pixel has a range of \[0..1\], i.e., a binary value.</t>
 
          <t>The values are packed into the green component as follows:</t>
          <ul spacing="normal">
-           <li>`width_bits` = 1: for every x value where x = 2k + 0, a green
-             value at x is positioned into the 4 least-significant bits of the
-             green value at x / 2, a green value at x + 1 is positioned into
-             the 4 most-significant bits of the green value at x / 2.</li>
-           <li>`width_bits` = 2: for every x value where x = 4k + 0, a green
-             value at x is positioned into the 2 least-significant bits of the
-             green value at x / 4, green values at x + 1 to x + 3 in order to
-             the more significant bits of the green value at x / 4.</li>
-           <li>`width_bits` = 3: for every x value where x = 8k + 0, a green
-             value at x is positioned into the least-significant bit of the
-             green value at x / 8, green values at x + 1 to x + 7 in order to
-             the more significant bits of the green value at x / 8.</li>
+           <li><tt>width_bits</tt> = 1: for every x value where x = 2k + 0, a
+             green value at x is positioned into the 4 least-significant bits
+             of the green value at x / 2, a green value at x + 1 is positioned
+             into the 4 most-significant bits of the green value at x / 2.</li>
+           <li><tt>width_bits</tt> = 2: for every x value where x = 4k + 0, a
+             green value at x is positioned into the 2 least-significant bits
+             of the green value at x / 4, green values at x + 1 to x + 3 in
+             order to the more significant bits of the green value at x /
+             4.</li>
+           <li><tt>width_bits</tt> = 3: for every x value where x = 8k + 0, a
+             green value at x is positioned into the least-significant bit of
+             the green value at x / 8, green values at x + 1 to x + 7 in order
+             to the more significant bits of the green value at x / 8.</li>
          </ul>
        </section>
      </section>
@@ -1553,16 +1556,19 @@ if (color_table_size <= 2) {
              Transform](#predictor-transform). The green component of a pixel
              defines which of the 14 predictors is used within a particular
              block of the ARGB image.</li>
-           <li>Color transform image. It is created by `ColorTransformElement`
-             values (defined in [Color Transform](#color-transform)) for
-             different blocks of the image. Each `ColorTransformElement`
-             `'cte'` is treated as a pixel whose alpha component is `255`, red
-             component is `cte.red_to_blue`, green component is
-             `cte.green_to_blue` and blue component is `cte.green_to_red`.</li>
-           <li>Color indexing image: An array of of size `color_table_size` (up
-             to 256 ARGB values) storing the metadata for the [Color Indexing
+           <li>Color transform image. It is created by
+             <tt>ColorTransformElement</tt> values (defined in [Color
+             Transform](#color-transform)) for different blocks of the image.
+             Each <tt>ColorTransformElement</tt> <tt>'cte'</tt> is treated as a
+               pixel whose alpha component is <tt>255</tt>, red component is
+               <tt>cte.red_to_blue</tt>, green component is
+               <tt>cte.green_to_blue</tt> and blue component is
+               <tt>cte.green_to_red</tt>.</li>
+           <li>Color indexing image: An array of of size
+             <tt>color_table_size</tt> (up to 256 ARGB values) storing the
+             metadata for the [Color Indexing
              Transform](#color-indexing-transform). This is stored as an image
-             of width `color_table_size` and height `1`.</li>
+             of width <tt>color_table_size</tt> and height <tt>1</tt>.</li>
          </ol>
        </section>
 
@@ -1685,15 +1691,15 @@ return offset + ReadBits(extra_bits) + 1;
            <ul spacing="normal">
              <li>Pixels that are 1 to 7 rows above the current pixel, and are
                up to 8 columns to the left or up to 7 columns to the right of
-               the current pixel. \[Total such pixels = `7 * (8 + 1 + 7) =
-               112`\].</li>
+               the current pixel. \[Total such pixels = <tt>7 * (8 + 1 + 7) =
+               112</tt>\].</li>
              <li>Pixels that are in same row as the current pixel, and are up
-               to 8 columns to the left of the current pixel. \[`8` such
+               to 8 columns to the left of the current pixel. \[<tt>8</tt> such
                pixels\].</li>
            </ul>
 
-           <t>The mapping between distance code `i` and the neighboring pixel
-             offset `(xi, yi)` is as follows:</t>
+           <t>The mapping between distance code <tt>i</tt> and the neighboring
+             pixel offset <tt>(xi, yi)</tt> is as follows:</t>
 
            <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
 (0, 1),  (1, 0),  (1, 1),  (-1, 1), (0, 2),  (2, 0),  (1, 2),  (-1, 2),
@@ -1713,11 +1719,11 @@ return offset + ReadBits(extra_bits) + 1;
 (-6, 7), (7, 6),  (-7, 6), (8, 5),  (7, 7),  (-7, 7), (8, 6),  (8, 7)
              ]]></artwork>
 
-           <t>For example, distance code `1` indicates offset of `(0, 1)` for
-             the neighboring pixel, that is, the pixel above the current pixel
-             (0-pixel difference in X-direction and 1 pixel difference in
-             Y-direction). Similarly, distance code `3` indicates left-top
-             pixel.</t>
+           <t>For example, distance code <tt>1</tt> indicates offset of <tt>(0,
+             1)</tt> for the neighboring pixel, that is, the pixel above the
+               current pixel (0-pixel difference in X-direction and 1 pixel
+               difference in Y-direction). Similarly, distance code <tt>3</tt>
+                 indicates left-top pixel.</t>
 
            <t>The decoder can convert a distances code 'i' to a scan-line order
              distance 'dist' as follows:</t>
@@ -1730,8 +1736,8 @@ if (dist < 1) {
 }
              ]]></sourcecode>
 
-           <t>where 'distance_map' is the mapping noted above and `xsize` is
-             the width of the image in pixels.</t>
+           <t>where 'distance_map' is the mapping noted above and
+             <tt>xsize</tt> is the width of the image in pixels.</t>
          </section>
 
          <section numbered="true" toc="default">
@@ -1757,16 +1763,17 @@ int color_cache_code_bits = ReadBits(4);
 int color_cache_size = 1 << color_cache_code_bits;
              ]]></sourcecode>
 
-           <t>`color_cache_code_bits` defines the size of the color_cache by (1
-             &lt;&lt; `color_cache_code_bits`). The range of allowed values for
-             `color_cache_code_bits` is \[1..11\]. Compliant decoders must
-             indicate a corrupted bitstream for other values.</t>
+           <t><tt>color_cache_code_bits</tt> defines the size of the
+             color_cache by (1 &lt;&lt; <tt>color_cache_code_bits</tt>). The
+               range of allowed values for <tt>color_cache_code_bits</tt> is
+                 \[1..11\]. Compliant decoders must indicate a corrupted
+                 bitstream for other values.</t>
 
-           <t>A color cache is an array of size `color_cache_size`. Each entry
-             stores one ARGB color. Colors are looked up by indexing them by
-             (0x1e35a7bd * `color`) &gt;&gt; (32 - `color_cache_code_bits`).
-             Only one lookup is done in a color cache; there is no conflict
-             resolution.</t>
+           <t>A color cache is an array of size <tt>color_cache_size</tt>. Each
+             entry stores one ARGB color. Colors are looked up by indexing them
+             by (0x1e35a7bd * <tt>color</tt>) &gt;&gt; (32 -
+             <tt>color_cache_code_bits</tt>). Only one lookup is done in a
+               color cache; there is no conflict resolution.</t>
 
            <t>In the beginning of decoding or encoding of an image, all entries
              in all color cache values are set to zero. The color cache code is
@@ -1833,8 +1840,9 @@ int color_cache_size = 1 << color_cache_code_bits;
            <t>The entropy image defines which Huffman codes are used in
              different parts of the image, as described below.</t>
 
-           <t>The first 3-bits contain the `huffman_bits` value. The dimensions
-             of the entropy image are derived from 'huffman_bits'.</t>
+           <t>The first 3-bits contain the <tt>huffman_bits</tt> value. The
+             dimensions of the entropy image are derived from
+             'huffman_bits'.</t>
 
            <sourcecode><![CDATA[
 int huffman_bits = ReadBits(3) + 2;
@@ -1842,11 +1850,11 @@ int huffman_xsize = DIV_ROUND_UP(xsize, 1 << huffman_bits);
 int huffman_ysize = DIV_ROUND_UP(ysize, 1 << huffman_bits);
              ]]></sourcecode>
 
-           <t>where `DIV_ROUND_UP` is as defined
+           <t>where <tt>DIV_ROUND_UP</tt> is as defined
              [earlier](#predictor-transform).</t>
 
-           <t>Next bits contain an entropy image of width `huffman_xsize` and
-             height `huffman_ysize`.</t>
+           <t>Next bits contain an entropy image of width
+             <tt>huffman_xsize</tt> and height <tt>huffman_ysize</tt>.</t>
 
            <t><strong>Interpretation of Meta Huffman Codes:</strong></t>
 
@@ -1872,8 +1880,8 @@ int huffman_ysize = DIV_ROUND_UP(ysize, 1 << huffman_bits);
            <sourcecode><![CDATA[
 int num_huff_groups = max(entropy image) + 1;
              ]]></sourcecode>
-           <t>where `max(entropy image)` indicates the largest Huffman code
-             stored in the entropy image.</t>
+           <t>where <tt>max(entropy image)</tt> indicates the largest Huffman
+             code stored in the entropy image.</t>
 
            <t>As each Huffman code groups contains five Huffman codes, the
              total number of Huffman codes is:</t>
@@ -1891,13 +1899,14 @@ int meta_huff_code = (entropy_image[pos] >> 8) & 0xffff;
 HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              ]]></sourcecode>
 
-           <t>where, we have assumed the existence of `HuffmanCodeGroup`
+           <t>where, we have assumed the existence of <tt>HuffmanCodeGroup</tt>
              structure, which represents a set of five Huffman codes. Also,
-             `huffman_code_groups` is an array of `HuffmanCodeGroup` (of size
-             `num_huff_groups`).</t>
+             <tt>huffman_code_groups</tt> is an array of
+             <tt>HuffmanCodeGroup</tt> (of size
+             <tt>num_huff_groups</tt>).</t>
 
-           <t>The decoder then uses Huffman code group `huff_group` to decode
-             the pixel (x, y) as explained in the [next
+           <t>The decoder then uses Huffman code group <tt>huff_group</tt> to
+             decode the pixel (x, y) as explained in the [next
              section](#decoding-entropy-coded-image-data).</t>
          </section>
 
@@ -1911,8 +1920,8 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
            <t>Read next symbol S from the bitstream using Huffman code #1.
              \[See [next section](#decoding-the-code-lengths) for details on
              decoding the Huffman code lengths\]. Note that S is any integer in
-             the range `0` to `(256 + 24 + `
-             [`color_cache_size`](#color-cache-code)`- 1)`.</t>
+             the range <tt>0</tt> to <tt>(256 + 24 + </tt>
+             [<tt>color_cache_size</tt>](#color-cache-code)<tt>- 1)</tt>.</t>
 
            <t>The interpretation of S depends on its value:</t>
            <ol spacing="normal">
@@ -1933,8 +1942,8 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
                  <li>Read distance prefix code from the bitstream using Huffman
                    code #5</li>
                  <li>Read extra bits for distance from the bitstream</li>
-                 <li>Determine backward-reference distance D from distance prefix
-                   code and the extra bits read.</li>
+                 <li>Determine backward-reference distance D from distance
+                   prefix code and the extra bits read.</li>
                  <li>Copy the L pixels (in scan-line order) from the sequence of
                    pixels prior to them by D pixels.</li>
                </ol>
@@ -1994,14 +2003,14 @@ if (num_code_lengths == 2) {
                red, and blue can be empty if all pixels within the same meta
                Huffman code are produced using the color cache. However, this
                case doesn't need a special handling, as empty Huffman codes can
-               be coded as those containing a single symbol `0`.</t>
+               be coded as those containing a single symbol <tt>0</tt>.</t>
 
            <t><strong>(ii) Normal Code Length Code:</strong></t>
 
            <t>The code lengths of a Huffman code are read as follows:
-             `num_code_lengths` specifies the number of code lengths; the rest
-             of the code lengths (according to the order in
-             `kCodeLengthCodeOrder`) are zeros.</t>
+             <tt>num_code_lengths</tt> specifies the number of code lengths; the
+             rest of the code lengths (according to the order in
+             <tt>kCodeLengthCodeOrder</tt>) are zeros.</t>
 
            <sourcecode><![CDATA[
 int kCodeLengthCodes = 19;
@@ -2025,12 +2034,13 @@ for (i = 0; i < num_code_lengths; ++i) {
                </ul>
              </li>
              <li>Code 16 repeats the previous non-zero value \[3..6\] times,
-               i.e., 3 + `ReadBits(2)` times.  If code 16 is used before a
-               non-zero value has been emitted, a value of 8 is repeated.</li>
+               i.e., 3 + <tt>ReadBits(2)</tt> times.  If code 16 is used before
+                 a non-zero value has been emitted, a value of 8 is
+                 repeated.</li>
              <li>Code 17 emits a streak of zeros \[3..10\], i.e., 3 +
-               `ReadBits(3)` times.</li>
+               <tt>ReadBits(3)</tt> times.</li>
              <li>Code 18 emits a streak of zeros of length \[11..138\], i.e.,
-               11 + `ReadBits(7)` times.</li>
+               11 + <tt>ReadBits(7)</tt> times.</li>
            </ul>
          </section>
        </section>
