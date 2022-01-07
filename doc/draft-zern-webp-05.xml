@@ -95,7 +95,7 @@
          binary data directly.</t>
        <t>Security considerations: See <xref target="Security"/>.</t>
        <t>Interoperability considerations: See <xref target="Interop"/>.</t>
-       <t>Published specification: <xref target="webp-riff"/></t>
+       <t>Published specification: <xref target="webp-riff-src"/></t>
        <t>Applications that use this media type: Applications that are used to
          display and process images, especially when smaller image file sizes
          are important.</t>
@@ -176,6 +176,9 @@
 
    <section anchor="webp-container" numbered="true" toc="default">
      <name>WebP Container Specification</name>
+     <t>Note this section is based on the documentation in the <xref
+       target="webp-riff-src">libwebp source respository</xref> at the time
+         of writing.</t>
      <section numbered="true" toc="default">
        <name>Introduction</name>
        <t>WebP is an image format that uses either (i) the VP8 intra-frame
@@ -963,6 +966,9 @@ RIFF/WEBP
 
    <section anchor="webp-lossless" numbered="true" toc="default">
      <name>Specification for WebP Lossless Bitstream</name>
+     <t>Note this section is based on the documentation in the <xref
+       target="webp-lossless-src">libwebp source respository</xref> at the time
+         of writing.</t>
      <section numbered="true" toc="default">
        <name>Abstract</name>
        <t>WebP lossless is an image format for lossless compression of ARGB
@@ -2160,7 +2166,7 @@ for (i = 0; i < num_code_lengths; ++i) {
          </front>
        </reference>
 
-       <reference anchor="webp-riff"
+       <reference anchor="webp-riff-src"
          target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-container-spec.txt">
          <front>
            <title>WebP RIFF Container</title>
