@@ -1240,7 +1240,8 @@ X    X    X    X    X    X    X    X    X    X    X
            ]]></artwork>
 
 
-         <t>'Average2' is defined as follows for each ARGB component:</t>
+         <t><tt>Average2</tt> is defined as follows for each ARGB
+           component:</t>
 
          <sourcecode><![CDATA[
 uint8 Average2(uint8 a, uint8 b) {
@@ -1275,8 +1276,9 @@ uint32 Select(uint32 L, uint32 T, uint32 TL) {
 }
            ]]></sourcecode>
 
-         <t>The functions 'ClampAddSubtractFull' and 'ClampAddSubtractHalf' are
-           performed for each ARGB component as follows:</t>
+         <t>The functions <tt>ClampAddSubtractFull</tt> and
+           <tt>ClampAddSubtractHalf</tt> are performed for each ARGB component
+           as follows:</t>
 
          <sourcecode><![CDATA[
 // Clamp the input value between 0 and 255.
@@ -1354,9 +1356,9 @@ void ColorTransform(uint8 red, uint8 blue, uint8 green,
 }
            ]]></sourcecode>
 
-         <t>'ColorTransformDelta' is computed using a signed 8-bit integer
-           representing a 3.5-fixed-point number, and a signed 8-bit RGB color
-           channel (c) [-128..127] and is defined as follows:</t>
+         <t><tt>ColorTransformDelta</tt> is computed using a signed 8-bit
+           integer representing a 3.5-fixed-point number, and a signed 8-bit
+           RGB color channel (c) [-128..127] and is defined as follows:</t>
 
          <sourcecode><![CDATA[
 int8 ColorTransformDelta(int8 t, int8 c) {
@@ -1364,11 +1366,11 @@ int8 ColorTransformDelta(int8 t, int8 c) {
 }
            ]]></sourcecode>
 
-         <t>A conversion from the 8-bit unsigned representation (uint8) to the
-           8-bit signed one (int8) is required before calling
-           ColorTransformDelta(). It should be performed using 8-bit two's
-           complement (that is: uint8 range [128-255] is mapped to the [-128,
-           -1] range of its converted int8 value).</t>
+         <t>A conversion from the 8-bit unsigned representation
+           (<tt>uint8</tt>) to the 8-bit signed one (<tt>int8</tt>) is required
+             before calling ColorTransformDelta(). It should be performed using
+             8-bit two's complement (that is: uint8 range [128-255] is mapped
+             to the [-128, -1] range of its converted int8 value).</t>
 
          <t>The multiplication is to be done using more precision (with at
            least 16-bit dynamics). The sign extension property of the shift
