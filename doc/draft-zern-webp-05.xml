@@ -878,8 +878,9 @@ alpha = (predictor + X) % 256
        <section numbered="true" toc="default">
          <name>Assembling the Canvas from frames</name>
          <t>Here we provide an overview of how a reader should assemble a
-           canvas in the case of an animated image. The notation _VP8X.field_
-           means the field in the 'VP8X' chunk with the same description.</t>
+           canvas in the case of an animated image. The notation
+           <em>VP8X.field</em> means the field in the 'VP8X' chunk with the same
+           description.</t>
          <t>Displaying an <em>animated image</em> canvas MUST be equivalent to
            the following pseudocode:</t>
 
