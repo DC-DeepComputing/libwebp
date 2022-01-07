@@ -1113,6 +1113,52 @@ int alpha_is_used = ReadBits(1);
 int version_number = ReadBits(3);
          ]]></sourcecode>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>Transformations</name>
+       <t>Transformations are reversible manipulations of the image data that
+         can reduce the remaining symbolic entropy by modeling spatial and
+         color correlations. Transformations can make the final compression
+         more dense.</t>
+
+       <t>An image can go through four types of transformation. A 1 bit
+         indicates the presence of a transform. Each transform is allowed to be
+         used only once. The transformations are used only for the main level
+         ARGB image: the subresolution images have no transforms, not even the
+         0 bit indicating the end-of-transforms.</t>
+
+       <t>Typically an encoder would use these transforms to reduce the Shannon
+         entropy in the residual image. Also, the transform data can be decided
+         based on entropy minimization.</t>
+
+       <sourcecode><![CDATA[
+while (ReadBits(1)) {  // Transform present.
+  // Decode transform type.
+  enum TransformType transform_type = ReadBits(2);
+  // Decode transform data.
+  ...
+}
+
+// Decode actual image data.
+         ]]></sourcecode>
+
+       <t>If a transform is present then the next two bits specify the
+         transform type. There are four types of transforms.</t>
+
+       <sourcecode><![CDATA[
+enum TransformType {
+  PREDICTOR_TRANSFORM             = 0,
+  COLOR_TRANSFORM                 = 1,
+  SUBTRACT_GREEN                  = 2,
+  COLOR_INDEXING_TRANSFORM        = 3,
+};
+         ]]></sourcecode>
+
+       <t>The transform type is followed by the transform data. Transform data
+         contains the information required to apply the inverse transform and
+         depends on the transform type. Next we describe the transform data for
+         different types.</t>
+     </section>
    </section>
  </middle>
 
