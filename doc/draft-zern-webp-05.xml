@@ -851,8 +851,8 @@ alpha = (predictor + X) % 256
              <dd>image metadata in XMP format.</dd>
            </dl>
            <t>Additional guidance about handling metadata can be found in the
-             Metadata Working Group's [Guidelines for Handling
-             Metadata][metadata].</t>
+             Metadata Working Group's <xref target="mwg">Guidelines for
+               Handling Metadata</xref>.</t>
          </section>
          <section anchor="unknown-chunks" numbered="true" toc="default">
            <name>Unknown Chunks</name>
@@ -1113,6 +1113,17 @@ RIFF/WEBP
              <organization/>
            </author>
            <date year="1977" month="May" />
+         </front>
+       </reference>
+
+       <reference anchor="mwg"
+         target="https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf">
+         <front>
+           <title>Guidelines For Handling Image Metadata</title>
+           <author>
+             <organization>Metadata Working Group</organization>
+           </author>
+           <date month="November" year="2010"/>
          </front>
        </reference>
 
