@@ -1367,8 +1367,8 @@ int8 ColorTransformDelta(int8 t, int8 c) {
          <t>A conversion from the 8-bit unsigned representation (uint8) to the
            8-bit signed one (int8) is required before calling
            ColorTransformDelta(). It should be performed using 8-bit two's
-           complement (that is: uint8 range [128-255] is mapped to the \[-128,
-           -1\] range of its converted int8 value).</t>
+           complement (that is: uint8 range [128-255] is mapped to the [-128,
+           -1] range of its converted int8 value).</t>
 
          <t>The multiplication is to be done using more precision (with at
            least 16-bit dynamics). The sign extension property of the shift
@@ -1515,10 +1515,10 @@ if (color_table_size <= 2) {
          <t><tt>width_bits</tt> has a value of 0, 1, 2 or 3. A value of 0
            indicates no pixel bundling to be done for the image. A value of 1
            indicates that two pixels are combined together, and each pixel has
-           a range of \[0..15\]. A value of 2 indicates that four pixels are
-           combined together, and each pixel has a range of \[0..3\]. A value
+           a range of [0..15]. A value of 2 indicates that four pixels are
+           combined together, and each pixel has a range of [0..3]. A value
            of 3 indicates that eight pixels are combined together and each
-           pixel has a range of \[0..1\], i.e., a binary value.</t>
+           pixel has a range of [0..1], i.e., a binary value.</t>
 
          <t>The values are packed into the green component as follows:</t>
          <ul spacing="normal">
@@ -1684,18 +1684,18 @@ return offset + ReadBits(extra_bits) + 1;
            <t>The distance codes larger than 120 denote the pixel-distance in
              scan-line order, offset by 120.</t>
 
-           <t>The smallest distance codes \[1..120\] are special, and are
+           <t>The smallest distance codes [1..120] are special, and are
              reserved for a close neighborhood of the current pixel. This
              neighborhood consists of 120 pixels:</t>
 
            <ul spacing="normal">
              <li>Pixels that are 1 to 7 rows above the current pixel, and are
                up to 8 columns to the left or up to 7 columns to the right of
-               the current pixel. \[Total such pixels = <tt>7 * (8 + 1 + 7) =
-               112</tt>\].</li>
+               the current pixel. [Total such pixels = <tt>7 * (8 + 1 + 7) =
+               112</tt>].</li>
              <li>Pixels that are in same row as the current pixel, and are up
-               to 8 columns to the left of the current pixel. \[<tt>8</tt> such
-               pixels\].</li>
+               to 8 columns to the left of the current pixel. [<tt>8</tt> such
+               pixels].</li>
            </ul>
 
            <t>The mapping between distance code <tt>i</tt> and the neighboring
@@ -1766,7 +1766,7 @@ int color_cache_size = 1 << color_cache_code_bits;
            <t><tt>color_cache_code_bits</tt> defines the size of the
              color_cache by (1 &lt;&lt; <tt>color_cache_code_bits</tt>). The
                range of allowed values for <tt>color_cache_code_bits</tt> is
-                 \[1..11\]. Compliant decoders must indicate a corrupted
+                 [1..11]. Compliant decoders must indicate a corrupted
                  bitstream for other values.</t>
 
            <t>A color cache is an array of size <tt>color_cache_size</tt>. Each
@@ -1918,8 +1918,8 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              and decoded as follows:</t>
 
            <t>Read next symbol S from the bitstream using Huffman code #1.
-             \[See [next section](#decoding-the-code-lengths) for details on
-             decoding the Huffman code lengths\]. Note that S is any integer in
+             [See [next section](#decoding-the-code-lengths) for details on
+             decoding the Huffman code lengths]. Note that S is any integer in
              the range <tt>0</tt> to <tt>(256 + 24 + </tt>
              [<tt>color_cache_size</tt>](#color-cache-code)<tt>- 1)</tt>.</t>
 
@@ -1974,7 +1974,7 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
            <t><strong>(i) Simple Code Length Code:</strong></t>
 
            <t>This variant is used in the special case when only 1 or 2 Huffman
-             code lengths are non-zero, and are in the range of \[0, 255\]. All
+             code lengths are non-zero, and are in the range of [0, 255]. All
              other Huffman code lengths are implicitly zeros.</t>
 
            <t>The first bit indicates the number of non-zero code lengths:</t>
@@ -1984,8 +1984,8 @@ int num_code_lengths = ReadBits(1) + 1;
              ]]></sourcecode>
 
            <t>The first code length is stored either using a 1-bit code for
-             values of 0 and 1, or using an 8-bit code for values in range \[0,
-             255\]. The second code length, when present, is coded as an 8-bit
+             values of 0 and 1, or using an 8-bit code for values in range [0,
+             255]. The second code length, when present, is coded as an 8-bit
              code.</t>
 
            <sourcecode><![CDATA[
@@ -2025,22 +2025,22 @@ for (i = 0; i < num_code_lengths; ++i) {
              ]]></sourcecode>
 
            <ul spacing="normal">
-             <li><t>Code length code \[0..15\] indicates literal code
+             <li><t>Code length code [0..15] indicates literal code
                lengths.</t>
                <ul spacing="normal">
                  <li>Value 0 means no symbols have been coded.</li>
-                 <li>Values \[1..15\] indicate the bit length of the respective
+                 <li>Values [1..15] indicate the bit length of the respective
                    code.</li>
                </ul>
              </li>
-             <li>Code 16 repeats the previous non-zero value \[3..6\] times,
+             <li>Code 16 repeats the previous non-zero value [3..6] times,
                i.e., 3 + <tt>ReadBits(2)</tt> times.  If code 16 is used before
                  a non-zero value has been emitted, a value of 8 is
                  repeated.</li>
-             <li>Code 17 emits a streak of zeros \[3..10\], i.e., 3 +
+             <li>Code 17 emits a streak of zeros [3..10], i.e., 3 +
                <tt>ReadBits(3)</tt> times.</li>
-             <li>Code 18 emits a streak of zeros of length \[11..138\], i.e.,
-               11 + <tt>ReadBits(7)</tt> times.</li>
+             <li>Code 18 emits a streak of zeros of length [11..138], i.e., 11
+               + <tt>ReadBits(7)</tt> times.</li>
            </ul>
          </section>
        </section>
