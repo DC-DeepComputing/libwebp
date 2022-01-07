@@ -977,6 +977,54 @@ RIFF/WEBP
          been demonstrated, as well as 25% denser compression than can be
          achieved using today's PNG format.</t>
      </section>
+
+     <section numbered="true" toc="default">
+       <name>Nomenclature</name>
+       <dl newline="true" spacing="normal" indent="8">
+         <dt>ARGB</dt>
+         <dd>A pixel value consisting of alpha, red, green, and blue values.</dd>
+         <dt>ARGB image</dt>
+         <dd>A two-dimensional array containing ARGB pixels.</dd>
+         <dt>color cache</dt>
+         <dd>A small hash-addressed array to store recently used colors, to be
+           able to recall them with shorter codes.</dd>
+         <dt>color indexing image</dt>
+         <dd>A one-dimensional image of colors that can be indexed using a
+           small integer (up to 256 within WebP lossless).</dd>
+         <dt>color transform image</dt>
+         <dd>A two-dimensional subresolution image containing data about
+           correlations of color components.</dd>
+         <dt>distance mapping</dt>
+         <dd>Changes LZ77 distances to have the smallest values for pixels in
+           2D proximity.</dd>
+         <dt>entropy image</dt>
+         <dd>A two-dimensional subresolution image indicating which entropy
+           coding should be used in a respective square in the image, i.e.,
+           each pixel is a meta Huffman code.</dd>
+         <dt>Huffman code</dt>
+         <dd>A classic way to do entropy coding where a smaller number of bits
+           are used for more frequent codes.</dd>
+         <dt>LZ77</dt>
+         <dd>Dictionary-based sliding window compression algorithm that either
+           emits symbols or describes them as sequences of past symbols.</dd>
+         <dt>meta Huffman code</dt>
+         <dd>A small integer (up to 16 bits) that indexes an element in the
+           meta Huffman table.</dd>
+         <dt>predictor image</dt>
+         <dd>A two-dimensional subresolution image indicating which spatial
+           predictor is used for a particular square in the image.</dd>
+         <dt>prefix coding</dt>
+         <dd>A way to entropy code larger integers that codes a few bits of the
+           integer using an entropy code and codifies the remaining bits raw.
+           This allows for the descriptions of the entropy codes to remain
+           relatively small even when the range of symbols is large.</dd>
+         <dt>scan-line order</dt>
+         <dd>A processing order of pixels, left-to-right, top-to-bottom,
+           starting from the left-hand-top pixel, proceeding to the right. Once
+           a row is completed, continue from the left-hand column of the next
+           row.</dd>
+       </dl>
+     </section>
    </section>
  </middle>
 
