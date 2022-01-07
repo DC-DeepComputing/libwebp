@@ -1900,6 +1900,139 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              the pixel (x, y) as explained in the [next
              section](#decoding-entropy-coded-image-data).</t>
          </section>
+
+         <section numbered="true" toc="default">
+           <name>Decoding Entropy-coded Image Data</name>
+           <t>For the current position (x, y) in the image, the decoder first
+             identifies the corresponding Huffman code group (as explained in
+             the last section). Given the Huffman code group, the pixel is read
+             and decoded as follows:</t>
+
+           <t>Read next symbol S from the bitstream using Huffman code #1.
+             \[See [next section](#decoding-the-code-lengths) for details on
+             decoding the Huffman code lengths\]. Note that S is any integer in
+             the range `0` to `(256 + 24 + `
+             [`color_cache_size`](#color-cache-code)`- 1)`.</t>
+
+           <t>The interpretation of S depends on its value:</t>
+           <ol spacing="normal">
+             <li><t>if S &lt; 256</t>
+               <ol spacing="normal">
+                 <li>Use S as the green component</li>
+                 <li>Read red from the bitstream using Huffman code #2</li>
+                 <li>Read blue from the bitstream using Huffman code #3</li>
+                 <li>Read alpha from the bitstream using Huffman code #4</li>
+               </ol>
+             </li>
+             <li><t>if S &lt; 256 + 24</t>
+               <ol spacing="normal">
+                 <li>Use S - 256 as a length prefix code</li>
+                 <li>Read extra bits for length from the bitstream</li>
+                 <li>Determine backward-reference length L from length prefix
+                   code and the extra bits read.</li>
+                 <li>Read distance prefix code from the bitstream using Huffman
+                   code #5</li>
+                 <li>Read extra bits for distance from the bitstream</li>
+                 <li>Determine backward-reference distance D from distance prefix
+                   code and the extra bits read.</li>
+                 <li>Copy the L pixels (in scan-line order) from the sequence of
+                   pixels prior to them by D pixels.</li>
+               </ol>
+             </li>
+             <li><t>if S >= 256 + 24</t>
+               <ol spacing="normal">
+                 <li>Use S - (256 + 24) as the index into the color cache.</li>
+                 <li>Get ARGB color from the color cache at that index.</li>
+               </ol>
+             </li>
+           </ol>
+
+           <t><strong>Decoding the Code Lengths:</strong></t>
+
+           <t>This section describes the details about reading a symbol from
+             the bitstream by decoding the Huffman code length.</t>
+
+           <t>The Huffman code lengths can be coded in two ways. The method
+             used is specified by a 1-bit value.</t>
+
+           <ul spacing="normal">
+             <li>If this bit is 1, it is a <em>simple code length code</em>,
+               and</li>
+             <li>If this bit is 0, it is a <em>normal code length
+               code</em>.</li>
+           </ul>
+
+           <t><strong>(i) Simple Code Length Code:</strong></t>
+
+           <t>This variant is used in the special case when only 1 or 2 Huffman
+             code lengths are non-zero, and are in the range of \[0, 255\]. All
+             other Huffman code lengths are implicitly zeros.</t>
+
+           <t>The first bit indicates the number of non-zero code lengths:</t>
+
+           <sourcecode><![CDATA[
+int num_code_lengths = ReadBits(1) + 1;
+             ]]></sourcecode>
+
+           <t>The first code length is stored either using a 1-bit code for
+             values of 0 and 1, or using an 8-bit code for values in range \[0,
+             255\]. The second code length, when present, is coded as an 8-bit
+             code.</t>
+
+           <sourcecode><![CDATA[
+int is_first_8bits = ReadBits(1);
+code_lengths[0] = ReadBits(1 + 7 * is_first_8bits);
+if (num_code_lengths == 2) {
+  code_lengths[1] = ReadBits(8);
+}
+             ]]></sourcecode>
+
+           <t><strong>Note:</strong> Another special case is when _all_ Huffman
+             code lengths are _zeros_ (an empty Huffman code). For example, a
+             Huffman code for distance can be empty if there are no backward
+             references. Similarly, Huffman codes for alpha, red, and blue can
+             be empty if all pixels within the same meta Huffman code are
+             produced using the color cache. However, this case doesn't need a
+             special handling, as empty Huffman codes can be coded as those
+             containing a single symbol `0`.</t>
+
+           <t><strong>(ii) Normal Code Length Code:</strong></t>
+
+           <t>The code lengths of a Huffman code are read as follows:
+             `num_code_lengths` specifies the number of code lengths; the rest
+             of the code lengths (according to the order in
+             `kCodeLengthCodeOrder`) are zeros.</t>
+
+           <sourcecode><![CDATA[
+int kCodeLengthCodes = 19;
+int kCodeLengthCodeOrder[kCodeLengthCodes] = {
+  17, 18, 0, 1, 2, 3, 4, 5, 16, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+};
+int code_lengths[kCodeLengthCodes] = { 0 };  // All zeros.
+int num_code_lengths = 4 + ReadBits(4);
+for (i = 0; i < num_code_lengths; ++i) {
+  code_lengths[kCodeLengthCodeOrder[i]] = ReadBits(3);
+}
+             ]]></sourcecode>
+
+           <ul spacing="normal">
+             <li><t>Code length code \[0..15\] indicates literal code
+               lengths.</t>
+               <ul spacing="normal">
+                 <li>Value 0 means no symbols have been coded.</li>
+                 <li>Values \[1..15\] indicate the bit length of the respective
+                   code.</li>
+               </ul>
+             </li>
+             <li>Code 16 repeats the previous non-zero value \[3..6\] times,
+               i.e., 3 + `ReadBits(2)` times.  If code 16 is used before a
+               non-zero value has been emitted, a value of 8 is repeated.</li>
+             <li>Code 17 emits a streak of zeros \[3..10\], i.e., 3 +
+               `ReadBits(3)` times.</li>
+             <li>Code 18 emits a streak of zeros of length \[11..138\], i.e.,
+               11 + `ReadBits(7)` times.</li>
+           </ul>
+         </section>
        </section>
      </section>
    </section>
