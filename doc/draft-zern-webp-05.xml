@@ -1160,7 +1160,7 @@ enum TransformType {
          depends on the transform type. Next we describe the transform data for
          different types.</t>
 
-       <section numbered="true" toc="default">
+       <section anchor="predictor-transform" numbered="true" toc="default">
          <name>Predictor Transform</name>
          <t>The predictor transform can be used to reduce entropy by exploiting
            the fact that neighboring pixels are often correlated. In the
@@ -1309,7 +1309,7 @@ int ClampAddSubtractHalf(int a, int b) {
            pixels.</t>
        </section>
 
-       <section numbered="true" toc="default">
+       <section anchor="color-transform" numbered="true" toc="default">
          <name>Color Transform</name>
          <t>The goal of the color transform is to decorrelate the R, G and B
            values of each pixel. Color transform keeps the green (G) value as
@@ -1440,7 +1440,8 @@ void AddGreenToBlueAndRed(uint8 green, uint8 *red, uint8 *blue) {
            than a full-blown color transform.</t>
        </section>
 
-       <section numbered="true" toc="default">
+       <section anchor="color-indexing-transform" numbered="true"
+         toc="default">
          <name>Color Indexing Transform</name>
          <t>If there are not many unique pixel values, it may be more efficient
            to create a color index array and replace the pixel values by the
@@ -1544,33 +1545,33 @@ if (color_table_size <= 2) {
      <section anchor="image-data" numbered="true" toc="default">
        <name>Image Data</name>
        <t>Image data is an array of pixel values in scan-line order.</t>
-       <section numbered="true" toc="default">
+       <section anchor="roles-of-image-data" numbered="true" toc="default">
          <name>Roles of Image Data</name>
          <t>We use image data in five different roles:</t>
 
          <ol spacing="normal">
            <li>ARGB image: Stores the actual pixels of the image.</li>
-           <li>Entropy image: Stores the [meta Huffman
-             codes](#decoding-of-meta-huffman-codes). The red and green
-             components of a pixel define the meta Huffman code used in a
-             particular block of the ARGB image.</li>
-           <li>Predictor image: Stores the metadata for [Predictor
-             Transform](#predictor-transform). The green component of a pixel
-             defines which of the 14 predictors is used within a particular
-             block of the ARGB image.</li>
+           <li>Entropy image: Stores the <xref
+             target="decoding-of-meta-huffman-codes">meta Huffman codes</xref>.
+               The red and green components of a pixel define the meta Huffman
+               code used in a particular block of the ARGB image.</li>
+           <li>Predictor image: Stores the metadata for <xref
+             target="predictor-transform">Predictor Transform</xref>. The green
+               component of a pixel defines which of the 14 predictors is used
+               within a particular block of the ARGB image.</li>
            <li>Color transform image. It is created by
-             <tt>ColorTransformElement</tt> values (defined in [Color
-             Transform](#color-transform)) for different blocks of the image.
-             Each <tt>ColorTransformElement</tt> <tt>'cte'</tt> is treated as a
-               pixel whose alpha component is <tt>255</tt>, red component is
-               <tt>cte.red_to_blue</tt>, green component is
-               <tt>cte.green_to_blue</tt> and blue component is
-               <tt>cte.green_to_red</tt>.</li>
-           <li>Color indexing image: An array of of size
-             <tt>color_table_size</tt> (up to 256 ARGB values) storing the
-             metadata for the [Color Indexing
-             Transform](#color-indexing-transform). This is stored as an image
-             of width <tt>color_table_size</tt> and height <tt>1</tt>.</li>
+             <tt>ColorTransformElement</tt> values (defined in <xref
+             target="color-transform">Color Transform</xref> for different
+               blocks of the image. Each <tt>ColorTransformElement</tt>
+               <tt>'cte'</tt> is treated as a pixel whose alpha component is
+               <tt>255</tt>, red component is <tt>cte.red_to_blue</tt>, green
+                 component is <tt>cte.green_to_blue</tt> and blue component is
+                 <tt>cte.green_to_red</tt>.</li>
+             <li>Color indexing image: An array of of size
+               <tt>color_table_size</tt> (up to 256 ARGB values) storing the
+               metadata for the <xref target="color-indexing-transform">Color
+                 Indexing Transform</xref>. This is stored as an image of width
+                 <tt>color_table_size</tt> and height <tt>1</tt>.</li>
          </ol>
        </section>
 
@@ -1603,7 +1604,8 @@ if (color_table_size <= 2) {
 
          <t>The following sub-sections describe each of these in detail.</t>
 
-         <section numbered="true" toc="default">
+         <section anchor="huffman-coded-literals" numbered="true"
+           toc="default">
            <name>Huffman Coded Literals</name>
 
            <t>The pixel is stored as Huffman coded values of green, red, blue
@@ -1611,7 +1613,8 @@ if (color_table_size <= 2) {
                target="decoding-entropy-coded-image-data"/> for details.</t>
          </section>
 
-         <section numbered="true" toc="default">
+         <section anchor="lz77-backward-reference" numbered="true"
+           toc="default">
            <name>LZ77 Backward Reference</name>
            <t>Backward references are tuples of <em>length</em> and
             <em>distance code</em>:</t>
@@ -1621,7 +1624,8 @@ if (color_table_size <= 2) {
                copied.</li>
              <li>Distance code is a number indicating the position of a
                previously seen pixel, from which the pixels are to be copied.
-               The exact mapping is described [below](#distance-mapping).</li>
+               The exact mapping is described <xref
+                 target="distance-mapping">below</xref>.</li>
            </ul>
 
            <t>The length and distance values are stored using <strong>LZ77
@@ -1676,7 +1680,7 @@ int offset = (2 + (prefix_code & 1)) << extra_bits;
 return offset + ReadBits(extra_bits) + 1;
              ]]></sourcecode>
 
-           <t><strong>Distance Mapping:</strong></t>
+           <t anchor="distance-mapping"><strong>Distance Mapping:</strong></t>
 
            <t>As noted previously, distance code is a number indicating the
              position of a previously seen pixel, from which the pixels are to
@@ -1742,16 +1746,16 @@ if (dist < 1) {
              <tt>xsize</tt> is the width of the image in pixels.</t>
          </section>
 
-         <section numbered="true" toc="default">
+         <section anchor="color-cache-coding" numbered="true" toc="default">
            <name>Color Cache Coding</name>
            <t>Color cache stores a set of colors that have been recently used
              in the image.</t>
 
            <t><strong>Rationale:</strong> This way, the recently used colors
              can sometimes be referred to more efficiently than emitting them
-             using other two methods (described in
-             [4.2.1](#huffman-coded-literals) and
-             [4.2.2](#lz77-backward-reference)).</t>
+             using other two methods (described in <xref
+               target="huffman-coded-literals"/> and <xref
+                 target="lz77-backward-reference"/>).</t>
 
            <t>Color cache codes are stored as follows. First, there is a 1-bit
              value that indicates if the color cache is used. If this bit is 0,
@@ -1815,7 +1819,8 @@ int color_cache_size = 1 << color_cache_code_bits;
            <li>Entropy-coded image data</li>
          </ol>
 
-         <section numbered="true" toc="default">
+         <section anchor="decoding-of-meta-huffman-codes" numbered="true"
+           toc="default">
            <name>Decoding of Meta Huffman Codes</name>
            <t>As noted earlier, the format allows the use of different Huffman
              codes for different blocks of the image. <em>Meta Huffman
@@ -1823,8 +1828,8 @@ int color_cache_size = 1 << color_cache_code_bits;
                  different parts of the image.</t>
 
            <t>Meta Huffman codes may be used <em>only</em> when the image is
-             being used in the [role](#roles-of-image-data) of an <em>ARGB
-               image</em>.</t>
+             being used in the <xref target="roles-of-image-data">role</xref>
+               of an <em>ARGB image</em>.</t>
 
            <t>There are two possibilities for the meta Huffman codes, indicated
              by a 1-bit value:</t>
@@ -1852,8 +1857,8 @@ int huffman_xsize = DIV_ROUND_UP(xsize, 1 << huffman_bits);
 int huffman_ysize = DIV_ROUND_UP(ysize, 1 << huffman_bits);
              ]]></sourcecode>
 
-           <t>where <tt>DIV_ROUND_UP</tt> is as defined
-             [earlier](#predictor-transform).</t>
+           <t>where <tt>DIV_ROUND_UP</tt> is as defined in <xref
+             target="predictor-transform"/>.</t>
 
            <t>Next bits contain an entropy image of width
              <tt>huffman_xsize</tt> and height <tt>huffman_ysize</tt>.</t>
@@ -1920,11 +1925,12 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              the last section). Given the Huffman code group, the pixel is read
              and decoded as follows:</t>
 
-           <t>Read next symbol S from the bitstream using Huffman code #1.
-             [See [next section](#decoding-the-code-lengths) for details on
-             decoding the Huffman code lengths]. Note that S is any integer in
-             the range <tt>0</tt> to <tt>(256 + 24 + </tt>
-             [<tt>color_cache_size</tt>](#color-cache-code)<tt>- 1)</tt>.</t>
+           <t>Read next symbol S from the bitstream using Huffman code #1. [See
+             <xref target="decoding-the-code-lengths"/> for details on decoding
+             the Huffman code lengths]. Note that S is any integer in the range
+             <tt>0</tt> to <tt>(256 + 24 + </tt> <xref
+             target="color-cache-coding">[<tt>color_cache_size</tt></xref><tt>-
+               1)</tt>.</t>
 
            <t>The interpretation of S depends on its value:</t>
            <ol spacing="normal">
@@ -1959,7 +1965,8 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              </li>
            </ol>
 
-           <t><strong>Decoding the Code Lengths:</strong></t>
+           <t anchor="decoding-the-code-lengths"><strong>Decoding the Code
+             Lengths:</strong></t>
 
            <t>This section describes the details about reading a symbol from
              the bitstream by decoding the Huffman code length.</t>
