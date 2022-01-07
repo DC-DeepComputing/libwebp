@@ -512,30 +512,28 @@
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Background Color: 32 bits (<em>uint32</em>)</dt>
-
-             <dd>The default background color of the canvas in [Blue, Green,
-               Red, Alpha] byte order. This color MAY be used to fill the
-               unused space on the canvas around the frames, as well as the
-               transparent pixels of the first frame. Background color is also
-               used when disposal method is 1. </dd>
+             <dd>
+               <t>The default background color of the canvas in [Blue, Green,
+                 Red, Alpha] byte order. This color MAY be used to fill the
+                 unused space on the canvas around the frames, as well as the
+                 transparent pixels of the first frame. Background color is
+                 also used when disposal method is 1.</t>
+               <t><strong>Note:</strong></t>
+               <ul spacing="normal">
+                 <li>Background color MAY contain a transparency value (alpha),
+                   even if the <em>Alpha</em> flag in <xref
+                     target="extended_header">VP8X chunk</xref> is unset.</li>
+                 <li>Viewer applications SHOULD treat the background color value
+                   as a hint, and are not required to use it.</li>
+                 <li>The canvas is cleared at the start of each loop. The
+                   background color MAY be used to achieve this.</li>
+               </ul>
+             </dd>
 
              <dt>Loop Count: 16 bits (<em>uint16</em>)</dt>
              <dd>The number of times to loop the animation. 0 means
                infinitely.</dd>
            </dl>
-
-           <t><strong>Note:</strong></t>
-
-           <ul spacing="normal">
-             <li>Background color MAY contain a transparency value (alpha),
-               even if the <em>Alpha</em> flag in <xref
-                 target="extended_header">VP8X chunk</xref> is unset.</li>
-             <li>Viewer applications SHOULD treat the background color value
-               as a hint, and are not required to use it.</li>
-             <li>The canvas is cleared at the start of each loop. The
-               background color MAY be used to achieve this.</li>
-           </ul>
-
 
            <t>This chunk MUST appear if the <em>Animation</em> flag in the VP8X
              chunk is set. If the <em>Animation</em> flag is not set and this
