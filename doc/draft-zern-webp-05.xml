@@ -68,16 +68,16 @@
        <xref target="gif-spec">Graphics Interchange Format (GIF)</xref>.</t>
      <t>WebP consists of two compression algorithms used to reduce the size of
        image pixel data, including alpha (transparency) information. Lossy
-       compression is achieved using VP8 intra-frame encoding
-       <xref target="RFC6386"/>. The lossless algorithm
-       <xref target="webp-lossless"/> stores and restores the pixel values
-       exactly, including the color values for zero alpha pixels. The format
-       uses subresolution images, recursively embedded into the format
-       itself, for storing statistical data about the images, such as the
-       used entropy codes, spatial predictors, color space conversion, and
-       color table. <xref target="lz77">LZ77</xref>,
-       <xref target="huffman">Huffman coding</xref>, and a color cache are used
-       for compression of the bulk data.</t>
+       compression is achieved using VP8 intra-frame encoding <xref
+         target="RFC6386"/>. The <xref target="webp-lossless-local">lossless
+           algorithm</xref> stores and restores the pixel values exactly,
+             including the color values for zero alpha pixels. The format uses
+             subresolution images, recursively embedded into the format itself,
+             for storing statistical data about the images, such as the used
+             entropy codes, spatial predictors, color space conversion, and
+             color table. <xref target="lz77">LZ77</xref>, <xref
+               target="huffman">Huffman coding</xref>, and a color cache are
+                 used for compression of the bulk data.</t>
    </section>
 
    <section anchor="webp-media-type" numbered="true" toc="default">
@@ -180,13 +180,13 @@
        <name>Introduction</name>
        <t>WebP is an image format that uses either (i) the VP8 intra-frame
          encoding <xref target="RFC6386"/> to compress image data in a lossy
-           way, or (ii) the WebP lossless encoding <xref
-             target="webp-lossless"/>. These encoding schemes should make it
-             more efficient than currently used formats. It is optimized for
-             fast image transfer over the network (e.g., for websites). The
-             WebP format has feature parity (color profile, metadata, animation
-             etc) with other formats as well. This section describes the
-             structure of a WebP file.</t>
+           way, or (ii) the <xref target="webp-lossless-local">WebP lossless
+             encoding</xref>. These encoding schemes should make it more
+               efficient than currently used formats. It is optimized for fast
+               image transfer over the network (e.g., for websites). The WebP
+               format has feature parity (color profile, metadata, animation
+               etc) with other formats as well. This section describes the
+               structure of a WebP file.</t>
        <t>The WebP container (i.e., RIFF container for WebP) allows feature
          support over and above the basic use case of WebP (i.e., a file
          containing a single image encoded as a VP8 key frame). The WebP
@@ -393,10 +393,10 @@
          <dd>VP8L bitstream data.</dd>
        </dl>
 
-       <t>The current specification of the VP8L bitstream can be found at <xref
-         target="webp-lossless">WebP Lossless Bitstream Format</xref>. Note
-           that the VP8L header contains the VP8L image width and height. That
-           is assumed to be the width and height of the canvas.</t>
+       <t>The specification of the VP8L bitstream can be found in <xref
+         target="webp-lossless-local"/>. Note that the VP8L header contains the
+         VP8L image width and height. That is assumed to be the width and
+         height of the canvas.</t>
      </section>
 
      <section numbered="true" toc="default">
@@ -763,11 +763,10 @@ alpha = (predictor + X) % 256
                height, containing all the 8-bit transparency values in scan
                order.</li>
              <li><t>Lossless format compression: the byte sequence is a
-               compressed image-stream (as described in the <xref
-                 target="webp-lossless">WebP Lossless Bitstream Format</xref>)
-                   of implicit dimension width x height. That is, this
-                   image-stream does NOT contain any headers describing the
-                   image dimension.</t>
+               compressed image-stream (as described in <xref
+                 target="webp-lossless-local"/>) of implicit dimension width x
+                 height. That is, this image-stream does NOT contain any
+                 headers describing the image dimension.</t>
              <t><strong>Rationale:</strong> the dimension is already known from
                other sources, so storing it again would be redundant and
                error-prone.</t>
