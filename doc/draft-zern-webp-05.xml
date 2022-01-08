@@ -247,7 +247,7 @@
        <name>RIFF File Format</name>
 
        <t>The WebP file format is based on the <xref
-         target="riff-spec">RIFF</xref> (resource interchange file format)
+         target="riff-spec">RIFF</xref> (Resource Interchange File Format)
            document format.</t>
 
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
