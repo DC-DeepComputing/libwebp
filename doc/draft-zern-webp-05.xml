@@ -1801,10 +1801,10 @@ int color_cache_size = 1 << color_cache_code_bits;
        <section numbered="true" toc="default">
          <name>Overview</name>
 
-         <t>Most of the data is coded using [canonical Huffman
-           code][canonical_huff]. Hence, the codes are transmitted by sending
-           the <em>Huffman code lengths</em>, as opposed to the actual
-           <em>Huffman codes</em>.</t>
+         <t>Most of the data is coded using <xref target="huffman">canonical
+           Huffman code</xref>. Hence, the codes are transmitted by sending the
+           <em>Huffman code lengths</em>, as opposed to the actual <em>Huffman
+             codes</em>.</t>
 
          <t>In particular, the format uses <strong>spatially-variant Huffman
            coding</strong>. In other words, different blocks of the image can
