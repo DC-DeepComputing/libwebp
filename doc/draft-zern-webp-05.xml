@@ -1934,7 +1934,7 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
              <xref target="decoding-the-code-lengths"/> for details on decoding
              the Huffman code lengths]. Note that S is any integer in the range
              <tt>0</tt> to <tt>(256 + 24 + </tt> <xref
-             target="color-cache-coding">[<tt>color_cache_size</tt></xref><tt>-
+             target="color-cache-coding"><tt>color_cache_size</tt></xref><tt> -
                1)</tt>.</t>
 
            <t>The interpretation of S depends on its value:</t>
