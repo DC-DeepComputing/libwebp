@@ -893,7 +893,7 @@ alpha = (predictor + X) % 256
          <sourcecode><![CDATA[
 assert VP8X.flags.hasAnimation
 canvas <- new image of size VP8X.canvasWidth x VP8X.canvasHeight with
-         background color ANIM.background_color.
+          background color ANIM.background_color.
 loop_count <- ANIM.loopCount
 dispose_method <- ANIM.disposeMethod
 if loop_count == 0:
