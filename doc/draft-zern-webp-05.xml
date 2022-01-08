@@ -177,7 +177,7 @@
    <section anchor="webp-container" numbered="true" toc="default">
      <name>WebP Container Specification</name>
      <t>Note this section is based on the documentation in the <xref
-       target="webp-riff-src">libwebp source respository</xref> at the time
+       target="webp-riff-src">libwebp source repository</xref> at the time
          of writing.</t>
      <section numbered="true" toc="default">
        <name>Introduction</name>
@@ -969,7 +969,7 @@ RIFF/WEBP
    <section anchor="webp-lossless" numbered="true" toc="default">
      <name>Specification for WebP Lossless Bitstream</name>
      <t>Note this section is based on the documentation in the <xref
-       target="webp-lossless-src">libwebp source respository</xref> at the time
+       target="webp-lossless-src">libwebp source repository</xref> at the time
          of writing.</t>
      <section numbered="true" toc="default">
        <name>Abstract</name>
