@@ -1190,10 +1190,10 @@ int block_xsize = DIV_ROUND_UP(image_width, 1 << size_bits);
            ]]></sourcecode>
 
          <t>The transform data contains the prediction mode for each block of
-           the image. All the 'block_width * block_height' pixels of a block
-           use same prediction mode. The prediction modes are treated as pixels
-           of an image and encoded using the same techniques described in
-           <xref target="image-data"/>.</t>
+           the image. All the <tt>block_width * block_height</tt> pixels of a
+             block use same prediction mode. The prediction modes are treated
+             as pixels of an image and encoded using the same techniques
+             described in <xref target="image-data"/>.</t>
 
          <t>For a pixel <em>x, y</em>, one can compute the respective filter
            block address by:</t>
