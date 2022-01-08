@@ -195,23 +195,24 @@
          containing a single image encoded as a VP8 key frame). The WebP
          container provides additional support for:</t>
          <ul spacing="normal">
-           <li>Lossless compression. An image can be losslessly compressed,
-             using the WebP Lossless Format.</li>
-           <li>Metadata. An image may have metadata stored in <xref
-             target="Exif"/> or <xref target="XMP"/> formats.</li>
-           <li>Transparency. An image may have transparency, i.e., an alpha
-             channel.</li>
-           <li>Color Profile. An image may have an embedded <xref
-             target="ICC">ICC profile</xref>.</li>
-           <li>Animation. An image may have multiple frames with pauses between
-             them, making it an animation.</li>
+           <li><strong>Lossless compression.</strong> An image can be
+             losslessly compressed, using the WebP Lossless Format.</li>
+           <li><strong>Metadata.</strong> An image may have metadata stored in
+             <xref target="Exif"/> or <xref target="XMP"/> formats.</li>
+           <li><strong>Transparency.</strong> An image may have transparency,
+             i.e., an alpha channel.</li>
+           <li><strong>Color Profile.</strong> An image may have an embedded
+             <xref target="ICC">ICC profile</xref>.</li>
+           <li><strong>Animation.</strong> An image may have multiple frames
+             with pauses between them, making it an animation.</li>
          </ul>
        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
          "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
          document are to be interpreted as described in <xref
            target="RFC2119"/>.</t>
-       <t>Bit numbering in chunk diagrams starts at 0 for the most significant
-         bit ('MSB 0') as described in <xref target="RFC1166"/>.</t>
+       <t>Bit numbering in chunk diagrams starts at <tt>0</tt> for the most
+         significant bit ('MSB 0') as described in <xref
+           target="RFC1166"/>.</t>
      </section>
 
      <section anchor="terminology-amp-basics" numbered="true" toc="default">
@@ -270,7 +271,7 @@
              identifier or padding.</dd>
            <dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
            <dd>The data payload. If <em>Chunk Size</em> is odd, a single
-             padding byte -- that SHOULD be 0 -- is added.</dd>
+             padding byte -- that SHOULD be <tt>0</tt> -- is added.</dd>
            <dt>ChunkHeader('ABCD')</dt>
            <dd>This is used to describe the <em>FourCC</em> and <em>Chunk
              Size</em> header of individual chunks, where 'ABCD' is the FourCC
@@ -310,10 +311,10 @@
 
        <t>A WebP file MUST begin with a RIFF header with the FourCC 'WEBP'. The
          file size in the header is the total size of the chunks that follow
-         plus 4 bytes for the 'WEBP' FourCC. The file SHOULD NOT contain
-         anything after it. As the size of any chunk is even, the size given by
-         the RIFF header is also even. The contents of individual chunks will
-         be described in the following sections.</t>
+         plus <tt>4</tt> bytes for the 'WEBP' FourCC. The file SHOULD NOT
+           contain anything after it. As the size of any chunk is even, the
+           size given by the RIFF header is also even. The contents of
+           individual chunks will be described in the following sections.</t>
      </section>
 
      <section anchor="simple-file-format-lossy" numbered="true" toc="default">
@@ -461,7 +462,7 @@
 
        <dl newline="true" spacing="normal" indent="8">
          <dt>Reserved (Rsv): 2 bits</dt>
-         <dd>SHOULD be 0.</dd>
+         <dd>SHOULD be <tt>0</tt>.</dd>
          <dt>ICC profile (I): 1 bit</dt>
          <dd>Set if the file contains an ICC profile.</dd>
          <dt>Alpha (L): 1 bit</dt>
@@ -475,19 +476,19 @@
          <dd>Set if this is an animated image. Data in 'ANIM' and 'ANMF' chunks
            should be used to control the animation.</dd>
          <dt>Reserved (R): 1 bit</dt>
-         <dd>SHOULD be 0.</dd>
+         <dd>SHOULD be <tt>0</tt>.</dd>
          <dt>Reserved: 24 bits</dt>
-         <dd>SHOULD be 0.</dd>
+         <dd>SHOULD be <tt>0</tt>.</dd>
          <dt>Canvas Width Minus One: 24 bits</dt>
          <dd><em>1-based</em> width of the canvas in pixels. The actual canvas
-           width is '1 + Canvas Width Minus One'</dd>
+           width is <tt>1 + Canvas Width Minus One</tt></dd>
          <dt>Canvas Height Minus One: 24 bits</dt>
          <dd><em>1-based</em> height of the canvas in pixels. The actual canvas
-           height is '1 + Canvas Height Minus One'</dd>
+           height is <tt>1 + Canvas Height Minus One</tt></dd>
        </dl>
 
        <t>The product of <em>Canvas Width</em> and <em>Canvas Height</em> MUST
-         be at most 2^32 - 1.</t>
+         be at most <tt>2^32 - 1</tt>.</t>
        <t>Future specifications MAY add more fields.</t>
 
        <section numbered="true" toc="default">
@@ -521,7 +522,7 @@
                  Red, Alpha] byte order. This color MAY be used to fill the
                  unused space on the canvas around the frames, as well as the
                  transparent pixels of the first frame. Background color is
-                 also used when disposal method is 1.</t>
+                 also used when disposal method is <tt>1</tt>.</t>
                <t><strong>Note:</strong></t>
                <ul spacing="normal">
                  <li>Background color MAY contain a transparency value (alpha),
@@ -535,7 +536,7 @@
              </dd>
 
              <dt>Loop Count: 16 bits (<em>uint16</em>)</dt>
-             <dd>The number of times to loop the animation. 0 means
+             <dd>The number of times to loop the animation. <tt>0</tt> means
                infinitely.</dd>
            </dl>
 
@@ -570,16 +571,16 @@
              <dl newline="true" spacing="normal" indent="8">
                <dt>Frame X: 24 bits (<em>uint24</em>)</dt>
                <dd>The X coordinate of the upper left corner of the frame is
-                 Frame X * 2</dd>
+                <tt>Frame X * 2</tt></dd>
                <dt>Frame Y: 24 bits (<em>uint24</em>)</dt>
                <dd>The Y coordinate of the upper left corner of the frame is
-                 Frame Y * 2</dd>
+                 <tt>Frame Y * 2</tt></dd>
                <dt>Frame Width Minus One: 24 bits (<em>uint24</em>)</dt>
                <dd>The <em>1-based</em> width of the frame. The frame width is
-                 1 + Frame Width Minus One</dd>
+                 <tt>1 + Frame Width Minus One</tt></dd>
                <dt>Frame Height Minus One: 24 bits (<em>uint24</em>)</dt>
                <dd>The <em>1-based</em> height of the frame. The frame height
-                 is 1 + Frame Height Minus One</dd>
+                 is <tt>1 + Frame Height Minus One</tt></dd>
                <dt>Frame Duration: 24 bits (<em>uint24</em>)</dt>
                <dd>The time to wait before displaying the next frame, in 1
                  millisecond units. Note the interpretation of frame duration
@@ -587,21 +588,22 @@
                  tools and browsers assign a minimum duration similar to
                  GIF.</dd>
                <dt>Reserved: 6 bits</dt>
-               <dd>SHOULD be 0.</dd>
+               <dd>SHOULD be <tt>0</tt>.</dd>
                <dt>Blending method (B): 1 bit</dt>
                <dd><t>Indicates how transparent pixels of <em>the current
                  frame</em> are to be blended with corresponding pixels of the
                    previous canvas:</t>
                  <ul spacing="normal">
-                   <li>0: Use alpha blending. After disposing of the previous
-                     frame, render the current frame on the canvas using <xref
-                       target="alpha-blending">alpha-blending</xref>. If the
-                         current frame does not have an alpha channel, assume
-                         alpha value of 255, effectively replacing the
-                         rectangle.</li>
-                   <li>1: Do not blend. After disposing of the previous frame,
-                     render the current frame on the canvas by overwriting the
-                     rectangle covered by the current frame.</li>
+                   <li><tt>0</tt>: Use alpha blending. After disposing of the
+                     previous frame, render the current frame on the canvas
+                     using <xref target="alpha-blending">alpha-blending</xref>.
+                       If the current frame does not have an alpha channel,
+                       assume alpha value of 255, effectively replacing the
+                       rectangle.</li>
+                   <li><tt>1</tt>: Do not blend. After disposing of the
+                     previous frame, render the current frame on the canvas by
+                     overwriting the rectangle covered by the current
+                     frame.</li>
                  </ul>
                </dd>
                <dt>Disposal method (D): 1 bit</dt>
@@ -609,9 +611,9 @@
                  after it has been displayed (before rendering the next frame)
                  on the canvas:</t>
                  <ul spacing="normal">
-                   <li>0: Do not dispose. Leave the canvas as is.</li>
-                   <li>1: Dispose to background color. Fill the
-                   <em>rectangle</em> on the canvas covered by the <em>current
+                   <li><tt>0</tt>: Do not dispose. Leave the canvas as is.</li>
+                   <li><tt>1</tt>: Dispose to background color. Fill the
+                     <em>rectangle</em> on the canvas covered by the <em>current
                      frame</em> with background color specified in the <xref
                        target="anim_chunk">ANIM chunk</xref>.</li>
                  </ul>
@@ -643,7 +645,7 @@ else
                          needs to be linearized due to a gamma of ~2.2).</li>
                  </ul>
                </dd>
-               <dt>Frame Data: <em>Chunk Size</em> - 16 bytes</dt>
+               <dt>Frame Data: <em>Chunk Size</em> - <tt>16</tt> bytes</dt>
                <dd><t>Consists of:</t>
                  <ul spacing="normal">
                    <li>An optional <xref target="alpha">alpha subchunk</xref>
@@ -674,29 +676,29 @@ else
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Reserved (Rsv): 2 bits</dt>
-             <dd>SHOULD be 0.</dd>
+             <dd>SHOULD be <tt>0</tt>.</dd>
              <dt>Pre-processing (P): 2 bits</dt>
              <dd><t>These INFORMATIVE bits are used to signal the
                pre-processing that has been performed during compression. The
                decoder can use this information to e.g. dither the values or
                smooth the gradients prior to display.</t>
                <ul spacing="normal">
-                 <li>0: no pre-processing</li>
-                 <li>1: level reduction</li>
+                 <li><tt>0</tt>: no pre-processing</li>
+                 <li><tt>1</tt>: level reduction</li>
                </ul>
              </dd>
              <dt>Filtering method (F): 2 bits</dt>
              <dd><t>The filtering method used:</t>
                <ul spacing="normal">
-                 <li>0: None.</li>
-                 <li>1: Horizontal filter.</li>
-                 <li>2: Vertical filter.</li>
-                 <li>3: Gradient filter.</li>
+                 <li><tt>0</tt>: None.</li>
+                 <li><tt>1</tt>: Horizontal filter.</li>
+                 <li><tt>2</tt>: Vertical filter.</li>
+                 <li><tt>3</tt>: Gradient filter.</li>
                </ul>
 
                <t>For each pixel, filtering is performed using the following
                  calculations. Assume the alpha values surrounding the current
-                 X position are labeled as:</t>
+                 <tt>X</tt> position are labeled as:</t>
                <artwork name="" type="" align="left" alt=""><![CDATA[
  C | B |
 ---+---+
@@ -707,22 +709,22 @@ else
                  prediction is made depending on the filtering method:</t>
 
                <ul spacing="normal">
-                 <li>Method 0: predictor = 0</li>
-                 <li>Method 1: predictor = A</li>
-                 <li>Method 2: predictor = B</li>
-                 <li>Method 3: predictor = clip(A + B - C)</li>
+                 <li>Method <tt>0</tt>: predictor = 0</li>
+                 <li>Method <tt>1</tt>: predictor = A</li>
+                 <li>Method <tt>2</tt>: predictor = B</li>
+                 <li>Method <tt>3</tt>: predictor = clip(A + B - C)</li>
                </ul>
 
-               <t>where clip(v) is equal to:</t>
+               <t>where <tt>clip(v)</tt> is equal to:</t>
                <ul spacing="normal">
                  <li>0    if v &lt; 0</li>
                  <li>255  if v &gt; 255</li>
                  <li>v    otherwise</li>
                </ul>
 
-               <t>The final value is derived by adding the decompressed value X
-                 to the predictor and using modulo-256 arithmetic to wrap the
-                 [256-511] range into the [0-255] one:</t>
+               <t>The final value is derived by adding the decompressed value
+                 <tt>X</tt> to the predictor and using modulo-256 arithmetic to
+                 wrap the [256-511] range into the [0-255] one:</t>
 
                <sourcecode><![CDATA[
 alpha = (predictor + X) % 256
@@ -746,11 +748,11 @@ alpha = (predictor + X) % 256
              <dt>Compression method (C): 2 bits</dt>
              <dd><t>The compression method used:</t>
                <ul spacing="normal">
-                 <li>0: No compression.</li>
-                 <li>1: Compressed using the WebP lossless format.</li>
+                 <li><tt>0</tt>: No compression.</li>
+                 <li><tt>1</tt>: Compressed using the WebP lossless format.</li>
                </ul>
              </dd>
-             <dt>Alpha bitstream: <em>Chunk Size</em> - 1 bytes</dt>
+             <dt>Alpha bitstream: <em>Chunk Size</em> - <tt>1</tt> bytes</dt>
              <dd>Encoded alpha bitstream.</dd>
            </dl>
 
