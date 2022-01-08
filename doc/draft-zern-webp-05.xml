@@ -2323,6 +2323,7 @@ for (i = 0; i < num_code_lengths; ++i) {
    </references>
    <!-- Change Log
 
+v06 2022-01-07  JWZ   Embedded container & lossless encoding documentation
 v05 2021-10-22  JWZ   Expanded Interop/Security based on last call feedback
 v04 2021-10-02  JWZ   Added missing fields from rfc6838#section-5.6
 v03 2021-09-22  JWZ   Set type to informational, updated format links
