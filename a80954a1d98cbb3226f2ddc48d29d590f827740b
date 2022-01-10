@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb9fc0c2_670d86cd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-10T18:58:48Z",
+      "side": 1,
+      "message": "you can say BUG\u003d or Bug: here. shortening to webp:NNN works too",
+      "revId": "a80954a1d98cbb3226f2ddc48d29d590f827740b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be575608_1a4da2ae",
+        "filename": "man/img2webp.1",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-10T18:58:48Z",
+      "side": 1,
+      "message": "the date should be updated -\u003e https://chromium-review.googlesource.com/c/webm/libwebp/+/3378455",
+      "revId": "a80954a1d98cbb3226f2ddc48d29d590f827740b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
