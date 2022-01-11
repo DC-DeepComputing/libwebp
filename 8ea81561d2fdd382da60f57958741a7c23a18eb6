@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ea2d2c10_42eda147",
+        "filename": "imageio/image_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-11T20:46:26Z",
+      "side": 0,
+      "message": "I had something for this long ago, it helped with compatibility of some tools at the time (imlib2 and others).",
+      "revId": "8ea81561d2fdd382da60f57958741a7c23a18eb6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

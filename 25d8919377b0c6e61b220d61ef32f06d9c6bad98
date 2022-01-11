@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a37bca5_1e8ca5fd",
+        "filename": "imageio/image_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-11T20:46:26Z",
+      "side": 1,
+      "message": "this comment is no longer true",
+      "range": {
+        "startLine": 323,
+        "startChar": 50,
+        "endLine": 323,
+        "endChar": 67
+      },
+      "revId": "25d8919377b0c6e61b220d61ef32f06d9c6bad98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
