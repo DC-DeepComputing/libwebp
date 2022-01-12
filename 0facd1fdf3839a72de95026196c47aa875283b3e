@@ -22,6 +22,23 @@
       },
       "revId": "0facd1fdf3839a72de95026196c47aa875283b3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b177f65_3964884f",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-12T23:44:16Z",
+      "side": 1,
+      "message": "there\u0027s a slight chance the caller might have set user_data or custom_ptr with something meaningful outside this call.",
+      "revId": "0facd1fdf3839a72de95026196c47aa875283b3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
