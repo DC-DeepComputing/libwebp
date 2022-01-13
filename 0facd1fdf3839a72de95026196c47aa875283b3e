@@ -39,6 +39,30 @@
       "message": "there\u0027s a slight chance the caller might have set user_data or custom_ptr with something meaningful outside this call.",
       "revId": "0facd1fdf3839a72de95026196c47aa875283b3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f30b422_87953d77",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-01-13T13:20:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "17861c84_274e582d",
+      "range": {
+        "startLine": 341,
+        "startChar": 4,
+        "endLine": 341,
+        "endChar": 10
+      },
+      "revId": "0facd1fdf3839a72de95026196c47aa875283b3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
