@@ -52,6 +52,24 @@
       "parentUuid": "7bd1af09_6731186f",
       "revId": "db25f1b4ed2ef519b6a3fd1d7ebfbcdfe2cc9712",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "48adc69f_c40c4921",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-01-19T19:37:47Z",
+      "side": 1,
+      "message": "\u003e I wonder what git command I missed locally. I remember running git pull --rebase.\n\nstrange. You can see the old parent in patchset 1 (the submit hash is different, but I would have expected that to get resolved).\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3398897/1\nhttps://chromium.googlesource.com/webm/libwebp/+/fa3ba508f2daf8637933e7aded982db665679074\nhttps://chromium.googlesource.com/webm/libwebp/+/b5b706e02b29e593cb7dd11dad09d929fdbcabf9 (this landed as 6e8a4126f2aab78946a5b85045b241707bbe44d2).",
+      "parentUuid": "3cb413de_c8d1602f",
+      "revId": "db25f1b4ed2ef519b6a3fd1d7ebfbcdfe2cc9712",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
