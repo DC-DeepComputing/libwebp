@@ -16,6 +16,23 @@
       "message": "This is the version I submitted for -06 of the rfc",
       "revId": "88b6a396f1311fe3e6f2c883bea52890cbc43b9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55c0523_e2912a5b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2022-01-26T08:07:43Z",
+      "side": 1,
+      "message": "site\u0027s online version will have to be updated too...",
+      "revId": "88b6a396f1311fe3e6f2c883bea52890cbc43b9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
