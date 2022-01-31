@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c710516c_d8c7a240",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-01-31T13:00:34Z",
+      "side": 1,
+      "message": "Hi, this is a cherry-pick of https://github.com/webmproject/libwebp/pull/5 ",
+      "revId": "7fa2cd6ec57f02640b840c2ad06dbab195750b5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
