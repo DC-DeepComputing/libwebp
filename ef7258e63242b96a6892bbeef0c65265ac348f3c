@@ -16,6 +16,24 @@
       "message": "I don\u0027t think you meant to include this one",
       "revId": "ef7258e63242b96a6892bbeef0c65265ac348f3c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04ffa835_c27f1821",
+        "filename": "test_progress_hook.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-02-03T09:06:25Z",
+      "side": 1,
+      "message": "Ah yes indeed.",
+      "parentUuid": "129f796c_4ab1cb24",
+      "revId": "ef7258e63242b96a6892bbeef0c65265ac348f3c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
