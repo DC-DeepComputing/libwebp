@@ -16,6 +16,24 @@
       "message": "this needs a sync to return the calls directly.",
       "revId": "83281f1b05a110011ee34db39aa18fa77dc598dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "98ab5ff9_5c285e40",
+        "filename": "src/enc/backward_references_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 452,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-02-07T09:31:05Z",
+      "side": 1,
+      "message": "Yes but I was waiting for https://chromium-review.googlesource.com/c/webm/libwebp/+/3435888 to be submitted.",
+      "parentUuid": "29114ce8_9eb89654",
+      "revId": "83281f1b05a110011ee34db39aa18fa77dc598dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
