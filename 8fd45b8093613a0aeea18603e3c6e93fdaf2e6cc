@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ecd6712_b038817a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2022-02-11T17:43:15Z",
+      "side": 1,
+      "message": "shouldn\u0027t there be some deleted files too?",
+      "revId": "8fd45b8093613a0aeea18603e3c6e93fdaf2e6cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
