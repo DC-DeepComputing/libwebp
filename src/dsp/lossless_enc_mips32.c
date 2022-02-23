@@ -387,7 +387,10 @@ WEBP_TSAN_IGNORE_FUNCTION void VP8LEncDspInitMIPS32(void) {
   VP8LGetEntropyUnrefined = GetEntropyUnrefined_MIPS32;
   VP8LGetCombinedEntropyUnrefined = GetCombinedEntropyUnrefined_MIPS32;
   VP8LAddVector = AddVector_MIPS32;
-  VP8LAddVectorEq = AddVectorEq_MIPS32;
+  // TODO(https://crbug.com/webp/558): this function causes an invalid
+  // bitstream to be generated.
+  // VP8LAddVectorEq = AddVectorEq_MIPS32;
+  (void)AddVectorEq_MIPS32;
 }
 
 #else  // !WEBP_USE_MIPS32
