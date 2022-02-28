@@ -80,10 +80,17 @@ static void ApplyAlphaMultiply_NEON(uint8_t* rgba, int alpha_first,
 
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD   (059d4a Fix lossless encoding for MIPS.)
 static int DispatchAlpha_NEON(const uint8_t* alpha, int alpha_stride,
                               int width, int height,
                               uint8_t* dst, int dst_stride) {
   uint32_t alpha_mask = 0xffffffffu;
+=======
+static int DispatchAlpha_NEON(const uint8_t* WEBP_RESTRICT alpha,
+                              int alpha_stride, int width, int height,
+                              uint8_t* WEBP_RESTRICT dst, int dst_stride) {
+  uint32_t alpha_mask = 0xffu;
+>>>>>>> CHANGE (a4797a alpha_processing_neon.c: fix Dispatch/ExtractAlpha_NEON)
   uint8x8_t mask8 = vdup_n_u8(0xff);
   uint32_t tmp[2];
   int i, j;
@@ -107,6 +114,7 @@ static int DispatchAlpha_NEON(const uint8_t* alpha, int alpha_stride,
     dst += dst_stride;
   }
   vst1_u8((uint8_t*)tmp, mask8);
+  alpha_mask *= 0x01010101;
   alpha_mask &= tmp[0];
   alpha_mask &= tmp[1];
   return (alpha_mask != 0xffffffffu);
@@ -133,8 +141,13 @@ static void DispatchAlphaToGreen_NEON(const uint8_t* alpha, int alpha_stride,
 
 static int ExtractAlpha_NEON(const uint8_t* argb, int argb_stride,
                              int width, int height,
+<<<<<<< HEAD   (059d4a Fix lossless encoding for MIPS.)
                              uint8_t* alpha, int alpha_stride) {
   uint32_t alpha_mask = 0xffffffffu;
+=======
+                             uint8_t* WEBP_RESTRICT alpha, int alpha_stride) {
+  uint32_t alpha_mask = 0xffu;
+>>>>>>> CHANGE (a4797a alpha_processing_neon.c: fix Dispatch/ExtractAlpha_NEON)
   uint8x8_t mask8 = vdup_n_u8(0xff);
   uint32_t tmp[2];
   int i, j;
@@ -156,6 +169,7 @@ static int ExtractAlpha_NEON(const uint8_t* argb, int argb_stride,
     alpha += alpha_stride;
   }
   vst1_u8((uint8_t*)tmp, mask8);
+  alpha_mask *= 0x0101010101;
   alpha_mask &= tmp[0];
   alpha_mask &= tmp[1];
   return (alpha_mask == 0xffffffffu);
