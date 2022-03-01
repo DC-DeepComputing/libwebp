@@ -257,8 +257,6 @@ void (*WebPSharpYUVFilterRow)(const int16_t* A, const int16_t* B, int len,
 extern void WebPInitConvertARGBToYUVSSE2(void);
 extern void WebPInitConvertARGBToYUVSSE41(void);
 extern void WebPInitConvertARGBToYUVNEON(void);
-extern void WebPInitSharpYUVSSE2(void);
-extern void WebPInitSharpYUVNEON(void);
 
 WEBP_DSP_INIT_FUNC(WebPInitConvertARGBToYUV) {
   WebPConvertARGBToY = ConvertARGBToY_C;
@@ -279,7 +277,6 @@ WEBP_DSP_INIT_FUNC(WebPInitConvertARGBToYUV) {
 #if defined(WEBP_HAVE_SSE2)
     if (VP8GetCPUInfo(kSSE2)) {
       WebPInitConvertARGBToYUVSSE2();
-      WebPInitSharpYUVSSE2();
     }
 #endif  // WEBP_HAVE_SSE2
 #if defined(WEBP_HAVE_SSE41)
@@ -293,7 +290,6 @@ WEBP_DSP_INIT_FUNC(WebPInitConvertARGBToYUV) {
   if (WEBP_NEON_OMIT_C_CODE ||
       (VP8GetCPUInfo != NULL && VP8GetCPUInfo(kNEON))) {
     WebPInitConvertARGBToYUVNEON();
-    WebPInitSharpYUVNEON();
   }
 #endif  // WEBP_HAVE_NEON
 
