@@ -353,7 +353,7 @@ static void AddVector_MIPS32(const uint32_t* pa, const uint32_t* pb,
   ASM_START
   ADD_TO_OUT(0, 4, 8, 12, 1, pa, pb, pout)
   ASM_END_0
-  for (i = end; i < size; ++i) pout[i] = pa[i] + pb[i];
+  for (i = 0; i < size - end; ++i) pout[i] = pa[i] + pb[i];
 }
 
 static void AddVectorEq_MIPS32(const uint32_t* pa, uint32_t* pout, int size) {
@@ -364,7 +364,7 @@ static void AddVectorEq_MIPS32(const uint32_t* pa, uint32_t* pout, int size) {
   ASM_START
   ADD_TO_OUT(0, 4, 8, 12, 0, pa, pout, pout)
   ASM_END_1
-  for (i = end; i < size; ++i) pout[i] += pa[i];
+  for (i = 0; i < size - end; ++i) pout[i] += pa[i];
 }
 
 #undef ASM_END_1
