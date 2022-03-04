@@ -33,6 +33,24 @@
       "message": "you could keep the sort order here like in the other files",
       "revId": "55853af81a91929678ccffe69bd61597cde6277f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c172ad57_6d7bfd0e",
+        "filename": "Makefile.vc",
+        "patchSetId": 4
+      },
+      "lineNbr": 178,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-04T19:24:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a2b64c9_914160e5",
+      "revId": "55853af81a91929678ccffe69bd61597cde6277f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
