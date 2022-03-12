@@ -16,6 +16,8 @@ _Jyrki Alakuijala, Ph.D., Google, Inc., 2012-06-19_
 
 Paragraphs marked as \[AMENDED\] were amended on 2014-09-16.
 
+Paragraphs marked as \[AMENDED2\] were amended on 2022-03-14.
+
 Abstract
 --------
 
@@ -375,6 +377,8 @@ offset in memory is the same for border and non-border pixels.
 
 
 ### Color Transform
+
+\[AMENDED2\]
 
 The goal of the color transform is to decorrelate the R, G and B values
 of each pixel. Color transform keeps the green (G) value as it is,
@@ -966,6 +970,8 @@ by a 1-bit value.
 
 **(i) Simple Code Length Code:**
 
+\[AMENDED2\]
+
 This variant is used in the special case when only 1 or 2 Huffman symbols in
 are in the range \[0, 255\] with code length `1`. All other Huffman code lengths
 are implicitly zeros.
@@ -1064,6 +1070,8 @@ of pixels (xsize * ysize).
 
 
 #### Structure of the Image Data
+
+\[AMENDED2\]
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 <spatially-coded image> ::= <color cache info><meta huffman>
