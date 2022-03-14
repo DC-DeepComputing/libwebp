@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9c4ec66_b2519fa5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-14T18:55:11Z",
+      "side": 1,
+      "message": "This one could probably use some additional changes.",
+      "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9a39a17_9313c764",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-14T18:55:11Z",
+      "side": 1,
+      "message": "This change is somewhat incomplete as given the structure of the doc, some later knowledge like the BNF is needed to interpret this section and 4.2.3 above.",
+      "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
