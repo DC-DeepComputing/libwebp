@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fd3133b_7ef0d629",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2022-03-15T05:47:44Z",
+      "side": 1,
+      "message": "this might not be the case if the image is using a stride different than the width.\nI\u0027d just remove this last sentence, which is implementation specific.",
+      "range": {
+        "startLine": 374,
+        "startChar": 17,
+        "endLine": 374,
+        "endChar": 19
+      },
+      "revId": "aa74eff381e8846f815b7dc4a69e4dead515fc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
