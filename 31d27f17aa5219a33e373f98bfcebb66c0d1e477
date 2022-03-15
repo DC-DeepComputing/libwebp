@@ -33,6 +33,29 @@
       "message": "This change is somewhat incomplete as given the structure of the doc, some later knowledge like the BNF is needed to interpret this section and 4.2.3 above.",
       "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53345896_edac718d",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1538297
+      },
+      "writtenOn": "2022-03-15T03:45:20Z",
+      "side": 1,
+      "message": "This doesn\u0027t look right to me... This implies that the image is either `\u003ccolor cache info\u003e1-bit value 0\u003chuffman codes\u003e\u003clz77-coded image\u003e` (correct) or `\u003ccolor cache info\u003e1-bit value 1;3-bit subsample value\u003chuffman codes\u003e\u003clz77-coded image\u003e` (missing the \"main\" entropy-coded image), also the image data is (sometimes) stored in the \"meta Huffman\" which doesn\u0027t sound like the correct spot personally.\n\nImo, `\u003cmeta huffman\u003e` should stay unchanged (its correct), but rather `\u003cspatially-coded image\u003e` and `\u003centropy image\u003e` should be modified such that:\n```\n\u003cspatially-codec image\u003e ::\u003d \u003ccolor cache info\u003e\u003cmeta huffman\u003e\u003chuffman codes\u003e\u003clz77-coded image\u003e\n\u003centropy-coded image\u003e ::\u003d \u003ccolor cache info\u003e\u003chuffman codes\u003e\u003clz77-coded image\u003e\n```\nWith maybe `\u003chuffman codes\u003e\u003clz77-coded image\u003e` becoming its own type so it isn\u0027t duplicated.",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 0
+      },
+      "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
