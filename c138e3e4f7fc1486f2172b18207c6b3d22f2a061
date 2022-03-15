@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "615763cd_c7ebebaa",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2022-03-15T05:56:33Z",
+      "side": 1,
+      "message": "note that strictly speaking, this is not the same:\n\nhttps://godbolt.org/z/hdf5anTqh\n\nit ends up the same here because of the subsequent \u00260xff at lines 551 / 554",
+      "range": {
+        "startLine": 548,
+        "startChar": 8,
+        "endLine": 548,
+        "endChar": 15
+      },
+      "revId": "c138e3e4f7fc1486f2172b18207c6b3d22f2a061",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
