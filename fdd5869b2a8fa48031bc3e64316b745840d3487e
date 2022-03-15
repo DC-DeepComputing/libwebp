@@ -34,6 +34,24 @@
       "parentUuid": "2e9dcd8e_38c25393",
       "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d37fc3f6_2facf3d1",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1538297
+      },
+      "writtenOn": "2022-03-15T03:31:50Z",
+      "side": 1,
+      "message": "\u003e The multiplication is to be done using more precision (with at least 16-bit dynamics).\n\nFrom my understanding that is in regards to the multiplication in `ColorTransformDelta` which implicitly is done due to C converting to int for the calculation. I don\u0027t think the actual `ColorTransform` and `InverseTransform` temporaries require to be 32-bit since the only times they are used is with an `\u0026 0xFF` and casted to 8-bit, which would be done by the compiler anyway if it was just an 8-bit type. Maybe I am misunderstanding this part of the spec, but it seems to work in my implementation with only 8-bit types although that could just be it working for my specific test images (and might cause issues for other test images).\n\nOverall though, it is not too important just thought I might clarify to check if I was doing something wrong.",
+      "parentUuid": "a64695b1_c042a9fb",
+      "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
