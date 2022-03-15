@@ -16,6 +16,24 @@
       "message": "I\u0027ve always wondered, is there any benefit to this being 32-bit? Every use of these values limits it to 0x00-0xFF anyway",
       "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a64695b1_c042a9fb",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-15T00:59:45Z",
+      "side": 1,
+      "message": "\u003e I\u0027ve always wondered, is there any benefit to this being 32-bit? Every use of these values limits it to 0x00-0xFF anyway\n\nNo, this could be 16-bit given the delta calculation. int/uint32 is mostly used out of convenience here and in the code to fit common register sizes. 16-bit is mentioned in the Color Transform section:\n\nThe multiplication is to be done using more precision (with at least 16-bit dynamics).",
+      "parentUuid": "2e9dcd8e_38c25393",
+      "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
