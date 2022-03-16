@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cd01c42_2bd7b660",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 756,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-16T00:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe113a36_c33f6b0a",
+      "range": {
+        "startLine": 756,
+        "startChar": 41,
+        "endLine": 756,
+        "endChar": 47
+      },
+      "revId": "ed65151f9d92e79101e85d11310e88ebf517a598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fbf46d29_19874dce",
@@ -54,6 +78,30 @@
       "writtenOn": "2022-03-15T05:50:59Z",
       "side": 1,
       "message": "\u00270-pixel\u0027 -\u003e \u00270 pixel\u0027\n\n(or \u00271 pixel\u0027 -\u003e \u00271-pixel\u0027 at line 758, conversely)\n\nfor coherency.",
+      "range": {
+        "startLine": 757,
+        "startChar": 53,
+        "endLine": 757,
+        "endChar": 58
+      },
+      "revId": "ed65151f9d92e79101e85d11310e88ebf517a598",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3758fb48_520e5caa",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 757,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-16T00:58:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fbf46d29_19874dce",
       "range": {
         "startLine": 757,
         "startChar": 53,
