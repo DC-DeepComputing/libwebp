@@ -22,6 +22,30 @@
       },
       "revId": "c138e3e4f7fc1486f2172b18207c6b3d22f2a061",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4469ef1f_c7336f9c",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 548,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-16T00:47:19Z",
+      "side": 1,
+      "message": "\u003e note that strictly speaking, this is not the same:\n\u003e \n\u003e https://godbolt.org/z/hdf5anTqh\n\u003e \n\u003e it ends up the same here because of the subsequent \u00260xff at lines 551 / 554\n\ntrue, with the sign extension the intermediate is different though we\u0027re pulling the component back out and treating it as an unsigned int in the end. There shouldn\u0027t be an integer overflow concern with this one, but I can drop it.",
+      "parentUuid": "615763cd_c7ebebaa",
+      "range": {
+        "startLine": 548,
+        "startChar": 8,
+        "endLine": 548,
+        "endChar": 15
+      },
+      "revId": "c138e3e4f7fc1486f2172b18207c6b3d22f2a061",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
