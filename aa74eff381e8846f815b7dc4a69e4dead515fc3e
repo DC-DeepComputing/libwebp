@@ -22,6 +22,30 @@
       },
       "revId": "aa74eff381e8846f815b7dc4a69e4dead515fc3e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d38ae0d_2f5f1f06",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 374,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-16T00:58:52Z",
+      "side": 1,
+      "message": "\u003e this might not be the case if the image is using a stride different than the width.\n\u003e I\u0027d just remove this last sentence, which is implementation specific.\n\nYou\u0027re right that one bothered me a little too. It\u0027s still top[1], but the fact that it\u0027s leftmost in our implementation is due to the block size, otherwise some border extension is needed.",
+      "parentUuid": "6fd3133b_7ef0d629",
+      "range": {
+        "startLine": 374,
+        "startChar": 17,
+        "endLine": 374,
+        "endChar": 19
+      },
+      "revId": "aa74eff381e8846f815b7dc4a69e4dead515fc3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
