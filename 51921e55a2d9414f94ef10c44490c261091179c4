@@ -22,6 +22,30 @@
       },
       "revId": "51921e55a2d9414f94ef10c44490c261091179c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d1b681b_46cb2422",
+        "filename": "examples/cwebp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 574,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-17T23:09:15Z",
+      "side": 1,
+      "message": "Done. I forgot these had moved to doc/tools.md and was only thinking of developers.google.com",
+      "parentUuid": "af57f8b5_406b1d4e",
+      "range": {
+        "startLine": 574,
+        "startChar": 61,
+        "endLine": 574,
+        "endChar": 64
+      },
+      "revId": "51921e55a2d9414f94ef10c44490c261091179c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
