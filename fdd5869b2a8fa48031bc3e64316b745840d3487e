@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0960dc5b_50ce653e",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-17T17:23:05Z",
+      "side": 1,
+      "message": "\u003e you may want (at the end of the modifications?) to keep track of the amendments/revisions here...\n\nI went with this form and had https://chromium-review.googlesource.com/c/webm/libwebp/+/3522573 as the final note to avoid an explosion of AMENDED2/3 and dates thinking we\u0027d merge the entire branch in the end. Were you thinking of keeping a working list here or just insert AMENDED2/3 on a per-commit basis?",
+      "parentUuid": "19d93fb2_dffa6891",
+      "range": {
+        "startLine": 17,
+        "startChar": 38,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e9dcd8e_38c25393",
         "filename": "doc/webp-lossless-bitstream-spec.txt",
         "patchSetId": 1
