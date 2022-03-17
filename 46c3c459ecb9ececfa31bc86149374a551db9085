@@ -39,6 +39,30 @@
       },
       "revId": "46c3c459ecb9ececfa31bc86149374a551db9085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d3a127e_208f95cd",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-17T17:23:27Z",
+      "side": 1,
+      "message": "\u003e James, you should be listed here. Or we remove authors line altogether, leaving just the initial creation date.\n\nI\u0027m fine with it as is. I think there was an issue when it was removed in the past.",
+      "parentUuid": "12bfd30e_1258178f",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "46c3c459ecb9ececfa31bc86149374a551db9085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
