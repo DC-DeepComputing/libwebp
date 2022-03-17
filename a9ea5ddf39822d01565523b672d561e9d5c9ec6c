@@ -16,6 +16,23 @@
       "message": "forgot to send the draft...",
       "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1f16cab_dd2bdd01",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-17T17:24:03Z",
+      "side": 1,
+      "message": "Vincent, any comments from here through the BNF change?",
+      "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
