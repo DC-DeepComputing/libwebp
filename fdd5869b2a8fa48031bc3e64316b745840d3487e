@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "715c89c8_b94a7963",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2022-03-18T06:31:07Z",
+      "side": 1,
+      "message": "AMENDED2/3 seems fine, let\u0027s try to not overload the text too much...",
+      "parentUuid": "0960dc5b_50ce653e",
+      "range": {
+        "startLine": 17,
+        "startChar": 38,
+        "endLine": 17,
+        "endChar": 45
+      },
+      "revId": "fdd5869b2a8fa48031bc3e64316b745840d3487e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e9dcd8e_38c25393",
