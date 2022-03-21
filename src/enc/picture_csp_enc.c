@@ -182,7 +182,7 @@ static int PreprocessARGB(const uint8_t* r_ptr,
   int ok = SharpArgbToYuv(r_ptr, g_ptr, b_ptr, step, rgb_stride, picture->y,
                           picture->y_stride, picture->u, picture->uv_stride,
                           picture->v, picture->uv_stride, picture->width,
-                          picture->height);
+                          picture->height, &kWebpYuvMatrix);
   if (!ok) {
     ok = WebPEncodingSetError(picture, VP8_ENC_ERROR_OUT_OF_MEMORY);
   }
