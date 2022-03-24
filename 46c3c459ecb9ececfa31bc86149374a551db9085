@@ -63,6 +63,30 @@
       },
       "revId": "46c3c459ecb9ececfa31bc86149374a551db9085",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7f70bdc_f0672095",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T15:15:19Z",
+      "side": 1,
+      "message": "It could be nice to have an up to date reviewer indeed.",
+      "parentUuid": "4d3a127e_208f95cd",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 51
+      },
+      "revId": "46c3c459ecb9ececfa31bc86149374a551db9085",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
