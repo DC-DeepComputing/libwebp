@@ -80,6 +80,30 @@
       },
       "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e4055ad_f13e50c2",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T14:18:07Z",
+      "side": 1,
+      "message": "The top level is \u003cimage stream\u003e which is clear enough no ?\nJay is right about the proposed changes for \u003cspatially-coded image\u003e and \u003centropy-coded image\u003e after review of https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/dec/vp8l_dec.c#1418\nPlease fix your change with that.",
+      "parentUuid": "a1d1ad4c_07213470",
+      "range": {
+        "startLine": 1069,
+        "startChar": 0,
+        "endLine": 1073,
+        "endChar": 0
+      },
+      "revId": "31d27f17aa5219a33e373f98bfcebb66c0d1e477",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
