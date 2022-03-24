@@ -33,6 +33,46 @@
       "message": "Vincent, any comments from here through the BNF change?",
       "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1bb3ee8_5edf05fb",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 408,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T15:31:36Z",
+      "side": 1,
+      "message": "ints are indeed use for encoding: https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/dsp/lossless_enc.c#548",
+      "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7287bd3b_bc6e03e3",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T15:31:36Z",
+      "side": 1,
+      "message": "not that it changes much, but the code actually uses ints and not uints: https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/dsp/lossless.c#294",
+      "range": {
+        "startLine": 471,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 8
+      },
+      "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
