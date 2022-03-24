@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed5ccb54_58d2fd0f",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T14:47:17Z",
+      "side": 1,
+      "message": "The original formulation was right, just hard to understand. Your new formulation loses the fact that the leftmost on the current line is used as the current TR (maybe the original formulation should have had an extra \",\" : \"but by using the\nleftmost pixel on the same row, as the current TR-pixel\").\nHow about: but by having the TR pixel actually be the leftmost pixel on the same row as the current pixel.",
+      "revId": "bf807148f75f5dba5733819f3a1077346688b3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
