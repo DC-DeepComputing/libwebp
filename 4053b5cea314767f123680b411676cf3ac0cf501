@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38fb0ad5_34540e89",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-24T14:27:54Z",
+      "side": 1,
+      "message": "symbols in -\u003e symbols",
+      "range": {
+        "startLine": 968,
+        "startChar": 74,
+        "endLine": 968,
+        "endChar": 76
+      },
+      "revId": "4053b5cea314767f123680b411676cf3ac0cf501",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
