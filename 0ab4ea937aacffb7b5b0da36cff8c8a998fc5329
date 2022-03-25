@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b900ed82_c2ec5ddb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-25T02:58:26Z",
+      "side": 1,
+      "message": "Vincent do you want to insert the other changes from https://bugs.chromium.org/p/webp/issues/detail?id\u003d551#c2 into this stack?\n\nI think \u0027re: normal entropy codes, ...\u0027 and \u0027re: one value huffmans, ...\u0027 are still open.",
+      "revId": "0ab4ea937aacffb7b5b0da36cff8c8a998fc5329",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
