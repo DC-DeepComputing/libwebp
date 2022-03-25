@@ -22,6 +22,30 @@
       },
       "revId": "4053b5cea314767f123680b411676cf3ac0cf501",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7dc33794_c8fdf6a0",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 968,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-25T02:53:03Z",
+      "side": 1,
+      "message": "\u003e symbols in -\u003e symbols\n\ngood catch, done.",
+      "parentUuid": "38fb0ad5_34540e89",
+      "range": {
+        "startLine": 968,
+        "startChar": 74,
+        "endLine": 968,
+        "endChar": 76
+      },
+      "revId": "4053b5cea314767f123680b411676cf3ac0cf501",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
