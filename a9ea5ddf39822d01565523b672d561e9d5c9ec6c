@@ -73,6 +73,30 @@
       },
       "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "311d2cb1_6cab7cfc",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 471,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-25T02:53:07Z",
+      "side": 1,
+      "message": "\u003e not that it changes much, but the code actually uses ints and not uints: https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/dsp/lossless.c#294\n\nI changed this to int to be consistent",
+      "parentUuid": "7287bd3b_bc6e03e3",
+      "range": {
+        "startLine": 471,
+        "startChar": 2,
+        "endLine": 471,
+        "endChar": 8
+      },
+      "revId": "a9ea5ddf39822d01565523b672d561e9d5c9ec6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
