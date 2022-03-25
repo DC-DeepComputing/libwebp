@@ -16,6 +16,24 @@
       "message": "The original formulation was right, just hard to understand. Your new formulation loses the fact that the leftmost on the current line is used as the current TR (maybe the original formulation should have had an extra \",\" : \"but by using the\nleftmost pixel on the same row, as the current TR-pixel\").\nHow about: but by having the TR pixel actually be the leftmost pixel on the same row as the current pixel.",
       "revId": "bf807148f75f5dba5733819f3a1077346688b3d1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1632ec7a_41bf982b",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 373,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-25T02:53:13Z",
+      "side": 1,
+      "message": "\u003e The original formulation was right, just hard to understand. Your new formulation loses the fact that the leftmost on the current line is used as the current TR (maybe the original formulation should have had an extra \",\" : \"but by using the\n\u003e leftmost pixel on the same row, as the current TR-pixel\").\n\u003e How about: but by having the TR pixel actually be the leftmost pixel on the same row as the current pixel.\n\nI see what you mean, though I also think \u0027current\u0027 was misplaced or \u0027pixel\u0027 was missing. The missing comma might have made it closer to being correct, but let\u0027s remove the ambiguity. The final sentence, as Pascal mentioned, was misleading if the implementation had a stride different from the width.\n\nSee what you think of the new wording.",
+      "parentUuid": "ed5ccb54_58d2fd0f",
+      "revId": "bf807148f75f5dba5733819f3a1077346688b3d1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
