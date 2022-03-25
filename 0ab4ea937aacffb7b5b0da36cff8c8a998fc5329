@@ -16,6 +16,24 @@
       "message": "Vincent do you want to insert the other changes from https://bugs.chromium.org/p/webp/issues/detail?id\u003d551#c2 into this stack?\n\nI think \u0027re: normal entropy codes, ...\u0027 and \u0027re: one value huffmans, ...\u0027 are still open.",
       "revId": "0ab4ea937aacffb7b5b0da36cff8c8a998fc5329",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77308c3d_1b70c172",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-03-25T16:45:19Z",
+      "side": 1,
+      "message": "\u0027re: normal entropy codes, ...\u0027  is tough because we need to explain how to build the Huffman table ...\n \u0027re: one value huffmans, ...\u0027 is also not that trivial according to the code so maybe we can delay that a bit. I\u0027ll try fixing  \u0027re: one value huffmans, ...\u0027 first.",
+      "parentUuid": "b900ed82_c2ec5ddb",
+      "revId": "0ab4ea937aacffb7b5b0da36cff8c8a998fc5329",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
