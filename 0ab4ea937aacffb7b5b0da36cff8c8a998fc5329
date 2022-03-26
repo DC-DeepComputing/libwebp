@@ -34,6 +34,24 @@
       "parentUuid": "b900ed82_c2ec5ddb",
       "revId": "0ab4ea937aacffb7b5b0da36cff8c8a998fc5329",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "118d0c35_01a06325",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-03-26T02:42:57Z",
+      "side": 1,
+      "message": "\u003e \u0027re: normal entropy codes, ...\u0027  is tough because we need to explain how to build the Huffman table ...\n\u003e  \u0027re: one value huffmans, ...\u0027 is also not that trivial according to the code so maybe we can delay that a bit. I\u0027ll try fixing  \u0027re: one value huffmans, ...\u0027 first.\n\nThanks for taking a look. I was hoping to land everything in one merge so we can reuse this AMENDED2 tag. Once everything is fixed I\u0027ll update https://datatracker.ietf.org/doc/draft-zern-webp/. I\u0027d like to get that finalized soon, I had promised a new version this quarter.",
+      "parentUuid": "77308c3d_1b70c172",
+      "revId": "0ab4ea937aacffb7b5b0da36cff8c8a998fc5329",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
