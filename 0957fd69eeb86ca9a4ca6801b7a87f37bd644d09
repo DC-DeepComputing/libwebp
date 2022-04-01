@@ -16,6 +16,24 @@
       "message": "(jenkins is acting up again?)",
       "revId": "0957fd69eeb86ca9a4ca6801b7a87f37bd644d09",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3773d57c_0b824fd2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-04-01T23:32:13Z",
+      "side": 1,
+      "message": "\u003e (jenkins is acting up again?)\n\nSeems so. We have a race in our multi-config jobs. The deletion of the workspace doesn\u0027t quite work right.",
+      "parentUuid": "e97c4205_396ada6d",
+      "revId": "0957fd69eeb86ca9a4ca6801b7a87f37bd644d09",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
