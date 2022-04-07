@@ -22,6 +22,30 @@
       },
       "revId": "a3b03bfbf2d8d2ca77ff11cc070a9357aa1b5a6e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be9daa7c_b78b824c",
+        "filename": "sharpyuv/sharpyuv_csp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-04-07T05:20:20Z",
+      "side": 1,
+      "message": "\u003e round was also introduced in c99:\n\u003e https://en.cppreference.com/w/c/numeric/math/round\n\u003e \n\u003e gcc -x c -std\u003dc90 -Wall - -lm \u003c\u003c EOF\n\u003e #include \u003cmath.h\u003e\n\u003e int main(void) { return round(1.23); }\n\u003e EOF\n\u003e \u003cstdin\u003e: In function ‘main’:\n\u003e \u003cstdin\u003e:2:25: warning: implicit declaration of function ‘round’ [-Wimplicit-function-declaration]\n\u003e \n\u003e it just happens to work because we link with -lm and aren\u0027t specifying c90 anywhere which we should probably fix\n\nI think mostly we don\u0027t do that because of // comments and use of inline with static functions",
+      "parentUuid": "2aea459f_909a3940",
+      "range": {
+        "startLine": 18,
+        "startChar": 44,
+        "endLine": 18,
+        "endChar": 49
+      },
+      "revId": "a3b03bfbf2d8d2ca77ff11cc070a9357aa1b5a6e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
