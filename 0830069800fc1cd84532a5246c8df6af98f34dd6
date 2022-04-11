@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfa4549e_8604af4a",
+        "filename": "cmake/deps.cmake",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-04-11T22:51:09Z",
+      "side": 1,
+      "message": "maybe a message() would be appropriate.",
+      "revId": "0830069800fc1cd84532a5246c8df6af98f34dd6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
