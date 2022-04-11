@@ -30,6 +30,9 @@ option(WEBP_BUILD_IMG2WEBP "Build the img2webp animation tool." ON)
 option(WEBP_BUILD_VWEBP "Build the vwebp viewer tool." ON)
 option(WEBP_BUILD_WEBPINFO "Build the webpinfo command line tool." ON)
 option(WEBP_BUILD_LIBWEBPMUX "Build the libwebpmux library." ON)
+option(WEBP_BUILD_LIBSHARPYUV "Build the libsharpyuv library." OFF)
+option(WEBP_LIBWEBP_DEPEND_ON_LIBSHARPYUV "Make libwebp depend on libsharpyuv."
+      OFF)
 option(WEBP_BUILD_WEBPMUX "Build the webpmux command line tool." ON)
 option(WEBP_BUILD_EXTRAS "Build extras." ON)
 option(WEBP_BUILD_WEBP_JS "Emscripten build of webp.js." OFF)
@@ -60,6 +63,10 @@ if(WEBP_BUILD_WEBP_JS)
   if(WEBP_ENABLE_SIMD)
     message("wasm2js does not support SIMD, disabling webp.js generation.")
   endif()
+endif()
+
+if (WEBP_LIBWEBP_DEPEND_ON_LIBSHARPYUV)
+  set(WEBP_BUILD_LIBSHARPYUV ON)
 endif()
 
 set(WEBP_DEP_LIBRARIES)
@@ -211,9 +218,17 @@ function(libwebp_add_stub_file TARGET)
   target_sources(${TARGET} PRIVATE ${stub_source_file})
 endfunction()
 
+
 parse_makefile_am(${CMAKE_CURRENT_SOURCE_DIR}/sharpyuv "WEBP_SHARPYUV_SRCS"
                   "")
-add_library(sharpyuv OBJECT ${WEBP_SHARPYUV_SRCS})
+if (WEBP_BUILD_LIBSHARPYUV)
+  add_library(sharpyuv ${WEBP_SHARPYUV_SRCS})
+  list(APPEND INSTALLED_LIBRARIES sharpyuv)
+else()
+  add_library(sharpyuv OBJECT ${WEBP_SHARPYUV_SRCS})
+  set_target_properties(sharpyuv
+                        PROPERTIES POSITION_INDEPENDENT_CODE ON)
+endif()
 target_include_directories(sharpyuv
                             PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                             ${CMAKE_CURRENT_SOURCE_DIR})
@@ -287,11 +302,15 @@ target_include_directories(webputils
                            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                                    ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(webp
-            $<TARGET_OBJECTS:sharpyuv>
             $<TARGET_OBJECTS:webpdecode>
             $<TARGET_OBJECTS:webpdsp>
             $<TARGET_OBJECTS:webpencode>
             $<TARGET_OBJECTS:webputils>)
+if (WEBP_LIBWEBP_DEPEND_ON_LIBSHARPYUV)
+  target_link_libraries(webp sharpyuv)
+else()
+  target_sources(webp PRIVATE ${WEBP_SHARPYUV_SRCS})
+endif()
 if(XCODE)
   libwebp_add_stub_file(webp)
 endif()
@@ -310,8 +329,7 @@ ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/types.h")
 
 # Make sure the OBJECT libraries are built with position independent code (it is
 # not ON by default).
-set_target_properties(sharpyuv
-                      webpdecode
+set_target_properties(webpdecode
                       webpdspdecode
                       webputilsdecode
                       webpencode
