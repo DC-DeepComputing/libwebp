@@ -774,6 +774,7 @@ image in pixels.
 
 
 #### 4.2.3 Color Cache Coding
+{:#color-cache-code}
 
 Color cache stores a set of colors that have been recently used in the image.
 
@@ -828,12 +829,296 @@ potentially better compression.
 
 ### 5.2 Details
 
-The encoded image data consists of two parts:
+The encoded image data consists of several parts:
 
+  1. Huffman codes
   1. Meta Huffman codes
   1. Entropy-coded image data
 
-#### 5.2.1 Decoding of Meta Huffman Codes
+#### 5.2.1 Decoding of Huffman Codes
+
+There are several steps in decoding the Huffman codes.
+
+**Decoding the Code Lengths:**
+{:#decoding-the-code-lengths}
+
+This section describes how to read the Huffman code lengths from the bitstream.
+
+The Huffman code lengths can be coded in two ways. The method used is specified
+by a 1-bit value.
+
+  * If this bit is 1, it is a _simple code length code_, and
+  * If this bit is 0, it is a _normal code length code_.
+
+In both cases, there can be unused code lengths that are still part of the
+stream. It is inefficient but it can help fit in the format.
+
+**(i) Simple Code Length Code:**
+
+This variant is used in the special case when only 1 or 2 Huffman code lengths
+are non-zero, and are in the range of \[0..255\]. All other Huffman code lengths
+are implicitly zeros.
+
+The first bit indicates the number of non-zero code lengths:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int num_code_lengths = ReadBits(1) + 1;
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The first code length is stored either using a 1-bit code for values of 0 and 1,
+or using an 8-bit code for values in range \[0..255\]. The second code length,
+when present, is coded as an 8-bit code.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int is_first_8bits = ReadBits(1);
+code_lengths[0] = ReadBits(1 + 7 * is_first_8bits);
+if (num_code_lengths == 2) {
+  code_lengths[1] = ReadBits(8);
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Note:** Another special case is when _all_ Huffman code lengths are _zeros_
+(an empty Huffman code). For example, a Huffman code for distance can be empty
+if there are no backward references. Similarly, Huffman codes for alpha, red,
+and blue can be empty if all pixels within the same meta Huffman code are
+produced using the color cache. However, this case doesn't need a special
+handling, as empty Huffman codes can be coded as those containing a single
+symbol `0`.
+
+**(ii) Normal Code Length Code:**
+
+The code lengths of the Huffman code fit in 8 bits and are read as follows.
+First, `num_code_lengths` specifies the number of code lengths.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int num_code_lengths = 4 + ReadBits(4);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If `num_code_lengths` is > 18, the bitstream is invalid.
+
+The code lengths are themselves encoded using Huffman codes: lower level code
+lengths `code_length_code_lengths` first have to be read. The rest of those
+`code_length_code_lengths` (according to the order in `kCodeLengthCodeOrder`)
+are zeros.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int kCodeLengthCodes = 19;
+int kCodeLengthCodeOrder[kCodeLengthCodes] = {
+  17, 18, 0, 1, 2, 3, 4, 5, 16, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+};
+int code_lengths[kCodeLengthCodes] = { 0 };  // All zeros.
+for (i = 0; i < num_code_lengths; ++i) {
+  code_length_code_lengths[kCodeLengthCodeOrder[i]] = ReadBits(3);
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Next, if `ReadBits(1) == 0`, the maximum number of different read symbols is
+`num_code_lengths`. Otherwise, it is defined as:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int length_nbits = 2 + 2 * ReadBits(3);
+int max_symbol = 2 + ReadBits(length_nbits);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A Huffman table is then built from `code_length_code_lengths` using
+`BuildHuffmanTable` from [this section](#building-huffman-table) with the
+following arguments:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BuildHuffmanTable(table, 7, code_length_code_lengths, 19);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+It is then used to read up to `max_symbol` code lengths as described
+[here](#reading-symbols-with-huffman).
+
+  * Code \[0..15\] indicates literal code lengths.
+    * Value 0 means no symbols have been coded.
+    * Values \[1..15\] indicate the bit length of the respective code.
+  * Code 16 repeats the previous non-zero value \[3..6\] times, i.e.,
+    `3 + ReadBits(2)` times. If code 16 is used before a non-zero
+    value has been emitted, a value of 8 is repeated.
+  * Code 17 emits a streak of zeros \[3..10\], i.e., `3 + ReadBits(3)`
+    times.
+  * Code 18 emits a streak of zeros of length \[11..138\], i.e.,
+    `11 + ReadBits(7)` times.
+
+Once the code lengths are read, a Huffman table is built using
+`BuildHuffmanTable` from [this section](#building-huffman-table) with the
+following arguments:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BuildHuffmanTable(table, 8, code_lengths, alphabet_size);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Where `alphabet_size` depends on the symbol type:
+
+  * green channel: 256 + 24
+  * other literals (R,G,B): 256
+  * distance code: 40
+
+**Building a Huffman table from the Huffman code lengths:**
+{:#building-huffman-table}
+
+Once the code lengths have been decoded for each symbol (or each sub level
+code-length), a table is created for each Huffman code of the
+**Huffman code group**. This table contains pairs of (bits, value) indicating
+the number of bits used for a symbol value.
+
+The following function creates a two level Huffman table used when reading the
+symbols.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
+                      const int code_lengths[], int code_lengths_size) {
+  HuffmanCode* table = root_table;  // next available space in table
+  int total_size = 1 << root_bits;  // total size root table + 2nd level table
+  int len;                          // current code length
+  int symbol;                       // symbol index in original or sorted table
+  // number of codes of each length:
+  int count[16] = { 0 };
+  // offsets in sorted table for each length:
+  int offset[16];
+  uint16_t* const sorted =
+        (uint16_t*)malloc(code_lengths_size, sizeof(uint16_t));
+
+  // Build histogram of code lengths.
+  for (symbol = 0; symbol < code_lengths_size; ++symbol) {
+    if (code_lengths[symbol] > 15) {
+      return 0;
+    }
+    ++count[code_lengths[symbol]];
+  }
+
+  // Error, all code lengths are zeros.
+  if (count[0] == code_lengths_size) {
+    return 0;
+  }
+
+  // Generate offsets into sorted symbol table by code length.
+  offset[1] = 0;
+  for (len = 1; len < 15; ++len) {
+    if (count[len] > (1 << len)) {
+      return 0;
+    }
+    offset[len + 1] = offset[len] + count[len];
+  }
+
+  // Sort symbols by length, by symbol order within each length.
+  for (symbol = 0; symbol < code_lengths_size; ++symbol) {
+    const int symbol_code_length = code_lengths[symbol];
+    if (code_lengths[symbol] > 0) {
+      if (sorted != NULL) {
+        sorted[offset[symbol_code_length]++] = symbol;
+      } else {
+        offset[symbol_code_length]++;
+      }
+    }
+  }
+
+  // Special case code with only one value.
+  if (offset[15] == 1) {
+    if (sorted != NULL) {
+      HuffmanCode code;
+      code.bits = 0;
+      code.value = (uint16_t)sorted[0];
+      ReplicateValue(table, 1, total_size, code);
+    }
+    return total_size;
+  }
+
+  {
+    int step;              // step size to replicate values in current table
+    uint32_t low = -1;     // low bits for current root entry
+    uint32_t mask = total_size - 1;    // mask for low bits
+    uint32_t key = 0;      // reversed prefix code
+    int num_nodes = 1;     // number of Huffman tree nodes
+    int num_open = 1;      // number of open branches in current tree level
+    int table_bits = root_bits;        // key length of current table
+    int table_size = 1 << table_bits;  // size of current table
+    symbol = 0;
+    // Fill in root table.
+    for (len = 1, step = 2; len <= root_bits; ++len, step <<= 1) {
+      num_open <<= 1;
+      num_nodes += num_open;
+      num_open -= count[len];
+      if (num_open < 0) {
+        return 0;
+      }
+      if (root_table == NULL) continue;
+      for (; count[len] > 0; --count[len]) {
+        HuffmanCode code;
+        code.bits = (uint8_t)len;
+        code.value = (uint16_t)sorted[symbol++];
+        ReplicateValue(&table[key], step, table_size, code);
+        key = GetNextKey(key, len);
+      }
+    }
+
+    // Fill in 2nd level tables and add pointers to root table.
+    for (len = root_bits + 1, step = 2; len <= 15;
+         ++len, step <<= 1) {
+      num_open <<= 1;
+      num_nodes += num_open;
+      num_open -= count[len];
+      if (num_open < 0) {
+        return 0;
+      }
+      if (root_table == NULL) continue;
+      for (; count[len] > 0; --count[len]) {
+        HuffmanCode code;
+        if ((key & mask) != low) {
+          table += table_size;
+          table_bits = NextTableBitSize(count, len, root_bits);
+          table_size = 1 << table_bits;
+          total_size += table_size;
+          low = key & mask;
+          root_table[low].bits = (uint8_t)(table_bits + root_bits);
+          root_table[low].value = (uint16_t)((table - root_table) - low);
+        }
+        code.bits = (uint8_t)(len - root_bits);
+        code.value = (uint16_t)sorted[symbol++];
+        ReplicateValue(&table[key >> root_bits], step, table_size, code);
+        key = GetNextKey(key, len);
+      }
+    }
+
+    // Check if tree is full.
+    if (num_nodes != 2 * offset[15] - 1) {
+      return 0;
+    }
+  }
+
+  return total_size;
+}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Analyzing the Huffman tables:**
+
+We have 5 tables per meta-Huffman code for the 5 symbols: green, red, blue,
+alpha and distance.
+
+We can face the following cases that will help decode the pixels more
+efficiently:
+
+  * `is_trivial_literal` is true: the red, blue, alpha values are always the
+    same
+  * `is_trivial_code` is true: `is_trivial_literal` is true and green is also a
+    unique value.
+  * `use_packed_table` is true: there is more than one value but there are
+    fewer table bits than `HUFFMAN_PACKED_BITS`=6.
+
+In the case where `is_trivial_literal` is false and the maximum number of bits
+to store all the symbols is `<= 6`, we use a packed table where there is just a
+mapping between read bits and value.
+
+For values `>= 256`, HuffmanCode has `bits += 0x100`, which is a special marker
+used during reading. The value is just the raw value indexed in the original
+table.
+
+For values `< 256`, HuffmanCode has `bits=sum of bit lengths for ARGB`, and a
+value of the corresponding `ARGB`.
+
+#### 5.2.2 Decoding of Meta Huffman Codes
 
 As noted earlier, the format allows the use of different Huffman codes for
 different blocks of the image. _Meta Huffman codes_ are indexes identifying
@@ -914,15 +1199,15 @@ of `HuffmanCodeGroup` (of size `num_huff_groups`).
 The decoder then uses Huffman code group `huff_group` to decode the pixel
 (x, y) as explained in the [next section](#decoding-entropy-coded-image-data).
 
-#### 5.2.2 Decoding Entropy-coded Image Data
+#### 5.2.3 Decoding Entropy-coded Image Data
 
 For the current position (x, y) in the image, the decoder first identifies the
 corresponding Huffman code group (as explained in the last section). Given the
 Huffman code group, the pixel is read and decoded as follows:
 
 Read next symbol S from the bitstream using Huffman code #1. \[See
-[next section](#decoding-the-code-lengths) for details on decoding the Huffman
-code lengths\]. Note that S is any integer in the range `0` to
+[next section](#reading-symbols-with-huffman) for details on decoding using the
+Huffman codes\]. Note that S is any integer in the range `0` to
 `(256 + 24 + ` [`color_cache_size`](#color-cache-code)` - 1)`.
 
 The interpretation of S depends on its value:
@@ -932,7 +1217,7 @@ The interpretation of S depends on its value:
      1. Read red from the bitstream using Huffman code #2.
      1. Read blue from the bitstream using Huffman code #3.
      1. Read alpha from the bitstream using Huffman code #4.
-  1. if S < 256 + 24
+  1. if S >= 256 && S < 256 + 24
      1. Use S - 256 as a length prefix code.
      1. Read extra bits for length from the bitstream.
      1. Determine backward-reference length L from length prefix code and the
@@ -948,79 +1233,51 @@ The interpretation of S depends on its value:
      1. Get ARGB color from the color cache at that index.
 
 
-**Decoding the Code Lengths:**
-{:#decoding-the-code-lengths}
+**Reading the symbols using the Huffman codes:**
+{:#reading-symbols-with-huffman}
 
-This section describes the details about reading a symbol from the bitstream by
-decoding the Huffman code length.
+Using the Huffman code to decode a symbol is done as follows:
 
-The Huffman code lengths can be coded in two ways. The method used is specified
-by a 1-bit value.
+  * if `is_trivial_code` is true, the values of ARGB are set to the stored ARGB.
+  * if `is_trivial_literal` is true, the values of RBA are set to the stored RBA
+    and green is read as a symbol or a packed symbol as detailed below.
+  * otherwise, ARGB are read as a symbol or a packed symbol as detailed below.
 
-  * If this bit is 1, it is a _simple code length code_, and
-  * If this bit is 0, it is a _normal code length code_.
+For the following, we need a `PrefetchBits(n)` function that returns the same as
+`ReadBits(n)` but without moving the bit reader forward. `ReadBits(n)` is used
+to move forward in the stream (but its returned result is unused).
 
-**(i) Simple Code Length Code:**
-
-This variant is used in the special case when only 1 or 2 Huffman code lengths
-are non-zero, and are in the range of \[0, 255\]. All other Huffman code lengths
-are implicitly zeros.
-
-The first bit indicates the number of non-zero code lengths:
+Reading a symbol from a Huffman table is done as follows:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int num_code_lengths = ReadBits(1) + 1;
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The first code length is stored either using a 1-bit code for values of 0 and 1,
-or using an 8-bit code for values in range \[0, 255\]. The second code length,
-when present, is coded as an 8-bit code.
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int is_first_8bits = ReadBits(1);
-code_lengths[0] = ReadBits(1 + 7 * is_first_8bits);
-if (num_code_lengths == 2) {
-  code_lengths[1] = ReadBits(8);
+int ReadSymbol(const HuffmanCode* table, BitReader* const br) {
+  int nbits;
+  table += PrefetchBits(8);
+  nbits = table->bits - 8;
+  if (nbits > 0) {
+    ReadBits(8);
+    table += table->value;
+    table += PrefetchBits(nbits);
+  }
+  ReadBits(table->bits);
+  return table->value;
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Note:** Another special case is when _all_ Huffman code lengths are _zeros_
-(an empty Huffman code). For example, a Huffman code for distance can be empty
-if there are no backward references. Similarly, Huffman codes for alpha, red,
-and blue can be empty if all pixels within the same meta Huffman code are
-produced using the color cache. However, this case doesn't need a special
-handling, as empty Huffman codes can be coded as those containing a single
-symbol `0`.
-
-**(ii) Normal Code Length Code:**
-
-The code lengths of a Huffman code are read as follows: `num_code_lengths`
-specifies the number of code lengths; the rest of the code lengths
-(according to the order in `kCodeLengthCodeOrder`) are zeros.
+For a packed table, reading a symbol is done as follows:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int kCodeLengthCodes = 19;
-int kCodeLengthCodeOrder[kCodeLengthCodes] = {
-  17, 18, 0, 1, 2, 3, 4, 5, 16, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-};
-int code_lengths[kCodeLengthCodes] = { 0 };  // All zeros.
-int num_code_lengths = 4 + ReadBits(4);
-for (i = 0; i < num_code_lengths; ++i) {
-  code_lengths[kCodeLengthCodeOrder[i]] = ReadBits(3);
+int ReadPackedSymbols(const HuffmanCode* table, BitReader* const br) {
+  const uint32_t val = PrefetchBits(6);
+  const HuffmanCode code = table[val];
+  if (code.bits < 0x100) {
+    ReadBits(code.bits);
+  } else {
+    ReadBits(code.bits - 0x100);
+  }
+  return code.value;
 }
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-  * Code length code \[0..15\] indicates literal code lengths.
-    * Value 0 means no symbols have been coded.
-    * Values \[1..15\] indicate the bit length of the respective code.
-  * Code 16 repeats the previous non-zero value \[3..6\] times, i.e.,
-    `3 + ReadBits(2)` times. If code 16 is used before a non-zero
-    value has been emitted, a value of 8 is repeated.
-  * Code 17 emits a streak of zeros \[3..10\], i.e., `3 + ReadBits(3)`
-    times.
-  * Code 18 emits a streak of zeros of length \[11..138\], i.e.,
-    `11 + ReadBits(7)` times.
-
 
 6 Overall Structure of the Format
 ---------------------------------
