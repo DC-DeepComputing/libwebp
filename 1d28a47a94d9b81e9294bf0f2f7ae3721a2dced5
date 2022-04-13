@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35202778_ad512471",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-04-13T16:55:23Z",
+      "side": 1,
+      "message": "I\u0027ll integrate this into my set of amendments before submitting. Jaz, any thoughts?",
+      "revId": "1d28a47a94d9b81e9294bf0f2f7ae3721a2dced5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
