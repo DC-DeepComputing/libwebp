@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322f6209_af3d4c75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-05-06T17:38:02Z",
+      "side": 1,
+      "message": "Vincent, it looks like you decoupled this from the other changes. The idea was to merge the entire branch with the amendment note. I can handle rebasing your other change and updating this one after the comments are in.",
+      "revId": "1ec1166d08ba45aac32f57162daaf996f08ffb63",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
