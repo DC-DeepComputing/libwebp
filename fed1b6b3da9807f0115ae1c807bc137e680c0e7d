@@ -22,6 +22,30 @@
       },
       "revId": "fed1b6b3da9807f0115ae1c807bc137e680c0e7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea5d1349_2db3e302",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2022-05-10T14:00:50Z",
+      "side": 1,
+      "message": "Thanks, so the old version put the uplifted value in the middle, while this one randomizes?\nI feel like you\u0027ve mentioned this in the past, but what\u0027s the point of doing this again? What kind of image does it improve? I tried setting kSfixHalf to 0 and the (admittedly simple) test images don\u0027t have any noticeable change.",
+      "parentUuid": "b1bd8275_5da30132",
+      "range": {
+        "startLine": 188,
+        "startChar": 34,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "fed1b6b3da9807f0115ae1c807bc137e680c0e7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
