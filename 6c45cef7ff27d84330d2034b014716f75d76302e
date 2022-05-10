@@ -33,6 +33,24 @@
       "message": "We\u0027re rather trusting of inputs on the encode side it seems. We don\u0027t verify width/height for instance, so this multiply could overflow. This change is ok as a start, though.",
       "revId": "6c45cef7ff27d84330d2034b014716f75d76302e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75f9ff94_5f600613",
+        "filename": "src/enc/picture_csp_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 742,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-05-10T20:42:52Z",
+      "side": 1,
+      "message": "Indeed. But we do width * 4 below anyway so that should be checked once and for all. I\u0027ll do a follow-up patch.\nThe WebPPicture should have dimensions/specs that fit in the WebP format (16K width at most and such)",
+      "parentUuid": "49205411_3080191d",
+      "revId": "6c45cef7ff27d84330d2034b014716f75d76302e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
