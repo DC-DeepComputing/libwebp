@@ -66,13 +66,13 @@ static const SharpYuvConversionMatrix kWebpMatrix = {
   {-9719, -19081, 28800, 128 << 16},
   {28800, -24116, -4684, 128 << 16},
 };
-// Kr=0.2990f Kb=0.1140f btits=8 range=kLimited
+// Kr=0.2990f Kb=0.1140f bits=8 range=kLimited
 static const SharpYuvConversionMatrix kRec601LimitedMatrix = {
   {16829, 33039, 6416, 16 << 16},
   {-9714, -19071, 28784, 128 << 16},
   {28784, -24103, -4681, 128 << 16},
 };
-// Kr=0.2990f Kb=0.1140f btits=8 range=kFull
+// Kr=0.2990f Kb=0.1140f bits=8 range=kFull
 static const SharpYuvConversionMatrix kRec601FullMatrix = {
   {19595, 38470, 7471, 0},
   {-11058, -21710, 32768, 128 << 16},
