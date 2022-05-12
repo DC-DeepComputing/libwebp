@@ -94,6 +94,30 @@
       },
       "revId": "fed1b6b3da9807f0115ae1c807bc137e680c0e7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d1d1882_dbe0b075",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2022-05-12T13:28:53Z",
+      "side": 1,
+      "message": "I undertand the idea now but in practice in this algorithm this seems to worsen the overall precision.",
+      "parentUuid": "e0a66731_9b42b0c8",
+      "range": {
+        "startLine": 188,
+        "startChar": 34,
+        "endLine": 188,
+        "endChar": 43
+      },
+      "revId": "fed1b6b3da9807f0115ae1c807bc137e680c0e7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
