@@ -1858,7 +1858,7 @@ int color_cache_size = 1 << color_cache_code_bits;
            <t><strong>(i) Simple Code Length Code:</strong></t>
 
            <t>This variant is used in the special case when only 1 or 2 Huffman
-             symbols are in the range [0, 255] with code length <tt>1</tt>. All
+             symbols are in the range [0..255] with code length <tt>1</tt>. All
              other Huffman code lengths are implicitly zeros.</t>
 
            <t>The first bit indicates the number of symbols:</t>
@@ -1869,8 +1869,8 @@ int num_symbols = ReadBits(1) + 1;
 
            <t>Following are the symbol values. This first symbol is coded using
              1 or 8 bits depending on the value of <tt>is_first_8bits</tt>. The
-             range is [0, 1] or [0, 255], respectively. The second symbol, if
-             present, is always assumed to be in the range [0, 255] and coded
+             range is [0..1] or [0..255], respectively. The second symbol, if
+             present, is always assumed to be in the range [0..255] and coded
              using 8 bits.</t>
 
            <sourcecode><![CDATA[
