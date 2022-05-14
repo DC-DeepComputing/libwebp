@@ -2147,13 +2147,14 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
         <section numbered="true" toc="default">
           <name>Structure of the Image Data</name>
           <sourcecode><![CDATA[
-<spatially-coded image> ::= <meta huffman><entropy-coded image>
-<entropy-coded image> ::= <color cache info><huffman codes><lz77-coded image>
-<meta huffman> ::= 1-bit value 0 |
-                   (1-bit value 1; <entropy image>)
-<entropy image> ::= 3-bit subsample value; <entropy-coded image>
+<spatially-coded image> ::= <color cache info><meta huffman><data>
+<entropy-coded image> ::= <color cache info><data>
 <color cache info> ::= 1 bit value 0 |
                        (1-bit value 1; 4-bit value for color cache size)
+<meta huffman> ::= 1-bit value 0 |
+                   (1-bit value 1; <entropy image>)
+<data> ::= <huffman codes><lz77-coded image>
+<entropy image> ::= 3-bit subsample value; <entropy-coded image>
 <huffman codes> ::= <huffman code group> | <huffman code group><huffman codes>
 <huffman code group> ::= <huffman code><huffman code><huffman code>
                          <huffman code><huffman code>
@@ -2172,9 +2173,8 @@ HuffmanCodeGroup huff_group = huffman_code_groups[meta_huff_code];
 
           <sourcecode><![CDATA[
 <RIFF header><image size>1-bit value 1<subtract-green-tx>
-1-bit value 1<predictor-tx>1-bit value 0<meta huffman>
-<color cache info><huffman codes>
-<lz77-coded image>
+1-bit value 1<predictor-tx>1-bit value 0<color cache info>1-bit value 0
+<huffman codes><lz77-coded image>
             ]]></sourcecode>
         </section>
      </section>
