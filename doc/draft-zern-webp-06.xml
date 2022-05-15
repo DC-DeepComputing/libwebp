@@ -38,6 +38,18 @@
        <email>jzern@google.com</email>
      </address>
    </author>
+   <author fullname="Pascal Massimino" initials="P." surname="Massimino">
+     <organization>Google LLC</organization>
+     <address>
+       <email>pascal.massimino@gmail.com</email>
+     </address>
+   </author>
+   <author fullname="Jyrki Alakuijala" initials="J." surname="Alakuijala">
+     <organization>Google LLC</organization>
+     <address>
+       <email>jyrki@google.com</email>
+     </address>
+   </author>
 
    <date year="2022" />
 
