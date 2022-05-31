@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec15031e_c9d47c34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-05-31T22:34:35Z",
+      "side": 1,
+      "message": "Hi James,\n\nFrom what I understand about CMake, using the import libraries are preferred since they also include dependencies, linking, and compile flags that would be needed, rather than just the thread library.\n\nThanks,\nChris",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
