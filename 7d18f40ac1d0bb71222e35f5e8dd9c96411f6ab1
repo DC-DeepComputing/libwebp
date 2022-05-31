@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f81b4569_9d2ac532",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-05-31T22:47:48Z",
+      "side": 1,
+      "message": "Hi James,\n\nThese last two patches are for webpmux and webpinfo since they link to exampleutil and imageioutil, but do not trigger their building, which could lead to build errors due to missing libraries\n\nThanks,\nChris",
+      "revId": "7d18f40ac1d0bb71222e35f5e8dd9c96411f6ab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
