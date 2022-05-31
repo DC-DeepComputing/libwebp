@@ -16,6 +16,24 @@
       "message": "Hi James,\n\nFrom what I understand about CMake, using the import libraries are preferred since they also include dependencies, linking, and compile flags that would be needed, rather than just the thread library.\n\nThanks,\nChris",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f198234b_bed9d01d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-05-31T23:01:14Z",
+      "side": 1,
+      "message": "\u003e Hi James,\n\u003e \n\u003e From what I understand about CMake, using the import libraries are preferred since they also include dependencies, linking, and compile flags that would be needed, rather than just the thread library.\n\u003e \n\nI agree. This should be fine since we\u0027re requiring cmake \u003e\u003d 3.7, it was added in 3.1:\nhttps://cmake.org/cmake/help/latest/module/FindThreads.html\n\nDid you run into a particular problem on some platform?\n\n\u003e Thanks,\n\u003e Chris",
+      "parentUuid": "ec15031e_c9d47c34",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
