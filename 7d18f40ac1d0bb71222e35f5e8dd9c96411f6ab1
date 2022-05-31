@@ -33,6 +33,24 @@
       "message": "Hi James,\n\nFor future reference, should I address CMake changes to Vincent, add him to reviewer, or just CC him?\n\nWill he be the new contact point for these changes?\n\nThanks,\nChris",
       "revId": "7d18f40ac1d0bb71222e35f5e8dd9c96411f6ab1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7d49537_2301bb52",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-05-31T23:58:08Z",
+      "side": 1,
+      "message": "\u003e Hi James,\n\u003e \n\u003e For future reference, should I address CMake changes to Vincent, add him to reviewer, or just CC him?\n\u003e \n\u003e Will he be the new contact point for these changes?\n\u003e \n\nHaving us both is fine. I just wanted Vincent to have visibility. I think these all make sense. I\u0027ll merge them after he gets to take a look.\n\n\u003e Thanks,\n\u003e Chris",
+      "parentUuid": "3411a729_ac15bcdc",
+      "revId": "7d18f40ac1d0bb71222e35f5e8dd9c96411f6ab1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
