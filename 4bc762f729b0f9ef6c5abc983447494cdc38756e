@@ -16,6 +16,24 @@
       "message": "Hi James, this is a bit of a hack for fixing an issue where exampleutil would not properly link to imageioutil on Windows due to incorrect dependencies as cmake would dispatch to the linker to link `-limageioutil` only, ignoring imageioutil\u0027s dependencies. I no longer remember how to exactly reproduce this as this patch was from a long time ago",
       "revId": "4bc762f729b0f9ef6c5abc983447494cdc38756e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a1316cc_6dca6d1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-05-31T23:56:22Z",
+      "side": 1,
+      "message": "\u003e Hi James, this is a bit of a hack for fixing an issue where exampleutil would not properly link to imageioutil on Windows due to incorrect dependencies as cmake would dispatch to the linker to link `-limageioutil` only, ignoring imageioutil\u0027s dependencies. I no longer remember how to exactly reproduce this as this patch was from a long time ago\n\nDo you happen to remember what generator and cmake version you were using? This is correct given the documentation [1], I\u0027m just curious why we haven\u0027t seen it.\n\n[1] https://cmake.org/cmake/help/latest/command/target_link_libraries.html\nThe named target must be created by add_library() within the project or as an IMPORTED library.",
+      "parentUuid": "3d6da444_36a46b97",
+      "revId": "4bc762f729b0f9ef6c5abc983447494cdc38756e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
