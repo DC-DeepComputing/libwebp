@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "089999b4_d5f9b042",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T01:45:31Z",
+      "side": 1,
+      "message": "\u003e Are you seeing an issue currently? Out of curiosity what cmake version and generator for this one?\n\nYeah, that error was generated a few minutes from when I posted it\n\nWindows with Ninja\n\n```\ncddeg@ccom-laptop /build/libwebp-git/build-64bit\n$ cmake --version\ncmake version 3.23.2\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\ncddeg@ccom-laptop /build/libwebp-git/build-64bit\n$ ninja --version\n1.11.0\n```\n\nThe command I used was\n\n```\n\ncmake -G Ninja -DBUILD_SHARED_LIBS\u003doff -DCMAKE_BUILD_TYPE\u003dRelease -DWEBP_ENABLE_SWAP_16BIT_CSP\u003dON -DWEBP_BUILD_EXTRAS\u003dOFF -DWEBP_BUILD_VWEBP\u003dOFF -DWEBP_BUILD_CWEBP\u003dOFF -DWEBP_BUILD_DWEBP\u003dOFF -DWEBP_BUILD_GIF2WEBP\u003dOFF -DWEBP_BUILD_IMG2WEBP\u003dOFF -DWEBP_BUILD_VWEBP\u003dOFF -DWEBP_BUILD_ANIM_UTILS\u003dOFF -DWEBP_BUILD_WEBPMUX\u003dOFF -B bui-test\n\nninja -C bui-test\n```\n\nand similarly, I don\u0027t see it with linux, but I do with Windows, not sure why though, and running it just now, gave a similar error, but with \n\n```\nninja: Entering directory `bui-test\u0027\n[118/123] Building C object CMakeFiles/webpinfo.dir/examples/webpinfo.c.obj\nFAILED: CMakeFiles/webpinfo.dir/examples/webpinfo.c.obj\nC:\\msys64\\ucrt64\\bin\\cc.exe -DHAVE_CONFIG_H -DUNICODE -DWEBP_SWAP_16BIT_CSP\u003d1 -D_UNICODE -IC:/Users/cddeg/libwebp/bui-test/src -pthread -O3 -DNDEBUG   -Wall -MD -MT CMakeFiles/webpinfo.dir/examples/webpinfo.c.obj -MF CMakeFiles\\webpinfo.dir\\examples\\webpinfo.c.obj.d -o CMakeFiles/webpinfo.dir/examples/webpinfo.c.obj -c C:/Users/cddeg/libwebp/examples/webpinfo.c\nC:/Users/cddeg/libwebp/examples/webpinfo.c:25:10: fatal error: webp/format_constants.h: No such file or directory\n   25 | #include \"webp/format_constants.h\"\n      |          ^~~~~~~~~~~~~~~~~~~~~~~~~\ncompilation terminated.\n[119/123] Building C object CMakeFiles/webpdsp.dir/src/dsp/yuv.c.obj\nninja: build stopped: subcommand failed.\n```\n\ninstead",
+      "parentUuid": "10091cc9_655279f8",
+      "revId": "8244168c8af746df19bd4be37be893e3eb8dd0a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ffde303_8666175a",
         "filename": "CMakeLists.txt",
         "patchSetId": 1
@@ -66,6 +84,24 @@
       "writtenOn": "2022-06-01T01:39:23Z",
       "side": 1,
       "message": "can you break this line at or before 80 characters please?",
+      "revId": "8244168c8af746df19bd4be37be893e3eb8dd0a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1ef5672_76703d11",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T01:45:31Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7ffde303_8666175a",
       "revId": "8244168c8af746df19bd4be37be893e3eb8dd0a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
