@@ -52,6 +52,24 @@
       "parentUuid": "f198234b_bed9d01d",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66bb5afa_fd97f3d1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-01T00:01:01Z",
+      "side": 1,
+      "message": "\u003e \u003e Did you run into a particular problem on some platform?\n\u003e \n\u003e I think I ran into an issue on Windows with mingw-w64 and pthreads at some point, but it could be that this patch was mainly due to trying to get linking to be consistent since I\u0027ve had a lot of issues with libwebp in the past few years on and off\n\nThanks. On windows I have a nightly visual studio run for cmake, but defer to autoconf under cygwin and msys2.",
+      "parentUuid": "49301b6c_e649efbc",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
