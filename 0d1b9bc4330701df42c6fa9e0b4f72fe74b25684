@@ -70,6 +70,24 @@
       "parentUuid": "49301b6c_e649efbc",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e4a254_31875171",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T00:12:55Z",
+      "side": 1,
+      "message": "Would autoconf be considered the \"official\" buildsystem to use with cygwin/msys2?\n\n\nIt seems I switched to CMake away from autoconf for libwebp at one point due to the issues mentioned in https://github.com/m-ab-s/media-autobuild_suite/issues/1983 with  linking errors with libtiff, but I can try again with autoconf if I should move back or not",
+      "parentUuid": "66bb5afa_fd97f3d1",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
