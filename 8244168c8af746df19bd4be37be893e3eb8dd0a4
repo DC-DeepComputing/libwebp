@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d4969b52_07b8f874",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T01:49:44Z",
+      "side": 1,
+      "message": "Somehow, on linux, the command line results in\n\n```\n[130/138] /usr/lib/ccache/bin/cc -DHAVE_CONFIG_H -DWEBP_SWAP_16BIT_CSP\u003d1 -I/code/libwebp/bui-test/src -I/code/libwebp/src -pthread -O3 -DNDEBUG -fPIE   -Wall -MD -MT CMakeFiles/webpinfo.dir/examples/webpinfo.c.o -MF CMakeFiles/webpinfo.dir/examples/webpinfo.c.o.d -o CMakeFiles/webpinfo.dir/examples/webpinfo.c.o -c /code/libwebp/examples/webpinfo.c\n```\n\nwith `-I/code/libwebp/src` properly in there",
+      "parentUuid": "089999b4_d5f9b042",
+      "revId": "8244168c8af746df19bd4be37be893e3eb8dd0a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7ffde303_8666175a",
         "filename": "CMakeLists.txt",
         "patchSetId": 1
