@@ -106,6 +106,24 @@
       "parentUuid": "23e4a254_31875171",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf763781_fc7d624c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T02:28:54Z",
+      "side": 1,
+      "message": "\u003e For the issue you linked, it looks like a dependency issue for libjbig. msys2 is building ok for me currently. If the build was static then it\u0027s possible some extra libs need to be added to the configure.\n\nIirc, the main issue at that time was that despite the project building its own static libtiff without jbig, autoconf was pulling libtiff from msys2\u0027s package while using the flags from the project\u0027s built libtiff-4.pc file (thus lacking `-ljbig`) and I don\u0027t think I ever found out the reason why.\n\n\nI\u0027ll try again to use autoconf with my particular setup and see if it has changed since then",
+      "parentUuid": "6d06fe99_f600612d",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
