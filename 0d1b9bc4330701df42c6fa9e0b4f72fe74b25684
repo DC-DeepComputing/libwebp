@@ -178,6 +178,24 @@
       "parentUuid": "c7ea5d40_fff75790",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8eb72d0_780268c3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T05:51:34Z",
+      "side": 1,
+      "message": "\u003e Thanks for the update, would you mind filing a bug?\n\nOpened https://bugs.chromium.org/p/webp/issues/detail?id\u003d572",
+      "parentUuid": "f0678b16_9262f2fb",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
