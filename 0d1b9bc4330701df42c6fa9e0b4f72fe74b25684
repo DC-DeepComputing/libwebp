@@ -142,6 +142,24 @@
       "parentUuid": "bf763781_fc7d624c",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7ea5d40_fff75790",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-01T05:22:48Z",
+      "side": 1,
+      "message": "\u003e \u003e I\u0027ll try again to use autoconf with my particular setup and see if it has changed since then\n\u003e \n\u003e Tried again, and it seems there are a few issues with libtiff that I still need to look into before I can switch back\n\u003e \n\u003e ```\n\u003e make[1]: Entering directory \u0027/build/libwebp-git/build-64bit/extras\u0027\n\u003e   CCLD     get_disto.exe\n\u003e D:/media-autobuild_suite/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: D:/media-autobuild_suite/local64/lib/../lib/libtiff.a(tif_jpeg.c.obj):tif_jpeg.c:(.text+0x614): undefined reference to `jpeg_write_raw_data\u0027\n\u003e ...\n\u003e D:/media-autobuild_suite/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: D:/media-autobuild_suite/local64/lib/../lib/libtiff.a(tif_pixarlog.c.obj):tif_pixarlog.c:(.text+0xc4): undefined reference to `deflateParams\u0027\n\u003e ...\n\u003e D:/media-autobuild_suite/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: D:/media-autobuild_suite/local64/lib/../lib/libtiff.a(tif_zip.c.obj):tif_zip.c:(.text+0xa4): undefined reference to `libdeflate_free_decompressor\u0027\n\u003e ...\n\u003e D:/media-autobuild_suite/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/12.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe: D:/media-autobuild_suite/local64/lib/../lib/libtiff.a(tif_zstd.c.obj):tif_zstd.c:(.text+0x88): undefined reference to `ZSTD_freeDStream\u0027\n\u003e ```\n\nThanks for the update, would you mind filing a bug?\nhttps://bugs.chromium.org/p/webp/issues/entry\n\nAutoconf isn\u0027t using pkg-config to extract flags, but relying on libtiff to pull in what needs (in a shared build). Currently a static build would need to add flags with LDLIBS.",
+      "parentUuid": "2439d6ae_afd2f4e5",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
