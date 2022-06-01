@@ -160,6 +160,24 @@
       "parentUuid": "2439d6ae_afd2f4e5",
       "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0678b16_9262f2fb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-06-01T05:44:26Z",
+      "side": 1,
+      "message": "\u003e Autoconf isn\u0027t using pkg-config to extract flags, but relying on libtiff to pull in what needs (in a shared build). Currently a static build would need to add flags with LDLIBS.\n\nThat would explain why I needed `LIBS\u003d$($PKG_CONFIG --libs libpng libtiff-4)` previously.\n\nI will open an issue, and maybe tomorrow, if I remember to revisit this, try to see more about using pkg-config with libtiff-4.pc with autotools",
+      "parentUuid": "c7ea5d40_fff75790",
+      "revId": "0d1b9bc4330701df42c6fa9e0b4f72fe74b25684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
