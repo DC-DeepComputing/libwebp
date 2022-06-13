@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0166e7e2_24e8b413",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-13T22:56:23Z",
+      "side": 1,
+      "message": "There was a bug in the archiving of the static analysis report. An example of the failure is here:\nhttps://build.webmproject.org/jenkins/job/libwebp__static_analysis/4639/mode\u003ddeep/HTML_20Report/",
+      "revId": "404d37542a02e7240b0296a53d9b0739b13df5e3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
