@@ -117,6 +117,8 @@ set(includedir "\$\{prefix\}/include")
 set(PTHREAD_LIBS ${CMAKE_THREAD_LIBS_INIT})
 set(INSTALLED_LIBRARIES)
 
+set(CMAKE_C_VISIBILITY_PRESET hidden)
+
 # ##############################################################################
 # Android only.
 if(ANDROID)
