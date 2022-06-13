@@ -27,7 +27,6 @@
 // Sharp RGB->YUV conversion
 
 static const int kNumIterations = 4;
-static const int kMinDimensionIterativeConversion = 4;
 
 #define YUV_FIX 16  // fixed-point precision for RGB->YUV
 static const int kYuvHalf = 1 << (YUV_FIX - 1);
@@ -311,6 +310,8 @@ static int DoSharpArgbToYuv(const uint8_t* r_ptr, const uint8_t* g_ptr,
   fixed_t* target_uv = target_uv_base;
   const uint64_t diff_y_threshold = (uint64_t)(3.0 * w * h);
   int ok;
+  assert(w > 0);
+  assert(h > 0);
 
   if (best_y_base == NULL || best_uv_base == NULL ||
       target_y_base == NULL || target_uv_base == NULL ||
@@ -444,10 +445,8 @@ int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
   const int yuv_max = (1 << yuv_bit_depth) - 1;
   const int sfix = GetPrecisionShift(rgb_bit_depth);
 
-  if (width < kMinDimensionIterativeConversion ||
-      height < kMinDimensionIterativeConversion ||
-      r_ptr == NULL || g_ptr == NULL || b_ptr == NULL || y_ptr == NULL ||
-      u_ptr == NULL || v_ptr == NULL) {
+  if (width < 1 || height < 1 || r_ptr == NULL || g_ptr == NULL ||
+      b_ptr == NULL || y_ptr == NULL || u_ptr == NULL || v_ptr == NULL) {
     return 0;
   }
   if (rgb_bit_depth != 8 && rgb_bit_depth != 10 && rgb_bit_depth != 12 &&
