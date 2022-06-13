@@ -27,7 +27,6 @@
 // Sharp RGB->YUV conversion
 
 static const int kNumIterations = 4;
-static const int kMinDimensionIterativeConversion = 4;
 
 #define YUV_FIX 16  // fixed-point precision for RGB->YUV
 static const int kYuvHalf = 1 << (YUV_FIX - 1);
@@ -444,10 +443,8 @@ int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
   const int yuv_max = (1 << yuv_bit_depth) - 1;
   const int sfix = GetPrecisionShift(rgb_bit_depth);
 
-  if (width < kMinDimensionIterativeConversion ||
-      height < kMinDimensionIterativeConversion ||
-      r_ptr == NULL || g_ptr == NULL || b_ptr == NULL || y_ptr == NULL ||
-      u_ptr == NULL || v_ptr == NULL) {
+  if (width < 1 || height < 1 || r_ptr == NULL || g_ptr == NULL ||
+      b_ptr == NULL || y_ptr == NULL || u_ptr == NULL || v_ptr == NULL) {
     return 0;
   }
   if (rgb_bit_depth != 8 && rgb_bit_depth != 10 && rgb_bit_depth != 12 &&
