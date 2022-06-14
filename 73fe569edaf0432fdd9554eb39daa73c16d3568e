@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7bd7a662_1b6cefab",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-14T22:22:39Z",
+      "side": 1,
+      "message": "break this long line and fix the indent:\n  target_include_directories(extras\n                             PRIVATE ${CMAKE_CURRENT_BINARY_DIR}\n                                     ${CMAKE_CURRENT_SOURCE_DIR}\n                                     ${CMAKE_CURRENT_SOURCE_DIR}/src)",
+      "revId": "73fe569edaf0432fdd9554eb39daa73c16d3568e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
