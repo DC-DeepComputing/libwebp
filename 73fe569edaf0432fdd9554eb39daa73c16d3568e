@@ -16,6 +16,24 @@
       "message": "break this long line and fix the indent:\n  target_include_directories(extras\n                             PRIVATE ${CMAKE_CURRENT_BINARY_DIR}\n                                     ${CMAKE_CURRENT_SOURCE_DIR}\n                                     ${CMAKE_CURRENT_SOURCE_DIR}/src)",
       "revId": "73fe569edaf0432fdd9554eb39daa73c16d3568e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c8ff3eb_d4ea5d15",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-15T17:25:33Z",
+      "side": 1,
+      "message": "\u003e break this long line and fix the indent:\n\u003e   target_include_directories(extras\n\u003e                              PRIVATE ${CMAKE_CURRENT_BINARY_DIR}\n\u003e                                      ${CMAKE_CURRENT_SOURCE_DIR}\n\u003e                                      ${CMAKE_CURRENT_SOURCE_DIR}/src)\n\nYour change works for me. Maybe I\u0027ll make a cmake-format pass, we haven\u0027t used it here before.",
+      "parentUuid": "7bd7a662_1b6cefab",
+      "revId": "73fe569edaf0432fdd9554eb39daa73c16d3568e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
