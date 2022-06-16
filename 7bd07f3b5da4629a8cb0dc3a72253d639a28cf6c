@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e52f302_5a91bb35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-16T05:10:35Z",
+      "side": 1,
+      "message": "This was blocking the display of the error report in your change.",
+      "revId": "7bd07f3b5da4629a8cb0dc3a72253d639a28cf6c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
