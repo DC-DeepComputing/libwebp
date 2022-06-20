@@ -43,8 +43,9 @@ static void PrintAnimationWarning(const WebPDecoderConfig* const config) {
   }
 }
 
-void PrintWebPError(const char* const in_file, int status) {
-  WFPRINTF(stderr, "Decoding of %s failed.\n", (const W_CHAR*)in_file);
+void PrintWebPError(const void* const in_file, int status) {
+  WFPRINTF(stderr, "Decoding of %" W_CHAR_FMT " failed.\n",
+           (const W_CHAR*)in_file);
   fprintf(stderr, "Status: %d", status);
   if (status >= VP8_STATUS_OK && status <= VP8_STATUS_NOT_ENOUGH_DATA) {
     fprintf(stderr, "(%s)", kStatusMessages[status]);
@@ -159,7 +160,7 @@ int ReadWebP(const uint8_t* const data, size_t data_size,
 
   status = WebPGetFeatures(data, data_size, bitstream);
   if (status != VP8_STATUS_OK) {
-    PrintWebPError("input data", status);
+    PrintWebPError(TO_W_CHAR("input data"), status);
     return 0;
   }
 
@@ -225,7 +226,7 @@ int ReadWebP(const uint8_t* const data, size_t data_size,
   } while (0);   // <- so we can 'break' out of the loop
 
   if (status != VP8_STATUS_OK) {
-    PrintWebPError("input data", status);
+    PrintWebPError(TO_W_CHAR("input data"), status);
     ok = 0;
   }
 
@@ -234,7 +235,7 @@ int ReadWebP(const uint8_t* const data, size_t data_size,
   if (ok && metadata != NULL) {
     ok = ExtractMetadata(data, data_size, metadata);
     if (!ok) {
-      PrintWebPError("metadata", VP8_STATUS_BITSTREAM_ERROR);
+      PrintWebPError(TO_W_CHAR("metadata"), VP8_STATUS_BITSTREAM_ERROR);
     }
   }
   if (!ok) WebPPictureFree(pic);

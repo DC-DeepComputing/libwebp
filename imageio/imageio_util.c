@@ -84,7 +84,8 @@ int ImgIoUtilReadFile(const char* const file_name,
 
   in = WFOPEN(file_name, "rb");
   if (in == NULL) {
-    WFPRINTF(stderr, "cannot open input file '%s'\n", (const W_CHAR*)file_name);
+    WFPRINTF(stderr, "cannot open input file '%" W_CHAR_FMT "'\n",
+             (const W_CHAR*)file_name);
     return 0;
   }
   fseek(in, 0, SEEK_END);
@@ -94,16 +95,16 @@ int ImgIoUtilReadFile(const char* const file_name,
   file_data = (uint8_t*)WebPMalloc(file_size + 1);
   if (file_data == NULL) {
     fclose(in);
-    WFPRINTF(stderr, "memory allocation failure when reading file %s\n",
-             (const W_CHAR*)file_name);
+    WFPRINTF(stderr, "memory allocation failure when reading file %" W_CHAR_FMT
+             "\n", (const W_CHAR*)file_name);
     return 0;
   }
   ok = (fread(file_data, file_size, 1, in) == 1);
   fclose(in);
 
   if (!ok) {
-    WFPRINTF(stderr, "Could not read %d bytes of data from file %s\n",
-             (int)file_size, (const W_CHAR*)file_name);
+    WFPRINTF(stderr, "Could not read %d bytes of data from file %" W_CHAR_FMT
+             "\n", (int)file_size, (const W_CHAR*)file_name);
     WebPFree(file_data);
     return 0;
   }
@@ -126,7 +127,7 @@ int ImgIoUtilWriteFile(const char* const file_name,
   }
   out = to_stdout ? ImgIoUtilSetBinaryMode(stdout) : WFOPEN(file_name, "wb");
   if (out == NULL) {
-    WFPRINTF(stderr, "Error! Cannot open output file '%s'\n",
+    WFPRINTF(stderr, "Error! Cannot open output file '%" W_CHAR_FMT "'\n",
              (const W_CHAR*)file_name);
     return 0;
   }

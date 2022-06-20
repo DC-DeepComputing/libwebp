@@ -49,7 +49,7 @@ static size_t ReadPicture(const char* const filename, WebPPicture* const pic,
 
  End:
   if (!ok) {
-    WFPRINTF(stderr, "Error! Could not process file %s\n",
+    WFPRINTF(stderr, "Error! Could not process file %" W_CHAR_FMT "\n",
              (const W_CHAR*)filename);
   }
   free((void*)data);
