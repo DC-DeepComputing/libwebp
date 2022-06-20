@@ -284,8 +284,9 @@ int main(int argc, const char* argv[]) {
     if (!ok) goto End;
 
     if (verbose) {
-      WFPRINTF(stderr, "Added frame #%3d at time %4d (file: %s)\n",
-               pic_num, timestamp_ms, GET_WARGV_SHIFTED(argv, c));
+      WFPRINTF(stderr, "Added frame #%3d at time %4d (file: %" W_CHAR_FMT
+               TO_W_CHAR(")\n"), pic_num, timestamp_ms,
+               GET_WARGV_SHIFTED(argv, c));
     }
     timestamp_ms += duration;
     ++pic_num;
@@ -309,7 +310,10 @@ int main(int argc, const char* argv[]) {
   if (ok) {
     if (output != NULL) {
       ok = ImgIoUtilWriteFile(output, webp_data.bytes, webp_data.size);
-      if (ok) WFPRINTF(stderr, "output file: %s     ", (const W_CHAR*)output);
+      if (ok) {
+        WFPRINTF(stderr, "output file: %" W_CHAR_FMT TO_W_CHAR("     "),
+                 (const W_CHAR*)output);
+      }
     } else {
       fprintf(stderr, "[no output file specified]   ");
     }
