@@ -21,6 +21,8 @@
 // wchar_t is used instead of TCHAR because we only perform additional work when
 // Unicode is enabled and because the output of CommandLineToArgvW() is wchar_t.
 
+#include <fcntl.h>
+#include <io.h>
 #include <wchar.h>
 #include <windows.h>
 #include <shellapi.h>
@@ -55,8 +57,24 @@
 
 #define WFOPEN(ARG, OPT) _wfopen((const W_CHAR*)ARG, TO_W_CHAR(OPT))
 
-#define WPRINTF(STR, ...) wprintf(TO_W_CHAR(STR), __VA_ARGS__)
-#define WFPRINTF(STDERR, STR, ...) fwprintf(STDERR, TO_W_CHAR(STR), __VA_ARGS__)
+#define WPRINTF(STR, ...)                             \
+  do {                                                \
+    int prev_mode;                                    \
+    fflush(stdout);                                   \
+    prev_mode = _setmode(_fileno(stdout), _O_U8TEXT); \
+    wprintf(TO_W_CHAR(STR), __VA_ARGS__);             \
+    fflush(stdout);                                   \
+    (void)_setmode(_fileno(stdout), prev_mode);       \
+  } while (0)
+#define WFPRINTF(STDERR, STR, ...)                    \
+  do {                                                \
+    int prev_mode;                                    \
+    fflush(STDERR);                                   \
+    prev_mode = _setmode(_fileno(STDERR), _O_U8TEXT); \
+    fwprintf(STDERR, TO_W_CHAR(STR), __VA_ARGS__);    \
+    fflush(STDERR);                                   \
+    (void)_setmode(_fileno(STDERR), prev_mode);       \
+  } while (0)
 
 #define WSTRLEN(FILENAME) wcslen((const W_CHAR*)FILENAME)
 #define WSTRCMP(FILENAME, STR) wcscmp((const W_CHAR*)FILENAME, TO_W_CHAR(STR))
