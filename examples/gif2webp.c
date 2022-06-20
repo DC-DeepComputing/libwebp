@@ -549,7 +549,8 @@ int main(int argc, const char* argv[]) {
   if (out_file != NULL) {
     if (!ImgIoUtilWriteFile((const char*)out_file, webp_data.bytes,
                             webp_data.size)) {
-      WFPRINTF(stderr, "Error writing output file: %s\n", out_file);
+      WFPRINTF(stderr, "Error writing output file: %" W_CHAR_FMT
+               TO_W_CHAR("\n"), out_file);
       goto End;
     }
     if (!quiet) {
@@ -557,8 +558,8 @@ int main(int argc, const char* argv[]) {
         fprintf(stderr, "Saved %d bytes to STDIO\n",
                 (int)webp_data.size);
       } else {
-        WFPRINTF(stderr, "Saved output file (%d bytes): %s\n",
-                 (int)webp_data.size, out_file);
+        WFPRINTF(stderr, "Saved output file (%d bytes): %" W_CHAR_FMT
+                 TO_W_CHAR("\n"), (int)webp_data.size, out_file);
       }
     }
   } else {

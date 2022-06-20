@@ -1175,10 +1175,13 @@ int main(int argc, const char* argv[]) {
     if (in_file == NULL ||
         !ReadFileToWebPData((const char*)in_file, &webp_data)) {
       webp_info_status = WEBP_INFO_INVALID_COMMAND;
-      WFPRINTF(stderr, "Failed to open input file %s.\n", in_file);
+      WFPRINTF(stderr, "Failed to open input file %" W_CHAR_FMT
+               TO_W_CHAR(".\n"), in_file);
       continue;
     }
-    if (!webp_info.quiet_) WPRINTF("File: %s\n", in_file);
+    if (!webp_info.quiet_) {
+      WPRINTF("File: %" W_CHAR_FMT TO_W_CHAR("\n"), in_file);
+    }
     webp_info_status = AnalyzeWebP(&webp_info, &webp_data);
     WebPDataClear(&webp_data);
   }

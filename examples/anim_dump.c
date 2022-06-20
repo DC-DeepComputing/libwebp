@@ -88,10 +88,12 @@ int main(int argc, const char* argv[]) {
       AnimatedImage image;
       const W_CHAR* const file = GET_WARGV(argv, c);
       memset(&image, 0, sizeof(image));
-      WPRINTF("Decoding file: %s as %s/%sxxxx.%s\n",
-              file, dump_folder, prefix, suffix);
+      WPRINTF("Decoding file: %" W_CHAR_FMT TO_W_CHAR(" as %") W_CHAR_FMT
+              TO_W_CHAR("/%") W_CHAR_FMT TO_W_CHAR("xxxx.%") W_CHAR_FMT
+              TO_W_CHAR("\n"), file, dump_folder, prefix, suffix);
       if (!ReadAnimatedImage((const char*)file, &image, 0, NULL)) {
-        WFPRINTF(stderr, "Error decoding file: %s\n Aborting.\n", file);
+        WFPRINTF(stderr, "Error decoding file: %" W_CHAR_FMT
+                 TO_W_CHAR("\n Aborting.\n"), file);
         error = 1;
         break;
       }
@@ -109,7 +111,8 @@ int main(int argc, const char* argv[]) {
         WSNPRINTF(out_file, sizeof(out_file), "%s/%s%.4d.%s",
                   dump_folder, prefix, i, suffix);
         if (!WebPSaveImage(&buffer, format, (const char*)out_file)) {
-          WFPRINTF(stderr, "Error while saving image '%s'\n", out_file);
+          WFPRINTF(stderr, "Error while saving image '%" W_CHAR_FMT
+                   TO_W_CHAR("'\n"), out_file);
           error = 1;
         }
         WebPFreeDecBuffer(&buffer);

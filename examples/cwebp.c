@@ -91,8 +91,8 @@ static int ReadPicture(const char* const filename, WebPPicture* const pic,
     }
   }
   if (!ok) {
-    WFPRINTF(stderr, "Error! Could not process file %s\n",
-             (const W_CHAR*)filename);
+    WFPRINTF(stderr, "Error! Could not process file %" W_CHAR_FMT
+             TO_W_CHAR("\n"), (const W_CHAR*)filename);
   }
   WebPFree((void*)data);
   return ok;
@@ -118,8 +118,8 @@ static int ReadPicture(const char* const filename, WebPPicture* const pic,
   }
  End:
   if (!ok) {
-    WFPRINTF(stderr, "Error! Could not process file %s\n",
-             (const W_CHAR*)filename);
+    WFPRINTF(stderr, "Error! Could not process file %" W_CHAR_FMT
+             TO_W_CHAR("\n"), (const W_CHAR*)filename);
   }
   WebPFree((void*)data);
   return ok;
@@ -191,7 +191,8 @@ static void PrintExtraInfoLossless(const WebPPicture* const pic,
   if (short_output) {
     fprintf(stderr, "%7d %2.2f\n", stats->coded_size, stats->PSNR[3]);
   } else {
-    WFPRINTF(stderr, "File:      %s\n", (const W_CHAR*)file_name);
+    WFPRINTF(stderr, "File:      %" W_CHAR_FMT TO_W_CHAR("\n"),
+             (const W_CHAR*)file_name);
     fprintf(stderr, "Dimension: %d x %d\n", pic->width, pic->height);
     fprintf(stderr, "Output:    %d bytes (%.2f bpp)\n", stats->coded_size,
             8.f * stats->coded_size / pic->width / pic->height);
@@ -210,7 +211,8 @@ static void PrintExtraInfoLossy(const WebPPicture* const pic, int short_output,
     const int num_i16 = stats->block_count[1];
     const int num_skip = stats->block_count[2];
     const int total = num_i4 + num_i16;
-    WFPRINTF(stderr, "File:      %s\n", (const W_CHAR*)file_name);
+    WFPRINTF(stderr, "File:      %" W_CHAR_FMT TO_W_CHAR("\n"),
+             (const W_CHAR*)file_name);
     fprintf(stderr, "Dimension: %d x %d%s\n",
             pic->width, pic->height,
             stats->alpha_data_size ? " (with alpha)" : "");
@@ -972,8 +974,8 @@ int main(int argc, const char* argv[]) {
   }
   if (!ReadPicture(in_file, &picture, keep_alpha,
                    (keep_metadata == 0) ? NULL : &metadata)) {
-    WFPRINTF(stderr, "Error! Cannot read input picture file '%s'\n",
-             (const W_CHAR*)in_file);
+    WFPRINTF(stderr, "Error! Cannot read input picture file '%" W_CHAR_FMT
+             "'\n", (const W_CHAR*)in_file);
     goto Error;
   }
   picture.progress_hook = (show_progress && !quiet) ? ProgressReport : NULL;
@@ -1000,12 +1002,13 @@ int main(int argc, const char* argv[]) {
     const int use_stdout = !WSTRCMP(out_file, "-");
     out = use_stdout ? ImgIoUtilSetBinaryMode(stdout) : WFOPEN(out_file, "wb");
     if (out == NULL) {
-      WFPRINTF(stderr, "Error! Cannot open output file '%s'\n",
-               (const W_CHAR*)out_file);
+      WFPRINTF(stderr, "Error! Cannot open output file '%" W_CHAR_FMT
+               TO_W_CHAR("'\n"), (const W_CHAR*)out_file);
       goto Error;
     } else {
       if (!short_output && !quiet) {
-        WFPRINTF(stderr, "Saving file '%s'\n", (const W_CHAR*)out_file);
+        WFPRINTF(stderr, "Saving file '%" W_CHAR_FMT TO_W_CHAR("'\n"),
+                 (const W_CHAR*)out_file);
       }
     }
     if (use_memory_writer) {
@@ -1159,8 +1162,8 @@ int main(int argc, const char* argv[]) {
       fprintf(stderr, "Warning: can't dump file (-d option) "
                       "in lossless mode.\n");
     } else if (!DumpPicture(&picture, dump_file)) {
-      WFPRINTF(stderr, "Warning, couldn't dump picture %s\n",
-               (const W_CHAR*)dump_file);
+      WFPRINTF(stderr, "Warning, couldn't dump picture %" W_CHAR_FMT
+               TO_W_CHAR("\n"), (const W_CHAR*)dump_file);
     }
   }
 

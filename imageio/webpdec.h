@@ -25,9 +25,11 @@ struct WebPPicture;
 // WebP decoding
 
 // Prints an informative error message regarding decode failure of 'in_file'.
+// 'in_file' is expected to be a wchar_t* when _UNICODE is defined, char*
+// otherwise.
 // 'status' is treated as a VP8StatusCode and if valid will be printed as a
 // text string.
-void PrintWebPError(const char* const in_file, int status);
+void PrintWebPError(const void* const in_file, int status);
 
 // Reads a WebP from 'in_file', returning the contents and size in 'data' and
 // 'data_size'. If not NULL, 'bitstream' is populated using WebPGetFeatures().

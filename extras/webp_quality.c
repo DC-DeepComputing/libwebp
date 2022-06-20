@@ -36,7 +36,9 @@ int main(int argc, const char* argv[]) {
       ok = ImgIoUtilReadFile(filename, &data, &data_size);
       if (!ok) break;
       q = VP8EstimateQuality(data, data_size);
-      if (!quiet) WPRINTF("[%s] ", (const W_CHAR*)filename);
+      if (!quiet) {
+        WPRINTF("[%" W_CHAR_FMT TO_W_CHAR("] "), (const W_CHAR*)filename);
+      }
       if (q < 0) {
         fprintf(stderr, "Not a WebP file, or not a lossy WebP file.\n");
         ok = 0;
