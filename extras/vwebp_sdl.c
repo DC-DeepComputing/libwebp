@@ -67,7 +67,8 @@ int main(int argc, char* argv[]) {
     }
     if (file == NULL) continue;
     if (!ImgIoUtilReadFile(file, &webp, &webp_size)) {
-      WFPRINTF(stderr, "Error opening file: %s\n", (const W_CHAR*)file);
+      WFPRINTF(stderr, "Error opening file: %" W_CHAR_FMT "\n",
+               (const W_CHAR*)file);
       goto Error;
     }
     if (webp_size != (size_t)(int)webp_size) {
@@ -78,7 +79,8 @@ int main(int argc, char* argv[]) {
     ok = WebpToSDL((const char*)webp, (int)webp_size);
     free((void*)webp);
     if (!ok) {
-      WFPRINTF(stderr, "Error decoding file %s\n", (const W_CHAR*)file);
+      WFPRINTF(stderr, "Error decoding file %" W_CHAR_FMT "\n",
+               (const W_CHAR*)file);
       goto Error;
     }
     ProcessEvents();
