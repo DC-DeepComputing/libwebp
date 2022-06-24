@@ -109,17 +109,42 @@ int ExUtilInitCommandLineArguments(int argc, const char* argv[],
     }
 
     argc = 0;
-    for (cur = strtok((char*)args->argv_data_.bytes, sep);
-         cur != NULL;
-         cur = strtok(NULL, sep)) {
-      if (argc == MAX_ARGC) {
-        fprintf(stderr, "ERROR: Arguments limit %d reached\n", MAX_ARGC);
-        ExUtilDeleteCommandLineArguments(args);
-        return 0;
+    cur = (char*)args->argv_data_.bytes;
+    do {
+      char* quoted_str = strpbrk(cur, "'\"");
+      char* next;
+
+      if (quoted_str != NULL) {
+        // Check for unbalanced quotes and allow parsing to proceed normally.
+        // Note this does not check for embedded quotes of the same type, e.g.,
+        // "\"string\"".
+        next = strchr(quoted_str + 1, quoted_str[0]);
+        if (next == NULL) {
+          quoted_str = NULL;
+        } else {
+          quoted_str[0] = next[0] = '\0';
+          ++quoted_str;
+          ++next;
+        }
       }
-      assert(strlen(cur) != 0);
-      args->argv_[argc++] = cur;
-    }
+
+      for (cur = strtok(cur, sep);
+           cur != NULL;
+           cur = strtok(NULL, sep)) {
+        if (argc == MAX_ARGC) {
+          fprintf(stderr, "ERROR: Arguments limit %d reached\n", MAX_ARGC);
+          ExUtilDeleteCommandLineArguments(args);
+          return 0;
+        }
+        assert(strlen(cur) != 0);
+        args->argv_[argc++] = cur;
+      }
+
+      if (quoted_str != NULL) {
+        args->argv_[argc++] = quoted_str;
+        cur = next;
+      }
+    } while (cur != NULL);
     args->argc_ = argc;
   }
   return 1;
