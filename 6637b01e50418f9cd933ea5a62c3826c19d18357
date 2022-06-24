@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53bcc0cb_1c166a32",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002029
+      },
+      "writtenOn": "2022-06-24T16:42:25Z",
+      "side": 1,
+      "message": "maybe you want to start at version 0.1 ?",
+      "range": {
+        "startLine": 23,
+        "startChar": 30,
+        "endLine": 23,
+        "endChar": 31
+      },
+      "revId": "6637b01e50418f9cd933ea5a62c3826c19d18357",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
