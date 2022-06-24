@@ -22,6 +22,30 @@
       },
       "revId": "5a7fa671820962006fe79d3e472820210d76ac8f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2746711a_46778426",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2022-06-24T09:54:25Z",
+      "side": 1,
+      "message": "I agree that it\u0027s pretty unlikely that you\u0027ll go over 255 but I think it doesn\u0027t hurt to keep more room? The spec doesn\u0027t specify any max value and I checked what some other projects were doing but it\u0027s all over the place. I\u0027ve seen:\n\n8 + 8 + 8\n8 + 8 + 16\n32 + 16 + 16\n8 + 12 + 12\n12 + 10 + 12\n\nSome people also use base 10 digits (e.g. major*100*100 + minor*100 + patch). In this case I\u0027ve seen either 2 or 3 digits used.\n\n8+8+16 (total \u003d 32bits) might be a good compromise if you think 32+16+16 is overkill? Or 3 digits per element? In which case the max is 999999999 which also fits in a uint32_t",
+      "parentUuid": "26d559b0_0661b8a7",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 26
+      },
+      "revId": "5a7fa671820962006fe79d3e472820210d76ac8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
