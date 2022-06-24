@@ -18,6 +18,16 @@
 extern "C" {
 #endif
 
+// SharpYUV API version following the convention from semver.org
+#define SHARPYUV_VERSION_MAJOR 0
+#define SHARPYUV_VERSION_MINOR 0
+#define SHARPYUV_VERSION_PATCH 0
+// Version as a uint64_t. The major number is the high 32 bits.
+// The minor number is the middle 16 bits. The patch number is the low 16 bits.
+#define SHARPYUV_VERSION                                             \
+  ((SHARPYUV_VERSION_MAJOR << 32) | (SHARPYUV_VERSION_MINOR << 16) | \
+   SHARPYUV_VERSION_PATCH)
+
 // RGB to YUV conversion matrix, in 16 bit fixed point.
 // y = rgb_to_y[0] * r + rgb_to_y[1] * g + rgb_to_y[2] * b + rgb_to_y[3]
 // u = rgb_to_u[0] * r + rgb_to_u[1] * g + rgb_to_u[2] * b + rgb_to_u[3]
