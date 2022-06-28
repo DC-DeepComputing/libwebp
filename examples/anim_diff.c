@@ -284,15 +284,17 @@ int main(int argc, const char* argv[]) {
   }
 
   if (dump_frames) {
-    WPRINTF("Dumping decoded frames in: %s\n", (const W_CHAR*)dump_folder);
+    WPRINTF("Dumping decoded frames in: %" W_CHAR_FMT TO_W_CHAR("\n"),
+            (const W_CHAR*)dump_folder);
   }
 
   memset(images, 0, sizeof(images));
   for (i = 0; i < 2; ++i) {
-    WPRINTF("Decoding file: %s\n", (const W_CHAR*)files[i]);
+    WPRINTF("Decoding file: %" W_CHAR_FMT TO_W_CHAR("\n"),
+            (const W_CHAR*)files[i]);
     if (!ReadAnimatedImage(files[i], &images[i], dump_frames, dump_folder)) {
-      WFPRINTF(stderr, "Error decoding file: %s\n Aborting.\n",
-               (const W_CHAR*)files[i]);
+      WFPRINTF(stderr, "Error decoding file: %" W_CHAR_FMT
+               TO_W_CHAR("\n Aborting.\n"), (const W_CHAR*)files[i]);
       return_code = -2;
       goto End;
     } else {
@@ -302,11 +304,13 @@ int main(int argc, const char* argv[]) {
 
   if (!CompareAnimatedImagePair(&images[0], &images[1],
                                 premultiply, min_psnr)) {
-    WFPRINTF(stderr, "\nFiles %s and %s differ.\n", (const W_CHAR*)files[0],
+    WFPRINTF(stderr, "\nFiles %" W_CHAR_FMT TO_W_CHAR(" and %") W_CHAR_FMT
+             TO_W_CHAR(" differ.\n"), (const W_CHAR*)files[0],
              (const W_CHAR*)files[1]);
     return_code = -3;
   } else {
-    WPRINTF("\nFiles %s and %s are identical.\n", (const W_CHAR*)files[0],
+    WPRINTF("\nFiles %" W_CHAR_FMT TO_W_CHAR(" and %") W_CHAR_FMT
+            TO_W_CHAR(" are identical.\n"), (const W_CHAR*)files[0],
             (const W_CHAR*)files[1]);
     return_code = 0;
   }
