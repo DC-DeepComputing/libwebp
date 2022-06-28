@@ -235,7 +235,7 @@ endfunction()
 
 parse_makefile_am(${CMAKE_CURRENT_SOURCE_DIR}/sharpyuv "WEBP_SHARPYUV_SRCS"
                   "")
-add_library(sharpyuv OBJECT ${WEBP_SHARPYUV_SRCS})
+add_library(sharpyuv STATIC ${WEBP_SHARPYUV_SRCS})
 target_include_directories(sharpyuv
                             PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                             ${CMAKE_CURRENT_SOURCE_DIR})
@@ -309,15 +309,15 @@ target_include_directories(webputils
                            PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
                                    ${CMAKE_CURRENT_SOURCE_DIR})
 add_library(webp
-            $<TARGET_OBJECTS:sharpyuv>
             $<TARGET_OBJECTS:webpdecode>
             $<TARGET_OBJECTS:webpdsp>
             $<TARGET_OBJECTS:webpencode>
             $<TARGET_OBJECTS:webputils>)
+target_link_libraries(webp PRIVATE sharpyuv)
 if(XCODE)
   libwebp_add_stub_file(webp)
 endif()
-target_link_libraries(webp ${WEBP_DEP_LIBRARIES})
+target_link_libraries(webp PUBLIC ${WEBP_DEP_LIBRARIES})
 target_include_directories(
   webp
   PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}
