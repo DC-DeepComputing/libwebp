@@ -396,8 +396,8 @@ static int CreateMux(const char* const filename, WebPMux** mux) {
   *mux = WebPMuxCreate(&bitstream, 1);
   WebPDataClear(&bitstream);
   if (*mux != NULL) return 1;
-  WFPRINTF(stderr, "Failed to create mux object from file %s.\n",
-           (const W_CHAR*)filename);
+  WFPRINTF(stderr, "Failed to create mux object from file %" W_CHAR_FMT
+           TO_W_CHAR(".\n"), (const W_CHAR*)filename);
   return 0;
 }
 
@@ -406,14 +406,15 @@ static int WriteData(const char* filename, const WebPData* const webpdata) {
   FILE* fout = WSTRCMP(filename, "-") ? WFOPEN(filename, "wb")
                                       : ImgIoUtilSetBinaryMode(stdout);
   if (fout == NULL) {
-    WFPRINTF(stderr, "Error opening output WebP file %s!\n",
-             (const W_CHAR*)filename);
+    WFPRINTF(stderr, "Error opening output WebP file %" W_CHAR_FMT
+             TO_W_CHAR("!\n"), (const W_CHAR*)filename);
     return 0;
   }
   if (fwrite(webpdata->bytes, webpdata->size, 1, fout) != 1) {
-    WFPRINTF(stderr, "Error writing file %s!\n", (const W_CHAR*)filename);
+    WFPRINTF(stderr, "Error writing file %" W_CHAR_FMT TO_W_CHAR("!\n"),
+             (const W_CHAR*)filename);
   } else {
-    WFPRINTF(stderr, "Saved file %s (%d bytes)\n",
+    WFPRINTF(stderr, "Saved file %" W_CHAR_FMT TO_W_CHAR(" (%d bytes)\n"),
              (const W_CHAR*)filename, (int)webpdata->size);
     ok = 1;
   }
