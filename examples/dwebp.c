@@ -57,7 +57,8 @@ static int SaveOutput(const WebPDecBuffer* const buffer,
       if (use_stdout) {
         fprintf(stderr, "Saved to stdout\n");
       } else {
-        WFPRINTF(stderr, "Saved file %s\n", (const W_CHAR*)out_file);
+        WFPRINTF(stderr, "Saved file %" W_CHAR_FMT TO_W_CHAR("\n"),
+                 (const W_CHAR*)out_file);
       }
     }
     if (verbose) {
@@ -68,7 +69,8 @@ static int SaveOutput(const WebPDecBuffer* const buffer,
     if (use_stdout) {
       fprintf(stderr, "Error writing to stdout !!\n");
     } else {
-      WFPRINTF(stderr, "Error writing file %s !!\n", (const W_CHAR*)out_file);
+      WFPRINTF(stderr, "Error writing file %" W_CHAR_FMT TO_W_CHAR(" !!\n"),
+               (const W_CHAR*)out_file);
     }
   }
   return ok;
@@ -393,7 +395,8 @@ int main(int argc, const char* argv[]) {
 
   if (out_file != NULL) {
     if (!quiet) {
-      WFPRINTF(stderr, "Decoded %s.", (const W_CHAR*)in_file);
+      WFPRINTF(stderr, "Decoded %" W_CHAR_FMT TO_W_CHAR("."),
+               (const W_CHAR*)in_file);
       fprintf(stderr, " Dimensions: %d x %d %s. Format: %s. Now saving...\n",
               output_buffer->width, output_buffer->height,
               bitstream->has_alpha ? " (with alpha)" : "",
@@ -402,7 +405,8 @@ int main(int argc, const char* argv[]) {
     ok = SaveOutput(output_buffer, format, out_file);
   } else {
     if (!quiet) {
-      WFPRINTF(stderr, "File %s can be decoded ", (const W_CHAR*)in_file);
+      WFPRINTF(stderr, "File %" W_CHAR_FMT TO_W_CHAR(" can be decoded "),
+               (const W_CHAR*)in_file);
       fprintf(stderr, "(dimensions: %d x %d %s. Format: %s).\n",
               output_buffer->width, output_buffer->height,
               bitstream->has_alpha ? " (with alpha)" : "",

@@ -577,7 +577,7 @@ int WebPSaveImage(const WebPDecBuffer* const buffer,
     fout = use_stdout ? ImgIoUtilSetBinaryMode(stdout)
                       : WFOPEN(out_file_name, "wb");
     if (fout == NULL) {
-      WFPRINTF(stderr, "Error opening output file %s\n",
+      WFPRINTF(stderr, "Error opening output file %" W_CHAR_FMT TO_W_CHAR("\n"),
                (const W_CHAR*)out_file_name);
       return 0;
     }

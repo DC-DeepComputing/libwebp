@@ -55,7 +55,7 @@
   } while (0)
 
 #define W_CHAR wchar_t  // WCHAR without underscore might already be defined.
-#define TO_W_CHAR(STR) (L##STR)
+#define TO_W_CHAR(STR) L##STR
 
 #define WFOPEN(ARG, OPT) _wfopen((const W_CHAR*)ARG, TO_W_CHAR(OPT))
 
@@ -69,6 +69,10 @@
     (void)_setmode(_fileno(STREAM), prev_mode);       \
   } while (0)
 #define WPRINTF(STR, ...) WFPRINTF(stdout, STR, __VA_ARGS__)
+
+// Using %s with wprintf to print a wchar_t is a Microsoft extension. For
+// compatibility with mingw use %ls.
+#define W_CHAR_FMT L"ls"
 
 #define WSTRLEN(FILENAME) wcslen((const W_CHAR*)FILENAME)
 #define WSTRCMP(FILENAME, STR) wcscmp((const W_CHAR*)FILENAME, TO_W_CHAR(STR))
@@ -92,12 +96,13 @@
 #define LOCAL_FREE(WARGV)
 
 #define W_CHAR char
-#define TO_W_CHAR(STR) (STR)
+#define TO_W_CHAR(STR) STR
 
 #define WFOPEN(ARG, OPT) fopen(ARG, OPT)
 
 #define WPRINTF(STR, ...) printf(STR, __VA_ARGS__)
 #define WFPRINTF(STREAM, STR, ...) fprintf(STREAM, STR, __VA_ARGS__)
+#define W_CHAR_FMT "s"
 
 #define WSTRLEN(FILENAME) strlen(FILENAME)
 #define WSTRCMP(FILENAME, STR) strcmp(FILENAME, STR)
