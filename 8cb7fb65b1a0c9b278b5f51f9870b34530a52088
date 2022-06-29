@@ -16,6 +16,24 @@
       "message": "This was lightly tested. I\u0027ll look at adding some interesting test cases before moving forward with this one.",
       "revId": "8cb7fb65b1a0c9b278b5f51f9870b34530a52088",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdfa8d55_499f5121",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-06-29T09:51:02Z",
+      "side": 1,
+      "message": "So this is an early design review, right? Maybe tag the cl with WIP?\n\nOne unhandled use case I see would be `it\u0027s_a_file_with_apostrophes\u0027.png`. I remember an AWCY dataset containing apostrophes and commas.\n\nI believe \"merging\" tokens during the `strtok()` loop would be clearer to understand rather than preemptively putting the next quoted string aside, tokenizing up to it, getting the stashed quoted string back, and repeating. Unfortunately `strtok()` uses an internal static state so this might not be doable. I guess implementing the whole parsing algorithm without using `strtok()` would be simpler to understand, but I think the current version with a fix for quotes in the middle of tokens would be the shortest.",
+      "parentUuid": "75def942_48d99a33",
+      "revId": "8cb7fb65b1a0c9b278b5f51f9870b34530a52088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
