@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "047ba6cb_e312da4f",
+        "filename": "examples/unicode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-29T01:40:27Z",
+      "side": 1,
+      "message": "_O_WTEXT works with Visual Studio, but not with mingw-w64. I kept this in case we want to try to fix that case.",
+      "range": {
+        "startLine": 64,
+        "startChar": 42,
+        "endLine": 64,
+        "endChar": 51
+      },
+      "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
