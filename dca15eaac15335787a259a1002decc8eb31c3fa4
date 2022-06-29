@@ -22,6 +22,29 @@
       },
       "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c7289f7_49646249",
+        "filename": "examples/unicode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-06-29T08:54:22Z",
+      "side": 1,
+      "message": "Not sure if replacing `wprintf()` by `fwprintf(stdout)` is possible but alternatively you could have just\n\n```c\nWPRINTF(STR, ...) WFPRINTF(stdout, STR, __VA_ARGS__)\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
