@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dae3f79_007cfa4f",
+        "filename": "examples/unicode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-06-29T09:01:56Z",
+      "side": 1,
+      "message": "Is this necessary? [`_setmode()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setmode?view\u003dmsvc-140#requirements) requires `io.h` but `fcntl.h` is optional.\n\nAlso [`_fileno()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/fileno?view\u003dmsvc-140#requirements) and [`fflush()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/fflush?view\u003dmsvc-140#requirements) need `stdio.h`, but I guess `stdio.h` is included in files using this header?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "047ba6cb_e312da4f",
