@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b587c425_2e2c02d1",
+        "filename": "examples/unicode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-30T05:03:50Z",
+      "side": 1,
+      "message": "\u003e Is this necessary? [`_setmode()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/setmode?view\u003dmsvc-140#requirements) requires `io.h` but `fcntl.h` is optional.\n\u003e \n\nThanks for checking, this is where _O_* come from.\n\n\u003e Also [`_fileno()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/fileno?view\u003dmsvc-140#requirements) and [`fflush()`](https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/fflush?view\u003dmsvc-140#requirements) need `stdio.h`, but I guess `stdio.h` is included in files using this header?\n\nGood catch, we must have missed those before. Let\u0027s follow include what you use here.",
+      "parentUuid": "3dae3f79_007cfa4f",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 18
+      },
+      "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "047ba6cb_e312da4f",
         "filename": "examples/unicode.h",
         "patchSetId": 6
@@ -60,6 +84,30 @@
       "writtenOn": "2022-06-29T08:54:22Z",
       "side": 1,
       "message": "Not sure if replacing `wprintf()` by `fwprintf(stdout)` is possible but alternatively you could have just\n\n```c\nWPRINTF(STR, ...) WFPRINTF(stdout, STR, __VA_ARGS__)\n```",
+      "range": {
+        "startLine": 60,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 13
+      },
+      "revId": "dca15eaac15335787a259a1002decc8eb31c3fa4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17bef899_85564179",
+        "filename": "examples/unicode.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-06-30T05:03:50Z",
+      "side": 1,
+      "message": "\u003e Not sure if replacing `wprintf()` by `fwprintf(stdout)` is possible but alternatively you could have just\n\u003e \n\u003e ```c\n\u003e WPRINTF(STR, ...) WFPRINTF(stdout, STR, __VA_ARGS__)\n\u003e ```\n\nGood point, done.",
+      "parentUuid": "0c7289f7_49646249",
       "range": {
         "startLine": 60,
         "startChar": 0,
