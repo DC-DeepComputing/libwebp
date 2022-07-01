@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ea126df_d848eb9b",
+        "filename": ".mailmap",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-01T02:27:54Z",
+      "side": 1,
+      "message": "You have some with just \u0027Maryla\u0027. We can go in that direction if you\u0027d prefer.",
+      "revId": "92f33942501402fdea15ad7de21a46988315e804",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
