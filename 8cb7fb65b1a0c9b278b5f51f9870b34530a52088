@@ -52,6 +52,24 @@
       "parentUuid": "bdfa8d55_499f5121",
       "revId": "8cb7fb65b1a0c9b278b5f51f9870b34530a52088",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d94df81_1657fa41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-01T01:25:57Z",
+      "side": 1,
+      "message": "\u003e \u003e So this is an early design review, right? Maybe tag the cl with WIP?\n\u003e \u003e \n\u003e \n\u003e Yes, sorry about that, this was just a quick fix while I was testing other things.\n\u003e \n\u003e \u003e One unhandled use case I see would be `it\u0027s_a_file_with_apostrophes\u0027.png`. I remember an AWCY dataset containing apostrophes and commas.\n\u003e \u003e \n\u003e \n\u003e That\u0027s a good example. I was thinking all oddly named files would be quoted, so `\"it\u0027s_a_file_with_apostrophes\u0027.png\"` here to keep the parsing simple.\n\u003e \n\nOn the command line the file will be quoted as above. I had forgotten that Windows disallows files with double quotes.\n\n\u003e \u003e I believe \"merging\" tokens during the `strtok()` loop would be clearer to understand rather than preemptively putting the next quoted string aside, tokenizing up to it, getting the stashed quoted string back, and repeating. Unfortunately `strtok()` uses an internal static state so this might not be doable. I guess implementing the whole parsing algorithm without using `strtok()` would be simpler to understand, but I think the current version with a fix for quotes in the middle of tokens would be the shortest.\n\u003e \n\u003e The problem with all in one tokens would be we would hit the intermediate spaces, but I guess we could accumulate the string in that case.",
+      "parentUuid": "28c30f51_09e150c9",
+      "revId": "8cb7fb65b1a0c9b278b5f51f9870b34530a52088",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
