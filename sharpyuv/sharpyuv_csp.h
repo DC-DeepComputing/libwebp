@@ -13,6 +13,7 @@
 #define WEBP_SHARPYUV_SHARPYUV_CSP_H_
 
 #include "sharpyuv/sharpyuv.h"
+#include "src/webp/types.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -35,8 +36,9 @@ typedef struct {
 } SharpYuvColorSpace;
 
 // Fills in 'matrix' for the given YUVColorSpace.
-void SharpYuvComputeConversionMatrix(const SharpYuvColorSpace* yuv_color_space,
-                                     SharpYuvConversionMatrix* matrix);
+WEBP_EXTERN void SharpYuvComputeConversionMatrix(
+    const SharpYuvColorSpace* yuv_color_space,
+    SharpYuvConversionMatrix* matrix);
 
 // Enums for precomputed conversion matrices.
 typedef enum {
@@ -49,7 +51,7 @@ typedef enum {
 } SharpYuvMatrixType;
 
 // Returns a pointer to a matrix for one of the predefined colorspaces.
-const SharpYuvConversionMatrix* SharpYuvGetConversionMatrix(
+WEBP_EXTERN const SharpYuvConversionMatrix* SharpYuvGetConversionMatrix(
     SharpYuvMatrixType matrix_type);
 
 #ifdef __cplusplus

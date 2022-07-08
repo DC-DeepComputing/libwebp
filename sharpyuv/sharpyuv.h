@@ -14,6 +14,8 @@
 
 #include <inttypes.h>
 
+#include "src/webp/types.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -65,11 +67,13 @@ typedef struct {
 //     adjacent pixels on the y, u and v channels. If yuv_bit_depth > 8, they
 //     should be multiples of 2.
 // width, height: width and height of the image in pixels
-int SharpYuvConvert(const void* r_ptr, const void* g_ptr, const void* b_ptr,
-                    int rgb_step, int rgb_stride, int rgb_bit_depth,
-                    void* y_ptr, int y_stride, void* u_ptr, int u_stride,
-                    void* v_ptr, int v_stride, int yuv_bit_depth, int width,
-                    int height, const SharpYuvConversionMatrix* yuv_matrix);
+WEBP_EXTERN int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
+                                const void* b_ptr, int rgb_step, int rgb_stride,
+                                int rgb_bit_depth, void* y_ptr, int y_stride,
+                                void* u_ptr, int u_stride, void* v_ptr,
+                                int v_stride, int yuv_bit_depth, int width,
+                                int height,
+                                const SharpYuvConversionMatrix* yuv_matrix);
 
 // TODO(b/194336375): Add YUV444 to YUV420 conversion. Maybe also add 422
 // support (it's rarely used in practice, especially for images).
