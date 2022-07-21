@@ -117,6 +117,13 @@ set(includedir "\$\{prefix\}/include")
 set(PTHREAD_LIBS ${CMAKE_THREAD_LIBS_INIT})
 set(INSTALLED_LIBRARIES)
 
+if(WIN32)
+  # match the naming convention used by nmake also in cmake
+  set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
+  set(CMAKE_IMPORT_LIBRARY_PREFIX "lib")
+  set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+endif()
+
 set(CMAKE_C_VISIBILITY_PRESET hidden)
 
 # ##############################################################################
