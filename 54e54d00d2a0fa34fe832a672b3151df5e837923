@@ -16,6 +16,57 @@
       "message": "I might be doing this wrong, but just adapting the commit message and force-pushing created a new review",
       "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1d5dcad_8b823fb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-22T02:59:17Z",
+      "side": 1,
+      "message": "This is a breaking change, but we can include it in the main branch as we\u0027re planning on making 1.3.0 next due to changes related to the sharpyuv library.\n\nVincent, this is related to a change to use cmake in the conda-forge project, while trying to maintain compatibility. Do you have an opinion?",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cdd7823_234c7266",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-22T02:59:17Z",
+      "side": 1,
+      "message": "note \"lib\" is the default for msys, so you\u0027ll already see libwebp.dll as the output",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d6d45dc_8bab3f24",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-22T02:59:17Z",
+      "side": 1,
+      "message": "note this will be broken for visual studio targets with this change. Something like the following will fix it:\n\n```\nif(MSVC)\n  list(TRANSFORM INSTALLED_LIBRARIES REPLACE\n       \"(\\\\w+)\" \"${CMAKE_STATIC_LIBRARY_PREFIX}\\\\1\")\nendif()\n```",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
