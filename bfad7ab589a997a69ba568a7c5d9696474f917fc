@@ -34,6 +34,24 @@
       "parentUuid": "e064216d_24e3956d",
       "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a40cdee_a1608385",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-07-22T08:26:22Z",
+      "side": 1,
+      "message": "Ah right, you meant https://chromium-review.googlesource.com/c/webm/libwebp/+/3781319\nMaybe just cherrypick from it:\nset_target_properties(libwebpmux PROPERTIES OUTPUT_NAME webpmux)\nIt is better if it all stays in the lib definition no ?",
+      "parentUuid": "00675ffb_e549da9c",
+      "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
