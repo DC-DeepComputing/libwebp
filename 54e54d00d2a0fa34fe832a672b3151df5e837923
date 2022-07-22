@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4c5e11f_033e3618",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550217
+      },
+      "writtenOn": "2022-07-22T01:53:49Z",
+      "side": 1,
+      "message": "I might be doing this wrong, but just adapting the commit message and force-pushing created a new review",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
