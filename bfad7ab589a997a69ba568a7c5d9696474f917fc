@@ -52,6 +52,24 @@
       "parentUuid": "00675ffb_e549da9c",
       "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97b2b319_4188eafb",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-22T22:14:34Z",
+      "side": 1,
+      "message": "\u003e Ah right, you meant https://chromium-review.googlesource.com/c/webm/libwebp/+/3781319\n\u003e Maybe just cherrypick from it:\n\u003e set_target_properties(libwebpmux PROPERTIES OUTPUT_NAME webpmux)\n\u003e It is better if it all stays in the lib definition no ?\n\nThat one is a behavior change on its own so I\u0027d like to leave that in main. I can resolve the issue when I merge the 1.2.4 back. I plan on branching from 1.2.3 for that release. The revert prior to this change could use a +2 when you get a chance.",
+      "parentUuid": "4a40cdee_a1608385",
+      "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
