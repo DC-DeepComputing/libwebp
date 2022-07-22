@@ -16,6 +16,24 @@
       "message": "this will be mostly correct until we decide if we want https://chromium-review.googlesource.com/c/webm/libwebp/+/3780645.",
       "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00675ffb_e549da9c",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 743,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-07-22T08:23:03Z",
+      "side": 1,
+      "message": "The other one is just for windows though. Let\u0027s go with this one first.",
+      "parentUuid": "e064216d_24e3956d",
+      "revId": "bfad7ab589a997a69ba568a7c5d9696474f917fc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
