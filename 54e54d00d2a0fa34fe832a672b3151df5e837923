@@ -85,6 +85,24 @@
       "parentUuid": "7d6d45dc_8bab3f24",
       "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e9943577_da99c9e6",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-22T22:18:21Z",
+      "side": 1,
+      "message": "\u003e We should transform only if it is not prefixed by lib already right ?\n\u003e Because with your patch, installed libraries will be prefixed with lib\n\nINSTALLED_LIBRARIES contains the target names, so this is making an assumption that we don\u0027t use \u0027lib\u0027 there. With my change on the release branch the removal of lib would precede this.",
+      "parentUuid": "190faf43_b953c84a",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
