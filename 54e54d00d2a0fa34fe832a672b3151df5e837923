@@ -37,6 +37,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "718f3188_ca0133aa",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1550217
+      },
+      "writtenOn": "2022-07-23T12:48:20Z",
+      "side": 1,
+      "message": "Something is changing, perhaps breaking, but let me summarize how I got to this point:\n\n- the output of the current nmake \u0026 cmake builds yields different libs names, which is IMO really not ideal\n- given that nmake seems to be considered the reference, I wanted to adapt the cmake side\n\nIf you don\u0027t have a preference, I\u0027d say that moving to the cmake style (\u003ddefault on windows) naming would be even more preferable, and medium- to long term perhaps even declaring cmake the reference.",
+      "parentUuid": "f1d5dcad_8b823fb5",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2cdd7823_234c7266",
         "filename": "CMakeLists.txt",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2022-07-22T02:59:17Z",
       "side": 1,
       "message": "note \"lib\" is the default for msys, so you\u0027ll already see libwebp.dll as the output",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd99e18b_4353bd45",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1550217
+      },
+      "writtenOn": "2022-07-23T12:48:20Z",
+      "side": 1,
+      "message": "OK, I\u0027ll change this to `if(MSVC)`",
+      "parentUuid": "2cdd7823_234c7266",
       "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -100,6 +136,24 @@
       "writtenOn": "2022-07-22T22:18:21Z",
       "side": 1,
       "message": "\u003e We should transform only if it is not prefixed by lib already right ?\n\u003e Because with your patch, installed libraries will be prefixed with lib\n\nINSTALLED_LIBRARIES contains the target names, so this is making an assumption that we don\u0027t use \u0027lib\u0027 there. With my change on the release branch the removal of lib would precede this.",
+      "parentUuid": "190faf43_b953c84a",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2edd4573_5ccee0ce",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1550217
+      },
+      "writtenOn": "2022-07-23T12:48:20Z",
+      "side": 1,
+      "message": "Not sure what\u0027s the request for me to do here now? (seems this comment didn\u0027t get sent)?\n\nI\u0027m also a bit confused - aside from not knowing the Gerrit UI - which commit on which release branch? Cannot see anything in https://chromium.googlesource.com/webm/libwebp/",
       "parentUuid": "190faf43_b953c84a",
       "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
