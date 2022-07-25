@@ -157,6 +157,24 @@
       "parentUuid": "190faf43_b953c84a",
       "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbf55c49_ee1fd16d",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 748,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-25T23:36:39Z",
+      "side": 1,
+      "message": "\u003e Not sure what\u0027s the request for me to do here now? (seems this comment didn\u0027t get sent)?\n\u003e \n\nVincent, do you have an example? Were you thinking to split the list and check each element individually in a loop?\n\n\u003e I\u0027m also a bit confused - aside from not knowing the Gerrit UI - which commit on which release branch? Cannot see anything in https://chromium.googlesource.com/webm/libwebp/\n\nSorry for the confusion. I was referring to this change:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3781320\n\nIn the upper left of the gerrit ui you can see \u0027Change Info\u0027 which notes the target branch. For this change it\u0027s:\n\n```\nRepo | Branch\twebm/libwebp | main\n```",
+      "parentUuid": "2edd4573_5ccee0ce",
+      "revId": "54e54d00d2a0fa34fe832a672b3151df5e837923",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
