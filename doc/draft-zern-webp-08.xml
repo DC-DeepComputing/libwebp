@@ -6,7 +6,7 @@
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
       category="info"
-      docName="draft-zern-webp-07"
+      docName="draft-zern-webp-08"
       ipr="trust200902"
       obsoletes=""
       updates=""
@@ -21,8 +21,8 @@
 
  <front>
    <title>WebP Image Format Media Type Registration</title>
-   <seriesInfo name="Internet-Draft" value="draft-zern-webp-07" />
-   <seriesInfo status="informational" name="" value="draft-zern-webp-07" />
+   <seriesInfo name="Internet-Draft" value="draft-zern-webp-08" />
+   <seriesInfo status="informational" name="" value="draft-zern-webp-08" />
 
    <author fullname="James Zern" initials="J." surname="Zern">
      <organization>Google LLC</organization>
@@ -2385,6 +2385,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
    </references>
    <!-- Change Log
 
+v08 2022-07-25  JWZ   Merged registration to IANA; moved to end of <middle>
 v07 2022-06-02  JWZ   Incorporate upstream fixes to lossless documentation
 v06 2022-01-07  JWZ   Embedded container & lossless encoding documentation
 v05 2021-10-22  JWZ   Expanded Interop/Security based on last call feedback
