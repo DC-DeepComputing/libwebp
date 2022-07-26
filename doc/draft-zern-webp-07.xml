@@ -92,62 +92,6 @@
                  used for compression of the bulk data.</t>
    </section>
 
-   <section anchor="webp-media-type" numbered="true" toc="default">
-     <name>The 'image/webp' Media Type</name>
-     <t>This section contains the media type registration details as per <xref
-       target="RFC6838"/>.</t>
-     <section numbered="true" toc="default">
-       <name>Registration Details</name>
-       <t>Type name: image</t>
-       <t>Subtype name: webp</t>
-       <t>Required parameters: N/A</t>
-       <t>Optional parameters: N/A</t>
-       <t>Encoding considerations: Binary. The <xref target="RFC4648">Base64
-         encoding</xref> should be used on transports that cannot accommodate
-         binary data directly.</t>
-       <t>Security considerations: See <xref target="Security"/>.</t>
-       <t>Interoperability considerations: See <xref target="Interop"/>.</t>
-       <t>Published specification: <xref target="webp-riff-src"/></t>
-       <t>Applications that use this media type: Applications that are used to
-         display and process images, especially when smaller image file sizes
-         are important.</t>
-       <t>Fragment identifier considerations: N/A</t>
-       <t>Additional information:</t>
-       <ul empty="true" spacing="normal">
-         <li>Deprecated alias names for this type: N/A</li>
-         <li>Magic number(s): The first 4 bytes are 0x52, 0x49, 0x46, 0x46
-           ('RIFF'), followed by 4 bytes for the RIFF chunk size. The next 7
-           bytes are 0x57, 0x45, 0x42, 0x50, 0x56, 0x50, 0x38 ('WEBPVP8').</li>
-         <li>File extension(s): webp</li>
-         <li>Apple Uniform Type Identifier: org.webmproject.webp conforms to
-             public.image</li>
-         <li>Object Identifiers: N/A</li>
-       </ul>
-       <t>Person &amp; email address to contact for further information:</t>
-       <ul empty="true" spacing="normal">
-         <li>Name: James Zern</li>
-         <li>Email: jzern@google.com</li>
-       </ul>
-       <t>Intended usage: COMMON</t>
-       <t>Restrictions on usage: N/A</t>
-       <t>Author:</t>
-       <ul empty="true" spacing="normal">
-         <li>Name: James Zern</li>
-         <li>Email: jzern@google.com</li>
-       </ul>
-       <t>Change controller:</t>
-       <ul empty="true" spacing="normal">
-         <li>Name: James Zern</li>
-         <li>Email: jzern@google.com</li>
-         <li>Name: Pascal Massimino</li>
-         <li>Email: pascal.massimino@gmail.com</li>
-         <li>Name: WebM Project</li>
-         <li>Email: webmaster@webmproject.org</li>
-       </ul>
-       <t>Provisional registration? (standards tree only): N/A</t>
-     </section>
-   </section>
-
    <section anchor="Security" numbered="true" toc="default">
      <name>Security Considerations</name>
      <t>Security risks are similar to other media content and may include
@@ -184,6 +128,63 @@
      <t>IANA has updated the <xref target="IANA-Media-Types">"Image Media
        Types" registry</xref> to include 'image/webp' as described in <xref
          target="webp-media-type"/>.</t>
+
+     <section anchor="webp-media-type" numbered="true" toc="default">
+       <name>The 'image/webp' Media Type</name>
+       <t>This section contains the media type registration details as per <xref
+         target="RFC6838"/>.</t>
+       <section numbered="true" toc="default">
+         <name>Registration Details</name>
+         <t>Type name: image</t>
+         <t>Subtype name: webp</t>
+         <t>Required parameters: N/A</t>
+         <t>Optional parameters: N/A</t>
+         <t>Encoding considerations: Binary. The <xref target="RFC4648">Base64
+           encoding</xref> should be used on transports that cannot accommodate
+           binary data directly.</t>
+         <t>Security considerations: See <xref target="Security"/>.</t>
+         <t>Interoperability considerations: See <xref target="Interop"/>.</t>
+         <t>Published specification: <xref target="webp-riff-src"/></t>
+         <t>Applications that use this media type: Applications that are used to
+           display and process images, especially when smaller image file sizes
+           are important.</t>
+         <t>Fragment identifier considerations: N/A</t>
+         <t>Additional information:</t>
+         <ul empty="true" spacing="normal">
+           <li>Deprecated alias names for this type: N/A</li>
+           <li>Magic number(s): The first 4 bytes are 0x52, 0x49, 0x46, 0x46
+             ('RIFF'), followed by 4 bytes for the RIFF chunk size. The next 7
+             bytes are 0x57, 0x45, 0x42, 0x50, 0x56, 0x50, 0x38
+             ('WEBPVP8').</li>
+           <li>File extension(s): webp</li>
+           <li>Apple Uniform Type Identifier: org.webmproject.webp conforms to
+               public.image</li>
+           <li>Object Identifiers: N/A</li>
+         </ul>
+         <t>Person &amp; email address to contact for further information:</t>
+         <ul empty="true" spacing="normal">
+           <li>Name: James Zern</li>
+           <li>Email: jzern@google.com</li>
+         </ul>
+         <t>Intended usage: COMMON</t>
+         <t>Restrictions on usage: N/A</t>
+         <t>Author:</t>
+         <ul empty="true" spacing="normal">
+           <li>Name: James Zern</li>
+           <li>Email: jzern@google.com</li>
+         </ul>
+         <t>Change controller:</t>
+         <ul empty="true" spacing="normal">
+           <li>Name: James Zern</li>
+           <li>Email: jzern@google.com</li>
+           <li>Name: Pascal Massimino</li>
+           <li>Email: pascal.massimino@gmail.com</li>
+           <li>Name: WebM Project</li>
+           <li>Email: webmaster@webmproject.org</li>
+         </ul>
+         <t>Provisional registration? (standards tree only): N/A</t>
+       </section>
+     </section>
    </section>
 
    <section anchor="webp-container" numbered="true" toc="default">
