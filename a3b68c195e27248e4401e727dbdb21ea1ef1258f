@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad81246_f573b7f5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-07-29T19:19:51Z",
+      "side": 1,
+      "message": "The current release binaries on Windows come from Makefile.vc, so that will need to be handled in a follow up. You\u0027ll need a new .rc file [1]. At some point we could try moving to CMake, but I don\u0027t know what the current state of that build is version-wise.\n\n[1] https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/libwebp.rc",
+      "revId": "a3b68c195e27248e4401e727dbdb21ea1ef1258f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
