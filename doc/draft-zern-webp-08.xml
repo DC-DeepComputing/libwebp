@@ -160,6 +160,10 @@
          <dt>1-based</dt>
          <dd>An unsigned integer field storing values offset by -1. e.g., Such
            a field would store value <em>25</em> as <em>24</em>.</dd>
+         <dt>ChunkHeader('ABCD')</dt>
+         <dd>This is used to describe the <em>FourCC</em> and <em>Chunk
+           Size</em> header of individual chunks, where 'ABCD' is the FourCC
+             for the chunk. This element's size is 8 bytes.</dd>
        </dl>
      </section>
      <section anchor="riff-file-format" numbered="true" toc="default">
@@ -193,10 +197,6 @@
              padding byte -- that SHOULD be <tt>0</tt> to conform with <xref
                target="riff-spec">RIFF</xref> -- is added. Applications MAY use
                  another value, but readers may fail to parse the file.</dd>
-           <dt>ChunkHeader('ABCD')</dt>
-           <dd>This is used to describe the <em>FourCC</em> and <em>Chunk
-             Size</em> header of individual chunks, where 'ABCD' is the FourCC
-               for the chunk. This element's size is 8 bytes.</dd>
          </dl>
 
          <t><strong>Note:</strong> RIFF has a convention that all-uppercase
