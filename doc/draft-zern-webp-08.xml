@@ -190,7 +190,9 @@
              identifier or padding.</dd>
            <dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
            <dd>The data payload. If <em>Chunk Size</em> is odd, a single
-             padding byte -- that SHOULD be <tt>0</tt> -- is added.</dd>
+             padding byte -- that SHOULD be <tt>0</tt> to conform with <xref
+               target="riff-spec">RIFF</xref> -- is added. Applications MAY use
+                 another value, but readers may fail to parse the file.</dd>
            <dt>ChunkHeader('ABCD')</dt>
            <dd>This is used to describe the <em>FourCC</em> and <em>Chunk
              Size</em> header of individual chunks, where 'ABCD' is the FourCC
