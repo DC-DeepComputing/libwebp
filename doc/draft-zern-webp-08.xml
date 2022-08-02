@@ -156,7 +156,9 @@
          <dd>A 32-bit, little-endian, unsigned integer.</dd>
          <dt>FourCC</dt>
          <dd>A FourCC (four-character code) is a uint32 created by
-           concatenating four ASCII characters in little-endian order.</dd>
+           concatenating four ASCII characters in little-endian order. This
+           means 'aaaa' (%x61.61.61.61) and 'AAAA' (%x41.41.41.41) are treated
+           as different FourCCs.</dd>
          <dt>1-based</dt>
          <dd>An unsigned integer field storing values offset by -1. e.g., Such
            a field would store value <em>25</em> as <em>24</em>.</dd>
