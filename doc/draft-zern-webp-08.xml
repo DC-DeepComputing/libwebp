@@ -277,6 +277,9 @@
         <dd>VP8 bitstream data.</dd>
       </dl>
 
+      <t>Note the fourth character in the 'VP8 ' fourcc is an ASCII space
+        (%x20).</t>
+
       <t>The VP8 bitstream format specification is described by <xref
         target="RFC6386"/>. Note that the VP8 frame header contains the VP8
         frame width and height. That is assumed to be the width and height of
@@ -794,6 +797,8 @@ alpha = (predictor + X) % 256
              <dt>XMP Metadata: <em>Chunk Size</em> bytes</dt>
              <dd>image metadata in <xref target="XMP"/> format.</dd>
            </dl>
+           <t>Note the fourth character in the 'XMP ' fourcc is an ASCII space
+             (%x20).</t>
            <t>Additional guidance about handling metadata can be found in the
              Metadata Working Group's <xref target="mwg">Guidelines for
                Handling Metadata</xref>.</t>
