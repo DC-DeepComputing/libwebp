@@ -284,7 +284,8 @@
 
       <t>The VP8 specification describes how to decode the image into Y'CbCr
         format. To convert to RGB, <xref target="rec601">Rec. 601</xref> SHOULD
-          be used.</t>
+          be used. Applications MAY use another conversion method, but visual
+          results may differ with other decoders.</t>
      </section>
      <section anchor="simple-file-format-lossless" numbered="true"
        toc="default">
