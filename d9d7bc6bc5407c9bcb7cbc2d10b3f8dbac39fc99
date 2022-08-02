@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa145e53_51a0d0a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-08-02T19:41:22Z",
+      "side": 1,
+      "message": "\u003e I think sharpyuv will need a pkg-config file for other cases, but internal to webp this change might make sense.\n\nShould I go ahead and create a libsharpyuv.pc.in file similar to this and such?",
+      "parentUuid": "0530dc6b_85def5d6",
+      "revId": "d9d7bc6bc5407c9bcb7cbc2d10b3f8dbac39fc99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "86031100_2c4f131d",
