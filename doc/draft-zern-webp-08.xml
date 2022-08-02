@@ -142,7 +142,7 @@
            metadata. In case we need to refer only to the matrix of pixels, we
            will call it the <em>canvas</em> of the image.</t>
 
-       <t>Below are additional terms used throughout this document:</t>
+       <t>Below are additional terms used throughout this section:</t>
        <dl newline="true" spacing="normal" indent="8">
          <dt>Reader/Writer</dt>
          <dd>Code that reads WebP files is referred to as a <em>reader</em>,
@@ -809,7 +809,7 @@ alpha = (predictor + X) % 256
            <name>Unknown Chunks</name>
            <t>A RIFF chunk (described in <xref
              target="terminology-amp-basics"/>.) whose <em>chunk tag</em> is
-               different from any of the chunks described in this document, is
+               different from any of the chunks described in this section, is
                considered an <em>unknown chunk</em>.</t>
            <t><strong>Rationale:</strong> Allowing unknown chunks gives a
              provision for future extension of the format, and also allows
@@ -981,10 +981,10 @@ RIFF/WEBP
 
      <section numbered="true" toc="default">
        <name>Introduction</name>
-       <t>This document describes the compressed data representation of a WebP
+       <t>This section describes the compressed data representation of a WebP
          lossless image. It is intended as a detailed reference for WebP
          lossless encoder and decoder implementation.</t>
-       <t>In this document, we extensively use C programming language syntax to
+       <t>In this section, we extensively use C programming language syntax to
          describe the bitstream, and assume the existence of a function for
          reading bits, <tt>ReadBits(n)</tt>. The bytes are read in the natural
            order of the stream containing them, and bits of each byte are read
