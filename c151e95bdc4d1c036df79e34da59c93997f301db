@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c69ca506_9b736adb",
+        "filename": "src/utils/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-08-02T08:59:09Z",
+      "side": 1,
+      "message": "WEBP_ALIGN_CST seems mostly used in unsigned contexts so this could be 31u instead of the cast below, but I guess it is safer not to change it.",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 25
+      },
+      "revId": "c151e95bdc4d1c036df79e34da59c93997f301db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
