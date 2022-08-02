@@ -931,6 +931,48 @@ RIFF/WEBP
      </section>
 
      <section numbered="true" toc="default">
+       <name>Introduction</name>
+       <t>This section describes the compressed data representation of a WebP
+         lossless image. It is intended as a detailed reference for WebP
+         lossless encoder and decoder implementation.</t>
+       <t>In this section, we extensively use C programming language syntax to
+         describe the bitstream, and assume the existence of a function for
+         reading bits, <tt>ReadBits(n)</tt>. The bytes are read in the natural
+           order of the stream containing them, and bits of each byte are read
+           in least-significant-bit-first order. When multiple bits are read at
+           the same time, the integer is constructed from the original data in
+           the original order. The most significant bits of the returned
+           integer are also the most significant bits of the original data.
+           Thus the statement</t>
+
+       <sourcecode><![CDATA[
+b = ReadBits(2);
+         ]]></sourcecode>
+
+       <t>is equivalent with the two statements below:</t>
+
+       <sourcecode><![CDATA[
+b = ReadBits(1);
+b |= ReadBits(1) << 1;
+         ]]></sourcecode>
+
+       <t>We assume that each color component (e.g. alpha, red, blue and
+         green) is represented using an 8-bit byte. We define the corresponding
+         type as uint8. A whole ARGB pixel is represented by a type called
+         uint32, an unsigned integer consisting of 32 bits. In the code showing
+         the behavior of the transformations, alpha value is codified in bits
+         31..24, red in bits 23..16, green in bits 15..8 and blue in bits 7..0,
+         but implementations of the format are free to use another
+         representation internally.</t>
+       <t>Broadly, a WebP lossless image contains header data, transform
+         information and actual image data. Headers contain width and height of
+         the image. A WebP lossless image can go through four different types
+         of transformation before being entropy encoded. The transform
+         information in the bitstream contains the data required to apply the
+         respective inverse transforms.</t>
+     </section>
+
+     <section numbered="true" toc="default">
        <name>Nomenclature</name>
        <dl newline="true" spacing="normal" indent="8">
          <dt>ARGB</dt>
@@ -977,48 +1019,6 @@ RIFF/WEBP
            a row is completed, continue from the left-hand column of the next
            row.</dd>
        </dl>
-     </section>
-
-     <section numbered="true" toc="default">
-       <name>Introduction</name>
-       <t>This section describes the compressed data representation of a WebP
-         lossless image. It is intended as a detailed reference for WebP
-         lossless encoder and decoder implementation.</t>
-       <t>In this section, we extensively use C programming language syntax to
-         describe the bitstream, and assume the existence of a function for
-         reading bits, <tt>ReadBits(n)</tt>. The bytes are read in the natural
-           order of the stream containing them, and bits of each byte are read
-           in least-significant-bit-first order. When multiple bits are read at
-           the same time, the integer is constructed from the original data in
-           the original order. The most significant bits of the returned
-           integer are also the most significant bits of the original data.
-           Thus the statement</t>
-
-       <sourcecode><![CDATA[
-b = ReadBits(2);
-         ]]></sourcecode>
-
-       <t>is equivalent with the two statements below:</t>
-
-       <sourcecode><![CDATA[
-b = ReadBits(1);
-b |= ReadBits(1) << 1;
-         ]]></sourcecode>
-
-       <t>We assume that each color component (e.g. alpha, red, blue and
-         green) is represented using an 8-bit byte. We define the corresponding
-         type as uint8. A whole ARGB pixel is represented by a type called
-         uint32, an unsigned integer consisting of 32 bits. In the code showing
-         the behavior of the transformations, alpha value is codified in bits
-         31..24, red in bits 23..16, green in bits 15..8 and blue in bits 7..0,
-         but implementations of the format are free to use another
-         representation internally.</t>
-       <t>Broadly, a WebP lossless image contains header data, transform
-         information and actual image data. Headers contain width and height of
-         the image. A WebP lossless image can go through four different types
-         of transformation before being entropy encoded. The transform
-         information in the bitstream contains the data required to apply the
-         respective inverse transforms.</t>
      </section>
 
      <section numbered="true" toc="default">
