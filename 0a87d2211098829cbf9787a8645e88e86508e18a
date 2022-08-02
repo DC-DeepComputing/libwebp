@@ -22,6 +22,30 @@
       },
       "revId": "0a87d2211098829cbf9787a8645e88e86508e18a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f379498b_56037169",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-02T19:45:18Z",
+      "side": 1,
+      "message": "\u003e Early line break?\n\nI guess so. I can reflow this, I just copied it.",
+      "parentUuid": "5e2a3be5_8a029be1",
+      "range": {
+        "startLine": 98,
+        "startChar": 52,
+        "endLine": 99,
+        "endChar": 18
+      },
+      "revId": "0a87d2211098829cbf9787a8645e88e86508e18a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
