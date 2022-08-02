@@ -618,7 +618,7 @@ else
              <dt>Reserved (Rsv): 2 bits</dt>
              <dd>SHOULD be <tt>0</tt>.</dd>
              <dt>Pre-processing (P): 2 bits</dt>
-             <dd><t>These INFORMATIVE bits are used to signal the
+             <dd><t>These informative bits are used to signal the
                pre-processing that has been performed during compression. The
                decoder can use this information to e.g. dither the values or
                smooth the gradients prior to display.</t>
