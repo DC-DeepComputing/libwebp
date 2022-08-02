@@ -16,6 +16,47 @@
       "message": "Hi James and Maryla,\n\nI recently encountered this issue as mentioned in the bug report.\nThe issue seems to stem from the lack of sharpyuv not being inside the pkg-config file anywhere, and FFmpeg is unable to link to it during compile time.\n\nI think this should be an okay change to make as the library is installed with libwebp, and libwebp will always link to libsharpyuv unconditionally, so no need to make the modification to the .pc.in file conditional.\n\nPlease review whenever you can, and thanks,\nChris",
       "revId": "d9d7bc6bc5407c9bcb7cbc2d10b3f8dbac39fc99",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0530dc6b_85def5d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-02T19:33:51Z",
+      "side": 1,
+      "message": "\u003e Hi James and Maryla,\n\u003e \n\u003e I recently encountered this issue as mentioned in the bug report.\n\u003e The issue seems to stem from the lack of sharpyuv not being inside the pkg-config file anywhere, and FFmpeg is unable to link to it during compile time.\n\u003e \n\nI think sharpyuv will need a pkg-config file for other cases, but internal to webp this change might make sense.\n\n\u003e I think this should be an okay change to make as the library is installed with libwebp, and libwebp will always link to libsharpyuv unconditionally, so no need to make the modification to the .pc.in file conditional.\n\u003e \n\u003e Please review whenever you can, and thanks,\n\u003e Chris",
+      "parentUuid": "26c5a5e6_8da9fdc5",
+      "revId": "d9d7bc6bc5407c9bcb7cbc2d10b3f8dbac39fc99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86031100_2c4f131d",
+        "filename": "src/libwebp.pc.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-02T19:33:51Z",
+      "side": 1,
+      "message": "move this before -lm just to be safe.",
+      "range": {
+        "startLine": 11,
+        "startChar": 19,
+        "endLine": 11,
+        "endChar": 28
+      },
+      "revId": "d9d7bc6bc5407c9bcb7cbc2d10b3f8dbac39fc99",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
