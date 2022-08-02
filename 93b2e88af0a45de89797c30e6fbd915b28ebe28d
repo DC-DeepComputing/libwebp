@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3be948b8_8e9be582",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-02T05:06:04Z",
+      "side": 1,
+      "message": "All of the reserved fields could become MUST. Though we don\u0027t enforce it and there aren\u0027t plans to extend this, technically 0 represents this version of the format and an application adding new values would risk compatibility issues.",
+      "revId": "93b2e88af0a45de89797c30e6fbd915b28ebe28d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
