@@ -22,6 +22,30 @@
       },
       "revId": "c151e95bdc4d1c036df79e34da59c93997f301db",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9a263cb_90b5a0e2",
+        "filename": "src/utils/utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-02T19:50:58Z",
+      "side": 1,
+      "message": "\u003e WEBP_ALIGN_CST seems mostly used in unsigned contexts so this could be 31u instead of the cast below, but I guess it is safer not to change it.\n\nYes, thanks for checking. Most cases it should be fine, but I wanted to avoid the chance of introducing new warnings. \u0027u\u0027 would need to be \u0027ull\u0027 for 64-bit too, otherwise we\u0027d mask away the high bits.",
+      "parentUuid": "c69ca506_9b736adb",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 25
+      },
+      "revId": "c151e95bdc4d1c036df79e34da59c93997f301db",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
