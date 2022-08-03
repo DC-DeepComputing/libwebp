@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0f85d00b_834afe91",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-03T01:57:22Z",
+      "side": 1,
+      "message": "This section and section #7 are outliers in that they don\u0027t sub-number. I\u0027m leaning towards numbering them all for consistency. Any opinion?\n\nThis is something pandoc and the rfc tools handle a little better.",
+      "revId": "337cf69f58a82ce6ce61838c53dfc32635cb87f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
