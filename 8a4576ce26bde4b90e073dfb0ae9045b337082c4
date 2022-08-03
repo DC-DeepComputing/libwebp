@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2738565f_d72b1c59",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-03T18:14:15Z",
+      "side": 1,
+      "message": "I was tempted to normalize \u003d\u003d\u003d/--- to #/##, but I\u0027ll leave well enough alone",
+      "revId": "8a4576ce26bde4b90e073dfb0ae9045b337082c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
