@@ -60,17 +60,14 @@
    <keyword>WebP</keyword>
 
    <abstract>
-   <t>This document provides the Media Type Registration for the subtype
-     image/webp.</t>
+   <t>This document defines the WebP image format and registers a media type
+     supporting its use.</t>
    </abstract>
  </front>
 
  <middle>
    <section numbered="true" toc="default">
      <name>Introduction</name>
-     <t>This document provides references for the WebP image format and
-       considerations for its use across platforms.</t>
-
      <t>WebP is a <xref target="riff-spec">Resource Interchange File Format
        (RIFF)</xref> based image file format
        (<xref target="webp-container"/>) which supports lossless and lossy
