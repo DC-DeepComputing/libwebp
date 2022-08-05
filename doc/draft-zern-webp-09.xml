@@ -570,9 +570,9 @@ blend.A = src.A + dst.A * (1 - src.A / 255)
 if blend.A = 0 then
   blend.RGB = 0
 else
-  blend.RGB = (src.RGB * src.A +
-               dst.RGB * dst.A * (1 - src.A / 255)) /
-              blend.A
+  blend.RGB =
+      (src.RGB * src.A +
+       dst.RGB * dst.A * (1 - src.A / 255)) / blend.A
                        ]]></sourcecode>
                    </li>
                    <li>Alpha-blending SHOULD be done in linear color space, by
