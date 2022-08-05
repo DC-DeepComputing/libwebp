@@ -565,7 +565,7 @@
                        and the RGB channels are <em>not premultiplied</em> by
                        alpha, the formula for blending 'dst' onto 'src' is:</t>
 
-                     <sourcecode><![CDATA[
+                     <sourcecode type="pseudocode"><![CDATA[
 blend.A = src.A + dst.A * (1 - src.A / 255)
 if blend.A = 0 then
   blend.RGB = 0
@@ -664,7 +664,7 @@ else
                  <tt>X</tt> to the predictor and using modulo-256 arithmetic to
                  wrap the [256-511] range into the [0-255] one:</t>
 
-               <sourcecode><![CDATA[
+               <sourcecode type="c"><![CDATA[
 alpha = (predictor + X) % 256
                  ]]></sourcecode>
 
@@ -833,7 +833,7 @@ alpha = (predictor + X) % 256
          <t>Displaying an <em>animated image</em> canvas MUST be equivalent to
            the following pseudocode:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="pseudocode"><![CDATA[
 assert VP8X.flags.hasAnimation
 canvas <- new image of size VP8X.canvasWidth x VP8X.canvasHeight with
           background color ANIM.background_color.
@@ -944,13 +944,13 @@ RIFF/WEBP
            integer are also the most significant bits of the original data.
            Thus the statement</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 b = ReadBits(2);
          ]]></sourcecode>
 
        <t>is equivalent with the two statements below:</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 b = ReadBits(1);
 b |= ReadBits(1) << 1;
          ]]></sourcecode>
@@ -1042,7 +1042,7 @@ b |= ReadBits(1) << 1;
          the image. Width and height are decoded as 14-bit integers as
          follows:</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 int image_width = ReadBits(14) + 1;
 int image_height = ReadBits(14) + 1;
          ]]></sourcecode>
@@ -1054,14 +1054,14 @@ int image_height = ReadBits(14) + 1;
          decoding. It should be set to 0 when all alpha values are 255 in the
          picture, and 1 otherwise.</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 int alpha_is_used = ReadBits(1);
          ]]></sourcecode>
 
        <t>The version_number is a 3 bit code that must be set to 0. Any other
          value should be treated as an error.</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 int version_number = ReadBits(3);
          ]]></sourcecode>
      </section>
@@ -1083,7 +1083,7 @@ int version_number = ReadBits(3);
          entropy in the residual image. Also, the transform data can be decided
          based on entropy minimization.</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 while (ReadBits(1)) {  // Transform present.
   // Decode transform type.
   enum TransformType transform_type = ReadBits(2);
@@ -1097,7 +1097,7 @@ while (ReadBits(1)) {  // Transform present.
        <t>If a transform is present then the next two bits specify the
          transform type. There are four types of transforms.</t>
 
-       <sourcecode><![CDATA[
+       <sourcecode type="c"><![CDATA[
 enum TransformType {
   PREDICTOR_TRANSFORM             = 0,
   COLOR_TRANSFORM                 = 1,
@@ -1125,7 +1125,7 @@ enum TransformType {
            height in number of bits. The number of block columns,
            <tt>block_xsize</tt>, is used in indexing two-dimensionally.</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 int size_bits = ReadBits(3) + 2;
 int block_width = (1 << size_bits);
 int block_height = (1 << size_bits);
@@ -1142,7 +1142,7 @@ int block_xsize = DIV_ROUND_UP(image_width, 1 << size_bits);
          <t>For a pixel <em>x, y</em>, one can compute the respective filter
            block address by:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 int block_index = (y >> size_bits) * block_xsize +
                   (x >> size_bits);
            ]]></sourcecode>
@@ -1194,7 +1194,7 @@ X    X    X    X    X    X    X    X    X    X    X
          <t><tt>Average2</tt> is defined as follows for each ARGB
            component:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 uint8 Average2(uint8 a, uint8 b) {
   return (a + b) / 2;
 }
@@ -1202,7 +1202,7 @@ uint8 Average2(uint8 a, uint8 b) {
 
          <t>The Select predictor is defined as follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 uint32 Select(uint32 L, uint32 T, uint32 TL) {
   // L = left pixel, T = top pixel, TL = top left pixel.
 
@@ -1231,7 +1231,7 @@ uint32 Select(uint32 L, uint32 T, uint32 TL) {
            <tt>ClampAddSubtractHalf</tt> are performed for each ARGB component
            as follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 // Clamp the input value between 0 and 255.
 int Clamp(int a) {
   return (a < 0) ? 0 : (a > 255) ?  255 : a;
@@ -1271,7 +1271,7 @@ int ClampAddSubtractHalf(int a, int b) {
            pixels in a block. For each block there are three types of color
            transform elements.</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 typedef struct {
   uint8 green_to_red;
   uint8 green_to_blue;
@@ -1288,7 +1288,7 @@ typedef struct {
 
          <t>The color transform function is defined as follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 void ColorTransform(uint8 red, uint8 blue, uint8 green,
                     ColorTransformElement *trans,
                     uint8 *new_red, uint8 *new_blue) {
@@ -1310,7 +1310,7 @@ void ColorTransform(uint8 red, uint8 blue, uint8 green,
            integer representing a 3.5-fixed-point number, and a signed 8-bit
            RGB color channel (c) [-128..127] and is defined as follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 int8 ColorTransformDelta(int8 t, int8 c) {
   return (t * c) >> 5;
 }
@@ -1334,7 +1334,7 @@ int8 ColorTransformDelta(int8 t, int8 c) {
            transform data contain the width and height of the image block in
            number of bits, just like the predictor transform:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 int size_bits = ReadBits(3) + 2;
 int block_width = 1 << size_bits;
 int block_height = 1 << size_bits;
@@ -1352,7 +1352,7 @@ int block_height = 1 << size_bits;
            transform is just subtracting <tt>ColorTransformElement</tt> values
              from the red and blue channels.</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 void InverseTransform(uint8 red, uint8 green, uint8 blue,
                       ColorTransformElement *trans,
                       uint8 *new_red, uint8 *new_blue) {
@@ -1381,7 +1381,7 @@ void InverseTransform(uint8 red, uint8 green, uint8 blue,
            no data associated with this transform. The decoder applies the
            inverse transform as follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 void AddGreenToBlueAndRed(uint8 green, uint8 *red, uint8 *blue) {
   *red  = (*red  + green) & 0xff;
   *blue = (*blue + green) & 0xff;
@@ -1416,7 +1416,7 @@ void AddGreenToBlueAndRed(uint8 green, uint8 *red, uint8 *blue) {
            color table. The decoder reads the color indexing transform data as
            follows:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 // 8 bit value for color table size
 int color_table_size = ReadBits(8) + 1;
            ]]></sourcecode>
@@ -1438,7 +1438,7 @@ int color_table_size = ReadBits(8) + 1;
            table values. The indexing is done based on the green component of
            the ARGB color.</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 // Inverse transform
 argb = color_table[GREEN(argb)];
            ]]></sourcecode>
@@ -1457,7 +1457,7 @@ argb = color_table[GREEN(argb)];
          <t><tt>color_table_size</tt> specifies how many pixels are combined
            together:</t>
 
-         <sourcecode><![CDATA[
+         <sourcecode type="c"><![CDATA[
 int width_bits;
 if (color_table_size <= 2) {
   width_bits = 3;
@@ -1626,7 +1626,7 @@ if (color_table_size <= 2) {
            <t>The pseudocode to obtain a (length or distance) value from the
              prefix code is as follows:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 if (prefix_code < 4) {
   return prefix_code + 1;
 }
@@ -1689,7 +1689,7 @@ return offset + ReadBits(extra_bits) + 1;
            <t>The decoder can convert a distances code 'i' to a scan-line order
              distance 'dist' as follows:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="pseudocode"><![CDATA[
 (xi, yi) = distance_map[i]
 dist = x + y * xsize
 if (dist < 1) {
@@ -1719,7 +1719,7 @@ if (dist < 1) {
              codes. However, if this bit is 1, the color cache size is read
              next:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int color_cache_code_bits = ReadBits(4);
 int color_cache_size = 1 << color_cache_code_bits;
              ]]></sourcecode>
@@ -1808,7 +1808,7 @@ int color_cache_size = 1 << color_cache_code_bits;
 
            <t>The first bit indicates the number of symbols:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int num_symbols = ReadBits(1) + 1;
              ]]></sourcecode>
 
@@ -1818,7 +1818,7 @@ int num_symbols = ReadBits(1) + 1;
              present, is always assumed to be in the range [0..255] and coded
              using 8 bits.</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int is_first_8bits = ReadBits(1);
 symbol0 = ReadBits(1 + 7 * is_first_8bits);
 code_lengths[symbol0] = 1;
@@ -1843,7 +1843,7 @@ if (num_symbols == 2) {
              as follows. First, <tt>num_code_lengths</tt> specifies the number
              of code lengths.</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int num_code_lengths = 4 + ReadBits(4);
              ]]></sourcecode>
 
@@ -1856,7 +1856,7 @@ int num_code_lengths = 4 + ReadBits(4);
              <tt>code_length_code_lengths</tt> (according to the order in
              <tt>kCodeLengthCodeOrder</tt>) are zeros.</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int kCodeLengthCodes = 19;
 int kCodeLengthCodeOrder[kCodeLengthCodes] = {
   17, 18, 0, 1, 2, 3, 4, 5, 16, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
@@ -1871,7 +1871,7 @@ for (i = 0; i < num_code_lengths; ++i) {
              different read symbols is <tt>num_code_lengths</tt>. Otherwise, it
              is defined as:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int length_nbits = 2 + 2 * ReadBits(3);
 int max_symbol = 2 + ReadBits(length_nbits);
              ]]></sourcecode>
@@ -1941,7 +1941,7 @@ int max_symbol = 2 + ReadBits(length_nbits);
              dimensions of the entropy image are derived from
              'prefix_bits'.</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int prefix_bits = ReadBits(3) + 2;
 int prefix_xsize = DIV_ROUND_UP(xsize, 1 << prefix_bits);
 int prefix_ysize = DIV_ROUND_UP(ysize, 1 << prefix_bits);
@@ -1974,7 +1974,7 @@ int prefix_ysize = DIV_ROUND_UP(ysize, 1 << prefix_bits);
              obtained by finding the <em>largest meta prefix code</em> from
                the entropy image:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int num_huff_groups = max(entropy image) + 1;
              ]]></sourcecode>
            <t>where <tt>max(entropy image)</tt> indicates the largest prefix
@@ -1983,14 +1983,14 @@ int num_huff_groups = max(entropy image) + 1;
            <t>As each prefix code groups contains five prefix codes, the
              total number of prefix codes is:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int num_huff_codes = 5 * num_huff_groups;
              ]]></sourcecode>
 
            <t>Given a pixel (x, y) in the ARGB image, we can obtain the
              corresponding prefix codes to be used as follows:</t>
 
-           <sourcecode><![CDATA[
+           <sourcecode type="c"><![CDATA[
 int position =
     (y >> prefix_bits) * prefix_xsize + (x >> prefix_bits);
 int meta_huff_code = (entropy_image[pos] >> 8) & 0xffff;
