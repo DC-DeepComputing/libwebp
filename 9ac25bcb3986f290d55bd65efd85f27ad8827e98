@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65a9a862_d803d15d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-11T18:33:31Z",
+      "side": 1,
+      "message": "Sorry for the delay on this. I updated the patch to add the prefix to the library targets in WebPConfig.cmake. I\u0027ll land this after the builds pass.",
+      "revId": "9ac25bcb3986f290d55bd65efd85f27ad8827e98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
