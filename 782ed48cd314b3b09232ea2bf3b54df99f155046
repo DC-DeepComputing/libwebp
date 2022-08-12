@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3856144e_bd879d02",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-12T05:10:22Z",
+      "side": 1,
+      "message": "I\u0027m not overly thrilled with this, but it was somewhat easier than trying to adapt WEBP_DSP_INIT to deal with multiple calls and ones with parameters.",
+      "revId": "782ed48cd314b3b09232ea2bf3b54df99f155046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
