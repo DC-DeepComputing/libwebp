@@ -34,6 +34,24 @@
       "parentUuid": "3856144e_bd879d02",
       "revId": "782ed48cd314b3b09232ea2bf3b54df99f155046",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a214cf69_7ae2e4e9",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-12T18:04:13Z",
+      "side": 1,
+      "message": "\u003e WebP already does mutex protection when calling SharpYuvInit() in picture_csp_enc.c (see SafeInitSharpYuv) but I guess it\u0027s useful for other callers of the library. The initial idea was that callers should use mutex protection themselves when calling init, but since the init call was moved inside the SharpYuvConvert function I guess they would need to protect the whole call. And I apparently left that undocumented...\n\nIn general the whole get cpu info global is unfortunate. As it stands now, libsharpyuv has the potential for real issues when used elsewhere. We\u0027ve encountered problems in Android, Chrome and other production systems without this. In retrospect leaving out Windows is a bit unfair even if you\u0027d get a small resource leak using a critical section.\n\n\u003e With this we can remove SafeInitSharpYuv then.\n\nGood point. I\u0027ll do that in a follow up.",
+      "parentUuid": "d6dc50c9_f7adfd64",
+      "revId": "782ed48cd314b3b09232ea2bf3b54df99f155046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
