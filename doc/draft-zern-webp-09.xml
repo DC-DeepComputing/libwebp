@@ -2129,9 +2129,17 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
 
    <section anchor="Security" numbered="true" toc="default">
      <name>Security Considerations</name>
+     <t>Graphics file format libraries are often used in ways where they take
+       inputs from unknown and perhaps unsafe sources. There can be security
+       issues both on clients (web browsers, email clients) and servers (for
+       example when automatically converting uploaded images from one format to
+       another). As such, graphics file format library implementations should
+       treat security as a primary concern. Perhaps even before the speed of
+       the decompression or the compression efficiency of the generated
+       file.</t>
      <t>Security risks are similar to other media content and may include
        integer overflows, out-of-bounds reads and writes to both heap and
-       stack, uninitialized data usage, null pointer references, resource
+       stack, uninitialized data usage, null pointer dereferences, resource
        (disk, memory) exhaustion and extended resource usage (long running
        time) as part of the demuxing and decoding process. These may cause
        information leakage (memory layout and contents) or crashes and thereby
