@@ -16,6 +16,24 @@
       "message": "I\u0027m not overly thrilled with this, but it was somewhat easier than trying to adapt WEBP_DSP_INIT to deal with multiple calls and ones with parameters.",
       "revId": "782ed48cd314b3b09232ea2bf3b54df99f155046",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6dc50c9_f7adfd64",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2022-08-12T11:31:03Z",
+      "side": 1,
+      "message": "WebP already does mutex protection when calling SharpYuvInit() in picture_csp_enc.c (see SafeInitSharpYuv) but I guess it\u0027s useful for other callers of the library. The initial idea was that callers should use mutex protection themselves when calling init, but since the init call was moved inside the SharpYuvConvert function I guess they would need to protect the whole call. And I apparently left that undocumented...\nWith this we can remove SafeInitSharpYuv then.",
+      "parentUuid": "3856144e_bd879d02",
+      "revId": "782ed48cd314b3b09232ea2bf3b54df99f155046",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
