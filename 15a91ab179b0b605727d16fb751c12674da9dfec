@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9656d9b1_8fa643b4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-17T20:40:38Z",
+      "side": 1,
+      "message": "I could go either way with this. The short set() statements were what caught my eye:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3836733/1..2",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "15a91ab179b0b605727d16fb751c12674da9dfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
