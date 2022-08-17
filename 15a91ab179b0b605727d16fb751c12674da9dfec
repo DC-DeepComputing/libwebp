@@ -22,6 +22,30 @@
       },
       "revId": "15a91ab179b0b605727d16fb751c12674da9dfec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a6311e5_3c89436e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-08-17T22:02:06Z",
+      "side": 1,
+      "message": "I do not mind 2 or 3 either.",
+      "parentUuid": "9656d9b1_8fa643b4",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "15a91ab179b0b605727d16fb751c12674da9dfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
