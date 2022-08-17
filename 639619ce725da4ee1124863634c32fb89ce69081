@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "811858ca_28a3115c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2022-08-17T15:16:23Z",
+      "side": 1,
+      "message": "Thanks, this looks much nicer than the cmake magic.",
+      "revId": "639619ce725da4ee1124863634c32fb89ce69081",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
