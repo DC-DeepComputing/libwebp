@@ -46,6 +46,30 @@
       },
       "revId": "15a91ab179b0b605727d16fb751c12674da9dfec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8bfdf366_fd63e676",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-08-17T22:27:51Z",
+      "side": 1,
+      "message": "\u003e I do not mind 2 or 3 either.\n\npatchset 2 is slightly smaller, let\u0027s go with it for now. We can see how the tool evolves or if we decide to standardize this in a config file and enforce it we can decide then.",
+      "parentUuid": "1a6311e5_3c89436e",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 22
+      },
+      "revId": "15a91ab179b0b605727d16fb751c12674da9dfec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
