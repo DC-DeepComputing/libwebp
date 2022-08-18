@@ -128,6 +128,7 @@ set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix "\$\{prefix\}")
 set(libdir "\$\{prefix\}/lib")
 set(includedir "\$\{prefix\}/include")
+set(sharpyuv_includedir "\$\{prefix\}/include/webp")
 set(PTHREAD_LIBS ${CMAKE_THREAD_LIBS_INIT})
 set(INSTALLED_LIBRARIES)
 

@@ -751,6 +751,7 @@ dnl =========================
 
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([src/webp/config.h])
+AC_SUBST(sharpyuv_includedir, "${includedir}/webp")
 AC_CONFIG_FILES([Makefile src/Makefile man/Makefile \
                  examples/Makefile extras/Makefile imageio/Makefile \
                  sharpyuv/Makefile sharpyuv/libsharpyuv.pc \
