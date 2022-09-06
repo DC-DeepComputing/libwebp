@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b36195fd_d2cb56e9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-06T22:54:05Z",
+      "side": 1,
+      "message": "Debian seems to symlink /usr/lib/\u003cproject\u003e in /usr/lib/cmake, though I only have various libclang/llvm-dev packages installed.\n\nWe had discussed other variants [1] in another change I think, I\u0027m somewhat ambivalent if they\u0027re all supported, though `\u003cprefix\u003e/(lib/\u003carch\u003e|lib*|share)/cmake` does appear earlier in the search list.\n\n[1] https://cmake.org/cmake/help/latest/command/find_package.html#search-procedure",
+      "revId": "dc249bff3037d4feeb2addc089de5307a58057f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38aec71c_c1c1cbbc",
