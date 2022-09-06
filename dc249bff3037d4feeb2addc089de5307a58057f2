@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38aec71c_c1c1cbbc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-06T20:34:31Z",
+      "side": 1,
+      "message": "Hi James,\n\nThis change is motivated by some changes made by kmilos in msys2\nhttps://github.com/msys2/MINGW-packages/pull/12598/files#diff-6f0efefe10c6cb5a3d421f778426a8c3f91e7b09de42467a4d62edc33400c0e6R27\n\n\nThis change brings libwebp closer inline to projects such as abseil, llvm, qt, and boost, to name a few.\n\nThis does change the installed files since what would previously have been `/usr/lib/WebP/cmake` would now be `/usr/local/lib/cmake/WebP/` instead",
+      "revId": "dc249bff3037d4feeb2addc089de5307a58057f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
