@@ -72,6 +72,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d81c66bb_520c5203",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-07T18:47:04Z",
+      "side": 1,
+      "message": "\u003e \u003e We don\u0027t install those files in autoconf since they\u0027re created with cmake. There was a request to do that [4], but I want to avoid having custom code\n\u003e \n\u003e Based on libexpat, I know how painful it would be to maintain custom code for generating cmake files from autotools, and I really would not recommend it in the long run\n\u003e \n\nI agree.\n\n\u003e https://github.com/libexpat/libexpat/tree/master/expat/cmake/autotools\n\u003e \n\u003e \n\u003e The ideal might be to have a `FindWebP.cmake` module upstream, but that will depend on efforts made and on upstream CMake. If that route would be preferred, I can try to start working on that, as I have a vague amount of experience working with them.\n\nThat would be great. I\u0027d prefer a tighter association with CMake.",
+      "parentUuid": "cc33f2d4_a2cd2194",
+      "revId": "dc249bff3037d4feeb2addc089de5307a58057f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38aec71c_c1c1cbbc",
