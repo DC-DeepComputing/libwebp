@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d2f8782_964ccd26",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-07T19:28:15Z",
+      "side": 1,
+      "message": "Hi James,\n\nI am not sure what the error in the build is, would it be possible to rerun them?",
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
