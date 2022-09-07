@@ -247,6 +247,12 @@ macro(set_version FILE TARGET_NAME NAME_IN_MAKEFILE)
     ${TARGET_NAME}
     PROPERTIES VERSION ${LT_CURRENT_MINUS_AGE}.${LT_AGE}.${LT_REVISION}
                SOVERSION ${LT_CURRENT_MINUS_AGE})
+  if(MINGW)
+    set_target_properties(
+      ${TARGET_NAME}
+      PROPERTIES RUNTIME_OUTPUT_NAME
+                 ${NAME_IN_MAKEFILE}-${LT_CURRENT_MINUS_AGE})
+  endif()
   if(APPLE)
     # For compatibility, set MACHO_COMPATIBILITY_VERSION and
     # MACHO_CURRENT_VERSION to match libtool. These properties were introduced
