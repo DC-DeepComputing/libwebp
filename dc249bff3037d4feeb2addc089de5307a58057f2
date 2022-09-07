@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "3303ea65_034f758a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-07T01:19:31Z",
+      "side": 1,
+      "message": "According to the page you cited,\n\n\u003e Directories above marked with (W) are intended for installations on Windows where the prefix may point at the top of an application\u0027s installation directory. Those marked with (U) are intended for installations on UNIX platforms where the prefix is shared by multiple packages. **This is merely a convention, so all (W) and (U) directories are still searched on all platforms**\n\nit seems that all entries are supported on all platforms, so this would probably be okay from that standpoint\n\n\u003e Debian seems to symlink /usr/lib/\u003cproject\u003e in /usr/lib/cmake, though I only have various libclang/llvm-dev packages installed.\n\nSince Debian uses autotools[1], I unfortunately, or fortunately, don\u0027t know if they would or wouldn\u0027t symlink a cmake directory.\n\nI tried checking [2] and [3] and cannot easily find a way to find a package that would corroborate that (trying to search for .cmake is too much, limiting to Target.cmake is also too much, trying to limit it to amd64 remove \"not mips\", and I can\u0027t find a way to search for \"not mips\" architechture). But at least I could confirm that they don\u0027t for all of their packages, since libboost only contains cmake files in /usr/lib/x86_64-linux-gnu/cmake/\n\n\n[1] https://sources.debian.org/src/libwebp/1.2.2-2/debian/rules/\n[2] https://packages.debian.org/search?searchon\u003dcontents\u0026keywords\u003dTarget.cmake\u0026mode\u003d\u0026suite\u003dbullseye\u0026arch\u003damd64\n[3] https://packages.debian.org/search?searchon\u003dcontents\u0026keywords\u003dLLVMConfig.cmake\u0026mode\u003d\u0026suite\u003dbullseye\u0026arch\u003dany",
+      "parentUuid": "b36195fd_d2cb56e9",
+      "revId": "dc249bff3037d4feeb2addc089de5307a58057f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38aec71c_c1c1cbbc",
