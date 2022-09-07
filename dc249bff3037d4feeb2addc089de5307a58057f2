@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b78ebbaf_86f337a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-07T01:37:45Z",
+      "side": 1,
+      "message": "\u003e According to the page you cited,\n\u003e \n\u003e \u003e Directories above marked with (W) are intended for installations on Windows where the prefix may point at the top of an application\u0027s installation directory. Those marked with (U) are intended for installations on UNIX platforms where the prefix is shared by multiple packages. **This is merely a convention, so all (W) and (U) directories are still searched on all platforms**\n\u003e \n\u003e it seems that all entries are supported on all platforms, so this would probably be okay from that standpoint\n\u003e \n\u003e \u003e Debian seems to symlink /usr/lib/\u003cproject\u003e in /usr/lib/cmake, though I only have various libclang/llvm-dev packages installed.\n\u003e \n\u003e Since Debian uses autotools[1], I unfortunately, or fortunately, don\u0027t know if they would or wouldn\u0027t symlink a cmake directory.\n\u003e \n\nWe don\u0027t install those files in autoconf since they\u0027re created with cmake. There was a request to do that [4], but I want to avoid having custom code. There\u0027s still room to invoke cmake in that bug I suppose.\n\n\u003e I tried checking [2] and [3] and cannot easily find a way to find a package that would corroborate that (trying to search for .cmake is too much, limiting to Target.cmake is also too much, trying to limit it to amd64 remove \"not mips\", and I can\u0027t find a way to search for \"not mips\" architechture). But at least I could confirm that they don\u0027t for all of their packages, since libboost only contains cmake files in /usr/lib/x86_64-linux-gnu/cmake/\n\u003e \n\nI ran into the same problem with the package search and just relied on `dpkg-query -S ...` locally.\n\n\u003e \n\u003e [1] https://sources.debian.org/src/libwebp/1.2.2-2/debian/rules/\n\u003e [2] https://packages.debian.org/search?searchon\u003dcontents\u0026keywords\u003dTarget.cmake\u0026mode\u003d\u0026suite\u003dbullseye\u0026arch\u003damd64\n\u003e [3] https://packages.debian.org/search?searchon\u003dcontents\u0026keywords\u003dLLVMConfig.cmake\u0026mode\u003d\u0026suite\u003dbullseye\u0026arch\u003dany\n\n\n[4] https://crbug.com/webp/509",
+      "parentUuid": "3303ea65_034f758a",
+      "revId": "dc249bff3037d4feeb2addc089de5307a58057f2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "38aec71c_c1c1cbbc",
