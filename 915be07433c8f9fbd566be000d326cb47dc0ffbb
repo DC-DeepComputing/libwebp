@@ -16,6 +16,24 @@
       "message": "Hi James,\n\nI am not sure what the error in the build is, would it be possible to rerun them?",
       "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "50e5c6cc_02071694",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-07T21:00:13Z",
+      "side": 1,
+      "message": "\u003e Hi James,\n\u003e \n\u003e I am not sure what the error in the build is, would it be possible to rerun them?\n\nIt looks like some output was mixed in the log which confused the warnings parser. I\u0027ll rerun this.",
+      "parentUuid": "9d2f8782_964ccd26",
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
