@@ -33,6 +33,24 @@
       "message": "cygwin should be treated the same. Could you also add a comment that this is for compatibility with autotools please?",
       "revId": "3f84ab9836c6772895cd453dc3f175a26a9acbb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7c4730_8af7e009",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-07T19:05:03Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "4b9e4cc1_0046acd9",
+      "revId": "3f84ab9836c6772895cd453dc3f175a26a9acbb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
