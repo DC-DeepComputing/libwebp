@@ -51,6 +51,24 @@
       "parentUuid": "4b9e4cc1_0046acd9",
       "revId": "3f84ab9836c6772895cd453dc3f175a26a9acbb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e684da8d_c1835353",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-08T14:13:57Z",
+      "side": 1,
+      "message": "According to kmilos from the linked PR,\n\n\u003e This seems to be the default behaviour on Cygwin/MSYS already, so it\u0027s just MINGW we\u0027re talking about. An even easier patch might be to simply enable this setting on MINGW like Cygwin/MSYS do instead of trying to set the output name directly: https://gitlab.kitware.com/cmake/cmake/-/blob/83686df1d63e7d2c922de19489ea2bab42e98a4a/Modules/Platform/CYGWIN.cmake#L62\n\nIt seems that the behavior for this is already applied to CYGWIN, so we don\u0027t actually have to set it.\n\nAlso, it seems a simpler patch would be\n```diff\n+  if(MINGW)\n+    # Sets the dll output name to lib\u003cname\u003e-\u003cversion\u003e.dll for compatibility\n+    # with autotools.\n+    set(CMAKE_SHARED_LIBRARY_NAME_WITH_VERSION 1)\n+  endif()\n```endif\n\nand I checked to confirm that it indeed has the same effect.\n\nWould it be preferred to swap to the somewhat implicit way, or keep the current explicit name change? I can\u0027t find any documentation available at this time for that CMake variable, so I do not know if its behavior is guaranteed, but it is available to view in the code [1]. Either way, I will remove CYGWIN from this part since it\u0027s already set by CMake\n\n\n[1] https://github.com/Kitware/CMake/blob/b9698ba3ca18b985e13abbce04a0947c2170461d/Source/cmGeneratorTarget.cxx#L5379-L5387",
+      "parentUuid": "eb7c4730_8af7e009",
+      "revId": "3f84ab9836c6772895cd453dc3f175a26a9acbb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "197a5367_12aa38d7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-08T14:13:57Z",
+      "side": 1,
+      "message": "I keep on forgetting that nmake exists. I unfortunately do not have nmake available to test, I will reword to clarify that I\u0027m not able to test and match it, but it was matched in a previous changelog",
+      "parentUuid": "72088367_c09db033",
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "9d2f8782_964ccd26",
@@ -66,6 +84,30 @@
       "writtenOn": "2022-09-07T21:53:56Z",
       "side": 1,
       "message": "maybe \u0027...for compatibility\u0027?",
+      "range": {
+        "startLine": 251,
+        "startChar": 58,
+        "endLine": 251,
+        "endChar": 66
+      },
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e593d047_a62122f6",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 251,
+      "author": {
+        "id": 1378811
+      },
+      "writtenOn": "2022-09-08T14:13:57Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "12d7fbdc_1962ad59",
       "range": {
         "startLine": 251,
         "startChar": 58,
