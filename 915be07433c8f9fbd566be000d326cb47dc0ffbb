@@ -73,6 +73,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12923fd7_884ff122",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-08T19:24:57Z",
+      "side": 1,
+      "message": "Axel will this impact your workflow? An option would be to align NMake with the versioned naming or leave this up to the caller of cmake since CMAKE_SHARED_LIBRARY_NAME_WITH_VERSION is an option that can be set from the command line.",
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12d7fbdc_1962ad59",
         "filename": "CMakeLists.txt",
         "patchSetId": 2
