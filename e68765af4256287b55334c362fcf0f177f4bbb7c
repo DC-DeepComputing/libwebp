@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e570e3a_50a8210b",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-12T19:27:31Z",
+      "side": 1,
+      "message": "I wanted to normalize this with quant.h. With gcc this produces better code, avoiding pushing things to the stack to use general registers for the add",
+      "revId": "e68765af4256287b55334c362fcf0f177f4bbb7c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
