@@ -2168,9 +2168,8 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
 
    <section anchor="IANA" numbered="true" toc="default">
      <name>IANA Considerations</name>
-     <t>IANA has updated the <xref target="IANA-Media-Types">"Image Media
-       Types" registry</xref> to include 'image/webp' as described in <xref
-         target="webp-media-type"/>.</t>
+     <t>IANA has registered the following media type <xref
+       target="RFC2046"/>.</t>
 
      <section anchor="webp-media-type" numbered="true" toc="default">
        <name>The 'image/webp' Media Type</name>
@@ -2237,6 +2236,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
      <references>
        <name>Normative References</name>
        <?rfc include="reference.RFC.1166.xml" ?>
+       <?rfc include="reference.RFC.2046.xml" ?>
        <?rfc include="reference.RFC.2119.xml" ?>
        <?rfc include="reference.RFC.2781.xml" ?>
        <?rfc include="reference.RFC.4648.xml" ?>
