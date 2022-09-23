@@ -174,7 +174,8 @@
 
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
          of:</t>
-       <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -184,7 +185,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                         Chunk Payload                         :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+         </figure>
          <dl newline="true" spacing="normal" indent="8">
            <dt>Chunk FourCC: 32 bits</dt>
            <dd>ASCII four-character code used for chunk identification.</dd>
@@ -206,7 +208,8 @@
 
      <section numbered="true" toc="default">
        <name>WebP File Header</name>
-       <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -216,7 +219,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |      'W'      |      'E'      |      'B'      |      'P'      |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+       </figure>
 
        <dl newline="true" spacing="normal" indent="8">
          <dt>'RIFF': 32 bits</dt>
@@ -247,7 +251,8 @@
          by older software.</t>
 
        <t>Simple WebP (lossy) file format:</t>
-       <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -257,10 +262,12 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                          VP8 chunk                            :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+       </figure>
 
        <t>VP8 chunk:</t>
-      <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -269,7 +276,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                           VP8 data                            :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-        ]]></artwork>
+           ]]></artwork>
+       </figure>
 
       <dl newline="true" spacing="normal" indent="8">
         <dt>VP8 data: <em>Chunk Size</em> bytes</dt>
@@ -299,7 +307,8 @@
          features provided by the extended format.</t>
 
        <t>Simple WebP (lossless) file format:</t>
-       <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -309,10 +318,12 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                          VP8L chunk                           :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+       </figure>
 
        <t>VP8L chunk:</t>
-       <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -321,7 +332,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                           VP8L data                           :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+       </figure>
 
        <dl newline="true" spacing="normal" indent="8">
          <dt>VP8L data: <em>Chunk Size</em> bytes</dt>
@@ -375,7 +387,8 @@
          do a full search give the same results as the ones stopping early.</t>
 
        <t anchor="extended_header" >Extended WebP file header:</t>
-       <artwork name="" type="" align="left" alt=""><![CDATA[
+       <figure>
+         <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -392,7 +405,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ...  Canvas Height Minus One    |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-         ]]></artwork>
+           ]]></artwork>
+       </figure>
 
        <dl newline="true" spacing="normal" indent="8">
          <dt>Reserved (Rsv): 2 bits</dt>
@@ -437,7 +451,8 @@
            <t>For an animated image, this chunk contains the <em>global
              parameters</em> of the animation.</t>
 
-           <artwork name="" type="" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -448,7 +463,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |          Loop Count           |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Background Color: 32 bits (<em>uint32</em>)</dt>
@@ -485,7 +501,8 @@
              <em>single</em> frame. If the <em>Animation flag</em> is not set,
                then this chunk SHOULD NOT be present.</t>
 
-             <artwork name="" type="" align="left" alt=""><![CDATA[
+             <figure>
+               <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -502,7 +519,8 @@
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                         Frame Data                            :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-               ]]></artwork>
+                 ]]></artwork>
+             </figure>
 
              <dl newline="true" spacing="normal" indent="8">
                <dt>Frame X: 24 bits (<em>uint24</em>)</dt>
@@ -601,7 +619,8 @@ else
          </section>
          <section anchor="alpha" numbered="true" toc="default">
            <name>Alpha</name>
-           <artwork name="" type="" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -610,7 +629,8 @@ else
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 |Rsv| P | F | C |     Alpha Bitstream...                        |
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Reserved (Rsv): 2 bits</dt>
@@ -637,11 +657,13 @@ else
                <t>For each pixel, filtering is performed using the following
                  calculations. Assume the alpha values surrounding the current
                  <tt>X</tt> position are labeled as:</t>
-               <artwork name="" type="" align="left" alt=""><![CDATA[
+               <figure>
+                 <artwork name="" type="" align="left" alt=""><![CDATA[
  C | B |
 ---+---+
  A | X |
-                 ]]></artwork>
+                   ]]></artwork>
+               </figure>
 
                <t>We seek to compute the alpha value at position X. First, a
                  prediction is made depending on the filtering method:</t>
@@ -735,7 +757,8 @@ alpha = (predictor + X) % 256
          </section>
          <section anchor="color-profile" numbered="true" toc="default">
            <name>Color profile</name>
-           <artwork name="" type="" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -744,7 +767,8 @@ alpha = (predictor + X) % 256
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                       Color Profile                           :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Color Profile: <em>Chunk Size</em> bytes</dt>
@@ -765,7 +789,8 @@ alpha = (predictor + X) % 256
              'XMP ' chunks.</t>
            <t>The chunks are defined as follows:</t>
            <t>EXIF chunk:</t>
-           <artwork name="" type="" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -774,7 +799,8 @@ alpha = (predictor + X) % 256
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                        Exif Metadata                          :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Exif Metadata: <em>Chunk Size</em> bytes</dt>
@@ -782,7 +808,8 @@ alpha = (predictor + X) % 256
            </dl>
 
            <t>XMP chunk:</t>
-           <artwork name="" type="" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -791,7 +818,8 @@ alpha = (predictor + X) % 256
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 :                        XMP Metadata                           :
 +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>XMP Metadata: <em>Chunk Size</em> bytes</dt>
@@ -873,21 +901,26 @@ for loop = 0..loop_count - 1
        <section numbered="true" toc="default">
          <name>Example File Layouts</name>
          <t>A lossy encoded image with alpha may look as follows:</t>
+         <figure>
            <artwork name="" type="" align="left" alt=""><![CDATA[
 RIFF/WEBP
 +- VP8X (descriptions of features used)
 +- ALPH (alpha bitstream)
 +- VP8 (bitstream)
              ]]></artwork>
-           <t>A losslessly encoded image may look as follows:</t>
+         </figure>
+         <t>A losslessly encoded image may look as follows:</t>
+         <figure>
            <artwork name="" type="" align="left" alt=""><![CDATA[
 RIFF/WEBP
 +- VP8X (descriptions of features used)
 +- XYZW (unknown chunk)
 +- VP8L (lossless bitstream)
              ]]></artwork>
-           <t>A lossless image with ICC profile and XMP metadata may look as
-             follows:</t>
+         </figure>
+         <t>A lossless image with ICC profile and XMP metadata may look as
+           follows:</t>
+         <figure>
            <artwork name="" type="" align="left" alt=""><![CDATA[
 RIFF/WEBP
 +- VP8X (descriptions of features used)
@@ -895,7 +928,9 @@ RIFF/WEBP
 +- VP8L (lossless bitstream)
 +- XMP  (metadata)
              ]]></artwork>
-           <t>An animated image with Exif metadata may look as follows:</t>
+         </figure>
+         <t>An animated image with Exif metadata may look as follows:</t>
+         <figure>
            <artwork name="" type="" align="left" alt=""><![CDATA[
 RIFF/WEBP
 +- VP8X (descriptions of features used)
@@ -906,6 +941,7 @@ RIFF/WEBP
 +- ANMF (frame4 parameters + data)
 +- EXIF (metadata)
              ]]></artwork>
+         </figure>
        </section>
      </section>
    </section>
@@ -1154,14 +1190,16 @@ int block_index = (y >> size_bits) * block_xsize +
          <t>We choose the neighboring pixels (TL, T, TR, and L) of the current
            pixel (P) as follows:</t>
 
-         <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+         <figure>
+           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
 O    O    O    O    O    O    O    O    O    O    O
 O    O    O    O    O    O    O    O    O    O    O
 O    O    O    O    TL   T    TR   O    O    O    O
 O    O    O    O    L    P    X    X    X    X    X
 X    X    X    X    X    X    X    X    X    X    X
 X    X    X    X    X    X    X    X    X    X    X
-           ]]></artwork>
+             ]]></artwork>
+         </figure>
 
          <t>where TL means top-left, T top, TR top-right, L left pixel. At the
            time of predicting a value for P, all pixels O, TL, T, TR and L have
@@ -1171,7 +1209,8 @@ X    X    X    X    X    X    X    X    X    X    X
          <t>Given the above neighboring pixels, the different prediction modes
            are defined as follows.</t>
 
-         <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+         <figure>
+           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
 | Mode   | Predicted value of each channel of the current pixel    |
 | ------ | ------------------------------------------------------- |
 |  0     | 0xff000000 (represents solid black color in ARGB)       |
@@ -1188,8 +1227,8 @@ X    X    X    X    X    X    X    X    X    X    X
 | 11     | Select(L, T, TL)                                        |
 | 12     | ClampAddSubtractFull(L, T, TL)                          |
 | 13     | ClampAddSubtractHalf(Average2(L, T), TL)                |
-           ]]></artwork>
-
+             ]]></artwork>
+         </figure>
 
          <t><tt>Average2</tt> is defined as follows for each ARGB
            component:</t>
@@ -1605,7 +1644,8 @@ if (color_table_size <= 2) {
              bits) are meaningful for length values. For distance values,
              however, all the 40 prefix codes are valid.</t>
 
-           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
 | Value range     | Prefix code | Extra bits |
 | --------------- | ----------- | ---------- |
 | 1               | 0           | 0          |
@@ -1621,7 +1661,8 @@ if (color_table_size <= 2) {
 | ...             | ...         | ...        |
 | 524289..786432  | 38          | 18         |
 | 786433..1048576 | 39          | 18         |
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <t>The pseudocode to obtain a (length or distance) value from the
              prefix code is as follows:</t>
@@ -1662,7 +1703,8 @@ return offset + ReadBits(extra_bits) + 1;
            <t>The mapping between distance code <tt>i</tt> and the neighboring
              pixel offset <tt>(xi, yi)</tt> is as follows:</t>
 
-           <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
+           <figure>
+             <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
 (0, 1),  (1, 0),  (1, 1),  (-1, 1), (0, 2),  (2, 0),  (1, 2),  (-1, 2),
 (2, 1),  (-2, 1), (2, 2),  (-2, 2), (0, 3),  (3, 0),  (1, 3),  (-1, 3),
 (3, 1),  (-3, 1), (2, 3),  (-2, 3), (3, 2),  (-3, 2), (0, 4),  (4, 0),
@@ -1678,7 +1720,8 @@ return offset + ReadBits(extra_bits) + 1;
 (8, 0),  (4, 7),  (-4, 7), (7, 4),  (-7, 4), (8, 1),  (8, 2),  (6, 6),
 (-6, 6), (8, 3),  (5, 7),  (-5, 7), (7, 5),  (-7, 5), (8, 4),  (6, 7),
 (-6, 7), (7, 6),  (-7, 6), (8, 5),  (7, 7),  (-7, 7), (8, 6),  (8, 7)
-             ]]></artwork>
+               ]]></artwork>
+           </figure>
 
            <t>For example, distance code <tt>1</tt> indicates offset of <tt>(0,
              1)</tt> for the neighboring pixel, that is, the pixel above the
