@@ -2185,20 +2185,18 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
 
    <section anchor="Security" numbered="true" toc="default">
      <name>Security Considerations</name>
-     <t>Graphics file format libraries are often used in ways where they take
-       inputs from unknown and perhaps unsafe sources. There can be security
-       issues both on clients (web browsers, email clients) and servers (for
-       example when automatically converting uploaded images from one format to
-       another). As such, graphics file format library implementations should
-       treat security as a primary concern.</t>
-     <t>Security risks are similar to other media content and may include
-       integer overflows, out-of-bounds reads and writes to both heap and
-       stack, uninitialized data usage, null pointer dereferences, resource
-       (disk, memory) exhaustion and extended resource usage (long running
-       time) as part of the demuxing and decoding process. These may cause
-       information leakage (memory layout and contents) or crashes and thereby
-       denial of service to an application using the format <xref
-         target="cve.mitre.org-libwebp"/> <xref target="crbug-security"/>.</t>
+     <t>Implementations of this format face security risks such as integer
+       overflows, out-of-bounds reads and writes to both heap and stack,
+       uninitialized data usage, null pointer dereferences, resource (disk,
+       memory) exhaustion and extended resource usage (long running time) as
+       part of the demuxing and decoding process. In particular,
+       implementations reading this format are likely to take input from
+       unknown and possibly unsafe sources -- both clients (e.g., web browsers,
+       email clients) and servers (e.g., applications which accept uploaded
+       images). These may cause information leakage (memory layout and
+       contents) or crashes and thereby denial of service to an application
+       using the format <xref target="cve.mitre.org-libwebp"/> <xref
+         target="crbug-security"/>.</t>
      <t>The format does not employ "active content", but does allow metadata
        (<xref target="XMP"/>, <xref target="Exif"/>) and custom chunks to be
        embedded in a file. Applications that interpret these chunks may be
