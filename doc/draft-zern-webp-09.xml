@@ -175,6 +175,7 @@
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
          of:</t>
        <figure>
+         <name>RIFF chunk structure</name>
          <artwork name="" type="ascii-art" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -209,6 +210,7 @@
      <section numbered="true" toc="default">
        <name>WebP File Header</name>
        <figure>
+         <name>WebP file header chunk</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -252,6 +254,7 @@
 
        <t>Simple WebP (lossy) file format:</t>
        <figure>
+         <name>Simple WebP (lossy) file format</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -267,6 +270,7 @@
 
        <t>VP8 chunk:</t>
        <figure>
+         <name>VP8 chunk</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -308,6 +312,7 @@
 
        <t>Simple WebP (lossless) file format:</t>
        <figure>
+         <name>Simple WebP (lossless) file format</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -323,6 +328,7 @@
 
        <t>VP8L chunk:</t>
        <figure>
+         <name>VP8L chunk</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -386,8 +392,9 @@
          it. The rule of ignoring late chunks should make programs that need to
          do a full search give the same results as the ones stopping early.</t>
 
-       <t anchor="extended_header" >Extended WebP file header:</t>
+       <t anchor="extended_header">Extended WebP file header:</t>
        <figure>
+         <name>Extended WebP file header</name>
          <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -452,6 +459,7 @@
              parameters</em> of the animation.</t>
 
            <figure>
+             <name>ANIM chunk</name>
              <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -502,6 +510,7 @@
                then this chunk SHOULD NOT be present.</t>
 
              <figure>
+               <name>ANMF chunk</name>
                <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -620,6 +629,7 @@ else
          <section anchor="alpha" numbered="true" toc="default">
            <name>Alpha</name>
            <figure>
+             <name>ALPH chunk</name>
              <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -758,6 +768,7 @@ alpha = (predictor + X) % 256
          <section anchor="color-profile" numbered="true" toc="default">
            <name>Color profile</name>
            <figure>
+             <name>ICCP chunk</name>
              <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -790,6 +801,7 @@ alpha = (predictor + X) % 256
            <t>The chunks are defined as follows:</t>
            <t>EXIF chunk:</t>
            <figure>
+             <name>EXIF chunk</name>
              <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -809,6 +821,7 @@ alpha = (predictor + X) % 256
 
            <t>XMP chunk:</t>
            <figure>
+             <name>XMP chunk</name>
              <artwork name="" type="" align="left" alt=""><![CDATA[
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
