@@ -2296,6 +2296,30 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
        <?rfc include="reference.RFC.6838.xml" ?>
        <?rfc include="reference.RFC.8174.xml" ?>
 
+       <reference anchor="Exif"
+         target="https://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf">
+         <front>
+           <title>Exchangeable image file format for digital still cameras:
+             Exif Version 2.3</title>
+           <author>
+             <organization>Camera &amp; Imaging Products Association
+               (CIPA), Japan Electronics and Information Technology
+               Industries Association (JEITA)</organization>
+           </author>
+         </front>
+       </reference>
+
+       <reference anchor="ICC"
+         target="https://www.color.org/specification/ICC1v43_2010-12.pdf">
+         <front>
+           <title>ICC Specification</title>
+           <author>
+             <organization>International Color Consortium</organization>
+           </author>
+           <date month="December" year="2010"/>
+         </front>
+       </reference>
+
        <reference anchor="rec601"
          target="https://www.itu.int/rec/R-REC-BT.601/">
          <front>
@@ -2330,6 +2354,16 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
            <date month="April" year="2018" />
          </front>
        </reference>
+
+       <reference anchor="XMP"
+         target="https://www.adobe.com/devnet/xmp.html">
+         <front>
+           <title>XMP Specification</title>
+           <author>
+             <organization>Adobe Inc.</organization>
+           </author>
+         </front>
+       </reference>
      </references>
 
      <references>
@@ -2352,19 +2386,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
            <title>libwebp CVE List</title>
            <author>
              <organization/>
-           </author>
-         </front>
-       </reference>
-
-       <reference anchor="Exif"
-         target="https://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf">
-         <front>
-           <title>Exchangeable image file format for digital still cameras:
-             Exif Version 2.3</title>
-           <author>
-             <organization>Camera &amp; Imaging Products Association
-               (CIPA), Japan Electronics and Information Technology
-               Industries Association (JEITA)</organization>
            </author>
          </front>
        </reference>
@@ -2400,17 +2421,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
              <organization>Internet Assigned Numbers Authority
                (IANA)</organization>
            </author>
-         </front>
-       </reference>
-
-       <reference anchor="ICC"
-         target="https://www.color.org/specification/ICC1v43_2010-12.pdf">
-         <front>
-           <title>ICC Specification</title>
-           <author>
-             <organization>International Color Consortium</organization>
-           </author>
-           <date month="December" year="2010"/>
          </front>
        </reference>
 
@@ -2458,16 +2468,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
              1.0</title>
            <author>
              <organization/>
-           </author>
-         </front>
-       </reference>
-
-       <reference anchor="XMP"
-         target="https://www.adobe.com/devnet/xmp.html">
-         <front>
-           <title>XMP Specification</title>
-           <author>
-             <organization>Adobe Inc.</organization>
            </author>
          </front>
        </reference>
