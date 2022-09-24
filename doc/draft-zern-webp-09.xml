@@ -983,15 +983,15 @@ RIFF/WEBP
        <t>This section describes the compressed data representation of a WebP
          lossless image. It is intended as a detailed reference for WebP
          lossless encoder and decoder implementation.</t>
-       <t>In this section, we extensively use C programming language syntax to
-         describe the bitstream, and assume the existence of a function for
-         reading bits, <tt>ReadBits(n)</tt>. The bytes are read in the natural
-           order of the stream containing them, and bits of each byte are read
-           in least-significant-bit-first order. When multiple bits are read at
-           the same time, the integer is constructed from the original data in
-           the original order. The most significant bits of the returned
-           integer are also the most significant bits of the original data.
-           Thus the statement</t>
+       <t>In this section, we extensively use C programming language syntax
+         <xref target="ISO.9899.2018"/> to describe the bitstream, and assume the
+         existence of a function for reading bits, <tt>ReadBits(n)</tt>. The
+         bytes are read in the natural order of the stream containing them, and
+         bits of each byte are read in least-significant-bit-first order. When
+         multiple bits are read at the same time, the integer is constructed
+         from the original data in the original order. The most significant
+         bits of the returned integer are also the most significant bits of the
+           original data. Thus the statement</t>
 
        <sourcecode type="c"><![CDATA[
 b = ReadBits(2);
@@ -2318,6 +2318,19 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
            </author>
            <date month="December" year="2010"/>
          </front>
+       </reference>
+
+       <reference anchor="ISO.9899.2018">
+         <front>
+           <title>Information technology - Programming languages - C</title>
+           <author>
+             <organization>
+               International Organization for Standardization
+             </organization>
+           </author>
+           <date month="June" year="2018"/>
+         </front>
+         <refcontent>ISO/IEC 9899:2018</refcontent>
        </reference>
 
        <reference anchor="rec601"
