@@ -22,6 +22,30 @@
       },
       "revId": "16c0182ccfc308b04d1309a96a4273f8bfdcd04b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a069890_1b5ca765",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-27T20:21:44Z",
+      "side": 1,
+      "message": "\u003e Actually it includes the padding, no? If you store a single byte, you add another byte for padding and store \"2\" as the Chunk Size, so the padding is included. Or is this sentence referring to another kind of padding than the \"make-it-even\" one?\n\nThe size written to the chunk is the unpadded size:\nhttps://chromium.googlesource.com/webm/libwebp/+/v1.2.3/src/mux/muxinternal.c#195\n\nit\u0027s then corrected on the demux side:\nhttps://chromium.googlesource.com/webm/libwebp/+/v1.2.3/src/demux/demux.c#230",
+      "parentUuid": "b6d39f5b_9feb2c69",
+      "range": {
+        "startLine": 127,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 23
+      },
+      "revId": "16c0182ccfc308b04d1309a96a4273f8bfdcd04b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
