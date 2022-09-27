@@ -2422,17 +2422,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="IANA-Media-Types"
-         target="https://www.iana.org/assignments/media-types/media-types.xhtml">
-         <front>
-           <title>Media Types</title>
-           <author>
-             <organization>Internet Assigned Numbers Authority
-               (IANA)</organization>
-           </author>
-         </front>
-       </reference>
-
        <reference anchor="jpeg-spec"
          target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
          <front>
