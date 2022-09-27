@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6d39f5b_9feb2c69",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-09-27T07:43:51Z",
+      "side": 1,
+      "message": "Actually it includes the padding, no? If you store a single byte, you add another byte for padding and store \"2\" as the Chunk Size, so the padding is included. Or is this sentence referring to another kind of padding than the \"make-it-even\" one?",
+      "range": {
+        "startLine": 127,
+        "startChar": 16,
+        "endLine": 127,
+        "endChar": 23
+      },
+      "revId": "16c0182ccfc308b04d1309a96a4273f8bfdcd04b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
