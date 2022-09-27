@@ -110,16 +110,16 @@
          containing a single image encoded as a VP8 key frame). The WebP
          container provides additional support for:</t>
          <ul spacing="normal">
-           <li><strong>Lossless compression.</strong> An image can be
-             losslessly compressed, using the WebP Lossless Format.</li>
-           <li><strong>Metadata.</strong> An image may have metadata stored in
-             <xref target="Exif"/> or <xref target="XMP"/> formats.</li>
-           <li><strong>Transparency.</strong> An image may have transparency,
-             i.e., an alpha channel.</li>
-           <li><strong>Color Profile.</strong> An image may have an embedded
-             <xref target="ICC">ICC profile</xref>.</li>
-           <li><strong>Animation.</strong> An image may have multiple frames
-             with pauses between them, making it an animation.</li>
+           <li>Lossless compression. An image can be losslessly compressed,
+             using the WebP Lossless Format.</li>
+           <li>Metadata. An image may have metadata stored in <xref
+             target="Exif"/> or <xref target="XMP"/> formats.</li>
+           <li>Transparency. An image may have transparency, i.e., an alpha
+             channel.</li>
+           <li>Color Profile. An image may have an embedded <xref
+             target="ICC">ICC profile</xref>.</li>
+           <li>Animation. An image may have multiple frames with pauses between
+             them, making it an animation.</li>
          </ul>
      <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
        "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -200,10 +200,10 @@
                target="riff-spec">RIFF</xref> -- is added.</dd>
          </dl>
 
-         <t><strong>Note:</strong> RIFF has a convention that all-uppercase
-           chunk FourCCs are standard chunks that apply to any RIFF file
-           format, while FourCCs specific to a file format are all lowercase.
-           WebP does not follow this convention.</t>
+         <t>Note: RIFF has a convention that all-uppercase chunk FourCCs are
+           standard chunks that apply to any RIFF file format, while FourCCs
+           specific to a file format are all lowercase. WebP does not follow
+           this convention.</t>
      </section>
 
      <section numbered="true" toc="default">
@@ -304,8 +304,8 @@
      <section anchor="simple-file-format-lossless" numbered="true"
        toc="default">
        <name>Simple File Format (Lossless)</name>
-       <t><strong>Note:</strong> Older readers may not support files using the
-         lossless format.</t>
+       <t>Note: Older readers may not support files using the lossless
+         format.</t>
        <t>This layout SHOULD be used if the image requires lossless encoding
          (with an optional transparency channel) and does not require advanced
          features provided by the extended format.</t>
@@ -354,8 +354,8 @@
 
      <section numbered="true" toc="default">
        <name>Extended File Format</name>
-       <t><strong>Note:</strong> Older readers may not support files using the
-         extended format.</t>
+       <t>Note: Older readers may not support files using the extended
+         format.</t>
 
        <t>An extended format file consists of:</t>
        <ul spacing="normal">
@@ -386,11 +386,11 @@
          chunk appears in the wrong place, the file is invalid, but readers MAY
          parse the file, ignoring the chunks that come too late.</t>
 
-       <t><strong>Rationale:</strong> Setting the order of chunks should allow
-         quicker file parsing. For example, if an 'ALPH' chunk does not appear
-         in its required position, a decoder can choose to stop searching for
-         it. The rule of ignoring late chunks should make programs that need to
-         do a full search give the same results as the ones stopping early.</t>
+       <t>Rationale: Setting the order of chunks should allow quicker file
+         parsing. For example, if an 'ALPH' chunk does not appear in its
+         required position, a decoder can choose to stop searching for it. The
+         rule of ignoring late chunks should make programs that need to do a
+         full search give the same results as the ones stopping early.</t>
 
        <t anchor="extended_header">Extended WebP file header:</t>
        <figure>
@@ -483,7 +483,7 @@
                  unused space on the canvas around the frames, as well as the
                  transparent pixels of the first frame. Background color is
                  also used when disposal method is <tt>1</tt>.</t>
-               <t><strong>Note:</strong></t>
+               <t>Note:</t>
                <ul spacing="normal">
                  <li>Background color MAY contain a transparency value (alpha),
                    even if the <em>Alpha</em> flag in <xref
@@ -581,7 +581,7 @@
                      frame</em> with background color specified in the <xref
                        target="anim_chunk">ANIM chunk</xref>.</li>
                  </ul>
-                 <t><strong>Notes:</strong></t>
+                 <t>Notes:</t>
                  <ul spacing="normal">
                    <li>The frame disposal only applies to the <em>frame
                      rectangle</em>, that is, the rectangle defined by
@@ -622,10 +622,9 @@ else
                  </ul>
                </dd>
              </dl>
-             <t><strong>Note:</strong> The 'ANMF' payload, <em>Frame Data</em>
-               above, consists of individual <em>padded</em> chunks as
-               described by the <xref target="riff-file-format">RIFF file
-               format</xref>.</t>
+             <t>Note: The 'ANMF' payload, <em>Frame Data</em> above, consists
+               of individual <em>padded</em> chunks as described by the <xref
+                 target="riff-file-format">RIFF file format</xref>.</t>
          </section>
          <section anchor="alpha" numbered="true" toc="default">
            <name>Alpha</name>
@@ -729,8 +728,8 @@ alpha = (predictor + X) % 256
 
            <t>This optional chunk contains encoded alpha data for this frame. A
              frame containing a 'VP8L' chunk SHOULD NOT contain this chunk.</t>
-           <t><strong>Rationale:</strong> The transparency information is
-             already part of the 'VP8L' chunk.</t>
+           <t>Rationale: The transparency information is already part of the
+             'VP8L' chunk.</t>
            <t>The alpha channel data is stored as uncompressed raw data
              (when compression method is '0') or compressed using the
              lossless format (when the compression method is '1').</t>
@@ -743,16 +742,15 @@ alpha = (predictor + X) % 256
                  target="webp-lossless"/>) of implicit dimension width x
                  height. That is, this image-stream does NOT contain any
                  headers describing the image dimension.</t>
-             <t><strong>Rationale:</strong> the dimension is already known from
-               other sources, so storing it again would be redundant and
-               error-prone.</t>
+             <t>Rationale: the dimension is already known from other sources,
+               so storing it again would be redundant and error-prone.</t>
              <t>Once the image-stream is decoded into ARGB color values,
                following the process described in the lossless format
                specification, the transparency information must be extracted
-               from the *green* channel of the ARGB quadruplet.</t>
-             <t><strong>Rationale:</strong> the green channel is allowed extra
-               transformation steps in the specification -- unlike the other
-               channels -- that can improve compression.</t></li>
+               from the green channel of the ARGB quadruplet.</t>
+             <t>Rationale: the green channel is allowed extra transformation
+               steps in the specification -- unlike the other channels -- that
+               can improve compression.</t></li>
            </ul>
          </section>
          <section anchor="bitstream-vp8vp8l" numbered="true" toc="default">
@@ -851,9 +849,9 @@ alpha = (predictor + X) % 256
              target="terminology-amp-basics"/>.) whose <em>chunk tag</em> is
                different from any of the chunks described in this section, is
                considered an <em>unknown chunk</em>.</t>
-           <t><strong>Rationale:</strong> Allowing unknown chunks gives a
-             provision for future extension of the format, and also allows
-             storage of any application-specific data.</t>
+           <t>Rationale: Allowing unknown chunks gives a provision for future
+             extension of the format, and also allows storage of any
+             application-specific data.</t>
            <t>A file MAY contain unknown chunks:</t>
            <ul spacing="normal">
              <li>At the end of the file as described in <xref
@@ -1592,13 +1590,13 @@ if (color_table_size <= 2) {
            their own entropy codes. Also, several blocks may share the same
            entropy codes.</t>
 
-         <t><strong>Rationale:</strong> Storing an entropy code incurs a cost.
-           This cost can be minimized if statistically similar blocks share an
-           entropy code, thereby storing that code only once. For example, an
-           encoder can find similar blocks by clustering them using their
-           statistical properties, or by repeatedly joining a pair of randomly
-           selected clusters when it reduces the overall amount of bits needed
-           to encode the image.</t>
+         <t>Rationale: Storing an entropy code incurs a cost. This cost can be
+           minimized if statistically similar blocks share an entropy code,
+           thereby storing that code only once. For example, an encoder can
+           find similar blocks by clustering them using their statistical
+           properties, or by repeatedly joining a pair of randomly selected
+           clusters when it reduces the overall amount of bits needed to encode
+           the image.</t>
 
          <t>Each pixel is encoded using one of the three possible methods:</t>
          <ol spacing="normal">
@@ -1644,11 +1642,10 @@ if (color_table_size <= 2) {
                code is stored using an entropy code, while the extra bits are
                stored as they are (without an entropy code).</t>
 
-           <t><strong>Rationale:</strong> This approach reduces the storage
-             requirement for the entropy code. Also, large values are usually
-             rare, and so extra bits would be used for very few values in the
-             image. Thus, this approach results in a better compression
-             overall.</t>
+           <t>Rationale: This approach reduces the storage requirement for the
+             entropy code. Also, large values are usually rare, and so extra
+             bits would be used for very few values in the image. Thus, this
+             approach results in a better compression overall.</t>
 
            <t>The following table denotes the prefix codes and extra bits used
              for storing different range of values.</t>
@@ -1690,7 +1687,7 @@ int offset = (2 + (prefix_code & 1)) << extra_bits;
 return offset + ReadBits(extra_bits) + 1;
              ]]></sourcecode>
 
-           <t anchor="distance-mapping"><strong>Distance Mapping:</strong></t>
+           <t anchor="distance-mapping">Distance Mapping:</t>
 
            <t>As noted previously, distance code is a number indicating the
              position of a previously seen pixel, from which the pixels are to
@@ -1763,11 +1760,10 @@ if (dist < 1) {
            <t>Color cache stores a set of colors that have been recently used
              in the image.</t>
 
-           <t><strong>Rationale:</strong> This way, the recently used colors
-             can sometimes be referred to more efficiently than emitting them
-             using other two methods (described in <xref
-               target="prefix-coded-literals"/> and <xref
-                 target="lz77-backward-reference"/>).</t>
+           <t>Rationale: This way, the recently used colors can sometimes be
+             referred to more efficiently than emitting them using other two
+             methods (described in <xref target="prefix-coded-literals"/> and
+             <xref target="lz77-backward-reference"/>).</t>
 
            <t>Color cache codes are stored as follows. First, there is a 1-bit
              value that indicates if the color cache is used. If this bit is 0,
@@ -1817,10 +1813,9 @@ int color_cache_size = 1 << color_cache_code_bits;
            coding</strong>. In other words, different blocks of the image can
              potentially use different entropy codes.</t>
 
-         <t><strong>Rationale:</strong> Different areas of the image may have
-           different characteristics. So, allowing them to use different
-           entropy codes provides more flexibility and potentially a better
-           compression.</t>
+         <t>Rationale: Different areas of the image may have different
+           characteristics. So, allowing them to use different entropy codes
+           provides more flexibility and potentially a better compression.</t>
        </section>
 
        <section numbered="true" toc="default">
@@ -1885,14 +1880,14 @@ if (num_symbols == 2) {
 }
              ]]></sourcecode>
 
-           <t><strong>Note:</strong> Another special case is when <em>all</em>
-             prefix code lengths are <em>zeros</em> (an empty prefix code).
-               For example, a prefix code for distance can be empty if there
-               are no backward references. Similarly, prefix codes for alpha,
-               red, and blue can be empty if all pixels within the same meta
-               prefix code are produced using the color cache. However, this
-               case doesn't need a special handling, as empty prefix codes can
-               be coded as those containing a single symbol <tt>0</tt>.</t>
+           <t>Note: Another special case is when <em>all</em> prefix code
+             lengths are <em>zeros</em> (an empty prefix code). For example, a
+             prefix code for distance can be empty if there are no backward
+             references. Similarly, prefix codes for alpha, red, and blue can
+             be empty if all pixels within the same meta prefix code are
+             produced using the color cache. However, this case doesn't need a
+             special handling, as empty prefix codes can be coded as those
+             containing a single symbol <tt>0</tt>.</t>
 
            <t><strong>(ii) Normal Code Length Code:</strong></t>
 
@@ -1989,7 +1984,7 @@ int max_symbol = 2 + ReadBits(length_nbits);
                  image</em> (described below).</li>
            </ul>
 
-           <t><strong>Entropy image:</strong></t>
+           <t>Entropy image:</t>
 
            <t>The entropy image defines which prefix codes are used in
              different parts of the image, as described below.</t>
@@ -2010,7 +2005,7 @@ int prefix_ysize = DIV_ROUND_UP(ysize, 1 << prefix_bits);
            <t>Next bits contain an entropy image of width
              <tt>prefix_xsize</tt> and height <tt>prefix_ysize</tt>.</t>
 
-           <t><strong>Interpretation of Meta Prefix Codes:</strong></t>
+           <t>Interpretation of Meta Prefix Codes:</t>
 
            <t>For any given pixel (x, y), there is a set of five prefix codes
              associated with it. These codes are (in bitstream order):</t>
