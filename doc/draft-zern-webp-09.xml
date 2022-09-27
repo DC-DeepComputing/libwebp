@@ -502,7 +502,7 @@
 
            <t>This chunk MUST appear if the <em>Animation</em> flag in the VP8X
              chunk is set. If the <em>Animation</em> flag is not set and this
-               chunk is present, it SHOULD be ignored.</t>
+               chunk is present, it MUST be ignored.</t>
 
              <t>ANMF chunk:</t>
 
