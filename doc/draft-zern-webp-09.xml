@@ -192,8 +192,8 @@
            <dt>Chunk FourCC: 32 bits</dt>
            <dd>ASCII four-character code used for chunk identification.</dd>
            <dt>Chunk Size: 32 bits (<em>uint32</em>)</dt>
-           <dd>The size of the chunk not including this field, the chunk
-             identifier or padding.</dd>
+           <dd>The size of the chunk in bytes, not including this field, the
+             chunk identifier or padding.</dd>
            <dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
            <dd>The data payload. If <em>Chunk Size</em> is odd, a single
              padding byte -- that SHOULD be <tt>0</tt> to conform with <xref
