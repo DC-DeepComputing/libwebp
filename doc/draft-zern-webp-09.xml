@@ -444,7 +444,8 @@
 
        <t>The product of <em>Canvas Width</em> and <em>Canvas Height</em> MUST
          be at most <tt>2^32 - 1</tt>.</t>
-       <t>Future specifications MAY add more fields.</t>
+       <t>Future specifications may add more fields. Unknown fields MUST be
+         ignored.</t>
 
        <section numbered="true" toc="default">
          <name>Chunks</name>
