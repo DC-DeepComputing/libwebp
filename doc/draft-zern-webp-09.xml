@@ -238,10 +238,11 @@
        <t>A WebP file MUST begin with a RIFF header with the FourCC 'WEBP'. The
          file size in the header is the total size of the chunks that follow
          plus <tt>4</tt> bytes for the 'WEBP' FourCC. The file SHOULD NOT
-         contain anything after it. Readers MAY parse such files, ignoring the
-         trailing data. As the size of any chunk is even, the size given by the
-         RIFF header is also even. The contents of individual chunks will be
-         described in the following sections.</t>
+         contain any data after the data specified by <em>File Size</em>.
+         Readers MAY parse such files, ignoring the trailing data. As the size
+         of any chunk is even, the size given by the RIFF header is also even.
+         The contents of individual chunks will be described in the following
+         sections.</t>
      </section>
 
      <section anchor="simple-file-format-lossy" numbered="true" toc="default">
