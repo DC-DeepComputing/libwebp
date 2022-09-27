@@ -196,9 +196,8 @@
              chunk identifier or padding.</dd>
            <dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
            <dd>The data payload. If <em>Chunk Size</em> is odd, a single
-             padding byte -- that SHOULD be <tt>0</tt> to conform with <xref
-               target="riff-spec">RIFF</xref> -- is added. Applications MAY use
-                 another value, but readers may fail to parse the file.</dd>
+             padding byte -- that MUST be <tt>0</tt> to conform with <xref
+               target="riff-spec">RIFF</xref> -- is added.</dd>
          </dl>
 
          <t><strong>Note:</strong> RIFF has a convention that all-uppercase
