@@ -485,7 +485,7 @@
                  also used when disposal method is <tt>1</tt>.</t>
                <t>Note:</t>
                <ul spacing="normal">
-                 <li>Background color MAY contain a transparency value (alpha),
+                 <li>Background color MAY contain a non-opaque alpha value,
                    even if the <em>Alpha</em> flag in <xref
                      target="extended_header">VP8X chunk</xref> is unset.</li>
                  <li>Viewer applications SHOULD treat the background color value
