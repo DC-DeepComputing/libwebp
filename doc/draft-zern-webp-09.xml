@@ -154,8 +154,8 @@
          <dt>FourCC</dt>
          <dd>A FourCC (four-character code) is a uint32 created by
            concatenating four ASCII characters in little-endian order. This
-           means 'aaaa' (%x61.61.61.61) and 'AAAA' (%x41.41.41.41) are treated
-           as different FourCCs.</dd>
+           means 'aaaa' (0x61616161) and 'AAAA' (0x41414141) are treated as
+           different FourCCs.</dd>
          <dt>1-based</dt>
          <dd>An unsigned integer field storing values offset by -1. e.g., Such
            a field would store value <em>25</em> as <em>24</em>.</dd>
@@ -289,7 +289,7 @@
       </dl>
 
       <t>Note the fourth character in the 'VP8 ' FourCC is an ASCII space
-        (%x20).</t>
+        (0x20).</t>
 
       <t>The VP8 bitstream format specification is described by <xref
         target="RFC6386"/>. Note that the VP8 frame header contains the VP8
@@ -838,7 +838,7 @@ alpha = (predictor + X) % 256
              <dd>image metadata in <xref target="XMP"/> format.</dd>
            </dl>
            <t>Note the fourth character in the 'XMP ' FourCC is an ASCII space
-             (%x20).</t>
+             (0x20).</t>
            <t>Additional guidance about handling metadata can be found in the
              Metadata Working Group's <xref target="mwg">Guidelines for
                Handling Metadata</xref>.</t>
