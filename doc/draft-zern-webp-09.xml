@@ -103,7 +103,7 @@
                efficient than currently used formats. It is optimized for fast
                image transfer over the network (e.g., for websites). The WebP
                format has feature parity (color profile, metadata, animation
-               etc) with other formats as well. This section describes the
+               etc.) with other formats as well. This section describes the
                structure of a WebP file.</t>
        <t>The WebP container (i.e., RIFF container for WebP) allows feature
          support over and above the basic use case of WebP (i.e., a file
@@ -990,7 +990,7 @@ RIFF/WEBP
          multiple bits are read at the same time, the integer is constructed
          from the original data in the original order. The most significant
          bits of the returned integer are also the most significant bits of the
-           original data. Thus the statement</t>
+           original data. Thus, the statement</t>
 
        <sourcecode type="c"><![CDATA[
 b = ReadBits(2);
@@ -1127,7 +1127,7 @@ int version_number = ReadBits(3);
          ARGB image: the subresolution images have no transforms, not even the
          0 bit indicating the end-of-transforms.</t>
 
-       <t>Typically an encoder would use these transforms to reduce the Shannon
+       <t>Typically, an encoder would use these transforms to reduce the Shannon
          entropy in the residual image. Also, the transform data can be decided
          based on entropy minimization.</t>
 
@@ -1505,8 +1505,8 @@ argb = color_table[GREEN(argb)];
            some arithmetic coding-like benefits to the entropy code, but it can
            only be used when there are a small number of unique values.</t>
 
-         <t><tt>color_table_size</tt> specifies how many pixels are combined
-           together:</t>
+         <t><tt>color_table_size</tt> specifies how many pixels are
+           combined:</t>
 
          <sourcecode type="c"><![CDATA[
 int width_bits;
@@ -1523,11 +1523,11 @@ if (color_table_size <= 2) {
 
          <t><tt>width_bits</tt> has a value of 0, 1, 2 or 3. A value of 0
            indicates no pixel bundling to be done for the image. A value of 1
-           indicates that two pixels are combined together, and each pixel has
-           a range of [0..15]. A value of 2 indicates that four pixels are
-           combined together, and each pixel has a range of [0..3]. A value
-           of 3 indicates that eight pixels are combined together and each
-           pixel has a range of [0..1], i.e., a binary value.</t>
+           indicates that two pixels are combined, and each pixel has a range
+           of [0..15]. A value of 2 indicates that four pixels are combined,
+           and each pixel has a range of [0..3]. A value of 3 indicates that
+           eight pixels are combined, and each pixel has a range of [0..1],
+           i.e., a binary value.</t>
 
          <t>The values are packed into the green component as follows:</t>
          <ul spacing="normal">
@@ -1573,7 +1573,7 @@ if (color_table_size <= 2) {
                <tt>255</tt>, red component is <tt>cte.red_to_blue</tt>, green
                  component is <tt>cte.green_to_blue</tt> and blue component is
                  <tt>cte.green_to_red</tt>.</li>
-             <li>Color indexing image: An array of of size
+             <li>Color indexing image: An array of size
                <tt>color_table_size</tt> (up to 256 ARGB values) storing the
                metadata for the <xref target="color-indexing-transform">Color
                  Indexing Transform</xref>. This is stored as an image of width
@@ -1608,7 +1608,7 @@ if (color_table_size <= 2) {
              cache index) of a recently seen color.</li>
          </ol>
 
-         <t>The following sub-sections describe each of these in detail.</t>
+         <t>The following subsections describe each of these in detail.</t>
 
          <section anchor="prefix-coded-literals" numbered="true"
            toc="default">
@@ -1691,7 +1691,7 @@ return offset + ReadBits(extra_bits) + 1;
 
            <t>As noted previously, distance code is a number indicating the
              position of a previously seen pixel, from which the pixels are to
-             be copied. This sub-section defines the mapping between a distance
+             be copied. This subsection defines the mapping between a distance
              code and the position of a previous pixel.</t>
 
            <t>The distance codes larger than 120 denote the pixel-distance in
@@ -2210,7 +2210,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
        chunks, but nothing beyond the chunks defined by the container format
        (<xref target="webp-container"/>) are required for decoding of the image.
        These have been finalized, but were extended in the format's early
-       stages so some older readers may not support lossless or animated image
+       stages, so some older readers may not support lossless or animated image
        decoding.</t>
    </section>
 
