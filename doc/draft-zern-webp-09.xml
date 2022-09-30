@@ -795,8 +795,7 @@ alpha = (predictor + X) % 256
            <t>Metadata can be stored in 'EXIF' or 'XMP ' chunks.</t>
            <t>There SHOULD be at most one chunk of each type ('EXIF' and 'XMP
              '). If there are more such chunks, readers MAY ignore all except
-             the first one. Also, a file may possibly contain both 'EXIF' and
-             'XMP ' chunks.</t>
+             the first one.</t>
            <t>The chunks are defined as follows:</t>
            <t>EXIF chunk:</t>
            <figure>
