@@ -22,6 +22,30 @@
       },
       "revId": "c9b93d5884149b718feced64a7dd41bfc5e2b3ee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "841c8177_cedd6642",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 403,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-09-30T20:35:55Z",
+      "side": 1,
+      "message": "\u003e \"translucent\" would also be valid but I guess it is a rarer word in specifications\n\nI\u0027m not sure about the frequency, but I suggested that as an alternative in the ballot reply. I was planning on leaving these open until that settled.",
+      "parentUuid": "c40738ef_deb54064",
+      "range": {
+        "startLine": 403,
+        "startChar": 35,
+        "endLine": 403,
+        "endChar": 45
+      },
+      "revId": "c9b93d5884149b718feced64a7dd41bfc5e2b3ee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
