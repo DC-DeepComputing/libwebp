@@ -14,6 +14,8 @@
 #ifndef WEBP_DSP_CPU_H_
 #define WEBP_DSP_CPU_H_
 
+#include <stddef.h>
+
 #ifdef HAVE_CONFIG_H
 #include "src/webp/config.h"
 #endif
@@ -147,6 +149,12 @@
 #endif
 #endif
 
+#if defined(__has_feature)
+#if __has_feature(memory_sanitizer)
+#define WEBP_MSAN
+#endif
+#endif
+
 #if defined(WEBP_USE_THREAD) && !defined(_WIN32)
 #include <pthread.h>  // NOLINT
 
@@ -232,8 +240,17 @@ typedef enum {
   kMIPSdspR2,
   kMSA
 } CPUFeature;
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // returns true if the CPU supports the feature.
 typedef int (*VP8CPUInfo)(CPUFeature feature);
 WEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;
+
+#ifdef __cplusplus
+}    // extern "C"
+#endif
 
 #endif  // WEBP_DSP_CPU_H_
