@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43525f91_c748761d",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 635,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-03T18:11:30Z",
+      "side": 1,
+      "message": "there\u0027s a mix of \u0027-s ...\u0027 and \u0027-s...\u0027 I don\u0027t think it matters either way, but it would be good to be consistent",
+      "range": {
+        "startLine": 635,
+        "startChar": 43,
+        "endLine": 635,
+        "endChar": 44
+      },
+      "revId": "3e199012071474757be1367eb083a4a964e65383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5d206f1_25947158",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 649,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-03T18:11:30Z",
+      "side": 1,
+      "message": "this new format is covered by:\nhttps://emscripten.org/docs/getting_started/FAQ.html#why-do-i-get-a-nameerror-or-a-problem-occurred-in-evaluating-content-after-a-s-when-i-use-a-s-option",
+      "revId": "3e199012071474757be1367eb083a4a964e65383",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
