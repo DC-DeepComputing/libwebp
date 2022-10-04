@@ -52,6 +52,24 @@
       "parentUuid": "e1a09cc2_d2015628",
       "revId": "5dbc4bfa1b6a6f3b4cc27c99a9e77fc7baa5677c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19ead95_408946fa",
+        "filename": "cmake/WebPConfig.cmake.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-04T21:22:58Z",
+      "side": 1,
+      "message": "\u003e Probably the reason it doesn\u0027t break/error out is because it just accepts it as the version string [1] while 3.9 just passes it in [2]\n\u003e \n\nRight, I was about to reply with the same thing. I think the only risk might be if the original find_package used REQUIRED too. Let me try that.\n\n\u003e [1] https://github.com/Kitware/CMake/blob/v3.7.0/Modules/CMakeFindDependencyMacro.cmake#L30\n\u003e [2] https://github.com/Kitware/CMake/blob/859241d2bbaae83f06c44bc21ab0dbd38725a3fc/Modules/CMakeFindDependencyMacro.cmake#L47",
+      "parentUuid": "8e91a9a5_611869ef",
+      "revId": "5dbc4bfa1b6a6f3b4cc27c99a9e77fc7baa5677c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
