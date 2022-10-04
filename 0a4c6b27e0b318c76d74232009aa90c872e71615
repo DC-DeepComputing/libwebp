@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b88b5689_5d1a0fb5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1557258
+      },
+      "writtenOn": "2022-10-04T22:55:55Z",
+      "side": 1,
+      "message": "I sourced this one from vcpkg, when I set up the 3rdparty build for webp: https://github.com/microsoft/vcpkg/blob/master/ports/libwebp/0009-glut.patch",
+      "revId": "0a4c6b27e0b318c76d74232009aa90c872e71615",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
