@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a3d34b_f3b70f5a",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-04T16:48:54Z",
+      "side": 1,
+      "message": "I could put the list() calls in a if(CMAKE_VERSION ...) check, but it didn\u0027t seem worth carrying that around when this works well enough.",
+      "range": {
+        "startLine": 713,
+        "startChar": 22,
+        "endLine": 714,
+        "endChar": 39
+      },
+      "revId": "02d15258697cdda3ae4c2c1660b5e38f77ea0c3e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
