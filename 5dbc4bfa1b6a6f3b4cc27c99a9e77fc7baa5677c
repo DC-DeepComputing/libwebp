@@ -16,6 +16,24 @@
       "message": "Does the config file have a minimum CMake version? The option to add REQUIRED here seems to not be available from 3.7 mentioned in the CMakeLists.txt https://cmake.org/cmake/help/v3.7/module/CMakeFindDependencyMacro.html\n\nEarliest mentions of forwarding is in 3.9 https://cmake.org/cmake/help/v3.9/module/CMakeFindDependencyMacro.html",
       "revId": "5dbc4bfa1b6a6f3b4cc27c99a9e77fc7baa5677c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a09cc2_d2015628",
+        "filename": "cmake/WebPConfig.cmake.in",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-04T21:12:17Z",
+      "side": 1,
+      "message": "\u003e Does the config file have a minimum CMake version? The option to add REQUIRED here seems to not be available from 3.7 mentioned in the CMakeLists.txt https://cmake.org/cmake/help/v3.7/module/CMakeFindDependencyMacro.html\n\u003e \n\u003e Earliest mentions of forwarding is in 3.9 https://cmake.org/cmake/help/v3.9/module/CMakeFindDependencyMacro.html\n\nThanks for double checking this. I only saw that the macro was added in 3.0 and didn\u0027t look much closer. If nothing else we could add a CMAKE_VERSION check. Let me go through the docs.\n\nUsing cmake-3.7.2 works with a toy example, though.",
+      "parentUuid": "0bb2adb2_49cec037",
+      "revId": "5dbc4bfa1b6a6f3b4cc27c99a9e77fc7baa5677c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
