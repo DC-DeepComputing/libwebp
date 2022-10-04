@@ -34,6 +34,24 @@
       "parentUuid": "a2254005_639e8f09",
       "revId": "5ba046e25f1b9b0c8fbdca70f77df6e5257091b8",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c156acb5_29359be1",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 313,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-04T16:51:21Z",
+      "side": 1,
+      "message": "\u003e In recent versions of CMake (perhaps since `add_compile_definitions` was introduced), `add_definitions` when called with an argument that starts with `-D` just forwards to `add_compile_definitions`, so there would be no change in behavior.  Additionally, `add_compile_definitions` was only added in cmake 3.12 so we would need to bump the minimum version number --- if that sounds fine then I can go ahead.  It is only problematic to use `add_definitions` for compiler options that are not `-D`.\n\nThanks for the the info. I didn\u0027t look closely enough what version that was added. I\u0027d like to keep compatibility while we can:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3929753",
+      "parentUuid": "0a2016c6_d33aac2e",
+      "revId": "5ba046e25f1b9b0c8fbdca70f77df6e5257091b8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
