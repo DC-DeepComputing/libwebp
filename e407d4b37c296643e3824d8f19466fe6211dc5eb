@@ -16,6 +16,23 @@
       "message": "LGTM now, thanks!",
       "revId": "e407d4b37c296643e3824d8f19466fe6211dc5eb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c3e0c78_24c5113d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-10-05T07:59:05Z",
+      "side": 1,
+      "message": "This is indeed compatible with CMake 3.7",
+      "revId": "e407d4b37c296643e3824d8f19466fe6211dc5eb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
