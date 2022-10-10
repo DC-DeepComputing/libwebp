@@ -417,7 +417,7 @@
 
        <dl newline="true" spacing="normal" indent="8">
          <dt>Reserved (Rsv): 2 bits</dt>
-         <dd>MUST be <tt>0</tt>.</dd>
+         <dd>MUST be <tt>0</tt>. Readers MUST ignore this field.</dd>
          <dt>ICC profile (I): 1 bit</dt>
          <dd>Set if the file contains an ICC profile.</dd>
          <dt>Alpha (L): 1 bit</dt>
@@ -431,9 +431,9 @@
          <dd>Set if this is an animated image. Data in 'ANIM' and 'ANMF' chunks
            should be used to control the animation.</dd>
          <dt>Reserved (R): 1 bit</dt>
-         <dd>MUST be <tt>0</tt>.</dd>
+         <dd>MUST be <tt>0</tt>. Readers MUST ignore this field.</dd>
          <dt>Reserved: 24 bits</dt>
-         <dd>MUST be <tt>0</tt>.</dd>
+         <dd>MUST be <tt>0</tt>. Readers MUST ignore this field.</dd>
          <dt>Canvas Width Minus One: 24 bits</dt>
          <dd><em>1-based</em> width of the canvas in pixels. The actual canvas
            width is <tt>1 + Canvas Width Minus One</tt></dd>
@@ -552,7 +552,7 @@
                  tools and browsers assign a minimum duration similar to
                  GIF.</dd>
                <dt>Reserved: 6 bits</dt>
-               <dd>MUST be <tt>0</tt>.</dd>
+               <dd>MUST be <tt>0</tt>. Readers MUST ignore this field.</dd>
                <dt>Blending method (B): 1 bit</dt>
                <dd><t>Indicates how transparent pixels of <em>the current
                  frame</em> are to be blended with corresponding pixels of the
@@ -644,7 +644,7 @@ else
 
            <dl newline="true" spacing="normal" indent="8">
              <dt>Reserved (Rsv): 2 bits</dt>
-             <dd>MUST be <tt>0</tt>.</dd>
+             <dd>MUST be <tt>0</tt>. Readers MUST ignore this field.</dd>
              <dt>Pre-processing (P): 2 bits</dt>
              <dd><t>These informative bits are used to signal the
                pre-processing that has been performed during compression. The
