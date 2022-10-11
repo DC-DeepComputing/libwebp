@@ -865,19 +865,47 @@ alpha = (predictor + X) % 256
        </section>
        <section numbered="true" toc="default">
          <name>Assembling the Canvas from frames</name>
-         <t>Here we provide an overview of how a reader should assemble a
-           canvas in the case of an animated image. The notation
-           <em>VP8X.field</em> means the field in the 'VP8X' chunk with the same
-           description.</t>
-         <t>Displaying an <em>animated image</em> canvas MUST be equivalent to
-           the following pseudocode:</t>
+         <t>Here we provide an overview of how a reader MUST assemble a canvas
+           in the case of an animated image.</t>
+
+         <t>The process begins with creating a canvas using the dimensions
+           given in the 'VP8X' chunk, <tt>Canvas Width Minus One + 1</tt>
+           pixels wide by <tt>Canvas Height Minus One + 1</tt> pixels high.
+           The <tt>Loop Count</tt> field from the 'ANIM' chunk controls how
+           many times the animation process is repeated. This is <tt>Loop
+           Count - 1</tt> for non-zero <tt>Loop Count</tt> values or
+           infinitely if <tt>Loop Count</tt> is zero.</t>
+
+         <t>At the beginning of each loop iteration the canvas is filled using
+           the background color from the 'ANIM' chunk or an application defined
+           color.</t>
+
+         <t>'ANMF' chunks contain individual frames given in display order.
+           Before rendering each frame, the previous frame's <tt>Disposal
+           method</tt> is applied.</t>
+
+         <t>The rendering of the decoded frame begins at the Cartesian
+           coordinates (<tt>2 * Frame X</tt>, <tt>2 * Frame Y</tt>) using the
+           top-left corner of the canvas as the origin. <tt>Frame Width Minus
+           One + 1</tt> pixels wide by <tt>Frame Height Minus One + 1</tt>
+           pixels high are rendered onto the canvas using the <tt>Blending
+           method</tt>.</t>
+
+         <t>The canvas is displayed for <tt>Frame Duration</tt> milliseconds.
+           This continues until all frames given by 'ANMF' chunks have been
+           displayed. A new loop iteration is then begun or the canvas is left
+           in its final state if all iterations have been completed.</t>
+
+         <t>The following pseudocode illustrates the rendering process. The
+           notation <em>VP8X.field</em> means the field in the 'VP8X' chunk
+             with the same description.</t>
 
          <sourcecode type="pseudocode"><![CDATA[
 assert VP8X.flags.hasAnimation
 canvas <- new image of size VP8X.canvasWidth x VP8X.canvasHeight with
           background color ANIM.background_color.
 loop_count <- ANIM.loopCount
-dispose_method <- ANIM.disposeMethod
+dispose_method <- Dispose to background color
 if loop_count == 0:
   loop_count = inf
 frame_params <- nil
@@ -903,10 +931,12 @@ for loop = 0..loop_count - 1
         frame_params.bitstream = bitstream_data
     render frame with frame_params.alpha and frame_params.bitstream
       on canvas with top-left corner at (frame_params.frameX,
-      frame_params.frameY), using dispose method dispose_method.
+      frame_params.frameY), using blending method
+      frame_params.blendingMethod.
     canvas contains the decoded image.
     Show the contents of the canvas for
     frame_params.frameDuration * 1ms.
+    dispose_method = frame_params.disposeMethod
            ]]></sourcecode>
        </section>
        <section numbered="true" toc="default">
