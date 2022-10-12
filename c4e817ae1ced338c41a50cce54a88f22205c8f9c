@@ -58,6 +58,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7ca0fdee_4c73a358",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-12T23:56:32Z",
+      "side": 1,
+      "message": "\u003e maybe in the comment: 1 followed by color cache size, or more new lines to have 4BIT on its own  with the comment.\n\nThat makes sense, I think it fits in one line.",
+      "parentUuid": "7dbb9555_5f909231",
+      "range": {
+        "startLine": 1126,
+        "startChar": 38,
+        "endLine": 1126,
+        "endChar": 54
+      },
+      "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3607d59_f18a3814",
@@ -71,6 +95,30 @@
       "writtenOn": "2022-10-12T13:04:12Z",
       "side": 1,
       "message": "how about we also remove the \u003c\u003e here too ?",
+      "range": {
+        "startLine": 1152,
+        "startChar": 0,
+        "endLine": 1152,
+        "endChar": 1
+      },
+      "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d15fee2a_46d221ba",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-12T23:56:32Z",
+      "side": 1,
+      "message": "\u003e how about we also remove the \u003c\u003e here too ?\n\nGood point. I didn\u0027t have RIFF-header and image-size defined when I made a first pass and left this structure. The general recommendation is to avoid \u003c\u003e except in prose.",
+      "parentUuid": "e3607d59_f18a3814",
       "range": {
         "startLine": 1152,
         "startChar": 0,
