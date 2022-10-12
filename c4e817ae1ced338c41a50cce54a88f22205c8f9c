@@ -16,6 +16,69 @@
       "message": "Jyrki, I\u0027d like you to review this. I just can\u0027t add you as a reviewer until you\u0027ve logged in to this gerrit instance.",
       "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38bfd46_8772fe80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-10-12T13:04:12Z",
+      "side": 1,
+      "message": "Nice, and checked with the spec at https://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form and it all seems fine",
+      "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dbb9555_5f909231",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1126,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-10-12T13:04:12Z",
+      "side": 1,
+      "message": "maybe in the comment: 1 followed by color cache size, or more new lines to have 4BIT on its own  with the comment.",
+      "range": {
+        "startLine": 1126,
+        "startChar": 38,
+        "endLine": 1126,
+        "endChar": 54
+      },
+      "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3607d59_f18a3814",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1152,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-10-12T13:04:12Z",
+      "side": 1,
+      "message": "how about we also remove the \u003c\u003e here too ?",
+      "range": {
+        "startLine": 1152,
+        "startChar": 0,
+        "endLine": 1152,
+        "endChar": 1
+      },
+      "revId": "c4e817ae1ced338c41a50cce54a88f22205c8f9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
