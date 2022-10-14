@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b1c63fb4_2d647a03",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-14T23:38:53Z",
+      "side": 1,
+      "message": "the extra #ifdef is unfortunate, but saves some code duplication or a goto in this block.",
+      "revId": "2b54ec86ada9221a9e7a86f051a7c2752ef4fd7e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
