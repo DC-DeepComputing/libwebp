@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "14337383_a41c30c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-14T23:02:06Z",
+      "side": 1,
+      "message": "can you add some details to the commit message body describing the version like in:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/68247\nplease?",
+      "revId": "cc1aa21aa3dc7c56387bab45e4d70c4b1ec8623a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "45e17bfb_276c6f5c",
