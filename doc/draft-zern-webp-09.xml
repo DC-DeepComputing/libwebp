@@ -101,7 +101,7 @@
              encoding</xref>. These encoding schemes should make it more
                efficient than currently used formats. It is optimized for fast
                image transfer over the network (e.g., for websites). The WebP
-               format has feature parity (color profile, metadata, animation
+               format has feature parity (color profile, metadata, animation,
                etc.) with other formats as well. This section describes the
                structure of a WebP file.</t>
        <t>The WebP container (i.e., RIFF container for WebP) allows feature
