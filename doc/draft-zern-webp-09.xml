@@ -2312,15 +2312,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
      <name>References</name>
      <references>
        <name>Normative References</name>
-       <?rfc include="reference.RFC.1166.xml" ?>
-       <?rfc include="reference.RFC.2046.xml" ?>
-       <?rfc include="reference.RFC.2119.xml" ?>
-       <?rfc include="reference.RFC.2781.xml" ?>
-       <?rfc include="reference.RFC.4648.xml" ?>
-       <?rfc include="reference.RFC.6386.xml" ?>
-       <?rfc include="reference.RFC.6838.xml" ?>
-       <?rfc include="reference.RFC.8174.xml" ?>
-
        <reference anchor="Exif"
          target="https://www.cipa.jp/std/documents/e/DC-008-2012_E.pdf">
          <front>
@@ -2370,6 +2361,15 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
+       <?rfc include="reference.RFC.1166.xml" ?>
+       <?rfc include="reference.RFC.2046.xml" ?>
+       <?rfc include="reference.RFC.2119.xml" ?>
+       <?rfc include="reference.RFC.2781.xml" ?>
+       <?rfc include="reference.RFC.4648.xml" ?>
+       <?rfc include="reference.RFC.6386.xml" ?>
+       <?rfc include="reference.RFC.6838.xml" ?>
+       <?rfc include="reference.RFC.8174.xml" ?>
+
        <reference anchor="webp-lossless-src"
          target="https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/doc/webp-lossless-bitstream-spec.txt">
          <front>
@@ -2406,8 +2406,6 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
 
      <references>
        <name>Informative References</name>
-       <?rfc include="reference.RFC.2083.xml" ?>
-
        <reference anchor="crbug-security"
          target="https://bugs.chromium.org/p/webp/issues/list?q=label%3ASecurity">
          <front>
@@ -2487,6 +2485,8 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
            <date month="November" year="2010"/>
          </front>
        </reference>
+
+       <?rfc include="reference.RFC.2083.xml" ?>
 
        <reference anchor="RIFF-spec"
          target="http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Docs/riffmci.pdf">
