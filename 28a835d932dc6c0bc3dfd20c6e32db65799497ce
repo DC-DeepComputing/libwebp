@@ -16,6 +16,24 @@
       "message": "I missed this one.",
       "revId": "28a835d932dc6c0bc3dfd20c6e32db65799497ce",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb5a27ec_cfe86c9e",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 355,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-14T02:38:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7cc426ab_c401b9d8",
+      "revId": "28a835d932dc6c0bc3dfd20c6e32db65799497ce",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
