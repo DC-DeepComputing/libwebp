@@ -2501,10 +2501,9 @@ RIFF-header image-size %b1 subtract-green-tx
        <?rfc include="reference.RFC.2083.xml" ?>
 
        <reference anchor="RIFF-spec"
-         target="http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Docs/riffmci.pdf">
+         target="https://www.loc.gov/preservation/digital/formats/fdd/fdd000025.shtml">
          <front>
-           <title>Multimedia Programming Interface and Data Specifications
-             1.0</title>
+           <title>RIFF (Resource Interchange File Format)</title>
            <author>
              <organization/>
            </author>
