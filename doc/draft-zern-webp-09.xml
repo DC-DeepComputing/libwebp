@@ -68,13 +68,13 @@
  <middle>
    <section numbered="true" toc="default">
      <name>Introduction</name>
-     <t>WebP is a <xref target="riff-spec">Resource Interchange File Format
+     <t>WebP is a <xref target="RIFF-spec">Resource Interchange File Format
        (RIFF)</xref> based image file format
        (<xref target="webp-container"/>) which supports lossless and lossy
        compression as well as alpha (transparency) and animation. It covers use
-       cases similar to <xref target="jpeg-spec">JPEG</xref>,
+       cases similar to <xref target="JPEG-spec">JPEG</xref>,
        <xref target="RFC2083">PNG</xref> and the
-       <xref target="gif-spec">Graphics Interchange Format (GIF)</xref>.</t>
+       <xref target="GIF-spec">Graphics Interchange Format (GIF)</xref>.</t>
      <t>WebP consists of two compression algorithms used to reduce the size of
        image pixel data, including alpha (transparency) information. Lossy
        compression is achieved using VP8 intra-frame encoding <xref
@@ -85,7 +85,7 @@
              for storing statistical data about the images, such as the used
              entropy codes, spatial predictors, color space conversion, and
              color table. <xref target="LZ77"/>, <xref
-               target="huffman">prefix coding</xref>, and a color cache are
+               target="Huffman">prefix coding</xref>, and a color cache are
                  used for compression of the bulk data.</t>
    </section>
 
@@ -169,7 +169,7 @@
        <name>RIFF File Format</name>
 
        <t>The WebP file format is based on the <xref
-         target="riff-spec">RIFF</xref> (Resource Interchange File Format)
+         target="RIFF-spec">RIFF</xref> (Resource Interchange File Format)
            document format.</t>
 
        <t>The basic element of a RIFF file is a <em>chunk</em>. It consists
@@ -197,7 +197,7 @@
            <dt>Chunk Payload: <em>Chunk Size</em> bytes</dt>
            <dd>The data payload. If <em>Chunk Size</em> is odd, a single
              padding byte -- that MUST be <tt>0</tt> to conform with <xref
-               target="riff-spec">RIFF</xref> -- is added.</dd>
+               target="RIFF-spec">RIFF</xref> -- is added.</dd>
          </dl>
 
          <t>Note: RIFF has a convention that all-uppercase chunk FourCCs are
@@ -839,7 +839,7 @@ alpha = (predictor + X) % 256
            <t>Note the fourth character in the 'XMP ' FourCC is an ASCII space
              (0x20).</t>
            <t>Additional guidance about handling metadata can be found in the
-             Metadata Working Group's <xref target="mwg">Guidelines for
+             Metadata Working Group's <xref target="MWG">Guidelines for
                Handling Metadata</xref>.</t>
          </section>
          <section anchor="unknown-chunks" numbered="true" toc="default">
@@ -1833,7 +1833,7 @@ int color_cache_size = 1 << color_cache_code_bits;
        <section numbered="true" toc="default">
          <name>Overview</name>
 
-         <t>Most of the data is coded using a <xref target="huffman">canonical
+         <t>Most of the data is coded using a <xref target="Huffman">canonical
            prefix code</xref>. Hence, the codes are transmitted by sending the
            <em>prefix code lengths</em>, as opposed to the actual <em>prefix
              codes</em>.</t>
@@ -2428,7 +2428,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="gif-spec"
+       <reference anchor="GIF-spec"
          target="https://www.w3.org/Graphics/GIF/spec-gif89a.txt">
          <front>
            <title>GIF89a Specification</title>
@@ -2438,7 +2438,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="huffman">
+       <reference anchor="Huffman">
          <front>
            <title>A Method for the Construction of Minimum Redundancy
              Codes</title>
@@ -2451,7 +2451,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="jpeg-spec"
+       <reference anchor="JPEG-spec"
          target="https://www.w3.org/Graphics/JPEG/itu-t81.pdf">
          <front>
            <title>JPEG Standard (JPEG ISO/IEC 10918-1 ITU-T Recommendation
@@ -2477,7 +2477,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="mwg"
+       <reference anchor="MWG"
          target="https://web.archive.org/web/20180919181934/http://www.metadataworkinggroup.org/pdf/mwg_guidance.pdf">
          <front>
            <title>Guidelines For Handling Image Metadata</title>
@@ -2488,7 +2488,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="riff-spec"
+       <reference anchor="RIFF-spec"
          target="http://www-mmsp.ece.mcgill.ca/Documents/AudioFormats/WAVE/Docs/riffmci.pdf">
          <front>
            <title>Multimedia Programming Interface and Data Specifications
