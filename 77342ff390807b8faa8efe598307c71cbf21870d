@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0056e0be_db529e73",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-14T02:35:15Z",
+      "side": 1,
+      "message": "I think it\u0027s more common to have a \u0027,\u0027 before etc. too; though I\u0027m sure style guides differ.",
+      "range": {
+        "startLine": 28,
+        "startChar": 41,
+        "endLine": 28,
+        "endChar": 55
+      },
+      "revId": "77342ff390807b8faa8efe598307c71cbf21870d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
