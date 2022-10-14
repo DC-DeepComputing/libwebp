@@ -84,7 +84,7 @@
              subresolution images, recursively embedded into the format itself,
              for storing statistical data about the images, such as the used
              entropy codes, spatial predictors, color space conversion, and
-             color table. <xref target="lz77">LZ77</xref>, <xref
+             color table. <xref target="LZ77"/>, <xref
                target="huffman">prefix coding</xref>, and a color cache are
                  used for compression of the bulk data.</t>
    </section>
@@ -1075,7 +1075,7 @@ b |= ReadBits(1) << 1;
          <dt>prefix code</dt>
          <dd>A classic way to do entropy coding where a smaller number of bits
            are used for more frequent codes.</dd>
-         <dt>LZ77</dt>
+         <dt><xref target="LZ77"/></dt>
          <dd>Dictionary-based sliding window compression algorithm that either
            emits symbols or describes them as sequences of past symbols.</dd>
          <dt>meta prefix code</dt>
@@ -2462,7 +2462,7 @@ PrefixCodeGroup huff_group = prefix_code_groups[meta_huff_code];
          </front>
        </reference>
 
-       <reference anchor="lz77">
+       <reference anchor="LZ77">
          <front>
            <title>A Universal Algorithm for Sequential Data Compression</title>
            <seriesInfo name="IEEE Transactions on Information Theory"
