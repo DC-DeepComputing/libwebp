@@ -6,7 +6,7 @@
 <rfc
       xmlns:xi="http://www.w3.org/2001/XInclude"
       category="info"
-      docName="draft-zern-webp-09"
+      docName="draft-zern-webp-10"
       ipr="trust200902"
       obsoletes=""
       updates=""
@@ -21,8 +21,8 @@
 
  <front>
    <title>WebP Image Format</title>
-   <seriesInfo name="Internet-Draft" value="draft-zern-webp-09" />
-   <seriesInfo status="informational" name="" value="draft-zern-webp-09" />
+   <seriesInfo name="Internet-Draft" value="draft-zern-webp-10" />
+   <seriesInfo status="informational" name="" value="draft-zern-webp-10" />
 
    <author fullname="James Zern" initials="J." surname="Zern">
      <organization>Google LLC</organization>
@@ -2513,6 +2513,7 @@ RIFF-header image-size %b1 subtract-green-tx
    </references>
    <!-- Change Log
 
+v10 2022-10-14  JWZ   Cosmetic and structural improvements from ballot comments
 v09 2022-08-03  JWZ   Cosmetic updates to document order, wording and tables
 v08 2022-07-25  JWZ   Merged registration to IANA; moved to end of <middle>
 v07 2022-06-02  JWZ   Incorporate upstream fixes to lossless documentation
