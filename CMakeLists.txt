@@ -124,6 +124,7 @@ if(MSVC AND BUILD_SHARED_LIBS)
   add_definitions(-DWEBP_DLL)
 endif()
 
+# pkg-config variables used by *.pc.in.
 set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix "\$\{prefix\}")
 set(libdir "\$\{prefix\}/lib")
@@ -136,6 +137,7 @@ if(MSVC)
   set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
   set(CMAKE_IMPORT_LIBRARY_PREFIX "lib")
   set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+  set(lib_prefix "${CMAKE_STATIC_LIBRARY_PREFIX}")
 endif()
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
