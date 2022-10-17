@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1388567c_c960569c",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1557258
+      },
+      "writtenOn": "2022-10-17T18:01:25Z",
+      "side": 1,
+      "message": "This does not convey the semantics properly. Since all library types will share the same prefix, I suggest (underscore prefixing to denote a private variable):\n\n  set(_lib_prefix \"lib\")\n  set(CMAKE_SHARED_LIBRARY_PREFIX \"${_lib_prefix}\")\n  set(CMAKE_IMPORT_LIBRARY_PREFIX \"${_lib_prefix}\")\n  set(CMAKE_STATIC_LIBRARY_PREFIX \"${_lib_prefix}\")\n  \nAdjust the underscore in the remaining instances as appropriate.",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 50
+      },
+      "revId": "4633dbf950bb79fd55b809bd31f9cf799b231efb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
