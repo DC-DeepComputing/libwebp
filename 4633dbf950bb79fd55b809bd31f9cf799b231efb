@@ -22,6 +22,30 @@
       },
       "revId": "4633dbf950bb79fd55b809bd31f9cf799b231efb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e1c57ab_94a3f886",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-17T21:08:23Z",
+      "side": 1,
+      "message": "\u003e This does not convey the semantics properly. Since all library types will share the same prefix, I suggest (underscore prefixing to denote a private variable):\n\u003e \n\u003e   set(_lib_prefix \"lib\")\n\u003e   set(CMAKE_SHARED_LIBRARY_PREFIX \"${_lib_prefix}\")\n\u003e   set(CMAKE_IMPORT_LIBRARY_PREFIX \"${_lib_prefix}\")\n\u003e   set(CMAKE_STATIC_LIBRARY_PREFIX \"${_lib_prefix}\")\n\u003e   \n\u003e Adjust the underscore in the remaining instances as appropriate.\n\nGood point, though cmake reserves _ names in some cases [1]. We have existing pkg-config related variable above, so I\u0027ll stick with this name for now.\n\n[1] https://cmake.org/cmake/help/latest/manual/cmake-language.7.html#variables",
+      "parentUuid": "1388567c_c960569c",
+      "range": {
+        "startLine": 137,
+        "startChar": 0,
+        "endLine": 140,
+        "endChar": 50
+      },
+      "revId": "4633dbf950bb79fd55b809bd31f9cf799b231efb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
