@@ -16,6 +16,24 @@
       "message": "Thanks for the review. I\u0027ll do a follow up where I namespace some of the variables to make the file a little more add_subdirectory() friendly",
       "revId": "2498209ba9391b526e001f9fe01cba230dd9b10e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78a4379f_afae324a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-20T18:47:40Z",
+      "side": 1,
+      "message": "\u003e Thanks for the review. I\u0027ll do a follow up where I namespace some of the variables to make the file a little more add_subdirectory() friendly\n\nActually the variables don\u0027t leak with add_subdirectory(), so I think everything is ok from that perspective.",
+      "parentUuid": "e441deef_34d77c13",
+      "revId": "2498209ba9391b526e001f9fe01cba230dd9b10e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
