@@ -34,6 +34,23 @@
       "parentUuid": "e441deef_34d77c13",
       "revId": "2498209ba9391b526e001f9fe01cba230dd9b10e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "afad296b_3ce6b728",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-24T23:57:21Z",
+      "side": 1,
+      "message": "Note this broke the autoconf generated .pc files:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3976735",
+      "revId": "2498209ba9391b526e001f9fe01cba230dd9b10e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
