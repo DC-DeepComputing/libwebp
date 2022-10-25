@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "013124b4_b67a6d2c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-25T22:53:15Z",
+      "side": 1,
+      "message": "I merged the fix, just one more in this chain.",
+      "revId": "28aedcb9b03cbaaa99006dc90e12ef42fcb2674a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
