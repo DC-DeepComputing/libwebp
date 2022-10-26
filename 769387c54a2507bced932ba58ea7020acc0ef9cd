@@ -22,6 +22,23 @@
       },
       "revId": "769387c54a2507bced932ba58ea7020acc0ef9cd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "365be647_d93aec21",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-26T22:24:42Z",
+      "side": 0,
+      "message": "this also provided WEBP_USE_NEON, etc.\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/3984885",
+      "revId": "769387c54a2507bced932ba58ea7020acc0ef9cd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
