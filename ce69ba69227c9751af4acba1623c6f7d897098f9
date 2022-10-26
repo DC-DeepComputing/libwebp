@@ -75,6 +75,30 @@
       },
       "revId": "ce69ba69227c9751af4acba1623c6f7d897098f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b9cea82_d26fc47e",
+        "filename": "sharpyuv/sharpyuv_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-26T20:09:21Z",
+      "side": 1,
+      "message": "\u003e The new recommended copyright wording is \"Copyright 2022 Google LLC\". I guess it is fine to keep the old one for consistency.\n\nRight, I was going to run this by rend@. I\u0027ve been trying to make other LICENSE updates in Android and elsewhere. I think it should be ok to do a mass update, I seem to remember doing that in libaom or libvpx in the past.",
+      "parentUuid": "c13d5de7_24288095",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 50
+      },
+      "revId": "ce69ba69227c9751af4acba1623c6f7d897098f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
