@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e953bc_5ff59e20",
+        "filename": "sharpyuv/sharpyuv_cpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-10-26T08:32:31Z",
+      "side": 1,
+      "message": "Is this empty file necessary? What will the related sharpyuv.o contain?",
+      "revId": "ce69ba69227c9751af4acba1623c6f7d897098f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c13d5de7_24288095",
+        "filename": "sharpyuv/sharpyuv_cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-10-26T08:32:31Z",
+      "side": 1,
+      "message": "The new recommended copyright wording is \"Copyright 2022 Google LLC\". I guess it is fine to keep the old one for consistency.",
+      "range": {
+        "startLine": 1,
+        "startChar": 3,
+        "endLine": 1,
+        "endChar": 50
+      },
+      "revId": "ce69ba69227c9751af4acba1623c6f7d897098f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
