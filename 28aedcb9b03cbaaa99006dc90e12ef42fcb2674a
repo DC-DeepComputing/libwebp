@@ -16,6 +16,24 @@
       "message": "I merged the fix, just one more in this chain.",
       "revId": "28aedcb9b03cbaaa99006dc90e12ef42fcb2674a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf93f1a_44ef95ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-10-26T08:17:47Z",
+      "side": 1,
+      "message": "Sorry, I missed that one apparently.",
+      "parentUuid": "013124b4_b67a6d2c",
+      "revId": "28aedcb9b03cbaaa99006dc90e12ef42fcb2674a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
