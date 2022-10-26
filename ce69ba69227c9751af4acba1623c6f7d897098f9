@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "98b43600_54eec4da",
+        "filename": "sharpyuv/sharpyuv_cpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-26T20:02:59Z",
+      "side": 1,
+      "message": "\u003e Is this empty file necessary? What will the related sharpyuv.o contain?\n\nIt\u0027s here to contain the contents of src/dsp/cpu.c, so it will have the static function implementations and the function pointer renamed by the .h.\n\n```\nlibsharpyuv_la-sharpyuv_cpu.o:\n0000000000000000 D SharpYuvGetCPUInfo\n0000000000000000 t x86CPUInfo\n```",
+      "parentUuid": "89e953bc_5ff59e20",
+      "revId": "ce69ba69227c9751af4acba1623c6f7d897098f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c13d5de7_24288095",
         "filename": "sharpyuv/sharpyuv_cpu.h",
         "patchSetId": 1
