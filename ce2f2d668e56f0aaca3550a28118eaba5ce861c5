@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e0935e4_44abce94",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-10-27T21:58:38Z",
+      "side": 1,
+      "message": "An alternative might be the following, but I didn\u0027t like the double lock only to set the pointer to itself.\n\n```\ndiff --git a/sharpyuv/sharpyuv.c b/sharpyuv/sharpyuv.c\nindex 6585041e..6b4edd91 100644\n--- a/sharpyuv/sharpyuv.c\n+++ b/sharpyuv/sharpyuv.c\n@@ -417,16 +417,22 @@ static int DoSharpArgbToYuv(const uint8_t* r_ptr, const uint8_t* g_ptr,\n #if defined(WEBP_USE_THREAD) \u0026\u0026 !defined(_WIN32)\n #include \u003cpthread.h\u003e  // NOLINT\n \n+static pthread_mutex_t sharpyuv_lock \u003d PTHREAD_MUTEX_INITIALIZER;\n+\n #define LOCK_ACCESS \\\n-    static pthread_mutex_t sharpyuv_lock \u003d PTHREAD_MUTEX_INITIALIZER; \\\n     if (pthread_mutex_lock(\u0026sharpyuv_lock)) return\n-#define UNLOCK_ACCESS_AND_RETURN                  \\\n-    do {                                          \\\n-      (void)pthread_mutex_unlock(\u0026sharpyuv_lock); \\\n-      return;                                     \\\n+#define LOCK_ACCESS_INT_RETURN(x) LOCK_ACCESS (x)\n+#define UNLOCK_ACCESS \\\n+      (void)pthread_mutex_unlock(\u0026sharpyuv_lock)\n+#define UNLOCK_ACCESS_AND_RETURN \\\n+    do {                         \\\n+      UNLOCK_ACCESS;             \\\n+      return;                    \\\n     } while (0)\n #else  // !(defined(WEBP_USE_THREAD) \u0026\u0026 !defined(_WIN32))\n #define LOCK_ACCESS do {} while (0)\n+#define LOCK_ACCESS_INT_RETURN(x) do {} while (0)\n+#define UNLOCK_ACCESS do {} while (0)\n #define UNLOCK_ACCESS_AND_RETURN return\n #endif  // defined(WEBP_USE_THREAD) \u0026\u0026 !defined(_WIN32)\n \n@@ -484,7 +490,13 @@ int SharpYuvConvert(const void* r_ptr, const void* g_ptr,\n     // Stride should be even for uint16_t buffers.\n     return 0;\n   }\n-  SharpYuvInit(SharpYuvGetCPUInfo);\n+  {\n+    VP8CPUInfo get_cpu_info;\n+    LOCK_ACCESS_INT_RETURN(0);\n+    get_cpu_info \u003d SharpYuvGetCPUInfo;\n+    UNLOCK_ACCESS;\n+    SharpYuvInit(get_cpu_info);\n+  }\n \n   // Add scaling factor to go from rgb_bit_depth to yuv_bit_depth, to the\n   // rgb-\u003eyuv conversion matrix.\n\n```",
+      "revId": "ce2f2d668e56f0aaca3550a28118eaba5ce861c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
