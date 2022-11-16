@@ -56,6 +56,30 @@
       },
       "revId": "fad0ece7edec90dbead3cfbe19f2bc9d77a410e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c462d9f9_4f909e2d",
+        "filename": "imageio/pnmdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-16T18:48:23Z",
+      "side": 1,
+      "message": "\u003e could probably go in some header if there\u0027s enough occurrences of it...\n\nyeah, it\u0027s duplicated a bit:\n\n```\nexamples/anim_diff.c:27:#define snprintf _snprintf\nexamples/anim_dump.c:23:#define snprintf _snprintf\nexamples/anim_util.c:31:#define snprintf _snprintf\nexamples/vwebp.c:48:#define snprintf _snprintf\nexamples/webpinfo.c:29:#define snprintf _snprintf\nimageio/pnmdec.c:24:#define snprintf _snprintf\nsrc/mux/anim_encode.c:27:#define snprintf _snprintf\n```\n\nso maybe something for the example code occurrences at least. I\u0027ll look at that in a separate change.",
+      "parentUuid": "1b616b01_7bea2a76",
+      "range": {
+        "startLine": 25,
+        "startChar": 1,
+        "endLine": 25,
+        "endChar": 6
+      },
+      "revId": "fad0ece7edec90dbead3cfbe19f2bc9d77a410e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
