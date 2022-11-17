@@ -86,6 +86,8 @@ if(WEBP_BUILD_WEBP_JS)
   endif()
 endif()
 
+set(SHARPYUV_DEP_LIBRARIES)
+set(SHARPYUV_DEP_INCLUDE_DIRS)
 set(WEBP_DEP_LIBRARIES)
 set(WEBP_DEP_INCLUDE_DIRS)
 
@@ -124,6 +126,7 @@ if(MSVC AND BUILD_SHARED_LIBS)
   add_definitions(-DWEBP_DLL)
 endif()
 
+# pkg-config variables used by *.pc.in.
 set(prefix ${CMAKE_INSTALL_PREFIX})
 set(exec_prefix "\$\{prefix\}")
 set(libdir "\$\{prefix\}/lib")
@@ -133,9 +136,10 @@ set(INSTALLED_LIBRARIES)
 
 if(MSVC)
   # match the naming convention used by nmake
-  set(CMAKE_SHARED_LIBRARY_PREFIX "lib")
-  set(CMAKE_IMPORT_LIBRARY_PREFIX "lib")
-  set(CMAKE_STATIC_LIBRARY_PREFIX "lib")
+  set(webp_libname_prefix "lib")
+  set(CMAKE_SHARED_LIBRARY_PREFIX "${webp_libname_prefix}")
+  set(CMAKE_IMPORT_LIBRARY_PREFIX "${webp_libname_prefix}")
+  set(CMAKE_STATIC_LIBRARY_PREFIX "${webp_libname_prefix}")
 endif()
 
 set(CMAKE_C_VISIBILITY_PRESET hidden)
@@ -144,13 +148,16 @@ set(CMAKE_C_VISIBILITY_PRESET hidden)
 # Android only.
 if(ANDROID)
   include_directories(${ANDROID_NDK}/sources/android/cpufeatures)
-  add_library(cpufeatures STATIC
+  add_library(cpufeatures-webp STATIC
               ${ANDROID_NDK}/sources/android/cpufeatures/cpu-features.c)
-  list(APPEND INSTALLED_LIBRARIES cpufeatures)
-  target_link_libraries(cpufeatures dl)
-  set(WEBP_DEP_LIBRARIES ${WEBP_DEP_LIBRARIES} cpufeatures)
-  set(WEBP_DEP_INCLUDE_DIRS ${WEBP_DEP_INCLUDE_DIRS}
-                            ${ANDROID_NDK}/sources/android/cpufeatures)
+  list(APPEND INSTALLED_LIBRARIES cpufeatures-webp)
+  target_link_libraries(cpufeatures-webp dl)
+  set(SHARPYUV_DEP_LIBRARIES ${SHARPYUV_DEP_LIBRARIES} cpufeatures-webp)
+  set(WEBP_DEP_LIBRARIES ${WEBP_DEP_LIBRARIES} cpufeatures-webp)
+  set(cpufeatures_include_dir ${ANDROID_NDK}/sources/android/cpufeatures)
+  set(SHARPYUV_DEP_INCLUDE_DIRS ${SHARPYUV_DEP_INCLUDE_DIRS}
+                                ${cpufeatures_include_dir})
+  set(WEBP_DEP_INCLUDE_DIRS ${WEBP_DEP_INCLUDE_DIRS} ${cpufeatures_include_dir})
   add_definitions(-DHAVE_CPU_FEATURES_H=1)
   set(HAVE_CPU_FEATURES_H 1)
 else()
@@ -288,6 +295,7 @@ endfunction()
 
 parse_makefile_am(${CMAKE_CURRENT_SOURCE_DIR}/sharpyuv "WEBP_SHARPYUV_SRCS" "")
 add_library(sharpyuv ${WEBP_SHARPYUV_SRCS})
+target_link_libraries(sharpyuv ${SHARPYUV_DEP_LIBRARIES})
 set_version(sharpyuv/Makefile.am sharpyuv sharpyuv)
 target_include_directories(
   sharpyuv PRIVATE ${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
@@ -312,7 +320,7 @@ if(MSVC)
   # avoid security warnings for e.g., fopen() used in the examples.
   add_definitions(-D_CRT_SECURE_NO_WARNINGS)
 else()
-  add_definitions(-Wall)
+  add_compile_options(-Wall)
 endif()
 include_directories(${WEBP_DEP_INCLUDE_DIRS})
 add_library(webpdecode OBJECT ${WEBP_DEC_SRCS})
@@ -488,7 +496,8 @@ if(WEBP_BUILD_CWEBP)
   parse_makefile_am(${CMAKE_CURRENT_SOURCE_DIR}/examples "CWEBP_SRCS" "cwebp")
   add_executable(cwebp ${CWEBP_SRCS})
   target_link_libraries(cwebp exampleutil imagedec webp)
-  target_include_directories(cwebp PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/src)
+  target_include_directories(cwebp PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/src
+                                           ${CMAKE_CURRENT_SOURCE_DIR})
   install(TARGETS cwebp RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 endif()
 
@@ -544,7 +553,7 @@ if(WEBP_BUILD_VWEBP)
       vwebp
       ${OPENGL_LIBRARIES}
       exampleutil
-      ${GLUT_glut_LIBRARY}
+      GLUT::GLUT
       imageioutil
       webp
       webpdemux)
@@ -631,9 +640,9 @@ if(WEBP_BUILD_WEBP_JS)
     set(WEBP_HAVE_SDL 1)
     set_target_properties(
       webp_js
-      PROPERTIES LINK_FLAGS "-s WASM=0 \
-         -s EXPORTED_FUNCTIONS='[\"_WebpToSDL\"]' -s INVOKE_RUN=0 \
-         -s EXPORTED_RUNTIME_METHODS='[\"cwrap\"]'")
+      PROPERTIES LINK_FLAGS "-sWASM=0 \
+         -sEXPORTED_FUNCTIONS=_WebpToSDL -sINVOKE_RUN=0 \
+         -sEXPORTED_RUNTIME_METHODS=cwrap")
     set_target_properties(webp_js PROPERTIES OUTPUT_NAME webp)
     target_compile_definitions(webp_js PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
   endif()
@@ -644,9 +653,9 @@ if(WEBP_BUILD_WEBP_JS)
   target_include_directories(webp_wasm PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
   set_target_properties(
     webp_wasm
-    PROPERTIES LINK_FLAGS "-s WASM=1 \
-       -s EXPORTED_FUNCTIONS='[\"_WebpToSDL\"]' -s INVOKE_RUN=0 \
-       -s EXPORTED_RUNTIME_METHODS='[\"cwrap\"]'")
+    PROPERTIES LINK_FLAGS "-sWASM=1 \
+       -sEXPORTED_FUNCTIONS=_WebpToSDL -sINVOKE_RUN=0 \
+       -sEXPORTED_RUNTIME_METHODS=cwrap")
   target_compile_definitions(webp_wasm PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
 
   target_compile_definitions(webpdspdecode PUBLIC EMSCRIPTEN)
@@ -710,13 +719,16 @@ write_basic_package_version_file(
 include(CMakePackageConfigHelpers)
 # Fix libwebpmux reference. The target name libwebpmux is used for compatibility
 # purposes, but the library mentioned in WebPConfig.cmake should be the
-# unprefixed version.
-list(TRANSFORM INSTALLED_LIBRARIES REPLACE "libwebpmux" "webpmux")
+# unprefixed version. Note string(...) can be replaced with list(TRANSFORM ...)
+# if cmake_minimum_required is >= 3.12.
+string(REGEX REPLACE "libwebpmux" "webpmux" INSTALLED_LIBRARIES
+                     "${INSTALLED_LIBRARIES}")
+
 if(MSVC)
   # For compatibility with nmake, MSVC builds use a custom prefix (lib) that
   # needs to be included in the library name.
-  list(TRANSFORM INSTALLED_LIBRARIES
-       REPLACE "[A-Za-z0-9_]+" "${CMAKE_STATIC_LIBRARY_PREFIX}\\0")
+  string(REGEX REPLACE "[A-Za-z0-9_]+" "${CMAKE_STATIC_LIBRARY_PREFIX}\\0"
+                       INSTALLED_LIBRARIES "${INSTALLED_LIBRARIES}")
 endif()
 
 configure_package_config_file(
