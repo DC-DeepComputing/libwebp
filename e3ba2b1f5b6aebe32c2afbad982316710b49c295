@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc219500_2a3fe5bb",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-18T18:27:58Z",
+      "side": 1,
+      "message": "There was a request for a link for this comment in the RFC review. I think we might have something that covers this on developers.google.com/speed/webp for alpha anyway.",
+      "range": {
+        "startLine": 30,
+        "startChar": 42,
+        "endLine": 32,
+        "endChar": 19
+      },
+      "revId": "e3ba2b1f5b6aebe32c2afbad982316710b49c295",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
