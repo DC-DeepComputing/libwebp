@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa6cfce4_c531738c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-18T01:35:26Z",
+      "side": 1,
+      "message": "This isn\u0027t strictly necessary here, but I\u0027d like to keep this text and the RFC in sync as much as possible.",
+      "revId": "fa65278e5c11bd9756c4818a8b70095a7bb5929e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
