@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af893079_0c042f7e",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 714,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-18T01:30:23Z",
+      "side": 1,
+      "message": "this is `GetCopyDistance()`:\n\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#150",
+      "revId": "13a979ff214197c7a8acb216f35f88e10cf5fe58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c21eff24_8067055a",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 764,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-18T01:30:23Z",
+      "side": 1,
+      "message": "Given the offset used in `CopyBlock8b/32b()` [1] this text is referring to element 0 and 2.\n\n[1] https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#921",
+      "revId": "13a979ff214197c7a8acb216f35f88e10cf5fe58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "baa35d0f_0d918f02",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 772,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-18T01:30:23Z",
+      "side": 1,
+      "message": "We call `GetCopyDistance()` [1] and then `PlaneCodeToDistance()` [2] which does the lookup [3].\n\n[1] \nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#1053\n[2] https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#1054\n[3] https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#171",
+      "revId": "13a979ff214197c7a8acb216f35f88e10cf5fe58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
