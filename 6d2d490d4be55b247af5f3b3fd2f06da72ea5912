@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7516fdb4_28f56027",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-21T19:20:01Z",
+      "side": 1,
+      "message": "This matches the code:\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#59\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.2.4/src/dec/vp8l_dec.c#334",
+      "revId": "6d2d490d4be55b247af5f3b3fd2f06da72ea5912",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
