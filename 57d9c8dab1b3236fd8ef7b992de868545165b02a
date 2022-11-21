@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55dfd8d1_d57c9c33",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 466,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-21T19:20:29Z",
+      "side": 1,
+      "message": "I got the \u0027earlier\u0027 case in the change, but missed this one.",
+      "range": {
+        "startLine": 466,
+        "startChar": 12,
+        "endLine": 466,
+        "endChar": 32
+      },
+      "revId": "57d9c8dab1b3236fd8ef7b992de868545165b02a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
