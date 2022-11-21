@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5dbab07_6056c802",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-11-21T21:22:40Z",
+      "side": 1,
+      "message": "compression can fit on the previous line I believe. You\u0027ll run a final formatting I guess ?",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 11
+      },
+      "revId": "f1cbc309887681350eaa64c0564a1b293e309b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9da9e6e7_6b6c5c4f",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2022-11-21T21:22:40Z",
+      "side": 1,
+      "message": "maybe \u0027the distance code\u0027 of \u0027a distance code of\u0027",
+      "revId": "f1cbc309887681350eaa64c0564a1b293e309b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
