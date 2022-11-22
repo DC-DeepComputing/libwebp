@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bd145a0_00a1b84a",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 747,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-11-22T08:37:16Z",
+      "side": 1,
+      "message": "Is \"from\" capitalized because of consistency? RFC 7322 section 3.4 recommends not to capitalize prepositions.",
+      "range": {
+        "startLine": 747,
+        "startChar": 26,
+        "endLine": 747,
+        "endChar": 30
+      },
+      "revId": "d8ed8c117c9a42c0c0f9a3ff2492d01a688889d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
