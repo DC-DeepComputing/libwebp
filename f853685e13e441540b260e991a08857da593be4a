@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2072bfe_960c410b",
+        "filename": "src/webp/format_constants.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-22T03:29:27Z",
+      "side": 1,
+      "message": "this file is not installed, even though it\u0027s under webp/, so it\u0027s ok to change the name without a compatibility define.",
+      "revId": "f853685e13e441540b260e991a08857da593be4a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
