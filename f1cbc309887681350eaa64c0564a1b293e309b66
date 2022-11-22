@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "150350cc_8d73e944",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 685,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-22T00:47:02Z",
+      "side": 1,
+      "message": "\u003e compression can fit on the previous line I believe. You\u0027ll run a final formatting I guess ?\n\nRight, I wanted to keep the change reviewable without introducing formatting noise. I\u0027ll reflow all the paragraphs once I\u0027m done.",
+      "parentUuid": "b5dbab07_6056c802",
+      "range": {
+        "startLine": 685,
+        "startChar": 0,
+        "endLine": 685,
+        "endChar": 11
+      },
+      "revId": "f1cbc309887681350eaa64c0564a1b293e309b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9da9e6e7_6b6c5c4f",
@@ -37,6 +61,24 @@
       "writtenOn": "2022-11-21T21:22:40Z",
       "side": 1,
       "message": "maybe \u0027the distance code\u0027 of \u0027a distance code of\u0027",
+      "revId": "f1cbc309887681350eaa64c0564a1b293e309b66",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6101f39e_60c50332",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 769,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-11-22T00:47:02Z",
+      "side": 1,
+      "message": "\u003e maybe \u0027the distance code\u0027 of \u0027a distance code of\u0027\n\nThis read ok at first glance, but I\u0027ll update this and the line at 766 to be \u0027the distance code ...\u0027",
+      "parentUuid": "9da9e6e7_6b6c5c4f",
       "revId": "f1cbc309887681350eaa64c0564a1b293e309b66",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
