@@ -16,6 +16,29 @@
       "message": "LGTM.",
       "revId": "c4ce32e8a8a0c0fd7790b4648216af5463a35e8d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55a7c01_b62645a5",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-12-15T03:19:57Z",
+      "side": 1,
+      "message": "I\u0027m going to normalize the escaping while I\u0027m here. The +2 is sticky, though, thanks for the review.",
+      "range": {
+        "startLine": 131,
+        "startChar": 19,
+        "endLine": 131,
+        "endChar": 21
+      },
+      "revId": "c4ce32e8a8a0c0fd7790b4648216af5463a35e8d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
