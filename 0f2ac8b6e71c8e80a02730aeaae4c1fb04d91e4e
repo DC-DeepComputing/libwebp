@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b81409b3_0b05084b",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2022-12-16T09:59:09Z",
+      "side": 1,
+      "message": "Suggested alternative:\n```mk\n# Ignore this file during non-NDK builds.\n```",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 69
+      },
+      "revId": "0f2ac8b6e71c8e80a02730aeaae4c1fb04d91e4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
