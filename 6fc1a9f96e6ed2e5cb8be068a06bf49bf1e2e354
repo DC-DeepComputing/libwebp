@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "807a2701_9581dc1e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-12-16T20:13:05Z",
+      "side": 1,
+      "message": "There\u0027s also changes like: https://r.android.com/c/platform/external/webp/+/2356795, but NOTICE is a local duplicate of COPYING, so without bringing that over there would still be a merge conflict each time. These files are stable so I think this one might be enough for now.",
+      "revId": "6fc1a9f96e6ed2e5cb8be068a06bf49bf1e2e354",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
