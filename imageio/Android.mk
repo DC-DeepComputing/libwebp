@@ -1,3 +1,5 @@
+# If we're being invoked from ndk-build, we'll have NDK_ROOT defined.
+ifdef NDK_ROOT
 LOCAL_PATH := $(call my-dir)
 
 ################################################################################
@@ -52,3 +54,4 @@ LOCAL_STATIC_LIBRARIES := imageio_util
 LOCAL_MODULE := imageenc
 
 include $(BUILD_STATIC_LIBRARY)
+endif  # NDK_ROOT

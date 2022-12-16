@@ -1,3 +1,5 @@
+# If we're being invoked from ndk-build, we'll have NDK_ROOT defined.
+ifdef NDK_ROOT
 LOCAL_PATH := $(call my-dir)
 
 ################################################################################
@@ -91,3 +93,4 @@ LOCAL_STATIC_LIBRARIES := example_util imageio_util webp
 LOCAL_MODULE := webpinfo_example
 
 include $(BUILD_EXECUTABLE)
+endif  # NDK_ROOT
