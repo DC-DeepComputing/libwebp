@@ -22,6 +22,30 @@
       },
       "revId": "0f2ac8b6e71c8e80a02730aeaae4c1fb04d91e4e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc6fc74_e1f15c85",
+        "filename": "Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-12-16T20:09:13Z",
+      "side": 1,
+      "message": "\u003e Suggested alternative:\n\u003e ```mk\n\u003e # Ignore this file during non-NDK builds.\n\u003e ```\n\nThat sounds better. I just picked up what was added quickly on the Android side and didn\u0027t think about it.",
+      "parentUuid": "b81409b3_0b05084b",
+      "range": {
+        "startLine": 1,
+        "startChar": 2,
+        "endLine": 1,
+        "endChar": 69
+      },
+      "revId": "0f2ac8b6e71c8e80a02730aeaae4c1fb04d91e4e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
