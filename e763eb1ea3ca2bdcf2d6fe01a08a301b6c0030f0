@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "461ff379_16533f12",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2022-12-17T06:12:36Z",
+      "side": 1,
+      "message": "abidiff run between v1.2.4 and refs/heads/1.3.0:\n\nhttps://build.webmproject.org/jenkins/job/libwebp__abi_check/3106/default/consoleFull",
+      "revId": "e763eb1ea3ca2bdcf2d6fe01a08a301b6c0030f0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
