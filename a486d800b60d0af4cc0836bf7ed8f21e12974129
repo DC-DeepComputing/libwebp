@@ -16,6 +16,23 @@
       "message": "less fragile might be to do this at the top of the function, though it\u0027s wasted effort in most cases.",
       "revId": "a486d800b60d0af4cc0836bf7ed8f21e12974129",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47948c89_5a327f2a",
+        "filename": "src/enc/alpha_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2023-02-27T14:20:04Z",
+      "side": 1,
+      "message": "Why not the same `ok \u003d ok \u0026\u0026 ...` syntax as below?",
+      "revId": "a486d800b60d0af4cc0836bf7ed8f21e12974129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
