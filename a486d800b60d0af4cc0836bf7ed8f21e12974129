@@ -33,6 +33,24 @@
       "message": "Why not the same `ok \u003d ok \u0026\u0026 ...` syntax as below?",
       "revId": "a486d800b60d0af4cc0836bf7ed8f21e12974129",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ee147ae_0049e0d4",
+        "filename": "src/enc/alpha_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-02-28T00:21:31Z",
+      "side": 1,
+      "message": "\u003e Why not the same `ok \u003d ok \u0026\u0026 ...` syntax as below?\n\nThe promise at line 109 (which failed at line 152): `// This function always returns an initialized \u0027bw\u0027 object, even upon error.`\n\nIt could have been `ok \u003d VP8BitWriterInit(...) \u0026\u0026 ok`, but I though that might be a little more confusing.",
+      "parentUuid": "47948c89_5a327f2a",
+      "revId": "a486d800b60d0af4cc0836bf7ed8f21e12974129",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
