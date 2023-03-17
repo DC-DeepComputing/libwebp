@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae1bed88_3f418ad3",
+        "filename": "doc/tools.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 298,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-03-17T22:58:53Z",
+      "side": 1,
+      "message": "we\u0027re a little inconsistent with this name, but this matches gif2webp",
+      "range": {
+        "startLine": 298,
+        "startChar": 60,
+        "endLine": 298,
+        "endChar": 69
+      },
+      "revId": "2fe27bb96db10f8152e91c7e75277d65d1c1851b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
