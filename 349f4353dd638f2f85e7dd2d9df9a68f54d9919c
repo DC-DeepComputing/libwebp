@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "47953426_cd1258ed",
+        "filename": "cmake/deps.cmake",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-11T18:37:34Z",
+      "side": 0,
+      "message": "I missed this block. I\u0027ll upload a new patch. +2 is sticky here.",
+      "revId": "349f4353dd638f2f85e7dd2d9df9a68f54d9919c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb51d58_a48a99d4",
+        "filename": "cmake/deps.cmake",
+        "patchSetId": 2
+      },
+      "lineNbr": 146,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-11T18:37:34Z",
+      "side": 0,
+      "message": "This one isn\u0027t technically necessary (we use `HAVE_WINCODEC_H`), but I\u0027m going to leave it for now to keep it in agreement with the manual checks we added to autoconf.",
+      "revId": "349f4353dd638f2f85e7dd2d9df9a68f54d9919c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
