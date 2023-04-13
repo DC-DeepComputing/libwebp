@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4e6edfa_3ec6ceda",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1233114
+      },
+      "writtenOn": "2023-04-13T13:38:11Z",
+      "side": 1,
+      "message": "Thanks! LG, but I like the below better (makes the grammar look more like the functions you\u0027d use to read the data, and no awkward line wrap)",
+      "revId": "7adbf15d620f173f18f0761eb74b22dc724a4eb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20fc9f05_0ec7c172",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1233114
+      },
+      "writtenOn": "2023-04-13T13:38:11Z",
+      "side": 1,
+      "message": "nit: what about:\n\n```\nformat        \u003d RIFF-header image-header image-stream\nRIFF-header   \u003d \"RIFF\" 4OCTET \"WEBP\" \"VP8L\" 4OCTET %x2F\nimage-header  \u003d image-size alpha-is-used version\nimage-size    \u003d 14BIT 14BIT ; width - 1, height - 1\nalpha-is-used \u003d 1BIT\nversion       \u003d 3BIT ; 0\nimage-stream  \u003d optional-transform spatially-coded-image\n```\n\n?",
+      "revId": "7adbf15d620f173f18f0761eb74b22dc724a4eb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
