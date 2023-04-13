@@ -33,6 +33,24 @@
       "message": "nit: what about:\n\n```\nformat        \u003d RIFF-header image-header image-stream\nRIFF-header   \u003d \"RIFF\" 4OCTET \"WEBP\" \"VP8L\" 4OCTET %x2F\nimage-header  \u003d image-size alpha-is-used version\nimage-size    \u003d 14BIT 14BIT ; width - 1, height - 1\nalpha-is-used \u003d 1BIT\nversion       \u003d 3BIT ; 0\nimage-stream  \u003d optional-transform spatially-coded-image\n```\n\n?",
       "revId": "7adbf15d620f173f18f0761eb74b22dc724a4eb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f77b6ba8_f24aad00",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1073,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-13T19:13:48Z",
+      "side": 1,
+      "message": "\u003e nit: what about:\n\u003e \n\u003e ```\n\u003e format        \u003d RIFF-header image-header image-stream\n\u003e RIFF-header   \u003d \"RIFF\" 4OCTET \"WEBP\" \"VP8L\" 4OCTET %x2F\n\u003e image-header  \u003d image-size alpha-is-used version\n\u003e image-size    \u003d 14BIT 14BIT ; width - 1, height - 1\n\u003e alpha-is-used \u003d 1BIT\n\u003e version       \u003d 3BIT ; 0\n\u003e image-stream  \u003d optional-transform spatially-coded-image\n\u003e ```\n\u003e \n\u003e ?\n\nThanks for the suggestion, that looks better and is a better way to logically group them.",
+      "parentUuid": "20fc9f05_0ec7c172",
+      "revId": "7adbf15d620f173f18f0761eb74b22dc724a4eb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
