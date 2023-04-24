@@ -28,9 +28,18 @@
 
 //------------------------------------------------------------------------------
 // Arbitrary limits to prevent OOM, timeout, or slow execution.
-//
+
 // The decoded image size, and for animations additionally the canvas size.
+#if (defined(__has_feature) &&                                                 \
+     (__has_feature(address_sanitizer) || __has_feature(memory_sanitizer))) || \
+    defined(__SANITIZE_ADDRESS__)
+// Enabling some sanitizers slow down runtime significantly.
+// Use a very low threshold to avoid timeouts.
+static const size_t kFuzzPxLimit = 1024 * 1024 / 10;
+#else
 static const size_t kFuzzPxLimit = 1024 * 1024;
+#endif
+
 // Demuxed or decoded animation frames.
 static const int kFuzzFrameLimit = 3;
 
