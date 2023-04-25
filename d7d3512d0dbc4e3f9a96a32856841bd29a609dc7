@@ -16,6 +16,24 @@
       "message": "Unfortunately there\u0027s no short-circuiting so this needs to be a two tiered check to avoid `__has_feature()` expanding to nothing:\n\n```\n./fuzz_utils.h:34:20: error: missing binary operator before token \"(\"\n   34 |      (__has_feature(address_sanitizer) || __has_feature(memory_sanitizer))) || \\\n```\n\nhttps://clang.llvm.org/docs/LanguageExtensions.html#has-feature-and-has-extension",
       "revId": "d7d3512d0dbc4e3f9a96a32856841bd29a609dc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "510552dc_b9f5d8af",
+        "filename": "tests/fuzzer/fuzz_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2023-04-25T06:15:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb5e6ebb_34791031",
+      "revId": "d7d3512d0dbc4e3f9a96a32856841bd29a609dc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
