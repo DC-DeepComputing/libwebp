@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4511f207_67972af7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-26T23:23:42Z",
+      "side": 1,
+      "message": "This global has not done me any favors over the years...",
+      "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "396a36ac_f0088db3",
+        "filename": "src/dsp/cpu.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 177,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-26T23:23:42Z",
+      "side": 1,
+      "message": "these two lines can\u0027t be combined when `WEBP_EXTERN` is `extern`:\n\n```\nsrc\\dsp\\cpu.c(176,24): error: \u0027extern\u0027 variable has an initializer [-Werror,-Wextern-initializer]\nWEBP_EXTERN VP8CPUInfo VP8GetCPUInfo \u003d x86CPUInfo;\n```",
+      "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c95b5d1e_6b52c17c",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-26T23:23:42Z",
+      "side": 1,
+      "message": "keeping this here is not an option when `WEBP_EXTERN` is `__declspec(dllexport)`:\n\n```\nsrc\\dsp\\cpu.c(176,24): error: redeclaration of \u0027VP8GetCPUInfo\u0027 should not add \u0027dllexport\u0027 attribute [-Werror,-Wdll-attribute-on-redeclaration]\nWEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;\n```",
+      "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
