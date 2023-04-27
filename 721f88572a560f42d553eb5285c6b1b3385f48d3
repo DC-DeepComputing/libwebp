@@ -50,6 +50,24 @@
       "message": "keeping this here is not an option when `WEBP_EXTERN` is `__declspec(dllexport)`:\n\n```\nsrc\\dsp\\cpu.c(176,24): error: redeclaration of \u0027VP8GetCPUInfo\u0027 should not add \u0027dllexport\u0027 attribute [-Werror,-Wdll-attribute-on-redeclaration]\nWEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;\n```",
       "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06cc5fe9_23b6dd09",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-04-27T07:52:07Z",
+      "side": 1,
+      "message": "remove the commented line then?",
+      "parentUuid": "c95b5d1e_6b52c17c",
+      "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
