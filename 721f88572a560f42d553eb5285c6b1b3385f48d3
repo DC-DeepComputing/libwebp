@@ -86,6 +86,24 @@
       "parentUuid": "06cc5fe9_23b6dd09",
       "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0d6fbf_124ce67b",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-04-27T19:39:51Z",
+      "side": 1,
+      "message": "\u003e \u003e remove the commented line then?\n\u003e \n\u003e I wasn\u0027t sure given we don\u0027t reference the symbol by name anywhere -- it\u0027s kind of a known private symbol. Let me clarify the comment.\n\nActually rereading it, just describing the typedef here is enough.",
+      "parentUuid": "1147f31c_1bc762bb",
+      "revId": "721f88572a560f42d553eb5285c6b1b3385f48d3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
