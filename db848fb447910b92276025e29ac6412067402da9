@@ -16,6 +16,24 @@
       "message": "I was toying with the idea of always defining `WEBP_AARCH64` instead. That way we could catch places that are outside of src/dsp like `src/utils/bit_reader_utils.h` with `-Wundef`. What do you think?",
       "revId": "db848fb447910b92276025e29ac6412067402da9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c769d1c0_ee27914d",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-05-02T05:28:25Z",
+      "side": 1,
+      "message": "indeed, seems more coherent to use some custom WEBP_XXX (or WEBP_USE_XXXX ?) like we do for the other #ifdef\u0027d platforms...",
+      "parentUuid": "41057171_f8bdc7b8",
+      "revId": "db848fb447910b92276025e29ac6412067402da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
