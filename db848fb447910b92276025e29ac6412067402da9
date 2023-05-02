@@ -34,6 +34,24 @@
       "parentUuid": "41057171_f8bdc7b8",
       "revId": "db848fb447910b92276025e29ac6412067402da9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "120b0cce_9c4f47ed",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-02T19:29:57Z",
+      "side": 1,
+      "message": "\u003e indeed, seems more coherent to use some custom WEBP_XXX (or WEBP_USE_XXXX ?) like we do for the other #ifdef\u0027d platforms...\n\nyep, helpful if we start adding code in other places:\n\n```\nsrc/utils/bit_reader_utils.h|68 col 7| warning: \"WEBP_AARCH64\" is not defined, evaluates to 0 [-Wundef]\n```",
+      "parentUuid": "c769d1c0_ee27914d",
+      "revId": "db848fb447910b92276025e29ac6412067402da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
