@@ -19,6 +19,7 @@
 #ifdef _MSC_VER
 #include <stdlib.h>  // _byteswap_ulong
 #endif
+#include "src/dsp/cpu.h"
 #include "src/webp/types.h"
 
 // Warning! This macro triggers quite some MACRO wizardry around func signature!

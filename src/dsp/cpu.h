@@ -105,6 +105,11 @@
 #define WEBP_USE_INTRINSICS
 #endif
 
+// Visual Studio's compiler (cl.exe) does not define __aarch64__.
+#if (defined(_M_ARM64) || defined(_M_ARM64EC)) && !defined(__aarch64__)
+#define __aarch64__
+#endif
+
 #if defined(WEBP_USE_NEON) && !defined(WEBP_HAVE_NEON)
 #define WEBP_HAVE_NEON
 #endif
