@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "41057171_f8bdc7b8",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-02T05:01:04Z",
+      "side": 1,
+      "message": "I was toying with the idea of always defining `WEBP_AARCH64` instead. That way we could catch places that are outside of src/dsp like `src/utils/bit_reader_utils.h` with `-Wundef`. What do you think?",
+      "revId": "db848fb447910b92276025e29ac6412067402da9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
