@@ -16,6 +16,23 @@
       "message": "cleaner!",
       "revId": "0c496a4ff92f6c8c3607bda29f442e254efd28f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55487b46_af5facc3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-03T00:27:23Z",
+      "side": 1,
+      "message": "Tests pass on a native device. ~15% faster using the VS2022 compiler. now only ~5% slower than clang-cl.",
+      "revId": "0c496a4ff92f6c8c3607bda29f442e254efd28f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
