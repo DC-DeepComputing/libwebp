@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c4cb5ca_615bed7a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-12T09:58:33Z",
+      "side": 1,
+      "message": "I\u0027ve fixed the codes you pointed out and pushed as Patchset 4.",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
