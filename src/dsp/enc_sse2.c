@@ -164,7 +164,7 @@ static void ITransform_SSE2_One(const uint8_t* ref, const int16_t* in, uint8_t* 
     ref23 = _mm_add_epi16(ref23, T23);
     // Unsigned saturate to 8b.
     const __m128i ref0123 = _mm_packus_epi16(ref01, ref23);
-    
+
     int32_t ref[4];
     _mm_storeu_si128((__m128i_u *)ref, ref0123);
 
