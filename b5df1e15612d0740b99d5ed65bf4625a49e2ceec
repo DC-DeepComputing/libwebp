@@ -33,6 +33,23 @@
       "message": "Thanks for your contribution! I put Vincent who is more knowledgeable than I as reviewer.",
       "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "372b3909_26a03a8a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-05-12T08:27:40Z",
+      "side": 1,
+      "message": "BTW, this is a follow-up on https://groups.google.com/a/webmproject.org/g/webp-discuss/c/7lsVDfReN1Y/m/mcab464SAwAJ?utm_medium\u003demail\u0026utm_source\u003dfooter",
+      "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
