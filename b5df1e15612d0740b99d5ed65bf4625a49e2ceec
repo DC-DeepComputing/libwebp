@@ -16,6 +16,23 @@
       "message": "This is the patch to optimize ITransform_SSE2 which I talked about in the Google Groups. ( https://groups.google.com/a/webmproject.org/g/webp-discuss/c/7lsVDfReN1Y/m/e1oVyuAGAgAJ )\n\nCould you please review this patch?",
       "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cad54dc9_a051424a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2023-05-12T08:23:03Z",
+      "side": 1,
+      "message": "Thanks for your contribution! I put Vincent who is more knowledgeable than I as reviewer.",
+      "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
