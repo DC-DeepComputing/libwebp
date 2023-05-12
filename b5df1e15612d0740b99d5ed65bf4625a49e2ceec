@@ -50,6 +50,57 @@
       "message": "BTW, this is a follow-up on https://groups.google.com/a/webmproject.org/g/webp-discuss/c/7lsVDfReN1Y/m/mcab464SAwAJ?utm_medium\u003demail\u0026utm_source\u003dfooter",
       "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de681680_17bfbcaa",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-05-12T08:50:57Z",
+      "side": 1,
+      "message": "maybe rename zero_four.",
+      "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee2d7be_3914d877",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-05-12T08:50:57Z",
+      "side": 1,
+      "message": "No need for {} as there are no temporaries.\nSo just:\nconst __128i in01 \u003d _mm_loadu_si128((const __m128i*)\u0026in[0]);\nconst __128i in23 \u003d _mm_loadu_si128((const __m128i*)\u0026in[8]);",
+      "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f95f7dcb_b3a97555",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-05-12T08:50:57Z",
+      "side": 1,
+      "message": "You should replace that whole code with:\nconst __m128i tmp0 \u003d _mm_loadu_si128((const __m128i*)\u0026in[0]);\nconst __m128i tmp1 \u003d _mm_loadu_si128((const __m128i*)\u0026in[8]);\nconst __m128i tmp2 \u003d _mm_loadu_si128((const __m128i*)\u0026in[16]);\nconst __m128i tmp3 \u003d _mm_loadu_si128((const __m128i*)\u0026in[24]);\nin0 \u003d _mm_unpacklo_epi64(tmp0, tmp2);\nin1 \u003d _mm_unpackhi_epi64(tmp0, tmp2);\nin2 \u003d _mm_unpacklo_epi64(tmp1, tmp3);\nin3 \u003d _mm_unpackho_epi64(tmp1, tmp3);",
+      "revId": "b5df1e15612d0740b99d5ed65bf4625a49e2ceec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
