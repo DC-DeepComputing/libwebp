@@ -33,6 +33,126 @@
       "message": "jzern@, skal@ ,please have a look.",
       "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ea3d1a4_bf61d9d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "Thanks for the patch. Just some high level comments.",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08826f2_1fe4af30",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "We try to make the suffix be the instruction set, so this should be `ITransform_One_SSE2`",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92a4abd2_98003556",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "Prefer `__m128i*` for compatibility. The function takes this type in any case.",
+      "range": {
+        "startLine": 169,
+        "startChar": 22,
+        "endLine": 169,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9aced39_7b3f1427",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "This comment can be deleted, it\u0027s somewhat redundant now that the branch is gone.",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7cb31d9_d56b93c6",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "`ITransform_Two_SSE2`",
+      "range": {
+        "startLine": 181,
+        "startChar": 12,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3309f474_8a7b9ab7",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-12T17:16:51Z",
+      "side": 1,
+      "message": "This comment can be deleted, it\u0027s somewhat redundant now that the branch is gone.",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
