@@ -75,6 +75,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90181d4f_f4673fef",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-15T02:42:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c08826f2_1fe4af30",
+      "range": {
+        "startLine": 29,
+        "startChar": 12,
+        "endLine": 29,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "92a4abd2_98003556",
@@ -88,6 +112,30 @@
       "writtenOn": "2023-05-12T17:16:51Z",
       "side": 1,
       "message": "Prefer `__m128i*` for compatibility. The function takes this type in any case.",
+      "range": {
+        "startLine": 169,
+        "startChar": 22,
+        "endLine": 169,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921f7b2c_bce7c3bd",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-15T02:42:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "92a4abd2_98003556",
       "range": {
         "startLine": 169,
         "startChar": 22,
@@ -117,6 +165,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24088ad0_b0a19bdf",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-15T02:42:45Z",
+      "side": 1,
+      "message": "I only deleted the next line. ( \"Store four bytes/pixels per line.\" )\nIt seems to me that this line ( \"Store the results\" ) is still meaningful.",
+      "parentUuid": "f9aced39_7b3f1427",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7cb31d9_d56b93c6",
         "filename": "src/dsp/enc_sse2.c",
         "patchSetId": 4
@@ -128,6 +194,30 @@
       "writtenOn": "2023-05-12T17:16:51Z",
       "side": 1,
       "message": "`ITransform_Two_SSE2`",
+      "range": {
+        "startLine": 181,
+        "startChar": 12,
+        "endLine": 181,
+        "endChar": 31
+      },
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c0ee2a2_2d2511a8",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-15T02:42:45Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e7cb31d9_d56b93c6",
       "range": {
         "startLine": 181,
         "startChar": 12,
@@ -151,6 +241,24 @@
       "writtenOn": "2023-05-12T17:16:51Z",
       "side": 1,
       "message": "This comment can be deleted, it\u0027s somewhat redundant now that the branch is gone.",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26320291_01ba55e5",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-15T02:42:45Z",
+      "side": 1,
+      "message": "I only deleted the next line. ( \"Store eight bytes/pixels per line.\" )\nIt seems to me that this line ( \"Store the results\" ) is still meaningful.",
+      "parentUuid": "3309f474_8a7b9ab7",
       "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
