@@ -183,6 +183,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6ccad6bc_fb5a68ee",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-16T02:31:46Z",
+      "side": 1,
+      "message": "\u003e I only deleted the next line. ( \"Store four bytes/pixels per line.\" )\n\u003e It seems to me that this line ( \"Store the results\" ) is still meaningful.\n\nSorry I wasn\u0027t clearer. My comment was for the line `Store the results.` since that\u0027s less specific than `Store .. per line`.",
+      "parentUuid": "24088ad0_b0a19bdf",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e7cb31d9_d56b93c6",
         "filename": "src/dsp/enc_sse2.c",
         "patchSetId": 4
