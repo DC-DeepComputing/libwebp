@@ -199,6 +199,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2178c036_b7d5e7f8",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-16T05:02:23Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "6ccad6bc_fb5a68ee",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e7cb31d9_d56b93c6",
@@ -277,6 +295,24 @@
       "side": 1,
       "message": "I only deleted the next line. ( \"Store eight bytes/pixels per line.\" )\nIt seems to me that this line ( \"Store the results\" ) is still meaningful.",
       "parentUuid": "3309f474_8a7b9ab7",
+      "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dda9b570_5599f222",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 311,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-16T05:02:23Z",
+      "side": 1,
+      "message": "Removed \"Store the results\" instead to keep the comment specific.\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/4523047/comment/f9aced39_7b3f1427/",
+      "parentUuid": "26320291_01ba55e5",
       "revId": "83538e4b371a1ee9e6e03f19666400202b1f2901",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
