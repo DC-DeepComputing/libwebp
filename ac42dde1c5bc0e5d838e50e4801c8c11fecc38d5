@@ -33,6 +33,23 @@
       "message": "Thanks for the patch and working through the review.",
       "revId": "ac42dde1c5bc0e5d838e50e4801c8c11fecc38d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b035905e_bec151ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1581157
+      },
+      "writtenOn": "2023-05-17T10:09:32Z",
+      "side": 1,
+      "message": "Thank you!",
+      "revId": "ac42dde1c5bc0e5d838e50e4801c8c11fecc38d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
