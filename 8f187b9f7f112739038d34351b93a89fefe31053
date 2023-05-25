@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "801f771a_9cbed373",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-25T04:51:35Z",
+      "side": 1,
+      "message": "No self +2...That applies to the owner and author.",
+      "revId": "8f187b9f7f112739038d34351b93a89fefe31053",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
