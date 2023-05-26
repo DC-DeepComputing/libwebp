@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a80ae5a2_280ace61",
+        "filename": "cmake/deps.cmake",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-26T00:11:24Z",
+      "side": 1,
+      "message": "This could be blocked out with `WEBP_BUILD_VWEBP`. The comment might be a little stale.",
+      "revId": "709ec152dfee669a992416e6769ff621cadd8ac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
