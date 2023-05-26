@@ -34,6 +34,24 @@
       "parentUuid": "a80ae5a2_280ace61",
       "revId": "709ec152dfee669a992416e6769ff621cadd8ac7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d4cda408_3f0ad6fb",
+        "filename": "cmake/deps.cmake",
+        "patchSetId": 2
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-26T19:00:12Z",
+      "side": 1,
+      "message": "\u003e We actually need to do it here so that variables (like WEBP_HAVE_GL) are populated in config.h and then used in the compilation of vwebp.\n\u003e An other solution is to not put those variables in the config.h and only compile vwebp if OpenGL is found. For now, we compile it, even if it is not found, with an error message at runtime.\n\nThanks, I had forgotten about that aspect. I guess if WEBP_BUILD_VWEBP is false we could just clear those variables so config.h is correct.",
+      "parentUuid": "afd25993_0f3c84f5",
+      "revId": "709ec152dfee669a992416e6769ff621cadd8ac7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
