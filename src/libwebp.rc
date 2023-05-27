@@ -26,7 +26,7 @@ BEGIN
             VALUE "FileDescription", "libwebp DLL"
             VALUE "FileVersion", "1.3.0"
             VALUE "InternalName", "libwebp.dll"
-            VALUE "LegalCopyright", "Copyright (C) 2022"
+            VALUE "LegalCopyright", "Copyright (C) 2023"
             VALUE "OriginalFilename", "libwebp.dll"
             VALUE "ProductName", "WebP Image Codec"
             VALUE "ProductVersion", "1.3.0"
