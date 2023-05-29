@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "869ee519_2b8aee6a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-05-29T20:26:05Z",
+      "side": 1,
+      "message": "How about also adding a section in CONTRIBUTING.md about using those settings with cmake-format?",
+      "revId": "c5ab8f7b46930a5e46e7cdf724d545cfe369f08b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
