@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f489f818_1ed620c3",
+        "filename": ".cmake-format.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-30T19:36:55Z",
+      "side": 1,
+      "message": "```\ndiff --git a/.cmake-format.py b/.cmake-format.py\nindex 3df985a2..5541d36c 100644\n--- a/.cmake-format.py\n+++ b/.cmake-format.py\n@@ -45,7 +45,7 @@ with section(\"format\"):\n \n   # If an argument group contains more than this many sub-groups (parg or kwarg\n   # groups) then force it to a vertical layout.\n-  max_subgroups_hwrap \u003d 2\n+  max_subgroups_hwrap \u003d 3\n \n   # If a positional argument group contains more than this many arguments, then\n   # force it to a vertical layout.\n@@ -128,7 +128,7 @@ with section(\"markup\"):\n   # If comment markup is enabled, don\u0027t reflow the first comment block in each\n   # listfile. Use this to preserve formatting of your copyright/license\n   # statements.\n-  first_comment_is_literal \u003d False\n+  first_comment_is_literal \u003d True\n \n   # If comment markup is enabled, don\u0027t reflow any comment block which matches\n   # this (regex) pattern. Default is `None` (disabled).\n```",
+      "revId": "31caf0bfbf74fa2fb37040ac03ff3b88ae49a3ec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
