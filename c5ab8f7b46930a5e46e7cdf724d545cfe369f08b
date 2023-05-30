@@ -16,6 +16,24 @@
       "message": "How about also adding a section in CONTRIBUTING.md about using those settings with cmake-format?",
       "revId": "c5ab8f7b46930a5e46e7cdf724d545cfe369f08b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97926076_cc37ad6e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-30T19:36:10Z",
+      "side": 1,
+      "message": "\u003e How about also adding a section in CONTRIBUTING.md about using those settings with cmake-format?\n\nGood point. Done in a follow up:\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/4575010",
+      "parentUuid": "869ee519_2b8aee6a",
+      "revId": "c5ab8f7b46930a5e46e7cdf724d545cfe369f08b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
