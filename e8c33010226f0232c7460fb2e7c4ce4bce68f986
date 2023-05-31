@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2802c470_6045b7c6",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-31T17:41:57Z",
+      "side": 1,
+      "message": "I would say the computation was/is switched to ints. \u0027can\u0027 makes it sound like something for a future change.",
+      "revId": "e8c33010226f0232c7460fb2e7c4ce4bce68f986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7780d95a_b963a391",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-05-31T17:41:57Z",
+      "side": 1,
+      "message": "extra space after \u0027count\u0027.",
+      "range": {
+        "startLine": 11,
+        "startChar": 21,
+        "endLine": 11,
+        "endChar": 22
+      },
+      "revId": "e8c33010226f0232c7460fb2e7c4ce4bce68f986",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
