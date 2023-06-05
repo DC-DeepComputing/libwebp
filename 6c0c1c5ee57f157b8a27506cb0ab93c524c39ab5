@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c7e2a13_fe5f1336",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-05T23:40:07Z",
+      "side": 1,
+      "message": "This is kind of large, though most changes are pretty small. I can break this up by section or split out the comma only changes if it helps.",
+      "revId": "6c0c1c5ee57f157b8a27506cb0ab93c524c39ab5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
