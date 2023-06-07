@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2d0c96c_bfa0096c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-07T16:56:54Z",
+      "side": 1,
+      "message": "Seems I forgot to mark this one as active.",
+      "revId": "38458a8aecc05eef9d7ec94bff96c7affca82199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
