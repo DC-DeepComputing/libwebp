@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac5aa853_243ab37e",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 191,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-07T01:47:45Z",
+      "side": 1,
+      "message": "\u003e I do not see a cap at the definition above:\n\u003e \n\u003e \u003e The basic element of a RIFF file is a _chunk_.\n\nI think the distinction being made is one is treated as a proper noun to describe the names of the chunks, while the other is describing chunks in general.",
+      "parentUuid": "11ce6c97_a4024ece",
+      "range": {
+        "startLine": 191,
+        "startChar": 36,
+        "endLine": 191,
+        "endChar": 41
+      },
+      "revId": "1e0d348df71150cfe1669868e9d120f385e59734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "062ec691_d30f55e8",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-06-06T08:27:33Z",
       "side": 1,
       "message": "\u0027ANIM\u0027",
+      "range": {
+        "startLine": 377,
+        "startChar": 0,
+        "endLine": 377,
+        "endChar": 4
+      },
+      "revId": "1e0d348df71150cfe1669868e9d120f385e59734",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d81385e_94e1054d",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 377,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-07T01:47:45Z",
+      "side": 1,
+      "message": "\u003e \u0027ANIM\u0027\n\nGood catch.",
+      "parentUuid": "062ec691_d30f55e8",
       "range": {
         "startLine": 377,
         "startChar": 0,
