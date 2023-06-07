@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80dead10_9ddb2a93",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 562,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-07T05:11:41Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/webm/libwebp/+/37303",
+      "revId": "7f75c91ced99ef99a4a5447be583f69a719bf472",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
