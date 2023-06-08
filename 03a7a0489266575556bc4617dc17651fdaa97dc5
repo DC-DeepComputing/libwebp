@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f0054fe_508282eb",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 967,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-08T19:51:26Z",
+      "side": 1,
+      "message": "This \u0027described below\u0027 followed by another \u0027described below\u0027 bothered me.",
+      "revId": "03a7a0489266575556bc4617dc17651fdaa97dc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
