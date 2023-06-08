@@ -33,6 +33,24 @@
       "message": "Why not keep capital letters? We keep them for other numbered lists",
       "revId": "38458a8aecc05eef9d7ec94bff96c7affca82199",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9339bfee_1231d8ad",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 623,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-08T18:21:00Z",
+      "side": 1,
+      "message": "\u003e Why not keep capital letters? We keep them for other numbered lists\n\nI\u0027m not sure, this was an editorial change. I\u0027ll keep them in our copy and ask for clarification from the editors.",
+      "parentUuid": "ef1123de_f7c0517a",
+      "revId": "38458a8aecc05eef9d7ec94bff96c7affca82199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
