@@ -22,6 +22,30 @@
       },
       "revId": "6b02f66015cf01aa86852a53e6d807db1f48baae",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92c9105f_75f426c1",
+        "filename": "src/dsp/filters.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-06-12T14:17:39Z",
+      "side": 1,
+      "message": "the assert could be triggered by vp8l_dec.c:853 one day, after some wild refactor.\n\nNot much overhead to leave it here for now...",
+      "parentUuid": "ab6296fc_f4f57377",
+      "range": {
+        "startLine": 195,
+        "startChar": 2,
+        "endLine": 195,
+        "endChar": 16
+      },
+      "revId": "6b02f66015cf01aa86852a53e6d807db1f48baae",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
