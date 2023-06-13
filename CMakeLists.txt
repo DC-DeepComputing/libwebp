@@ -651,6 +651,17 @@ if(WEBP_BUILD_EXTRAS)
 endif()
 
 if(WEBP_BUILD_WEBP_JS)
+  # The default stack size changed from 5MB to 64KB in 3.1.27. In testing 2MB
+  # was enough, but you may need to increase this value depending on your
+  # environment. See https://crbug.com/webp/614.
+  if(EMSCRIPTEN_VERSION VERSION_GREATER_EQUAL "3.1.27")
+    # TOTAL_STACK size was renamed to STACK_SIZE in 3.1.27. Though the old name
+    # was kept for compatibility we'll prefer the new one in case it's removed
+    # later.
+    set(emscripten_stack_size "-sSTACK_SIZE=2MB")
+  else()
+    set(emscripten_stack_size "-sTOTAL_STACK=2MB")
+  endif()
   # wasm2js does not support SIMD.
   if(NOT WEBP_ENABLE_SIMD)
     # JavaScript version
@@ -660,7 +671,7 @@ if(WEBP_BUILD_WEBP_JS)
     set(WEBP_HAVE_SDL 1)
     set_target_properties(
       webp_js
-      PROPERTIES LINK_FLAGS "-sWASM=0 \
+      PROPERTIES LINK_FLAGS "-sWASM=0 ${emscripten_stack_size} \
          -sEXPORTED_FUNCTIONS=_WebPToSDL -sINVOKE_RUN=0 \
          -sEXPORTED_RUNTIME_METHODS=cwrap")
     set_target_properties(webp_js PROPERTIES OUTPUT_NAME webp)
@@ -673,7 +684,7 @@ if(WEBP_BUILD_WEBP_JS)
   target_include_directories(webp_wasm PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
   set_target_properties(
     webp_wasm
-    PROPERTIES LINK_FLAGS "-sWASM=1 \
+    PROPERTIES LINK_FLAGS "-sWASM=1 ${emscripten_stack_size} \
        -sEXPORTED_FUNCTIONS=_WebPToSDL -sINVOKE_RUN=0 \
        -sEXPORTED_RUNTIME_METHODS=cwrap")
   target_compile_definitions(webp_wasm PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
