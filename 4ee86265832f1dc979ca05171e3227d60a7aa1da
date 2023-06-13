@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eca64cd9_23751289",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 655,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-13T08:09:47Z",
+      "side": 1,
+      "message": "If 2 might not be enough and 5 was, why not use 5?",
+      "revId": "4ee86265832f1dc979ca05171e3227d60a7aa1da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e56afde_fab5ba94",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 659,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-13T08:09:47Z",
+      "side": 1,
+      "message": "nit: maybe do not use \"we\" and contractions?",
+      "revId": "4ee86265832f1dc979ca05171e3227d60a7aa1da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
