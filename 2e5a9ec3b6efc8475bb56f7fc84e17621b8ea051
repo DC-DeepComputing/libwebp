@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36c69b9_8f1eb6ce",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-14T20:55:14Z",
+      "side": 1,
+      "message": "I missed this in my earlier `MALLOC_FAIL_AT` tests because I didn\u0027t use an animated image with `webpmux -info`",
+      "revId": "2e5a9ec3b6efc8475bb56f7fc84e17621b8ea051",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
