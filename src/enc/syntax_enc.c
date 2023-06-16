@@ -258,7 +258,10 @@ static int EmitPartitionsSize(const VP8Encoder* const enc,
     buf[3 * p + 1] = (part_size >>  8) & 0xff;
     buf[3 * p + 2] = (part_size >> 16) & 0xff;
   }
-  return p ? pic->writer(buf, 3 * p, pic) : 1;
+  if (p && !pic->writer(buf, 3 * p, pic)) {
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_BAD_WRITE);
+  }
+  return 1;
 }
 
 //------------------------------------------------------------------------------
@@ -359,7 +362,8 @@ int VP8EncWrite(VP8Encoder* const enc) {
     const uint8_t* const part0 = VP8BitWriterBuf(bw);
     const size_t size0 = VP8BitWriterSize(bw);
     ok = ok && PutWebPHeaders(enc, size0, vp8_size, riff_size)
-            && pic->writer(part0, size0, pic)
+            && (pic->writer(part0, size0, pic) ||
+                WebPEncodingSetError(pic, VP8_ENC_ERROR_BAD_WRITE))
             && EmitPartitionsSize(enc, pic);
     VP8BitWriterWipeOut(bw);    // will free the internal buffer.
   }
@@ -368,7 +372,10 @@ int VP8EncWrite(VP8Encoder* const enc) {
   for (p = 0; p < enc->num_parts_; ++p) {
     const uint8_t* const buf = VP8BitWriterBuf(enc->parts_ + p);
     const size_t size = VP8BitWriterSize(enc->parts_ + p);
-    if (size) ok = ok && pic->writer(buf, size, pic);
+    if (size) {
+      ok = ok && (pic->writer(buf, size, pic) ||
+                  WebPEncodingSetError(pic, VP8_ENC_ERROR_BAD_WRITE));
+    }
     VP8BitWriterWipeOut(enc->parts_ + p);    // will free the internal buffer.
     ok = ok && WebPReportProgress(pic, enc->percent_ + percent_per_part,
                                   &enc->percent_);
@@ -376,7 +383,8 @@ int VP8EncWrite(VP8Encoder* const enc) {
 
   // Padding byte
   if (ok && pad) {
-    ok = PutPaddingByte(pic);
+    ok = PutPaddingByte(pic) ||
+         WebPEncodingSetError(pic, VP8_ENC_ERROR_BAD_WRITE);
   }
 
   enc->coded_size_ = (int)(CHUNK_HEADER_SIZE + riff_size);
