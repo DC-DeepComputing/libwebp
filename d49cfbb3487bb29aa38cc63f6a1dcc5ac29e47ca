@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58e5d31e_2a130a72",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-16T00:38:00Z",
+      "side": 1,
+      "message": "This will require a CVE.",
+      "revId": "d49cfbb3487bb29aa38cc63f6a1dcc5ac29e47ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cec05172_69373075",
+        "filename": "src/enc/vp8l_enc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1455,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-16T00:38:00Z",
+      "side": 1,
+      "message": "Somehow we have `VP8_ENC_ERROR_BITSTREAM_OUT_OF_MEMORY`, but never use it. It might apply here, but maybe we can drop that if we ever break the ABI.",
+      "revId": "d49cfbb3487bb29aa38cc63f6a1dcc5ac29e47ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
