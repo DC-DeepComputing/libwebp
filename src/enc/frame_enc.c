@@ -689,9 +689,9 @@ static int PreLoopInitialize(VP8Encoder* const enc) {
   }
   if (!ok) {
     VP8EncFreeBitWriters(enc);  // malloc error occurred
-    WebPEncodingSetError(enc->pic_, VP8_ENC_ERROR_OUT_OF_MEMORY);
+    return WebPEncodingSetError(enc->pic_, VP8_ENC_ERROR_OUT_OF_MEMORY);
   }
-  return ok;
+  return 1;
 }
 
 static int PostLoopFinalize(VP8EncIterator* const it, int ok) {
