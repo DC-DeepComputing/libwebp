@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4122c6c8_aabfb318",
+        "filename": "src/enc/webp_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-17T23:40:33Z",
+      "side": 1,
+      "message": "We do this in `VP8SetError()`. The alternative is to change some of those catch all \u0027imprecise\u0027 ones to check whether an error has been set.",
+      "revId": "6f0d580d5a45afa0ff4a39b5eb95e26759490c3d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
