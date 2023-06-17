@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "438fd4ce_a0886dde",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-17T23:42:15Z",
+      "side": 1,
+      "message": "here mostly:\nhttps://chromium.googlesource.com/webm/libwebp/+/7d274bf8bffcedac2e760b18c90859955f439513/src/mux/anim_encode.c#814",
+      "range": {
+        "startLine": 9,
+        "startChar": 32,
+        "endLine": 9,
+        "endChar": 43
+      },
+      "revId": "7d274bf8bffcedac2e760b18c90859955f439513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
