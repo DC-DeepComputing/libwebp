@@ -186,7 +186,7 @@ static int PreprocessARGB(const uint8_t* r_ptr,
   if (!ok) {
     return WebPEncodingSetError(picture, VP8_ENC_ERROR_OUT_OF_MEMORY);
   }
-  return ok;
+  return 1;
 }
 
 //------------------------------------------------------------------------------

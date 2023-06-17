@@ -314,11 +314,11 @@ static int EncodeAlpha(VP8Encoder* const enc,
   assert(filter >= WEBP_FILTER_NONE && filter <= WEBP_FILTER_FAST);
 
   if (quality < 0 || quality > 100) {
-    return WebPEncodingSetError(enc->pic_, VP8_ENC_ERROR_INVALID_CONFIGURATION);
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_INVALID_CONFIGURATION);
   }
 
   if (method < ALPHA_NO_COMPRESSION || method > ALPHA_LOSSLESS_COMPRESSION) {
-    return WebPEncodingSetError(enc->pic_, VP8_ENC_ERROR_INVALID_CONFIGURATION);
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_INVALID_CONFIGURATION);
   }
 
   if (method == ALPHA_NO_COMPRESSION) {
@@ -328,7 +328,7 @@ static int EncodeAlpha(VP8Encoder* const enc,
 
   quant_alpha = (uint8_t*)WebPSafeMalloc(1ULL, data_size);
   if (quant_alpha == NULL) {
-    return WebPEncodingSetError(enc->pic_, VP8_ENC_ERROR_OUT_OF_MEMORY);
+    return WebPEncodingSetError(pic, VP8_ENC_ERROR_OUT_OF_MEMORY);
   }
 
   // Extract alpha data (width x height) from raw_data (stride x height).
