@@ -80,23 +80,41 @@ static void ApplyAlphaMultiply_NEON(uint8_t* rgba, int alpha_first,
 
 //------------------------------------------------------------------------------
 
+static WEBP_INLINE int HasAnyAlpha(uint32_t mask, const uint8x8_t mask8,
+                                   const uint8x16_t mask16) {
+  const uint8x16_t all_0xffu = vdupq_n_u8(0xffu);
+  const uint8x8_t mask16_as_8 =
+      vshrn_n_u16(vreinterpretq_u16_u8(vceqq_u8(all_0xffu, mask16)), 4);
+  const uint64_t mask64 =
+      vget_lane_u64(vreinterpret_u64_u8(vand_u8(mask16_as_8, mask8)), 0);
+  return (mask != 0xffu || mask64 != ~(uint64_t)0);
+}
+
 static int DispatchAlpha_NEON(const uint8_t* WEBP_RESTRICT alpha,
                               int alpha_stride, int width, int height,
                               uint8_t* WEBP_RESTRICT dst, int dst_stride) {
   uint32_t alpha_mask = 0xffu;
-  uint8x8_t mask8 = vdup_n_u8(0xff);
-  uint32_t tmp[2];
+  uint8x8_t mask8 = vdup_n_u8(0xffu);
+  uint8x16_t mask16 = vdupq_n_u8(0xffu);
   int i, j;
   for (j = 0; j < height; ++j) {
     // We don't know if alpha is first or last in dst[] (depending on rgbA/Argb
-    // mode). So we must be sure dst[4*i + 8 - 1] is writable for the store.
+    // mode). So we must be sure dst[4*i + 16 - 1] is writable for the store.
     // Hence the test with 'width - 1' instead of just 'width'.
-    for (i = 0; i + 8 <= width - 1; i += 8) {
+    for (i = 0; i + 16 <= width - 1; i += 16) {
+      uint8x16x4_t rgbX = vld4q_u8((const uint8_t*)(dst + 4 * i));
+      const uint8x16_t alphas = vld1q_u8(alpha + i);
+      rgbX.val[0] = alphas;
+      vst4q_u8((uint8_t*)(dst + 4 * i), rgbX);
+      mask16 = vandq_u8(mask16, alphas);
+    }
+    if (i + 8 <= width - 1) {
       uint8x8x4_t rgbX = vld4_u8((const uint8_t*)(dst + 4 * i));
       const uint8x8_t alphas = vld1_u8(alpha + i);
       rgbX.val[0] = alphas;
       vst4_u8((uint8_t*)(dst + 4 * i), rgbX);
       mask8 = vand_u8(mask8, alphas);
+      i += 8;
     }
     for (; i < width; ++i) {
       const uint32_t alpha_value = alpha[i];
@@ -106,11 +124,7 @@ static int DispatchAlpha_NEON(const uint8_t* WEBP_RESTRICT alpha,
     alpha += alpha_stride;
     dst += dst_stride;
   }
-  vst1_u8((uint8_t*)tmp, mask8);
-  alpha_mask *= 0x01010101;
-  alpha_mask &= tmp[0];
-  alpha_mask &= tmp[1];
-  return (alpha_mask != 0xffffffffu);
+  return HasAnyAlpha(alpha_mask, mask8, mask16);
 }
 
 static void DispatchAlphaToGreen_NEON(const uint8_t* WEBP_RESTRICT alpha,
@@ -118,14 +132,23 @@ static void DispatchAlphaToGreen_NEON(const uint8_t* WEBP_RESTRICT alpha,
                                       uint32_t* WEBP_RESTRICT dst,
                                       int dst_stride) {
   int i, j;
-  uint8x8x4_t greens;   // leave A/R/B channels zero'd.
-  greens.val[0] = vdup_n_u8(0);
-  greens.val[2] = vdup_n_u8(0);
-  greens.val[3] = vdup_n_u8(0);
+  uint8x16x4_t greens16;  // leave A/R/B channels zero'd.
+  uint8x8x4_t greens8;    // leave A/R/B channels zero'd.
+  greens16.val[0] = vdupq_n_u8(0);
+  greens16.val[2] = vdupq_n_u8(0);
+  greens16.val[3] = vdupq_n_u8(0);
+  greens8.val[0] = vdup_n_u8(0);
+  greens8.val[2] = vdup_n_u8(0);
+  greens8.val[3] = vdup_n_u8(0);
   for (j = 0; j < height; ++j) {
-    for (i = 0; i + 8 <= width; i += 8) {
-      greens.val[1] = vld1_u8(alpha + i);
-      vst4_u8((uint8_t*)(dst + i), greens);
+    for (i = 0; i + 16 <= width; i += 16) {
+      greens16.val[1] = vld1q_u8(alpha + i);
+      vst4q_u8((uint8_t*)(dst + i), greens16);
+    }
+    if (i + 8 <= width) {
+      greens8.val[1] = vld1_u8(alpha + i);
+      vst4_u8((uint8_t*)(dst + i), greens8);
+      i += 8;
     }
     for (; i < width; ++i) dst[i] = alpha[i] << 8;
     alpha += alpha_stride;
@@ -137,18 +160,25 @@ static int ExtractAlpha_NEON(const uint8_t* WEBP_RESTRICT argb, int argb_stride,
                              int width, int height,
                              uint8_t* WEBP_RESTRICT alpha, int alpha_stride) {
   uint32_t alpha_mask = 0xffu;
-  uint8x8_t mask8 = vdup_n_u8(0xff);
-  uint32_t tmp[2];
+  uint8x16_t mask16 = vdupq_n_u8(0xffu);
+  uint8x8_t mask8 = vdup_n_u8(0xffu);
   int i, j;
   for (j = 0; j < height; ++j) {
     // We don't know if alpha is first or last in dst[] (depending on rgbA/Argb
-    // mode). So we must be sure dst[4*i + 8 - 1] is writable for the store.
+    // mode). So we must be sure dst[4*i + 16 - 1] is writable for the store.
     // Hence the test with 'width - 1' instead of just 'width'.
-    for (i = 0; i + 8 <= width - 1; i += 8) {
+    for (i = 0; i + 16 <= width - 1; i += 16) {
+      const uint8x16x4_t rgbX = vld4q_u8((const uint8_t*)(argb + 4 * i));
+      const uint8x16_t alphas = rgbX.val[0];
+      vst1q_u8((uint8_t*)(alpha + i), alphas);
+      mask16 = vandq_u8(mask16, alphas);
+    }
+    if (i + 8 <= width - 1) {
       const uint8x8x4_t rgbX = vld4_u8((const uint8_t*)(argb + 4 * i));
       const uint8x8_t alphas = rgbX.val[0];
       vst1_u8((uint8_t*)(alpha + i), alphas);
       mask8 = vand_u8(mask8, alphas);
+      i += 8;
     }
     for (; i < width; ++i) {
       alpha[i] = argb[4 * i];
@@ -157,11 +187,7 @@ static int ExtractAlpha_NEON(const uint8_t* WEBP_RESTRICT argb, int argb_stride,
     argb += argb_stride;
     alpha += alpha_stride;
   }
-  vst1_u8((uint8_t*)tmp, mask8);
-  alpha_mask *= 0x01010101;
-  alpha_mask &= tmp[0];
-  alpha_mask &= tmp[1];
-  return (alpha_mask == 0xffffffffu);
+  return !HasAnyAlpha(alpha_mask, mask8, mask16);
 }
 
 static void ExtractGreen_NEON(const uint32_t* WEBP_RESTRICT argb,
