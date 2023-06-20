@@ -85,6 +85,30 @@
       },
       "revId": "7d274bf8bffcedac2e760b18c90859955f439513",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55066284_99d3b313",
+        "filename": "src/enc/webp_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T19:27:48Z",
+      "side": 1,
+      "message": "\u003e WebPEncodingSetError() seemed ok to call, instead of hard-coding pic-\u003eerror_code setting here\n\nNot with the change at line 311. If a picture struct is reused (e.g., in some tests), it may come in with an error set.",
+      "parentUuid": "be71d605_42aa007a",
+      "range": {
+        "startLine": 335,
+        "startChar": 7,
+        "endLine": 335,
+        "endChar": 17
+      },
+      "revId": "7d274bf8bffcedac2e760b18c90859955f439513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
