@@ -22,6 +22,30 @@
       },
       "revId": "aac3df7d9c64823a27c94331a18a71e91a53001a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df51c5fb_b60ac8e3",
+        "filename": "src/enc/frame_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 694,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T19:29:45Z",
+      "side": 1,
+      "message": "\u003e maybe it\u0027s good to keep \u0027return ok\u0027 here (and let the compiler do the replacement by \u00271\u0027), in case someone later adds some \u0027ok \u003d ...\u0027 new code in-between...\n\nThat\u0027s fine. I think there was a mix already, let me normalize in the other direction.",
+      "parentUuid": "ebf7a162_7cdd46be",
+      "range": {
+        "startLine": 694,
+        "startChar": 2,
+        "endLine": 694,
+        "endChar": 8
+      },
+      "revId": "aac3df7d9c64823a27c94331a18a71e91a53001a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
