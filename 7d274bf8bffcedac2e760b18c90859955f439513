@@ -64,6 +64,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69030a5e_759dd8a7",
+        "filename": "src/enc/syntax_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 366,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T19:51:37Z",
+      "side": 1,
+      "message": "\u003e these 3 error-setting calls could be collected in a single one at line 391:\n\u003e if (!ok) return WebPEncodingSetError(pic, VP8_ENC_ERROR_BAD_WRITE);\n\nGood point, I ended up doing this iteratively...\nThere may be the possibility of other errors being set in between, but the precision doesn\u0027t matter here.",
+      "parentUuid": "e3527483_c0146d71",
+      "range": {
+        "startLine": 366,
+        "startChar": 16,
+        "endLine": 366,
+        "endChar": 36
+      },
+      "revId": "7d274bf8bffcedac2e760b18c90859955f439513",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "be71d605_42aa007a",
