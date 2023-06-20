@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e283b746_5db40730",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T22:46:00Z",
+      "side": 1,
+      "message": "break this line around 72 characters and expand `IACA` so it\u0027s clear what it\u0027s referring to.\n\nAlso, did you time this on anything? I only trust the tool so much when looking at something high latency like `_mm_maskmoveu_si128`.",
+      "revId": "36370f52ecfbe7d45acd20d56d677cc1be7aa330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05450ad7_e01fa4f9",
+        "filename": "src/dsp/alpha_processing_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T22:46:00Z",
+      "side": 1,
+      "message": "we should make a pass (not in this change) to make any loops where we know the bounds are \u003e 0 a do / while instead.",
+      "revId": "36370f52ecfbe7d45acd20d56d677cc1be7aa330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ecb679c_1e54eb85",
+        "filename": "src/dsp/alpha_processing_sse2.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T22:46:00Z",
+      "side": 1,
+      "message": "generally with bitmasks an unsigned type is preferred to prevent any potential sign change warnings",
+      "revId": "36370f52ecfbe7d45acd20d56d677cc1be7aa330",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
