@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81edefb3_03b02b04",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-20T22:35:09Z",
+      "side": 1,
+      "message": "I increased the precision of dwebp\u0027s output to microseconds and tried some \u003c\u003d 512x512 frames, 3 times each, from the noto emoji animations on a Pixel 4.\n\n## aarch64\n\n```\nthis change:\ntotal: 4.39290999999999 count: 1740 avg: 0.00252466091954023\n\nmain:\ntotal: 4.369486 count: 1740 avg: 0.00251119885057471\n```\n\n## armv7\n\n```\nthis change:\ntotal: 4.831851 count: 1740 avg: 0.00277692586206896\n\nmain:\ntotal: 4.814701 count: 1740 avg: 0.00276706954022989\n```\n\nI\u0027ll look for a larger image to see if it stabilizes. Aside from the extra branches armv7 likely isn\u0027t helped by the transition to/from NEON at the end.",
+      "revId": "5d8ee807b36261fe19bbc8c2feb950c916f65bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
