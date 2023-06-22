@@ -36,7 +36,7 @@ extern "C" {
 
 // SharpYUV API version following the convention from semver.org
 #define SHARPYUV_VERSION_MAJOR 0
-#define SHARPYUV_VERSION_MINOR 2
+#define SHARPYUV_VERSION_MINOR 3
 #define SHARPYUV_VERSION_PATCH 0
 // Version as a uint32_t. The major number is the high 8 bits.
 // The minor number is the middle 8 bits. The patch number is the low 16 bits.
@@ -60,6 +60,31 @@ typedef struct {
   int rgb_to_u[4];
   int rgb_to_v[4];
 } SharpYuvConversionMatrix;
+typedef struct SharpYuvOptions SharpYuvOptions;
+// Enums for transfer functions, as defined in H.273,
+// https://www.itu.int/rec/T-REC-H.273-202107-I/en
+typedef enum TransferFunctionType {
+  // 0 is reserved
+  kSharpYuvTransferFunctionBT709 = 1,
+  // 2 is unspecified
+  // 3 is reserved
+  kSharpYuvTransferFunctionBT470M = 4,
+  kSharpYuvTransferFunctionBT470BG = 5,
+  kSharpYuvTransferFunctionBT601 = 6,
+  kSharpYuvTransferFunctionSMPTE240 = 7,
+  kSharpYuvTransferFunctionLINEAR = 8,
+  kSharpYuvTransferFunctionLOG100 = 9,
+  kSharpYuvTransferFunctionLOG100_SQRT10 = 10,
+  kSharpYuvTransferFunctionIEC61966 = 11,
+  kSharpYuvTransferFunctionBT1361 = 12,
+  kSharpYuvTransferFunctionSRGB = 13,
+  kSharpYuvTransferFunctionBT2020_10BIT = 14,
+  kSharpYuvTransferFunctionBT2020_12BIT = 15,
+  kSharpYuvTransferFunctionSMPTE2084 = 16,  // PQ
+  kSharpYuvTransferFunctionSMPTE428 = 17,
+  kSharpYuvTransferFunctionHLG = 18,
+  kSharpYuvTransferFunctionNum
+} TransferFunctionType;
 
 // Converts RGB to YUV420 using a downsampling algorithm that minimizes
 // artefacts caused by chroma subsampling.
@@ -85,6 +110,8 @@ typedef struct {
 //     adjacent pixels on the y, u and v channels. If yuv_bit_depth > 8, they
 //     should be multiples of 2.
 // width, height: width and height of the image in pixels
+// This function calls SharpYuvConvertWithOptions with a default transfer
+// function of kSharpYuvTransferFunctionSRGB.
 SHARPYUV_EXTERN int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
                                     const void* b_ptr, int rgb_step,
                                     int rgb_stride, int rgb_bit_depth,
@@ -92,6 +119,19 @@ SHARPYUV_EXTERN int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
                                     int u_stride, void* v_ptr, int v_stride,
                                     int yuv_bit_depth, int width, int height,
                                     const SharpYuvConversionMatrix* yuv_matrix);
+
+struct SharpYuvOptions {
+  // This matrix cannot be NULL and can be initialized by
+  // SharpYuvComputeConversionMatrix.
+  const SharpYuvConversionMatrix* yuv_matrix;
+  TransferFunctionType transfer_type;
+};
+
+SHARPYUV_EXTERN int SharpYuvConvertWithOptions(
+    const void* r_ptr, const void* g_ptr, const void* b_ptr, int rgb_step,
+    int rgb_stride, int rgb_bit_depth, void* y_ptr, int y_stride, void* u_ptr,
+    int u_stride, void* v_ptr, int v_stride, int yuv_bit_depth, int width,
+    int height, const SharpYuvOptions* options);
 
 // TODO(b/194336375): Add YUV444 to YUV420 conversion. Maybe also add 422
 // support (it's rarely used in practice, especially for images).
