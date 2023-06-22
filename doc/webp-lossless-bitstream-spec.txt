@@ -69,7 +69,7 @@ implementations of the format are free to use another representation internally.
 
 Broadly, a WebP lossless image contains header data, transform information, and
 actual image data. Headers contain the width and height of the image. A WebP
-lossless image can go through four different types of transformation before
+lossless image can go through four different types of transformations before
 being entropy encoded. The transform information in the bitstream contains the
 data required to apply the respective inverse transforms.
 
@@ -183,8 +183,8 @@ Transformations can make the final compression more dense.
 
 An image can go through four types of transformations. A 1 bit indicates the
 presence of a transform. Each transform is allowed to be used only once. The
-transformations are used only for the main-level ARGB image; the subresolution
-images have no transforms, not even the 0 bit indicating the end of transforms.
+transforms are used only for the main-level ARGB image; the subresolution images
+have no transforms, not even the 0 bit indicating the end of transforms.
 
 Typically, an encoder would use these transforms to reduce the Shannon entropy
 in the residual image. Also, the transform data can be decided based on entropy
