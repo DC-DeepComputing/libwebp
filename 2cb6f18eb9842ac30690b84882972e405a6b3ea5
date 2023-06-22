@@ -1,0 +1,118 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71960042_18b921cd",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "bad indent",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d84242b_4cceaec5",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "This is correct given the 0 for the major version. We will need to increase the so version with the next release.",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34e0faf2_8a22ff96",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "In other files we name the enum the same as the typedef.",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e97287b_fe2e1136",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "add a newline before this and after the struct definition. For consistency with encode.h, decode.h, and the other public headers, move the typedef to the top of the file.",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ed18d39_280ef4cd",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "This function naming doesn\u0027t match the uppercase camel-case style. Did it get copied from somewhere? Do we need to point to a reference in the comments?",
+      "range": {
+        "startLine": 123,
+        "startChar": 13,
+        "endLine": 123,
+        "endChar": 24
+      },
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db6c64b8_0c876385",
+        "filename": "sharpyuv/sharpyuv_gamma.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-22T22:52:59Z",
+      "side": 1,
+      "message": "in? here and line 36",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
