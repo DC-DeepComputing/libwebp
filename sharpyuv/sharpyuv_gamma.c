@@ -12,6 +12,7 @@
 #include "sharpyuv/sharpyuv_gamma.h"
 
 #include <assert.h>
+#include <float.h>
 #include <math.h>
 
 #include "src/webp/types.h"
@@ -110,4 +111,316 @@ uint16_t SharpYuvLinearToGamma(uint32_t value, int bit_depth) {
       value, kLinearToGammaTabS,
       (GAMMA_TO_LINEAR_BITS - LINEAR_TO_GAMMA_TAB_BITS),
       bit_depth - GAMMA_TO_LINEAR_BITS);
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+#define CLAMP(x, low, high) \
+  (((x) < (low)) ? (low) : (((high) < (x)) ? (high) : (x)))
+#define MIN(a, b) (((a) < (b)) ? (a) : (b))
+#define MAX(a, b) (((a) > (b)) ? (a) : (b))
+
+static float toLinear709(float gamma) {
+  if (gamma < 0.f) {
+    return 0.f;
+  } else if (gamma < 4.5f * 0.018053968510807f) {
+    return gamma / 4.5f;
+  } else if (gamma < 1.f) {
+    return powf((gamma + 0.09929682680944f) / 1.09929682680944f, 1.f / 0.45f);
+  } else {
+    return 1.f;
+  }
+}
+
+static float fromLinear709(float linear) {
+  if (linear < 0.f) {
+    return 0.f;
+  } else if (linear < 0.018053968510807f) {
+    return linear * 4.5f;
+  } else if (linear < 1.f) {
+    return 1.09929682680944f * powf(linear, 0.45f) - 0.09929682680944f;
+  } else {
+    return 1.f;
+  }
+}
+
+static float toLinear470M(float gamma) {
+  return powf(CLAMP(gamma, 0.f, 1.f), 1.f / 2.2f);
+}
+
+static float fromLinear470M(float linear) {
+  return powf(CLAMP(linear, 0.f, 1.f), 2.2f);
+}
+
+static float toLinear470BG(float gamma) {
+  return powf(CLAMP(gamma, 0.f, 1.f), 1.f / 2.8f);
+}
+
+static float fromLinear470BG(float linear) {
+  return powf(CLAMP(linear, 0.f, 1.f), 2.8f);
+}
+
+static float toLinearSMPTE240(float gamma) {
+  if (gamma < 0.f) {
+    return 0.f;
+  } else if (gamma < 4.f * 0.022821585529445f) {
+    return gamma / 4.f;
+  } else if (gamma < 1.f) {
+    return powf((gamma + 0.111572195921731f) / 1.111572195921731f, 1.f / 0.45f);
+  } else {
+    return 1.f;
+  }
+}
+
+static float fromLinearSMPTE240(float linear) {
+  if (linear < 0.f) {
+    return 0.f;
+  } else if (linear < 0.022821585529445f) {
+    return linear * 4.f;
+  } else if (linear < 1.f) {
+    return 1.111572195921731f * powf(linear, 0.45f) - 0.111572195921731f;
+  } else {
+    return 1.f;
+  }
+}
+
+static float toLinearLog100(float gamma) {
+  return gamma < 0.01f ? 0.0f : 1.0f + log10f(MIN(gamma, 1.f)) / 2.0f;
+}
+
+static float fromLinearLog100(float linear) {
+  // The function is non-bijective so choose the middle of [0, 0.01[.
+  return linear <= 0.0f ? 0.01f / 2.f
+                        : powf(10.0f, 2.f * (MIN(linear, 1.f) - 1.0f));
+}
+
+static float toLinearLog100Sqrt10(float gamma) {
+  return gamma < 0.00316227766f ? 0.0f : 1.0f + log10f(MIN(gamma, 1.f)) / 2.5f;
+}
+
+static float fromLinearLog100Sqrt10(float linear) {
+  // The function is non-bijective so choose the middle of [0, 0.00316227766f[.
+  return linear < 0.0f ? 0.00316227766f / 2.f
+                       : powf(10.0f, 2.5f * (MIN(linear, 1.f) - 1.0f));
+}
+
+static float toLinearIEC61966(float gamma) {
+  if (gamma <= -4.5f * 0.018053968510807f) {
+    return powf((-gamma + 0.09929682680944f) / -1.09929682680944f, 1.f / 0.45f);
+  } else if (gamma < 4.5f * 0.018053968510807f) {
+    return gamma / 4.5f;
+  } else {
+    return powf((gamma + 0.09929682680944f) / 1.09929682680944f, 1.f / 0.45f);
+  }
+}
+
+static float fromLinearIEC61966(float linear) {
+  if (linear <= -0.018053968510807f) {
+    return -1.09929682680944f * powf(-linear, 0.45f) + 0.09929682680944f;
+  } else if (linear < 0.018053968510807f) {
+    return linear * 4.5f;
+  } else {
+    return 1.09929682680944f * powf(linear, 0.45f) - 0.09929682680944f;
+  }
+}
+
+static float toLinearBT1361(float gamma) {
+  if (gamma < -0.25f) {
+    return -0.25f;
+  } else if (gamma < 0.f) {
+    return powf((gamma - 0.02482420670236f) / -0.27482420670236f, 1.f / 0.45f) /
+           -4.f;
+  } else if (gamma < 4.5f * 0.018053968510807f) {
+    return gamma / 4.5f;
+  } else if (gamma < 1.f) {
+    return powf((gamma + 0.09929682680944f) / 1.09929682680944f, 1.f / 0.45f);
+  } else {
+    return 1.f;
+  }
+}
+
+static float fromLinearBT1361(float linear) {
+  if (linear < -0.25f) {
+    return -0.25f;
+  } else if (linear < 0.f) {
+    return -0.27482420670236f * powf(-4.f * linear, 0.45f) + 0.02482420670236f;
+  } else if (linear < 0.018053968510807f) {
+    return linear * 4.5f;
+  } else if (linear < 1.f) {
+    return 1.09929682680944f * powf(linear, 0.45f) - 0.09929682680944f;
+  } else {
+    return 1.f;
+  }
+}
+
+static float toLinearPQ(float gamma) {
+  if (gamma > 0.f) {
+    const float powGamma = powf(gamma, 32.f / 2523.f);
+    const float num = MAX(powGamma - 107.f / 128.f, 0.0f);
+    const float den = MAX(2413.f / 128.f - 2392.f / 128.f * powGamma, FLT_MIN);
+    return powf(num / den, 4096.f / 653.f);
+  } else {
+    return 0.f;
+  }
+}
+
+static float fromLinearPQ(float linear) {
+  if (linear > 0.f) {
+    const float powLinear = powf(linear, 653.f / 4096.f);
+    const float num = 107.f / 128.f + 2413.f / 128.f * powLinear;
+    const float den = 1.0f + 2392.f / 128.f * powLinear;
+    return powf(num / den, 2523.f / 32.f);
+  } else {
+    return 0.f;
+  }
+}
+
+static float toLinearSMPTE428(float gamma) {
+  return powf(0.91655527974030934f * MAX(gamma, 0.f), 1.f / 2.6f);
+}
+
+static float fromLinearSMPTE428(float linear) {
+  return powf(MAX(linear, 0.f), 2.6f) / 0.91655527974030934f;
+}
+
+// Conversion in BT.2100 requires RGB info. Simplify to gamma correction here.
+static float toLinearHLG(float gamma) {
+  if (gamma < 0.f) {
+    return 0.f;
+  } else if (gamma <= 0.5f) {
+    return powf((gamma * gamma) * (1.f / 3.f), 1.2f);
+  } else {
+    return powf(
+        (expf((gamma - 0.55991073f) / 0.17883277f) + 0.28466892f) / 12.0f,
+        1.2f);
+  }
+}
+
+static float fromLinearHLG(float linear) {
+  linear = powf(linear, 1.f / 1.2f);
+  if (linear < 0.f) {
+    return 0.f;
+  } else if (linear <= (1.f / 12.f)) {
+    return sqrtf(3.f * linear);
+  } else {
+    return 0.17883277f * logf(12.f * linear - 0.28466892f) + 0.55991073f;
+  }
+}
+
+// Precision bits used for non-sRGB. This value was chosen to be the biggest and
+// get tests to pass.
+static const int kPrecisionBits = 14;
+
+uint32_t SharpYuvGammaToLinearWithTransfer(uint16_t v, int bit_depth,
+                                           TransferFunctionType transfer_type) {
+  int range, scale;
+  float v_float, linear;
+  if (transfer_type == kSharpYuvTransferFunctionSRGB) {
+    return SharpYuvGammaToLinear(v, bit_depth);
+  }
+  range = 1 << bit_depth;
+  scale = 1 << (bit_depth + kPrecisionBits);
+  v_float = (float)v / range;
+  switch (transfer_type) {
+    case kSharpYuvTransferFunctionBT709:
+    case kSharpYuvTransferFunctionBT601:
+    case kSharpYuvTransferFunctionBT2020_10BIT:
+    case kSharpYuvTransferFunctionBT2020_12BIT:
+      linear = toLinear709(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT470M:
+      linear = toLinear470M(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT470BG:
+      linear = toLinear470BG(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE240:
+      linear = toLinearSMPTE240(v_float);
+      break;
+    case kSharpYuvTransferFunctionLINEAR:
+      return v;
+    case kSharpYuvTransferFunctionLOG100:
+      linear = toLinearLog100(v_float);
+      break;
+    case kSharpYuvTransferFunctionLOG100_SQRT10:
+      linear = toLinearLog100Sqrt10(v_float);
+      break;
+    case kSharpYuvTransferFunctionIEC61966:
+      linear = toLinearIEC61966(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT1361:
+      linear = toLinearBT1361(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE2084:
+      linear = toLinearPQ(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE428:
+      linear = toLinearSMPTE428(v_float);
+      break;
+    case kSharpYuvTransferFunctionHLG:
+      linear = toLinearHLG(v_float);
+      break;
+    default:
+      assert(0);
+      linear = 0;
+      break;
+  }
+  return (uint32_t)roundf(linear * scale);
+}
+
+uint16_t SharpYuvLinearToGammaWithTransfer(uint32_t v, int bit_depth,
+                                           TransferFunctionType transfer_type) {
+  int range, scale;
+  float v_float, linear;
+  if (transfer_type == kSharpYuvTransferFunctionSRGB) {
+    return SharpYuvLinearToGamma(v, bit_depth);
+  }
+  range = 1 << (bit_depth + kPrecisionBits);
+  scale = 1 << bit_depth;
+  v_float = (float)v / range;
+  switch (transfer_type) {
+    case kSharpYuvTransferFunctionBT709:
+    case kSharpYuvTransferFunctionBT601:
+    case kSharpYuvTransferFunctionBT2020_10BIT:
+    case kSharpYuvTransferFunctionBT2020_12BIT:
+      linear = fromLinear709(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT470M:
+      linear = fromLinear470M(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT470BG:
+      linear = fromLinear470BG(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE240:
+      linear = fromLinearSMPTE240(v_float);
+      break;
+    case kSharpYuvTransferFunctionLINEAR:
+      return v;
+    case kSharpYuvTransferFunctionLOG100:
+      linear = fromLinearLog100(v_float);
+      break;
+    case kSharpYuvTransferFunctionLOG100_SQRT10:
+      linear = fromLinearLog100Sqrt10(v_float);
+      break;
+    case kSharpYuvTransferFunctionIEC61966:
+      linear = fromLinearIEC61966(v_float);
+      break;
+    case kSharpYuvTransferFunctionBT1361:
+      linear = fromLinearBT1361(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE2084:
+      linear = fromLinearPQ(v_float);
+      break;
+    case kSharpYuvTransferFunctionSMPTE428:
+      linear = fromLinearSMPTE428(v_float);
+      break;
+    case kSharpYuvTransferFunctionHLG:
+      linear = fromLinearHLG(v_float);
+      break;
+    default:
+      assert(0);
+      linear = 0;
+      break;
+  }
+  return (uint16_t)roundf(linear * scale);
 }
