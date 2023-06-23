@@ -34,6 +34,24 @@
       "parentUuid": "81edefb3_03b02b04",
       "revId": "5d8ee807b36261fe19bbc8c2feb950c916f65bcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d9499a2_ce9fb675",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-23T22:24:41Z",
+      "side": 1,
+      "message": "\u003e \u003e I increased the precision of dwebp\u0027s output to microseconds and tried some \u003c\u003d 512x512 frames, 3 times each, from the noto emoji animations on a Pixel 4.\n\u003e \u003e \n\u003e \u003e ## aarch64\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e this change:\n\u003e \u003e total: 4.39290999999999 count: 1740 avg: 0.00252466091954023\n\u003e \u003e \n\u003e \u003e main:\n\u003e \u003e total: 4.369486 count: 1740 avg: 0.00251119885057471\n\u003e \u003e ```\n\u003e \u003e \n\u003e \u003e ## armv7\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e this change:\n\u003e \u003e total: 4.831851 count: 1740 avg: 0.00277692586206896\n\u003e \u003e \n\u003e \u003e main:\n\u003e \u003e total: 4.814701 count: 1740 avg: 0.00276706954022989\n\u003e \u003e ```\n\u003e \u003e \n\u003e \u003e I\u0027ll look for a larger image to see if it stabilizes. Aside from the extra branches armv7 likely isn\u0027t helped by the transition to/from NEON at the end.\n\u003e \n\u003e We\u0027re in the realm of noise for these images:\n\u003e \n\u003e \n\u003e **08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6** -\u003e origin/main\n\u003e **f8818558b50ee3621f9be46da8915ad03f6472e2** -\u003e this change\n\u003e \n\u003e ## run 1, 3 decodes / frame; this change is mildly faster\n\u003e \n\u003e ```\n\u003e \u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a.txt \u003c\u003d\u003d\n\u003e total: 5.057085 count: 1740 avg: 0.00290637068965517\n\u003e \u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a.txt \u003c\u003d\u003d\n\u003e total: 5.040894 count: 1740 avg: 0.00289706551724138\n\u003e \n\u003e \u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a.txt \u003c\u003d\u003d\n\u003e total: 5.65704900000001 count: 1740 avg: 0.0032511775862069\n\u003e \u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a.txt \u003c\u003d\u003d\n\u003e total: 5.640779 count: 1740 avg: 0.00324182701149425\n\u003e ```\n\u003e \n\u003e ## run 2, 3 decodes/frame; this change is mildly slower\n\u003e \n\u003e ```\n\u003e \u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a.txt \u003c\u003d\u003d\n\u003e total: 4.994865 count: 1740 avg: 0.00287061206896552\n\u003e \u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a.txt \u003c\u003d\u003d\n\u003e total: 4.99697099999999 count: 1740 avg: 0.0028718224137931\n\u003e \n\u003e \u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a.txt \u003c\u003d\u003d\n\u003e total: 5.601636 count: 1740 avg: 0.00321933103448276\n\u003e \u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a.txt \u003c\u003d\u003d\n\u003e total: 5.606737 count: 1740 avg: 0.00322226264367816\n\u003e ```\n\n## bryce+alpha, 10 decodes\n\nUsing a version of [bryce](https://chromium.googlesource.com/webm/libwebp-test-data/+/refs/heads/main/bryce.webp) with alpha added things look worse. I didn\u0027t try getting the stddev or throwing out any outliers.\n\n```\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 6.626722 count: 10 avg: 0.6626722\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 6.73213 count: 10 avg: 0.673213\n\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 7.295024 count: 10 avg: 0.7295024\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 7.443355 count: 10 avg: 0.7443355\n```\n\n## perf\n\nNot a huge amount of usage.\n\n```\n1.32%     dwebp.08d60d600  28802  28802  dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a  DispatchAlpha_NEON\n1.50%     dwebp.f8818558b  28810  28810  dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a  DispatchAlpha_NEON\n\n1.02%     dwebp.08d60d600  28937  28937  dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a  DispatchAlpha_NEON\n1.02%     dwebp.f8818558b  28945  28945  dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a  DispatchAlpha_NEON\n```",
+      "parentUuid": "b45712a1_b3b21ab9",
+      "revId": "5d8ee807b36261fe19bbc8c2feb950c916f65bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
