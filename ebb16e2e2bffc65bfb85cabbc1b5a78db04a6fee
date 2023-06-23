@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d5a68b0b_c4620a50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-23T20:55:25Z",
+      "side": 1,
+      "message": "\u003e distance-mapping is still referenced above\n\nYes, we\u0027re relying on the auto-generated anchors (which is frowned on in the developers.google.com style guide, but that uses different markdown syntax for anchors). We do this elsewhere too. At some point it would be nice to see if `pandoc` would get us closer to what we use there.\n\n```\n\u003ch5 id\u003d\"distance-mapping\"\u003eDistance Mapping\u003c/h5\u003e\n```",
+      "parentUuid": "b5df9639_2ce13081",
+      "revId": "ebb16e2e2bffc65bfb85cabbc1b5a78db04a6fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ec5d0baa_34a2c89f",
         "filename": "doc/webp-lossless-bitstream-spec.txt",
         "patchSetId": 1
