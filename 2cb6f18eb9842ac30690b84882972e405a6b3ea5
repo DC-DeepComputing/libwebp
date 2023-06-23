@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1744b97d_c3d55c0d",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 433,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T09:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71960042_18b921cd",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "1d84242b_4cceaec5",
         "filename": "sharpyuv/sharpyuv.h",
         "patchSetId": 3
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3962c518_1ab42c33",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T09:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34e0faf2_8a22ff96",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e97287b_fe2e1136",
@@ -65,6 +101,24 @@
       "writtenOn": "2023-06-22T22:52:59Z",
       "side": 1,
       "message": "add a newline before this and after the struct definition. For consistency with encode.h, decode.h, and the other public headers, move the typedef to the top of the file.",
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c636af9_800774b8",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T09:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e97287b_fe2e1136",
       "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +146,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c008468_82c95141",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T09:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2ed18d39_280ef4cd",
+      "range": {
+        "startLine": 123,
+        "startChar": 13,
+        "endLine": 123,
+        "endChar": 24
+      },
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "db6c64b8_0c876385",
@@ -105,6 +183,30 @@
       "writtenOn": "2023-06-22T22:52:59Z",
       "side": 1,
       "message": "in? here and line 36",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 34
+      },
+      "revId": "2cb6f18eb9842ac30690b84882972e405a6b3ea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74d73934_e351e686",
+        "filename": "sharpyuv/sharpyuv_gamma.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T09:42:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "db6c64b8_0c876385",
       "range": {
         "startLine": 32,
         "startChar": 32,
