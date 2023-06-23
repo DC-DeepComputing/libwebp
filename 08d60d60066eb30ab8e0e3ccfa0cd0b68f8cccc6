@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "84556f19_39152d13",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-23T00:21:19Z",
+      "side": 0,
+      "message": "I guess it depends on how pedantic you want to be about \u0027transformation\u0027 as a mathematical function vs transform as the process or result.",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 15
+      },
+      "revId": "08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
