@@ -16,6 +16,24 @@
       "message": "I increased the precision of dwebp\u0027s output to microseconds and tried some \u003c\u003d 512x512 frames, 3 times each, from the noto emoji animations on a Pixel 4.\n\n## aarch64\n\n```\nthis change:\ntotal: 4.39290999999999 count: 1740 avg: 0.00252466091954023\n\nmain:\ntotal: 4.369486 count: 1740 avg: 0.00251119885057471\n```\n\n## armv7\n\n```\nthis change:\ntotal: 4.831851 count: 1740 avg: 0.00277692586206896\n\nmain:\ntotal: 4.814701 count: 1740 avg: 0.00276706954022989\n```\n\nI\u0027ll look for a larger image to see if it stabilizes. Aside from the extra branches armv7 likely isn\u0027t helped by the transition to/from NEON at the end.",
       "revId": "5d8ee807b36261fe19bbc8c2feb950c916f65bcf",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45712a1_b3b21ab9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-23T21:02:25Z",
+      "side": 1,
+      "message": "\u003e I increased the precision of dwebp\u0027s output to microseconds and tried some \u003c\u003d 512x512 frames, 3 times each, from the noto emoji animations on a Pixel 4.\n\u003e \n\u003e ## aarch64\n\u003e \n\u003e ```\n\u003e this change:\n\u003e total: 4.39290999999999 count: 1740 avg: 0.00252466091954023\n\u003e \n\u003e main:\n\u003e total: 4.369486 count: 1740 avg: 0.00251119885057471\n\u003e ```\n\u003e \n\u003e ## armv7\n\u003e \n\u003e ```\n\u003e this change:\n\u003e total: 4.831851 count: 1740 avg: 0.00277692586206896\n\u003e \n\u003e main:\n\u003e total: 4.814701 count: 1740 avg: 0.00276706954022989\n\u003e ```\n\u003e \n\u003e I\u0027ll look for a larger image to see if it stabilizes. Aside from the extra branches armv7 likely isn\u0027t helped by the transition to/from NEON at the end.\n\nWe\u0027re in the realm of noise for these images:\n\n\n**08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6** -\u003e origin/main\n**f8818558b50ee3621f9be46da8915ad03f6472e2** -\u003e this change\n\n## run 1, 3 decodes / frame; this change is mildly faster\n\n```\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 5.057085 count: 1740 avg: 0.00290637068965517\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 5.040894 count: 1740 avg: 0.00289706551724138\n\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 5.65704900000001 count: 1740 avg: 0.0032511775862069\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 5.640779 count: 1740 avg: 0.00324182701149425\n```\n\n## run 2, 3 decodes/frame; this change is mildly slower\n\n```\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 4.994865 count: 1740 avg: 0.00287061206896552\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.arm64-v8a.txt \u003c\u003d\u003d\ntotal: 4.99697099999999 count: 1740 avg: 0.0028718224137931\n\n\u003d\u003d\u003e timing.dwebp.08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 5.601636 count: 1740 avg: 0.00321933103448276\n\u003d\u003d\u003e timing.dwebp.f8818558b50ee3621f9be46da8915ad03f6472e2.armeabi-v7a.txt \u003c\u003d\u003d\ntotal: 5.606737 count: 1740 avg: 0.00322226264367816\n```",
+      "parentUuid": "81edefb3_03b02b04",
+      "revId": "5d8ee807b36261fe19bbc8c2feb950c916f65bcf",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
