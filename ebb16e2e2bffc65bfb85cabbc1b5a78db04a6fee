@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5df9639_2ce13081",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T07:36:59Z",
+      "side": 1,
+      "message": "distance-mapping is still referenced above",
+      "revId": "ebb16e2e2bffc65bfb85cabbc1b5a78db04a6fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec5d0baa_34a2c89f",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 648,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-23T07:36:59Z",
+      "side": 1,
+      "message": "Sill referenced here",
+      "revId": "ebb16e2e2bffc65bfb85cabbc1b5a78db04a6fee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
