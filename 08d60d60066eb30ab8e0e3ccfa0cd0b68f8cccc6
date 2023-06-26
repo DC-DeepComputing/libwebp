@@ -70,6 +70,30 @@
       },
       "revId": "08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2fc504a3_05d7b6db",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-26T07:28:37Z",
+      "side": 0,
+      "message": "yes, all over. ANd the code only contains transformation once. To mean \"predictor\"....",
+      "parentUuid": "e7186482_e2504506",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 15
+      },
+      "revId": "08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
