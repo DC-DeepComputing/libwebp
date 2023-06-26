@@ -94,6 +94,30 @@
       },
       "revId": "08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3132d8a_c90a1078",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-26T19:52:34Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "2fc504a3_05d7b6db",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 15
+      },
+      "revId": "08d60d60066eb30ab8e0e3ccfa0cd0b68f8cccc6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
