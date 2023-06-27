@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f0780e_2a8037cc",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0fee3876_e91cdac1",
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8fb64e6e_6b072939",
@@ -31,6 +49,30 @@
       "writtenOn": "2023-06-27T18:49:22Z",
       "side": 1,
       "message": "Should these be \u0027Smpte\u0027, `Linear`, etc. to match the naming style?",
+      "range": {
+        "startLine": 76,
+        "startChar": 27,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc3bd298_ae28c6fc",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8fb64e6e_6b072939",
       "range": {
         "startLine": 76,
         "startChar": 27,
@@ -58,6 +100,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6907b80d_68e853a4",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aefb5f7f_de53f129",
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6de98e32_6480db03",
@@ -71,6 +131,30 @@
       "writtenOn": "2023-06-27T18:49:22Z",
       "side": 1,
       "message": "elsewhere in the code we tend to wrap the condition in ()s: `(gamma \u003c 0.01f) ? ...`",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 22
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eed7228_3f73889e",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6de98e32_6480db03",
       "range": {
         "startLine": 201,
         "startChar": 9,
@@ -104,6 +188,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "581c0809_3a14baaa",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "That was to exclude the boundary but it does not matter anyway.",
+      "parentUuid": "752791cd_b7e062da",
+      "range": {
+        "startLine": 205,
+        "startChar": 67,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71851054_ab14879d",
@@ -117,6 +225,30 @@
       "writtenOn": "2023-06-27T18:49:22Z",
       "side": 1,
       "message": "]",
+      "range": {
+        "startLine": 216,
+        "startChar": 77,
+        "endLine": 216,
+        "endChar": 78
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5910359_3864c548",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71851054_ab14879d",
       "range": {
         "startLine": 216,
         "startChar": 77,
@@ -150,6 +282,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a16ca36_1f7e5b8b",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "87f5e579_89f6efcb",
+      "range": {
+        "startLine": 273,
+        "startChar": 16,
+        "endLine": 273,
+        "endChar": 24
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c308e4a_0a4edcc5",
@@ -163,6 +319,30 @@
       "writtenOn": "2023-06-27T18:49:22Z",
       "side": 1,
       "message": "`pow_linear`",
+      "range": {
+        "startLine": 284,
+        "startChar": 18,
+        "endLine": 284,
+        "endChar": 19
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14dd4483_311b1269",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T22:36:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0c308e4a_0a4edcc5",
       "range": {
         "startLine": 284,
         "startChar": 18,
