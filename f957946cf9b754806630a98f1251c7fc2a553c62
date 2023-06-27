@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0fee3876_e91cdac1",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "The name will get long, but for consistency it seems like this should be namespaced to `SharpYuv...`",
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb64e6e_6b072939",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "Should these be \u0027Smpte\u0027, `Linear`, etc. to match the naming style?",
+      "range": {
+        "startLine": 76,
+        "startChar": 27,
+        "endLine": 76,
+        "endChar": 32
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aefb5f7f_de53f129",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "This is OK to leave for now, since it\u0027s consistent with existing code. It will produce a clang-tidy warning about an else after return.",
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6de98e32_6480db03",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "elsewhere in the code we tend to wrap the condition in ()s: `(gamma \u003c 0.01f) ? ...`",
+      "range": {
+        "startLine": 201,
+        "startChar": 9,
+        "endLine": 201,
+        "endChar": 22
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "752791cd_b7e062da",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "]",
+      "range": {
+        "startLine": 205,
+        "startChar": 67,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71851054_ab14879d",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 216,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "]",
+      "range": {
+        "startLine": 216,
+        "startChar": 77,
+        "endLine": 216,
+        "endChar": 78
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "87f5e579_89f6efcb",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "`pow_gamma`",
+      "range": {
+        "startLine": 273,
+        "startChar": 16,
+        "endLine": 273,
+        "endChar": 24
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c308e4a_0a4edcc5",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 284,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-27T18:49:22Z",
+      "side": 1,
+      "message": "`pow_linear`",
+      "range": {
+        "startLine": 284,
+        "startChar": 18,
+        "endLine": 284,
+        "endChar": 19
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
