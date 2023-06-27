@@ -70,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "487e3710_638362bb",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70d54dbb_894881b2",
+      "revId": "b65405cc6a351633195f57ac08bc61907304371b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2bf620d7_76346327",
@@ -87,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "93c0a3fc_d6d27ea8",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2bf620d7_76346327",
+      "revId": "b65405cc6a351633195f57ac08bc61907304371b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ea1857cf_e0dcd796",
@@ -100,6 +136,30 @@
       "writtenOn": "2023-06-23T17:40:48Z",
       "side": 1,
       "message": "`FromLinearSRGB`",
+      "range": {
+        "startLine": 109,
+        "startChar": 20,
+        "endLine": 109,
+        "endChar": 26
+      },
+      "revId": "b65405cc6a351633195f57ac08bc61907304371b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b39912c6_e0285f2d",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 109,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ea1857cf_e0dcd796",
       "range": {
         "startLine": 109,
         "startChar": 20,
@@ -133,6 +193,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "191e41f3_bd5f35a4",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T14:17:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c547878f_a20e8eab",
+      "range": {
+        "startLine": 135,
+        "startChar": 13,
+        "endLine": 135,
+        "endChar": 26
+      },
+      "revId": "b65405cc6a351633195f57ac08bc61907304371b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a70e27a6_5d4216c0",
@@ -146,6 +230,30 @@
       "writtenOn": "2023-06-23T17:40:48Z",
       "side": 1,
       "message": "as discussed off thread, `round()`, `powf()` are C99. For now we\u0027ll try to stick to C90 (minus the comments).",
+      "range": {
+        "startLine": 169,
+        "startChar": 11,
+        "endLine": 169,
+        "endChar": 15
+      },
+      "revId": "b65405cc6a351633195f57ac08bc61907304371b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b1e4645_eda75dcf",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 169,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-27T14:17:13Z",
+      "side": 1,
+      "message": "log10f was also in there. Done",
+      "parentUuid": "a70e27a6_5d4216c0",
       "range": {
         "startLine": 169,
         "startChar": 11,
