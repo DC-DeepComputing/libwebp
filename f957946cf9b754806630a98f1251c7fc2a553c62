@@ -260,6 +260,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdbf8cc5_4aa7e135",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-28T18:42:02Z",
+      "side": 1,
+      "message": "\u003e Acknowledged\n\u003e Indeed, it\u0027s the French way :)\n\nAh, I hadn\u0027t seen that before.",
+      "parentUuid": "345ae1dc_d3969c00",
+      "range": {
+        "startLine": 205,
+        "startChar": 67,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71851054_ab14879d",
