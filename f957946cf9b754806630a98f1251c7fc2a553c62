@@ -214,6 +214,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8215bba2_cb3145b8",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-28T00:07:00Z",
+      "side": 1,
+      "message": "\u003e That was to exclude the boundary but it does not matter anyway.\n\nmeaning `[0, 0.01)`?",
+      "parentUuid": "581c0809_3a14baaa",
+      "range": {
+        "startLine": 205,
+        "startChar": 67,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "71851054_ab14879d",
         "filename": "sharpyuv/sharpyuv_gamma.c",
         "patchSetId": 7
