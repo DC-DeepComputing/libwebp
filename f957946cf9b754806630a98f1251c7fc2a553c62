@@ -236,6 +236,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "345ae1dc_d3969c00",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-28T08:48:38Z",
+      "side": 1,
+      "message": "Acknowledged\nIndeed, it\u0027s the French way :)",
+      "parentUuid": "8215bba2_cb3145b8",
+      "range": {
+        "startLine": 205,
+        "startChar": 67,
+        "endLine": 205,
+        "endChar": 68
+      },
+      "revId": "f957946cf9b754806630a98f1251c7fc2a553c62",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "71851054_ab14879d",
