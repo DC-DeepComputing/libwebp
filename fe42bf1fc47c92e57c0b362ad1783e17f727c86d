@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cffb30bf_a7743215",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-06-29T14:02:47Z",
+      "side": 1,
+      "message": "Do we want to have an internal ABI check like done in the mux/demux API when initializing options? e.g. https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/webp/mux.h#452",
+      "revId": "fe42bf1fc47c92e57c0b362ad1783e17f727c86d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
