@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9da082f_03f797cd",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-29T23:53:27Z",
+      "side": 1,
+      "message": "The ABI versioning for libwebp is different from the sharpyuv (semver.org) versioning. This macro will look at the wrong portion of the version.",
+      "range": {
+        "startLine": 489,
+        "startChar": 6,
+        "endLine": 489,
+        "endChar": 30
+      },
+      "revId": "5f6d366e856131a73b95f9c47269f32ca7dcb12d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89389ffc_26a66a38",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-29T23:53:27Z",
+      "side": 1,
+      "message": "This should be updated with the addition of the new function.",
+      "revId": "5f6d366e856131a73b95f9c47269f32ca7dcb12d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbbf3d0a_45f1cbcb",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-29T23:53:27Z",
+      "side": 1,
+      "message": "clange-format reflow from the previous patch?",
+      "revId": "5f6d366e856131a73b95f9c47269f32ca7dcb12d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
