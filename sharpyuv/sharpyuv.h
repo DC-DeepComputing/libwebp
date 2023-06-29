@@ -113,7 +113,7 @@ typedef enum SharpYuvTransferFunctionType {
 //     should be multiples of 2.
 // width, height: width and height of the image in pixels
 // This function calls SharpYuvConvertWithOptions with a default transfer
-// function of kSharpYuvTransferFunctionSRGB.
+// function of kSharpYuvTransferFunctionSrgb.
 SHARPYUV_EXTERN int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
                                     const void* b_ptr, int rgb_step,
                                     int rgb_stride, int rgb_bit_depth,
@@ -128,6 +128,13 @@ struct SharpYuvOptions {
   const SharpYuvConversionMatrix* yuv_matrix;
   SharpYuvTransferFunctionType transfer_type;
 };
+
+// Should always be called, to initialize a fresh SharpYuvOptions
+// structure before modification.
+// SharpYuvOptionsInit() must have succeeded before using the
+// 'options' object.
+void SharpYuvOptionsInit(const SharpYuvConversionMatrix* yuv_matrix,
+                         SharpYuvOptions* options);
 
 SHARPYUV_EXTERN int SharpYuvConvertWithOptions(
     const void* r_ptr, const void* g_ptr, const void* b_ptr, int rgb_step,
