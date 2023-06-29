@@ -32,6 +32,20 @@ extern "C" {
 #endif /* _MSC_VER && WEBP_DLL */
 #endif /* __GNUC__ >= 4 */
 #endif /* WEBP_EXTERN */
+#ifdef WEBP_INLINE
+#define SHARPYUV_INLINE WEBP_INLINE
+#else
+#ifndef _MSC_VER
+#if defined(__cplusplus) || !defined(__STRICT_ANSI__) || \
+    (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L)
+#define SHARPYUV_INLINE inline
+#else
+#define SHARPYUV_INLINE
+#endif
+#else
+#define SHARPYUV_INLINE __forceinline
+#endif /* _MSC_VER */
+#endif /* WEBP_INLINE */
 #endif /* SHARPYUV_EXTERN */
 
 // SharpYUV API version following the convention from semver.org
@@ -113,7 +127,7 @@ typedef enum SharpYuvTransferFunctionType {
 //     should be multiples of 2.
 // width, height: width and height of the image in pixels
 // This function calls SharpYuvConvertWithOptions with a default transfer
-// function of kSharpYuvTransferFunctionSRGB.
+// function of kSharpYuvTransferFunctionSrgb.
 SHARPYUV_EXTERN int SharpYuvConvert(const void* r_ptr, const void* g_ptr,
                                     const void* b_ptr, int rgb_step,
                                     int rgb_stride, int rgb_bit_depth,
@@ -129,11 +143,25 @@ struct SharpYuvOptions {
   SharpYuvTransferFunctionType transfer_type;
 };
 
-SHARPYUV_EXTERN int SharpYuvConvertWithOptions(
-    const void* r_ptr, const void* g_ptr, const void* b_ptr, int rgb_step,
-    int rgb_stride, int rgb_bit_depth, void* y_ptr, int y_stride, void* u_ptr,
-    int u_stride, void* v_ptr, int v_stride, int yuv_bit_depth, int width,
-    int height, const SharpYuvOptions* options);
+// Internal, version-checked, entry point
+SHARPYUV_EXTERN int SharpYuvOptionsInitInternal(const SharpYuvConversionMatrix*,
+                                                SharpYuvOptions*, int);
+
+// Should always be called, to initialize a fresh SharpYuvOptions
+// structure before modification. SharpYuvOptionsInit() must have succeeded
+// before using the 'option' object.
+static SHARPYUV_INLINE int SharpYuvOptionsInit(
+    const SharpYuvConversionMatrix* yuv_matrix, SharpYuvOptions* options) {
+  return SharpYuvOptionsInitInternal(yuv_matrix, options, SHARPYUV_VERSION);
+}
+
+SHARPYUV_EXTERN
+int SharpYuvConvertWithOptions(const void* r_ptr, const void* g_ptr,
+                               const void* b_ptr, int rgb_step, int rgb_stride,
+                               int rgb_bit_depth, void* y_ptr, int y_stride,
+                               void* u_ptr, int u_stride, void* v_ptr,
+                               int v_stride, int yuv_bit_depth, int width,
+                               int height, const SharpYuvOptions* options);
 
 // TODO(b/194336375): Add YUV444 to YUV420 conversion. Maybe also add 422
 // support (it's rarely used in practice, especially for images).

@@ -483,6 +483,17 @@ int SharpYuvConvert(const void* r_ptr, const void* g_ptr, const void* b_ptr,
       u_ptr, u_stride, v_ptr, v_stride, yuv_bit_depth, width, height, &options);
 }
 
+int SharpYuvOptionsInitInternal(const SharpYuvConversionMatrix* yuv_matrix,
+                                SharpYuvOptions* options, int version) {
+  if (options == NULL || yuv_matrix == NULL ||
+      WEBP_ABI_IS_INCOMPATIBLE(version, SHARPYUV_VERSION)) {
+    return 0;
+  }
+  options->yuv_matrix = yuv_matrix;
+  options->transfer_type = kSharpYuvTransferFunctionSrgb;
+  return 1;
+}
+
 int SharpYuvConvertWithOptions(const void* r_ptr, const void* g_ptr,
                                const void* b_ptr, int rgb_step, int rgb_stride,
                                int rgb_bit_depth, void* y_ptr, int y_stride,
