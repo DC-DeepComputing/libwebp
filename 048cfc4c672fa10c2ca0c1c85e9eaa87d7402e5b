@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e495e0e_2fe4746d",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-30T19:24:03Z",
+      "side": 1,
+      "message": "Since this lib is following semver.org, after 1.0.0 the minor check would be incorrect:\n\nhttps://semver.org/#spec-item-7\n\n*Minor version Y (x.Y.z | x \u003e 0) MUST be incremented if new, backward compatible functionality is introduced to the public API. It MUST be incremented if any public API functionality is marked as deprecated. It MAY be incremented if substantial new functionality or improvements are introduced within the private code. It MAY include patch level changes. Patch version MUST be reset to 0 when minor version is incremented.*",
+      "range": {
+        "startLine": 491,
+        "startChar": 41,
+        "endLine": 491,
+        "endChar": 72
+      },
+      "revId": "048cfc4c672fa10c2ca0c1c85e9eaa87d7402e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "746fae36_c25a6881",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-30T19:24:03Z",
+      "side": 1,
+      "message": "this should be outside the `SHARPYUV_EXTERN` block, no?",
+      "revId": "048cfc4c672fa10c2ca0c1c85e9eaa87d7402e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
