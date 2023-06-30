@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5dc2cfa2_3ac6b1a8",
+        "filename": "sharpyuv/sharpyuv.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-30T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e495e0e_2fe4746d",
+      "range": {
+        "startLine": 491,
+        "startChar": 41,
+        "endLine": 491,
+        "endChar": 72
+      },
+      "revId": "048cfc4c672fa10c2ca0c1c85e9eaa87d7402e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "746fae36_c25a6881",
@@ -37,6 +61,24 @@
       "writtenOn": "2023-06-30T19:24:03Z",
       "side": 1,
       "message": "this should be outside the `SHARPYUV_EXTERN` block, no?",
+      "revId": "048cfc4c672fa10c2ca0c1c85e9eaa87d7402e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1814102_2aee128b",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-06-30T23:34:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "746fae36_c25a6881",
       "revId": "048cfc4c672fa10c2ca0c1c85e9eaa87d7402e5b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
