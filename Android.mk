@@ -173,6 +173,7 @@ utils_dec_srcs := \
 utils_enc_srcs := \
     src/utils/bit_writer_utils.c \
     src/utils/huffman_encode_utils.c \
+    src/utils/palette.c \
     src/utils/quant_levels_utils.c \
 
 ################################################################################
