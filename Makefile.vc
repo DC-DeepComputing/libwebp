@@ -345,6 +345,7 @@ UTILS_DEC_OBJS = \
 UTILS_ENC_OBJS = \
     $(DIROBJ)\utils\bit_writer_utils.obj \
     $(DIROBJ)\utils\huffman_encode_utils.obj \
+    $(DIROBJ)\utils\palette.obj \
     $(DIROBJ)\utils\quant_levels_utils.obj \
 
 LIBWEBPDECODER_OBJS = $(DEC_OBJS) $(DSP_DEC_OBJS) $(UTILS_DEC_OBJS)

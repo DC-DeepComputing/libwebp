@@ -12,11 +12,12 @@
 
 #include <assert.h>
 #include <limits.h>
-#include <math.h>    // for pow()
+#include <math.h>  // for pow()
 #include <stdio.h>
 #include <stdlib.h>  // for abs()
 
 #include "src/mux/animi.h"
+#include "src/utils/palette.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/encode.h"

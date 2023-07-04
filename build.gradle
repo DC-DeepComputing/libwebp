@@ -228,6 +228,7 @@ model {
             include "bit_writer_utils.c"
             include "huffman_encode_utils.c"
             include "quant_levels_utils.c"
+            include "palette.c"
           }
           exportedHeaders {
             srcDir "src"
