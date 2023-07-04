@@ -17,6 +17,7 @@
 #include <stdlib.h>  // for abs()
 
 #include "src/mux/animi.h"
+#include "src/utils/palette.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/encode.h"
@@ -880,7 +881,7 @@ static WebPEncodingError GenerateCandidates(
     evaluate_ll = 1;
     evaluate_lossy = 1;
   } else {  // Use a heuristic for trying lossless and/or lossy compression.
-    const int num_colors = WebPGetColorPalette(&params->sub_frame_ll_, NULL);
+    const int num_colors = GetColorPalette(&params->sub_frame_ll_, NULL);
     evaluate_ll = (num_colors < MAX_COLORS_LOSSLESS);
     evaluate_lossy = (num_colors >= MIN_COLORS_LOSSY);
   }
