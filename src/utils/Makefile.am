@@ -42,6 +42,8 @@ ENC_SOURCES += bit_writer_utils.c
 ENC_SOURCES += bit_writer_utils.h
 ENC_SOURCES += huffman_encode_utils.c
 ENC_SOURCES += huffman_encode_utils.h
+ENC_SOURCES += palette.c
+ENC_SOURCES += palette.h
 ENC_SOURCES += quant_levels_utils.c
 ENC_SOURCES += quant_levels_utils.h
 
