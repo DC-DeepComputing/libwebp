@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca970657_7005ef29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-06T02:36:17Z",
+      "side": 1,
+      "message": "\u003e ABI check for build-HEAD/I/lib/libwebpdecoder.so failed (12):\n\u003e Functions changes summary: 1 Removed, 0 Changed, 0 Added function\n\u003e Variables changes summary: 0 Removed, 0 Changed, 0 Added variable\n\u003e \n\u003e 1 Removed function:\n\u003e \n\u003e [D] \"function int WebPGetColorPalette(const WebPPicture* const, uint32_t* const)\" {WebPGetColorPalette}\n\nIt definitely shouldn\u0027t have been there, but this change will break the decoder lib ABI. Let\u0027s not do that for now, but include it and add a TODO to remove it when we make a 2.0 release.",
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc35c8ad_8c54e69b",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-06T02:36:17Z",
+      "side": 1,
+      "message": "this can be removed. It\u0027s declared in the header as WEBP_EXTERN",
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "982424b8_4f5577a8",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-06T02:36:17Z",
+      "side": 1,
+      "message": "just `WEBP_...` here",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
