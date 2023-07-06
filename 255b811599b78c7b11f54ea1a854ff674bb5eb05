@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85a1a510_1e42d988",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-06T09:25:14Z",
+      "side": 1,
+      "message": "I have WebPGetColorPalette call GetColorPalette in palette.c\nI remove ApplyPalette from palette.c so that palette.cis decoder only (ungfortunately, ApplyPalette depends on pixel bundling which is in encoder dsp).\nDone",
+      "parentUuid": "ca970657_7005ef29",
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc35c8ad_8c54e69b",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81f75f87_750b512f",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-06T09:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc35c8ad_8c54e69b",
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "982424b8_4f5577a8",
@@ -48,6 +84,30 @@
       "writtenOn": "2023-07-06T02:36:17Z",
       "side": 1,
       "message": "just `WEBP_...` here",
+      "range": {
+        "startLine": 14,
+        "startChar": 8,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "255b811599b78c7b11f54ea1a854ff674bb5eb05",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "905a8aee_463b5752",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-06T09:25:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "982424b8_4f5577a8",
       "range": {
         "startLine": 14,
         "startChar": 8,
