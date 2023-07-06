@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "11fe6e40_c99a885f",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-06T20:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5241a5dd_6641c46f",
+      "range": {
+        "startLine": 26,
+        "startChar": 20,
+        "endLine": 26,
+        "endChar": 21
+      },
+      "revId": "5828e021a406a79693aa9fe79fedbad78917e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03c965d3_ea8b2955",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-06T17:23:20Z",
       "side": 1,
       "message": "...and the number...",
+      "range": {
+        "startLine": 40,
+        "startChar": 28,
+        "endLine": 40,
+        "endChar": 38
+      },
+      "revId": "5828e021a406a79693aa9fe79fedbad78917e5af",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7028379e_2cdb5349",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-06T20:09:41Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "03c965d3_ea8b2955",
       "range": {
         "startLine": 40,
         "startChar": 28,
