@@ -16,6 +16,24 @@
       "message": "`enc` is null here",
       "revId": "eae3c52d18940a0a863108da5edd6ffa37a82ff5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52d34261_64831d54",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-10T22:07:52Z",
+      "side": 1,
+      "message": "\u003e `enc` is null here\n\nYou\u0027re right, I wasn\u0027t paying attention.",
+      "parentUuid": "b554b224_98a6121a",
+      "revId": "eae3c52d18940a0a863108da5edd6ffa37a82ff5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
