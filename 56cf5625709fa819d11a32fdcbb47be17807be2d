@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7c11942_95d4ef7d",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1066,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-14T23:51:05Z",
+      "side": 1,
+      "message": "these could be bare too ([RFC 5234]), but it risks putting 2 together depending on how the line wraps.",
+      "range": {
+        "startLine": 1066,
+        "startChar": 0,
+        "endLine": 1066,
+        "endChar": 10
+      },
+      "revId": "56cf5625709fa819d11a32fdcbb47be17807be2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
