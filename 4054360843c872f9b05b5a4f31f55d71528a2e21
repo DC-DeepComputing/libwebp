@@ -16,6 +16,24 @@
       "message": "Any better way to put this or better location for it?",
       "revId": "4054360843c872f9b05b5a4f31f55d71528a2e21",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae797d5_0d2a8681",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 591,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-19T20:56:20Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f81a310_e8baa734",
+      "revId": "4054360843c872f9b05b5a4f31f55d71528a2e21",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
