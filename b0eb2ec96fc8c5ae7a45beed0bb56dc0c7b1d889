@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f3ef49e_82ad22eb",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T22:48:43Z",
+      "side": 1,
+      "message": "I wonder if we should make a pass and change square -\u003e rectangle in case someone wants to be overly pedantic.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 230,
+        "endChar": 6
+      },
+      "revId": "b0eb2ec96fc8c5ae7a45beed0bb56dc0c7b1d889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7d2de72_f47b8405",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T22:48:43Z",
+      "side": 1,
+      "message": "long line.",
+      "revId": "b0eb2ec96fc8c5ae7a45beed0bb56dc0c7b1d889",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
