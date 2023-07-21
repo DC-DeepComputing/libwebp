@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9e88a72_536ca110",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T01:05:34Z",
+      "side": 1,
+      "message": "Thanks for the help with the wording.",
+      "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32138149_fef39e34",
@@ -14,6 +31,24 @@
       "writtenOn": "2023-07-19T20:55:47Z",
       "side": 1,
       "message": "subresolution images are not explained clearly, except when defining `color transform image`, `entropy image` and `predictor image` above.\n\nHow about emphasizing what it means here, like: \"subresolution images (as defined in Nomenclature)\" or maybe even list the three of them.",
+      "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bce542b7_3c977d76",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T01:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32138149_fef39e34",
       "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +83,24 @@
       "writtenOn": "2023-07-19T20:55:47Z",
       "side": 1,
       "message": "How about:\n`The transform data contains the prediction mode for each block of the image. It is a subresolution image where the green component of a pixel defines which of the 14 predictors is used for all the `block_width * block_height` pixels within a particular block of the ARGB image. This subresoutlion image is encoded using the same techniques described in [Chapter 5](#image-data).`",
+      "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "901c7375_4e9d1230",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T01:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ccf5f78b_c5a7a153",
       "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -99,6 +152,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5714f02_507c0aea",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 456,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T01:05:34Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "0a8d660e_9c018a78",
+      "range": {
+        "startLine": 455,
+        "startChar": 53,
+        "endLine": 456,
+        "endChar": 6
+      },
+      "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66682159_3caddd5b",
@@ -130,6 +207,24 @@
       "side": 1,
       "message": "Good spot, but I would reword it:\nThe red and green components of a pixel define a 16-bit meta prefix code used in a\nparticular block of the ARGB image.",
       "parentUuid": "66682159_3caddd5b",
+      "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc9fd25e_94f9765b",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 972,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-21T01:05:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfa05eda_955b97b2",
       "revId": "648408387ad63b8522b5895dccc1da05f0fb49ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
