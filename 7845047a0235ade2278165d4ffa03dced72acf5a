@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a76ed6d8_22bde2ad",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-26T08:25:35Z",
+      "side": 1,
+      "message": "Well, I\u0027d rather not add it to make sure all methods are properly dealt with. This way, there will be a compiler error if I omit a method (there are 3/4 to come).",
+      "parentUuid": "6dde11f0_534cc2eb",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 8
+      },
+      "revId": "7845047a0235ade2278165d4ffa03dced72acf5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ca2f024b_4bb2cdd8",
@@ -37,6 +61,30 @@
       "writtenOn": "2023-07-26T08:08:57Z",
       "side": 1,
       "message": "return 0\n\nfor good measure",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "7845047a0235ade2278165d4ffa03dced72acf5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed2d6041_597eed7b",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-26T08:25:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ca2f024b_4bb2cdd8",
       "range": {
         "startLine": 401,
         "startChar": 2,
