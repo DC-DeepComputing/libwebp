@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6dde11f0_534cc2eb",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-07-26T08:08:57Z",
+      "side": 1,
+      "message": "default:\n\n?",
+      "range": {
+        "startLine": 395,
+        "startChar": 4,
+        "endLine": 395,
+        "endChar": 8
+      },
+      "revId": "7845047a0235ade2278165d4ffa03dced72acf5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ca2f024b_4bb2cdd8",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-07-26T08:08:57Z",
+      "side": 1,
+      "message": "return 0\n\nfor good measure",
+      "range": {
+        "startLine": 401,
+        "startChar": 2,
+        "endLine": 401,
+        "endChar": 8
+      },
+      "revId": "7845047a0235ade2278165d4ffa03dced72acf5a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
