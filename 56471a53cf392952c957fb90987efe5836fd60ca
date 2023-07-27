@@ -34,6 +34,24 @@
       "parentUuid": "9f101778_345e5aa9",
       "revId": "56471a53cf392952c957fb90987efe5836fd60ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c29ed2d_fbd15764",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-27T17:48:16Z",
+      "side": 1,
+      "message": "\u003e ok. BW, I see that in this file, \": \" is sometimes followed by a capital letter, sometimes not.\n\nYou\u0027re right I noticed that in one of the other lists. I think the distinction might be how it\u0027s worded. It\u0027s giving an option 1 or 2 or 3 ..., but I\u0027ll ask the editor when I post an update.",
+      "parentUuid": "e5db7ca7_10a97724",
+      "revId": "56471a53cf392952c957fb90987efe5836fd60ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
