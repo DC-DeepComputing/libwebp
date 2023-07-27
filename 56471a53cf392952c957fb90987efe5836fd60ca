@@ -16,6 +16,24 @@
       "message": "My comment to the RFC editor was that the casing was inconsistent in this section with regard to the transform names.",
       "revId": "56471a53cf392952c957fb90987efe5836fd60ca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e5db7ca7_10a97724",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 620,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-27T08:41:39Z",
+      "side": 1,
+      "message": "ok. BW, I see that in this file, \": \" is sometimes followed by a capital letter, sometimes not.",
+      "parentUuid": "9f101778_345e5aa9",
+      "revId": "56471a53cf392952c957fb90987efe5836fd60ca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
