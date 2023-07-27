@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9e75cec1_52d406b4",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-27T17:53:03Z",
+      "side": 1,
+      "message": "\u003e ` outside () no? Like below\n\nThe one below is capturing the ()s in the calculation. This one is a parenthetical note.\n\n... defines the size of the color cache (`1 \u003c\u003c color_cache_code_bits`)\n\n...indexing them by `(0x1e35a7bd * color) \u003e\u003e (32 - color_cache_code_bits)`",
+      "parentUuid": "aaa09f68_def10c47",
+      "range": {
+        "startLine": 791,
+        "startChar": 61,
+        "endLine": 791,
+        "endChar": 62
+      },
+      "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c7b039b2_04aeb178",
         "filename": "doc/webp-lossless-bitstream-spec.txt",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2023-07-27T08:45:19Z",
       "side": 1,
       "message": "strictly greater?",
+      "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e680f39_b188ffb4",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-27T17:53:03Z",
+      "side": 1,
+      "message": "\u003e strictly greater?\n\nMeaning adding the word \u0027strictly\u0027? I think greater than is sufficient we say things elsewhere like \u0027less than or equal\u0027 to I think.",
+      "parentUuid": "c7b039b2_04aeb178",
       "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
