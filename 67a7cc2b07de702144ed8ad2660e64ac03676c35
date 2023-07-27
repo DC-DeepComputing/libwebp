@@ -16,6 +16,46 @@
       "message": "Might be some of the last changes for this doc.",
       "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aaa09f68_def10c47",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 791,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-27T08:45:19Z",
+      "side": 1,
+      "message": "` outside () no? Like below",
+      "range": {
+        "startLine": 791,
+        "startChar": 61,
+        "endLine": 791,
+        "endChar": 62
+      },
+      "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b039b2_04aeb178",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-07-27T08:45:19Z",
+      "side": 1,
+      "message": "strictly greater?",
+      "revId": "67a7cc2b07de702144ed8ad2660e64ac03676c35",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
