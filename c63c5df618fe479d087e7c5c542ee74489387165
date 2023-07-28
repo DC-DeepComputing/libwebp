@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5f80317_0f20d466",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-07-28T16:10:55Z",
+      "side": 1,
+      "message": "clang-tidy isn\u0027t helpful here. Microsoft does the right thing in C++ code, but C behaves differently.",
+      "revId": "c63c5df618fe479d087e7c5c542ee74489387165",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
