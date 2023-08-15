@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "92ede57c_7b8e53a5",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-08-15T02:40:31Z",
+      "side": 0,
+      "message": "I fixed this in https://chromium-review.googlesource.com/c/webm/libwebp/+/4044007, but wasn\u0027t paying attention to the calculation. This was left over from earlier experimentation when it was 18; it\u0027s always been 19 in the main branch.",
+      "revId": "a2de25f6b62ff9b799aeb006812adc352b8680a1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
