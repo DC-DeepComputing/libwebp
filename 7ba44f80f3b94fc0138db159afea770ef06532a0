@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fcb9e111_7e771a10",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-09-07T11:19:19Z",
+      "side": 1,
+      "message": "Thx. BTW, this is because I saw the fix at https://github.com/opencv/opencv/blob/4.x/3rdparty/libwebp/patches/20190910-msa-asm-patch.diff",
+      "revId": "7ba44f80f3b94fc0138db159afea770ef06532a0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
