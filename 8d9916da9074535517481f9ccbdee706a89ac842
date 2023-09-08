@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "181c611d_a550cab0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-08T01:30:46Z",
+      "side": 1,
+      "message": "This failure might be related to:\nhttps://chromium.googlesource.com/webm/libwebp/+/e15b3560147ca404e11be4b05ab3f43c39b78a9e\n\nOtherwise, the tests pass.",
+      "revId": "8d9916da9074535517481f9ccbdee706a89ac842",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
