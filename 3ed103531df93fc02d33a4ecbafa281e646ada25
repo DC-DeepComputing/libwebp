@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05179830_2f2209d4",
+        "filename": "src/dec/vp8l_dec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1247,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-11T23:21:25Z",
+      "side": 1,
+      "message": "these ()s could be removed",
+      "range": {
+        "startLine": 1247,
+        "startChar": 25,
+        "endLine": 1247,
+        "endChar": 26
+      },
+      "revId": "3ed103531df93fc02d33a4ecbafa281e646ada25",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
