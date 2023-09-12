@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d78ab365_9bdc854b",
+        "filename": "tests/fuzzer/huffman_fuzzer.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-12T22:44:07Z",
+      "side": 1,
+      "message": "This is outside the main library, so C99 should be OK. I think we have that in other fuzzers already.",
+      "revId": "a35ea50de40066a6382b88b288ff0956ec7d0dc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
