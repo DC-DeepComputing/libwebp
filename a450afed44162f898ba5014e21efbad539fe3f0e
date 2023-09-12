@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b457b1a_3512bf14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1516057
+      },
+      "writtenOn": "2023-09-12T11:33:02Z",
+      "side": 1,
+      "message": "Tests are passing for chromium: https://crrev.com/c/4854139",
+      "revId": "a450afed44162f898ba5014e21efbad539fe3f0e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
