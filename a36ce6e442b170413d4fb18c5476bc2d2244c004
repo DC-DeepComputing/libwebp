@@ -16,6 +16,23 @@
       "message": "Dry-running on chromium: https://crrev.com/c/4859427",
       "revId": "a36ce6e442b170413d4fb18c5476bc2d2244c004",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "342b990a_6610fbcb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-12T20:08:12Z",
+      "side": 1,
+      "message": "The cmake issue is unrelated, it\u0027s meant to test a later fix. I\u0027ll disable it for this branch and rerun the tests.",
+      "revId": "a36ce6e442b170413d4fb18c5476bc2d2244c004",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
