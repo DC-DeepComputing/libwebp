@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57d594a8_82c63885",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-13T20:41:23Z",
+      "side": 1,
+      "message": "mux and demux are due to the legacy versioning. If we go to 2.0.0 at some point we could universally adopt semantic versioning.",
+      "revId": "63234c4296b8e1ffa4feb2bfd2d75bbe08cd1c8f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
