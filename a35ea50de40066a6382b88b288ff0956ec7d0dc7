@@ -16,6 +16,24 @@
       "message": "This is outside the main library, so C99 should be OK. I think we have that in other fuzzers already.",
       "revId": "a35ea50de40066a6382b88b288ff0956ec7d0dc7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f127cd71_816a2780",
+        "filename": "tests/fuzzer/huffman_fuzzer.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-09-13T08:32:59Z",
+      "side": 1,
+      "message": "Indeed, we do that for other fuzzers, e.g. https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.3.1/tests/fuzzer/animdecoder_fuzzer.cc#33",
+      "parentUuid": "d78ab365_9bdc854b",
+      "revId": "a35ea50de40066a6382b88b288ff0956ec7d0dc7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
