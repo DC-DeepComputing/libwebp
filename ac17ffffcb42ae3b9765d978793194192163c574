@@ -16,6 +16,24 @@
       "message": "I\u0027ll see about adding a -std\u003dc90 build to jenkins",
       "revId": "ac17ffffcb42ae3b9765d978793194192163c574",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb7e3bef_6ae1ab0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-14T23:22:36Z",
+      "side": 1,
+      "message": "\u003e I\u0027ll see about adding a -std\u003dc90 build to jenkins\n\nactually `-std\u003dgnu90` since we use `//`.\n\nfound another:\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/4866369",
+      "parentUuid": "cbb18527_dd6ce0bc",
+      "revId": "ac17ffffcb42ae3b9765d978793194192163c574",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
