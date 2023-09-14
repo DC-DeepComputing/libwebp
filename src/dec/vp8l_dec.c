@@ -310,7 +310,11 @@ static int ReadHuffmanCodeLengths(
 
  End:
   VP8LHuffmanTablesDeallocate(&tables);
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
   if (!ok) return VP8LSetError(dec, VP8_STATUS_BITSTREAM_ERROR);
+=======
+  if (!ok) dec->status_ = VP8_STATUS_BITSTREAM_ERROR;
+>>>>>>> BRANCH (ca3322 update ChangeLog)
   return ok;
 }
 
@@ -435,11 +439,18 @@ static int ReadHuffmanCodes(VP8LDecoder* const dec, int xsize, int ysize,
   }
   ok = 1;
 
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
   // All OK. Finalize pointers.
   hdr->huffman_image_ = huffman_image;
   hdr->num_htree_groups_ = num_htree_groups;
   hdr->htree_groups_ = htree_groups;
+=======
+  code_lengths = (int*)WebPSafeCalloc((uint64_t)max_alphabet_size,
+                                      sizeof(*code_lengths));
+  htree_groups = VP8LHtreeGroupsNew(num_htree_groups);
+>>>>>>> BRANCH (ca3322 update ChangeLog)
 
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
  Error:
   WebPSafeFree(mapping);
   if (!ok) {
@@ -463,9 +474,16 @@ int ReadHuffmanCodesHelper(int color_cache_bits, int num_htree_groups,
 
   if ((mapping == NULL && num_htree_groups != num_htree_groups_max) ||
       num_htree_groups > num_htree_groups_max) {
+=======
+  if (htree_groups == NULL || code_lengths == NULL ||
+      !VP8LHuffmanTablesAllocate(num_htree_groups * table_size,
+                                 huffman_tables)) {
+    dec->status_ = VP8_STATUS_OUT_OF_MEMORY;
+>>>>>>> BRANCH (ca3322 update ChangeLog)
     goto Error;
   }
 
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
   code_lengths =
       (int*)WebPSafeCalloc((uint64_t)max_alphabet_size, sizeof(*code_lengths));
   *htree_groups = VP8LHtreeGroupsNew(num_htree_groups);
@@ -477,6 +495,8 @@ int ReadHuffmanCodesHelper(int color_cache_bits, int num_htree_groups,
     goto Error;
   }
 
+=======
+>>>>>>> BRANCH (ca3322 update ChangeLog)
   for (i = 0; i < num_htree_groups_max; ++i) {
     // If the index "i" is unused in the Huffman image, just make sure the
     // coefficients are valid but do not store them.
@@ -545,12 +565,26 @@ int ReadHuffmanCodesHelper(int color_cache_bits, int num_htree_groups,
   }
   ok = 1;
 
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
+=======
+  // All OK. Finalize pointers.
+  hdr->huffman_image_ = huffman_image;
+  hdr->num_htree_groups_ = num_htree_groups;
+  hdr->htree_groups_ = htree_groups;
+
+>>>>>>> BRANCH (ca3322 update ChangeLog)
  Error:
   WebPSafeFree(code_lengths);
   if (!ok) {
+<<<<<<< HEAD   (a35ea5 Add a fuzzer for ReadHuffmanCodes)
     VP8LHuffmanTablesDeallocate(huffman_tables);
     VP8LHtreeGroupsFree(*htree_groups);
     *htree_groups = NULL;
+=======
+    WebPSafeFree(huffman_image);
+    VP8LHuffmanTablesDeallocate(huffman_tables);
+    VP8LHtreeGroupsFree(htree_groups);
+>>>>>>> BRANCH (ca3322 update ChangeLog)
   }
   return ok;
 }
