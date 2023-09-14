@@ -555,6 +555,7 @@ static WebPMuxError MuxCleanup(WebPMux* const mux) {
   if (num_frames == 1) {
     WebPMuxImage* frame = NULL;
     err = MuxImageGetNth((const WebPMuxImage**)&mux->images_, 1, &frame);
+    (void)err;
     assert(err == WEBP_MUX_OK);  // We know that one frame does exist.
     assert(frame != NULL);
     if (frame->header_ != NULL &&
