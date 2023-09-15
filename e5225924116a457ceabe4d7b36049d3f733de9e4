@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b502446_af6f2c10",
+        "filename": "doc/building.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2023-09-15T11:33:14Z",
+      "side": 1,
+      "message": "should we split the long lines ?",
+      "range": {
+        "startLine": 101,
+        "startChar": 29,
+        "endLine": 101,
+        "endChar": 36
+      },
+      "revId": "e5225924116a457ceabe4d7b36049d3f733de9e4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
