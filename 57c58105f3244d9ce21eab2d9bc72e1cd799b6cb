@@ -16,6 +16,24 @@
       "message": "earlier runs reported:\n\n```\nWebP_FOUND: 1\nWebP_INCLUDE_DIRS: \nWebP_LIBRARIES: webpdecoder;webp;webpdemux;webpmux\nWEBP_INCLUDE_DIRS: \nWEBP_LIBRARIES: webpdecoder;webp;webpdemux;webpmux\n```\n\nYet the test of the install seemed to work:\n\n```\n    cat \u003e CMakeLists.txt \u003c\u003cEOF\ncmake_minimum_required(VERSION 2.8.12)\n\nproject(libwebp C)\n\nfind_package(WebP)\nif(NOT WebP_FOUND)\n  message(FATAL_ERROR \"WebP package not found\")\nendif()\nmessage(\"WebP_FOUND: \\${WebP_FOUND}\")\nmessage(\"WebP_INCLUDE_DIRS: \\${WebP_INCLUDE_DIRS}\")\nmessage(\"WebP_LIBRARIES: \\${WebP_LIBRARIES}\")\nmessage(\"WEBP_INCLUDE_DIRS: \\${WEBP_INCLUDE_DIRS}\")\nmessage(\"WEBP_LIBRARIES: \\${WEBP_LIBRARIES}\")\n\nif(POLICY CMP0028)\n  cmake_policy(SET CMP0028 NEW)\nendif()\n\nadd_executable(main \"main.c\")\ntarget_link_libraries(main WebP::webp)\ntarget_include_directories(main PRIVATE ${WEBP_INCLUDE_DIRS})\nEOF\ncat \u003e main.c \u003c\u003c EOF\n#include \"webp/encode.h\"\n\nint main() { return WebPGetEncoderVersion(); }\nEOF\n    cmake . $opts -DCMAKE_PREFIX_PATH\u003d\"${BUILD_DIR}/webp-install/usr/local\"\nmake\nScanning dependencies of target main\n[ 50%] Building C object CMakeFiles/main.dir/main.c.o\n[100%] Linking C executable main\n[100%] Built target main\n```\n\nI\u0027ll need to check the install, maybe we have some under /usr/include already.",
       "revId": "57c58105f3244d9ce21eab2d9bc72e1cd799b6cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2bcfeab4_9c2a297a",
+        "filename": "cmake/WebPConfig.cmake.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-09-17T21:23:46Z",
+      "side": 1,
+      "message": "I\u0027ll wait for things to be clear before merging.",
+      "parentUuid": "c8116128_f0296c0f",
+      "revId": "57c58105f3244d9ce21eab2d9bc72e1cd799b6cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
