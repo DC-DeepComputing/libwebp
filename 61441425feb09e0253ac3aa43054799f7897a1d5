@@ -52,6 +52,24 @@
       "parentUuid": "e6c5a557_7c7db1b0",
       "revId": "61441425feb09e0253ac3aa43054799f7897a1d5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ea5c3c3_0a12d95c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-18T23:30:33Z",
+      "side": 1,
+      "message": "\u003e \u003e I tried it locally and it works. We should look at the patches there: https://github.com/microsoft/vcpkg/tree/master/ports/libwebp\n\u003e \n\u003e I\u0027ve had that tab open for months \u003e.\u003c.\n\nThere\u0027s also https://invent.kde.org/graphics/krita/-/tree/7d51396a7a59f7cf73b309a57be86005241c5dbb/3rdparty/ext_webp",
+      "parentUuid": "9a0d5d68_53996091",
+      "revId": "61441425feb09e0253ac3aa43054799f7897a1d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
