@@ -34,6 +34,24 @@
       "parentUuid": "c8116128_f0296c0f",
       "revId": "57c58105f3244d9ce21eab2d9bc72e1cd799b6cb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aea101f3_1546d998",
+        "filename": "cmake/WebPConfig.cmake.in",
+        "patchSetId": 2
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-09-18T18:39:11Z",
+      "side": 1,
+      "message": "\u003e I\u0027ll wait for things to be clear before merging.\n\nUsing using CMake 3.18.4 `target_link_libraries(main WebP::webp)` seems to set `-isystem ${BUILD_DIR}/webp-install/usr/local/include` and `-isystem ${BUILD_DIR}/webp-install/usr/local/include/webp`. There\u0027s actually a typo in the here-doc for `target_include_directories()`, `${WEBP_INCLUDE_DIRS}` will get expanded early, it should be escaped.",
+      "parentUuid": "2bcfeab4_9c2a297a",
+      "revId": "57c58105f3244d9ce21eab2d9bc72e1cd799b6cb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
