@@ -502,9 +502,6 @@ AS_IF([test "x$enable_sdl" != "xno"], [
     done
     # LIBS is restored by LIBCHECK_EPILOGUE
     AC_LANG_POP
-    if test x"$sdl_header" = "xSDL.h"; then
-      SDL_INCLUDES="$SDL_INCLUDES -DWEBP_HAVE_JUST_SDL_H"
-    fi
   fi
   LIBCHECK_EPILOGUE([SDL])
 

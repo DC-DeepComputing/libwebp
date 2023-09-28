@@ -27,11 +27,7 @@
 #include "imageio/imageio_util.h"
 #include "../examples/unicode.h"
 
-#if defined(WEBP_HAVE_JUST_SDL_H)
-#include <SDL.h>
-#else
-#include <SDL/SDL.h>
-#endif
+#include <SDL2/SDL.h>
 
 static void ProcessEvents(void) {
   int done = 0;
