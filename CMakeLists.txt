@@ -27,13 +27,7 @@ endif()
 option(WEBP_LINK_STATIC
        "Link using static libraries. If OFF, use dynamic libraries."
        ${WEBP_LINK_STATIC_DEFAULT})
-if(NOT EMSCRIPTEN)
-  # Disable SIMD on Emscripten by default, as it's a new unstable Wasm feature.
-  # Users can still explicitly opt-in to make a SIMD-enabled build.
-  set(WEBP_ENABLE_SIMD_DEFAULT ON)
-endif()
-option(WEBP_ENABLE_SIMD "Enable any SIMD optimization."
-       ${WEBP_ENABLE_SIMD_DEFAULT})
+option(WEBP_ENABLE_SIMD "Enable any SIMD optimization." ON)
 option(WEBP_BUILD_ANIM_UTILS "Build animation utilities." ON)
 option(WEBP_BUILD_CWEBP "Build the cwebp command line tool." ON)
 option(WEBP_BUILD_DWEBP "Build the dwebp command line tool." ON)
@@ -80,11 +74,6 @@ if(WEBP_BUILD_WEBP_JS)
   set(WEBP_BUILD_WEBPMUX OFF)
   set(WEBP_BUILD_EXTRAS OFF)
   set(WEBP_USE_THREAD OFF)
-
-  if(WEBP_ENABLE_SIMD)
-    message(NOTICE
-            "wasm2js does not support SIMD, disabling webp.js generation.")
-  endif()
 endif()
 
 set(SHARPYUV_DEP_LIBRARIES)
@@ -638,13 +627,13 @@ if(WEBP_BUILD_EXTRAS)
                                                   ${CMAKE_CURRENT_BINARY_DIR})
 
   # vwebp_sdl
-  find_package(SDL)
-  if(WEBP_BUILD_VWEBP AND SDL_FOUND)
+  find_package(SDL2 QUIET)
+  if(WEBP_BUILD_VWEBP AND SDL2_FOUND)
     add_executable(vwebp_sdl ${VWEBP_SDL_SRCS})
-    target_link_libraries(vwebp_sdl ${SDL_LIBRARY} imageioutil webp)
+    target_link_libraries(vwebp_sdl ${SDL2_LIBRARIES} imageioutil webp)
     target_include_directories(
       vwebp_sdl PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}
-                        ${CMAKE_CURRENT_BINARY_DIR}/src ${SDL_INCLUDE_DIR})
+                        ${CMAKE_CURRENT_BINARY_DIR}/src ${SDL2_INCLUDE_DIRS})
     set(WEBP_HAVE_SDL 1)
     target_compile_definitions(vwebp_sdl PUBLIC WEBP_HAVE_SDL)
   endif()
@@ -661,31 +650,38 @@ if(WEBP_BUILD_WEBP_JS)
   else()
     set(emscripten_stack_size "-sTOTAL_STACK=5MB")
   endif()
-  # wasm2js does not support SIMD.
-  if(NOT WEBP_ENABLE_SIMD)
-    # JavaScript version
-    add_executable(webp_js ${CMAKE_CURRENT_SOURCE_DIR}/extras/webp_to_sdl.c)
-    target_link_libraries(webp_js webpdecoder SDL)
-    target_include_directories(webp_js PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
-    set(WEBP_HAVE_SDL 1)
-    set_target_properties(
-      webp_js
-      PROPERTIES LINK_FLAGS "-sWASM=0 ${emscripten_stack_size} \
-         -sEXPORTED_FUNCTIONS=_WebPToSDL -sINVOKE_RUN=0 \
-         -sEXPORTED_RUNTIME_METHODS=cwrap")
-    set_target_properties(webp_js PROPERTIES OUTPUT_NAME webp)
-    target_compile_definitions(webp_js PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
-  endif()
+  # Set SDL2 flags so that ports are downloaded by emscripten.
+  set(EMSCRIPTEN_SDL2_FLAGS "-sUSE_SDL=2 -sUSE_SDL_IMAGE=2")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${EMSCRIPTEN_SDL2_FLAGS}")
+  # JavaScript version
+  find_package(SDL2 QUIET)
+  add_executable(webp_js ${CMAKE_CURRENT_SOURCE_DIR}/extras/webp_to_sdl.c)
+  target_link_libraries(webp_js webpdecoder SDL2)
+  target_include_directories(webp_js PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
+  set(WEBP_HAVE_SDL 1)
+  set_target_properties(
+    webp_js
+    PROPERTIES
+      LINK_FLAGS
+      "-sWASM=0 ${emscripten_stack_size} \
+       -sEXPORTED_FUNCTIONS=_WebPToSDL -sINVOKE_RUN=0 \
+       -sEXPORTED_RUNTIME_METHODS=cwrap ${EMSCRIPTEN_SDL2_FLAGS} -sALLOW_MEMORY_GROWTH"
+  )
+  set_target_properties(webp_js PROPERTIES OUTPUT_NAME webp)
+  target_compile_definitions(webp_js PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
 
   # WASM version
   add_executable(webp_wasm ${CMAKE_CURRENT_SOURCE_DIR}/extras/webp_to_sdl.c)
-  target_link_libraries(webp_wasm webpdecoder SDL)
+  target_link_libraries(webp_wasm webpdecoder SDL2)
   target_include_directories(webp_wasm PRIVATE ${CMAKE_CURRENT_BINARY_DIR})
   set_target_properties(
     webp_wasm
-    PROPERTIES LINK_FLAGS "-sWASM=1 ${emscripten_stack_size} \
+    PROPERTIES
+      LINK_FLAGS
+      "-sWASM=1 ${emscripten_stack_size} \
        -sEXPORTED_FUNCTIONS=_WebPToSDL -sINVOKE_RUN=0 \
-       -sEXPORTED_RUNTIME_METHODS=cwrap")
+       -sEXPORTED_RUNTIME_METHODS=cwrap ${EMSCRIPTEN_SDL2_FLAGS} -sALLOW_MEMORY_GROWTH"
+  )
   target_compile_definitions(webp_wasm PUBLIC EMSCRIPTEN WEBP_HAVE_SDL)
 
   target_compile_definitions(webpdspdecode PUBLIC EMSCRIPTEN)
