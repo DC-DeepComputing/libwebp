@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed37a049_b1547cbe",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-05T11:51:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "590b0da1_9add63a4",
+      "revId": "dae1e14d7be024b39cebfc7251e34fa2ad441400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "50740283_bd333be5",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-10-05T05:25:42Z",
       "side": 1,
       "message": "From the presubmit: `src/dec/vp8l.c:1721: new blank line at EOF.`",
+      "revId": "dae1e14d7be024b39cebfc7251e34fa2ad441400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ea817b3_ee20e581",
+        "filename": "src/dec/vp8l.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-05T11:51:07Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50740283_bd333be5",
       "revId": "dae1e14d7be024b39cebfc7251e34fa2ad441400",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
