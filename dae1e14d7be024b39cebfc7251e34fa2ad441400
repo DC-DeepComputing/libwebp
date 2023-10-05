@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "590b0da1_9add63a4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-05T05:25:42Z",
+      "side": 1,
+      "message": "maybe match the form of `git cherry-pick -x`:\n\n(cherry picked from commit 95ea5226c870449522240ccff26f0b006037c520)\n\nThis will usually be placed below the change-id if it\u0027s the same one as the source",
+      "revId": "dae1e14d7be024b39cebfc7251e34fa2ad441400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50740283_bd333be5",
+        "filename": "src/dec/vp8l.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1721,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-05T05:25:42Z",
+      "side": 1,
+      "message": "From the presubmit: `src/dec/vp8l.c:1721: new blank line at EOF.`",
+      "revId": "dae1e14d7be024b39cebfc7251e34fa2ad441400",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
