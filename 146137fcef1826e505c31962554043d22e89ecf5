@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4440531a_5a7fa8b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-06T09:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f73be637_f367e83a",
+      "revId": "146137fcef1826e505c31962554043d22e89ecf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7fa8e900_0ad499d6",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -48,6 +66,24 @@
       "writtenOn": "2023-10-06T01:11:29Z",
       "side": 1,
       "message": "Do you want this one to target 0.5.2 instead?",
+      "revId": "146137fcef1826e505c31962554043d22e89ecf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90050da5_cb3533e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-06T09:48:10Z",
+      "side": 1,
+      "message": "Yes ... I pushed onto the wrong branch. You will do a 0.5.3 anyway right? From the 0.5.2 branch?",
+      "parentUuid": "9e49330a_b32fea35",
       "revId": "146137fcef1826e505c31962554043d22e89ecf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
