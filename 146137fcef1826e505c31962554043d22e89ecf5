@@ -33,6 +33,23 @@
       "message": "...forgot to post my draft",
       "revId": "146137fcef1826e505c31962554043d22e89ecf5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e49330a_b32fea35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-06T01:11:29Z",
+      "side": 1,
+      "message": "Do you want this one to target 0.5.2 instead?",
+      "revId": "146137fcef1826e505c31962554043d22e89ecf5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
