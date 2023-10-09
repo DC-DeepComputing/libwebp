@@ -29,6 +29,7 @@ endif()
 
 # Include dependencies.
 include(cmake/deps.cmake)
+include(GNUInstallDirs)
 
 ################################################################################
 # Options.
@@ -314,16 +315,18 @@ add_definitions(-DHAVE_CONFIG_H)
 include_directories(${CMAKE_CURRENT_BINARY_DIR})
 
 # Install the different headers and libraries.
-install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/decode.h
-              ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/demux.h
-              ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/encode.h
-              ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/mux.h
-              ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/mux_types.h
-              ${CMAKE_CURRENT_SOURCE_DIR}/src/webp/types.h
-        DESTINATION include/webp)
-install(TARGETS ${INSTALLED_LIBRARIES}
-        LIBRARY DESTINATION lib
-        ARCHIVE DESTINATION lib)
+install(
+  TARGETS ${INSTALLED_LIBRARIES}
+  EXPORT WebPTargets
+  PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/webp
+  INCLUDES
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+set(ConfigPackageLocation ${CMAKE_INSTALL_DATADIR}/WebP/cmake/)
+install(EXPORT WebPTargets NAMESPACE WebP::
+        DESTINATION ${ConfigPackageLocation})
 
 # Create the CMake version file.
 include(CMakePackageConfigHelpers)
