@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e59d25ee_6f8e02f9",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-09T12:36:55Z",
+      "side": 1,
+      "message": "couldn\u0027t that be confusing with the other meaning of stride for byte size.\nHow about subimage_width ? (which would justify image_width vs width (simply)).\ntransform_width could work too.",
+      "revId": "841b522092744a2b6b8b3e74f390865355f9cf0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
