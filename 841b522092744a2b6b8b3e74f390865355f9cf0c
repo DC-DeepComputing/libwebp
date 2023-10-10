@@ -16,6 +16,24 @@
       "message": "couldn\u0027t that be confusing with the other meaning of stride for byte size.\nHow about subimage_width ? (which would justify image_width vs width (simply)).\ntransform_width could work too.",
       "revId": "841b522092744a2b6b8b3e74f390865355f9cf0c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3222118f_0b218f7d",
+        "filename": "doc/webp-lossless-bitstream-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-10T04:24:30Z",
+      "side": 1,
+      "message": "\u003e couldn\u0027t that be confusing with the other meaning of stride for byte size.\n\u003e How about subimage_width ? (which would justify image_width vs width (simply)).\n\u003e transform_width could work too.\n\nmaybe `transform_width` since we\u0027re in the Predictor Transform section.",
+      "parentUuid": "e59d25ee_6f8e02f9",
+      "revId": "841b522092744a2b6b8b3e74f390865355f9cf0c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
