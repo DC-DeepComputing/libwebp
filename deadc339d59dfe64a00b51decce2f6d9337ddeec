@@ -1,5 +1,29 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23e06fb8_e6835446",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-12T17:23:53Z",
+      "side": 1,
+      "message": "I didn\u0027t know there was a difference in notation until Vincent pointed it out in another change where I thought it was a typo and asked if he meant `[0, 0.00316227766f)`.",
+      "range": {
+        "startLine": 208,
+        "startChar": 77,
+        "endLine": 208,
+        "endChar": 78
+      },
+      "revId": "deadc339d59dfe64a00b51decce2f6d9337ddeec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
