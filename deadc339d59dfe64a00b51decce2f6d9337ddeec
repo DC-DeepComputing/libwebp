@@ -46,6 +46,30 @@
       },
       "revId": "deadc339d59dfe64a00b51decce2f6d9337ddeec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bc863fe_f51c3498",
+        "filename": "sharpyuv/sharpyuv_gamma.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-13T21:07:51Z",
+      "side": 1,
+      "message": "\u003e Yes I remember when you had this discussion, and Vincent said it was the French notation. According to Wikipedia, it was indeed invented by a bunch of French guys, but it then got properly defined in ISO 31-11 so I guess it\u0027s ok to use it (what do you know, there\u0027s an ISO spec for everything)\n\u003e \n\u003e https://en.wikipedia.org/wiki/Interval_(mathematics)#Including_or_excluding_endpoints\n\nThanks for digging that up.",
+      "parentUuid": "d16f0477_505c2578",
+      "range": {
+        "startLine": 208,
+        "startChar": 77,
+        "endLine": 208,
+        "endChar": 78
+      },
+      "revId": "deadc339d59dfe64a00b51decce2f6d9337ddeec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
