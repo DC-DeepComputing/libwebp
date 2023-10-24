@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4d7b2540_647d1c55",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-24T19:13:42Z",
+      "side": 1,
+      "message": "sdl2 is already available, but `makefile.unix` needs an update to build `webp_to_sdl.c`.",
+      "revId": "e3e78f2e8f1a86079a0266684b623efb4e8db484",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
