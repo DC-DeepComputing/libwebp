@@ -33,6 +33,24 @@
       "message": "I don\u0027t see a reason to drop compatibility.",
       "revId": "307071f1449631d54701aa0d2f17481fbd82b102",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "730a8856_a86829f7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-24T19:50:35Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t see a reason to drop compatibility.\n\nAfter some discussion, it seems like this is low risk. The bug was fixed in ~gcc 4.7.3 and given the bugs around these code model settings at the time, it\u0027s unlikely anyone is using them.",
+      "parentUuid": "7cdf0fe2_94422544",
+      "revId": "307071f1449631d54701aa0d2f17481fbd82b102",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
