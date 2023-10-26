@@ -122,11 +122,10 @@ static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
     const int symbol_code_length = code_lengths[symbol];
     if (code_lengths[symbol] > 0) {
       if (sorted != NULL) {
-        const int idx = offset[symbol_code_length];
-        if(idx >= code_lengths_size) {
+        if(offset[symbol_code_length] >= code_lengths_size) {
             return 0;
         }
-        sorted[idx] = symbol;
+        sorted[offset[symbol_code_length]++] = symbol;
       } else {
         offset[symbol_code_length]++;
       }
