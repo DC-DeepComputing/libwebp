@@ -16,6 +16,24 @@
       "message": "The build fails because of some corruption",
       "revId": "b940cad86639e667bc8aa067bcf19593173008b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "44cb93fa_906e7e78",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T17:40:05Z",
+      "side": 1,
+      "message": "\u003e The build fails because of some corruption\n\nThe failure is deeper in the log:\n\nSource files with lines longer than 80 characters, split them and post a new patch:\nextras/webp_to_sdl.c(84):   output-\u003eu.RGBA.rgba \u003d (uint8_t*)malloc((size_t)width * height * 4 * sizeof(uint8_t));",
+      "parentUuid": "559fb97b_9ed2218a",
+      "revId": "b940cad86639e667bc8aa067bcf19593173008b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
