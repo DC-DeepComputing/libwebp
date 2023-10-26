@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59254a8d_15739be7",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "break this long line",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebcc056f_88b6e2d3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "break this long line",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "866e480b_d694044d",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "we generally prefer types.h via webp/decode.h for this.",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1707e3e3_978fedf8",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "texture",
+      "range": {
+        "startLine": 73,
+        "startChar": 49,
+        "endLine": 73,
+        "endChar": 56
+      },
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc6f1368_c127b8f6",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "this allocation happens in `WebPDecode()` if `is_external_memory \u003d 0`",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a77816f_67777674",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-10-26T19:18:56Z",
+      "side": 1,
+      "message": "decoding to the texture directly isn\u0027t an option?",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
