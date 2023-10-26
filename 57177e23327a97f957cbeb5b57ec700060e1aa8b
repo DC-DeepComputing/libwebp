@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c837820d_14f2efa3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-26T18:02:31Z",
+      "side": 1,
+      "message": "Actually let the SIMD flag: wasm2js still does not work with SIMD. Wasm does though.",
+      "revId": "57177e23327a97f957cbeb5b57ec700060e1aa8b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
