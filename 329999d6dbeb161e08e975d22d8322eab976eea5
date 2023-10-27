@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5229d736_85baac2d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:38:33Z",
+      "side": 1,
+      "message": "I also fixed a wrong channel order in the texture creation.\nThe js demo, wasm and vwebp_sdl have been tested BTW.",
+      "revId": "329999d6dbeb161e08e975d22d8322eab976eea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
