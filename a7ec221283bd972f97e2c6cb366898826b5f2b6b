@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67c3e6fe_17718d69",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 681,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "59254a8d_15739be7",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebcc056f_88b6e2d3",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ebdee53_56d85030",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 9
+      },
+      "lineNbr": 697,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ebcc056f_88b6e2d3",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "866e480b_d694044d",
@@ -48,6 +84,24 @@
       "writtenOn": "2023-10-26T19:18:56Z",
       "side": 1,
       "message": "we generally prefer types.h via webp/decode.h for this.",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9bd30ce4_9fd8d800",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "866e480b_d694044d",
       "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -75,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb164e80_b695c33f",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1707e3e3_978fedf8",
+      "range": {
+        "startLine": 73,
+        "startChar": 49,
+        "endLine": 73,
+        "endChar": 56
+      },
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dc6f1368_c127b8f6",
@@ -92,6 +170,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f156fab1_f599875d",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dc6f1368_c127b8f6",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3a77816f_67777674",
@@ -105,6 +201,24 @@
       "writtenOn": "2023-10-26T19:18:56Z",
       "side": 1,
       "message": "decoding to the texture directly isn\u0027t an option?",
+      "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fae1e190_b8bd097d",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-27T12:36:29Z",
+      "side": 1,
+      "message": "Apparently not. Textures are \"virtual\" objects, they are stored wherever.\nWhat is possible is to write to a Surface (like done before), and then copy the surface to a texture. The result is the same as what is done here.\n\nI followed the following to migrate https://wiki.libsdl.org/SDL2/MigrationGuide:\n\nAt this point, your 1.2 game had a bunch of SDL_Surfaces, which it would SDL_BlitSurface() to the screen surface to compose the final framebuffer, and eventually SDL_Flip() to the screen. For SDL 2.0, you have a bunch of SDL_Textures, that you will SDL_RenderCopy() to your Renderer to compose the final framebuffer, and eventually SDL_RenderPresent() to the screen. It\u0027s that simple. If these textures never need modification, you might find your framerate has just gone through the roof, too.",
+      "parentUuid": "3a77816f_67777674",
       "revId": "a7ec221283bd972f97e2c6cb366898826b5f2b6b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
