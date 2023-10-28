@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b43171a6_bf2fee3d",
+        "filename": "extras/webp_to_sdl.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-28T21:37:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "629f1c0d_1fecdff8",
+      "range": {
+        "startLine": 65,
+        "startChar": 49,
+        "endLine": 65,
+        "endChar": 56
+      },
+      "revId": "329999d6dbeb161e08e975d22d8322eab976eea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "baa3024b_396ef3cb",
         "filename": "webp_js/index_wasm.html",
         "patchSetId": 11
@@ -54,6 +78,24 @@
       "writtenOn": "2023-10-27T16:52:16Z",
       "side": 1,
       "message": "later cleanup could be to camel case this and avoid the use of `var`; `let` and `const` are favored.",
+      "revId": "329999d6dbeb161e08e975d22d8322eab976eea5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1b436b_a7acf0ff",
+        "filename": "webp_js/index_wasm.html",
+        "patchSetId": 11
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-10-28T21:37:19Z",
+      "side": 1,
+      "message": "Ack, I created an internal bug.",
+      "parentUuid": "baa3024b_396ef3cb",
       "revId": "329999d6dbeb161e08e975d22d8322eab976eea5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
