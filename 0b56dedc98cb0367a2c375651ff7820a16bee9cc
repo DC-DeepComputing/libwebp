@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a41a7b8_a6528780",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-06T09:13:51Z",
+      "side": 1,
+      "message": "Hi, thx for the patch and sorry for the delay, I was out of office.\nCould we ever be in a case where that condition fails?\nWe know that here, offset[whatever] \u003c code_lengths_size (the equality case is when all the counts are in the same bin, cf line 107).\nAccording to line 256 and 262, BuildHuffmanTable is always called with sorted with a size \u003c\u003d code_lengths_size.",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
