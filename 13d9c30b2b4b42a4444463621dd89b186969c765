@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00f82e4c_9b9b67b4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-11-11T00:17:21Z",
+      "side": 1,
+      "message": "In the last run I enabled the flag in the \u0027cmake-clang\u0027 configuration.",
+      "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa64594_04816074",
