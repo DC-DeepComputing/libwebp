@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c816d3b4_c281f271",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-13T08:26:24Z",
+      "side": 1,
+      "message": "Thx!",
+      "parentUuid": "00f82e4c_9b9b67b4",
+      "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "daa64594_04816074",
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-10T17:47:41Z",
       "side": 1,
       "message": "This will produce a surprise if someone enables the option in a Visual Studio build or any compiler that doesn\u0027t support this flag.",
+      "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c657948d_7edb7e1c",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-13T08:26:24Z",
+      "side": 1,
+      "message": "Indeed, check_c_compiler_flag should be called and that should only be enabled for clang gcc. I\u0027ll add a fix in a different PR.",
+      "parentUuid": "daa64594_04816074",
       "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
