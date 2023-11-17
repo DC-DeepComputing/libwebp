@@ -16,6 +16,24 @@
       "message": "Hi, thx for the patch and sorry for the delay, I was out of office.\nCould we ever be in a case where that condition fails?\nWe know that here, offset[whatever] \u003c code_lengths_size (the equality case is when all the counts are in the same bin, cf line 107).\nAccording to line 256 and 262, BuildHuffmanTable is always called with sorted with a size \u003c\u003d code_lengths_size.",
       "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "465be3da_758aa8c2",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2023-11-17T17:50:07Z",
+      "side": 1,
+      "message": "Hi, Thank you for reviewing. Perhaps you saw I created ticket 622 for WebP. So I had added some compile time static analysis to identify this issue (bounds checking). The optimizer couldn\u0027t be sure that the idx into sorted[] array was always within the bounds. offset[symbol_code_length] is generated on line 111, and the optimizer can\u0027t be sure it is a safe index to use.\n\nFrom line 256 BuildHuffmanTable is called with a sorted that may be SORTED_SIZE_CUTOFF large, that would be larger than code_lengths_size. Otherwise line 260 does heap allocation of code_lengths_size for sorted. (Sorted is an array of uint16_t)\n\nTherefore, feels safer to add the check, the compiler doesn\u0027t optimize it out, so appears really needed.  However, even if it isn\u0027t, I doubt this branch \u0027cost\u0027 is ever perceivable by a user. Better to be 100% safe?",
+      "parentUuid": "4a41a7b8_a6528780",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
