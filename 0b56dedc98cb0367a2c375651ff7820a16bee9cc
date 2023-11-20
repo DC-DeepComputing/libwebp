@@ -52,6 +52,24 @@
       "parentUuid": "465be3da_758aa8c2",
       "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dec279e1_5c5f8d80",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2023-11-20T14:17:56Z",
+      "side": 1,
+      "message": "Hi Vincent, there may be static analysis false positives, it relies upon the the GCC Optimizer. I always think it comes down to benchmarks and measurements, how much cost does this add to the timings on benchmarks? If there was some strong evidence that this change, for functional safety was really a drag on performance, I might reconsider. But it\u0027s just a conditional branch, a branch isn\u0027t a high cost on a value it is already reading into memory to be certain, the range will never overflow.\n\nIs it really necessary to make a proof of concept overflow to prove this may occur?",
+      "parentUuid": "fe8b8c06_ef62ec65",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
