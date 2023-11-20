@@ -34,6 +34,24 @@
       "parentUuid": "4a41a7b8_a6528780",
       "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fe8b8c06_ef62ec65",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-20T13:32:20Z",
+      "side": 1,
+      "message": "The compiler does not optimize it out, maybe because it cannot figure out all the constraints like we do (yet).\nI am afraid of adding such condition knowing that there might be more so that your tool works. When do we stop? 😊 If you want to help on that part of the code, it would probably be better to revert to when there was not a double table algorithm. It was simpler and allegedly slower, but there might be other ways of speeding it up.\nLet\u0027s add this one for now.",
+      "parentUuid": "465be3da_758aa8c2",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
