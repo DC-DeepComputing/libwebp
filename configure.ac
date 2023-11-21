@@ -746,6 +746,20 @@ else
   AC_MSG_RESULT([no])
 fi
 
+dnl === If --enable-420-risk is defined, add -DWEBP_420_RISK=1
+
+BUILD_420_RISK=""
+AC_MSG_CHECKING(if --enable-420-risk option is specified)
+AC_ARG_ENABLE([420_risk],
+              AS_HELP_STRING([--enable-420-risk],
+                             [Enable chroma subsampling risk estimation API in libsharpyuv (increases library size)]))
+if test "$enable_420_risk" = "yes"; then
+  BUILD_420_RISK="-DWEBP_420_RISK=1"
+  AC_DEFINE(WEBP_420_RISK, [1], [Enable chroma subsampling risk estimation API in libsharpyuv (increases library size)])
+fi
+AC_MSG_RESULT(${enable_420_risk-no})
+AC_SUBST(BUILD_420_RISK)
+
 dnl =========================
 
 dnl Add an empty webp_libname_prefix variable for use in *.pc.in.
