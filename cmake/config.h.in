@@ -66,6 +66,9 @@
 /* Version number of package */
 #cmakedefine VERSION "@VERSION@"
 
+/* Enable chroma subsampling risk estimation API in libsharpyuv. */
+#cmakedefine WEBP_420_RISK 1
+
 /* Set to 1 if GIF library is installed */
 #cmakedefine WEBP_HAVE_GIF 1
 
