@@ -44,6 +44,10 @@ option(WEBP_BUILD_WEBPINFO "Build the webpinfo command line tool." ON)
 option(WEBP_BUILD_LIBWEBPMUX "Build the libwebpmux library." ON)
 option(WEBP_BUILD_WEBPMUX "Build the webpmux command line tool." ON)
 option(WEBP_BUILD_EXTRAS "Build extras." ON)
+option(
+  WEBP_BUILD_420_RISK
+  "Build chroma subsampling risk estimation API in libsharpyuv (increases library size)."
+  OFF)
 option(WEBP_BUILD_WEBP_JS "Emscripten build of webp.js." OFF)
 option(WEBP_USE_THREAD "Enable threading support" ON)
 option(WEBP_NEAR_LOSSLESS "Enable near-lossless encoding" ON)
@@ -252,6 +256,10 @@ foreach(FILE ${WEBP_SIMD_FILES_NOT_TO_INCLUDE})
   list(REMOVE_ITEM WEBP_DSP_ENC_SRCS ${FILE})
   list(REMOVE_ITEM WEBP_DSP_DEC_SRCS ${FILE})
 endforeach()
+
+if(WEBP_BUILD_420_RISK)
+  set(WEBP_420_RISK 1)
+endif()
 
 # Generate the config.h file.
 configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/config.h.in
