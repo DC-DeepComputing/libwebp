@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "08fba718_aa74c46d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2023-11-22T16:44:52Z",
+      "side": 1,
+      "message": "Thank you Vincent.\n\nI checked many arrays, many are fine. A few others are the same indeterminate risk of range overflow (ie could be RCE).   I can make a patch for a few more. \n\n\nAlso that \"root_bits\" that the compiler oddly passes around as an argument (rather than inlining), could be changed to just be used in that file.",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a41a7b8_a6528780",
