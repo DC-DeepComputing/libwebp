@@ -70,6 +70,24 @@
       "parentUuid": "fe8b8c06_ef62ec65",
       "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fbb3a79_f061c7b7",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-22T15:45:11Z",
+      "side": 1,
+      "message": "No, that should be fine. I hope there will not be too many more of those :)",
+      "parentUuid": "dec279e1_5c5f8d80",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
