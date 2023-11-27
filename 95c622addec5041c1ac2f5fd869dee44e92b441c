@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05d65f6a_1d2a6307",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-27T14:53:57Z",
+      "side": 1,
+      "message": "formatting",
+      "revId": "95c622addec5041c1ac2f5fd869dee44e92b441c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a986a1c_7cd88259",
+        "filename": "sharpyuv/sharpyuv_dsp.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2023-11-27T14:53:57Z",
+      "side": 1,
+      "message": "Please undef after its usage",
+      "range": {
+        "startLine": 68,
+        "startChar": 8,
+        "endLine": 68,
+        "endChar": 15
+      },
+      "revId": "95c622addec5041c1ac2f5fd869dee44e92b441c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
