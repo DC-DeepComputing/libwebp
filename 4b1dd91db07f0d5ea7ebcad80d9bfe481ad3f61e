@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c45050fc_960d2472",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3094255
+      },
+      "writtenOn": "2023-12-02T03:03:35Z",
+      "side": 1,
+      "message": "Sorry, I made a mistake and lost the data for this patch.\nThe tool CodeQL was used to check the type.\nIf data is lost, how can I be recovered this git log?\n(Sorry, but I am not familiar with Gerrit and how to operate it)",
+      "parentUuid": "d2e390d6_8d7c6e27",
+      "revId": "4b1dd91db07f0d5ea7ebcad80d9bfe481ad3f61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fff0fd97_333bc1ca",
         "filename": "examples/cwebp.c",
         "patchSetId": 2
@@ -31,6 +49,24 @@
       "writtenOn": "2023-11-30T18:55:34Z",
       "side": 1,
       "message": "don\u0027t use the `long` type; prefer the type used by the function (`size_t)`). We also don\u0027t add a space after the cast and continued lines are indented 4 spaces, not 2. This comment applies to other files in this change.",
+      "revId": "4b1dd91db07f0d5ea7ebcad80d9bfe481ad3f61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e442788_a30b4bf5",
+        "filename": "examples/cwebp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 3094255
+      },
+      "writtenOn": "2023-12-02T03:03:35Z",
+      "side": 1,
+      "message": "I see!\nI will respond when I can restore the lost data.",
+      "parentUuid": "fff0fd97_333bc1ca",
       "revId": "4b1dd91db07f0d5ea7ebcad80d9bfe481ad3f61e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
