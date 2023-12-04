@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9cd5c1a9_f9715b5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2023-12-04T21:37:47Z",
+      "side": 1,
+      "message": "\u003e Sorry, I made a mistake and lost the data for this patch.\n\u003e The tool CodeQL was used to check the type.\n\u003e If data is lost, how can I be recovered this git log?\n\u003e (Sorry, but I am not familiar with Gerrit and how to operate it)\n\nIf you deleted the change/branch locally you can download it from gerrit. In the upper right hand corner of this page, in the dropdown menu, select \"Download patch\"",
+      "parentUuid": "c45050fc_960d2472",
+      "revId": "4b1dd91db07f0d5ea7ebcad80d9bfe481ad3f61e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fff0fd97_333bc1ca",
         "filename": "examples/cwebp.c",
         "patchSetId": 2
