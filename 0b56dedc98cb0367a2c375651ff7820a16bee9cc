@@ -70,6 +70,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4a0a463_6e269fdd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2024-01-13T20:31:14Z",
+      "side": 1,
+      "message": "Review comments appreciated.",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4a41a7b8_a6528780",
@@ -177,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e6965a01_2a4a42d7",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2024-01-13T20:31:14Z",
+      "side": 1,
+      "message": "https://chromium-review.googlesource.com/c/webm/libwebp/+/5195528\nChange-Id: Id9b973a804b74c53dfb291f1a9dae649c0daed9d\n\nJames, Thank you for the review and sorry for the delay replying. Added assert() before the conditional with a comment and fixed the indent and spacing.",
+      "parentUuid": "08c161d4_52e2c213",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81c842ab_869ee19c",
@@ -190,6 +225,24 @@
       "writtenOn": "2023-11-30T18:42:37Z",
       "side": 1,
       "message": "indent is off. We use 2 space indent in this project. We also add a space before conditionals in if/while, etc.: `if (offset[symbol_code_length] \u003e\u003d code_lengths_size) {`",
+      "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8e8c307_477f0f02",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1607522
+      },
+      "writtenOn": "2024-01-13T20:31:14Z",
+      "side": 1,
+      "message": "Thank you, fixed the indentation.",
+      "parentUuid": "81c842ab_869ee19c",
       "revId": "0b56dedc98cb0367a2c375651ff7820a16bee9cc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
