@@ -52,6 +52,60 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "714c6be8_4d379640",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-09T21:44:51Z",
+      "side": 1,
+      "message": "\u003e For me, the issue showed itself when targeting x86 linux or windows (mingw) where the compiler doesn\u0027t enable SSE[2] by default without the -msse2 switch, therefore leaving WEBP_USE_SSE2 undefined.\n\u003e \n\u003e If you need anything else, please tell me.\n\nThanks I was wondering if it had to do with x86; we only cover x86-64 in the cmake tests.",
+      "parentUuid": "332cdb0e_5a5bd263",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42c54947_ad610810",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-09T21:44:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8d00e9a_cbf3d520",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6df96800_e7c956e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-09T21:44:51Z",
+      "side": 1,
+      "message": "\u003e \u003e indent these to align the \" with GLOB\n\u003e \n\u003e How should I force-push to this specific changeid?\n\nGerrit [1] works a little differently than github or gitlab. You can amend your existing commit (keeping the Change-Id the same is important).\n\n```\n$ ...edit cpu.cmake...\n$ git commit -a --amend\n$ git push https://chromium-review.googlesource.com/webm/libwebp HEAD:refs/for/main\n```\n\n[1]: https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough.html#_reworking_the_change",
+      "parentUuid": "5c515a03_9c68dac7",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4d22869_0728d176",
