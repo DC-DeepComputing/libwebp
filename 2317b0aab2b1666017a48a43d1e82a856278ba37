@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8d00e9a_cbf3d520",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-09T21:28:21Z",
+      "side": 1,
+      "message": "Thanks for the patch. This looks correct, but our builds haven\u0027t shown any issues. Can you give some detail about your environment?",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4d22869_0728d176",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-09T21:28:21Z",
+      "side": 1,
+      "message": "indent these to align the `\"` with `GLOB`",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
