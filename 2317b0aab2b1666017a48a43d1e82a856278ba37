@@ -18,6 +18,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "332cdb0e_5a5bd263",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3299870
+      },
+      "writtenOn": "2024-02-09T21:38:16Z",
+      "side": 1,
+      "message": "For me, the issue showed itself when targeting x86 linux or windows (mingw) where the compiler doesn\u0027t enable SSE[2] by default without the -msse2 switch, therefore leaving WEBP_USE_SSE2 undefined.\n\nIf you need anything else, please tell me.",
+      "revId": "2317b0aab2b1666017a48a43d1e82a856278ba37",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4d22869_0728d176",
