@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c3fdbe6_e89134c9",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 3320626
+      },
+      "writtenOn": "2024-02-28T00:59:26Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "48568f51_4b7ab5da",
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "13d85df8_5c4e1f25",
@@ -58,6 +76,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66a803ac_08b64ec5",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 3320626
+      },
+      "writtenOn": "2024-02-28T00:59:26Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "13d85df8_5c4e1f25",
+      "range": {
+        "startLine": 537,
+        "startChar": 47,
+        "endLine": 537,
+        "endChar": 48
+      },
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0c320f2b_d1ce12eb",
@@ -71,6 +113,30 @@
       "writtenOn": "2024-02-28T00:29:25Z",
       "side": 1,
       "message": "This check isn\u0027t being done in any of these functions. I think it makes sense to limit what changes can be made through this interface, otherwise it would be simpler to add a function that returns a pointer to the muxer interface.",
+      "range": {
+        "startLine": 559,
+        "startChar": 32,
+        "endLine": 559,
+        "endChar": 76
+      },
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9741d1c9_90810b7c",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 3320626
+      },
+      "writtenOn": "2024-02-28T00:59:26Z",
+      "side": 1,
+      "message": "I had copied this from the docs from the mirrored WebPMux*Chunk() functions, and since these are just simple wrappers around those, thought it would make sense to keep the same docs (with minor edits for mux -\u003e enc).\n\nTo clarify, you\u0027re just saying to remove this particular mention about erroring on image chunks? From looking at WebPMuxSetChunk it looks like this check is not performed: https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/mux/muxedit.c#181",
+      "parentUuid": "0c320f2b_d1ce12eb",
       "range": {
         "startLine": 559,
         "startChar": 32,
