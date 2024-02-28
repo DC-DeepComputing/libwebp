@@ -1,0 +1,84 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f093bf86_92f8a4b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-28T00:29:25Z",
+      "side": 1,
+      "message": "Thanks for the patch. This looks all right, just a few comments.\n\nI don\u0027t know if I\u0027ll merge this before I branch for the next release given I was planning on making that [this quarter](https://crbug.com/webp/627). It is a pretty straightforward addition, however, so I might decide to include it.",
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48568f51_4b7ab5da",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-28T00:29:25Z",
+      "side": 1,
+      "message": "Make this `0x0109`.",
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13d85df8_5c4e1f25",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 537,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-28T00:29:25Z",
+      "side": 1,
+      "message": "here and in the other functions, add a comma before etc.",
+      "range": {
+        "startLine": 537,
+        "startChar": 47,
+        "endLine": 537,
+        "endChar": 48
+      },
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c320f2b_d1ce12eb",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-28T00:29:25Z",
+      "side": 1,
+      "message": "This check isn\u0027t being done in any of these functions. I think it makes sense to limit what changes can be made through this interface, otherwise it would be simpler to add a function that returns a pointer to the muxer interface.",
+      "range": {
+        "startLine": 559,
+        "startChar": 32,
+        "endLine": 559,
+        "endChar": 76
+      },
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
