@@ -169,6 +169,30 @@
       },
       "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57c6f262_8f608dbb",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 559,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-02-28T01:33:04Z",
+      "side": 1,
+      "message": "\u003e \u003e I had copied this from the docs from the mirrored WebPMux*Chunk() functions, and since these are just simple wrappers around those, thought it would make sense to keep the same docs (with minor edits for mux -\u003e enc).\n\u003e \u003e \n\u003e \u003e To clarify, you\u0027re just saying to remove this particular mention about erroring on image chunks? From looking at WebPMuxSetChunk it looks like this check is not performed: https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/src/mux/muxedit.c#181\n\u003e \n\u003e Hmm. I missed the copy and paste. That comment must have fallen out of sync.\n\nLooks like it might have been off from the start:\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/31207",
+      "parentUuid": "37d208c0_6d816826",
+      "range": {
+        "startLine": 559,
+        "startChar": 32,
+        "endLine": 559,
+        "endChar": 76
+      },
+      "revId": "29e82fa9279df3053360bc1cc69ef7dc2e5fad10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
