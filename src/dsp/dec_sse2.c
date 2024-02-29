@@ -196,22 +196,22 @@ static void Transform_SSE2(const int16_t* in, uint8_t* dst, int do_two) {
 }
 
 #if (USE_TRANSFORM_AC3 == 1)
-#define MUL(a, b) (((a) * (b)) >> 16)
-static void TransformAC3(const int16_t* in, uint8_t* dst) {
+#define MUL(a, b) (int)(((int64_t)(a) * (b)) >> 16)
+static void TransformAC3_SSE2(const int16_t* in, uint8_t* dst) {
   static const int kC1 = 20091 + (1 << 16);
   static const int kC2 = 35468;
+  const __m128i zero = _mm_setzero_si128();
   const __m128i A = _mm_set1_epi16(in[0] + 4);
-  const __m128i c4 = _mm_set1_epi16(MUL(in[4], kC2));
-  const __m128i d4 = _mm_set1_epi16(MUL(in[4], kC1));
+  const __m128i c4 = _mm_packs_epi32(_mm_set1_epi32(MUL(in[4], kC2)), zero);
+  const __m128i d4 = _mm_packs_epi32(_mm_set1_epi32(MUL(in[4], kC1)), zero);
   const int c1 = MUL(in[1], kC2);
   const int d1 = MUL(in[1], kC1);
-  const __m128i CD = _mm_set_epi16(0, 0, 0, 0, -d1, -c1, c1, d1);
+  const __m128i CD = _mm_packs_epi32(_mm_set_epi32(-d1, -c1, c1, d1), zero);
   const __m128i B = _mm_adds_epi16(A, CD);
   const __m128i m0 = _mm_adds_epi16(B, d4);
   const __m128i m1 = _mm_adds_epi16(B, c4);
   const __m128i m2 = _mm_subs_epi16(B, c4);
   const __m128i m3 = _mm_subs_epi16(B, d4);
-  const __m128i zero = _mm_setzero_si128();
   // Load the source pixels.
   __m128i dst0 = _mm_cvtsi32_si128(WebPMemToInt32(dst + 0 * BPS));
   __m128i dst1 = _mm_cvtsi32_si128(WebPMemToInt32(dst + 1 * BPS));
