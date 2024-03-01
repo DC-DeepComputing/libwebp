@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f58cb050_68e172a8",
+        "filename": "src/dsp/dec_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1258,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-01T02:06:43Z",
+      "side": 1,
+      "message": "an option is to only make this change, but the rollover will cause saturation in the wrong direction. 0 instead of 255 and vice versa.",
+      "revId": "08fdabc1d628a4589c2a48c8b43461ab41a8a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "634c85d1_ecae19a9",
+        "filename": "src/dsp/dec_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1269,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-01T02:06:43Z",
+      "side": 1,
+      "message": "alternatively (uint64_t)(uint32_t)d1 ... works, but may be more confusing for the user.",
+      "range": {
+        "startLine": 1269,
+        "startChar": 38,
+        "endLine": 1269,
+        "endChar": 50
+      },
+      "revId": "08fdabc1d628a4589c2a48c8b43461ab41a8a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72d5c198_381fbd3a",
+        "filename": "src/dsp/dec_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1272,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-01T02:06:43Z",
+      "side": 1,
+      "message": "I didn\u0027t look at the SSE2, but this one isn\u0027t as bad as it looks. We end up netting 1 additional instruction due to the compiler changing one set to a subtraction.",
+      "revId": "08fdabc1d628a4589c2a48c8b43461ab41a8a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
