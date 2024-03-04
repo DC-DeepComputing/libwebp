@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "04289786_edae7924",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-04T20:41:59Z",
+      "side": 1,
+      "message": "I forgot about https://chromium-review.googlesource.com/c/webm/libwebp/+/314071, that might be simpler.",
+      "revId": "08fdabc1d628a4589c2a48c8b43461ab41a8a934",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f58cb050_68e172a8",
         "filename": "src/dsp/dec_neon.c",
         "patchSetId": 1
