@@ -18,10 +18,8 @@
 
 #include "src/dsp/mips_macro.h"
 
-static const int kC1 = 20091 + (1 << 16);
-static const int kC2 = 35468;
-
-#define MUL(a, b) (((a) * (b)) >> 16)
+#define MUL1(a) ((((a) * 20091) >> 16) + (a))
+#define MUL2(a) (((a) * 35468) >> 16)
 
 static void TransformDC(const int16_t* in, uint8_t* dst) {
   int temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9, temp10;
@@ -49,10 +47,10 @@ static void TransformDC(const int16_t* in, uint8_t* dst) {
 
 static void TransformAC3(const int16_t* in, uint8_t* dst) {
   const int a = in[0] + 4;
-  int c4 = MUL(in[4], kC2);
-  const int d4 = MUL(in[4], kC1);
-  const int c1 = MUL(in[1], kC2);
-  const int d1 = MUL(in[1], kC1);
+  int c4 = MUL2(in[4]);
+  const int d4 = MUL1(in[4]);
+  const int c1 = MUL2(in[1]);
+  const int d1 = MUL1(in[1]);
   int temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9;
   int temp10, temp11, temp12, temp13, temp14, temp15, temp16, temp17, temp18;
 
@@ -145,7 +143,7 @@ static void TransformOne(const int16_t* in, uint8_t* dst) {
                      dst, 0, 1, 2, 3, BPS)
 
     OUTPUT_EARLY_CLOBBER_REGS_18()
-    : [dst]"r"(dst), [in]"r"(in), [kC1]"r"(kC1), [kC2]"r"(kC2)
+    : [dst]"r"(dst), [in]"r"(in)
     : "memory", "hi", "lo"
   );
 }
@@ -479,7 +477,8 @@ static void HFilter8i(uint8_t* u, uint8_t* v, int stride,
   FilterLoop24(v + 4, 1, stride, 8, thresh, ithresh, hev_thresh);
 }
 
-#undef MUL
+#undef MUL1
+#undef MUL2
 
 //------------------------------------------------------------------------------
 // Simple In-loop filtering (Paragraph 15.2)
