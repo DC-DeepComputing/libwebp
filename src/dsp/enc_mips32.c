@@ -21,7 +21,7 @@
 #include "src/enc/vp8i_enc.h"
 #include "src/enc/cost_enc.h"
 
-static const int kC1 = 20091 + (1 << 16);
+static const int kC1 = 20091;
 static const int kC2 = 35468;
 
 // macro for one vertical pass in ITransformOne
@@ -38,12 +38,10 @@ static const int kC2 = 35468;
   "addu    %[" #TEMP4 "],    %[temp16],      %[temp18]       \n\t"          \
   "subu    %[temp16],      %[temp16],      %[temp18]         \n\t"          \
   "mul     %[" #TEMP0 "],    %[temp17],      %[kC2]          \n\t"          \
-  "mul     %[temp18],      %[temp19],      %[kC1]            \n\t"          \
-  "mul     %[temp17],      %[temp17],      %[kC1]            \n\t"          \
+  MUL_SHIFT_C1_IO(temp17, temp18)                                           \
+  MUL_SHIFT_C1(temp18, temp19)                                              \
   "mul     %[temp19],      %[temp19],      %[kC2]            \n\t"          \
   "sra     %[" #TEMP0 "],    %[" #TEMP0 "],    16            \n\n"          \
-  "sra     %[temp18],      %[temp18],      16                \n\n"          \
-  "sra     %[temp17],      %[temp17],      16                \n\n"          \
   "sra     %[temp19],      %[temp19],      16                \n\n"          \
   "subu    %[" #TEMP2 "],    %[" #TEMP0 "],    %[temp18]     \n\t"          \
   "addu    %[" #TEMP3 "],    %[temp17],      %[temp19]       \n\t"          \
@@ -63,12 +61,10 @@ static const int kC2 = 35468;
   "addu    %[temp16],      %[" #TEMP0 "],    %[" #TEMP8 "]     \n\t"          \
   "subu    %[temp17],      %[" #TEMP0 "],    %[" #TEMP8 "]     \n\t"          \
   "mul     %[" #TEMP0 "],    %[" #TEMP4 "],    %[kC2]          \n\t"          \
-  "mul     %[" #TEMP8 "],    %[" #TEMP12 "],   %[kC1]          \n\t"          \
-  "mul     %[" #TEMP4 "],    %[" #TEMP4 "],    %[kC1]          \n\t"          \
+  MUL_SHIFT_C1_IO(TEMP4, TEMP8)                                               \
+  MUL_SHIFT_C1(TEMP8, TEMP12)                                                 \
   "mul     %[" #TEMP12 "],   %[" #TEMP12 "],   %[kC2]          \n\t"          \
   "sra     %[" #TEMP0 "],    %[" #TEMP0 "],    16              \n\t"          \
-  "sra     %[" #TEMP8 "],    %[" #TEMP8 "],    16              \n\t"          \
-  "sra     %[" #TEMP4 "],    %[" #TEMP4 "],    16              \n\t"          \
   "sra     %[" #TEMP12 "],   %[" #TEMP12 "],   16              \n\t"          \
   "subu    %[temp18],      %[" #TEMP0 "],    %[" #TEMP8 "]     \n\t"          \
   "addu    %[temp19],      %[" #TEMP4 "],    %[" #TEMP12 "]    \n\t"          \
