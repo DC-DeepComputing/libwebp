@@ -1255,15 +1255,15 @@ static void TransformWHT_NEON(const int16_t* in, int16_t* out) {
 
 //------------------------------------------------------------------------------
 
-#define MUL(a, b) (((a) * (b)) >> 16)
+#define MUL1(a) ((((a) * 20091) >> 16) + (a))
+#define MUL2(a) (((a) * 35468) >> 16)
+
 static void TransformAC3_NEON(const int16_t* in, uint8_t* dst) {
-  static const int kC1_full = 20091 + (1 << 16);
-  static const int kC2_full = 35468;
   const int16x4_t A = vld1_dup_s16(in);
-  const int16x4_t c4 = vdup_n_s16(MUL(in[4], kC2_full));
-  const int16x4_t d4 = vdup_n_s16(MUL(in[4], kC1_full));
-  const int c1 = MUL(in[1], kC2_full);
-  const int d1 = MUL(in[1], kC1_full);
+  const int16x4_t c4 = vdup_n_s16(MUL2(in[4]));
+  const int16x4_t d4 = vdup_n_s16(MUL1(in[4]));
+  const int c1 = MUL2(in[1]);
+  const int d1 = MUL1(in[1]);
   const uint64_t cd = (uint64_t)( d1 & 0xffff) <<  0 |
                       (uint64_t)( c1 & 0xffff) << 16 |
                       (uint64_t)(-c1 & 0xffff) << 32 |
@@ -1274,7 +1274,9 @@ static void TransformAC3_NEON(const int16_t* in, uint8_t* dst) {
   const int16x8_t m2_m3 = vcombine_s16(vqsub_s16(B, c4), vqsub_s16(B, d4));
   Add4x4_NEON(m0_m1, m2_m3, dst);
 }
-#undef MUL
+
+#undef MUL1
+#undef MUL2
 
 //------------------------------------------------------------------------------
 // 4x4
