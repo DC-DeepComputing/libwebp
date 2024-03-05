@@ -21,24 +21,23 @@
 //------------------------------------------------------------------------------
 // Transforms
 
-#define IDCT_1D_W(in0, in1, in2, in3, out0, out1, out2, out3) {  \
-  v4i32 a1_m, b1_m, c1_m, d1_m;                                  \
-  v4i32 c_tmp1_m, c_tmp2_m, d_tmp1_m, d_tmp2_m;                  \
-  const v4i32 cospi8sqrt2minus1 = __msa_fill_w(20091);           \
-  const v4i32 sinpi8sqrt2 = __msa_fill_w(35468);                 \
+#define IDCT_1D_W(in0, in1, in2, in3, out0, out1, out2, out3)    \
+  {                                                              \
+    v4i32 a1_m, b1_m, c1_m, d1_m;                                \
+    v4i32 c_tmp1_m, c_tmp2_m, d_tmp1_m, d_tmp2_m;                \
+    const v4i32 cospi8sqrt2minus1 = __msa_fill_w(20091);         \
+    const v4i32 sinpi8sqrt2 = __msa_fill_w(35468);               \
                                                                  \
-  a1_m = in0 + in2;                                              \
-  b1_m = in0 - in2;                                              \
-  c_tmp1_m = (in1 * sinpi8sqrt2) >> 16;                          \
-  c_tmp2_m = in3 + ((in3 * cospi8sqrt2minus1) >> 16);            \
-  c1_m = c_tmp1_m - c_tmp2_m;                                    \
-  d_tmp1_m = in1 + ((in1 * cospi8sqrt2minus1) >> 16);            \
-  d_tmp2_m = (in3 * sinpi8sqrt2) >> 16;                          \
-  d1_m = d_tmp1_m + d_tmp2_m;                                    \
-  BUTTERFLY_4(a1_m, b1_m, c1_m, d1_m, out0, out1, out2, out3);   \
-}
-#define MULT1(a) ((((a) * 20091) >> 16) + (a))
-#define MULT2(a) (((a) * 35468) >> 16)
+    a1_m = in0 + in2;                                            \
+    b1_m = in0 - in2;                                            \
+    c_tmp1_m = (in1 * sinpi8sqrt2) >> 16;                        \
+    c_tmp2_m = in3 + ((in3 * cospi8sqrt2minus1) >> 16);          \
+    c1_m = c_tmp1_m - c_tmp2_m;                                  \
+    d_tmp1_m = in1 + ((in1 * cospi8sqrt2minus1) >> 16);          \
+    d_tmp2_m = (in3 * sinpi8sqrt2) >> 16;                        \
+    d1_m = d_tmp1_m + d_tmp2_m;                                  \
+    BUTTERFLY_4(a1_m, b1_m, c1_m, d1_m, out0, out1, out2, out3); \
+  }
 
 static void TransformOne(const int16_t* in, uint8_t* dst) {
   v8i16 input0, input1;
@@ -124,10 +123,10 @@ static void TransformDC(const int16_t* in, uint8_t* dst) {
 
 static void TransformAC3(const int16_t* in, uint8_t* dst) {
   const int a = in[0] + 4;
-  const int c4 = MULT2(in[4]);
-  const int d4 = MULT1(in[4]);
-  const int in2 = MULT2(in[1]);
-  const int in3 = MULT1(in[1]);
+  const int c4 = WEBP_TRANSFORM_AC3_MUL2(in[4]);
+  const int d4 = WEBP_TRANSFORM_AC3_MUL1(in[4]);
+  const int in2 = WEBP_TRANSFORM_AC3_MUL2(in[1]);
+  const int in3 = WEBP_TRANSFORM_AC3_MUL1(in[1]);
   v4i32 tmp0 = { 0 };
   v4i32 out0 = __msa_fill_w(a + d4);
   v4i32 out1 = __msa_fill_w(a + c4);
