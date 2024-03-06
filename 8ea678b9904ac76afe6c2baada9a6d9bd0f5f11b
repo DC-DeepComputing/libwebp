@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46f7bd03_9b13a321",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T19:14:57Z",
+      "side": 1,
+      "message": "This is a bit of a gray area. Technically this is the minimum, but if work is done post assemble it must exist as well. So we could make these all say \u0027...for the lifetime of the mux object.\u0027",
+      "revId": "8ea678b9904ac76afe6c2baada9a6d9bd0f5f11b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
