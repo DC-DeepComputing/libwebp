@@ -18,6 +18,57 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fbcd38c_26bcb9f0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "Thanks for the fix. I compared the symbols before and after, this does fix the visibility.",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc6503bb_08bfd644",
+        "filename": "configure.ac",
+        "patchSetId": 1
+      },
+      "lineNbr": 767,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "This works and may be simpler than detecting the environment and that shared objects are enabled and then setting `AM_CPPFLAGS`.",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2ad250f5_a3910733",
+        "filename": "sharpyuv/sharpyuv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "keep the comment here.\n\n```suggestion\n#endif  /* defined(_WIN32) \u0026\u0026 defined(WEBP_DLL) */\n```",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d905b1_092fb91d",
@@ -31,6 +82,64 @@
       "writtenOn": "2024-03-06T00:35:53Z",
       "side": 1,
       "message": "What version of gcc is causing a problem? I\u0027m asking because I wonder if the only change needed is to change _MSC_VER to _WIN32.",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25340b03_42a0e024",
+        "filename": "src/webp/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "80d905b1_092fb91d",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17dd0684_912b3e61",
+        "filename": "src/webp/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "remove 1 space of indent here.",
+      "range": {
+        "startLine": 64,
+        "startChar": 3,
+        "endLine": 64,
+        "endChar": 4
+      },
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5685d0f4_17a5b84b",
+        "filename": "src/webp/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:53:30Z",
+      "side": 1,
+      "message": "keep the comment here.\n\n```suggestion\n# endif  /* defined(_WIN32) \u0026\u0026 defined(WEBP_DLL) */\n```",
       "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
