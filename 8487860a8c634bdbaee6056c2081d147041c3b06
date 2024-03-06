@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c08d17b0_96d1a4a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3299870
+      },
+      "writtenOn": "2024-03-06T22:18:47Z",
+      "side": 1,
+      "message": "Amended the requested changes. Is there anything else I should do?\n\n(Apologies in advance that I may have missed things - gerrit interface isn\u0027t easy for me.)",
+      "revId": "8487860a8c634bdbaee6056c2081d147041c3b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
