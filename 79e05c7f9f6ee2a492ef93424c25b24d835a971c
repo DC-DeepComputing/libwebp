@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "619788d9_8bd041cd",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T21:09:01Z",
+      "side": 1,
+      "message": "Seems like ANDROID_ABI should be set in the case of the bug given they\u0027re targeting armv7-a. Another option would be to double quote the dereferenced variable.",
+      "revId": "79e05c7f9f6ee2a492ef93424c25b24d835a971c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
