@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80d905b1_092fb91d",
+        "filename": "src/webp/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T00:35:53Z",
+      "side": 1,
+      "message": "What version of gcc is causing a problem? I\u0027m asking because I wonder if the only change needed is to change _MSC_VER to _WIN32.",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
