@@ -16,6 +16,41 @@
       "message": "Amended the requested changes. Is there anything else I should do?\n\n(Apologies in advance that I may have missed things - gerrit interface isn\u0027t easy for me.)",
       "revId": "8487860a8c634bdbaee6056c2081d147041c3b06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bba4f46_94cd6f76",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T23:54:50Z",
+      "side": 1,
+      "message": "\u003e Amended the requested changes. Is there anything else I should do?\n\u003e \n\u003e (Apologies in advance that I may have missed things - gerrit interface isn\u0027t easy for me.)\n\nNo you\u0027ve handled everything. Thanks for working through the review.\n\nGerrit can be a little confusing. The most important thing is to make sure you reply to the comments and mark them resolved if there are no other issues. This lets reviewers know it\u0027s OK to have another look. That way you can send multiple refinements to the patch before bringing them back into the discussion.",
+      "parentUuid": "c08d17b0_96d1a4a4",
+      "revId": "8487860a8c634bdbaee6056c2081d147041c3b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459912a2_97d097b7",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-06T23:54:50Z",
+      "side": 1,
+      "message": "I missed this earlier, it should be indented by 2 spaces. Don\u0027t worry about it here because I see some other files need an update too. I\u0027ll send a change to rerun `cmake-format` after this.",
+      "revId": "8487860a8c634bdbaee6056c2081d147041c3b06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
