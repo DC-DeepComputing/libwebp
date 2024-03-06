@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6716c37b_d4064748",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3299870
+      },
+      "writtenOn": "2024-03-06T01:12:37Z",
+      "side": 1,
+      "message": "gcc 7.5 is one example I have.\n\nFor a minimal test case, e.g. consider the following:\n```c\nint __attribute__((visibility(\"default\"))) some_function(void);\nint  some_function(void) { return 1337; }\nint  more_function(void) { return 0; }\n```\n\nBuilt like this:\n```sh\nx86_64-w64-mingw32-gcc -O3 -Wall -fvisibility\u003dhidden -s src.c -shared -o somelib.dll -Wl,--out-implib,libsomelib.a\nsrc.c: In function \u0027more_function\u0027:\nsrc.c:3:1: warning: visibility attribute not supported in this configuration; ignored\n```\n\n... the build happily exports `more_function` for me with gcc-7.5 with e.g., where it shouldn\u0027t.\n\n\nAs for changing _MSC_VER to _WIN32: That is one thing. But in addition, win32+dllexport checks must come before visibility attributes.\n\nAlso: the autotools side needs the adjustment I made: libtool defines DLL_EXPORT, we need to change that to WEBP_DLL.\n\nAlso: cmake needn\u0027t (shouldn\u0027t) mess with visibility attributes when we are already using dllexport which handles things correctly.",
+      "revId": "aa810d2558590cbdcb2c5bdbf8b265b85ef8a919",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "80d905b1_092fb91d",
