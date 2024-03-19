@@ -22,6 +22,30 @@
       },
       "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "af1bdacf_734033ac",
+        "filename": "examples/vwebp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-03-19T13:45:52Z",
+      "side": 1,
+      "message": "This is already here, line 49. \nAs well as in 7 other files ... Only once in the main lib though (src/mux/anim_encode.c).\nI guess we could factor it out in src/utils/utils.h",
+      "parentUuid": "769cb87d_cef6d8ce",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 10
+      },
+      "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
