@@ -16,6 +16,23 @@
       "message": "I think this should clear 424592.",
       "revId": "00abc0007c1228994fec2902ceb3ff3552d1bff6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eef9a5df_d892fdba",
+        "filename": "src/mux/muxread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-03-21T09:29:23Z",
+      "side": 1,
+      "message": "How about returning WEBP_MUX_NOT_FOUND instead of having asserts?",
+      "revId": "00abc0007c1228994fec2902ceb3ff3552d1bff6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
