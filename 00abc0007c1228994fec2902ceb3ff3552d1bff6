@@ -33,6 +33,24 @@
       "message": "How about returning WEBP_MUX_NOT_FOUND instead of having asserts?",
       "revId": "00abc0007c1228994fec2902ceb3ff3552d1bff6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "421dc1f9_5c18de67",
+        "filename": "src/mux/muxread.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-21T16:58:21Z",
+      "side": 1,
+      "message": "\u003e How about returning WEBP_MUX_NOT_FOUND instead of having asserts?\n\nThis is an internal function, so having constraints should be fine. Why at the extra code if we can guarantee the call semantics?",
+      "parentUuid": "eef9a5df_d892fdba",
+      "revId": "00abc0007c1228994fec2902ceb3ff3552d1bff6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
