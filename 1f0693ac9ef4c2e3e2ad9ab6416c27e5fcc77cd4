@@ -118,6 +118,30 @@
       },
       "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd2c9d04_73d86a51",
+        "filename": "examples/vwebp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-21T16:57:14Z",
+      "side": 1,
+      "message": "\u003e I could not find anything online that mentions UTF8 with glutCreateWindow. I guess it will be the usual: it works on Linux only...\n\nIt doesn\u0027t seem to work correctly there for all characters. I tried a file with ♥ from one of our bug reports. I didn\u0027t try anything with Chinese or similar characters though.",
+      "parentUuid": "5ebaadd0_f62222df",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 10
+      },
+      "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
