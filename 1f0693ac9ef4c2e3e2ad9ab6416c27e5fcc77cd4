@@ -94,6 +94,30 @@
       },
       "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ebaadd0_f62222df",
+        "filename": "examples/vwebp.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-03-21T09:40:07Z",
+      "side": 1,
+      "message": "I could not find anything online that mentions UTF8 with glutCreateWindow. I guess it will be the usual: it works on Linux only...",
+      "parentUuid": "d631761d_aad40dd7",
+      "range": {
+        "startLine": 460,
+        "startChar": 2,
+        "endLine": 460,
+        "endChar": 10
+      },
+      "revId": "1f0693ac9ef4c2e3e2ad9ab6416c27e5fcc77cd4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
