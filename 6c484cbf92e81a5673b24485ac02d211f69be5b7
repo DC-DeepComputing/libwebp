@@ -16,6 +16,24 @@
       "message": "There are a lot of `include_directories()` that could probably become `target_include_directories()`.",
       "revId": "6c484cbf92e81a5673b24485ac02d211f69be5b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a9da4bd5_b1583343",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 519,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-03-28T08:44:44Z",
+      "side": 1,
+      "message": "or proper target dependencies. If we support a CMake modern enough, all image libs have proper targets instead of variables. PNG and TIFF in 3.5, JPEG in 3.12\nMaybe we could bump the CMake requirement from 3.7 to 3.12 for WebP 1.4.0 ? That would mean Ubuntu 20.04, https://repology.org/project/cmake/versions",
+      "parentUuid": "2732546e_1faa6fd1",
+      "revId": "6c484cbf92e81a5673b24485ac02d211f69be5b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
