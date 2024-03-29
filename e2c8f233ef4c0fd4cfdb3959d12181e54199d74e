@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3bd860b_1a5aa67c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-29T02:25:13Z",
+      "side": 1,
+      "message": "This one isn\u0027t strictly necessary given what we have works. Another option would be to delete the `find_package` since we assume emscripten is providing this and it\u0027s misplaced in the `if()` currently.",
+      "revId": "e2c8f233ef4c0fd4cfdb3959d12181e54199d74e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
