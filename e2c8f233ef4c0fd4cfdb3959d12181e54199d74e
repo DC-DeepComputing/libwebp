@@ -34,6 +34,23 @@
       "parentUuid": "f3bd860b_1a5aa67c",
       "revId": "e2c8f233ef4c0fd4cfdb3959d12181e54199d74e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2e18086_163eccbd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-03-29T07:56:18Z",
+      "side": 1,
+      "message": "Nice, I guess you tested it locally. When I did it, it was barely documented ...\nHow about USE_SDL_IMAGE, it is not needed I guess?",
+      "revId": "e2c8f233ef4c0fd4cfdb3959d12181e54199d74e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
