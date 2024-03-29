@@ -105,6 +105,24 @@
       "parentUuid": "bd7bf59e_05ce7dd4",
       "revId": "e2c8f233ef4c0fd4cfdb3959d12181e54199d74e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1873ae6f_12125209",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-03-29T19:00:23Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e Nice, I guess you tested it locally. When I did it, it was barely documented ...\n\u003e \u003e \u003e How about USE_SDL_IMAGE, it is not needed I guess?\n\u003e \u003e \n\u003e \u003e It doesn\u0027t seem so. I started with a fresh clone on Windows. This downloads the port in the same way. I tested this with an existing clone on Linux too and Jenkins should cover both options in https://build.webmproject.org/jenkins/job/libwebp__compile_webp_js/.\n\u003e \u003e \n\u003e \u003e I first started by duplicating the compile check for `HAVE_JUST_SDL_H`, but even though `SDL_INCLUDE_DIRS` ends in SDL2/ `-sUSE_SDL2\u003d1` seems to cover the other path for now. I was guessing the other patches simply updated each path to be consistent and weren\u0027t really building with emscripten.\n\u003e \u003e \n\u003e \u003e Before and after this change though, it seems like the demos have broken:\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e webp.js:21 Uncaught TypeError: Cannot read properties of null (reading \u0027addEventListener\u0027)\n\u003e \u003e     at Object.registerOrRemoveHandler (webp.js:21:98343)\n\u003e \u003e     at registerMouseEventCallback (webp.js:21:151240)\n\u003e \u003e     at _emscripten_set_mousemove_callback_on_thread (webp.js:21:152028)\n\u003e \u003e     at Array.bm (webp.js:8:12974)\n\u003e \u003e     at yu (webp.js:5:80066)\n\u003e \u003e     at Module._WebPToSDL (webp.js:21:174820)\n\u003e \u003e     at ccall (webp.js:21:164292)\n\u003e \u003e     at webp.js:21:164665\n\u003e \u003e     at decode (index.html:34:13)\n\u003e \u003e     at xhr.onreadystatechange (index.html:51:7)\n\u003e \u003e ```\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e Uncaught TypeError: Cannot read properties of null (reading \u0027addEventListener\u0027)\n\u003e \u003e     at Object.registerOrRemoveHandler (webp_wasm.js:1:101330)\n\u003e \u003e     at registerMouseEventCallback (webp_wasm.js:1:154227)\n\u003e \u003e     at _emscripten_set_mousemove_callback_on_thread (webp_wasm.js:1:155015)\n\u003e \u003e     at webp_wasm.wasm:0x44bdb\n\u003e \u003e     at webp_wasm.wasm:0xa01c4\n\u003e \u003e     at Module._WebPToSDL (webp_wasm.js:1:177836)\n\u003e \u003e     at ccall (webp_wasm.js:1:167323)\n\u003e \u003e     at webp_wasm.js:1:167696\n\u003e \u003e     at decode (index_wasm.html:35:13)\n\u003e \u003e     at xhr.onreadystatechange (index_wasm.html:53:7)\n\u003e \u003e ```\n\u003e \u003e \n\u003e \u003e I\u0027ll investigate before submitting.\n\u003e \n\u003e ```\n\u003e 24d7f9cb6ef1ef90a04d7b6c15d3477813f75ee0 is the first bad commit\n\u003e commit 24d7f9cb6ef1ef90a04d7b6c15d3477813f75ee0\n\u003e Author: Vincent Rabaud \u003cvrabaud@google.com\u003e\n\u003e Date:   Thu Sep 28 10:18:23 2023 +0200\n\u003e \n\u003e     Switch code to SDL2.\n\u003e     \n\u003e     Also simplify wasm html (now that it is suppported by all browsers).\n\u003e     \n\u003e     Change-Id: I352b08594b93d3dd7d44832d4328b3546ccc1b90\n\u003e ```\n\nThat was tricky.\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/5407912",
+      "parentUuid": "0fcbb3fd_57086549",
+      "revId": "e2c8f233ef4c0fd4cfdb3959d12181e54199d74e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
