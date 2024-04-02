@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9c24ec02_66860404",
+        "filename": "examples/vwebp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-04-02T16:55:43Z",
+      "side": 1,
+      "message": "This is a dead store, but needed for `-Wmaybe-uninitialized` (gcc 13.2.0).",
+      "revId": "d781646c2942ad86a4912babc9bacd9f3b797409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
