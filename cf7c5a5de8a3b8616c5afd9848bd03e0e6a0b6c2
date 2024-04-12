@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87fb3af9_86418112",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-04-12T08:44:12Z",
+      "side": 1,
+      "message": "Should we include this variable in the config.h ?",
+      "revId": "cf7c5a5de8a3b8616c5afd9848bd03e0e6a0b6c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
