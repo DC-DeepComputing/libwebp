@@ -34,6 +34,24 @@
       "parentUuid": "87fb3af9_86418112",
       "revId": "cf7c5a5de8a3b8616c5afd9848bd03e0e6a0b6c2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4baecdc_aa83ecf2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-04-12T19:31:45Z",
+      "side": 1,
+      "message": "\u003e \u003e Should we include this variable in the config.h ?\n\u003e \n\u003e The only benefit there would be shifting the compile time tests to configure. We don\u0027t ship config.h or use it in the public headers.\n\nThis is now opt-in. In a future release we can make it the default and allow users to opt-out.",
+      "parentUuid": "f5256217_481f20d4",
+      "revId": "cf7c5a5de8a3b8616c5afd9848bd03e0e6a0b6c2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
