@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8799a097_2947c084",
+        "filename": "examples/cwebp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-07T13:28:11Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "c26089f8_e4a94a3a",
+      "range": {
+        "startLine": 181,
+        "startChar": 39,
+        "endLine": 181,
+        "endChar": 48
+      },
+      "revId": "8f96343b0323195772e450d40aa6f95c93817f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "952230cb_58ea6907",
         "filename": "src/enc/alpha_enc.c",
         "patchSetId": 1
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-07T09:10:50Z",
       "side": 1,
       "message": "at some point, it\u0027ll all be equivalent to \"*stats \u003d best.stats;\"",
+      "range": {
+        "startLine": 279,
+        "startChar": 47,
+        "endLine": 279,
+        "endChar": 52
+      },
+      "revId": "8f96343b0323195772e450d40aa6f95c93817f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d384fa0_f0caab4c",
+        "filename": "src/enc/alpha_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 279,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-07T13:28:11Z",
+      "side": 1,
+      "message": "Actually, stats also contains all the lossy stats. We are only copying the lossless stats here (roughly half of all the stats)",
+      "parentUuid": "952230cb_58ea6907",
       "range": {
         "startLine": 279,
         "startChar": 47,
@@ -72,6 +120,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "4294c43c_1050f984",
+        "filename": "src/enc/vp8l_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1206,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-07T13:28:11Z",
+      "side": 1,
+      "message": "I actually could only find 2 functions: MIN() in sharpyuv_gamma.c and GetMin in predictor_enc.c. But it needs merging indeed (Clamp is also duplicated).",
+      "parentUuid": "058dcd34_b9243139",
+      "range": {
+        "startLine": 1206,
+        "startChar": 12,
+        "endLine": 1206,
+        "endChar": 37
+      },
+      "revId": "8f96343b0323195772e450d40aa6f95c93817f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "eaf1e4c1_7e6afa7d",
         "filename": "src/enc/vp8li_enc.h",
         "patchSetId": 1
@@ -83,6 +155,30 @@
       "writtenOn": "2024-05-07T09:10:50Z",
       "side": 1,
       "message": "are the comments still relevants?",
+      "range": {
+        "startLine": 62,
+        "startChar": 42,
+        "endLine": 62,
+        "endChar": 60
+      },
+      "revId": "8f96343b0323195772e450d40aa6f95c93817f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c23ca3_bce7d4a9",
+        "filename": "src/enc/vp8li_enc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-07T13:28:11Z",
+      "side": 1,
+      "message": "Yes, those are defined by the standard. It\u0027s also \u003e\u003d MIN_TRANSFORM_BITS",
+      "parentUuid": "eaf1e4c1_7e6afa7d",
       "range": {
         "startLine": 62,
         "startChar": 42,
@@ -106,6 +202,30 @@
       "writtenOn": "2024-05-07T09:10:50Z",
       "side": 1,
       "message": "should it be added last (before pad[]) in the struct, just for extra binary compat?",
+      "range": {
+        "startLine": 228,
+        "startChar": 57,
+        "endLine": 228,
+        "endChar": 62
+      },
+      "revId": "8f96343b0323195772e450d40aa6f95c93817f15",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ef878e9_96b76d98",
+        "filename": "src/webp/encode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-07T13:28:11Z",
+      "side": 1,
+      "message": "Readability vs more safety. Aren\u0027t we safe as long as the ABI is bumped? jzern@ ? Thx",
+      "parentUuid": "32d6bfd6_fb3fdc7b",
       "range": {
         "startLine": 228,
         "startChar": 57,
