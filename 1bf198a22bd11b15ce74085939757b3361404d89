@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3db5a411_3ee5b5a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-13T19:55:43Z",
+      "side": 1,
+      "message": "Looks right.\n\n### Before\n\n```\n  * Lossless features used: PREDICTION CROSS-COLOR-TRANSFORM\n  * Precision Bits: histogram\u003d3 transform\u003d3 cache\u003d0\n\n```\n\n### After\n\n```\n  * Lossless features used: PREDICTION CROSS-COLOR-TRANSFORM\n  * Precision Bits: histogram\u003d3 prediction\u003d3 cross-color\u003d3 cache\u003d0\n```\n\n### Before\n\n```\n  * Lossless features used: PALETTE\n  * Precision Bits: histogram\u003d5 cache\u003d0\n  * Palette size:   3\n\n```\n\n\n### After\n\n```\n  * Lossless features used: PALETTE\n  * Precision Bits: histogram\u003d5 transform\u003d5 cache\u003d0\n  * Palette size:   3\n```",
+      "revId": "1bf198a22bd11b15ce74085939757b3361404d89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
