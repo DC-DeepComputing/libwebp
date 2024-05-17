@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "865070a9_c756a401",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-05-17T09:43:35Z",
+      "side": 1,
+      "message": "could be \u0027const uint32_t* const image\u0027",
+      "range": {
+        "startLine": 474,
+        "startChar": 29,
+        "endLine": 474,
+        "endChar": 37
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f9588440_ab20a276",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-05-17T09:43:35Z",
+      "side": 1,
+      "message": "note: new_square_size \u003d square_size \u003c\u003c 1;",
+      "range": {
+        "startLine": 485,
+        "startChar": 24,
+        "endLine": 485,
+        "endChar": 33
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8f0c0791_359b237b",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-05-17T09:43:35Z",
+      "side": 1,
+      "message": "isn\u0027t \u0027width\u0027 changing with the \u0027bits\u0027 value as \u0027width \u003d VP8LSubSampleSize(full_width, best_bits);\u0027 ?\nIt\u0027s strange to keep the same \u0027width\u0027 value while sampling alternate \u0027best_bits\u0027 values...",
+      "range": {
+        "startLine": 489,
+        "startChar": 33,
+        "endLine": 489,
+        "endChar": 38
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b0684cb_e3014b68",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-05-17T09:43:35Z",
+      "side": 1,
+      "message": "memcpy() instead?",
+      "range": {
+        "startLine": 533,
+        "startChar": 16,
+        "endLine": 533,
+        "endChar": 27
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
