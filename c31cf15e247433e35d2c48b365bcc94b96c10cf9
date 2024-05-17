@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "17d83e20_fe0faf2d",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 474,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-17T09:57:34Z",
+      "side": 1,
+      "message": "Nope, if possible it is subsampled and therefore written to",
+      "parentUuid": "865070a9_c756a401",
+      "range": {
+        "startLine": 474,
+        "startChar": 29,
+        "endLine": 474,
+        "endChar": 37
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f9588440_ab20a276",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-17T09:43:35Z",
       "side": 1,
       "message": "note: new_square_size \u003d square_size \u003c\u003c 1;",
+      "range": {
+        "startLine": 485,
+        "startChar": 24,
+        "endLine": 485,
+        "endChar": 33
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791522b6_3573c426",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 485,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-17T09:57:34Z",
+      "side": 1,
+      "message": "Indeed. But because I cannot declare a variable after updating square_size ... C89, you know ... :)",
+      "parentUuid": "f9588440_ab20a276",
       "range": {
         "startLine": 485,
         "startChar": 24,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "85ff61c3_cb9fb9a3",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 489,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-17T09:57:34Z",
+      "side": 1,
+      "message": "Right, first, we check if the image is subsamplable vertically, then horizontally. We could do both at the same time indeed, but that would not use the speed of memcmp.\nWe first do N/2 memcpies of size N, then N/4 of size N until we cannot go further or it fails.\nWe then do it vertically. As the vertically comparisons need to jump around, it is more efficient to do it after.",
+      "parentUuid": "8f0c0791_359b237b",
+      "range": {
+        "startLine": 489,
+        "startChar": 33,
+        "endLine": 489,
+        "endChar": 38
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b0684cb_e3014b68",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-05-17T09:43:35Z",
       "side": 1,
       "message": "memcpy() instead?",
+      "range": {
+        "startLine": 533,
+        "startChar": 16,
+        "endLine": 533,
+        "endChar": 27
+      },
+      "revId": "c31cf15e247433e35d2c48b365bcc94b96c10cf9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddb230f3_7d0e884b",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 533,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-17T09:57:34Z",
+      "side": 1,
+      "message": "It is subsampled, so one value from the square is actually read and written to the final image. We have to jump from one square to another. We\u0027d need a memcpy with a step.",
+      "parentUuid": "3b0684cb_e3014b68",
       "range": {
         "startLine": 533,
         "startChar": 16,
