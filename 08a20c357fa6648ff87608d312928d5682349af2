@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd297394_0d04b661",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-21T19:51:44Z",
+      "side": 1,
+      "message": "No need to make a change now, but with gerrit it can help to upload the original change then follow with a new patchset to make the diff clear.",
+      "revId": "08a20c357fa6648ff87608d312928d5682349af2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
