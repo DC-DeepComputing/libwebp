@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60f1398d_f0b76b47",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2024-05-22T08:24:22Z",
+      "side": 1,
+      "message": "Thank you for the suggested patch.\n\nI believe the current implementation is correct.\nMaybe you copied the implementation of [`HasAlpha32b_SSE2`](https://chromium.googlesource.com/webm/libwebp/+/3cd16fd3e2a754444be45b6d713770a09fb3b4f4/src/dsp/alpha_processing_sse2.c#305)? But [`length` is multiplied by 4 there](https://chromium.googlesource.com/webm/libwebp/+/3cd16fd3e2a754444be45b6d713770a09fb3b4f4/src/dsp/alpha_processing_sse2.c#277).\n\nCould you provide a way to reproduce the out-of-bounds error you encountered?",
+      "revId": "1c07273b12df55d3fdc1ca80ea9aa8de2e646844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
