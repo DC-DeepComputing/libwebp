@@ -359,7 +359,7 @@ static int HasAlpha8b_C(const uint8_t* src, int length) {
 
 static int HasAlpha32b_C(const uint8_t* src, int length) {
   int x;
-  for (x = 0; length-- > 0; x += 4) if (src[x] != 0xff) return 1;
+  for (x = 0; x < length; x += 4) if (src[x] != 0xff) return 1;
   return 0;
 }
 
