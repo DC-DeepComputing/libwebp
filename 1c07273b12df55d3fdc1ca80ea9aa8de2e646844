@@ -50,6 +50,24 @@
       "message": "In other words, this function will return 1 even if the \u0027src\u0027 contains all 0xff because it will perform unnecessary iterations and will encounter non-0xff somewhere outside the input buffer.",
       "revId": "1c07273b12df55d3fdc1ca80ea9aa8de2e646844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c44c75_588b0077",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2024-05-22T09:18:13Z",
+      "side": 1,
+      "message": "Your code should read:\n\n```c\nreturn HasAlpha32b_C(data, SRC_LEN / 4);\n```",
+      "parentUuid": "47e9a18e_304bc4a4",
+      "revId": "1c07273b12df55d3fdc1ca80ea9aa8de2e646844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
