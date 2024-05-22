@@ -33,6 +33,23 @@
       "message": "I haven\u0027t encountered the problem in real. Looking through the code, I discovered that in the loop variable length is decremented and compared with zero and the index variable x is incremented by 4. Example of out-of-bounds code:\n\n    #include \u003cstdint.h\u003e\n    #include \u003cstdio.h\u003e\n\n    static int HasAlpha32b_C(const uint8_t* src, int length) {\n            int x;\n            for (x \u003d 0; length-- \u003e 0; x +\u003d 4) // if (src[x] !\u003d 0xff) return 1;\n                    printf(\"%d \", x);\n            return 0;\n    }\n\n    int main()\n    {\n            #define SRC_LEN 16\n            uint8_t data[SRC_LEN];\n            return HasAlpha32b_C(data, SRC_LEN);\n    }\n\nThis code outputs: 0 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60",
       "revId": "1c07273b12df55d3fdc1ca80ea9aa8de2e646844",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b03b26ff_d3d1a13f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3452681
+      },
+      "writtenOn": "2024-05-22T09:06:57Z",
+      "side": 1,
+      "message": "In other words, this function will return 1 even if the \u0027src\u0027 contains all 0xff because it will perform unnecessary iterations and will encounter non-0xff somewhere outside the input buffer.",
+      "revId": "1c07273b12df55d3fdc1ca80ea9aa8de2e646844",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
