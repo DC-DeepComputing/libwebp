@@ -16,6 +16,24 @@
       "message": "No need to make a change now, but with gerrit it can help to upload the original change then follow with a new patchset to make the diff clear.",
       "revId": "08a20c357fa6648ff87608d312928d5682349af2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d0eb88_36f98fa1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-23T12:04:50Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "fd297394_0d04b661",
+      "revId": "08a20c357fa6648ff87608d312928d5682349af2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
