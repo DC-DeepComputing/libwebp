@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5fe98ab1_8637d6bc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-05-30T22:04:17Z",
+      "side": 1,
+      "message": "This fixes a broken an internal link to the JavaScript building documentation",
+      "revId": "e86787586bee5bd1c85d36edc089362edfc24e5b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
