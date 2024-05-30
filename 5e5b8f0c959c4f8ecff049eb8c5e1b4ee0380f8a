@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2effe33f_442e34dd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-05-30T04:14:27Z",
+      "side": 1,
+      "message": "This fixes a typo in the SSE2 Transform_AC3 function name.",
+      "revId": "5e5b8f0c959c4f8ecff049eb8c5e1b4ee0380f8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
