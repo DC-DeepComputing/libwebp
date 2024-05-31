@@ -20,56 +20,21 @@ set -eu
 # limit allocation size to reduce spurious OOMs
 WEBP_CFLAGS="$CFLAGS -DWEBP_MAX_IMAGE_SIZE=838860800" # 800MiB
 
-./autogen.sh
-CFLAGS="$WEBP_CFLAGS" ./configure \
-  --enable-asserts \
-  --enable-libwebpdemux \
-  --enable-libwebpmux \
-  --disable-shared \
-  --disable-jpeg \
-  --disable-tiff \
-  --disable-gif \
-  --disable-wic
-make clean
-make -j$(nproc)
+export CFLAGS="$WEBP_CFLAGS"
+cmake -S . -B build -DWEBP_BUILD_FUZZTEST=ON
+cd build && make -j$(nproc) && cd ..
 
 find $SRC/libwebp-test-data -type f -size -32k -iname "*.webp" \
   -exec zip -qju fuzz_seed_corpus.zip "{}" \;
 
-webp_libs=(
-  src/demux/.libs/libwebpdemux.a
-  src/mux/.libs/libwebpmux.a
-  src/.libs/libwebp.a
-  imageio/.libs/libimageio_util.a
-  sharpyuv/.libs/libsharpyuv.a
-)
-webp_c_fuzzers=(
-  advanced_api_fuzzer
-  animation_api_fuzzer
-  huffman_fuzzer
-  mux_demux_api_fuzzer
-  simple_api_fuzzer
-)
-webp_cxx_fuzzers=(
-  animdecoder_fuzzer
-  animencoder_fuzzer
-  enc_dec_fuzzer
-)
+fuzzer_list=$(find ./build/tests/fuzzer/ -executable -type f)
 
-for fuzzer in "${webp_c_fuzzers[@]}"; do
-  $CC $CFLAGS -Isrc -I. tests/fuzzer/${fuzzer}.c -c -o tests/fuzzer/${fuzzer}.o
-  $CXX $CXXFLAGS $LIB_FUZZING_ENGINE \
-    tests/fuzzer/${fuzzer}.o -o $OUT/${fuzzer} \
-    "${webp_libs[@]}"
+for fuzzer in ${fuzzer_list}; do
+  cp ${fuzzer} $OUT/
 done
 
-for fuzzer in "${webp_cxx_fuzzers[@]}"; do
-  $CXX $CXXFLAGS -Isrc -I. $LIB_FUZZING_ENGINE \
-    tests/fuzzer/${fuzzer}.cc -o $OUT/${fuzzer} \
-    "${webp_libs[@]}"
-done
-
-for fuzzer in "${webp_c_fuzzers[@]}" "${webp_cxx_fuzzers[@]}"; do
-  cp fuzz_seed_corpus.zip $OUT/${fuzzer}_seed_corpus.zip
-  cp tests/fuzzer/fuzz.dict $OUT/${fuzzer}.dict
+for fuzzer in ${fuzzer_list}; do
+  fuzzer_name=`basename ${fuzzer}`
+  cp fuzz_seed_corpus.zip $OUT/${fuzzer_name}_seed_corpus.zip
+  cp tests/fuzzer/fuzz.dict $OUT/${fuzzer_name}.dict
 done
