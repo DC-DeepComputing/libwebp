@@ -16,6 +16,97 @@
       "message": "The presubmit needs an update since it tried to test tests/fuzzer/makefile.unix. Let me switch that over to cmake.",
       "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a5b3bed_0a0a7ff7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:18:45Z",
+      "side": 1,
+      "message": "tests/README.md needs an update.",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "062978a8_70431d1f",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:18:45Z",
+      "side": 1,
+      "message": "This requires cmake 3.11.",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f2ea5b4_98ea1f2e",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:18:45Z",
+      "side": 1,
+      "message": "This clone and dependency fetch is a bit slow. I was hoping `GIT_PROGRESS` would add some detail to the log, but I didn\u0027t see any change locally.",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f94fef56_71254893",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:18:45Z",
+      "side": 1,
+      "message": "This form requires 3.14:\n\nhttps://cmake.org/cmake/help/v3.19/module/FetchContent.html?highlight\u003dfetchcontent_makeavailable#overview",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e38e669d_feb05d73",
+        "filename": "tests/fuzzer/fuzz_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:18:45Z",
+      "side": 1,
+      "message": "LLC?",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
