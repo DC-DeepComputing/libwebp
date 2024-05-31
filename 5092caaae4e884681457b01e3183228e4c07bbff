@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737a7b4b_cb69569f",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T16:13:53Z",
+      "side": 1,
+      "message": "Flags in the shebang are discouraged because the flags won\u0027t be respected if the script is run using a shell directly, like `bash ./build.sh`. Better if these are done with `set -eu`",
+      "revId": "5092caaae4e884681457b01e3183228e4c07bbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee5df99a_a70c71d6",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T16:13:53Z",
+      "side": 1,
+      "message": "Maybe in a follow up, but should these be discovered with find or a glob instead?",
+      "revId": "5092caaae4e884681457b01e3183228e4c07bbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
