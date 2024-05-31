@@ -35,6 +35,23 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "25d83fff_acc8798c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-05-31T17:48:51Z",
+      "side": 1,
+      "message": "Looks like we\u0027ll have to hold off on testing this until the infrastructure is updated:\n\n```\nCMake Error at /var/jenkins/workspace/libwebp__compile/config/static/host/cmake-clang/build-static/_deps/fuzztest-src/CMakeLists.txt:1 (cmake_minimum_required):\n  CMake 3.19 or higher is required.  You are running version 3.18.4\n```",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "062978a8_70431d1f",
