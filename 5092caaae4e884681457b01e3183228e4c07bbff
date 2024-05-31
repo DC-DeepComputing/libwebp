@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba319302_40b04b2c",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-31T19:56:53Z",
+      "side": 1,
+      "message": "Let\u0027s keep it as is for now, this file will be completely re-written anyway.",
+      "parentUuid": "737a7b4b_cb69569f",
+      "revId": "5092caaae4e884681457b01e3183228e4c07bbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee5df99a_a70c71d6",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-31T16:13:53Z",
       "side": 1,
       "message": "Maybe in a follow up, but should these be discovered with find or a glob instead?",
+      "revId": "5092caaae4e884681457b01e3183228e4c07bbff",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4bacb1e_4a28811d",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-31T19:56:53Z",
+      "side": 1,
+      "message": "CMake will be used anyway. We can add a custom target that will generate all the fuzz tests.",
+      "parentUuid": "ee5df99a_a70c71d6",
       "revId": "5092caaae4e884681457b01e3183228e4c07bbff",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
