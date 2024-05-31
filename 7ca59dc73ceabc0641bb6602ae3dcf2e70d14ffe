@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b765867_6e41a0e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-05-31T13:25:18Z",
+      "side": 1,
+      "message": "The compilation fails because makefile.unix is removed",
+      "revId": "7ca59dc73ceabc0641bb6602ae3dcf2e70d14ffe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
