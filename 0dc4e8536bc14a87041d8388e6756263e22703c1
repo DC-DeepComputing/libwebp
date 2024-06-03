@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aba54971_27c22f70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-03T23:51:10Z",
+      "side": 1,
+      "message": "This patch removes the runtime indirect calling mechanism for when compiling to WASM, improving performance.",
+      "revId": "0dc4e8536bc14a87041d8388e6756263e22703c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
