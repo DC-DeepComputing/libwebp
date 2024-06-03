@@ -16,6 +16,23 @@
       "message": "Adds tests/fuzzer/huffman_fuzzer to the .gitignore",
       "revId": "64186bb36c8c2373b02ebea412d4504ebe2cc4ea",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "abf6b8d9_59e2e9cd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-03T18:01:01Z",
+      "side": 1,
+      "message": "Thanks for the patch. Some of this might become unnecessary after https://chromium-review.googlesource.com/c/webm/libwebp/+/5588562 lands (assuming the build is done in a separate directory).",
+      "revId": "64186bb36c8c2373b02ebea412d4504ebe2cc4ea",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
