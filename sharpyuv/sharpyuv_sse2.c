@@ -15,7 +15,11 @@
 
 #if defined(WEBP_USE_SSE2)
 #include <stdlib.h>
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 static uint16_t clip_SSE2(int v, int max) {
   return (v < 0) ? 0 : (v > max) ? max : (uint16_t)v;
