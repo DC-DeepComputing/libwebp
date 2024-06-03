@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba3caa4e_eb437144",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-03T23:48:03Z",
+      "side": 1,
+      "message": "This is part of a collection of patches to improve libwebp performance when compiled to WASM. This patch relies on SIMD-everywhere to translate the SSE2 and SSE4.1 intrinsics to WASMSIMD.",
+      "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
