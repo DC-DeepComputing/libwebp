@@ -14,7 +14,11 @@
 #include "src/dsp/dsp.h"
 
 #if defined(WEBP_USE_SSE2) && !defined(WEBP_REDUCE_SIZE)
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 #include <assert.h>
 #include "src/utils/rescaler_utils.h"

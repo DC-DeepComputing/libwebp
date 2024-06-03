@@ -14,7 +14,11 @@
 #include "src/dsp/dsp.h"
 
 #if defined(WEBP_USE_SSE2)
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 #include "src/enc/cost_enc.h"
 #include "src/enc/vp8i_enc.h"
