@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f50d264_d01a1ee1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-03T23:52:59Z",
+      "side": 1,
+      "message": "This enables 64-bit register bit caching for when compiling to WASM.",
+      "revId": "a9c784f8c3e70a82ff0f5a2ee4a9c7450056dd67",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
