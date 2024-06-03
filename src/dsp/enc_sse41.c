@@ -14,7 +14,11 @@
 #include "src/dsp/dsp.h"
 
 #if defined(WEBP_USE_SSE41)
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse4.1.h"
+#else
 #include <smmintrin.h>
+#endif
 #include <stdlib.h>  // for abs()
 
 #include "src/dsp/common_sse2.h"

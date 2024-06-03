@@ -16,7 +16,11 @@
 #if defined(WEBP_USE_SSE2)
 
 #include <assert.h>
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 #include "src/dsp/common_sse2.h"
 
