@@ -18,7 +18,11 @@
 #include "src/dsp/common_sse2.h"
 #include "src/dsp/lossless.h"
 #include "src/dsp/lossless_common.h"
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 //------------------------------------------------------------------------------
 // Predictor Transform

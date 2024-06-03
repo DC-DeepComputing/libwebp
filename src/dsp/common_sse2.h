@@ -20,7 +20,11 @@ extern "C" {
 
 #if defined(WEBP_USE_SSE2)
 
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 
 //------------------------------------------------------------------------------
 // Quite useful macro for debugging. Left here for convenience.

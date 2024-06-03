@@ -16,7 +16,11 @@
 #if defined(WEBP_USE_SSE41)
 
 #include <stdlib.h>
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse4.1.h"
+#else
 #include <smmintrin.h>
+#endif
 
 #include "src/dsp/common_sse41.h"
 #include "src/utils/utils.h"

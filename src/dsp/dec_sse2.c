@@ -22,7 +22,11 @@
 #define USE_TRANSFORM_AC3 0   // ALTERNATE_CODE
 #endif
 
+#if defined(WEBP_USE_SIMDE)
+#include "simde/x86/sse2.h"
+#else
 #include <emmintrin.h>
+#endif
 #include "src/dsp/common_sse2.h"
 #include "src/dec/vp8i_dec.h"
 #include "src/utils/utils.h"

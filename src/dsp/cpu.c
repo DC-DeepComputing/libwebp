@@ -241,6 +241,16 @@ static int mipsCPUInfo(CPUFeature feature) {
 }
 WEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;
 VP8CPUInfo VP8GetCPUInfo = mipsCPUInfo;
+#elif defined(WEBP_USE_SIMDE)
+static int simde_feature(CPUFeature feature) {
+  // Avoid the GetCoeffsAlt code
+  if (feature == kSlowSSSE3) {
+    return 0;
+  }
+  return 1;
+}
+WEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;
+VP8CPUInfo VP8GetCPUInfo = simde_feature;
 #else
 WEBP_EXTERN VP8CPUInfo VP8GetCPUInfo;
 VP8CPUInfo VP8GetCPUInfo = NULL;
