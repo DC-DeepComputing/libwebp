@@ -15,6 +15,125 @@
 #include "src/dec/vp8i_dec.h"
 #include "src/utils/utils.h"
 
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+#define VP8Transform              TransformTwo_C
+#define VP8TransformAC3           TransformAC3_C
+#define VP8TransformDC            TransformDC_C
+#define VP8TransformUV            TransformUV_C
+#define VP8TransformDCUV          TransformDCUV_C
+
+#define VP8DitherCombine8x8       DitherCombine8x8_C
+
+#define VP8SimpleHFilter16        SimpleHFilter16_C
+#define VP8SimpleHFilter16i       SimpleHFilter16i_C
+#define VP8SimpleVFilter16        SimpleVFilter16_C
+#define VP8SimpleVFilter16i       SimpleVFilter16i_C
+
+#define VP8HFilter16              HFilter16_C
+#define VP8HFilter8               HFilter8_C
+#define VP8HFilter16i             HFilter16i_C
+#define VP8HFilter8i              HFilter8i_C
+#define VP8VFilter16              VFilter16_C
+#define VP8VFilter8               VFilter8_C
+#define VP8VFilter16i             VFilter16i_C
+#define VP8VFilter8i              VFilter8i_C
+
+#define VP8PredLuma4DC           DC4_C
+#define VP8PredLuma4TM           TM4_C
+#define VP8PredLuma4VE           VE4_C
+#define VP8PredLuma4HE           HE4_C
+#define VP8PredLuma4RD           RD4_C
+#define VP8PredLuma4VR           VR4_C
+#define VP8PredLuma4LD           LD4_C
+#define VP8PredLuma4VL           VL4_C
+#define VP8PredLuma4HD           HD4_C
+#define VP8PredLuma4HU           HU4_C
+
+#define VP8PredLuma16DC           DC16_C
+#define VP8PredLuma16TM           TM16_C
+#define VP8PredLuma16VE           VE16_C
+#define VP8PredLuma16HE           HE16_C
+#define VP8PredLuma16DCNoTop      DC16NoTop_C
+#define VP8PredLuma16DCNoLeft     DC16NoLeft_C
+#define VP8PredLuma16DCNoTopLeft  DC16NoTopLeft_C
+
+#define VP8PredChroma8DC          DC8uv_C
+#define VP8PredChroma8TM          TM8uv_C
+#define VP8PredChroma8VE          VE8uv_C
+#define VP8PredChroma8HE          HE8uv_C
+#define VP8PredChroma8DCNoTop     DC8uvNoTop_C
+#define VP8PredChroma8DCNoLeft    DC8uvNoLeft_C
+#define VP8PredChroma8DCNoTopLeft DC8uvNoTopLeft_C
+
+#if defined(WEBP_WASMSIMD_DIRECT_FUNCTION_CALL)
+#undef VP8Transform
+#define VP8Transform              Transform_SSE2
+
+#undef VP8SimpleHFilter16
+#undef VP8SimpleHFilter16i
+#undef VP8SimpleVFilter16
+#undef VP8SimpleVFilter16i
+#define VP8SimpleHFilter16        SimpleHFilter16_SSE2
+#define VP8SimpleHFilter16i       SimpleHFilter16i_SSE2
+#define VP8SimpleVFilter16        SimpleVFilter16_SSE2
+#define VP8SimpleVFilter16i       SimpleVFilter16i_SSE2
+
+#undef VP8HFilter16
+#undef VP8HFilter8
+#undef VP8HFilter16i
+#undef VP8HFilter8i
+#undef VP8VFilter16
+#undef VP8VFilter8
+#undef VP8VFilter16i
+#undef VP8VFilter8i
+#define VP8HFilter16              HFilter16_SSE2
+#define VP8HFilter8               HFilter8_SSE2
+#define VP8HFilter16i             HFilter16i_SSE2
+#define VP8HFilter8i              HFilter8i_SSE2
+#define VP8VFilter16              VFilter16_SSE2
+#define VP8VFilter8               VFilter8_SSE2
+#define VP8VFilter16i             VFilter16i_SSE2
+#define VP8VFilter8i              VFilter8i_SSE2
+
+#undef VP8PredLuma4TM
+#undef VP8PredLuma4VE
+#undef VP8PredLuma4RD
+#undef VP8PredLuma4VR
+#undef VP8PredLuma4LD
+#undef VP8PredLuma4VL
+#define VP8PredLuma4TM            TM4_SSE2
+#define VP8PredLuma4VE            VE4_SSE2
+#define VP8PredLuma4RD            RD4_SSE2
+#define VP8PredLuma4VR            VR4_SSE2
+#define VP8PredLuma4LD            LD4_SSE2
+#define VP8PredLuma4VL            VL4_SSE2
+
+#undef VP8PredLuma16TM
+#undef VP8PredLuma16VE
+#undef VP8PredLuma16HE
+#undef VP8PredLuma16DCNoTop
+#undef VP8PredLuma16DCNoTopLeft
+#define VP8PredLuma16TM          TM16_SSE2
+#define VP8PredLuma16VE          VE16_SSE2
+#define VP8PredLuma16HE          HE16_SSE2
+#define VP8PredLuma16DCNoTop     DC16NoTop_SSE2
+#define VP8PredLuma16DCNoTopLeft DC16NoTopLeft_SSE2
+
+#undef VP8PredChroma8TM
+#undef VP8PredChroma8VE
+#undef VP8PredChroma8DCNoTop
+#undef VP8PredChroma8DCNoTopLeft
+#define VP8PredChroma8TM          TM8uv_SSE2
+#define VP8PredChroma8VE          VE8uv_SSE2
+#define VP8PredChroma8DCNoTop     DC8uvNoTop_SSE2
+#define VP8PredChroma8DCNoTopLeft DC8uvNoTopLeft_SSE2
+
+#undef VP8PredLuma16HE
+#define VP8PredLuma16HE          HE16_SSE41
+
+#endif
+#endif
+
 //------------------------------------------------------------------------------
 // Main reconstruction function.
 
@@ -143,12 +262,77 @@ static void ReconstructRow(const VP8Decoder* const dec,
         // predict and add residuals for all 4x4 blocks in turn.
         for (n = 0; n < 16; ++n, bits <<= 2) {
           uint8_t* const dst = y_dst + kScan[n];
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+        switch (block->imodes_[n]) {
+          case B_DC_PRED:
+            VP8PredLuma4DC(dst);
+            break;
+          case B_TM_PRED:
+            VP8PredLuma4TM(dst);
+            break;
+          case B_VE_PRED:
+            VP8PredLuma4VE(dst);
+            break;
+          case B_HE_PRED:
+            VP8PredLuma4HE(dst);
+            break;
+          case B_RD_PRED:
+            VP8PredLuma4RD(dst);
+            break;
+          case B_VR_PRED:
+            VP8PredLuma4VR(dst);
+            break;
+          case B_LD_PRED:
+            VP8PredLuma4LD(dst);
+            break;
+          case B_VL_PRED:
+            VP8PredLuma4VL(dst);
+            break;
+          case B_HD_PRED:
+            VP8PredLuma4HD(dst);
+            break;
+          case B_HU_PRED:
+            VP8PredLuma4HU(dst);
+            break;
+          default:
+            break;
+        }
+#else
           VP8PredLuma4[block->imodes_[n]](dst);
+#endif
           DoTransform(bits, coeffs + n * 16, dst);
         }
       } else {    // 16x16
         const int pred_func = CheckMode(mb_x, mb_y, block->imodes_[0]);
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+        switch (pred_func) {
+          case B_DC_PRED:
+            VP8PredLuma16DC(y_dst);
+            break;
+          case B_TM_PRED:
+            VP8PredLuma16TM(y_dst);
+            break;
+          case B_VE_PRED:
+            VP8PredLuma16VE(y_dst);
+            break;
+          case B_HE_PRED:
+            VP8PredLuma16HE(y_dst);
+            break;
+          case B_DC_PRED_NOTOP:
+            VP8PredLuma16DCNoTop(y_dst);
+            break;
+          case B_DC_PRED_NOLEFT:
+            VP8PredLuma16DCNoLeft(y_dst);
+            break;
+          case B_DC_PRED_NOTOPLEFT:
+            VP8PredLuma16DCNoTopLeft(y_dst);
+            break;
+          default:
+            break;
+        }
+#else
         VP8PredLuma16[pred_func](y_dst);
+#endif
         if (bits != 0) {
           for (n = 0; n < 16; ++n, bits <<= 2) {
             DoTransform(bits, coeffs + n * 16, y_dst + kScan[n]);
@@ -159,8 +343,43 @@ static void ReconstructRow(const VP8Decoder* const dec,
         // Chroma
         const uint32_t bits_uv = block->non_zero_uv_;
         const int pred_func = CheckMode(mb_x, mb_y, block->uvmode_);
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+        switch (pred_func) {
+          case B_DC_PRED:
+            VP8PredChroma8DC(u_dst);
+            VP8PredChroma8DC(v_dst);
+            break;
+          case B_TM_PRED:
+            VP8PredChroma8TM(u_dst);
+            VP8PredChroma8TM(v_dst);
+            break;
+          case B_VE_PRED:
+            VP8PredChroma8VE(u_dst);
+            VP8PredChroma8VE(v_dst);
+            break;
+          case B_HE_PRED:
+            VP8PredChroma8HE(u_dst);
+            VP8PredChroma8HE(v_dst);
+            break;
+          case B_DC_PRED_NOTOP:
+            VP8PredChroma8DCNoTop(u_dst);
+            VP8PredChroma8DCNoTop(v_dst);
+            break;
+          case B_DC_PRED_NOLEFT:
+            VP8PredChroma8DCNoLeft(u_dst);
+            VP8PredChroma8DCNoLeft(v_dst);
+            break;
+          case B_DC_PRED_NOTOPLEFT:
+            VP8PredChroma8DCNoTopLeft(u_dst);
+            VP8PredChroma8DCNoTopLeft(v_dst);
+            break;
+          default:
+            break;
+        }
+#else
         VP8PredChroma8[pred_func](u_dst);
         VP8PredChroma8[pred_func](v_dst);
+#endif
         DoUVTransform(bits_uv >> 0, coeffs + 16 * 16, u_dst);
         DoUVTransform(bits_uv >> 8, coeffs + 20 * 16, v_dst);
       }
