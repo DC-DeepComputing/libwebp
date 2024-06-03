@@ -252,6 +252,100 @@ void VP8LEncDspInit(void);
 
 //------------------------------------------------------------------------------
 
+// Explicitly define functions that were previously called indirectly
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+
+void PredictorAdd1_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd2_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd3_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd4_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd5_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd6_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd7_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd8_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd9_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd10_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd11_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd12_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+void PredictorAdd13_C(const uint32_t* in, const uint32_t* upper,
+                            int num_pixels, uint32_t* out);
+
+
+#if defined(WEBP_WASMSIMD_DIRECT_FUNCTION_CALL)
+void PredictorAdd0_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd1_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd2_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd3_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd4_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd5_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd6_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd7_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd8_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd9_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd10_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd11_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd12_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+void PredictorAdd13_SSE2(const uint32_t* in, const uint32_t* upper,
+                               int num_pixels, uint32_t* out);
+
+void AddGreenToBlueAndRed_SSE2(const uint32_t* const src, int num_pixels,
+                                      uint32_t* dst);
+
+void ConvertBGRAToRGBA_SSE2(const uint32_t* src,
+                                   int num_pixels, uint8_t* dst);
+
+void TransformColorInverse_SSE41(const VP8LMultipliers* const m,
+                                        const uint32_t* const src,
+                                        int num_pixels, uint32_t* dst);
+
+void ConvertBGRAToRGB_SSE41(const uint32_t* src, int num_pixels,
+                                   uint8_t* dst);
+
+void ConvertBGRAToBGR_SSE41(const uint32_t* src,
+                                   int num_pixels, uint8_t* dst);
+
+#endif // WEBP_WASMSIMD_DIRECT_FUNCTION_CALL
+#endif // WEBP_WASM_DIRECT_FUNCTION_CALL
+
+
+
 #ifdef __cplusplus
 }    // extern "C"
 #endif
