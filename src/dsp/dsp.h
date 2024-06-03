@@ -502,6 +502,142 @@ extern WebPUnfilterFunc WebPUnfilters[WEBP_FILTER_LAST];
 // To be called first before using the above.
 void VP8FiltersInit(void);
 
+//------------------------------------------------------------------------------
+// WEBP_STATIC
+
+// Removes the static qualifier to make functions visible for direct calls. 
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+#define WEBP_STATIC
+#else
+#define WEBP_STATIC static
+#endif
+
+//------------------------------------------------------------------------------
+// WASM Direct function call definitions
+
+// Explicitly define functions that were previously called indirectly
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL) 
+void TransformTwo_C(const int16_t* in, uint8_t* dst, int do_two);
+void TransformAC3_C(const int16_t* in, uint8_t* dst);
+void TransformDC_C(const int16_t* in, uint8_t* dst);
+void TransformUV_C(const int16_t* in, uint8_t* dst);
+void TransformDCUV_C(const int16_t* in, uint8_t* dst);
+
+void SimpleHFilter16_C(uint8_t* p, int stride, int thresh);
+void SimpleHFilter16i_C(uint8_t* p, int stride, int thresh);
+void SimpleVFilter16_C(uint8_t* p, int stride, int thresh);
+void SimpleVFilter16i_C(uint8_t* p, int stride, int thresh);
+
+void HFilter16_C(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter16i_C(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter16_C(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter16i_C(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+
+void VFilter8_C(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter8i_C(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter8_C(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter8i_C(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+
+void DitherCombine8x8_C(const uint8_t* dither, uint8_t* dst,
+                               int dst_stride);
+
+void TransformWHT_C(const int16_t* in, int16_t* out);
+
+// VP8PredLuma4 functions
+void DC4_C(uint8_t* dst);
+void TM4_C(uint8_t* dst);
+void VE4_C(uint8_t* dst);
+void HE4_C(uint8_t* dst);
+void RD4_C(uint8_t* dst);
+void VR4_C(uint8_t* dst);
+void LD4_C(uint8_t* dst);
+void VL4_C(uint8_t* dst);
+void HD4_C(uint8_t* dst);
+void HU4_C(uint8_t* dst);
+
+// VP8PredLuma16 functions
+void DC16_C(uint8_t* dst);
+void TM16_C(uint8_t* dst);
+void VE16_C(uint8_t* dst);
+void HE16_C(uint8_t* dst);
+void DC16NoTop_C(uint8_t* dst);
+void DC16NoLeft_C(uint8_t* dst);
+void DC16NoTopLeft_C(uint8_t* dst);
+
+// VP8PredChroma8 functions
+void DC8uv_C(uint8_t* dst);
+void TM8uv_C(uint8_t* dst);
+void VE8uv_C(uint8_t* dst);
+void HE8uv_C(uint8_t* dst);
+void DC8uvNoTop_C(uint8_t* dst);
+void DC8uvNoLeft_C(uint8_t* dst);
+void DC8uvNoTopLeft_C(uint8_t* dst);
+
+// Define SIMDe functions
+#if defined(WEBP_WASMSIMD_DIRECT_FUNCTION_CALL)
+void Transform_SSE2(const int16_t* in, uint8_t* dst, int do_two);
+
+void SimpleHFilter16_SSE2(uint8_t* p, int stride, int thresh);
+void SimpleHFilter16i_SSE2(uint8_t* p, int stride, int thresh);
+void SimpleVFilter16_SSE2(uint8_t* p, int stride, int thresh);
+void SimpleVFilter16i_SSE2(uint8_t* p, int stride, int thresh);
+
+void HFilter16_SSE2(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter16i_SSE2(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter16_SSE2(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter16i_SSE2(uint8_t* p, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+
+void VFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void VFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+void HFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
+                           int thresh, int ithresh, int hev_thresh);
+
+// VP8PredLuma4 functions
+void TM4_SSE2(uint8_t* dst);
+void VE4_SSE2(uint8_t* dst);
+void RD4_SSE2(uint8_t* dst);
+void VR4_SSE2(uint8_t* dst);
+void LD4_SSE2(uint8_t* dst);
+void VL4_SSE2(uint8_t* dst);
+
+// VP8PredLuma16 functions
+void DC16_SSE2(uint8_t* dst);
+void TM16_SSE2(uint8_t* dst);
+void VE16_SSE2(uint8_t* dst);
+void HE16_SSE2(uint8_t* dst);
+void DC16NoTop_SSE2(uint8_t* dst);
+void DC16NoLeft_SSE2(uint8_t* dst);
+void DC16NoTopLeft_SSE2(uint8_t* dst);
+
+// VP8PredChroma8 functions
+void DC8uv_SSE2(uint8_t* dst);
+void TM8uv_SSE2(uint8_t* dst);
+void VE8uv_SSE2(uint8_t* dst);
+void DC8uvNoTop_SSE2(uint8_t* dst);
+void DC8uvNoLeft_SSE2(uint8_t* dst);
+void DC8uvNoTopLeft_SSE2(uint8_t* dst);
+
+
+void HE16_SSE41(uint8_t* dst);
+#endif // WEBP_WASMSIMD_DIRECT_FUNCTION_CALL
+#endif // WEBP_WASM_DIRECT_FUNCTION_CALL
+
 #ifdef __cplusplus
 }    // extern "C"
 #endif

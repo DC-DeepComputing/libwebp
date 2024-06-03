@@ -189,7 +189,7 @@ static uint32_t Predictor13_SSE2(const uint32_t* const left,
 // Batch versions of those functions.
 
 // Predictor0: ARGB_BLACK.
-static void PredictorAdd0_SSE2(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd0_SSE2(const uint32_t* in, const uint32_t* upper,
                                int num_pixels, uint32_t* out) {
   int i;
   const __m128i black = _mm_set1_epi32((int)ARGB_BLACK);
@@ -205,7 +205,7 @@ static void PredictorAdd0_SSE2(const uint32_t* in, const uint32_t* upper,
 }
 
 // Predictor1: left.
-static void PredictorAdd1_SSE2(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd1_SSE2(const uint32_t* in, const uint32_t* upper,
                                int num_pixels, uint32_t* out) {
   int i;
   __m128i prev = _mm_set1_epi32((int)out[-1]);
@@ -226,25 +226,29 @@ static void PredictorAdd1_SSE2(const uint32_t* in, const uint32_t* upper,
     prev = _mm_shuffle_epi32(res, (3 << 0) | (3 << 2) | (3 << 4) | (3 << 6));
   }
   if (i != num_pixels) {
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+    PredictorAdd1_C(in + i, upper + i, num_pixels - i, out + i);
+#else
     VP8LPredictorsAdd_C[1](in + i, upper + i, num_pixels - i, out + i);
+#endif
   }
 }
 
 // Macro that adds 32-bit integers from IN using mod 256 arithmetic
 // per 8 bit channel.
-#define GENERATE_PREDICTOR_1(X, IN)                                           \
-static void PredictorAdd##X##_SSE2(const uint32_t* in, const uint32_t* upper, \
-                                  int num_pixels, uint32_t* out) {            \
-  int i;                                                                      \
-  for (i = 0; i + 4 <= num_pixels; i += 4) {                                  \
-    const __m128i src = _mm_loadu_si128((const __m128i*)&in[i]);              \
-    const __m128i other = _mm_loadu_si128((const __m128i*)&(IN));             \
-    const __m128i res = _mm_add_epi8(src, other);                             \
-    _mm_storeu_si128((__m128i*)&out[i], res);                                 \
-  }                                                                           \
-  if (i != num_pixels) {                                                      \
-    VP8LPredictorsAdd_C[(X)](in + i, upper + i, num_pixels - i, out + i);     \
-  }                                                                           \
+#define GENERATE_PREDICTOR_1(X, IN)                                                \
+WEBP_STATIC void PredictorAdd##X##_SSE2(const uint32_t* in, const uint32_t* upper, \
+                                  int num_pixels, uint32_t* out) {                 \
+  int i;                                                                           \
+  for (i = 0; i + 4 <= num_pixels; i += 4) {                                       \
+    const __m128i src = _mm_loadu_si128((const __m128i*)&in[i]);                   \
+    const __m128i other = _mm_loadu_si128((const __m128i*)&(IN));                  \
+    const __m128i res = _mm_add_epi8(src, other);                                  \
+    _mm_storeu_si128((__m128i*)&out[i], res);                                      \
+  }                                                                                \
+  if (i != num_pixels) {                                                           \
+    VP8LPredictorsAdd_C[(X)](in + i, upper + i, num_pixels - i, out + i);          \
+  }                                                                                \
 }
 
 // Predictor2: Top.
@@ -262,7 +266,7 @@ GENERATE_PREDICTOR_ADD(Predictor6_SSE2, PredictorAdd6_SSE2)
 GENERATE_PREDICTOR_ADD(Predictor7_SSE2, PredictorAdd7_SSE2)
 
 #define GENERATE_PREDICTOR_2(X, IN)                                           \
-static void PredictorAdd##X##_SSE2(const uint32_t* in, const uint32_t* upper, \
+WEBP_STATIC void PredictorAdd##X##_SSE2(const uint32_t* in, const uint32_t* upper, \
                                    int num_pixels, uint32_t* out) {           \
   int i;                                                                      \
   for (i = 0; i + 4 <= num_pixels; i += 4) {                                  \
@@ -300,7 +304,7 @@ GENERATE_PREDICTOR_2(9, upper[i + 1])
   src = _mm_srli_si128(src, 4);                               \
 } while (0)
 
-static void PredictorAdd10_SSE2(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd10_SSE2(const uint32_t* in, const uint32_t* upper,
                                 int num_pixels, uint32_t* out) {
   int i;
   __m128i L = _mm_cvtsi32_si128((int)out[-1]);
@@ -320,7 +324,11 @@ static void PredictorAdd10_SSE2(const uint32_t* in, const uint32_t* upper,
     DO_PRED10(3);
   }
   if (i != num_pixels) {
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+    PredictorAdd10_C(in + i, upper + i, num_pixels - i, out + i);
+#else
     VP8LPredictorsAdd_C[10](in + i, upper + i, num_pixels - i, out + i);
+#endif
   }
 }
 #undef DO_PRED10
@@ -347,7 +355,7 @@ static void PredictorAdd10_SSE2(const uint32_t* in, const uint32_t* upper,
   pa = _mm_srli_si128(pa, 4);                               \
 } while (0)
 
-static void PredictorAdd11_SSE2(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd11_SSE2(const uint32_t* in, const uint32_t* upper,
                                 int num_pixels, uint32_t* out) {
   int i;
   __m128i pa;
@@ -377,7 +385,11 @@ static void PredictorAdd11_SSE2(const uint32_t* in, const uint32_t* upper,
     DO_PRED11(3);
   }
   if (i != num_pixels) {
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+    PredictorAdd11_C(in + i, upper + i, num_pixels - i, out + i);
+#else
     VP8LPredictorsAdd_C[11](in + i, upper + i, num_pixels - i, out + i);
+#endif
   }
 }
 #undef DO_PRED11
@@ -398,7 +410,7 @@ static void PredictorAdd11_SSE2(const uint32_t* in, const uint32_t* upper,
   src = _mm_srli_si128(src, 4);                             \
 } while (0)
 
-static void PredictorAdd12_SSE2(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd12_SSE2(const uint32_t* in, const uint32_t* upper,
                                 int num_pixels, uint32_t* out) {
   int i;
   const __m128i zero = _mm_setzero_si128();
@@ -424,7 +436,11 @@ static void PredictorAdd12_SSE2(const uint32_t* in, const uint32_t* upper,
     DO_PRED12(diff_hi, 1, 3);
   }
   if (i != num_pixels) {
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+    PredictorAdd12_C(in + i, upper + i, num_pixels - i, out + i);
+#else
     VP8LPredictorsAdd_C[12](in + i, upper + i, num_pixels - i, out + i);
+#endif
   }
 }
 #undef DO_PRED12
@@ -437,7 +453,7 @@ GENERATE_PREDICTOR_ADD(Predictor13_SSE2, PredictorAdd13_SSE2)
 //------------------------------------------------------------------------------
 // Subtract-Green Transform
 
-static void AddGreenToBlueAndRed_SSE2(const uint32_t* const src, int num_pixels,
+WEBP_STATIC void AddGreenToBlueAndRed_SSE2(const uint32_t* const src, int num_pixels,
                                       uint32_t* dst) {
   int i;
   for (i = 0; i + 4 <= num_pixels; i += 4) {
@@ -530,7 +546,7 @@ static void ConvertBGRAToRGB_SSE2(const uint32_t* src, int num_pixels,
   }
 }
 
-static void ConvertBGRAToRGBA_SSE2(const uint32_t* src,
+WEBP_STATIC void ConvertBGRAToRGBA_SSE2(const uint32_t* src,
                                    int num_pixels, uint8_t* dst) {
   const __m128i red_blue_mask = _mm_set1_epi32(0x00ff00ff);
   const __m128i* in = (const __m128i*)src;

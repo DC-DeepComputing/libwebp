@@ -34,7 +34,7 @@
 //------------------------------------------------------------------------------
 // Transforms (Paragraph 14.4)
 
-static void Transform_SSE2(const int16_t* in, uint8_t* dst, int do_two) {
+WEBP_STATIC void Transform_SSE2(const int16_t* in, uint8_t* dst, int do_two) {
   // This implementation makes use of 16-bit fixed point versions of two
   // multiply constants:
   //    K1 = sqrt(2) * cos (pi/8) ~= 85627 / 2^16
@@ -201,7 +201,7 @@ static void Transform_SSE2(const int16_t* in, uint8_t* dst, int do_two) {
 
 #if (USE_TRANSFORM_AC3 == 1)
 
-static void TransformAC3_SSE2(const int16_t* in, uint8_t* dst) {
+WEBP_STATIC void TransformAC3_SSE2(const int16_t* in, uint8_t* dst) {
   const __m128i A = _mm_set1_epi16(in[0] + 4);
   const __m128i c4 = _mm_set1_epi16(WEBP_TRANSFORM_AC3_MUL2(in[4]));
   const __m128i d4 = _mm_set1_epi16(WEBP_TRANSFORM_AC3_MUL1(in[4]));
@@ -592,7 +592,7 @@ static WEBP_INLINE void Store16x4_SSE2(const __m128i* const p1,
 //------------------------------------------------------------------------------
 // Simple In-loop filtering (Paragraph 15.2)
 
-static void SimpleVFilter16_SSE2(uint8_t* p, int stride, int thresh) {
+WEBP_STATIC void SimpleVFilter16_SSE2(uint8_t* p, int stride, int thresh) {
   // Load
   __m128i p1 = _mm_loadu_si128((__m128i*)&p[-2 * stride]);
   __m128i p0 = _mm_loadu_si128((__m128i*)&p[-stride]);
@@ -606,7 +606,7 @@ static void SimpleVFilter16_SSE2(uint8_t* p, int stride, int thresh) {
   _mm_storeu_si128((__m128i*)&p[0], q0);
 }
 
-static void SimpleHFilter16_SSE2(uint8_t* p, int stride, int thresh) {
+WEBP_STATIC void SimpleHFilter16_SSE2(uint8_t* p, int stride, int thresh) {
   __m128i p1, p0, q0, q1;
 
   p -= 2;  // beginning of p1
@@ -616,7 +616,7 @@ static void SimpleHFilter16_SSE2(uint8_t* p, int stride, int thresh) {
   Store16x4_SSE2(&p1, &p0, &q0, &q1, p, p + 8 * stride, stride);
 }
 
-static void SimpleVFilter16i_SSE2(uint8_t* p, int stride, int thresh) {
+WEBP_STATIC void SimpleVFilter16i_SSE2(uint8_t* p, int stride, int thresh) {
   int k;
   for (k = 3; k > 0; --k) {
     p += 4 * stride;
@@ -624,7 +624,7 @@ static void SimpleVFilter16i_SSE2(uint8_t* p, int stride, int thresh) {
   }
 }
 
-static void SimpleHFilter16i_SSE2(uint8_t* p, int stride, int thresh) {
+WEBP_STATIC void SimpleHFilter16i_SSE2(uint8_t* p, int stride, int thresh) {
   int k;
   for (k = 3; k > 0; --k) {
     p += 4;
@@ -688,7 +688,7 @@ static WEBP_INLINE void ComplexMask_SSE2(const __m128i* const p1,
 }
 
 // on macroblock edges
-static void VFilter16_SSE2(uint8_t* p, int stride,
+WEBP_STATIC void VFilter16_SSE2(uint8_t* p, int stride,
                            int thresh, int ithresh, int hev_thresh) {
   __m128i t1;
   __m128i mask;
@@ -714,7 +714,7 @@ static void VFilter16_SSE2(uint8_t* p, int stride,
   _mm_storeu_si128((__m128i*)&p[+2 * stride], q2);
 }
 
-static void HFilter16_SSE2(uint8_t* p, int stride,
+WEBP_STATIC void HFilter16_SSE2(uint8_t* p, int stride,
                            int thresh, int ithresh, int hev_thresh) {
   __m128i mask;
   __m128i p3, p2, p1, p0, q0, q1, q2, q3;
@@ -734,7 +734,7 @@ static void HFilter16_SSE2(uint8_t* p, int stride,
 }
 
 // on three inner edges
-static void VFilter16i_SSE2(uint8_t* p, int stride,
+WEBP_STATIC void VFilter16i_SSE2(uint8_t* p, int stride,
                             int thresh, int ithresh, int hev_thresh) {
   int k;
   __m128i p3, p2, p1, p0;   // loop invariants
@@ -767,7 +767,7 @@ static void VFilter16i_SSE2(uint8_t* p, int stride,
   }
 }
 
-static void HFilter16i_SSE2(uint8_t* p, int stride,
+WEBP_STATIC void HFilter16i_SSE2(uint8_t* p, int stride,
                             int thresh, int ithresh, int hev_thresh) {
   int k;
   __m128i p3, p2, p1, p0;   // loop invariants
@@ -796,7 +796,7 @@ static void HFilter16i_SSE2(uint8_t* p, int stride,
 }
 
 // 8-pixels wide variant, for chroma filtering
-static void VFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
+WEBP_STATIC void VFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
                           int thresh, int ithresh, int hev_thresh) {
   __m128i mask;
   __m128i t1, p2, p1, p0, q0, q1, q2;
@@ -821,7 +821,7 @@ static void VFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
   STOREUV(q2, u, v, 2 * stride);
 }
 
-static void HFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
+WEBP_STATIC void HFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
                           int thresh, int ithresh, int hev_thresh) {
   __m128i mask;
   __m128i p3, p2, p1, p0, q0, q1, q2, q3;
@@ -841,7 +841,7 @@ static void HFilter8_SSE2(uint8_t* u, uint8_t* v, int stride,
   Store16x4_SSE2(&q0, &q1, &q2, &q3, u, v, stride);
 }
 
-static void VFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
+WEBP_STATIC void VFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
                            int thresh, int ithresh, int hev_thresh) {
   __m128i mask;
   __m128i t1, t2, p1, p0, q0, q1;
@@ -867,7 +867,7 @@ static void VFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
   STOREUV(q1, u, v, 1 * stride);
 }
 
-static void HFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
+WEBP_STATIC void HFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
                            int thresh, int ithresh, int hev_thresh) {
   __m128i mask;
   __m128i t1, t2, p1, p0, q0, q1;
@@ -901,7 +901,7 @@ static void HFilter8i_SSE2(uint8_t* u, uint8_t* v, int stride,
 //   where: AC = (a + b + 1) >> 1,   BC = (b + c + 1) >> 1
 //   and ab = a ^ b, bc = b ^ c, lsb = (AC^BC)&1
 
-static void VE4_SSE2(uint8_t* dst) {    // vertical
+WEBP_STATIC void VE4_SSE2(uint8_t* dst) {    // vertical
   const __m128i one = _mm_set1_epi8(1);
   const __m128i ABCDEFGH = _mm_loadl_epi64((__m128i*)(dst - BPS - 1));
   const __m128i BCDEFGH0 = _mm_srli_si128(ABCDEFGH, 1);
@@ -917,7 +917,7 @@ static void VE4_SSE2(uint8_t* dst) {    // vertical
   }
 }
 
-static void LD4_SSE2(uint8_t* dst) {   // Down-Left
+WEBP_STATIC void LD4_SSE2(uint8_t* dst) {   // Down-Left
   const __m128i one = _mm_set1_epi8(1);
   const __m128i ABCDEFGH = _mm_loadl_epi64((__m128i*)(dst - BPS));
   const __m128i BCDEFGH0 = _mm_srli_si128(ABCDEFGH, 1);
@@ -933,7 +933,7 @@ static void LD4_SSE2(uint8_t* dst) {   // Down-Left
   WebPInt32ToMem(dst + 3 * BPS, _mm_cvtsi128_si32(_mm_srli_si128(abcdefg, 3)));
 }
 
-static void VR4_SSE2(uint8_t* dst) {   // Vertical-Right
+WEBP_STATIC void VR4_SSE2(uint8_t* dst) {   // Vertical-Right
   const __m128i one = _mm_set1_epi8(1);
   const int I = dst[-1 + 0 * BPS];
   const int J = dst[-1 + 1 * BPS];
@@ -958,7 +958,7 @@ static void VR4_SSE2(uint8_t* dst) {   // Vertical-Right
   DST(0, 3) = AVG3(K, J, I);
 }
 
-static void VL4_SSE2(uint8_t* dst) {   // Vertical-Left
+WEBP_STATIC void VL4_SSE2(uint8_t* dst) {   // Vertical-Left
   const __m128i one = _mm_set1_epi8(1);
   const __m128i ABCDEFGH = _mm_loadl_epi64((__m128i*)(dst - BPS));
   const __m128i BCDEFGH_ = _mm_srli_si128(ABCDEFGH, 1);
@@ -984,7 +984,7 @@ static void VL4_SSE2(uint8_t* dst) {   // Vertical-Left
   DST(3, 3) = (extra_out >> 8) & 0xff;
 }
 
-static void RD4_SSE2(uint8_t* dst) {   // Down-right
+WEBP_STATIC void RD4_SSE2(uint8_t* dst) {   // Down-right
   const __m128i one = _mm_set1_epi8(1);
   const __m128i XABCD = _mm_loadl_epi64((__m128i*)(dst - BPS - 1));
   const __m128i ____XABCD = _mm_slli_si128(XABCD, 4);
@@ -1050,11 +1050,11 @@ static WEBP_INLINE void TrueMotion_SSE2(uint8_t* dst, int size) {
   }
 }
 
-static void TM4_SSE2(uint8_t* dst)   { TrueMotion_SSE2(dst, 4); }
-static void TM8uv_SSE2(uint8_t* dst) { TrueMotion_SSE2(dst, 8); }
-static void TM16_SSE2(uint8_t* dst)  { TrueMotion_SSE2(dst, 16); }
+WEBP_STATIC void TM4_SSE2(uint8_t* dst)   { TrueMotion_SSE2(dst, 4); }
+WEBP_STATIC void TM8uv_SSE2(uint8_t* dst) { TrueMotion_SSE2(dst, 8); }
+WEBP_STATIC void TM16_SSE2(uint8_t* dst)  { TrueMotion_SSE2(dst, 16); }
 
-static void VE16_SSE2(uint8_t* dst) {
+WEBP_STATIC void VE16_SSE2(uint8_t* dst) {
   const __m128i top = _mm_loadu_si128((const __m128i*)(dst - BPS));
   int j;
   for (j = 0; j < 16; ++j) {
@@ -1062,7 +1062,7 @@ static void VE16_SSE2(uint8_t* dst) {
   }
 }
 
-static void HE16_SSE2(uint8_t* dst) {     // horizontal
+WEBP_STATIC void HE16_SSE2(uint8_t* dst) {     // horizontal
   int j;
   for (j = 16; j > 0; --j) {
     const __m128i values = _mm_set1_epi8((char)dst[-1]);
@@ -1079,7 +1079,7 @@ static WEBP_INLINE void Put16_SSE2(uint8_t v, uint8_t* dst) {
   }
 }
 
-static void DC16_SSE2(uint8_t* dst) {  // DC
+WEBP_STATIC void DC16_SSE2(uint8_t* dst) {  // DC
   const __m128i zero = _mm_setzero_si128();
   const __m128i top = _mm_loadu_si128((const __m128i*)(dst - BPS));
   const __m128i sad8x2 = _mm_sad_epu8(top, zero);
@@ -1096,7 +1096,7 @@ static void DC16_SSE2(uint8_t* dst) {  // DC
   }
 }
 
-static void DC16NoTop_SSE2(uint8_t* dst) {  // DC with top samples unavailable
+WEBP_STATIC void DC16NoTop_SSE2(uint8_t* dst) {  // DC with top samples unavailable
   int DC = 8;
   int j;
   for (j = 0; j < 16; ++j) {
@@ -1105,7 +1105,7 @@ static void DC16NoTop_SSE2(uint8_t* dst) {  // DC with top samples unavailable
   Put16_SSE2(DC >> 4, dst);
 }
 
-static void DC16NoLeft_SSE2(uint8_t* dst) {  // DC with left samples unavailable
+WEBP_STATIC void DC16NoLeft_SSE2(uint8_t* dst) {  // DC with left samples unavailable
   const __m128i zero = _mm_setzero_si128();
   const __m128i top = _mm_loadu_si128((const __m128i*)(dst - BPS));
   const __m128i sad8x2 = _mm_sad_epu8(top, zero);
@@ -1115,14 +1115,14 @@ static void DC16NoLeft_SSE2(uint8_t* dst) {  // DC with left samples unavailable
   Put16_SSE2(DC >> 4, dst);
 }
 
-static void DC16NoTopLeft_SSE2(uint8_t* dst) {  // DC with no top & left samples
+WEBP_STATIC void DC16NoTopLeft_SSE2(uint8_t* dst) {  // DC with no top & left samples
   Put16_SSE2(0x80, dst);
 }
 
 //------------------------------------------------------------------------------
 // Chroma
 
-static void VE8uv_SSE2(uint8_t* dst) {    // vertical
+WEBP_STATIC void VE8uv_SSE2(uint8_t* dst) {    // vertical
   int j;
   const __m128i top = _mm_loadl_epi64((const __m128i*)(dst - BPS));
   for (j = 0; j < 8; ++j) {
@@ -1139,7 +1139,7 @@ static WEBP_INLINE void Put8x8uv_SSE2(uint8_t v, uint8_t* dst) {
   }
 }
 
-static void DC8uv_SSE2(uint8_t* dst) {     // DC
+WEBP_STATIC void DC8uv_SSE2(uint8_t* dst) {     // DC
   const __m128i zero = _mm_setzero_si128();
   const __m128i top = _mm_loadl_epi64((const __m128i*)(dst - BPS));
   const __m128i sum = _mm_sad_epu8(top, zero);
@@ -1154,7 +1154,7 @@ static void DC8uv_SSE2(uint8_t* dst) {     // DC
   }
 }
 
-static void DC8uvNoLeft_SSE2(uint8_t* dst) {   // DC with no left samples
+WEBP_STATIC void DC8uvNoLeft_SSE2(uint8_t* dst) {   // DC with no left samples
   const __m128i zero = _mm_setzero_si128();
   const __m128i top = _mm_loadl_epi64((const __m128i*)(dst - BPS));
   const __m128i sum = _mm_sad_epu8(top, zero);
@@ -1162,7 +1162,7 @@ static void DC8uvNoLeft_SSE2(uint8_t* dst) {   // DC with no left samples
   Put8x8uv_SSE2(DC >> 3, dst);
 }
 
-static void DC8uvNoTop_SSE2(uint8_t* dst) {  // DC with no top samples
+WEBP_STATIC void DC8uvNoTop_SSE2(uint8_t* dst) {  // DC with no top samples
   int dc0 = 4;
   int i;
   for (i = 0; i < 8; ++i) {
@@ -1171,7 +1171,7 @@ static void DC8uvNoTop_SSE2(uint8_t* dst) {  // DC with no top samples
   Put8x8uv_SSE2(dc0 >> 3, dst);
 }
 
-static void DC8uvNoTopLeft_SSE2(uint8_t* dst) {    // DC with nothing
+WEBP_STATIC void DC8uvNoTopLeft_SSE2(uint8_t* dst) {    // DC with nothing
   Put8x8uv_SSE2(0x80, dst);
 }
 

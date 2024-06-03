@@ -23,6 +23,84 @@
 #include "src/dsp/lossless.h"
 #include "src/dsp/lossless_common.h"
 
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+
+#define PredictorAdd0  PredictorAdd0_C
+#define PredictorAdd1  PredictorAdd1_C
+#define PredictorAdd2  PredictorAdd2_C
+#define PredictorAdd3  PredictorAdd3_C
+#define PredictorAdd4  PredictorAdd4_C
+#define PredictorAdd5  PredictorAdd5_C
+#define PredictorAdd6  PredictorAdd6_C
+#define PredictorAdd7  PredictorAdd7_C
+#define PredictorAdd8  PredictorAdd8_C
+#define PredictorAdd9  PredictorAdd9_C
+#define PredictorAdd10 PredictorAdd10_C
+#define PredictorAdd11 PredictorAdd11_C
+#define PredictorAdd12 PredictorAdd12_C
+#define PredictorAdd13 PredictorAdd13_C
+
+#define TransformColorInverse VP8LTransformColorInverse_C
+
+#define AddGreenToBlueAndRed VP8LAddGreenToBlueAndRed_C
+
+#define ConvertBGRAToRGB VP8LConvertBGRAToRGB_C
+#define ConvertBGRAToRGBA VP8LConvertBGRAToRGBA_C
+
+#define ConvertBGRAToBGR VP8LConvertBGRAToBGR_C
+
+// Direct SIMDe functions
+#if defined(WEBP_WASMSIMD_DIRECT_FUNCTION_CALL)
+
+// The autovectorized versions of the 
+// following functions outperform the SSE
+// Intrinsic versions:
+// - PredictorAdd11
+// - TransformColorInverse
+
+#undef PredictorAdd0
+#undef PredictorAdd1
+#undef PredictorAdd2
+#undef PredictorAdd3
+#undef PredictorAdd4
+#undef PredictorAdd5
+#undef PredictorAdd6
+#undef PredictorAdd7
+#undef PredictorAdd8
+#undef PredictorAdd9
+#undef PredictorAdd10
+#undef PredictorAdd12
+#undef PredictorAdd13
+
+#define PredictorAdd0  PredictorAdd0_SSE2
+#define PredictorAdd1  PredictorAdd1_SSE2
+#define PredictorAdd2  PredictorAdd2_SSE2
+#define PredictorAdd3  PredictorAdd3_SSE2
+#define PredictorAdd4  PredictorAdd4_SSE2
+#define PredictorAdd5  PredictorAdd5_SSE2
+#define PredictorAdd6  PredictorAdd6_SSE2
+#define PredictorAdd7  PredictorAdd7_SSE2
+#define PredictorAdd8  PredictorAdd8_SSE2
+#define PredictorAdd9  PredictorAdd9_SSE2
+#define PredictorAdd10 PredictorAdd10_SSE2
+#define PredictorAdd12 PredictorAdd12_SSE2
+#define PredictorAdd13 PredictorAdd13_SSE2
+
+#undef AddGreenToBlueAndRed
+#define AddGreenToBlueAndRed AddGreenToBlueAndRed_SSE2
+
+#undef ConvertBGRAToRGB
+#define ConvertBGRAToRGB ConvertBGRAToRGB_SSE41
+
+#undef ConvertBGRAToRGBA
+#define ConvertBGRAToRGBA ConvertBGRAToRGBA_SSE2
+
+#undef ConvertBGRAToBGR
+#define ConvertBGRAToBGR ConvertBGRAToBGR_SSE41
+
+#endif /* WEBP_WASMSIMD_DIRECT_FUNCTION_CALL */
+#endif /* WEBP_WASM_DIRECT_FUNCTION_CALL */
+
 //------------------------------------------------------------------------------
 // Image transforms.
 
@@ -187,7 +265,7 @@ static void PredictorAdd0_C(const uint32_t* in, const uint32_t* upper,
   (void)upper;
   for (x = 0; x < num_pixels; ++x) out[x] = VP8LAddPixels(in[x], ARGB_BLACK);
 }
-static void PredictorAdd1_C(const uint32_t* in, const uint32_t* upper,
+WEBP_STATIC void PredictorAdd1_C(const uint32_t* in, const uint32_t* upper,
                             int num_pixels, uint32_t* out) {
   int i;
   uint32_t left = out[-1];
@@ -239,11 +317,70 @@ static void PredictorInverseTransform_C(const VP8LTransform* const transform,
       PredictorAdd2_C(in, out - width, 1, out);
       // .. the rest:
       while (x < width) {
-        const VP8LPredictorAddSubFunc pred_func =
-            VP8LPredictorsAdd[((*pred_mode_src++) >> 8) & 0xf];
+
         int x_end = (x & ~mask) + tile_width;
         if (x_end > width) x_end = width;
-        pred_func(in + x, out + x - width, x_end - x, out + x);
+
+        {
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+          const uint32_t pred_idx = ((*pred_mode_src++) >> 8) & 0xf;
+          switch (pred_idx) {
+            case 0:
+              PredictorAdd0(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 1:
+              PredictorAdd1(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 2:
+              PredictorAdd2(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 3:
+              PredictorAdd3(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 4:
+              PredictorAdd4(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 5:
+              PredictorAdd5(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 6:
+              PredictorAdd6(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 7:
+              PredictorAdd7(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 8:
+              PredictorAdd8(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 9:
+              PredictorAdd9(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 10:
+              PredictorAdd10(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 11:
+              PredictorAdd11(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 12:
+              PredictorAdd12(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 13:
+              PredictorAdd13(in + x, out + x - width, x_end - x, out + x);
+              break;
+            case 14:  /* padding security sentinels */
+            case 15:
+              PredictorAdd0(in + x, out + x - width, x_end - x, out + x);
+              break;
+            default: // Not reachable
+              assert(0);
+          }
+#else
+          const VP8LPredictorAddSubFunc pred_func =
+            VP8LPredictorsAdd[((*pred_mode_src++) >> 8) & 0xf];
+          pred_func(in + x, out + x - width, x_end - x, out + x);
+#endif
+        }
+
         x = x_end;
       }
       in += width;
@@ -323,13 +460,21 @@ static void ColorSpaceInverseTransform_C(const VP8LTransform* const transform,
     const uint32_t* const src_end = src + width;
     while (src < src_safe_end) {
       ColorCodeToMultipliers(*pred++, &m);
-      VP8LTransformColorInverse(&m, src, tile_width, dst);
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+      TransformColorInverse(&m, src, remaining_width, dst);
+#else
+      VP8LTransformColorInverse(&m, src, remaining_width, dst);
+#endif
       src += tile_width;
       dst += tile_width;
     }
     if (src < src_end) {  // Left-overs using C-version.
       ColorCodeToMultipliers(*pred++, &m);
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+      TransformColorInverse(&m, src, remaining_width, dst);
+#else
       VP8LTransformColorInverse(&m, src, remaining_width, dst);
+#endif
       src += remaining_width;
       dst += remaining_width;
     }
@@ -396,7 +541,11 @@ void VP8LInverseTransform(const VP8LTransform* const transform,
   assert(row_end <= transform->ysize_);
   switch (transform->type_) {
     case SUBTRACT_GREEN_TRANSFORM:
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+      AddGreenToBlueAndRed(in, (row_end - row_start) * width, out);
+#else
       VP8LAddGreenToBlueAndRed(in, (row_end - row_start) * width, out);
+#endif
       break;
     case PREDICTOR_TRANSFORM:
       PredictorInverseTransform_C(transform, row_start, row_end, in, out);
@@ -527,10 +676,18 @@ void VP8LConvertFromBGRA(const uint32_t* const in_data, int num_pixels,
                          WEBP_CSP_MODE out_colorspace, uint8_t* const rgba) {
   switch (out_colorspace) {
     case MODE_RGB:
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+      ConvertBGRAToRGB(in_data, num_pixels, rgba);
+#else
       VP8LConvertBGRAToRGB(in_data, num_pixels, rgba);
+#endif
       break;
     case MODE_RGBA:
+#if defined(WEBP_WASM_DIRECT_FUNCTION_CALL)
+      ConvertBGRAToRGBA(in_data, num_pixels, rgba);
+#else
       VP8LConvertBGRAToRGBA(in_data, num_pixels, rgba);
+#endif
       break;
     case MODE_rgbA:
       VP8LConvertBGRAToRGBA(in_data, num_pixels, rgba);

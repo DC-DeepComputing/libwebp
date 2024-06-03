@@ -23,7 +23,7 @@
 #include "src/dec/vp8i_dec.h"
 #include "src/utils/utils.h"
 
-static void HE16_SSE41(uint8_t* dst) {     // horizontal
+WEBP_STATIC void HE16_SSE41(uint8_t* dst) {     // horizontal
   int j;
   const __m128i kShuffle3 = _mm_set1_epi8(3);
   for (j = 16; j > 0; --j) {
