@@ -1,0 +1,124 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e61bf11d_a8ef9d91",
+        "filename": "tests/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "Remove \u0027Use\u0027, you have \u0027...can be used...\u0027",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 3
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed008bac_3291229c",
+        "filename": "tests/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "or `make -C build`",
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "230cb17d_66646659",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "remove the extra spaces here (`cmake-format` does).",
+      "range": {
+        "startLine": 39,
+        "startChar": 14,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "040d807f_455b7d56",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "thanks for adding these details.",
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70b503d8_e79f8c96",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "you can join these two lines with a semi-colon. That\u0027s more typical for bash style:\n\n`if [ \"$FUZZING_ENGINE\" \u003d\u003d \"libfuzzer\" ]; then`\n\nhttps://google.github.io/styleguide/shellguide.html#loops\n\nNot necessary, but since bash is expected `[[ ... ]]` is also preferred:\n\nhttps://google.github.io/styleguide/shellguide.html#loops",
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "54906271_b0fce2f8",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-04T18:42:48Z",
+      "side": 1,
+      "message": "`$(...)` is generally preferred:\n\nhttps://google.github.io/styleguide/shellguide.html#command-substitution",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 79
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
