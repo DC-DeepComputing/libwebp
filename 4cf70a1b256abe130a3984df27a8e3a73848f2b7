@@ -52,6 +52,42 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6b73837_58459a0e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "Solved with the CMake version check",
+      "parentUuid": "25d83fff_acc8798c",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55f72b1a_8e72015c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4a5b3bed_0a0a7ff7",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "062978a8_70431d1f",
@@ -65,6 +101,24 @@
       "writtenOn": "2024-05-31T17:18:45Z",
       "side": 1,
       "message": "This requires cmake 3.11.",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38cfdd8_1c1f6045",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "I now check for the CMake version to be at least 3.19",
+      "parentUuid": "062978a8_70431d1f",
       "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -86,6 +140,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32b296a1_ec969777",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "5f2ea5b4_98ea1f2e",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f94fef56_71254893",
@@ -103,6 +175,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8f17f8d0_efeeca57",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 3
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "Solved with the CMake version check",
+      "parentUuid": "f94fef56_71254893",
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e38e669d_feb05d73",
@@ -116,6 +206,30 @@
       "writtenOn": "2024-05-31T17:18:45Z",
       "side": 1,
       "message": "LLC?",
+      "range": {
+        "startLine": 1,
+        "startChar": 24,
+        "endLine": 1,
+        "endChar": 29
+      },
+      "revId": "4cf70a1b256abe130a3984df27a8e3a73848f2b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1ed5b68_0cf6cebb",
+        "filename": "tests/fuzzer/fuzz_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-04T12:15:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e38e669d_feb05d73",
       "range": {
         "startLine": 1,
         "startChar": 24,
