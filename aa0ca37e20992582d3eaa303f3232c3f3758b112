@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "381f4246_3605e31b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-05T01:09:57Z",
+      "side": 1,
+      "message": "When posting a new patch, don\u0027t forget to respond to the open comments or mark them \u0027Done\u0027, so reviewers know to take another look.\n\nI\u0027m a little skeptical of this change. It adds a maintenance burden for a path that won\u0027t be regularly tested. It should also have some integration in configure and CMake so the user could enable this option and where the headers are located. First, though, I\u0027d like to understand the motivation.",
+      "revId": "aa0ca37e20992582d3eaa303f3232c3f3758b112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
