@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec6789fc_5da202a7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-06T21:37:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "69796850_7a7ea5a7",
+      "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1f3df961_31b0298b",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-04T02:06:12Z",
       "side": 1,
       "message": "add a link to the project page here.",
+      "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51908ada_8a483bcb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-06T21:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f3df961_31b0298b",
       "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -65,6 +101,24 @@
       "writtenOn": "2024-06-04T02:06:12Z",
       "side": 1,
       "message": "Please have a look at the patch check failure:\n\nhttps://build.webmproject.org/jenkins/job/libwebp__patch_check/3321/console\n\nWe limit lines to 80 characters long in this project.",
+      "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62c359bf_23d7be91",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-06T21:37:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1e5b5b56_a3abfa4a",
       "revId": "eef81ddc66a3003cfe30e08166d1a63f81099c0a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
