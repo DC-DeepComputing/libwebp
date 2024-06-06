@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "722b67a3_ea6bf67c",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-06T17:32:55Z",
+      "side": 1,
+      "message": "indent is off here -\u003e https://chromium-review.googlesource.com/c/webm/libwebp/+/5605614",
+      "revId": "20e92f7d40740bb2d55fd6f8177b6b6ceb3bc88a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
