@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d91ba5bf_d60172d3",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2024-06-06T11:19:28Z",
+      "side": 1,
+      "message": "that",
+      "range": {
+        "startLine": 41,
+        "startChar": 21,
+        "endLine": 41,
+        "endChar": 24
+      },
+      "revId": "9a126f3d634f92d0e92bcb80ab6d375e25c4674c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
