@@ -34,6 +34,24 @@
       "parentUuid": "381f4246_3605e31b",
       "revId": "aa0ca37e20992582d3eaa303f3232c3f3758b112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d338cf69_ff34beb7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-07T00:46:56Z",
+      "side": 1,
+      "message": "\u003e The motivation is to reduce the performance degradation when using libwebp as part of a WebAssembly module (for example, as in Google\u0027s wasm-apprtc experiment).  When compiling upstream libwebp as is, we see a 34%+ slowdown in image decoding benchmarks, some taking up to twice as long.\n\u003e We\u0027ve identified the sources for some of these slowdowns; the PRs try to address the slowdowns we\u0027ve identified.  In particular: \n\u003e - SIMD-everywhere allows libwebp to automatically translate the SSE intrinsics to WASMSIMD intrinsics. Compared to any autovectorization performed by WASM compilers, this provides a 14-27% performance improvement in lossy decoding, and a 11-26% improvement in lossless decoding with the images found in the WebP sample gallery. \n\nIn your testing did you try `-DWEBP_ENABLE_SIMD\u003d1` to allow emscripten to work with the sse intrinsics directly?\n\n\u003e - Because WASM only has a single SIMD type, runtime checks and indirect calls are not necessary and actually detrimental to performance. Indirect calls in WASM are expensive because they require a lookup into a function table then a type comparison for control-flow integrity.\n\nIf they\u0027re cross module there isn\u0027t much optimization that can be done, but yes if they\u0027re able to be inlined there may be some minor benefit.\n\n\u003e - The other three patches enable existing code paths that helped the WASM build in our tests: VP8L_USE_FAST_LOAD, 64-bits, USE_GENERIC_TREE.\n\nI suggest reordering this change from small to large changes. The ones you mention here can probably be landed without much review while we discuss SIMDE and the function pointer removal. If we find SIMDE is really necessary, I\u0027d like to include some WASM developers to make some comparisons and hopefully improve the translation.",
+      "parentUuid": "9ec9d927_418abccb",
+      "revId": "aa0ca37e20992582d3eaa303f3232c3f3758b112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
