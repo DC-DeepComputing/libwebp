@@ -34,6 +34,24 @@
       "parentUuid": "a139c682_462a5fe5",
       "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2846bdc_97f97eec",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-10T23:08:41Z",
+      "side": 1,
+      "message": "\u003e I changed it to `__wasm__`, as both wasm32 and wasm64 support the u64 type.\n\u003e \n\n32-bit arm supports a 64-bit type too, but here we\u0027re trying to align to a natural register size. Do you have any 32-bit devices (like a chromebook for example) to test this change on?\n\n\u003e This is my complete configure:\n\nThank you. CMake has support for building the js as well, though it looks like you need to override some flags, which can be a little trickier.\n\n\u003e ```\n\u003e curprefix\u003d$(pwd)/libwebp_wasmsimd\n\u003e \n\u003e CFLAGS\u003d\"-O2 \\\n\u003e     -DUSE_GENERIC_TREE\u003d0 -DWEBP_WASM_DIRECT_FUNCTION_CALL -DWEBP_WASMSIMD_DIRECT_FUNCTION_CALL -D_WASI_EMULATED_SIGNAL \\\n\u003e     -msimd128 -DSIMDE_FLOAT16_API\u003d1 -DWEBP_USE_SIMDE -DSIMDE_ENABLE_NATIVE_ALIASES -I${SIMDE_PATH}\" \\\n\u003e     LDFLAGS\u003d\"-L${WASI_SDK_PATH}/share/wasi-sysroot/lib \\\n\u003e         -Wl,--no-entry \\\n\u003e         -Wl,--export-all \\\n\u003e         -Wl,--growable-table $*\" \\\n\u003e     LD\u003d${WASI_SDK_PATH}/bin/wasm-ld \\\n\u003e     CC\u003d${WASI_SDK_PATH}/bin/clang \\\n\u003e     AR\u003d${WASI_SDK_PATH}/bin/ar \\\n\u003e     LIBS\u003d-lwasi-emulated-signal \\\n\u003e     STRIP\u003d${WASI_SDK_PATH}/bin/strip \\\n\u003e     RANLIB\u003d${WASI_SDK_PATH}/bin/ranlib \\\n\u003e     ../configure \\\n\u003e     --with-sysroot\u003d${WASI_SDK_PATH}/share/wasi-sysroot \\\n\u003e     --host\u003dwasm32 \\\n\u003e     --prefix\u003d${curprefix} \\\n\u003e     --disable-libwebpdemux \\\n\u003e     --disable-libwebpmux \\\n\u003e     --disable-libwebpdecoder \\\n\u003e     --disable-png \\\n\u003e     --disable-tiff \\\n\u003e     --disable-jpeg \\\n\u003e     --disable-threading \\\n\u003e     --enable-sse4.1 \\\n\u003e     --enable-sse2\n\u003e ```",
+      "parentUuid": "9946fac2_fa5155e4",
+      "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
