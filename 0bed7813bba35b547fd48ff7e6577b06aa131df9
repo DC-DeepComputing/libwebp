@@ -16,6 +16,24 @@
       "message": "This could check `__wasm64__` or more generically `_LP64`. The default build is `__wasm32_`, how are you configuring your project?",
       "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9946fac2_fa5155e4",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-10T22:24:46Z",
+      "side": 1,
+      "message": "I changed it to `__wasm__`, as both wasm32 and wasm64 support the u64 type.\n\nThis is my complete configure:\n```\ncurprefix\u003d$(pwd)/libwebp_wasmsimd\n\nCFLAGS\u003d\"-O2 \\\n    -DUSE_GENERIC_TREE\u003d0 -DWEBP_WASM_DIRECT_FUNCTION_CALL -DWEBP_WASMSIMD_DIRECT_FUNCTION_CALL -D_WASI_EMULATED_SIGNAL \\\n    -msimd128 -DSIMDE_FLOAT16_API\u003d1 -DWEBP_USE_SIMDE -DSIMDE_ENABLE_NATIVE_ALIASES -I${SIMDE_PATH}\" \\\n    LDFLAGS\u003d\"-L${WASI_SDK_PATH}/share/wasi-sysroot/lib \\\n        -Wl,--no-entry \\\n        -Wl,--export-all \\\n        -Wl,--growable-table $*\" \\\n    LD\u003d${WASI_SDK_PATH}/bin/wasm-ld \\\n    CC\u003d${WASI_SDK_PATH}/bin/clang \\\n    AR\u003d${WASI_SDK_PATH}/bin/ar \\\n    LIBS\u003d-lwasi-emulated-signal \\\n    STRIP\u003d${WASI_SDK_PATH}/bin/strip \\\n    RANLIB\u003d${WASI_SDK_PATH}/bin/ranlib \\\n    ../configure \\\n    --with-sysroot\u003d${WASI_SDK_PATH}/share/wasi-sysroot \\\n    --host\u003dwasm32 \\\n    --prefix\u003d${curprefix} \\\n    --disable-libwebpdemux \\\n    --disable-libwebpmux \\\n    --disable-libwebpdecoder \\\n    --disable-png \\\n    --disable-tiff \\\n    --disable-jpeg \\\n    --disable-threading \\\n    --enable-sse4.1 \\\n    --enable-sse2\n```",
+      "parentUuid": "a139c682_462a5fe5",
+      "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
