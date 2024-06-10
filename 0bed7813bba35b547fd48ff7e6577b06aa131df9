@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a139c682_462a5fe5",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-10T21:00:23Z",
+      "side": 1,
+      "message": "This could check `__wasm64__` or more generically `_LP64`. The default build is `__wasm32_`, how are you configuring your project?",
+      "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
