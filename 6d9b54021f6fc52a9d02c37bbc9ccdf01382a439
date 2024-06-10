@@ -16,6 +16,23 @@
       "message": "btw, these \u0027#include \u003csmmintrin.h\u003e\u0027 and similar should probably be in dsp.h or equivalent, instead of scattered around the .c\u0027s.\nMaybe do that first, before considering simde",
       "revId": "6d9b54021f6fc52a9d02c37bbc9ccdf01382a439",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a03b0964_16e09855",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-10T21:08:53Z",
+      "side": 1,
+      "message": "Deepti, some discussion here and in the previous change about Wasm code generation and performance improvements.",
+      "revId": "6d9b54021f6fc52a9d02c37bbc9ccdf01382a439",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
