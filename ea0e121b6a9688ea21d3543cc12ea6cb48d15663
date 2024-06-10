@@ -16,6 +16,24 @@
       "message": "long line. If this list grows you could consider a case statement:\n\n```\ncase \"$FUZZING_ENGINE\" in\n  libfuzzer|centipede) ;;\n  *) exit ;;\nesac\n```",
       "revId": "ea0e121b6a9688ea21d3543cc12ea6cb48d15663",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b29e381c_70d77bff",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-10T20:38:38Z",
+      "side": 1,
+      "message": "Ideally, there would be no such condition. I believe centipede (the engine in fuzztest) needs to have a compatibility mode with more engines than libfuzzer. Maybe when its usage is more widespread ... https://github.com/google/oss-fuzz/issues/9299\nThis PR is needed to get this one working: https://github.com/google/oss-fuzz/pull/12045#issuecomment-2158926995\nWe could only rely on libfuzzer but it seems that centiped is working (locally at least).",
+      "parentUuid": "24a0bc36_85b29219",
+      "revId": "ea0e121b6a9688ea21d3543cc12ea6cb48d15663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
