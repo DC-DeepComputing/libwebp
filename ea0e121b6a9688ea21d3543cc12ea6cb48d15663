@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24a0bc36_85b29219",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 2
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-10T17:16:43Z",
+      "side": 1,
+      "message": "long line. If this list grows you could consider a case statement:\n\n```\ncase \"$FUZZING_ENGINE\" in\n  libfuzzer|centipede) ;;\n  *) exit ;;\nesac\n```",
+      "revId": "ea0e121b6a9688ea21d3543cc12ea6cb48d15663",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
