@@ -16,6 +16,24 @@
       "message": "Do you have any performance stats you can include for this?",
       "revId": "75d0b10cca710ecf303766a36b8b14edafd2bb3a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60e41aab_ec8254f0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-10T22:25:22Z",
+      "side": 1,
+      "message": "I added it to the commit message.",
+      "parentUuid": "393dcd5b_4985395d",
+      "revId": "75d0b10cca710ecf303766a36b8b14edafd2bb3a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
