@@ -16,6 +16,24 @@
       "message": "I don\u0027t think this is landable as is. It\u0027s quite a bit of noise and adds additional maintenance burden for limited gain.\n\nThe compiler will still need to dispatch to a function, so in most cases the optimization improvements are limited minus a table lookup here and there.",
       "revId": "90093d3f58b2f10658cb16d7e764b14b974e0808",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d0400f6_9ba18068",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1541292
+      },
+      "writtenOn": "2024-06-11T00:29:54Z",
+      "side": 1,
+      "message": "In our testing, this single change improved performance by 4-9% on lossy images and 16-27% on lossless images. Some insight as to why this change improves WASM performance is in this comment: \nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/5593964/comments/381f4246_3605e31b\n\nI am open to suggestions for alternate approaches to remove indirect calls in WASM.",
+      "parentUuid": "46985d07_f3e2eef5",
+      "revId": "90093d3f58b2f10658cb16d7e764b14b974e0808",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
