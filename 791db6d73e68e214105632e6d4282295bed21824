@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d92bbf08_96787a93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-06-11T07:50:29Z",
+      "side": 1,
+      "message": "agreed, that\u0027s a lot of noise and spaghetti code to maintain afterward.\nYou should rely more on the compiler to optimize out the function call indirection if it knows all the symbols. For instance i believe that if you do:\n\nstatic void (* const func)() \u003d func_C;    // note the \u0027const\u0027\n\nthen everytime you call *func or func() in the code, the compiler will know that it\u0027s func_C to actually call automatically.\n\nSo, the WASM compile could add this \u0027const\u0027 to signature, e.g.",
+      "revId": "791db6d73e68e214105632e6d4282295bed21824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
