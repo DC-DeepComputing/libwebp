@@ -33,6 +33,24 @@
       "message": "(and, yes, we should probably discuss these patches in webp-discuss for clarity)",
       "revId": "791db6d73e68e214105632e6d4282295bed21824",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff71bf2f_919c0c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-12T00:29:41Z",
+      "side": 1,
+      "message": "\u003e (and, yes, we should probably discuss these patches in webp-discuss for clarity)\n\nUnfortunately the mailing list has an issue where emails are being rejected in most cases. A bug might be a good place to start (https://bugs.chromium.org/p/webp/issues/entry). I\u0027d like to include Wasm developers in case they see areas for improvement.",
+      "parentUuid": "6c5cad70_5bc05653",
+      "revId": "791db6d73e68e214105632e6d4282295bed21824",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
