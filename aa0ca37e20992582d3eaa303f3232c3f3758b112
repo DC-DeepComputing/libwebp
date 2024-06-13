@@ -70,6 +70,24 @@
       "parentUuid": "d338cf69_ff34beb7",
       "revId": "aa0ca37e20992582d3eaa303f3232c3f3758b112",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41bf84d4_e25bc080",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1122079
+      },
+      "writtenOn": "2024-06-13T06:54:01Z",
+      "side": 1,
+      "message": "On the web, we do direct folks to use the intrinsics directly, or through the Emscripten headers for a well maintained path. While SIMDe is great, I would be a little bit concerned to take an explicit dependency on the project for Wasm intrinsics. Was using wasm intrinsics via the existing emscripten headers benchmarked against the SIMDe (instead of autovectorized Wasm code)? I\u0027m sympathetic to the use case of wanting to use different toolchains though. One other thing to note is that while SIMDe performance is pretty good for SSE intrinsics, depending on the benchmark, there could be a significant performance penalty on Neon, so that\u0027s another thing to consider if there should be consistency on what should be used to generate Wasm intrinsics across backends.",
+      "parentUuid": "3e8daaec_d01804b3",
+      "revId": "aa0ca37e20992582d3eaa303f3232c3f3758b112",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
