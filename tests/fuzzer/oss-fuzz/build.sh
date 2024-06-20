@@ -39,15 +39,22 @@
 set -eu
 
 # Avoid fuzz engines that do not compile.
-if [[ "$FUZZING_ENGINE" != "libfuzzer" && "$FUZZING_ENGINE" != "centipede" ]]; then
+if [[ "$FUZZING_ENGINE" != "libfuzzer" ]]; then
   exit
+fi
+
+EXTRA_CMAKE_FLAGS=""
+if [ "$FUZZING_ENGINE" == "libfuzzer" ]
+then
+  export CXXFLAGS="${CXXFLAGS} -DFUZZTEST_COMPATIBILITY_MODE"
+  EXTRA_CMAKE_FLAGS="-DFUZZTEST_COMPATIBILITY_MODE=libfuzzer"
 fi
 
 # limit allocation size to reduce spurious OOMs
 WEBP_CFLAGS="$CFLAGS -DWEBP_MAX_IMAGE_SIZE=838860800" # 800MiB
 
 export CFLAGS="$WEBP_CFLAGS"
-cmake -S . -B build -DWEBP_BUILD_FUZZTEST=ON
+cmake -S . -B build -DWEBP_BUILD_FUZZTEST=ON ${EXTRA_CMAKE_FLAGS}
 cd build && make -j$(nproc) && cd ..
 
 find $SRC/libwebp-test-data -type f -size -32k -iname "*.webp" \
