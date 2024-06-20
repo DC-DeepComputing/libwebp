@@ -1,5 +1,46 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a8d4bec_796c18d0",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-20T18:01:35Z",
+      "side": 1,
+      "message": "`[[` and `; then` would match the other lines and be more consistent with bash style.",
+      "range": {
+        "startLine": 47,
+        "startChar": 3,
+        "endLine": 47,
+        "endChar": 4
+      },
+      "revId": "9ce982fdf21764ef7b273f91d6d72721656c3e03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "63de1564_8bd8b87c",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-20T18:01:35Z",
+      "side": 1,
+      "message": "In earlier runs I thought I saw these defined. Did they get removed from the environment or the defaults change in the fuzztest cmake files?",
+      "revId": "9ce982fdf21764ef7b273f91d6d72721656c3e03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
