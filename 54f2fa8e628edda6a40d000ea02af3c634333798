@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8df16df9_b482198f",
+        "filename": "tests/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-25T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e61bf11d_a8ef9d91",
+      "range": {
+        "startLine": 14,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 3
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "ed008bac_3291229c",
         "filename": "tests/README.md",
         "patchSetId": 8
@@ -37,6 +61,24 @@
       "writtenOn": "2024-06-04T18:42:48Z",
       "side": 1,
       "message": "or `make -C build`",
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d0b441_02b8592f",
+        "filename": "tests/README.md",
+        "patchSetId": 8
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-25T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed008bac_3291229c",
       "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2024-06-04T18:42:48Z",
       "side": 1,
       "message": "remove the extra spaces here (`cmake-format` does).",
+      "range": {
+        "startLine": 39,
+        "startChar": 14,
+        "endLine": 39,
+        "endChar": 16
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cdec6f5_ca1eec93",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 8
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-25T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "230cb17d_66646659",
       "range": {
         "startLine": 39,
         "startChar": 14,
@@ -98,6 +164,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "98c9c7f6_73a6db93",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-25T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "70b503d8_e79f8c96",
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "54906271_b0fce2f8",
@@ -111,6 +195,30 @@
       "writtenOn": "2024-06-04T18:42:48Z",
       "side": 1,
       "message": "`$(...)` is generally preferred:\n\nhttps://google.github.io/styleguide/shellguide.html#command-substitution",
+      "range": {
+        "startLine": 61,
+        "startChar": 0,
+        "endLine": 61,
+        "endChar": 79
+      },
+      "revId": "54f2fa8e628edda6a40d000ea02af3c634333798",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff4d6bb_31b5610c",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 8
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-25T12:45:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54906271_b0fce2f8",
       "range": {
         "startLine": 61,
         "startChar": 0,
