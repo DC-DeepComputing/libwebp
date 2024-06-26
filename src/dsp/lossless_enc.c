@@ -25,7 +25,7 @@
 #include "src/dsp/yuv.h"
 
 // lookup table for small values of log2(int)
-const float kLog2Table[LOG_LOOKUP_IDX_MAX] = {
+const float kLog2fTable[LOG_LOOKUP_IDX_MAX] = {
   0.0000000000000000f, 0.0000000000000000f,
   1.0000000000000000f, 1.5849625007211560f,
   2.0000000000000000f, 2.3219280948873621f,
@@ -155,6 +155,55 @@ const float kLog2Table[LOG_LOOKUP_IDX_MAX] = {
   7.9772799234999167f, 7.9829935746943103f,
   7.9886846867721654f, 7.9943534368588577f
 };
+
+// lookup table for small values of log2(int) * (1 << LOG_2_PRECISION_BITS).
+// Obtained in Python with:
+// ','.join([ "%dll"%round((1<<LOG_2_PRECISION_BITS)*math.log2(i))
+//            if i else "0ll" for i in range(256)])
+const int64_t kLog2Table[LOG_LOOKUP_IDX_MAX] = {
+    0ll,        0ll,        8388608ll,  13295629ll, 16777216ll, 19477745ll,
+    21684237ll, 23549800ll, 25165824ll, 26591258ll, 27866353ll, 29019816ll,
+    30072845ll, 31041538ll, 31938408ll, 32773374ll, 33554432ll, 34288123ll,
+    34979866ll, 35634199ll, 36254961ll, 36845429ll, 37408424ll, 37946388ll,
+    38461453ll, 38955489ll, 39430146ll, 39886887ll, 40327016ll, 40751698ll,
+    41161982ll, 41558811ll, 41943040ll, 42315445ll, 42676731ll, 43027545ll,
+    43368474ll, 43700062ll, 44022807ll, 44337167ll, 44643569ll, 44942404ll,
+    45234037ll, 45518808ll, 45797032ll, 46069003ll, 46334996ll, 46595268ll,
+    46850061ll, 47099600ll, 47344097ll, 47583753ll, 47818754ll, 48049279ll,
+    48275495ll, 48497560ll, 48715624ll, 48929828ll, 49140306ll, 49347187ll,
+    49550590ll, 49750631ll, 49947419ll, 50141058ll, 50331648ll, 50519283ll,
+    50704053ll, 50886044ll, 51065339ll, 51242017ll, 51416153ll, 51587818ll,
+    51757082ll, 51924012ll, 52088670ll, 52251118ll, 52411415ll, 52569616ll,
+    52725775ll, 52879946ll, 53032177ll, 53182516ll, 53331012ll, 53477707ll,
+    53622645ll, 53765868ll, 53907416ll, 54047327ll, 54185640ll, 54322389ll,
+    54457611ll, 54591338ll, 54723604ll, 54854440ll, 54983876ll, 55111943ll,
+    55238669ll, 55364082ll, 55488208ll, 55611074ll, 55732705ll, 55853126ll,
+    55972361ll, 56090432ll, 56207362ll, 56323174ll, 56437887ll, 56551524ll,
+    56664103ll, 56775645ll, 56886168ll, 56995691ll, 57104232ll, 57211808ll,
+    57318436ll, 57424133ll, 57528914ll, 57632796ll, 57735795ll, 57837923ll,
+    57939198ll, 58039632ll, 58139239ll, 58238033ll, 58336027ll, 58433234ll,
+    58529666ll, 58625336ll, 58720256ll, 58814437ll, 58907891ll, 59000628ll,
+    59092661ll, 59183999ll, 59274652ll, 59364632ll, 59453947ll, 59542609ll,
+    59630625ll, 59718006ll, 59804761ll, 59890898ll, 59976426ll, 60061354ll,
+    60145690ll, 60229443ll, 60312620ll, 60395229ll, 60477278ll, 60558775ll,
+    60639726ll, 60720140ll, 60800023ll, 60879382ll, 60958224ll, 61036555ll,
+    61114383ll, 61191714ll, 61268554ll, 61344908ll, 61420785ll, 61496188ll,
+    61571124ll, 61645600ll, 61719620ll, 61793189ll, 61866315ll, 61939001ll,
+    62011253ll, 62083076ll, 62154476ll, 62225457ll, 62296024ll, 62366182ll,
+    62435935ll, 62505289ll, 62574248ll, 62642816ll, 62710997ll, 62778797ll,
+    62846219ll, 62913267ll, 62979946ll, 63046260ll, 63112212ll, 63177807ll,
+    63243048ll, 63307939ll, 63372484ll, 63436687ll, 63500551ll, 63564080ll,
+    63627277ll, 63690146ll, 63752690ll, 63814912ll, 63876816ll, 63938405ll,
+    63999682ll, 64060650ll, 64121313ll, 64181673ll, 64241734ll, 64301498ll,
+    64360969ll, 64420148ll, 64479040ll, 64537646ll, 64595970ll, 64654014ll,
+    64711782ll, 64769274ll, 64826495ll, 64883447ll, 64940132ll, 64996553ll,
+    65052711ll, 65108611ll, 65164253ll, 65219641ll, 65274776ll, 65329662ll,
+    65384299ll, 65438691ll, 65492840ll, 65546747ll, 65600416ll, 65653847ll,
+    65707044ll, 65760008ll, 65812741ll, 65865245ll, 65917522ll, 65969575ll,
+    66021404ll, 66073013ll, 66124403ll, 66175575ll, 66226531ll, 66277275ll,
+    66327806ll, 66378127ll, 66428240ll, 66478146ll, 66527847ll, 66577345ll,
+    66626641ll, 66675737ll, 66724635ll, 66773336ll, 66821842ll, 66870154ll,
+    66918274ll, 66966204ll, 67013944ll, 67061497ll};
 
 const float kSLog2Table[LOG_LOOKUP_IDX_MAX] = {
   0.00000000f,    0.00000000f,  2.00000000f,   4.75488750f,
@@ -356,43 +405,41 @@ static float FastSLog2Slow_C(uint32_t v) {
     // log2(1 + (v % y) / v) ~ LOG_2_RECIPROCAL * (v % y)/v
     // LOG_2_RECIPROCAL ~ 23/16
     correction = (23 * (orig_v & (y - 1))) >> 4;
-    return v_f * (kLog2Table[v] + log_cnt) + correction;
+    return v_f * (kLog2fTable[v] + log_cnt) + correction;
   } else {
     return (float)(LOG_2_RECIPROCAL * v * log((double)v));
   }
 }
 
-static float FastLog2Slow_C(uint32_t v) {
+static int64_t FastLog2Slow_C(uint32_t v) {
   assert(v >= LOG_LOOKUP_IDX_MAX);
   if (v < APPROX_LOG_WITH_CORRECTION_MAX) {
+    const int64_t orig_v = v;
+    int64_t log_2;
 #if !defined(WEBP_HAVE_SLOW_CLZ_CTZ)
     // use clz if available
-    const int log_cnt = BitsLog2Floor(v) - 7;
-    const uint32_t y = 1 << log_cnt;
-    const uint32_t orig_v = v;
-    double log_2;
+    const int64_t log_cnt = BitsLog2Floor(v) - 7;
+    const int64_t y = 1 << log_cnt;
     v >>= log_cnt;
 #else
-    int log_cnt = 0;
-    uint32_t y = 1;
-    const uint32_t orig_v = v;
-    double log_2;
+    int64_t log_cnt = 0;
+    int64_t y = 1;
     do {
       ++log_cnt;
       v = v >> 1;
       y = y << 1;
     } while (v >= LOG_LOOKUP_IDX_MAX);
 #endif
-    log_2 = kLog2Table[v] + log_cnt;
+    log_2 = kLog2Table[v] + (log_cnt << LOG_2_PRECISION_BITS);
     if (orig_v >= APPROX_LOG_MAX) {
       // Since the division is still expensive, add this correction factor only
       // for large values of 'v'.
-      const int correction = (23 * (orig_v & (y - 1))) >> 4;
-      log_2 += (double)correction / orig_v;
+      const int64_t correction = LOG_2_RECIPROCAL_FIXED * (orig_v & (y - 1));
+      log_2 += DivRound(correction, orig_v);
     }
-    return (float)log_2;
+    return log_2;
   } else {
-    return (float)(LOG_2_RECIPROCAL * log((double)v));
+    return (int64_t)(LOG_2_RECIPROCAL_FIXED_DOUBLE * log((double)v) + .5);
   }
 }
 
@@ -779,7 +826,7 @@ VP8LCollectColorBlueTransformsFunc VP8LCollectColorBlueTransforms;
 VP8LCollectColorRedTransformsFunc VP8LCollectColorRedTransforms;
 
 VP8LFastLog2SlowFunc VP8LFastLog2Slow;
-VP8LFastLog2SlowFunc VP8LFastSLog2Slow;
+VP8LFastSLog2SlowFunc VP8LFastSLog2Slow;
 
 VP8LCostFunc VP8LExtraCost;
 VP8LCostCombinedFunc VP8LExtraCostCombined;
