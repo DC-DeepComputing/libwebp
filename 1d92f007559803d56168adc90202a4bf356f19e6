@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7334719_7ce87fb3",
+        "filename": "src/dsp/lossless_common.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "834ea8e2_b963ffcd",
+      "range": {
+        "startLine": 107,
+        "startChar": 15,
+        "endLine": 107,
+        "endChar": 18
+      },
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1c91024d_2d25cc7b",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-26T19:37:29Z",
       "side": 1,
       "message": "none of these exceed int bounds, so the suffix isn\u0027t really necessary.",
+      "range": {
+        "startLine": 164,
+        "startChar": 5,
+        "endLine": 164,
+        "endChar": 7
+      },
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "66d68fa0_d3b58448",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1c91024d_2d25cc7b",
       "range": {
         "startLine": 164,
         "startChar": 5,
@@ -70,6 +118,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "86c9bbec_5e21d873",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 206,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fcdd63d8_d71a09f1",
+      "range": {
+        "startLine": 206,
+        "startChar": 50,
+        "endLine": 206,
+        "endChar": 52
+      },
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bfef202_92d9d286",
@@ -83,6 +155,24 @@
       "writtenOn": "2024-06-26T19:37:29Z",
       "side": 1,
       "message": "in most places we\u0027re using webp/types.h since stdint is a part of c99.",
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8a3f61b_1c12e4a1",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bfef202_92d9d286",
       "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -104,6 +194,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5d0153_06e783fd",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Because I now use sizeof(*cost_model-\u003eliteral_) to define literal_array_size. I thought it was safer than using sizeof(int64_t)",
+      "parentUuid": "891f0f79_a5660959",
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c46a0e9_77373a87",
@@ -117,6 +225,30 @@
       "writtenOn": "2024-06-26T19:37:29Z",
       "side": 1,
       "message": "The suffix shouldn\u0027t be needed",
+      "range": {
+        "startLine": 616,
+        "startChar": 33,
+        "endLine": 616,
+        "endChar": 36
+      },
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2641760b_2bd5dd94",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 616,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-06-27T07:56:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c46a0e9_77373a87",
       "range": {
         "startLine": 616,
         "startChar": 33,
