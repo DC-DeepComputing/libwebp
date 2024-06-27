@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba091732_7de0b76a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T22:42:25Z",
+      "side": 1,
+      "message": "Any coding stats to share as part of the change?",
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35844044_c40f604b",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T22:42:25Z",
+      "side": 1,
+      "message": "all the other tables are indented by 2 spaces.",
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7181bf4d_b68b3e74",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T22:42:25Z",
+      "side": 1,
+      "message": "do you want `(1ll \u003c\u003c 63) - 1` to match the original? Do costs regularly exceed 32-bits?",
+      "range": {
+        "startLine": 323,
+        "startChar": 55,
+        "endLine": 323,
+        "endChar": 64
+      },
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

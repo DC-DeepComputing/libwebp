@@ -214,6 +214,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "255bb754_ab988f27",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T22:42:25Z",
+      "side": 1,
+      "message": "\u003e Because I now use sizeof(*cost_model-\u003eliteral_) to define literal_array_size. I thought it was safer than using sizeof(int64_t)\n\nbut why not leave the assignment where it was?",
+      "parentUuid": "de5d0153_06e783fd",
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5c46a0e9_77373a87",
         "filename": "src/enc/backward_references_cost_enc.c",
         "patchSetId": 5
