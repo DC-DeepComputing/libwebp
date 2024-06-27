@@ -52,6 +52,24 @@
       "parentUuid": "9946fac2_fa5155e4",
       "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6904b2bc_f033bac7",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T00:00:38Z",
+      "side": 1,
+      "message": "\u003e \u003e I changed it to `__wasm__`, as both wasm32 and wasm64 support the u64 type.\n\u003e \u003e \n\u003e \n\u003e 32-bit arm supports a 64-bit type too, but here we\u0027re trying to align to a natural register size. Do you have any 32-bit devices (like a chromebook for example) to test this change on?\n\u003e \n\nIf you want to try to run a 32-bit binary on a 64-bit machine that would be helpful. Otherwise, I think it\u0027s simpler to make this target 64-bit only to start with. 32-bit can be enabled in another patch.",
+      "parentUuid": "a2846bdc_97f97eec",
+      "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
