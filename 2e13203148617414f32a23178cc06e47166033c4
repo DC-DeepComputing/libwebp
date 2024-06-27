@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff0a39a1_0d5efb68",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-27T22:35:08Z",
+      "side": 1,
+      "message": "add `Bug: webp:643`.",
+      "revId": "2e13203148617414f32a23178cc06e47166033c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
