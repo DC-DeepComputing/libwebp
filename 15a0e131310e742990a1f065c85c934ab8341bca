@@ -56,6 +56,30 @@
       },
       "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b2a7071_956196cd",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-06-28T00:22:50Z",
+      "side": 1,
+      "message": "\u003e do you want `(1ll \u003c\u003c 63) - 1` to match the original? Do costs regularly exceed 32-bits?\n\nActually you\u0027d need ull and a cast to avoid an overflow warning.",
+      "parentUuid": "7181bf4d_b68b3e74",
+      "range": {
+        "startLine": 323,
+        "startChar": 55,
+        "endLine": 323,
+        "endChar": 64
+      },
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
