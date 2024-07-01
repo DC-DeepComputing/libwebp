@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf31809f_f83d1e24",
+        "filename": "src/dsp/lossless_common.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-01T22:20:23Z",
+      "side": 1,
+      "message": "this extra space can be removed",
+      "range": {
+        "startLine": 78,
+        "startChar": 19,
+        "endLine": 78,
+        "endChar": 20
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2dbd71ac_9206a683",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/lossless_common.h",
+              "range": {
+                "startLine": 78,
+                "startChar": 0,
+                "endLine": 79,
+                "endChar": 0
+              },
+              "replacement": "// is (1 \u003c\u003c 14) * (1 \u003c\u003c 14). Therefore S * log(S) \u003c (1 \u003c\u003c 33).\n"
+            }
+          ]
+        }
+      ],
+      "revId": "42b2e37952b832c1f64dadd334c8a8913f2e7388",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
