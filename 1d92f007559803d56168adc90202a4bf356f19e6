@@ -248,6 +248,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff2c7846_912b45c3",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 593,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-01T18:33:42Z",
+      "side": 1,
+      "message": "\u003e There was a circular dependency cost_model-\u003eliteral_array_size-\u003ecost_model.\n\u003e I made depend on `sizeof(((CostModel*)NULL)-\u003eliteral_)` instead of `sizeof(cost_model-\u003eliteral_)`\n\nSorry, I missed the circular dependency.",
+      "parentUuid": "02365916_df9d5bb1",
+      "revId": "1d92f007559803d56168adc90202a4bf356f19e6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5c46a0e9_77373a87",

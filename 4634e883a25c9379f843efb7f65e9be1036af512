@@ -16,6 +16,46 @@
       "message": "I added some benchmark infos and I also switched the log function to returning a uint32_t to use less RAM with the table.",
       "revId": "4634e883a25c9379f843efb7f65e9be1036af512",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c965c46_8698127d",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-01T18:33:42Z",
+      "side": 1,
+      "message": "I think you want `sizeof(*((CostModel*)NULL)-\u003eliteral_)`, no?",
+      "revId": "4634e883a25c9379f843efb7f65e9be1036af512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5afb38_0e0ba231",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-01T18:33:42Z",
+      "side": 1,
+      "message": "these extra ()s can be removed.",
+      "range": {
+        "startLine": 584,
+        "startChar": 36,
+        "endLine": 584,
+        "endChar": 37
+      },
+      "revId": "4634e883a25c9379f843efb7f65e9be1036af512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
