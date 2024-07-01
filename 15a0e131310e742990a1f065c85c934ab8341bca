@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0e40381_a2ea4d34",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-01T08:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ba091732_7de0b76a",
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35844044_c40f604b",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-27T22:42:25Z",
       "side": 1,
       "message": "all the other tables are indented by 2 spaces.",
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7fbca4b_c86afdb6",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-01T08:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35844044_c40f604b",
       "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -72,6 +108,30 @@
       "side": 1,
       "message": "\u003e do you want `(1ll \u003c\u003c 63) - 1` to match the original? Do costs regularly exceed 32-bits?\n\nActually you\u0027d need ull and a cast to avoid an overflow warning.",
       "parentUuid": "7181bf4d_b68b3e74",
+      "range": {
+        "startLine": 323,
+        "startChar": 55,
+        "endLine": 323,
+        "endChar": 64
+      },
+      "revId": "15a0e131310e742990a1f065c85c934ab8341bca",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff4c624_13d8dca3",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-01T08:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b2a7071_956196cd",
       "range": {
         "startLine": 323,
         "startChar": 55,
