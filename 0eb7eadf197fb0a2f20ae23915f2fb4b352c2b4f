@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "decac60b_158f3bbd",
+        "filename": "src/dsp/lossless_common.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 114,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-02T12:40:35Z",
+      "side": 1,
+      "message": "jzern@, would you rather name it VP8L_INT_MAX ?",
+      "fixSuggestions": [
+        {
+          "fixId": "d07d8a47_a7d6959b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/lossless_common.h",
+              "range": {
+                "startLine": 114,
+                "startChar": 0,
+                "endLine": 115,
+                "endChar": 0
+              },
+              "replacement": "#define VP8L_INT64_MAX ((int64_t)((1ull \u003c\u003c 63) - 1))\n"
+            }
+          ]
+        }
+      ],
+      "revId": "0eb7eadf197fb0a2f20ae23915f2fb4b352c2b4f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
