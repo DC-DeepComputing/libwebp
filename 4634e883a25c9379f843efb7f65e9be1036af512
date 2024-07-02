@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5899e6d7_016bdf5b",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 583,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-02T08:28:34Z",
+      "side": 1,
+      "message": "Indeed !",
+      "parentUuid": "5c965c46_8698127d",
+      "revId": "4634e883a25c9379f843efb7f65e9be1036af512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b5afb38_0e0ba231",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-07-01T18:33:42Z",
       "side": 1,
       "message": "these extra ()s can be removed.",
+      "range": {
+        "startLine": 584,
+        "startChar": 36,
+        "endLine": 584,
+        "endChar": 37
+      },
+      "revId": "4634e883a25c9379f843efb7f65e9be1036af512",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a85a24a_d91dc9ab",
+        "filename": "src/enc/backward_references_cost_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 584,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-02T08:28:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b5afb38_0e0ba231",
       "range": {
         "startLine": 584,
         "startChar": 36,
