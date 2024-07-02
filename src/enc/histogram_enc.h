@@ -117,11 +117,11 @@ int VP8LGetHistoImageSymbols(int xsize, int ysize,
                              int* const percent);
 
 // Returns the entropy for the symbols in the input array.
-float VP8LBitsEntropy(const uint32_t* const array, int n);
+int64_t VP8LBitsEntropy(const uint32_t* const array, int n);
 
 // Estimate how many bits the combined entropy of literals and distance
 // approximately maps to.
-float VP8LHistogramEstimateBits(VP8LHistogram* const p);
+int64_t VP8LHistogramEstimateBits(VP8LHistogram* const p);
 
 #ifdef __cplusplus
 }

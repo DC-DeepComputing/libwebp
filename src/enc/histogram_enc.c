@@ -14,7 +14,6 @@
 #endif
 
 #include <float.h>
-#include <math.h>
 
 #include "src/dsp/lossless.h"
 #include "src/dsp/lossless_common.h"
@@ -230,8 +229,10 @@ void VP8LHistogramAddSinglePixOrCopy(VP8LHistogram* const histo,
 // -----------------------------------------------------------------------------
 // Entropy-related functions.
 
-static WEBP_INLINE float BitsEntropyRefine(const VP8LBitEntropy* entropy) {
-  float mix;
+static WEBP_INLINE int64_t BitsEntropyRefine(const VP8LBitEntropy* entropy) {
+  int64_t mix;
+  const int64_t fixed_point_entropy =
+      (int64_t)(entropy->entropy * (1ll << LOG_2_PRECISION_BITS) + .5);
   if (entropy->nonzeros < 5) {
     if (entropy->nonzeros <= 1) {
       return 0;
@@ -240,67 +241,72 @@ static WEBP_INLINE float BitsEntropyRefine(const VP8LBitEntropy* entropy) {
     // Let's mix in a bit of entropy to favor good clustering when
     // distributions of these are combined.
     if (entropy->nonzeros == 2) {
-      return 0.99f * entropy->sum + 0.01f * entropy->entropy;
+      return DivRound(99 * ((int64_t)entropy->sum << LOG_2_PRECISION_BITS) +
+                          fixed_point_entropy,
+                      100);
     }
     // No matter what the entropy says, we cannot be better than min_limit
     // with Huffman coding. I am mixing a bit of entropy into the
     // min_limit since it produces much better (~0.5 %) compression results
     // perhaps because of better entropy clustering.
     if (entropy->nonzeros == 3) {
-      mix = 0.95f;
+      mix = 950;
     } else {
-      mix = 0.7f;  // nonzeros == 4.
+      mix = 700;  // nonzeros == 4.
     }
   } else {
-    mix = 0.627f;
+    mix = 627;
   }
 
   {
-    float min_limit = 2.f * entropy->sum - entropy->max_val;
-    min_limit = mix * min_limit + (1.f - mix) * entropy->entropy;
-    return (entropy->entropy < min_limit) ? min_limit : entropy->entropy;
+    int64_t min_limit = (int64_t)(2 * entropy->sum - entropy->max_val)
+                        << LOG_2_PRECISION_BITS;
+    min_limit =
+        DivRound(mix * min_limit + (1000 - mix) * fixed_point_entropy, 1000);
+    return (fixed_point_entropy < min_limit) ? min_limit : fixed_point_entropy;
   }
 }
 
-float VP8LBitsEntropy(const uint32_t* const array, int n) {
+int64_t VP8LBitsEntropy(const uint32_t* const array, int n) {
   VP8LBitEntropy entropy;
   VP8LBitsEntropyUnrefined(array, n, &entropy);
 
   return BitsEntropyRefine(&entropy);
 }
 
-static float InitialHuffmanCost(void) {
+static int64_t InitialHuffmanCost(void) {
   // Small bias because Huffman code length is typically not stored in
   // full length.
-  static const int kHuffmanCodeOfHuffmanCodeSize = CODE_LENGTH_CODES * 3;
-  static const float kSmallBias = 9.1f;
-  return kHuffmanCodeOfHuffmanCodeSize - kSmallBias;
+  static const int64_t kHuffmanCodeOfHuffmanCodeSize = CODE_LENGTH_CODES * 3;
+  // Subtract a bias of 9.1.
+  return (kHuffmanCodeOfHuffmanCodeSize << LOG_2_PRECISION_BITS) -
+         DivRound(91ll << LOG_2_PRECISION_BITS, 10);
 }
 
 // Finalize the Huffman cost based on streak numbers and length type (<3 or >=3)
-static float FinalHuffmanCost(const VP8LStreaks* const stats) {
-  // The constants in this function are experimental and got rounded from
+static int64_t FinalHuffmanCost(const VP8LStreaks* const stats) {
+  // The constants in this function are empirical and got rounded from
   // their original values in 1/8 when switched to 1/1024.
-  float retval = InitialHuffmanCost();
+  int64_t retval = InitialHuffmanCost();
   // Second coefficient: Many zeros in the histogram are covered efficiently
   // by a run-length encode. Originally 2/8.
-  retval += stats->counts[0] * 1.5625f + 0.234375f * stats->streaks[0][1];
+  int64_t retval_extra = stats->counts[0] * 1600 + 240 * stats->streaks[0][1];
   // Second coefficient: Constant values are encoded less efficiently, but still
   // RLE'ed. Originally 6/8.
-  retval += stats->counts[1] * 2.578125f + 0.703125f * stats->streaks[1][1];
+  retval_extra += stats->counts[1] * 2640 + 720 * stats->streaks[1][1];
   // 0s are usually encoded more efficiently than non-0s.
   // Originally 15/8.
-  retval += 1.796875f * stats->streaks[0][0];
+  retval_extra += 1840 * stats->streaks[0][0];
   // Originally 26/8.
-  retval += 3.28125f * stats->streaks[1][0];
-  return retval;
+  retval_extra += 3360 * stats->streaks[1][0];
+  return retval + (retval_extra << (LOG_2_PRECISION_BITS - 10));
 }
 
 // Get the symbol entropy for the distribution 'population'.
 // Set 'trivial_sym', if there's only one symbol present in the distribution.
-static float PopulationCost(const uint32_t* const population, int length,
-                            uint32_t* const trivial_sym,
-                            uint8_t* const is_used) {
+static int64_t PopulationCost(const uint32_t* const population, int length,
+                              uint32_t* const trivial_sym,
+                              uint8_t* const is_used) {
   VP8LBitEntropy bit_entropy;
   VP8LStreaks stats;
   VP8LGetEntropyUnrefined(population, length, &bit_entropy, &stats);
@@ -312,6 +318,14 @@ static float PopulationCost(const uint32_t* const population, int length,
   *is_used = (stats.streaks[1][0] != 0 || stats.streaks[1][1] != 0);
 
   return BitsEntropyRefine(&bit_entropy) + FinalHuffmanCost(&stats);
+}
+
+// TODO(vrabaud): remove when fully switched to fixed point.
+static float PopulationCostFloat(const uint32_t* const population, int length,
+                                 uint32_t* const trivial_sym,
+                                 uint8_t* const is_used) {
+  return (float)PopulationCost(population, length, trivial_sym, is_used) /
+         (1ll << LOG_2_PRECISION_BITS);
 }
 
 // trivial_at_end is 1 if the two histograms only have one element that is
@@ -332,7 +346,7 @@ static WEBP_INLINE float GetCombinedEntropy(const uint32_t* const X,
     // Deal with the following/previous zero streak.
     stats.counts[0] = 1;
     stats.streaks[0][1] = length - 1;
-    return FinalHuffmanCost(&stats);
+    return (float)FinalHuffmanCost(&stats) / (1ll << LOG_2_PRECISION_BITS);
   } else {
     VP8LBitEntropy bit_entropy;
     if (is_X_used) {
@@ -352,12 +366,13 @@ static WEBP_INLINE float GetCombinedEntropy(const uint32_t* const X,
       }
     }
 
-    return BitsEntropyRefine(&bit_entropy) + FinalHuffmanCost(&stats);
+    return (float)(BitsEntropyRefine(&bit_entropy) + FinalHuffmanCost(&stats)) /
+           (1ll << LOG_2_PRECISION_BITS);
   }
 }
 
 // Estimates the Entropy + Huffman + other block overhead size cost.
-float VP8LHistogramEstimateBits(VP8LHistogram* const p) {
+int64_t VP8LHistogramEstimateBits(VP8LHistogram* const p) {
   return PopulationCost(p->literal_,
                         VP8LHistogramNumCodes(p->palette_code_bits_), NULL,
                         &p->is_used_[0]) +
@@ -366,9 +381,10 @@ float VP8LHistogramEstimateBits(VP8LHistogram* const p) {
          PopulationCost(p->alpha_, NUM_LITERAL_CODES, NULL, &p->is_used_[3]) +
          PopulationCost(p->distance_, NUM_DISTANCE_CODES, NULL,
                         &p->is_used_[4]) +
-         (float)VP8LExtraCost(p->literal_ + NUM_LITERAL_CODES,
-                              NUM_LENGTH_CODES) +
-         (float)VP8LExtraCost(p->distance_, NUM_DISTANCE_CODES);
+         ((int64_t)(VP8LExtraCost(p->literal_ + NUM_LITERAL_CODES,
+                                  NUM_LENGTH_CODES) +
+                    VP8LExtraCost(p->distance_, NUM_DISTANCE_CODES))
+          << LOG_2_PRECISION_BITS);
 }
 
 // -----------------------------------------------------------------------------
@@ -504,19 +520,20 @@ static void UpdateDominantCostRange(
 
 static void UpdateHistogramCost(VP8LHistogram* const h) {
   uint32_t alpha_sym, red_sym, blue_sym;
-  const float alpha_cost =
-      PopulationCost(h->alpha_, NUM_LITERAL_CODES, &alpha_sym, &h->is_used_[3]);
+  const float alpha_cost = PopulationCostFloat(h->alpha_, NUM_LITERAL_CODES,
+                                               &alpha_sym, &h->is_used_[3]);
   const float distance_cost =
-      PopulationCost(h->distance_, NUM_DISTANCE_CODES, NULL, &h->is_used_[4]) +
+      PopulationCostFloat(h->distance_, NUM_DISTANCE_CODES, NULL,
+                          &h->is_used_[4]) +
       (float)VP8LExtraCost(h->distance_, NUM_DISTANCE_CODES);
   const int num_codes = VP8LHistogramNumCodes(h->palette_code_bits_);
   h->literal_cost_ =
-      PopulationCost(h->literal_, num_codes, NULL, &h->is_used_[0]) +
+      PopulationCostFloat(h->literal_, num_codes, NULL, &h->is_used_[0]) +
       (float)VP8LExtraCost(h->literal_ + NUM_LITERAL_CODES, NUM_LENGTH_CODES);
-  h->red_cost_ =
-      PopulationCost(h->red_, NUM_LITERAL_CODES, &red_sym, &h->is_used_[1]);
-  h->blue_cost_ =
-      PopulationCost(h->blue_, NUM_LITERAL_CODES, &blue_sym, &h->is_used_[2]);
+  h->red_cost_ = PopulationCostFloat(h->red_, NUM_LITERAL_CODES, &red_sym,
+                                     &h->is_used_[1]);
+  h->blue_cost_ = PopulationCostFloat(h->blue_, NUM_LITERAL_CODES, &blue_sym,
+                                      &h->is_used_[2]);
   h->bit_cost_ = h->literal_cost_ + h->red_cost_ + h->blue_cost_ +
                  alpha_cost + distance_cost;
   if ((alpha_sym | red_sym | blue_sym) == VP8L_NON_TRIVIAL_SYM) {
@@ -778,7 +795,7 @@ static void HistoQueueUpdateHead(HistoQueue* const histo_queue,
 }
 
 // Update the cost diff and combo of a pair of histograms. This needs to be
-// called when the the histograms have been merged with a third one.
+// called when the histograms have been merged with a third one.
 static void HistoQueueUpdatePair(const VP8LHistogram* const h1,
                                  const VP8LHistogram* const h2, float threshold,
                                  HistogramPair* const pair) {
