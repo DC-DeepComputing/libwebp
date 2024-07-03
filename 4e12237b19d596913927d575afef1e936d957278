@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a16e0fe_d4283864",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T00:37:45Z",
+      "side": 1,
+      "message": "nice!",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244344ea_918ed674",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T00:37:45Z",
+      "side": 1,
+      "message": "i think the habit is more \"#if defined(FLAG)\"",
+      "range": {
+        "startLine": 914,
+        "startChar": 4,
+        "endLine": 914,
+        "endChar": 16
+      },
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8725444_e4dca8f9",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T00:37:45Z",
+      "side": 1,
+      "message": "prefer uint8_t type if possible",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2d2c46_1b26260d",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T00:37:45Z",
+      "side": 1,
+      "message": "same here: #if defined(WEBP_AARCH64) \u0026\u0026 (BPS \u003d\u003d 32)",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
