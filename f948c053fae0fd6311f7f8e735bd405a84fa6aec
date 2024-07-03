@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "98e05566_23f87365",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T09:53:52Z",
+      "side": 1,
+      "message": "\u0027uint8_t* dst\u0027 instead of \u0027uint8_t *dst\u0027\n\n(and in signatures below too)",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "963aea44_c23f67be",
         "filename": "src/dsp/enc_neon.c",
         "patchSetId": 3
@@ -82,6 +99,24 @@
       "writtenOn": "2024-07-03T08:36:23Z",
       "side": 1,
       "message": "no need to initialize dc",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf8b33f9_8d783dcc",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T09:53:52Z",
+      "side": 1,
+      "message": "also, these a and dc variables could be local ones to each sub-blocks below",
+      "parentUuid": "f4c2de85_86ea1247",
       "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
