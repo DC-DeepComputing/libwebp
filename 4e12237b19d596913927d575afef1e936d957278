@@ -94,6 +94,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff337674_e77d0fac",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T09:48:25Z",
+      "side": 1,
+      "message": "indeed, these four blocks are very similar.\nAn INLINE function could help readability, by not over-reusing the \u0027result0\u0027 variable...",
+      "parentUuid": "773d80c1_25938149",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2a2d2c46_1b26260d",
         "filename": "src/dsp/enc_neon.c",
         "patchSetId": 3
