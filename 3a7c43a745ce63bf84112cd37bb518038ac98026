@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c18e17dd_969857b3",
+        "filename": "src/enc/backward_references_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2024-07-03T10:37:53Z",
+      "side": 1,
+      "message": "btw, could these bit_cost be turned into \u0027uint64_t\u0027 instead of \u0027int64_t\u0027?\nCan the entropy cost be negative?",
+      "range": {
+        "startLine": 931,
+        "startChar": 12,
+        "endLine": 931,
+        "endChar": 20
+      },
+      "revId": "3a7c43a745ce63bf84112cd37bb518038ac98026",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
