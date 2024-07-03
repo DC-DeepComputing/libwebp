@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "963aea44_c23f67be",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "I would trust memset here instead of a custom solution no?",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c4304d6_6bc724b5",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "jzern@, how about just memcpy here?",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75656d1b_4cbe0876",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "BPS * i, just to keep the same syntax as everywhere else.",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a16061_13801a1a",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "Did you try comparing to 16 memsets ? or to to a vst1q_u8(dst + BPS * 0, vdupq_n_u8(left[0])); ? Just curious",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4c2de85_86ea1247",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "no need to initialize dc",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b193a06_d416ff44",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "dc \u003d",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2cd4c8c_07ec87bb",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-03T08:36:23Z",
+      "side": 1,
+      "message": "Please create a macro for those 4 similar blocks.",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
