@@ -41,6 +41,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e49c0844_b8615d0a",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 914,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T08:38:50Z",
+      "side": 1,
+      "message": "This doesn\u0027t work for this flag as it\u0027s always defined in cpu.h - either to 0 or 1. (All other uses of WEBP_AARCH64 don\u0027t use \"defined(...)\")",
+      "parentUuid": "244344ea_918ed674",
+      "range": {
+        "startLine": 914,
+        "startChar": 4,
+        "endLine": 914,
+        "endChar": 16
+      },
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8725444_e4dca8f9",
@@ -58,6 +82,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36e494a7_c8a8cb50",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 921,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T08:38:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8725444_e4dca8f9",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2161e4c1_ecd0f686",
@@ -71,6 +113,24 @@
       "writtenOn": "2024-07-03T08:39:50Z",
       "side": 1,
       "message": "Please make const whatever is const here.",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b411818_c9b5ba9b",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T08:38:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2161e4c1_ecd0f686",
       "revId": "4e12237b19d596913927d575afef1e936d957278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -110,6 +170,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8fe7704_3c20919b",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 991,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T08:38:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff337674_e77d0fac",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a2d2c46_1b26260d",
@@ -123,6 +201,24 @@
       "writtenOn": "2024-07-03T00:37:45Z",
       "side": 1,
       "message": "same here: #if defined(WEBP_AARCH64) \u0026\u0026 (BPS \u003d\u003d 32)",
+      "revId": "4e12237b19d596913927d575afef1e936d957278",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "272c8613_ee10a35a",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1061,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T08:38:50Z",
+      "side": 1,
+      "message": "Same as above (always defined.)",
+      "parentUuid": "2a2d2c46_1b26260d",
       "revId": "4e12237b19d596913927d575afef1e936d957278",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
