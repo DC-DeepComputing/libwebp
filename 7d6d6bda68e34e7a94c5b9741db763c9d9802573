@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ec101f_676fa7be",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-05T12:03:48Z",
+      "side": 1,
+      "message": "Due to some small speed regression in cruncher mode, I converted more code to fixed point to remove the three float divisions that were added in the original version.",
+      "revId": "7d6d6bda68e34e7a94c5b9741db763c9d9802573",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

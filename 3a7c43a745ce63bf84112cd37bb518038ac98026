@@ -22,6 +22,30 @@
       },
       "revId": "3a7c43a745ce63bf84112cd37bb518038ac98026",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09b9863f_613e0e2d",
+        "filename": "src/enc/backward_references_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 931,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-05T12:03:48Z",
+      "side": 1,
+      "message": "bit_cost cannot because, for speed-ups, it can be negative: https://chromium.googlesource.com/webm/libwebp/+/0a9f1c19f8c4a76e6266200f5cb72ab6801aa88e/src/enc/histogram_enc.c#438\n\nStill, I switched some code to uint because they can be faster than int (because arithmetic is perfectly defined in C90 for uint; in C++, only in C++20, e.g. right shift of signed integer).",
+      "parentUuid": "c18e17dd_969857b3",
+      "range": {
+        "startLine": 931,
+        "startChar": 12,
+        "endLine": 931,
+        "endChar": 20
+      },
+      "revId": "3a7c43a745ce63bf84112cd37bb518038ac98026",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
