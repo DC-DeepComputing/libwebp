@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b55d95f2_60332aee",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1039,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98e05566_23f87365",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "963aea44_c23f67be",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-07-03T08:36:23Z",
       "side": 1,
       "message": "I would trust memset here instead of a custom solution no?",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "97823d4c_c0f3e20c",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "memset feels like a big hammer for this - and I don\u0027t see how it could be better from a code generation/performance point of view. (We\u0027re also just copying the x86 SSE2 style for these helpers.)",
+      "parentUuid": "963aea44_c23f67be",
       "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -69,6 +105,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5470c802_aa1a3d0a",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1051,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "75656d1b_4cbe0876",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35a16061_13801a1a",
@@ -82,6 +136,24 @@
       "writtenOn": "2024-07-03T08:36:23Z",
       "side": 1,
       "message": "Did you try comparing to 16 memsets ? or to to a vst1q_u8(dst + BPS * 0, vdupq_n_u8(left[0])); ? Just curious",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "767bf54a_b38e8427",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1065,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Yes, the code in its current form only requires 1 load (instead of 16 as would be the case in your comment.)",
+      "parentUuid": "35a16061_13801a1a",
       "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +193,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "810f5406_08d245ad",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1095,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf8b33f9_8d783dcc",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5b193a06_d416ff44",
@@ -138,6 +228,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1d66aef_de0a2f78",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1112,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b193a06_d416ff44",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2cd4c8c_07ec87bb",
@@ -151,6 +259,24 @@
       "writtenOn": "2024-07-03T08:36:23Z",
       "side": 1,
       "message": "Please create a macro for those 4 similar blocks.",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e38f4315_75d9d065",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1157,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-05T10:47:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2cd4c8c_07ec87bb",
       "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
