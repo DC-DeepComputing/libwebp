@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1be63604_938093f8",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-08T21:44:28Z",
+      "side": 0,
+      "message": "The jpeg library should be initializing this field in `jpeg_std_error`. I\u0027d like to keep this since it was added as a hint to the user in https://bugs.chromium.org/p/webp/issues/detail?id\u003d562#c6.\n\nWe can block this out with `FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION` or check for msan explicitly. When I tried to reproduce this, libjpeg wasn\u0027t included in the build. I\u0027ll look a little closer at that.",
+      "revId": "ac1e410ded57c88cf4bf70dcf5fa9adc7980030a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
