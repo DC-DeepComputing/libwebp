@@ -73,6 +73,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5ac5e838_df832126",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1040,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T23:49:54Z",
+      "side": 1,
+      "message": "\u003e memset feels like a big hammer for this - and I don\u0027t see how it could be better from a code generation/performance point of view. (We\u0027re also just copying the x86 SSE2 style for these helpers.)\n\nmemset also doesn\u0027t quite produce optimal code with gcc or clang at the moment. gcc doesn\u0027t unroll and clang uses the a * 0x010101... trick. Better to be explicit.",
+      "parentUuid": "97823d4c_c0f3e20c",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4c4304d6_6bc724b5",
         "filename": "src/dsp/enc_neon.c",
         "patchSetId": 3
@@ -84,6 +102,24 @@
       "writtenOn": "2024-07-03T08:36:23Z",
       "side": 1,
       "message": "jzern@, how about just memcpy here?",
+      "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4526e7a6_43d5e2d5",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1048,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T23:49:54Z",
+      "side": 1,
+      "message": "\u003e jzern@, how about just memcpy here?\n\nmemcpy works if we mark src as `WEBP_RESTRICT` (`__restrict`). I never finished deploying that. I have some patches from years ago that I should revive.",
+      "parentUuid": "4c4304d6_6bc724b5",
       "revId": "f948c053fae0fd6311f7f8e735bd405a84fa6aec",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
