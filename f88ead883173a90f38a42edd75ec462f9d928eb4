@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa76664b_9a32174d",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T22:55:24Z",
+      "side": 1,
+      "message": "We haven\u0027t moved to clang-format in this project. For now have the tables match line 360 for consistency. For example:\n\n\n```\n  const uint8_t lookup_tbl2[64] \u003d {\n    20, 21, 22, 23,  5,  6,  7,  8, 22, 23, 24, 25,  6,  7,  8,  9,\n    19, 20, 21, 22, 20, 21, 22, 23, 23, 24, 25, 26, 22, 23, 24, 25,\n    18, 19, 20, 21, 19,  5,  6,  7, 24, 25, 26, 27,  7,  8,  9, 26,\n    17, 18, 19, 20, 18, 20, 21, 22, 25, 26, 27, 28, 23, 24, 25, 27\n  };\n```",
+      "revId": "f88ead883173a90f38a42edd75ec462f9d928eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ab3ffa72_8b63e800",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T22:55:24Z",
+      "side": 1,
+      "message": "make these `static const ...`.",
+      "revId": "f88ead883173a90f38a42edd75ec462f9d928eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
