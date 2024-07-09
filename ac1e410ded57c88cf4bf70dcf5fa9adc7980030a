@@ -70,6 +70,24 @@
       "parentUuid": "ea9a1294_03e9b4d8",
       "revId": "ac1e410ded57c88cf4bf70dcf5fa9adc7980030a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "244bd927_9692ece2",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T02:02:44Z",
+      "side": 0,
+      "message": "\u003e I removed it because skal removed it in libwebp2.\n\nI only added this recently, I don\u0027t think it was ever in libwebp2.",
+      "parentUuid": "9a230e7a_d2c81df9",
+      "revId": "ac1e410ded57c88cf4bf70dcf5fa9adc7980030a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
