@@ -42,7 +42,7 @@ typedef long long int int64_t;
     (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L)
 #define WEBP_NODISCARD [[nodiscard]]
 #else
-// gcc's __has_attribute does not work for enums.
+// gcc's __attribute__((warn_unused_result)) does not work for enums.
 #if defined(__clang__) && defined(__has_attribute)
 #if __has_attribute(warn_unused_result)
 #define WEBP_NODISCARD __attribute__((warn_unused_result))
