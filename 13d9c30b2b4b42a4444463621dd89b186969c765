@@ -86,6 +86,24 @@
       "message": "Vincent: In this comment, `__has_attribute` seems wrong. It seems that `__has_attribute` should be changed to `__attribute__((warn_unused_result))` or `warn_unused_result attribute`.",
       "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c899e0_72c7889f",
+        "filename": "src/webp/types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-09T09:12:40Z",
+      "side": 1,
+      "message": "Indeed, fixed in https://chromium-review.googlesource.com/c/webm/libwebp/+/5687729",
+      "parentUuid": "d2380e8b_cd90ad8d",
+      "revId": "13d9c30b2b4b42a4444463621dd89b186969c765",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
