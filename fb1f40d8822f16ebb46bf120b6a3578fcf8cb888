@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecc894ca_1d7f6a4e",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T22:26:14Z",
+      "side": 1,
+      "message": "Add a comment about the need for this. We could wrap all of the output to cut down on the log size.",
+      "revId": "fb1f40d8822f16ebb46bf120b6a3578fcf8cb888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
