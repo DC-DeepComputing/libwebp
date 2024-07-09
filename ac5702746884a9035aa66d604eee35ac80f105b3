@@ -16,6 +16,24 @@
       "message": "I wonder if this is a false positive since libjpeg isn\u0027t built with MSan.",
       "revId": "ac5702746884a9035aa66d604eee35ac80f105b3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "57a93327_6bfb8700",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-09T12:26:02Z",
+      "side": 1,
+      "message": "It is indeed a false positive. Displaying the msg_code returns 53, which is indeed what it displays: \"JPEG datastream contains no image\"\nI usually use __msan_unpoison to have finer granularity but using FUZZING_BUILD_MODE_UNSAFE_FOR_PRODUCTION is shorter so going with it.",
+      "parentUuid": "881574c1_09ee8a6e",
+      "revId": "ac5702746884a9035aa66d604eee35ac80f105b3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
