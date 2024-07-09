@@ -16,6 +16,23 @@
       "message": "The build failure on mingw seems like a hiccup: https://build.webmproject.org/jenkins/job/libwebp__test-mingw/4615/config\u003dstatic,host\u003dx86_64-w64-mingw32/",
       "revId": "683d3bf494d17cddb6fc145854a7e419bf78e475",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "109e7455_50a387a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-07-09T12:16:18Z",
+      "side": 1,
+      "message": "LGTM. Thanks!",
+      "revId": "683d3bf494d17cddb6fc145854a7e419bf78e475",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
