@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f7b49c62_729248b1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T23:56:50Z",
+      "side": 1,
+      "message": "\u003e Wrap `VP8EncPredLuma4 \u003d Intra4Preds_C;` in `#if !WEBP_NEON_OMIT_C_CODE` in [src/dsp/enc.c](https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.4.0/src/dsp/enc.c#766)\n\nYou\u0027ll need to add `WEBP_AARCH64` to that as well.",
+      "parentUuid": "1a52f20f_118ba660",
+      "revId": "f88ead883173a90f38a42edd75ec462f9d928eb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "aa76664b_9a32174d",
         "filename": "src/dsp/enc_neon.c",
         "patchSetId": 7
