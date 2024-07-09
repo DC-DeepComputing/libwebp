@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df159256_e278777f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-09T23:54:08Z",
+      "side": 1,
+      "message": "Move `VP8EncQuantizeBlockWHT \u003d QuantizeBlock_C;` to the `#if !WEBP_NEON_OMIT_C_CODE || WEBP_NEON_WORK_AROUND_GCC` block in [src/dsp/enc.c](https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.4.0/src/dsp/enc.c#760).",
+      "revId": "7e496ce6ee6e9bd76339a75fb77ddc1f02a9d160",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
