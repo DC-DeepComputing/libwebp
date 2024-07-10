@@ -16,6 +16,24 @@
       "message": "Add a comment about the need for this. We could wrap all of the output to cut down on the log size.",
       "revId": "fb1f40d8822f16ebb46bf120b6a3578fcf8cb888",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25036a20_fcd85169",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-10T08:10:02Z",
+      "side": 1,
+      "message": "Indeed, I ifdef-ed the whole block.",
+      "parentUuid": "ecc894ca_1d7f6a4e",
+      "revId": "fb1f40d8822f16ebb46bf120b6a3578fcf8cb888",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
