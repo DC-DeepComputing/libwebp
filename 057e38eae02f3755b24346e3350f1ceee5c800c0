@@ -39,6 +39,30 @@
       },
       "revId": "057e38eae02f3755b24346e3350f1ceee5c800c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dd3e3890_2a67dba6",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-10T20:55:04Z",
+      "side": 1,
+      "message": "I had in mind a static bundle but \"with sanitizers enabled\" is the way to go.",
+      "parentUuid": "9d7064bc_ca0f6466",
+      "range": {
+        "startLine": 211,
+        "startChar": 36,
+        "endLine": 211,
+        "endChar": 43
+      },
+      "revId": "057e38eae02f3755b24346e3350f1ceee5c800c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
