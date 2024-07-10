@@ -16,6 +16,29 @@
       "message": "same mingw bug",
       "revId": "057e38eae02f3755b24346e3350f1ceee5c800c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d7064bc_ca0f6466",
+        "filename": "imageio/jpegdec.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-10T19:02:55Z",
+      "side": 1,
+      "message": "do you mean \u0027...not built with the same options as libwebp\u0027 or \u0027not built with sanitizers enabled.\u0027?",
+      "range": {
+        "startLine": 211,
+        "startChar": 36,
+        "endLine": 211,
+        "endChar": 43
+      },
+      "revId": "057e38eae02f3755b24346e3350f1ceee5c800c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
