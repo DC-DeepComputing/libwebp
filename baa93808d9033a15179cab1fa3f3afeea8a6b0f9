@@ -16,6 +16,24 @@
       "message": "Is the bot failure a flake? (The error message on the console isn\u0027t obvious and things pass for the subsequent patches...)",
       "revId": "baa93808d9033a15179cab1fa3f3afeea8a6b0f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9af216f_973e6e3e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-10T20:39:28Z",
+      "side": 1,
+      "message": "\u003e Is the bot failure a flake? (The error message on the console isn\u0027t obvious and things pass for the subsequent patches...)\n\nYes it\u0027s a flake. I cleared the wine processes and reran the job. Running wine on the cloud instances has almost always been flaky. That\u0027s why the job was split out with more conditions to limit how many jobs are run at once.",
+      "parentUuid": "2e2e6cd2_78126fe0",
+      "revId": "baa93808d9033a15179cab1fa3f3afeea8a6b0f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
