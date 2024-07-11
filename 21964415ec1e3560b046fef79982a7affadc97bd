@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ff195d34_0927f1a6",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T18:56:34Z",
+      "side": 0,
+      "message": "We need signed saturation here. The same will go for `Intra16Preds`. The range for TrueMotion is `[-255, 510]`.",
+      "revId": "21964415ec1e3560b046fef79982a7affadc97bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
