@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04fa739f_e8988c03",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T22:02:17Z",
+      "side": 1,
+      "message": "You can see the failure at the tip of tree here:\n\nhttps://build.webmproject.org/jenkins/job/libwebp__test/5158/\n\nThe issue was that when the default for `WEBP_DSP_OMIT_C_CODE` became 1, we lost C vs. NEON coverage.",
+      "revId": "c7bb4cb5853134906234f87b79f83e6e99e7f5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
