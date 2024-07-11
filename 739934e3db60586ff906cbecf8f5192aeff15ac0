@@ -16,6 +16,24 @@
       "message": "add `Bug: webp:499`.",
       "revId": "739934e3db60586ff906cbecf8f5192aeff15ac0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a221e5e_70aff5c3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-11T20:11:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "54af251a_aab32dc7",
+      "revId": "739934e3db60586ff906cbecf8f5192aeff15ac0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
