@@ -16,6 +16,24 @@
       "message": "We need signed saturation here. The same will go for `Intra16Preds`. The range for TrueMotion is `[-255, 510]`.",
       "revId": "21964415ec1e3560b046fef79982a7affadc97bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38ac2cca_c04f149e",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T20:39:36Z",
+      "side": 0,
+      "message": "\u003e We need signed saturation here. The same will go for `Intra16Preds`. The range for TrueMotion is `[-255, 510]`.\n\nI have fixes for this. I\u0027m just testing new test configurations before sending the changes around. The issue was that after we defaulted WEBP_DSP_OMIT_C_CODE\u003d1 we lost C to NEON comparisons in test_cwebp/test_dwebp.",
+      "parentUuid": "ff195d34_0927f1a6",
+      "revId": "21964415ec1e3560b046fef79982a7affadc97bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
