@@ -34,6 +34,24 @@
       "parentUuid": "ff195d34_0927f1a6",
       "revId": "21964415ec1e3560b046fef79982a7affadc97bd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "caf45fce_76fa8089",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1003,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-11T22:40:19Z",
+      "side": 0,
+      "message": "Acknowledged",
+      "parentUuid": "38ac2cca_c04f149e",
+      "revId": "21964415ec1e3560b046fef79982a7affadc97bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
