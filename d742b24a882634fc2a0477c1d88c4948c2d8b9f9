@@ -16,6 +16,23 @@
       "message": "This should be true, though I couldn\u0027t find an image to trigger it.",
       "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "891b78d6_80101e32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-07-11T22:39:08Z",
+      "side": 1,
+      "message": "LGTM, thanks!",
+      "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
