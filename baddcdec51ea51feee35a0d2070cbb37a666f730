@@ -88,6 +88,24 @@
       "parentUuid": "c1e88e27_5bec3038",
       "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9309ee80_ed21a2a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T17:27:08Z",
+      "side": 1,
+      "message": "\u003e Hmmm, that\u0027s interesting. We were testing with the ./test_cwebp.sh script in the test data repo - and everything comes back fine with the patches applied, but evidently there are problems. I\u0027ll have a look.\n\nThanks for having a look. We can hold this and fix forward if the issue is clear; we tend to roll Chrome only on releases and our internal sync is manual. I didn\u0027t look closely at the code yesterday, but it seems the IntraPred16 change in isolation passes, so the only issue is in this one.",
+      "parentUuid": "2d4733cf_c2bcd410",
+      "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
