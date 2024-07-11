@@ -16,6 +16,24 @@
       "message": "I should have patched these internally before submitting. I\u0027m just preparing these to be safe. Jonathan, I\u0027ll try to extract some test cases tomorrow.",
       "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3587c983_a7f3c6a2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T03:57:57Z",
+      "side": 1,
+      "message": "\u003e I should have patched these internally before submitting. I\u0027m just preparing these to be safe. Jonathan, I\u0027ll try to extract some test cases tomorrow.\n\n```\ncwebp ../libwebp-test-data/bryce.webp -o - |md5sum\n```\n\nis enough to show the difference between x86/C and Arm.\n\nx86: eadf89805059c33a93e7f13366b9f68b\nArm: 8a1737f570de92030371eccaadd39f77",
+      "parentUuid": "2c18d3f1_018f725a",
+      "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
