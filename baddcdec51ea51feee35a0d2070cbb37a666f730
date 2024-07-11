@@ -52,6 +52,24 @@
       "parentUuid": "3587c983_a7f3c6a2",
       "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1e88e27_5bec3038",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-11T05:05:23Z",
+      "side": 1,
+      "message": "\u003e \u003e \u003e I should have patched these internally before submitting. I\u0027m just preparing these to be safe. Jonathan, I\u0027ll try to extract some test cases tomorrow.\n\u003e \u003e \n\u003e \u003e ```\n\u003e \u003e cwebp ../libwebp-test-data/bryce.webp -o - |md5sum\n\u003e \u003e ```\n\u003e \u003e \n\u003e \u003e is enough to show the difference between x86/C and Arm.\n\u003e \u003e \n\u003e \u003e x86: eadf89805059c33a93e7f13366b9f68b\n\u003e \u003e Arm: 8a1737f570de92030371eccaadd39f77\n\u003e \n\u003e Another way to do this with the same Arm binary is to use `-noasm` with a build configured with `-DWEBP_DSP_OMIT_C_CODE\u003d0`.\n\n`libwebp-test-data/test_cwebp.sh --exec\u003dcwebp libwebp-test-data/*.webp` would catch this too. bryce is a bit slow, but it might be worth adding that to our presubmit. libwebp-test-data/lossless_color_transform.ppm fails as well.",
+      "parentUuid": "f4d32c01_877ed20c",
+      "revId": "baddcdec51ea51feee35a0d2070cbb37a666f730",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
