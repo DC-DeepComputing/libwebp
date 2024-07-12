@@ -50,6 +50,24 @@
       "message": "I do not get this one:\n- vaddl_u8 gives values between 0 and UINT16_MAX\n- vqsubq_u16 subtracts and saturates so it gives values in 0 and UINT16_MAX (cf https://developer.arm.com/architectures/instruction-sets/intrinsics/#q\u003dvqsubq_u16)\nWhy going to signed ?",
       "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ccc28ee_3eae6067",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-12T17:53:24Z",
+      "side": 1,
+      "message": "\u003e I do not get this one:\n\u003e - vaddl_u8 gives values between 0 and UINT16_MAX\n\u003e - vqsubq_u16 subtracts and saturates so it gives values in 0 and UINT16_MAX (cf https://developer.arm.com/architectures/instruction-sets/intrinsics/#q\u003dvqsubq_u16)\n\u003e Why going to signed ?\n\nBecause the range of TrueMotion is [-255, 510]. So if we stay unsigned, we\u0027ll have a large unsigned value for negatives and those will get clamped to 255 instead of 0.",
+      "parentUuid": "dda21b3b_59da3d66",
+      "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
