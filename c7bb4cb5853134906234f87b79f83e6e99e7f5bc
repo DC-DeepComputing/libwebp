@@ -33,6 +33,29 @@
       "message": "Thanks for fixing :)",
       "revId": "c7bb4cb5853134906234f87b79f83e6e99e7f5bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "77596ff3_46f37ffe",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-12T09:38:13Z",
+      "side": 1,
+      "message": "How about the slightly less confusing code (to me):\nint16x8_t sum_lo, sum_hi;\nsum_lo \u003d vreinterpretq_s16_u16(vaddw_u8(sub, vget_low_u8(full_b)));\nres_lo \u003d vqmovun_s16(sum_lo);",
+      "range": {
+        "startLine": 998,
+        "startChar": 1,
+        "endLine": 1000,
+        "endChar": 54
+      },
+      "revId": "c7bb4cb5853134906234f87b79f83e6e99e7f5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
