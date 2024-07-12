@@ -56,6 +56,30 @@
       },
       "revId": "c7bb4cb5853134906234f87b79f83e6e99e7f5bc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b71f134_f68f0983",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1000,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-12T17:55:19Z",
+      "side": 1,
+      "message": "\u003e How about the slightly less confusing code (to me):\n\u003e int16x8_t sum_lo, sum_hi;\n\u003e sum_lo \u003d vreinterpretq_s16_u16(vaddw_u8(sub, vget_low_u8(full_b)));\n\u003e res_lo \u003d vqmovun_s16(sum_lo);\n\nLet\u0027s land the simple fix and we can look at refinements separately.",
+      "parentUuid": "77596ff3_46f37ffe",
+      "range": {
+        "startLine": 998,
+        "startChar": 1,
+        "endLine": 1000,
+        "endChar": 54
+      },
+      "revId": "c7bb4cb5853134906234f87b79f83e6e99e7f5bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
