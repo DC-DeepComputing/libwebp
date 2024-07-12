@@ -86,6 +86,24 @@
       "parentUuid": "8ccc28ee_3eae6067",
       "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e3b302c_4a79d5e8",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1118,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-12T18:45:00Z",
+      "side": 1,
+      "message": "\u003e ok, the uint8_t are actually signed inside unsigned. Got it.\n\nRight. I agree it\u0027s probably unnecessary to have unsigned here. This could be reworked to use signed math.",
+      "parentUuid": "32669750_0a827518",
+      "revId": "d742b24a882634fc2a0477c1d88c4948c2d8b9f9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
