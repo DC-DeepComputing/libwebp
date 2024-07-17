@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d2724b4_b0fa79e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1001629
+      },
+      "writtenOn": "2024-07-17T14:09:22Z",
+      "side": 1,
+      "message": "Thanks!\n\nI don\u0027t yet believe this is sufficient though.\n\nFrom what you say on the bug, it sounds like the motivation is that applications might want to blend themselves. Given that libwebp always composites on top of fully transparent black, I think you\u0027re saying that applications would do something like:\n\n1. Get the ANIM section\u0027s background color for that file form webp\n2. Clear a drawing canvas\u0027s background to background color\n3. Get frame from libwebp (which has transparent black in transparent areas)\n4. Blent it on top of the canvas\n\nThat would work.\n\nI think the intent of the pseudocode here is to produce the same output as these 4 steps, by commingling steps 2 and 4.\n\nBut it has a different semantics. For the file I attached to the bug (which was written by libwebp):\n\n```\n$ ~/Downloads/libwebp-1.4.0-linux-x86-64/bin/webpinfo ~/Downloads/test.webp\nFile: /usr/local/google/home/thakis/Downloads/test.webp\nRIFF HEADER:\n  File size:    154\nChunk VP8X at offset     12, length     18\n  ICCP: 0\n  Alpha: 1\n  EXIF: 0\n  XMP: 0\n  Animation: 1\n  Canvas size 16 x 16\nChunk ANIM at offset     30, length     14\n  Background color:(ARGB) ff ff ff ff\n  Loop count      : 0\nChunk ANMF at offset     44, length     64\n  Offset_X: 2\n  Offset_Y: 4\n  Width: 12\n  Height: 10\n  Duration: 100\n  Dispose: 0\n  Blend: 1\nChunk VP8L at offset     68, length     40\n  Width: 12\n  Height: 10\n  Alpha: 1\n  Animation: 0\n  Format: Lossless (2)\nChunk ANMF at offset    108, length     46\n  Offset_X: 4\n  Offset_Y: 4\n  Width: 8\n  Height: 2\n  Duration: 100\n  Dispose: 0\n  Blend: 1\nChunk VP8L at offset    132, length     22\n  Width: 8\n  Height: 2\n  Alpha: 1\n  Animation: 0\n  Format: Lossless (2)\nNo error detected.\n```\n\nThe background color in ANIM is #ffffffff.\n\nThere are two frames. Neither frame covers the entire canvas. Both frames set dispose to 0 (ie \"do not dispose, leave canvas as is\") and blend to 1 (\"do not blend; e, render the current frame on the canvas by overwriting the rectangle covered by the current frame.\").\n\nThe frame data in the VP8Ls stores background pixels as #00000000.\n\nIf we follow the steps in the pseudocode and \"Dispose to background color\", then we\u0027ll clear the pixels not covered by either of these frames to #ffffffff. That looks wrong when e.g. then saving out image data as png.\n\n---\n\nI think a better way of spec\u0027ing this might be to describe the assembly algorithm to always use #00000000 as clear color for producing frame data, and saying that the frame data can be blended on top of ANIM background color when showing image data to the user and the displaying application does not have an opinion what else it wants to use as background color -- i.e. ANIM background color is a display hint, while frame decoding for pixel data is normative.",
+      "revId": "c9dd9bd40b77e53fabc05a009804d64dc32e1584",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
