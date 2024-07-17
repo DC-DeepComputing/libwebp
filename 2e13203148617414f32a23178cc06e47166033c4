@@ -16,6 +16,24 @@
       "message": "add `Bug: webp:643`.",
       "revId": "2e13203148617414f32a23178cc06e47166033c4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "35c00f53_ce27d745",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-17T19:58:08Z",
+      "side": 1,
+      "message": "Done.\n\nDon\u0027t forget to make comments as \u0027Done\u0027 or otherwise respond to them so reviewers know it\u0027s safe to take another look.",
+      "parentUuid": "ff0a39a1_0d5efb68",
+      "revId": "2e13203148617414f32a23178cc06e47166033c4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
