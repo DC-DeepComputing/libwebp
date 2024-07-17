@@ -16,6 +16,24 @@
       "message": "add `Bug: webp:643`.",
       "revId": "9770ad926353a258fce06a3d36a829069bcaed9c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1f13924a_b5ccece0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-17T19:59:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd513a48_52e00b9b",
+      "revId": "9770ad926353a258fce06a3d36a829069bcaed9c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
