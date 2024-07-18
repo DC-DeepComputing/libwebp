@@ -1,6 +1,6 @@
 AC_INIT([libwebp], [1.4.0],
         [https://bugs.chromium.org/p/webp],,
-        [https://developers.google.com/speed/webp])
+        [https://issues.webmproject.org/issues?q=componentid:1618983])
 AC_CANONICAL_HOST
 AC_PREREQ([2.60])
 AM_INIT_AUTOMAKE([-Wall foreign subdir-objects])
