@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ceb486b1_007006e5",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-23T17:50:01Z",
+      "side": 1,
+      "message": "any reason not to have this and `VP8LExtraCostCombined` return `int64_t` directly?",
+      "range": {
+        "startLine": 425,
+        "startChar": 20,
+        "endLine": 425,
+        "endChar": 38
+      },
+      "revId": "9f040ae18cd727b16e44b6a3cd25cbf49180cf80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
