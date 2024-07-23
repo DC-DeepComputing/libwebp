@@ -385,9 +385,9 @@ static int GetCombinedHistogramEntropy(const VP8LHistogram* const a,
   const int palette_code_bits = a->palette_code_bits_;
   int trivial_at_end = 0;
   assert(a->palette_code_bits_ == b->palette_code_bits_);
-  *cost += GetCombinedEntropy(a->literal_, b->literal_,
-                              VP8LHistogramNumCodes(palette_code_bits),
-                              a->is_used_[0], b->is_used_[0], 0);
+  *cost += (int64_t)GetCombinedEntropy(a->literal_, b->literal_,
+                                       VP8LHistogramNumCodes(palette_code_bits),
+                                       a->is_used_[0], b->is_used_[0], 0);
   *cost += (int64_t)VP8LExtraCostCombined(a->literal_ + NUM_LITERAL_CODES,
                                           b->literal_ + NUM_LITERAL_CODES,
                                           NUM_LENGTH_CODES)
@@ -407,24 +407,24 @@ static int GetCombinedHistogramEntropy(const VP8LHistogram* const a,
     }
   }
 
-  *cost +=
-      GetCombinedEntropy(a->red_, b->red_, NUM_LITERAL_CODES, a->is_used_[1],
-                         b->is_used_[1], trivial_at_end);
+  *cost += (int64_t)GetCombinedEntropy(a->red_, b->red_, NUM_LITERAL_CODES,
+                                       a->is_used_[1], b->is_used_[1],
+                                       trivial_at_end);
   if (*cost > cost_threshold) return 0;
 
-  *cost +=
-      GetCombinedEntropy(a->blue_, b->blue_, NUM_LITERAL_CODES, a->is_used_[2],
-                         b->is_used_[2], trivial_at_end);
+  *cost += (int64_t)GetCombinedEntropy(a->blue_, b->blue_, NUM_LITERAL_CODES,
+                                       a->is_used_[2], b->is_used_[2],
+                                       trivial_at_end);
   if (*cost > cost_threshold) return 0;
 
-  *cost +=
-      GetCombinedEntropy(a->alpha_, b->alpha_, NUM_LITERAL_CODES,
-                         a->is_used_[3], b->is_used_[3], trivial_at_end);
+  *cost += (int64_t)GetCombinedEntropy(a->alpha_, b->alpha_, NUM_LITERAL_CODES,
+                                       a->is_used_[3], b->is_used_[3],
+                                       trivial_at_end);
   if (*cost > cost_threshold) return 0;
 
-  *cost +=
-      GetCombinedEntropy(a->distance_, b->distance_, NUM_DISTANCE_CODES,
-                         a->is_used_[4], b->is_used_[4], 0);
+  *cost += (int64_t)GetCombinedEntropy(a->distance_, b->distance_,
+                                       NUM_DISTANCE_CODES, a->is_used_[4],
+                                       b->is_used_[4], 0);
   *cost += (int64_t)VP8LExtraCostCombined(a->distance_, b->distance_,
                                           NUM_DISTANCE_CODES)
            << LOG_2_PRECISION_BITS;
