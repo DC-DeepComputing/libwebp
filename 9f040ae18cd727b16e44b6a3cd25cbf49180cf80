@@ -22,6 +22,30 @@
       },
       "revId": "9f040ae18cd727b16e44b6a3cd25cbf49180cf80",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b215e658_69cba100",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-24T15:44:33Z",
+      "side": 1,
+      "message": "I wanted to keep uint64_t in case there are more optimizations. I refactored the API to behave similarly in the different functions. That helped keep uint64_t as much as possible. PTAL",
+      "parentUuid": "ceb486b1_007006e5",
+      "range": {
+        "startLine": 425,
+        "startChar": 20,
+        "endLine": 425,
+        "endChar": 38
+      },
+      "revId": "9f040ae18cd727b16e44b6a3cd25cbf49180cf80",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
