@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d8ce304_81f51e07",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-24T19:36:48Z",
+      "side": 1,
+      "message": "`SaturateAdd`? (I don\u0027t think we\u0027re 100% consistent, there might be `clip...()`  here and there.)",
+      "range": {
+        "startLine": 383,
+        "startChar": 12,
+        "endLine": 383,
+        "endChar": 24
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01b77eb1_b14513a2",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-24T19:36:48Z",
+      "side": 1,
+      "message": "you could merge this with the declaration and update the check at line 400 to used `cost_threshold`.",
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "015b0ed6_39bdb6ff",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-24T19:36:48Z",
+      "side": 1,
+      "message": "no need for the cast now, `uint32_t` will be promoted, no sign change.",
+      "range": {
+        "startLine": 405,
+        "startChar": 12,
+        "endLine": 405,
+        "endChar": 20
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2582a7a8_7d94d910",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-24T19:36:48Z",
+      "side": 1,
+      "message": "no need for the cast now, `uint32_t` will be promoted, no sign change.",
+      "range": {
+        "startLine": 438,
+        "startChar": 12,
+        "endLine": 438,
+        "endChar": 20
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
