@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a66848_01ca2618",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-25T20:13:52Z",
+      "side": 1,
+      "message": "normally it\u0027s `static WEBP_INLINE`",
+      "range": {
+        "startLine": 383,
+        "startChar": 0,
+        "endLine": 383,
+        "endChar": 18
+      },
+      "revId": "797a5c262c71b833bb4a1f157accd05d0fe96ec7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

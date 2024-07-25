@@ -83,6 +83,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0000d4be_cbe95d7a",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-25T20:13:52Z",
+      "side": 1,
+      "message": "\u003e There is a unsigned change so I still need to check with the original value.\n\nYou\u0027re right, I missed that.",
+      "parentUuid": "62053db5_8474d787",
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "015b0ed6_39bdb6ff",
@@ -120,6 +138,30 @@
       "side": 1,
       "message": "No sign change, but LOG_2_PRECISION_BITS is 23 so we do not want to lose bits with the shift.",
       "parentUuid": "015b0ed6_39bdb6ff",
+      "range": {
+        "startLine": 405,
+        "startChar": 12,
+        "endLine": 405,
+        "endChar": 20
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f6aa82f_cb4ad103",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-25T20:13:52Z",
+      "side": 1,
+      "message": "\u003e No sign change, but LOG_2_PRECISION_BITS is 23 so we do not want to lose bits with the shift.\n\nah, long line, I wasn\u0027t focusing on the shift.",
+      "parentUuid": "710e1556_d2b84336",
       "range": {
         "startLine": 405,
         "startChar": 12,
