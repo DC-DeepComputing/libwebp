@@ -34,6 +34,23 @@
       "parentUuid": "1d2724b4_b0fa79e0",
       "revId": "c9dd9bd40b77e53fabc05a009804d64dc32e1584",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e1e9c52_2f06271c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-07-25T19:47:52Z",
+      "side": 1,
+      "message": "There may be other changes that come from the discussion, but for now I\u0027d like to get the two sections in sync. The RFC is in the editor queue, so I\u0027d at least like to have this update included.",
+      "revId": "c9dd9bd40b77e53fabc05a009804d64dc32e1584",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
