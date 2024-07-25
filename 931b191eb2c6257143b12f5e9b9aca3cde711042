@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7f5d094f_d1d745a3",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 383,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-25T12:15:50Z",
+      "side": 1,
+      "message": "Right, I was too happy it got added to C++26 and tried to keep a similar name: https://en.cppreference.com/w/cpp/numeric/add_sat",
+      "parentUuid": "3d8ce304_81f51e07",
+      "range": {
+        "startLine": 383,
+        "startChar": 12,
+        "endLine": 383,
+        "endChar": 24
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "01b77eb1_b14513a2",
         "filename": "src/enc/histogram_enc.c",
         "patchSetId": 2
@@ -37,6 +61,24 @@
       "writtenOn": "2024-07-24T19:36:48Z",
       "side": 1,
       "message": "you could merge this with the declaration and update the check at line 400 to used `cost_threshold`.",
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62053db5_8474d787",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 401,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-25T12:15:50Z",
+      "side": 1,
+      "message": "There is a unsigned change so I still need to check with the original value.",
+      "parentUuid": "01b77eb1_b14513a2",
       "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -64,6 +106,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "710e1556_d2b84336",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-25T12:15:50Z",
+      "side": 1,
+      "message": "No sign change, but LOG_2_PRECISION_BITS is 23 so we do not want to lose bits with the shift.",
+      "parentUuid": "015b0ed6_39bdb6ff",
+      "range": {
+        "startLine": 405,
+        "startChar": 12,
+        "endLine": 405,
+        "endChar": 20
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2582a7a8_7d94d910",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-07-24T19:36:48Z",
       "side": 1,
       "message": "no need for the cast now, `uint32_t` will be promoted, no sign change.",
+      "range": {
+        "startLine": 438,
+        "startChar": 12,
+        "endLine": 438,
+        "endChar": 20
+      },
+      "revId": "931b191eb2c6257143b12f5e9b9aca3cde711042",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3cfbd34_73877ac9",
+        "filename": "src/enc/histogram_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 438,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-07-25T12:15:50Z",
+      "side": 1,
+      "message": "Ditto",
+      "parentUuid": "2582a7a8_7d94d910",
       "range": {
         "startLine": 438,
         "startChar": 12,
