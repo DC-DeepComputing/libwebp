@@ -106,6 +106,24 @@
       "parentUuid": "968e4e91_93dd02f3",
       "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ace07df9_abf9b4a0",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-08-01T18:36:56Z",
+      "side": 1,
+      "message": "\u003e Apologies for the late response; other work picked up. \n\u003e \n\u003e We think targeting `__wasm__` may be a better option for two reasons :\n\u003e \n\u003e 1. Better default for all target platforms: wasm32/wasm64 refers to a maximum memory size rather than the word size of the target platform. wasm32 has a maximum memory size of 2^32, and wasm64 has a maximum size of 2^64. More importantly, wasm32 is the only one of the two used in production use cases today. The same wasm32 code is transformed to native code for 32-bit Arm, 64-bit Arm, 32-bit x86, 64-bit x86, and MIPS. This code reuse leads to us not knowing the underlying platform\u0027s ideal word size when compiling libwebp to Wasm. Given this, we pick an option that works best across as many architectures as possible. We evaluated 32 and 64-bit platforms and found that 64-bit words, on average, work better as a default. \n\u003e 2. Sensible default for wasm32: If we prefer to treat Wasm as a target platform rather than an intermediate format, then Wasm32 itself natively supports 64-bit types and operations (https://webassembly.github.io/spec/core/syntax/types.html). \n\u003e \n\nThanks for looking into this. This information should be added to the bug for posterity. I\u0027ll copy it over after landing the change.\n\n\u003e An alternate approach is adding user configurations (e.g., WEBP_WASM_USE_32, WEBP_WASM_USE_64).",
+      "parentUuid": "0e58e754_a1b5ea3a",
+      "revId": "0bed7813bba35b547fd48ff7e6577b06aa131df9",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
