@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e381da81_4b66b4e6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-08-28T17:52:54Z",
+      "side": 1,
+      "message": "I\u0027m rerunning the commit with the shared build enabled, it should pass.",
+      "revId": "51d9832a36db6f0949e853670aa5b45e1bff5e78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8dd2330a_9547e8b2",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-08-28T17:52:54Z",
+      "side": 1,
+      "message": "`webpdecode` may be unnecessary since `add_webp_fuzztest` adds `webp`",
+      "range": {
+        "startLine": 52,
+        "startChar": 38,
+        "endLine": 52,
+        "endChar": 48
+      },
+      "revId": "51d9832a36db6f0949e853670aa5b45e1bff5e78",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
