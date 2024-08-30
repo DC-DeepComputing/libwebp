@@ -191,7 +191,8 @@ int WebPAnimEncoderOptionsInitInternal(WebPAnimEncoderOptions* enc_options,
   return 1;
 }
 
-// This starting value is more fit to WebPCleanupTransparentAreaLossless().
+// This starting value is more fit to WebPReplaceTransparentPixels() (see
+// WebPEncode()).
 #define TRANSPARENT_COLOR   0x00000000
 
 static void ClearRectangle(WebPPicture* const picture,
