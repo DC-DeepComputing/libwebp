@@ -1249,7 +1249,8 @@ int VP8LGetHistoImageSymbols(int xsize, int ysize,
   if (!low_effort || !entropy_combine) {
     // cubic ramp between 1 and MAX_HISTO_GREEDY:
     const int threshold_size =
-        (int)(1 + DivRound(quality * quality * quality * (MAX_HISTO_GREEDY - 1),
+        (int)(1 + DivRound((int64_t)quality * quality * quality *
+                               (MAX_HISTO_GREEDY - 1),
                            100 * 100 * 100));
     int do_greedy;
     if (!HistogramCombineStochastic(image_histo, &num_used, threshold_size,
