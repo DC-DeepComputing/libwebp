@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3d0ea505_5b2ff637",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-03T22:32:05Z",
+      "side": 1,
+      "message": "I\u0027m wondering if this can be an `assert` instead.",
+      "revId": "d1970a1b372fbf885c9175c8d12eb8aed6c608bc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
