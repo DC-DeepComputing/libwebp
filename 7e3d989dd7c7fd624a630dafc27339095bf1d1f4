@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee00cf35_fdc070fe",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2024-09-09T08:33:31Z",
+      "side": 1,
+      "message": "I don\u0027t really get what this comment is trying to say. While we\u0027re here, would you mind maybe rewording the whole thing?",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 17
+      },
+      "revId": "7e3d989dd7c7fd624a630dafc27339095bf1d1f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
