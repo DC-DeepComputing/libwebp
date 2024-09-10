@@ -22,6 +22,30 @@
       },
       "revId": "7e3d989dd7c7fd624a630dafc27339095bf1d1f4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d853c0e5_552fb1b7",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-10T02:29:03Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t really get what this comment is trying to say. While we\u0027re here, would you mind maybe rewording the whole thing?\n\nLooks like it came from:\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/346529\n\nwhich says:\n\n```\nWebPAnimEncoder: Restore original canvas between multiple encodes.\n\ntl;dr\nWe do the following:\n- Start with transparent value of 0x00000000 instead of 0x00ffffff, so that\nWebPCleanupTransparentAreaLossless() is a no-op.\n- Restore the original canvas after lossy encoding, to discard changes made by\nWebPCleanupTransparentArea() before the next encode.\n\nExplanation of why:\nIn the mixed mode, anim_encoder tries to encode using both lossless and lossy\ncompression. In fact, when \"min_size\" option is enabled, there are at most 4\nencodes that can happen in this order:\n- lossless with dispose none\n- lossy with dispose none\n- lossless with dispose background\n- lossy with dispose background\n\nBut both lossless and lossy both potentially modify the canvas during encode\n(for better compression):\n- Lossless: WebPCleanupTransparentAreaLossless() turns all transparent pixels\nto 0x00000000\n- Lossy: WebPCleanupTransparentArea() flattens some transparent pixels\n\nSo, the result is that, sometimes we feed the modified canvas to the encoder\ninstead of the original one, which isn\u0027t the right thing to do.\n\nThis also applies to just lossless or just lossy encoding, as multiple encodes\nhappen (with the two dispose methods) in those cases too.\n```",
+      "parentUuid": "ee00cf35_fdc070fe",
+      "range": {
+        "startLine": 194,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 17
+      },
+      "revId": "7e3d989dd7c7fd624a630dafc27339095bf1d1f4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
