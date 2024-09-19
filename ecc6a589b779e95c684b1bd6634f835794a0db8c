@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e0bca92_a23916f9",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-19T18:11:50Z",
+      "side": 1,
+      "message": "all call sites use `MAX_TRANSFORM_BITS`, will that change in a follow up?",
+      "range": {
+        "startLine": 507,
+        "startChar": 21,
+        "endLine": 507,
+        "endChar": 29
+      },
+      "revId": "ecc6a589b779e95c684b1bd6634f835794a0db8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08aa035c_e4c8e6e8",
+        "filename": "src/enc/vp8li_enc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 120,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-19T18:11:50Z",
+      "side": 1,
+      "message": "This should be namespaced with `VP8L` now.",
+      "fixSuggestions": [
+        {
+          "fixId": "855274f8_8351e398",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/enc/vp8li_enc.h",
+              "range": {
+                "startLine": 120,
+                "startChar": 0,
+                "endLine": 122,
+                "endChar": 0
+              },
+              "replacement": "void VP8LOptimizeSampling(uint32_t* const image, int full_width,\n                          int full_height, int bits, int max_bits,\n                          int* best_bits_out);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ecc6a589b779e95c684b1bd6634f835794a0db8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
