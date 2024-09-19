@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d7cbea1_5f219309",
+        "filename": "doc/webp-container-spec.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 619,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-19T18:58:42Z",
+      "side": 0,
+      "message": "this probably could have been \u0027byte(s)\u0027, but the editor took my suggestion after I explained the intent.",
+      "range": {
+        "startLine": 619,
+        "startChar": 36,
+        "endLine": 619,
+        "endChar": 41
+      },
+      "revId": "a78c5356ba0b962c40b271bd015d736ef0c7d9a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
