@@ -48,6 +48,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db3ff256_7c4ce8a5",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 507,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-09-23T18:07:35Z",
+      "side": 1,
+      "message": "\u003e vp8l_enc.cc uses MAX_HUFFMAN_BITS\n\nOops, I scanned through too quickly.",
+      "parentUuid": "511f33ae_80dee689",
+      "range": {
+        "startLine": 507,
+        "startChar": 21,
+        "endLine": 507,
+        "endChar": 29
+      },
+      "revId": "ecc6a589b779e95c684b1bd6634f835794a0db8c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08aa035c_e4c8e6e8",
