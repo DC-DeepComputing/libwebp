@@ -16,6 +16,24 @@
       "message": "indent is off",
       "revId": "ef6a3e7bcc054a7afe651e9b2ef3a91418055685",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4907f9e3_653bd9d3",
+        "filename": "src/enc/vp8l_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1052,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-09-24T08:31:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e750370_39faa1c9",
+      "revId": "ef6a3e7bcc054a7afe651e9b2ef3a91418055685",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
