@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "683b71c7_5a9bb1e5",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-02T23:50:41Z",
+      "side": 1,
+      "message": "Jonathan, I haven\u0027t looked into a fix yet, but this is the source of the bug. With `it-\u003ei4_ \u003d\u003d 3` the offset to `i4_boundary[37]` will be 29 and this load will be from 24. We don\u0027t have msan in the presubmit because it\u0027s difficult to setup without an instrumented system.",
+      "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
