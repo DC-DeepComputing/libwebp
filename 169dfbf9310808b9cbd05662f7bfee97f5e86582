@@ -34,6 +34,24 @@
       "parentUuid": "683b71c7_5a9bb1e5",
       "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ec105cb_eb7d8296",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-03T02:24:20Z",
+      "side": 1,
+      "message": "\u003e \u003e Jonathan, I haven\u0027t looked into a fix yet, but this is the source of the bug. With `it-\u003ei4_ \u003d\u003d 3` the offset to `i4_boundary[37]` will be 29 and this load will be from 24. We don\u0027t have msan in the presubmit because it\u0027s difficult to setup without an instrumented system.\n\u003e \n\u003e `i4_boundary_` could be extended, but first I\u0027d like to compare with the sse2 implementation.\n\nActually with C code the default interceptors seem to be enough:\n\n```\n$ ./examples/cwebp ../../libwebp-test-data/grid.ppm\nNo output file specified (no -o flag). Encoding will\nbe performed, but its results discarded.\n\n!!! VP8IteratorRotateI4: VP8TopLeftI4[1]: 21\n!!! VP8IteratorRotateI4: VP8TopLeftI4[2]: 25\n!!! VP8IteratorRotateI4: VP8TopLeftI4[3]: 29\n\u003d\u003d1499016\u003d\u003dWARNING: MemorySanitizer: use-of-uninitialized-value\n    #0 0xaaaaab3be1bc in Intra4Preds_NEON src/dsp/enc_neon.c:1003:12\n    #1 0xaaaaab3d15e4 in MakeIntra4Preds src/enc/quant_enc.c:484:3\n    #2 0xaaaaab3d15e4 in PickBestIntra4 src/enc/quant_enc.c:1104:5\n    #3 0xaaaaab3d15e4 in VP8Decimate src/enc/quant_enc.c:1383:7\n    #4 0xaaaaab3c72f8 in VP8EncTokenLoop src/enc/frame_enc.c:833:7\n    #5 0xaaaaab3ace74 in WebPEncode src/enc/webp_enc.c:386:18\n    #6 0xaaaaab329be4 in main examples/cwebp.c:1129:8\n    #7 0xffff9619773c in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16\n    #8 0xffff96197814 in __libc_start_main csu/../csu/libc-start.c:360:3\n    #9 0xaaaaab2a736c in _start (examples/cwebp+0x2736c) (BuildId: 1100fbacfe477368244d280af1b52355d4e22122)\n\nSUMMARY: MemorySanitizer: use-of-uninitialized-value src/dsp/enc_neon.c:1003:12 in Intra4Preds_NEON\n```",
+      "parentUuid": "624ce33c_33f1d9db",
+      "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
