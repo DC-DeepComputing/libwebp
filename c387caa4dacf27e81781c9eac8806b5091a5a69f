@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e545b69_be20fbbd",
+        "filename": "src/dsp/enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 362,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-08T23:58:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94f8f382_ff492344",
+      "revId": "c387caa4dacf27e81781c9eac8806b5091a5a69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ab77cc6_03c11a8f",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-10-08T22:30:45Z",
       "side": 1,
       "message": "I suggest setting these three bytes to an unusual nonzero value such as `0xaa` or `0xcc`, so that if the values are used by mistake, they are more likely to cause a problem.",
+      "revId": "c387caa4dacf27e81781c9eac8806b5091a5a69f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e5b7f4d_905c1fee",
+        "filename": "src/enc/iterator_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 436,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-08T23:58:16Z",
+      "side": 1,
+      "message": "\u003e I suggest setting these three bytes to an unusual nonzero value such as `0xaa` or `0xcc`, so that if the values are used by mistake, they are more likely to cause a problem.\n\nGood point. Done.",
+      "parentUuid": "9ab77cc6_03c11a8f",
       "revId": "c387caa4dacf27e81781c9eac8806b5091a5a69f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
