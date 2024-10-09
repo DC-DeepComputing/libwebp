@@ -88,6 +88,24 @@
       "parentUuid": "a6cc7797_9ae44fa8",
       "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "578101d1_4e874166",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-09T22:28:00Z",
+      "side": 1,
+      "message": "\u003e Apologies for being slow here. Thanks for fixing this in[1]!\n\u003e \n\nNo problem, at first I didn\u0027t spend much time on it after disabling it, but then I got skeptical about MSan and looked a little more closely at the shuffles.\n\n\u003e [1] https://chromium-review.googlesource.com/c/webm/libwebp/+/5917091",
+      "parentUuid": "65772275_d4653a1b",
+      "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
