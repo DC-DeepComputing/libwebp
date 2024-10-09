@@ -70,6 +70,24 @@
       "parentUuid": "1ec105cb_eb7d8296",
       "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65772275_d4653a1b",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 964,
+      "author": {
+        "id": 1247893
+      },
+      "writtenOn": "2024-10-09T21:57:56Z",
+      "side": 1,
+      "message": "Apologies for being slow here. Thanks for fixing this in[1]!\n\n[1] https://chromium-review.googlesource.com/c/webm/libwebp/+/5917091",
+      "parentUuid": "a6cc7797_9ae44fa8",
+      "revId": "169dfbf9310808b9cbd05662f7bfee97f5e86582",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
