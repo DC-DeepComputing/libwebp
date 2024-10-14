@@ -455,7 +455,8 @@ void VP8LConvertBGRAToRGB_C(const uint32_t* WEBP_RESTRICT src,
 void VP8LConvertBGRAToRGBA_C(const uint32_t* WEBP_RESTRICT src,
                              int num_pixels, uint8_t* WEBP_RESTRICT dst) {
   const uint32_t* const src_end = src + num_pixels;
-  while (src < src_end) {
+  const uint8_t* const dst_end = dst + num_pixels * 4;
+  while (src < src_end && dst < dst_end) {
     const uint32_t argb = *src++;
     *dst++ = (argb >> 16) & 0xff;
     *dst++ = (argb >>  8) & 0xff;
