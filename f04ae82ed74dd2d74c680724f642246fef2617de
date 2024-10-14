@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d57a0c6_11bbb606",
+        "filename": "src/dsp/lossless.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 459,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-10-14T17:13:09Z",
+      "side": 1,
+      "message": "This check is redundant given the way dst in incremented. What\u0027s the motivation for the change? Do you have a static analysis report or a bug?",
+      "range": {
+        "startLine": 459,
+        "startChar": 26,
+        "endLine": 459,
+        "endChar": 39
+      },
+      "revId": "f04ae82ed74dd2d74c680724f642246fef2617de",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
