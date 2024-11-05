@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13daea89_2b9d92a9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-11-05T20:28:03Z",
+      "side": 1,
+      "message": "\u003e https://github.com/msys2/MINGW-packages/commit/b3876b8af680df56ba1ab0046f0e76995625c975\n\u003e \n\u003e Seems it\u0027s no longer necessary after cmake added an option to do the same thing\n\nThanks for looking into it and sorry that this fell through the cracks. For the record, the new option is `CMAKE_SHARED_LIBRARY_NAME_WITH_VERSION`.",
+      "parentUuid": "c852d494_dcea087b",
+      "revId": "915be07433c8f9fbd566be000d326cb47dc0ffbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12d7fbdc_1962ad59",
