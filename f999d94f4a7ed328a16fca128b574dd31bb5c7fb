@@ -16,6 +16,24 @@
       "message": "-sharp_yuv and -near_lossless apply to the whole animation, right? They cannot be set per frame?",
       "revId": "f999d94f4a7ed328a16fca128b574dd31bb5c7fb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81defdf8_dace81ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-11-05T20:30:04Z",
+      "side": 1,
+      "message": "\u003e -sharp_yuv and -near_lossless apply to the whole animation, right? They cannot be set per frame?\n\nYes, I originally copied the commit message from img2webp (where I made it a global option to start), but gif2webp doesn\u0027t have per-frame options, it just does the conversion from the whole gif file.",
+      "parentUuid": "bba559c6_b5d4ad1d",
+      "revId": "f999d94f4a7ed328a16fca128b574dd31bb5c7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
