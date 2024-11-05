@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bba559c6_b5d4ad1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2024-11-05T09:39:11Z",
+      "side": 1,
+      "message": "-sharp_yuv and -near_lossless apply to the whole animation, right? They cannot be set per frame?",
+      "revId": "f999d94f4a7ed328a16fca128b574dd31bb5c7fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
