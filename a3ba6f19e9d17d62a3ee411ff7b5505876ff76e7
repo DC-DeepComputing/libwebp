@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a5f356c_29f0a5a9",
+        "filename": "Makefile.vc",
+        "patchSetId": 1
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-11-06T18:30:42Z",
+      "side": 1,
+      "message": "cmake is structured differently, libwebp itself picks up a dependency on sharpyuv so this change isn\u0027t (strictly) necessary there.",
+      "revId": "a3ba6f19e9d17d62a3ee411ff7b5505876ff76e7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
