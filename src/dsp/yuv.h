@@ -22,6 +22,11 @@
 //   B = 1.164 * (Y-16)                   + 2.018 * (U-128)
 // where Y is in the [16,235] range, and U/V in the [16,240] range.
 //
+// Note the preceding values were taken from https://fourcc.org/fccyvrgb.php,
+// they differ slightly from H.273. Specifically, 2.018 and 0.391 instead of
+// 2.017 and 0.392, respectively. For compatibility with previous versions of
+// the library the slightly different constants are used.
+//
 // The fixed-point implementation used here is:
 //  R = (19077 . y             + 26149 . v - 14234) >> 6
 //  G = (19077 . y -  6419 . u - 13320 . v +  8708) >> 6

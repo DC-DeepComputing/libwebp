@@ -59,7 +59,8 @@ void SharpYuvComputeConversionMatrix(const SharpYuvColorSpace* yuv_color_space,
 }
 
 // Matrices are in YUV_FIX fixed point precision.
-// WebP's matrix, similar but not identical to kRec601LimitedMatrix
+// WebP's matrix, similar but not identical to kRec601LimitedMatrix (see
+// src/dsp/yuv.h)
 static const SharpYuvConversionMatrix kWebpMatrix = {
   {16839, 33059, 6420, 16 << 16},
   {-9719, -19081, 28800, 128 << 16},
