@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fad9cb2a_14a36da2",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "This should be -0.2910. Please double check.\n\nSee https://learn.microsoft.com/en-us/windows/win32/medfound/recommended-8-bit-yuv-formats-for-video-rendering#converting-8-bit-yuv-to-rgb888",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c44acf41_2b900659",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "These matches the coefficients in https://learn.microsoft.com/en-us/windows/win32/medfound/recommended-8-bit-yuv-formats-for-video-rendering#converting-8-bit-yuv-to-rgb888\n\nSee also https://g-issues.webmproject.org/issues/375011696.\n\nIn the next three comments, all divisions are real (floating-point) divisions. 0.299 is K_R and 0.114 is K_B of BT.601.",
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b1d01f1_47c4a05e",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "The exact value of the first coefficient (1.164) is 255 / 219.\n\nThe exact value of the second coefficient (1.596) is 255 / 224 * 2 * (1 − 0.299).",
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d7e3871d_e27f9999",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "The exact value of the first coefficient (1.164) is 255 / 219.\n\nThe exact value of the second coefficient (-0.813) is 255 / 224 * -2 * 0.299 * (1 − 0.299) / (1 − 0.299 − 0.114).\n\nThe exact value of the third coefficient (-0.392) is 255 / 224 * -2 * 0.114 * (1 − 0.114) / (1 − 0.299 − 0.114).",
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "404c2665_2b62ac3b",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "The exact value of the first coefficient (1.164) is 255 / 219.\n\nThe exact value of the second coefficient (2.017) is 255 / 224 * 2 * (1 − 0.114).",
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4fb8e8a_158c8c5e",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2024-11-21T21:46:16Z",
+      "side": 1,
+      "message": "I verified these fixed-point coefficients are the best approximations to the exact values.\n\nHowever, the three constant terms -14234, 8708, and -17685 do not seem to be the best approximations.",
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
