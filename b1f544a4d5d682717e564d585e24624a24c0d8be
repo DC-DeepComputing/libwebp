@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dd47e151_ec8ffb87",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-11-22T00:24:00Z",
+      "side": 1,
+      "message": "\u003e This should be -0.2910. Please double check.\n\u003e \n\u003e See https://learn.microsoft.com/en-us/windows/win32/medfound/recommended-8-bit-yuv-formats-for-video-rendering#converting-8-bit-yuv-to-rgb888\n\nYou\u0027re right, good catch.",
+      "parentUuid": "fad9cb2a_14a36da2",
+      "range": {
+        "startLine": 15,
+        "startChar": 21,
+        "endLine": 15,
+        "endChar": 27
+      },
+      "revId": "b1f544a4d5d682717e564d585e24624a24c0d8be",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c44acf41_2b900659",
         "filename": "src/dsp/yuv.h",
         "patchSetId": 2
