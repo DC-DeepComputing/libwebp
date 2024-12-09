@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38c4e904_bcfe8214",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-09T22:52:32Z",
+      "side": 1,
+      "message": "add `Bug: oss-fuzz:382816119`",
+      "revId": "4e0bec0157856831e6e8f5e35569834deb751fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
