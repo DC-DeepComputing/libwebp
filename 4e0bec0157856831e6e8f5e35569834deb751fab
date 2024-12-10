@@ -16,6 +16,24 @@
       "message": "add `Bug: oss-fuzz:382816119`",
       "revId": "4e0bec0157856831e6e8f5e35569834deb751fab",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51566d8c_1e759ad1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2024-12-10T08:10:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38c4e904_bcfe8214",
+      "revId": "4e0bec0157856831e6e8f5e35569834deb751fab",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
