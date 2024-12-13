@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5916e97_1d7e9dc2",
+        "filename": "NEWS",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2024-12-13T03:12:23Z",
+      "side": 1,
+      "message": "Anything specific you want to add on this topic?",
+      "revId": "7550ee28d2567e54575bf557550b3110f71311ef",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
