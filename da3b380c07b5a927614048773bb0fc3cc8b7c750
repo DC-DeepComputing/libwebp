@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25456935_3cdf5e32",
+        "filename": "examples/anim_util.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 774,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-13T18:36:57Z",
+      "side": 1,
+      "message": "A couple things:\n\n* `sse` can\u0027t be negative, it\u0027s the sum of the squared error.\n* overall this is questionable since we\u0027re dealing with a limited range of pixel and alpha value.\n\nMaybe just an assert?",
+      "revId": "da3b380c07b5a927614048773bb0fc3cc8b7c750",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
