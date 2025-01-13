@@ -771,7 +771,12 @@ void GetDiffAndPSNR(const uint8_t rgba1[], const uint8_t rgba2[],
     *psnr = 99.;  // PSNR when images are identical.
   } else {
     sse /= stride * height;
-    *psnr = 4.3429448 * log(255. * 255. / sse);
+    if (sse <= 0.) {
+      // Images are almost identical but not quite because *max_diff is not 0.
+      *psnr = 90.;
+    } else {
+      *psnr = 4.3429448 * log(255. * 255. / sse);
+    }
   }
 }
 
