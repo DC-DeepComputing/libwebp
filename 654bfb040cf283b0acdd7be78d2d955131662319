@@ -16,6 +16,24 @@
       "message": "this function is called by start \u003d\u003d NULL?? surprising...\nDon\u0027t you want to initialize br-buf_ to NULL or something in this case?",
       "revId": "654bfb040cf283b0acdd7be78d2d955131662319",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "94b0cbb1_66ffbe28",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-01-30T19:30:45Z",
+      "side": 1,
+      "message": "\u003e this function is called by start \u003d\u003d NULL?? surprising...\n\u003e Don\u0027t you want to initialize br-buf_ to NULL or something in this case?\n\nVincent looked into the asan failures (regular test, not fuzzed). His comment in this case was that the buffer would not be used.\n\nThe only place NULL is possible is:\n\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.5.0/src/dec/idec_dec.c#139\n\n```\n      {\n        const uint8_t* const last_start \u003d dec-\u003eparts_[last_part].buf_;\n        VP8BitReaderSetBuffer(\u0026dec-\u003eparts_[last_part], last_start,\n                              mem-\u003ebuf_ + mem-\u003eend_ - last_start);\n      }\n```\n\nIn the test case, `last_start` was `NULL`, but the offset was the whole buffer.\n\nThe other cases are checked or non-NULL:\n* https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.5.0/src/dec/idec_dec.c#399 (checked)\n* https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.5.0/src/utils/bit_reader_utils.c#44 (non-NULL)\n\nSo rather than the additional check in the function we could add a check there, that was an alternative I mentioned.",
+      "parentUuid": "d4820dd4_094d21b6",
+      "revId": "654bfb040cf283b0acdd7be78d2d955131662319",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
