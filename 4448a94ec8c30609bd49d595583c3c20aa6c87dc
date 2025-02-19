@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b2228f9_51a38198",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-02-19T23:51:07Z",
+      "side": 1,
+      "message": "Another option would be `cmake_minimum_required(VERSION 3.7...3.16)` if this breaks anyone.",
+      "revId": "4448a94ec8c30609bd49d595583c3c20aa6c87dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
