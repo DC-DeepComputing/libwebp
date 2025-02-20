@@ -16,6 +16,23 @@
       "message": "Another option would be `cmake_minimum_required(VERSION 3.7...3.16)` if this breaks anyone.",
       "revId": "4448a94ec8c30609bd49d595583c3c20aa6c87dc",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c43bc56_fcbf63d8",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-02-20T08:48:27Z",
+      "side": 1,
+      "message": "Let\u0027s remove that then: https://cmake.org/cmake/help/latest/policy/CMP0072.html",
+      "revId": "4448a94ec8c30609bd49d595583c3c20aa6c87dc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
