@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6bed71ac_ec36efcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-02-21T17:09:07Z",
+      "side": 1,
+      "message": "This breaks configuration with the cmake shipped with Visual Studio 15 2017:\n\n```\nCMake Error at CMakeLists.txt:12 (cmake_minimum_required):\n  CMake 3.16 or higher is required.  You are running version\n  3.12.18081601-MSVC_2\n```\n\nWe can take the stance of supporting the last 2 release or go as far as the compatibility matrix and limit it to 2022. In either case a newer cmake can be used to continue supporting this target.",
+      "revId": "73b728cbb9f6694a6fef0a470e6c23c5ecba2418",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
