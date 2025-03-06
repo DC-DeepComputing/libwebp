@@ -16,6 +16,24 @@
       "message": "I forgot about clang and msvc when doing this. I\u0027ll follow up with something for that.",
       "revId": "980b708e2c55a17e83c2f16c385f7be6c2bb4ab4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cb15813_825f885c",
+        "filename": "src/dsp/enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 949,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-03-06T06:18:58Z",
+      "side": 1,
+      "message": "\u003e I forgot about clang and msvc when doing this. I\u0027ll follow up with something for that.\n\n-\u003e https://chromium-review.googlesource.com/c/webm/libwebp/+/6332018",
+      "parentUuid": "5a9a09db_859c5568",
+      "revId": "980b708e2c55a17e83c2f16c385f7be6c2bb4ab4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
