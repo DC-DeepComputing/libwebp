@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "src/webp/types.h"
 #include "webp/encode.h"
 #include "webp/mux_types.h"
 

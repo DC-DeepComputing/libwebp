@@ -14,10 +14,11 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <stdlib.h>  // NOLINT needed for abort(), but not found in cstdlib
+
 #include <cstddef>
 #include <cstdint>
 #include <cstdio>
-#include <cstdlib>
 #include <string_view>
 #include <utility>
 #include <vector>

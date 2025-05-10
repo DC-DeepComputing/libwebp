@@ -14,6 +14,7 @@
 #ifndef WEBP_UTILS_HUFFMAN_ENCODE_UTILS_H_
 #define WEBP_UTILS_HUFFMAN_ENCODE_UTILS_H_
 
+
 #include "src/webp/types.h"
 
 #ifdef __cplusplus

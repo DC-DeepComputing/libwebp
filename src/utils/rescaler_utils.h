@@ -18,6 +18,7 @@
 extern "C" {
 #endif
 
+
 #include "src/webp/types.h"
 
 #define WEBP_RESCALER_RFIX 32   // fixed-point precision for multiplies
