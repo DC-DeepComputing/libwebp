@@ -16,9 +16,10 @@
 
 // Fuzzing of libwebp's image readers
 
+#include <stdlib.h>  // NOLINT needed for abort(), but not found in cstdlib
+
 #include <cstddef>
 #include <cstdint>
-#include <cstdlib>
 #include <iostream>
 #include <string_view>
 

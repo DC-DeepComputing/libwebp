@@ -16,13 +16,12 @@
 
 #include "./fuzz_utils.h"
 
+#include <stdlib.h>  // NOLINT needed for abort(), but not found in cstdlib
+
 #include <algorithm>
 #include <cassert>
 #include <cstddef>
 #include <cstdint>
-#include <cstdlib>
-#include <fstream>
-#include <iostream>
 #include <string>
 #include <string_view>
 #include <tuple>
