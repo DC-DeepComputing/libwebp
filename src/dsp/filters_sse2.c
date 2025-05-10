@@ -17,8 +17,13 @@
 
 #include <assert.h>
 #include <emmintrin.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "src/dsp/cpu.h"
+
+#include "src/webp/types.h"
 
 //------------------------------------------------------------------------------
 // Helpful macro.

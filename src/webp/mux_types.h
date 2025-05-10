@@ -14,7 +14,9 @@
 #ifndef WEBP_WEBP_MUX_TYPES_H_
 #define WEBP_WEBP_MUX_TYPES_H_
 
+#include <stdint.h>
 #include <string.h>  // memset()
+
 #include "./types.h"
 
 #ifdef __cplusplus

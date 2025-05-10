@@ -12,6 +12,8 @@
 #include "./image_enc.h"
 
 #include <assert.h>
+#include <stdint.h>
+#include <stdio.h>
 #include <string.h>
 
 #ifdef WEBP_HAVE_PNG
@@ -34,6 +36,7 @@
 #include <wincodec.h>
 #endif
 
+#include "webp/decode.h"
 #include "./imageio_util.h"
 #include "../examples/unicode.h"
 

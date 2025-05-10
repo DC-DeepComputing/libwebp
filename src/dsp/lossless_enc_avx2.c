@@ -14,8 +14,12 @@
 #include "src/dsp/dsp.h"
 
 #if defined(WEBP_USE_AVX2)
-#include <assert.h>
+#include <emmintrin.h>
 #include <immintrin.h>
+
+#include <assert.h>
+#include <stddef.h>
+#include <stdint.h>
 
 #include "src/dsp/cpu.h"
 #include "src/dsp/lossless.h"

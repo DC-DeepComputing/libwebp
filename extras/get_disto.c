@@ -19,14 +19,16 @@
 // Author: Skal (pascal.massimino@gmail.com)
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "webp/encode.h"
+#include "../examples/unicode.h"
 #include "imageio/image_dec.h"
 #include "imageio/imageio_util.h"
-#include "../examples/unicode.h"
+#include "src/webp/types.h"
+#include "webp/encode.h"
 
 static size_t ReadPicture(const char* const filename, WebPPicture* const pic,
                           int keep_alpha) {

@@ -13,10 +13,14 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "src/enc/vp8i_enc.h"
 #include "src/utils/utils.h"
+#include "src/webp/encode.h"
+#include "src/webp/types.h"
 
 //------------------------------------------------------------------------------
 // WebPPicture

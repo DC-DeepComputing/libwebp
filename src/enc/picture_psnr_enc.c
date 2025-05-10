@@ -16,6 +16,7 @@
 #if !(defined(WEBP_DISABLE_STATS) || defined(WEBP_REDUCE_SIZE))
 
 #include <math.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 #include "src/dsp/dsp.h"

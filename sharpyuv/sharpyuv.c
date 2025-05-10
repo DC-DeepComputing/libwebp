@@ -16,13 +16,14 @@
 #include <assert.h>
 #include <limits.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
 
-#include "src/webp/types.h"
 #include "sharpyuv/sharpyuv_cpu.h"
 #include "sharpyuv/sharpyuv_dsp.h"
 #include "sharpyuv/sharpyuv_gamma.h"
+#include "src/webp/types.h"
 
 //------------------------------------------------------------------------------
 

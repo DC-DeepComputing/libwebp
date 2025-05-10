@@ -12,6 +12,9 @@
 #ifndef WEBP_IMAGEIO_JPEGDEC_H_
 #define WEBP_IMAGEIO_JPEGDEC_H_
 
+#include <stddef.h>
+#include <stdint.h>
+
 #include "webp/types.h"
 
 #ifdef __cplusplus

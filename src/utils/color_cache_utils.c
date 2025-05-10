@@ -12,8 +12,10 @@
 // Author: Jyrki Alakuijala (jyrki@google.com)
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "src/utils/color_cache_utils.h"
 #include "src/utils/utils.h"
 

@@ -16,6 +16,7 @@
 #include "webp/config.h"
 #endif
 
+#include <stdint.h>
 #include "webp/types.h"
 
 #ifdef __cplusplus

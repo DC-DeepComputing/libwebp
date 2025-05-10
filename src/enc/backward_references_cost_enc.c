@@ -15,6 +15,7 @@
 //
 
 #include <assert.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "src/dsp/lossless_common.h"

@@ -22,6 +22,11 @@
 #include <cpu-features.h>
 #endif
 
+#include <stdint.h>
+#include <stddef.h>
+
+#include "src/webp/types.h"
+
 //------------------------------------------------------------------------------
 // SSE2 detection.
 //

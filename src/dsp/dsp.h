@@ -18,6 +18,8 @@
 #include "src/webp/config.h"
 #endif
 
+#include <stdint.h>
+
 #include "src/dsp/cpu.h"
 #include "src/webp/types.h"
 

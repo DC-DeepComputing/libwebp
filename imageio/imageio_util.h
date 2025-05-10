@@ -13,7 +13,9 @@
 #ifndef WEBP_IMAGEIO_IMAGEIO_UTIL_H_
 #define WEBP_IMAGEIO_IMAGEIO_UTIL_H_
 
+#include <stdint.h>
 #include <stdio.h>
+
 #include "webp/types.h"
 
 #ifdef __cplusplus

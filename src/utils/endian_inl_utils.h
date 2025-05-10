@@ -16,6 +16,8 @@
 #include "src/webp/config.h"
 #endif
 
+#include <stdint.h>
+
 #include "src/dsp/dsp.h"
 #include "src/webp/types.h"
 

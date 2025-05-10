@@ -13,6 +13,7 @@
 // Author: Skal (pascal.massimino@gmail.com)
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,8 +28,10 @@
 #include "../imageio/webpdec.h"
 #include "./stopwatch.h"
 #include "./unicode.h"
+#include "imageio/metadata.h"
 #include "sharpyuv/sharpyuv.h"
 #include "webp/encode.h"
+#include "webp/types.h"
 
 #ifndef WEBP_DLL
 #ifdef __cplusplus

@@ -132,6 +132,7 @@
 # endif
 #endif
 
+#include <stdint.h>
 #include <jni.h>
 #include <stdlib.h>
 #include <string.h>

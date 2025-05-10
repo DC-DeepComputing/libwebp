@@ -13,6 +13,8 @@
 // Author: Skal (pascal.massimino@gmail.com)
 
 #include <assert.h>
+#include <stddef.h>
+#include <stdint.h>
 
 #include "src/utils/quant_levels_utils.h"
 
@@ -137,4 +139,3 @@ int QuantizeLevels(uint8_t* const data, int width, int height,
 
   return 1;
 }
-

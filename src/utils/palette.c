@@ -14,13 +14,16 @@
 #include "src/utils/palette.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "src/dsp/lossless_common.h"
 #include "src/utils/color_cache_utils.h"
 #include "src/utils/utils.h"
 #include "src/webp/encode.h"
 #include "src/webp/format_constants.h"
+#include "src/webp/types.h"
 
 // -----------------------------------------------------------------------------
 

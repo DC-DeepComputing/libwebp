@@ -15,6 +15,7 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>  // for 'strcmp'.
@@ -22,6 +23,7 @@
 #include "./anim_util.h"
 #include "./example_util.h"
 #include "./unicode.h"
+#include "webp/types.h"
 
 #if defined(_MSC_VER) && _MSC_VER < 1900
 #define snprintf _snprintf

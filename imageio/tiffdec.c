@@ -16,15 +16,16 @@
 #endif
 
 #include <limits.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <string.h>
 
 #ifdef WEBP_HAVE_TIFF
 #include <tiffio.h>
 
-#include "webp/encode.h"
 #include "./imageio_util.h"
 #include "./metadata.h"
+#include "webp/encode.h"
 
 static const struct {
   ttag_t tag;

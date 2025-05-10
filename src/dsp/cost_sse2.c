@@ -16,6 +16,10 @@
 #if defined(WEBP_USE_SSE2)
 #include <emmintrin.h>
 
+#include <assert.h>
+#include <stdint.h>
+
+#include "src/dsp/cpu.h"
 #include "src/enc/cost_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/utils/utils.h"

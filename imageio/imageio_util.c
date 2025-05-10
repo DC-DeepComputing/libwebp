@@ -16,8 +16,12 @@
 #include <fcntl.h>   // for _O_BINARY
 #include <io.h>      // for _setmode()
 #endif
+#include <stdint.h>
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "webp/types.h"
 #include "../examples/unicode.h"
 
 // -----------------------------------------------------------------------------

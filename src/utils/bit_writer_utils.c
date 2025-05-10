@@ -13,8 +13,9 @@
 //         Vikas Arora (vikaas.arora@gmail.com)
 
 #include <assert.h>
-#include <string.h>   // for memcpy()
+#include <stdint.h>
 #include <stdlib.h>
+#include <string.h>   // for memcpy()
 
 #include "src/utils/bit_writer_utils.h"
 #include "src/utils/endian_inl_utils.h"

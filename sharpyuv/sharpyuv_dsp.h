@@ -12,6 +12,8 @@
 #ifndef WEBP_SHARPYUV_SHARPYUV_DSP_H_
 #define WEBP_SHARPYUV_SHARPYUV_DSP_H_
 
+#include <stdint.h>
+
 #include "sharpyuv/sharpyuv_cpu.h"
 #include "src/webp/types.h"
 

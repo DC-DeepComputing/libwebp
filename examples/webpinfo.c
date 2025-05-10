@@ -13,8 +13,10 @@
 //  Author: Hui Su (huisu@google.com)
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #ifdef HAVE_CONFIG_H
 #include "webp/config.h"

@@ -15,6 +15,7 @@
 #include "webp/config.h"
 #endif
 
+#include <stdint.h>
 #include <stdio.h>
 
 #ifdef WEBP_HAVE_JPEG

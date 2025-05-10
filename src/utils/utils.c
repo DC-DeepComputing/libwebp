@@ -13,6 +13,8 @@
 
 #include "src/utils/utils.h"
 
+#include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>  // for memcpy()
 

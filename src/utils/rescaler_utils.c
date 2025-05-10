@@ -13,8 +13,10 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "src/dsp/dsp.h"
 #include "src/utils/rescaler_utils.h"
 #include "src/utils/utils.h"

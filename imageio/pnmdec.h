@@ -12,6 +12,9 @@
 #ifndef WEBP_IMAGEIO_PNMDEC_H_
 #define WEBP_IMAGEIO_PNMDEC_H_
 
+#include <stdint.h>
+#include <stddef.h>
+
 #include "webp/types.h"
 
 #ifdef __cplusplus

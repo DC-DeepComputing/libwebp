@@ -12,11 +12,14 @@
 // Author: Urvang Joshi (urvang@google.com)
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include "src/utils/huffman_utils.h"
 #include "src/utils/utils.h"
 #include "src/webp/format_constants.h"
+#include "src/webp/types.h"
 
 // Huffman data read via DecodeImageStream is represented in two (red and green)
 // bytes.

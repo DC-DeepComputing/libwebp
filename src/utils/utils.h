@@ -20,6 +20,7 @@
 #endif
 
 #include <assert.h>
+#include <stdint.h>
 
 #include "src/webp/types.h"
 

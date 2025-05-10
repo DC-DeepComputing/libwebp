@@ -11,7 +11,13 @@
 //
 // Author: Skal (pascal.massimino@gmail.com)
 
+#include <stdint.h>
+#include <stdlib.h>
+
+#include "src/dec/common_dec.h"
+#include "src/dsp/dsp.h"
 #include "src/enc/cost_enc.h"
+#include "src/enc/vp8i_enc.h"
 
 //------------------------------------------------------------------------------
 // Level cost tables

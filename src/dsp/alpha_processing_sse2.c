@@ -16,6 +16,8 @@
 #if defined(WEBP_USE_SSE2)
 #include <emmintrin.h>
 
+#include <stdint.h>
+
 #include "src/dsp/cpu.h"
 
 //------------------------------------------------------------------------------

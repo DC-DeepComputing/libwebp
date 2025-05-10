@@ -14,9 +14,11 @@
 #include "sharpyuv/sharpyuv_dsp.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 
 #include "sharpyuv/sharpyuv_cpu.h"
+#include "src/dsp/cpu.h"
 #include "src/webp/types.h"
 
 //-----------------------------------------------------------------------------

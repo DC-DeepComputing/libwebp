@@ -11,6 +11,7 @@
 
 #include "./gifdec.h"
 
+#include <stdint.h>
 #include <stdio.h>
 
 #ifdef WEBP_HAVE_GIF

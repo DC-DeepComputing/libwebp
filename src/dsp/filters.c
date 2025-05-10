@@ -11,10 +11,14 @@
 //
 // Author: Urvang (urvang@google.com)
 
-#include "src/dsp/dsp.h"
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
+
+#include "src/dsp/cpu.h"
+#include "src/dsp/dsp.h"
+#include "src/webp/types.h"
 
 //------------------------------------------------------------------------------
 // Helpful macro.

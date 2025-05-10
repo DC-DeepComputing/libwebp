@@ -14,7 +14,9 @@
 #include <assert.h>
 #include <float.h>
 #include <math.h>
+#include <stdint.h>
 
+#include "sharpyuv/sharpyuv.h"
 #include "src/webp/types.h"
 
 // Gamma correction compensates loss of resolution during chroma subsampling.

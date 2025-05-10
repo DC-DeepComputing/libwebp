@@ -15,6 +15,8 @@
 #ifndef WEBP_WEBP_MUX_H_
 #define WEBP_WEBP_MUX_H_
 
+#include <stdint.h>
+
 #include "./mux_types.h"
 #include "./types.h"
 

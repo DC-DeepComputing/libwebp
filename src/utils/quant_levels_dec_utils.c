@@ -16,9 +16,11 @@
 
 #include "src/utils/quant_levels_dec_utils.h"
 
+#include <stdint.h>
 #include <string.h>   // for memset
 
 #include "src/utils/utils.h"
+#include "src/webp/types.h"
 
 // #define USE_DITHERING   // uncomment to enable ordered dithering (not vital)
 

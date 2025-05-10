@@ -14,8 +14,10 @@
 #include "src/webp/encode.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdlib.h>
 
+#include "src/dsp/dsp.h"
 #include "src/enc/vp8i_enc.h"
 
 #if !defined(WEBP_REDUCE_SIZE)

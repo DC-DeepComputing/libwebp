@@ -13,6 +13,7 @@
 #include "src/enc/backward_references_enc.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "src/dsp/cpu.h"

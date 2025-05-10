@@ -18,9 +18,13 @@
 extern "C" {
 #endif
 
-#include "src/utils/rescaler_utils.h"
+#include <stddef.h>
+#include <stdint.h>
+
 #include "src/dec/vp8_dec.h"
+#include "src/utils/rescaler_utils.h"
 #include "src/webp/decode.h"
+#include "src/webp/types.h"
 
 //------------------------------------------------------------------------------
 // WebPDecParams: Decoding output parameters. Transient internal object.

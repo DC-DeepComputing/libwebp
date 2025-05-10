@@ -16,7 +16,9 @@
 #define WEBP_UTILS_COLOR_CACHE_UTILS_H_
 
 #include <assert.h>
+#include <stdint.h>
 
+#include "src/dsp/cpu.h"
 #include "src/dsp/dsp.h"
 #include "src/webp/types.h"
 

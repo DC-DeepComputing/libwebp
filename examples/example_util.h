@@ -13,6 +13,8 @@
 #ifndef WEBP_EXAMPLES_EXAMPLE_UTIL_H_
 #define WEBP_EXAMPLES_EXAMPLE_UTIL_H_
 
+#include <stdint.h>
+
 #include "webp/types.h"
 #include "webp/mux_types.h"
 

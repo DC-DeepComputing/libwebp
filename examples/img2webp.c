@@ -15,6 +15,7 @@
 //
 // Author: skal@google.com (Pascal Massimino)
 
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -31,6 +32,8 @@
 #include "sharpyuv/sharpyuv.h"
 #include "webp/encode.h"
 #include "webp/mux.h"
+#include "webp/mux_types.h"
+#include "webp/types.h"
 
 //------------------------------------------------------------------------------
 

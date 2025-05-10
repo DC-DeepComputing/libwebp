@@ -15,11 +15,14 @@
 #endif
 
 #include <assert.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/demux.h"
+#include "src/webp/mux.h"
+#include "src/webp/mux_types.h"
 #include "src/webp/types.h"
 
 #define NUM_CHANNELS 4

@@ -10,6 +10,7 @@
 #ifndef WEBP_DSP_QUANT_H_
 #define WEBP_DSP_QUANT_H_
 
+#include <stdint.h>
 #include <string.h>
 
 #include "src/dsp/dsp.h"
