@@ -12,6 +12,7 @@
 #ifndef WEBP_SHARPYUV_SHARPYUV_GAMMA_H_
 #define WEBP_SHARPYUV_SHARPYUV_GAMMA_H_
 
+
 #include "sharpyuv/sharpyuv.h"
 #include "src/webp/types.h"
 
