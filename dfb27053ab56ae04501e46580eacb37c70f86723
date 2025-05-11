@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4a2b5e6_c4bdc964",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4056663
+      },
+      "writtenOn": "2025-05-11T08:01:53Z",
+      "side": 1,
+      "message": "FYI, this changed the clang-tidy `misc-include-cleaner` warnings from about 1640 to about 130 from adding the necessary headers. A follow-up change then will remove unnecessary headers.",
+      "revId": "dfb27053ab56ae04501e46580eacb37c70f86723",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
