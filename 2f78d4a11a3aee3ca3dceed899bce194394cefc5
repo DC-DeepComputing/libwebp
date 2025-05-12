@@ -16,6 +16,41 @@
       "message": "Removed all stdint.h includes and replaced with webp/types.h",
       "revId": "2f78d4a11a3aee3ca3dceed899bce194394cefc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6914a679_a145ac17",
+        "filename": "examples/gifdec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-05-12T13:59:55Z",
+      "side": 1,
+      "message": "For anything in examples and extras, please use #include \"webp/types.h\"",
+      "fixSuggestions": [
+        {
+          "fixId": "2648a3c4_ab0cff84",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "examples/gifdec.c",
+              "range": {
+                "startLine": 21,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": "#include \"webp/types.h\"\n"
+            }
+          ]
+        }
+      ],
+      "revId": "2f78d4a11a3aee3ca3dceed899bce194394cefc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
