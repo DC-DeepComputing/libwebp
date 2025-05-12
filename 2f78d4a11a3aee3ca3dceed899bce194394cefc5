@@ -51,6 +51,24 @@
       ],
       "revId": "2f78d4a11a3aee3ca3dceed899bce194394cefc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b6399cc_44451b15",
+        "filename": "examples/gifdec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4056663
+      },
+      "writtenOn": "2025-05-12T14:27:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6914a679_a145ac17",
+      "revId": "2f78d4a11a3aee3ca3dceed899bce194394cefc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
