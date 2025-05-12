@@ -1,0 +1,934 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a15fa5e_e1972f46",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "Thanks for putting this together. I have mostly cosmetic comments and a few other questions / comments:\n\n- did a tool group the x86 intrinsics headers (`emmintrin.h`, `smmintrin.h`, etc.) separately or was that manually done?\n- I don\u0027t see any files targeting platforms other than x86; most importantly, that probably means the Arm NEON files could use some work",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4558d9d_4e574927",
+        "filename": "examples/example_util.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "52178015_9bb2d127",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "examples/example_util.h",
+              "range": {
+                "startLine": 16,
+                "startChar": 0,
+                "endLine": 17,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3628ff7c_f84221d7",
+        "filename": "extras/sharpyuv_risk_table.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "51106889_d89b2216",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "extras/sharpyuv_risk_table.c",
+              "range": {
+                "startLine": 12,
+                "startChar": 0,
+                "endLine": 13,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fb833b6_ba30d96f",
+        "filename": "extras/sharpyuv_risk_table.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "f07fff40_45784726",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "extras/sharpyuv_risk_table.h",
+              "range": {
+                "startLine": 15,
+                "startChar": 0,
+                "endLine": 16,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a4feb27e_ab30252d",
+        "filename": "imageio/pngdec.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "223ad032_0727157d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "imageio/pngdec.c",
+              "range": {
+                "startLine": 25,
+                "startChar": 0,
+                "endLine": 26,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c2c5bd2_4c74fc8d",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "24ad9129_500e2e3c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "sharpyuv/sharpyuv_dsp.h",
+              "range": {
+                "startLine": 15,
+                "startChar": 0,
+                "endLine": 16,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fab4dc0b_7b26ca88",
+        "filename": "sharpyuv/sharpyuv_gamma.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "ee3fd957_3ee611c1",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "sharpyuv/sharpyuv_gamma.h",
+              "range": {
+                "startLine": 15,
+                "startChar": 0,
+                "endLine": 16,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45d69508_604eda7c",
+        "filename": "src/dec/alphai_dec.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "e87cd080_cbee9780",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dec/alphai_dec.h",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 18,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "edbcd23b_ff4b0fdc",
+        "filename": "src/dec/quant_dec.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "dcebe1ea_8aa8796d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dec/quant_dec.c",
+              "range": {
+                "startLine": 14,
+                "startChar": 0,
+                "endLine": 15,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5cf2c94_55250027",
+        "filename": "src/dsp/alpha_processing_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "a2772440_030af111",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/alpha_processing_sse2.c",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 20,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b439294_e6a21e05",
+        "filename": "src/dsp/alpha_processing_sse41.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "393dc4e3_1a3defce",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/alpha_processing_sse41.c",
+              "range": {
+                "startLine": 22,
+                "startChar": 0,
+                "endLine": 23,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccdefe8e_911027e0",
+        "filename": "src/dsp/dec_clip_tables.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "0c6cce79_244a6a89",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/dec_clip_tables.c",
+              "range": {
+                "startLine": 14,
+                "startChar": 0,
+                "endLine": 15,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae4907d_72090206",
+        "filename": "src/dsp/dec_sse41.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "3d2d7bbb_735f92c6",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/dec_sse41.c",
+              "range": {
+                "startLine": 20,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c82e9dd2_a7a2e544",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "b79e03aa_8d88d250",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/dsp.h",
+              "range": {
+                "startLine": 21,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6cc060e_9d86c783",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "I\u0027m not sure why the order changed here, `emmintrin.h` can be considered a system header and merged with the next block, but the separation is fine as a first pass since it\u0027s done in a few other files in this change set.",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d07b862_abec0797",
+        "filename": "src/dsp/enc_sse41.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "Same comment about the extra block for `emmintrin.h`, etc.",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e2eb50_0d537430",
+        "filename": "src/dsp/filters_sse2.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "dc3eedd0_bffd73e7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/filters_sse2.c",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49be4cc9_153ce10d",
+        "filename": "src/dsp/lossless.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "ab6bc436_30ea6c23",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/lossless.h",
+              "range": {
+                "startLine": 18,
+                "startChar": 0,
+                "endLine": 19,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8ab1f41_abba3bf3",
+        "filename": "src/dsp/lossless_sse41.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c449bc_1aa42ee0",
+        "filename": "src/dsp/upsampling_sse41.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This file could more correctly use `smmintrin.h`",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71cb358_51144a98",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "5196fa59_647ecc0e",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/yuv.h",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 39,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a5f8a013_662cf562",
+        "filename": "src/enc/histogram_enc.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "b446b1b1_301280ad",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/enc/histogram_enc.h",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 18,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f62c0594_ee2a678a",
+        "filename": "src/utils/endian_inl_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "c55e8572_99b2357c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/utils/endian_inl_utils.h",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 20,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "92d826ef_ecb6fb7b",
+        "filename": "src/utils/filters_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "506c5750_ae27b098",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/utils/filters_utils.h",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 18,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1adc8221_a9ffb671",
+        "filename": "src/utils/huffman_encode_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bf69283_2e32501c",
+        "filename": "src/utils/palette.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "52699f8a_26f34f47",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/utils/palette.h",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 18,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bba885f_14f6717a",
+        "filename": "src/utils/quant_levels_dec_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "3feb767a_80c6d730",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/utils/quant_levels_dec_utils.h",
+              "range": {
+                "startLine": 17,
+                "startChar": 0,
+                "endLine": 18,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "adf13825_2e72c0fc",
+        "filename": "src/utils/rescaler_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "c26ffb37_4a4311fc",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/utils/rescaler_utils.h",
+              "range": {
+                "startLine": 21,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8101cb53_2d24f14a",
+        "filename": "src/webp/mux.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This line can be removed",
+      "fixSuggestions": [
+        {
+          "fixId": "2c57803b_b8a136e4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/webp/mux.h",
+              "range": {
+                "startLine": 18,
+                "startChar": 0,
+                "endLine": 19,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a77a3ef_7cc40c51",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-12T20:40:21Z",
+      "side": 1,
+      "message": "This sounds a little strange. I wonder how widespread the issue is:\n\nhttps://en.cppreference.com/w/cpp/utility/program/abort\n\nDid `clang-tidy` not find it or did you see a compile error somewhere?",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
