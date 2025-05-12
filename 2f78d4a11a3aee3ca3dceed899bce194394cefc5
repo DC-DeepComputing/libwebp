@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99744288_8c6cccac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4056663
+      },
+      "writtenOn": "2025-05-12T09:34:17Z",
+      "side": 1,
+      "message": "Removed all stdint.h includes and replaced with webp/types.h",
+      "revId": "2f78d4a11a3aee3ca3dceed899bce194394cefc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
