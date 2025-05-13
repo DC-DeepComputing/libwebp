@@ -1,0 +1,39 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99489e62_50870ab1",
+        "filename": "src/dsp/upsampling_sse41.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-13T18:37:54Z",
+      "side": 1,
+      "message": "`smmintrin.h` is included here. Going by your manual grouping, this can be removed, though I still think of these as \u0027system\u0027 headers.",
+      "fixSuggestions": [
+        {
+          "fixId": "b0e46052_b6b0a7d2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "src/dsp/upsampling_sse41.c",
+              "range": {
+                "startLine": 20,
+                "startChar": 0,
+                "endLine": 21,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "bd082b05bea4501333aaae4bc22b239755bc47cc",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

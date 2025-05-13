@@ -1457,6 +1457,30 @@
       },
       "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c818764_1792a53c",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-13T18:37:54Z",
+      "side": 1,
+      "message": "\u003e clang-tidy complained that the `abort()` symbol was used and no header including it. When changing `\u003ccstdlib\u003e` to `\u003cstdlib.h\u003e` it workd.\n\u003e \n\u003e I suspect the `\u003ccstdlib\u003e` might not be very cleanly defined, so it might be an issue that might go away at some point. But for now, to reduce the mental overhead of the editor warning about this issue I just chose to use the regular C-header.\n\nPlease file a bug for `clang-tidy`. We can leave this, though I\u0027d argue you\u0027re just shifting some of the cognitive load from what the editor says to what a reader will have to understand when seeing the comment.",
+      "parentUuid": "29e6d6f9_f072be92",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
