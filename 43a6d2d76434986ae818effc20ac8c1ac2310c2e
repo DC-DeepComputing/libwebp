@@ -1505,6 +1505,30 @@
       },
       "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2eaf876b_bf94b7af",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-14T20:06:36Z",
+      "side": 1,
+      "message": "\u003e I\u0027ll try to find out where the problem is. I suspect it is actually not `clang-tidy`\u0027s fault but rather \u003ccstdlib\u003e not properly declaring the exported symbols.\n\u003e \n\u003e The cognitive load should be reduced, as now at least `abort()` is not marked with a scary \"no header for this included\" message (and we don\u0027t need to `// NOLINT` every use of `abort()`). The NOLINT at the include site is just helping someone deciding about the choice of c++ recommended header and \u0027classic\u0027 header.\n\n`std::abort` will work too. I\u0027ll post a change that uses this instead to avoid the `NOLINT` comment. I didn\u0027t get a warning from clang-tidy or other command line linters for stdlib.h.",
+      "parentUuid": "dcd14243_ed867343",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
