@@ -1481,6 +1481,30 @@
       },
       "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcd14243_ed867343",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4056663
+      },
+      "writtenOn": "2025-05-14T08:38:07Z",
+      "side": 1,
+      "message": "I\u0027ll try to find out where the problem is. I suspect it is actually not `clang-tidy`\u0027s fault but rather \u003ccstdlib\u003e not properly declaring the exported symbols.\n\nThe cognitive load should be reduced, as now at least `abort()` is not marked with a scary \"no header for this included\" message (and we don\u0027t need to `// NOLINT` every use of `abort()`). The NOLINT at the include site is just helping someone deciding about the choice of c++ recommended header and \u0027classic\u0027 header.",
+      "parentUuid": "0c818764_1792a53c",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
