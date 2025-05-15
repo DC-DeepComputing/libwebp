@@ -1529,6 +1529,30 @@
       },
       "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9e4f505c_14360196",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4056663
+      },
+      "writtenOn": "2025-05-15T12:57:01Z",
+      "side": 1,
+      "message": "Confirmed, using the `std::abort()` symbol, using `#include \u003ccstddef\u003e` works.\n\nChanged in all places where that was necessary and changed back the include from the c-header to the c++ header.",
+      "parentUuid": "2eaf876b_bf94b7af",
+      "range": {
+        "startLine": 17,
+        "startChar": 24,
+        "endLine": 17,
+        "endChar": 75
+      },
+      "revId": "43a6d2d76434986ae818effc20ac8c1ac2310c2e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
