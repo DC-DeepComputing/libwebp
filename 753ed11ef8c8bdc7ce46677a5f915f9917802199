@@ -16,6 +16,24 @@
       "message": "The build failure is unrelated. The job has a dependency on emscripten. I\u0027ll see if I can resolve it.",
       "revId": "753ed11ef8c8bdc7ce46677a5f915f9917802199",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2e3cac8_bfb53a18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-05-30T18:25:32Z",
+      "side": 1,
+      "message": "\u003e The build failure is unrelated. The job has a dependency on emscripten. I\u0027ll see if I can resolve it.\n\nShould be fixed now. upstream changes required another variable to be set for SDL2 detection (`SDL2_DIR`).",
+      "parentUuid": "4845adc1_b431a853",
+      "revId": "753ed11ef8c8bdc7ce46677a5f915f9917802199",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
