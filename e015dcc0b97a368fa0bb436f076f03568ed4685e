@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "366ebbac_f3457e67",
+        "filename": "src/enc/vp8l_enc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2025-06-12T19:49:24Z",
+      "side": 1,
+      "message": "this constant is hidden at few places as \u0027\u0026 0xff\u0027 that should be \u0027% NUM_BUCKETS\u0027 actually.",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "e015dcc0b97a368fa0bb436f076f03568ed4685e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
