@@ -22,6 +22,30 @@
       },
       "revId": "e015dcc0b97a368fa0bb436f076f03568ed4685e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "18e56286_5cdfe4bf",
+        "filename": "src/enc/vp8l_enc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 4140681
+      },
+      "writtenOn": "2025-06-17T07:35:23Z",
+      "side": 1,
+      "message": "I somewhat agree that they are related, but that is part of a bigger scope: the assumption that RGBA is encoded in particular octet-places in a uint32_t for instance also means that when shifting and masking with 0xff selects these in a particular way; So starting to mask derived from the number of buckets in the histogram sounds like it can break things if someone wonders if changing a convenient constant will increase some color resolution ...\n\nFor now, the NUM_BUCKETS make sense in the few places we need it that directly relates to the array sizes, but I\u0027d not expand it to also imply number of bits something is encoded in.",
+      "parentUuid": "366ebbac_f3457e67",
+      "range": {
+        "startLine": 73,
+        "startChar": 8,
+        "endLine": 73,
+        "endChar": 19
+      },
+      "revId": "e015dcc0b97a368fa0bb436f076f03568ed4685e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
