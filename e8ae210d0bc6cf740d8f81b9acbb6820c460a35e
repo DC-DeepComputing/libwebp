@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bd5ddfa_1928f517",
+        "filename": "NEWS",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-06-30T21:04:51Z",
+      "side": 1,
+      "message": "Anything more specific you want to call out here?",
+      "revId": "e8ae210d0bc6cf740d8f81b9acbb6820c460a35e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
