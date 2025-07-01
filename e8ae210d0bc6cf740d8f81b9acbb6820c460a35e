@@ -16,6 +16,24 @@
       "message": "Anything more specific you want to call out here?",
       "revId": "e8ae210d0bc6cf740d8f81b9acbb6820c460a35e",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d7c1ad0_f0228874",
+        "filename": "NEWS",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-01T20:15:37Z",
+      "side": 1,
+      "message": "\u003e Anything more specific you want to call out here?\n\nThis can always be updated before the final release.",
+      "parentUuid": "8bd5ddfa_1928f517",
+      "revId": "e8ae210d0bc6cf740d8f81b9acbb6820c460a35e",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
