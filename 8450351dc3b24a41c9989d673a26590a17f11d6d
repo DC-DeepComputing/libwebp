@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "af8fe7d7_07a1f01d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T21:14:43Z",
+      "side": 1,
+      "message": "Try to trim the subject. You can move \u0027and ...\u0027 to the body as a quick fix.\n\n```\n  The commit subject: \u0027Add WEBP_ENABLE_FBOUNDS_SAFETY to CMakeLists.txt and conditionally enable it for webputils\u0027 is too long! (90 characters)\n  Try to keep this to 50 or less (up to 65 is permitted for non-reverts).\n  https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines\n  \n```",
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22fda7ab_41331508",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T21:14:43Z",
+      "side": 1,
+      "message": "Nothing wrong with including the local path, but you could trim it to keep the line size down.",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 67
+      },
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3806aef6_d00db085",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T21:14:43Z",
+      "side": 1,
+      "message": "add `Bug: 432511821` (or `Bug: webp:432511821`) after this line.",
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
