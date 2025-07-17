@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "36a6b8e9_abe05733",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-17T21:18:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af8fe7d7_07a1f01d",
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "22fda7ab_41331508",
         "filename": "/COMMIT_MSG",
         "patchSetId": 3
@@ -31,6 +49,30 @@
       "writtenOn": "2025-07-17T21:14:43Z",
       "side": 1,
       "message": "Nothing wrong with including the local path, but you could trim it to keep the line size down.",
+      "range": {
+        "startLine": 26,
+        "startChar": 22,
+        "endLine": 26,
+        "endChar": 67
+      },
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa31b4cd_29d18c4e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-17T21:18:39Z",
+      "side": 1,
+      "message": "Cleaned up the paths a bit :)",
+      "parentUuid": "22fda7ab_41331508",
       "range": {
         "startLine": 26,
         "startChar": 22,
@@ -54,6 +96,24 @@
       "writtenOn": "2025-07-17T21:14:43Z",
       "side": 1,
       "message": "add `Bug: 432511821` (or `Bug: webp:432511821`) after this line.",
+      "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1325ebca_a232eb06",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-17T21:18:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3806aef6_d00db085",
       "revId": "8450351dc3b24a41c9989d673a26590a17f11d6d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
