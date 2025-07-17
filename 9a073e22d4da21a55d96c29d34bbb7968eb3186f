@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c17e0471_79ad5fb2",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T22:19:23Z",
+      "side": 1,
+      "message": "It looks like I didn\u0027t add a `cmake-format` check for this project. Please reformat this with the following patch or use (`cmake-format -i CMakeLists.txt`).\n\n```\ndiff --git a/CMakeLists.txt b/CMakeLists.txt\nindex b4015ad5..6a2f473c 100644\n--- a/CMakeLists.txt\n+++ b/CMakeLists.txt\n@@ -46,7 +46,10 @@ option(WEBP_USE_THREAD \"Enable threading support\" ON)\n option(WEBP_NEAR_LOSSLESS \"Enable near-lossless encoding\" ON)\n option(WEBP_ENABLE_SWAP_16BIT_CSP \"Enable byte swap for 16 bit colorspaces.\"\n        OFF)\n-option(WEBP_ENABLE_FBOUNDS_SAFETY \"Enable -fbounds-safety for the part of the codebase which supports it. This expects an experimental toolchain.\" OFF)\n+option(\n+  WEBP_ENABLE_FBOUNDS_SAFETY\n+  \"Enable -fbounds-safety for the part of the codebase which supports it. This expects an experimental toolchain.\"\n+  OFF)\n set(WEBP_BITTRACE \"0\" CACHE STRING \"Bit trace mode (0\u003dnone, 1\u003dbit, 2\u003dbytes)\")\n set_property(CACHE WEBP_BITTRACE PROPERTY STRINGS 0 1 2)\n option(WEBP_ENABLE_WUNUSED_RESULT \"Add [[nodiscard]] to some functions. \\\n\n```",
+      "revId": "9a073e22d4da21a55d96c29d34bbb7968eb3186f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f0fd42a6_d5e4603d",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 412,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-17T22:19:23Z",
+      "side": 1,
+      "message": "I think making this opt-in to start with makes sense rather than auto-detecting support like we do for some other flags. We want to let the toolchain mature and do performance testing before we\u0027d consider making it the default.",
+      "revId": "9a073e22d4da21a55d96c29d34bbb7968eb3186f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
