@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dd23474a_2a388fc8",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-17T22:55:22Z",
+      "side": 1,
+      "message": "Fixed, hopefully. 😊",
+      "parentUuid": "c17e0471_79ad5fb2",
+      "revId": "9a073e22d4da21a55d96c29d34bbb7968eb3186f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "f0fd42a6_d5e4603d",
         "filename": "CMakeLists.txt",
         "patchSetId": 4
