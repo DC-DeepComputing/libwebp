@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6868e604_541c7624",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a3821158_1aa98566",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9d90dbf7_7f2cfe27",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1eb86631_3c1d5a53",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9d90dbf7_7f2cfe27",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d7a3c3e_6822b26d",
@@ -48,6 +84,24 @@
       "writtenOn": "2025-07-18T22:05:18Z",
       "side": 1,
       "message": "break this long line (we cap at 80)",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e004f33d_65800554",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2d7a3c3e_6822b26d",
       "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -75,6 +129,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73d059f5_969e3acf",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "585d3430_79c59b5d",
+      "range": {
+        "startLine": 44,
+        "startChar": 36,
+        "endLine": 44,
+        "endChar": 74
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b7a9b0fd_bfb383cd",
@@ -88,6 +166,24 @@
       "writtenOn": "2025-07-18T22:05:18Z",
       "side": 1,
       "message": "Break this long line (that\u0027s the presubmit failure):\n\nhttps://build.webmproject.org/jenkins/job/libwebp__patch_check/3718/console",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c398cfe9_5942bc45",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b7a9b0fd_bfb383cd",
       "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -132,6 +228,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9d5eb06_6ac395bc",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3df838e8_eb0dac48",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8fb50d3_6b5482eb",
@@ -149,6 +269,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4e71319_18d2df8c",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f8fb50d3_6b5482eb",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b772e409_f944a7a9",
@@ -162,6 +300,30 @@
       "writtenOn": "2025-07-18T22:05:18Z",
       "side": 1,
       "message": "indent 2 more spaces.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6183e271_e81a0e61",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:04:19Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b772e409_f944a7a9",
       "range": {
         "startLine": 72,
         "startChar": 0,
