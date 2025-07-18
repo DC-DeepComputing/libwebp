@@ -207,6 +207,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9452f181_8540a4d4",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T23:05:37Z",
+      "side": 1,
+      "message": "Ack, added a comment. PTAL :)",
+      "parentUuid": "03ba1756_2a2c9ae0",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3df838e8_eb0dac48",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 8
