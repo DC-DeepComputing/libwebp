@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7120997d_794aeeb7",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T20:53:28Z",
+      "side": 1,
+      "message": "If webputils functions are not public, then let\u0027s definitely keep this internal. \n\nI think in the future, if we expand this to the entire codebase, we\u0027ll want to decide how and if to annotate public functions, but I suppose that\u0027s a problem for later",
+      "parentUuid": "66c276ca_8217a884",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d49081a1_4dfe2afb",
         "filename": "src/webp/types.h",
         "patchSetId": 4
