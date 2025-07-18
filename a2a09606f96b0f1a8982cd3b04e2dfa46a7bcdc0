@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99e1ed51_90e9ed6c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T19:24:04Z",
+      "side": 1,
+      "message": "Gerrit is pretty slow today, so more in depth feedback may wait until that clears up.",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a810c22c_7e359df4",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T19:24:04Z",
+      "side": 1,
+      "message": "This is a publicly installed header. I don\u0027t think this is the best place for internal macros. We have some similar macros in src/dsp/cpu.h, but for this since it\u0027s rather specific and will likely grow let\u0027s make a src/utils/bounds_safety.h header.",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d49081a1_4dfe2afb",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T19:24:04Z",
+      "side": 1,
+      "message": "Preprocessing doesn\u0027t short circuit. You\u0027ll need to `#define __has_feature(x) 0` or make this a two level check. See src/dsp/cpu.h for some examples.",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
