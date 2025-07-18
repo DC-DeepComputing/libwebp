@@ -1,0 +1,175 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3821158_1aa98566",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "add a copyright header:\n\n```\n// Copyright 2025 Google LLC\n//\n// Use of this source code is governed by a BSD-style license\n// that can be found in the COPYING file in the root of the source\n// tree. An additional intellectual property rights grant can be found\n// in the file PATENTS. All contributing project authors may\n// be found in the AUTHORS file in the root of the source tree.\n// -----------------------------------------------------------------------------\n```\n\nYou can add:\n\n```\n//\n// short description\n```\n\nif you think it\u0027s needed.",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d90dbf7_7f2cfe27",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "Make this `TODO: https://issues.webmproject.org/432511225 - ...` (b/432511225 is fine too since we know the mapping).",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7a3c3e_6822b26d",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "break this long line (we cap at 80)",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "585d3430_79c59b5d",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "I don\u0027t think we need a distinction with a leading `_`. If this won\u0027t be used outside of the header `#undef` it at the end.",
+      "range": {
+        "startLine": 44,
+        "startChar": 36,
+        "endLine": 44,
+        "endChar": 74
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7a9b0fd_bfb383cd",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 47,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "Break this long line (that\u0027s the presubmit failure):\n\nhttps://build.webmproject.org/jenkins/job/libwebp__patch_check/3718/console",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03ba1756_2a2c9ae0",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "A brief description of what these mean may help. A reader may not first think of bidirectional when seeing bidi.",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3df838e8_eb0dac48",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "indent this 2 more spaces and add `#include \u003cstring.h\u003e`",
+      "range": {
+        "startLine": 62,
+        "startChar": 0,
+        "endLine": 64,
+        "endChar": 17
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8fb50d3_6b5482eb",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "indent 2 more spaces",
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b772e409_f944a7a9",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T22:05:18Z",
+      "side": 1,
+      "message": "indent 2 more spaces.",
+      "range": {
+        "startLine": 72,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 17
+      },
+      "revId": "72465038ea430bcb64c8fa076190c01b7f462cb3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
