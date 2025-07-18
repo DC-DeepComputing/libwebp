@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66c276ca_8217a884",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T20:50:17Z",
+      "side": 1,
+      "message": "\u003e I\u0027m happy to move things into src/utils/bounds_safety.h - how do you feel about src/webp/types.h including it, or should each file include it directly?\n\u003e \n\nEach file should include it, otherwise we\u0027d need to install the header (to /usr/include/webp for distributions for example). I was assuming the annotations would only be applied to internal functions or if on public functions then they only needed to be added to the function definition, not the declaration.\n\n\u003e The benefit to getting these macros from src/webp/types.h is that nearly everything includes it. \n\u003e \n\u003e If we create src/utils/bounds_safety.h, we\u0027ll need to add the include to all of webputils\n\u003e \n\u003e Happy with either option, want to gauge your preferences",
+      "parentUuid": "7b0c225e_2a734698",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d49081a1_4dfe2afb",
         "filename": "src/webp/types.h",
         "patchSetId": 4
