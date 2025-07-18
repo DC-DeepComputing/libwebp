@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "176de827_189c6c18",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-18T02:32:32Z",
+      "side": 1,
+      "message": "The last failure was just a timeout. Sometimes the mingw compiles/tests get stuck. I retriggered this and if it happens again will remove the failing node.",
+      "revId": "a7002d208948eb78699349400440f895ea951c10",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
