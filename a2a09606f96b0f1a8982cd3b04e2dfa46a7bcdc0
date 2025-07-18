@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b0c225e_2a734698",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T20:05:22Z",
+      "side": 1,
+      "message": "I\u0027m happy to move things into src/utils/bounds_safety.h - how do you feel about src/webp/types.h including it, or should each file include it directly?\n\nThe benefit to getting these macros from src/webp/types.h is that nearly everything includes it. \n\nIf we create src/utils/bounds_safety.h, we\u0027ll need to add the include to all of webputils\n\nHappy with either option, want to gauge your preferences",
+      "parentUuid": "a810c22c_7e359df4",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d49081a1_4dfe2afb",
         "filename": "src/webp/types.h",
         "patchSetId": 4
@@ -48,6 +66,24 @@
       "writtenOn": "2025-07-18T19:24:04Z",
       "side": 1,
       "message": "Preprocessing doesn\u0027t short circuit. You\u0027ll need to `#define __has_feature(x) 0` or make this a two level check. See src/dsp/cpu.h for some examples.",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73956f63_b9b9f037",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T20:05:22Z",
+      "side": 1,
+      "message": "Was mimic\u0027ing the way it\u0027s done in ptrcheck.h https://github.com/swiftlang/llvm-project/blob/2bd2539a3ce6c6eb77a6c1f78f56456f09a88b88/clang/lib/Headers/ptrcheck.h#L16\n\nAck, will make separate macro",
+      "parentUuid": "d49081a1_4dfe2afb",
       "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
