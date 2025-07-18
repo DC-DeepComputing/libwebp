@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "708dfed7_d7385150",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T20:57:26Z",
+      "side": 1,
+      "message": "Also, we\u0027ll probably want to annotate WebPMalloc with `__sized_by`, so src/webp/types.h will need to include src/utils/bounds_safety.h",
+      "parentUuid": "7120997d_794aeeb7",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d49081a1_4dfe2afb",
         "filename": "src/webp/types.h",
         "patchSetId": 4
@@ -120,6 +138,24 @@
       "side": 1,
       "message": "Was mimic\u0027ing the way it\u0027s done in ptrcheck.h https://github.com/swiftlang/llvm-project/blob/2bd2539a3ce6c6eb77a6c1f78f56456f09a88b88/clang/lib/Headers/ptrcheck.h#L16\n\nAck, will make separate macro",
       "parentUuid": "d49081a1_4dfe2afb",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "418b231d_95646d31",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 102,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T20:57:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "73956f63_b9b9f037",
       "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
