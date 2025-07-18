@@ -107,6 +107,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb2ae680_bdce43fe",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-18T21:33:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "708dfed7_d7385150",
+      "revId": "a2a09606f96b0f1a8982cd3b04e2dfa46a7bcdc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d49081a1_4dfe2afb",
