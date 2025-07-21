@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd1e573c_c1271806",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-21T20:31:09Z",
+      "side": 1,
+      "message": "I\u0027m wondering if this flag is strictly necessary. Would there be a time where we specified `-fbounds-safety`, but didn\u0027t want the annotations to have an effect?",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bda00b0_3a7c5292",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-21T20:31:09Z",
+      "side": 1,
+      "message": "Remove the leading `_`.",
+      "range": {
+        "startLine": 58,
+        "startChar": 36,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1bd8927_7daab58b",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-21T20:31:09Z",
+      "side": 1,
+      "message": "With my earlier indent comment I meant indent the body of the `do {} while`:\n\n```\n#define WEBP_UNSAFE_MEMCPY(dst, src, size) do { \\\n    memcpy(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, dst, size), \\\n           WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, src, size), \\\n           size); \\\n } while (0)\n```\n\nI think it\u0027s time I move the project over to clang-format. Let me see how feasible that will be.",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 15
+      },
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
