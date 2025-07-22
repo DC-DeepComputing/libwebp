@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eda12a6b_fdb93690",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 12
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:57:44Z",
+      "side": 1,
+      "message": "Done, assuming I put it in the right place :)",
+      "parentUuid": "7b8c7825_5dceb771",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dd1e573c_c1271806",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-21T20:31:09Z",
       "side": 1,
       "message": "I\u0027m wondering if this flag is strictly necessary. Would there be a time where we specified `-fbounds-safety`, but didn\u0027t want the annotations to have an effect?",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1440285_a6b48d35",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:57:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure if `__has_feature(bounds_attributes)` or `__has_feature(bounds_safety_attributes)` are ever true even if -fbounds-safety is not set. I think that would be the only case.\n\nOtherwise we can remove this variable entirely and trust that if the compiler advertises support, it\u0027s because its enabled and available",
+      "parentUuid": "dd1e573c_c1271806",
       "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
