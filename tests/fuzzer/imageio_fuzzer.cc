@@ -27,6 +27,10 @@
 #include "src/webp/encode.h"
 #include "tests/fuzzer/fuzz_utils.h"
 
+extern "C" {
+#include "nallocinc.c"
+}
+
 namespace {
 
 void TestReader(const uint8_t *data, size_t size, WebPImageReader reader,
@@ -36,6 +40,8 @@ void TestReader(const uint8_t *data, size_t size, WebPImageReader reader,
     std::cerr << "WebPPictureInit failed" << std::endl;
     std::abort();
   }
+  nalloc_init(NULL);
+  nalloc_start(data, size);
   Metadata metadata;
   MetadataInit(&metadata);
   pic.use_argb = use_argb ? 1 : 0;
@@ -45,6 +51,7 @@ void TestReader(const uint8_t *data, size_t size, WebPImageReader reader,
   }
   WebPPictureFree(&pic);
   MetadataFree(&metadata);
+  nalloc_end();
 }
 
 constexpr WebPInputFileFormat kUnknown = WEBP_UNSUPPORTED_FORMAT;
