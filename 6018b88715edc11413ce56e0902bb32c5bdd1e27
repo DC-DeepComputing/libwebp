@@ -77,6 +77,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e131a2f8_c220ed47",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-22T01:36:21Z",
+      "side": 1,
+      "message": "In addition to this also add a link to https://clang.llvm.org/docs/BoundsSafety.html so users can discover the full documentation.",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1bd8927_7daab58b",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
