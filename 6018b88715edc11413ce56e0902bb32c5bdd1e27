@@ -75,6 +75,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e837c7a_9a50aeb8",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1bda00b0_3a7c5292",
+      "range": {
+        "startLine": 58,
+        "startChar": 36,
+        "endLine": 58,
+        "endChar": 37
+      },
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67793652_320c6642",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Good feedback - I think I fixed this up. Please let me know if this wasn\u0027t what you were looking for :)",
+      "parentUuid": "ee8f13f1_18eb914d",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e131a2f8_c220ed47",
@@ -88,6 +130,24 @@
       "writtenOn": "2025-07-22T01:36:21Z",
       "side": 1,
       "message": "In addition to this also add a link to https://clang.llvm.org/docs/BoundsSafety.html so users can discover the full documentation.",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54d0721e_b8c799d8",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e131a2f8_c220ed47",
       "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -115,6 +175,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c04d7459_c4bd72ce",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Ah, my bad. I think I fixed this now :)",
+      "parentUuid": "c1bd8927_7daab58b",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 15
+      },
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8e885f9f_18fddaf9",
@@ -132,6 +216,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb6fbcf3_d27b9724",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8e885f9f_18fddaf9",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "521a156f_92895a6d",
@@ -145,6 +247,24 @@
       "writtenOn": "2025-07-22T00:10:07Z",
       "side": 1,
       "message": "Nit: Add a comment:\n\n```\n#endif  // WEBP_ENABLE_FBOUNDS_SAFETY\n```",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f22fe5c6_758144fd",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-22T02:54:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "521a156f_92895a6d",
       "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
