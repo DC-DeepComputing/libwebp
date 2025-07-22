@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d61f98cb_2a8a82f8",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-22T21:43:25Z",
+      "side": 1,
+      "message": "Max: It is safe to trust `__has_feature`. Here is an example from the official `-fbounds-safety` documentation:\n\nhttps://clang.llvm.org/docs/BoundsSafety.html#portability-with-toolchains-that-do-not-support-the-extension",
+      "parentUuid": "fd203fff_530d8d1c",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bda00b0_3a7c5292",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
