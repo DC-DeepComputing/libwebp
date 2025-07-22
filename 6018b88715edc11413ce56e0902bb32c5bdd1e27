@@ -60,6 +60,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ee8f13f1_18eb914d",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-22T00:10:07Z",
+      "side": 1,
+      "message": "Nit: Replace lines 52-58 with the following:\n\n```\n#if WEBP_ENABLE_FBOUNDS_SAFETY\n#if !WEBP_COMPILER_SUPPORTS_FBOUNDS_SAFETY\n#error Attempted to build with -fbounds-safety which is not supported by the \\\ncurrent compiler.\n#endif\n\n...\n\n```\n\nNote that the comments can be omitted because the macro names and `#error` message make the code clear.",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1bd8927_7daab58b",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
@@ -77,6 +94,40 @@
         "endLine": 87,
         "endChar": 15
       },
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e885f9f_18fddaf9",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-22T00:10:07Z",
+      "side": 1,
+      "message": "Nit: Add a commet:\n\n```\n#else  // !WEBP_ENABLE_FBOUNDS_SAFETY\n```",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "521a156f_92895a6d",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-22T00:10:07Z",
+      "side": 1,
+      "message": "Nit: Add a comment:\n\n```\n#endif  // WEBP_ENABLE_FBOUNDS_SAFETY\n```",
       "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
