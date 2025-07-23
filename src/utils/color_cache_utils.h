@@ -16,6 +16,7 @@
 #define WEBP_UTILS_COLOR_CACHE_UTILS_H_
 
 #include <assert.h>
+#include <ptrcheck.h>
 
 #include "src/dsp/cpu.h"
 #include "src/dsp/dsp.h"
@@ -27,7 +28,7 @@ extern "C" {
 
 // Main color cache struct.
 typedef struct {
-  uint32_t* colors;  // color entries
+  uint32_t* colors __counted_by(1 << hash_bits);  // color entries
   int hash_shift;    // Hash shift: 32 - 'hash_bits'.
   int hash_bits;
 } VP8LColorCache;
