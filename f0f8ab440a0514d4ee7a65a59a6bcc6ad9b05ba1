@@ -131,6 +131,29 @@
       },
       "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b634d1cb_b2fb4310",
+        "filename": "src/utils/color_cache_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:14:57Z",
+      "side": 1,
+      "message": "Should this should go after the pointer? i.e.`uint32_t *__counted_by(1 \u003c\u003c hash_bits) colors`",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
