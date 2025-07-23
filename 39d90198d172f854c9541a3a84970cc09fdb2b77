@@ -88,6 +88,24 @@
       "parentUuid": "d394c801_d09a7dc8",
       "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1314777_2fd4c46b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-23T13:24:12Z",
+      "side": 1,
+      "message": "Ok, where can I see the logs to see the failure ?",
+      "parentUuid": "e89ce9d3_25b3536e",
+      "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
