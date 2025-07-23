@@ -16,6 +16,24 @@
       "message": "Nit: This #else is not needed because compilation ends at the `#error` directive.\n\nSo just use `#endif` here.\n\nBut this issue is moot if we are removing the `WEBP_ENABLE_FBOUNDS_SAFETY` macro and just use `WEBP_COMPILER_SUPPORTS_FBOUNDS_SAFETY`.",
       "revId": "0839190a3ed171c08e5bd90df57822533bc66188",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3c78dca_007ff3f4",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 14
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:44:25Z",
+      "side": 1,
+      "message": "Removed WEBP_ENABLE_FBOUNDS_SAFETY :) PTAL",
+      "parentUuid": "9ab34d4d_2e10b456",
+      "revId": "0839190a3ed171c08e5bd90df57822533bc66188",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
