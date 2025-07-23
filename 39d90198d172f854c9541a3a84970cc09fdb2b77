@@ -16,6 +16,24 @@
       "message": "This fails to link when building the fuzzer. From what I remember nalloc-fuzz needed a custom build. Can these calls be protected by a define perhaps?",
       "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9aa47f5d_b25b9e7e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-23T08:50:43Z",
+      "side": 1,
+      "message": "Where can I see the logs ?\n\nI think this is because nalloc relies on ASAN",
+      "parentUuid": "c42624c0_49275701",
+      "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
