@@ -22,6 +22,14 @@
 #include "src/webp/decode.h"
 #include "tests/fuzzer/fuzz_utils.h"
 
+#if defined(WEBP_FUZZER_ENABLE_NALLOC)
+#include "nallocinc.h"
+#else
+#define nalloc_init(x)
+#define nalloc_start(x, y)
+#define nalloc_end()
+#endif
+
 namespace {
 
 void DecodeWebP(std::string_view arbitrary_bytes) {
@@ -30,6 +38,9 @@ void DecodeWebP(std::string_view arbitrary_bytes) {
     fprintf(stderr, "WebPInitDecoderConfig failed.\n");
     std::abort();
   }
+  nalloc_init(nullptr);
+  nalloc_start(reinterpret_cast<const uint8_t*>(arbitrary_bytes.data()),
+               arbitrary_bytes.size());
   const VP8StatusCode status =
       WebPDecode(reinterpret_cast<const uint8_t*>(arbitrary_bytes.data()),
                  arbitrary_bytes.size(), &decoder_config);
@@ -39,6 +50,7 @@ void DecodeWebP(std::string_view arbitrary_bytes) {
   if (status == VP8_STATUS_SUSPENDED || status == VP8_STATUS_USER_ABORT) {
     std::abort();
   }
+  nalloc_end();
 }
 
 FUZZ_TEST(WebPSuite, DecodeWebP)

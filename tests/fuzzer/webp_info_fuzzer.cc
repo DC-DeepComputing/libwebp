@@ -25,7 +25,17 @@
 #include "examples/webpinfo.c"
 #undef main
 
+#if defined(WEBP_FUZZER_ENABLE_NALLOC)
+#include "nallocinc.h"
+#else
+#define nalloc_init(x)
+#define nalloc_start(x, y)
+#define nalloc_end()
+#endif
+
 void WebPInfoTest(std::string_view data) {
+  nalloc_init(nullptr);
+  nalloc_start(reinterpret_cast<const uint8_t*>(data.data()), data.size());
   WebPInfo webp_info;
   WebPInfoInit(&webp_info);
   webp_info.quiet = 1;
@@ -35,6 +45,7 @@ void WebPInfoTest(std::string_view data) {
   WebPData webp_data = {reinterpret_cast<const uint8_t *>(data.data()),
                         data.size()};
   AnalyzeWebP(&webp_info, &webp_data);
+  nalloc_end();
 }
 
 FUZZ_TEST(WebPInfo, WebPInfoTest)
