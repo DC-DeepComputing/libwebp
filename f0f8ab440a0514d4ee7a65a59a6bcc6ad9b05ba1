@@ -135,6 +135,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6796f706_3d6823d3",
+        "filename": "src/utils/color_cache_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:11:06Z",
+      "side": 1,
+      "message": "\u003e This should be #include \"src/utils/bounds_safety.h\", which will be available once https://chromium-review.googlesource.com/c/webm/libwebp/+/6770827 lands\n\nIt\u0027s better when working with gerrit and pending changes to base dependent changes on them. You can do that by fetching the change and rebasing your branch on it. From the download submenu:\n\n```\ngit fetch https://chromium.googlesource.com/webm/libwebp refs/changes/27/6770827/17 \u0026\u0026 git checkout -b change-6770827 FETCH_HEAD\n```\n\nI\u0027m not planning on landing these until we have build coverage.",
+      "parentUuid": "01f88f46_40b6e810",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b634d1cb_b2fb4310",
         "filename": "src/utils/color_cache_utils.h",
         "patchSetId": 1
