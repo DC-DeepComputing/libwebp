@@ -24,11 +24,17 @@
 #include "src/webp/demux.h"
 #include "src/webp/mux_types.h"
 
+#if defined(WEBP_FUZZER_ENABLE_NALLOC)
+#include "nallocinc.h"
+#endif
+
 namespace {
 
 void AnimDecoderTest(std::string_view blob) {
+  nalloc_init(nullptr);
   const uint8_t* const data = reinterpret_cast<const uint8_t*>(blob.data());
   const size_t size = blob.size();
+  nalloc_start(data, size);
 
   // WebPAnimDecoderGetInfo() is too late to check the canvas size as
   // WebPAnimDecoderNew() will handle the allocations.
@@ -41,6 +47,7 @@ void AnimDecoderTest(std::string_view blob) {
                                              features.height) ||
         static_cast<size_t>(features.width) * features.height >
             kMaxNumPixelsSafe) {
+      nalloc_end();
       return;
     }
   }
@@ -48,7 +55,10 @@ void AnimDecoderTest(std::string_view blob) {
   // decode everything as an animation
   WebPData webp_data = {data, size};
   WebPAnimDecoder* const dec = WebPAnimDecoderNew(&webp_data, nullptr);
-  if (dec == nullptr) return;
+  if (dec == nullptr) {
+    nalloc_end();
+    return;
+  }
 
   WebPAnimInfo info;
   if (!WebPAnimDecoderGetInfo(dec, &info)) goto End;
@@ -64,6 +74,7 @@ void AnimDecoderTest(std::string_view blob) {
   }
 End:
   WebPAnimDecoderDelete(dec);
+  nalloc_end();
 }
 
 }  // namespace
