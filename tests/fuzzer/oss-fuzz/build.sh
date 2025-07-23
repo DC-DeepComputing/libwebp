@@ -40,7 +40,7 @@
 set -eu
 
 EXTRA_CMAKE_FLAGS=""
-export CXXFLAGS="${CXXFLAGS} -DFUZZTEST_COMPATIBILITY_MODE"
+export CXXFLAGS="${CXXFLAGS} -DFUZZTEST_COMPATIBILITY_MODE -DWEBP_FUZZER_ENABLE_NALLOC"
 EXTRA_CMAKE_FLAGS="-DFUZZTEST_COMPATIBILITY_MODE=libfuzzer"
 
 # limit allocation size to reduce spurious OOMs
@@ -52,6 +52,12 @@ cd build && make -j$(nproc) && cd ..
 
 find $SRC/libwebp-test-data -type f -size -32k -iname "*.webp" \
   -exec zip -qju fuzz_seed_corpus.zip "{}" \;
+
+# Duplicate some targets to run with nalloc (allocations failures)
+FUZZ_NALLOC_TARGETS=$(git grep nalloc_init tests/fuzzer/*.cc | cut -d. -f1 | cut -d/ -f3)
+for fuzzn in $FUZZ_NALLOC_TARGETS; do
+    cp ./build/tests/fuzzer/${fuzzn} ./build/tests/fuzzer/${fuzzn}_nalloc;
+done
 
 # The following is taken from https://github.com/google/oss-fuzz/blob/31ac7244748ea7390015455fb034b1f4eda039d9/infra/base-images/base-builder/compile_fuzztests.sh#L59
 # Iterate the fuzz binaries and list each fuzz entrypoint in the binary. For
