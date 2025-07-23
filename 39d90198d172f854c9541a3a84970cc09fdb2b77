@@ -106,6 +106,24 @@
       "parentUuid": "e89ce9d3_25b3536e",
       "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d71fd73c_d8f46237",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-07-23T13:28:55Z",
+      "side": 1,
+      "message": "I you click the link where you have the -1 in the comments and chain the jobs, you end up at: https://build.webmproject.org/jenkins/job/libwebp__compile/config\u003dshared,host\u003dcmake-clang/6877/console",
+      "parentUuid": "e1314777_2fd4c46b",
+      "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
