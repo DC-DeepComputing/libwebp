@@ -70,6 +70,24 @@
       "parentUuid": "c6582586_fa704652",
       "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e89ce9d3_25b3536e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-07-23T12:34:45Z",
+      "side": 1,
+      "message": ".h just because you include it.\nextern\"C\" part of nallocinc just to ease its usage. Just adding\n#ifdef __cplusplus\nextern \"C\" {\n#endif\nwill simplify the code in the users. Just include and you are done.",
+      "parentUuid": "d394c801_d09a7dc8",
+      "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
