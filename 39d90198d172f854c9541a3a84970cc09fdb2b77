@@ -34,6 +34,24 @@
       "parentUuid": "c42624c0_49275701",
       "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6582586_fa704652",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-07-23T10:42:48Z",
+      "side": 1,
+      "message": "The __interceptor_* need to be defined as extern I believe. Making nallocinc.c a proper .h file, with extern \"C\" could be nice. You also need to guard the whole code with something like:\n#if defined(__clang__) \u0026\u0026 defined(__has_feature)\n#if __has_feature(address_sanitizer)",
+      "parentUuid": "9aa47f5d_b25b9e7e",
+      "revId": "39d90198d172f854c9541a3a84970cc09fdb2b77",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
