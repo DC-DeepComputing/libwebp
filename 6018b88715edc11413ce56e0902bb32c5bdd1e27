@@ -163,6 +163,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a7a5e022_c9477f03",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:59:12Z",
+      "side": 1,
+      "message": "\u003e \u003eAnd I assume the declaration needs to be annotated rather than the definition because of the ABI issues right? If that\u0027s true then you\u0027d have the same issue if there\u0027s any caller setup that\u0027s needed.\n\u003e \n\u003e Both will need to be annotated.\n\u003e \n\u003e Yes, we\u0027ll have the same issue of incompatibility, except now we\u0027ll get a build error instead of having an ABI mismatch which could lead to ODR/linker errors/other UB. This imposes a restriction on where we can place ABI breaking annotations\n\nSo we can\u0027t annotate functions that are used across modules until they\u0027re all built with the flag? Do we need an option or in the case where a header is included in multiple places you add the file level pragma to mark the file as unannotated and build them all with the bounds-safety flag?",
+      "parentUuid": "d5ca2e3f_64ed8e17",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bda00b0_3a7c5292",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
