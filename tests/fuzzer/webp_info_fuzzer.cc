@@ -17,6 +17,7 @@
 #include <cstdint>
 #include <string_view>
 
+#include "./nalloc.h"
 #include "src/webp/mux_types.h"
 #include "tests/fuzzer/fuzz_utils.h"
 
@@ -25,7 +26,13 @@
 #include "examples/webpinfo.c"
 #undef main
 
+extern "C" int LLVMFuzzerInitialize(int *argc, char ***argv) {
+  nalloc_init((*argv)[0]);
+  return 0;
+}
+
 void WebPInfoTest(std::string_view data) {
+  nalloc_start(reinterpret_cast<const uint8_t *>(data.data()), data.size());
   WebPInfo webp_info;
   WebPInfoInit(&webp_info);
   webp_info.quiet = 1;
@@ -35,6 +42,7 @@ void WebPInfoTest(std::string_view data) {
   WebPData webp_data = {reinterpret_cast<const uint8_t *>(data.data()),
                         data.size()};
   AnalyzeWebP(&webp_info, &webp_data);
+  nalloc_end();
 }
 
 FUZZ_TEST(WebPInfo, WebPInfoTest)
