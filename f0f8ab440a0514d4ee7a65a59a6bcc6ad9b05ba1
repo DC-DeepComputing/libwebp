@@ -108,6 +108,29 @@
       },
       "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f88f46_40b6e810",
+        "filename": "src/utils/color_cache_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:14:09Z",
+      "side": 1,
+      "message": "This should be #include \"src/utils/bounds_safety.h\", which will be available once https://chromium-review.googlesource.com/c/webm/libwebp/+/6770827 lands",
+      "range": {
+        "startLine": 19,
+        "startChar": 10,
+        "endLine": 19,
+        "endChar": 18
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
