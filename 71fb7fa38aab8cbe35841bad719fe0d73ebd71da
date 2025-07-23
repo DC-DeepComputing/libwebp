@@ -16,6 +16,24 @@
       "message": "Why is it a new one ?",
       "revId": "71fb7fa38aab8cbe35841bad719fe0d73ebd71da",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6776c6d_2738d260",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:08:19Z",
+      "side": 1,
+      "message": "\u003e Why is it a new one ?\n\ngerrit associates a change with the `Change-Id:` in the commit message. You can move this back to the other change by updating the commit to have `Change-Id: I987b7732a2af660bc3c5d1cc7c03bfdf3640a559` and then abandon this change.",
+      "parentUuid": "77d2614e_41be16af",
+      "revId": "71fb7fa38aab8cbe35841bad719fe0d73ebd71da",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
