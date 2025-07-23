@@ -127,6 +127,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "15016a96_8cdc6d43",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-23T20:42:22Z",
+      "side": 1,
+      "message": "\u003e Sorry all for the misdirection, I\u0027m remembering now why I put this in the first place. I think the additional flag needs to stay\n\u003e \n\u003e If we have src/utils/color_cache_utils.h (for example) with -fbounds-safety annotations, and src/utils/color_cache_utils.c gets compiled with -fbounds-safety, everything works.\n\u003e \n\nAnd I assume the declaration needs to be annotated rather than the definition because of the ABI issues right? If that\u0027s true then you\u0027d have the same issue if there\u0027s any caller setup that\u0027s needed.\n\n\u003e As soon as src/dec/vp8l_dec.c imports color_cache_utils.h, things break. In the context of src/dec/vp8l_dec.c, color_cache_utils.h will import bounds_safety.h and report that -fbounds-safety is _not_ enabled, which is true. This means all of the annotations will vanish, including ones that are ABI breaking. \n\u003e \n\u003e I think the correct course of action here is to not allow ABI-breaking annotations while we do partial adoption. I believe the best way to do this is to ensure that the ABI-breaking annotations cause a build failure when users attempt to call them from non-fbounds-safety contexts. \n\u003e \n\u003e Does this make sense? If so, I will revert and re-add -DWEBP_ENABLE_FBOUNDS_SAFETY.",
+      "parentUuid": "c8e0f197_e29340b4",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bda00b0_3a7c5292",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
