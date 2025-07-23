@@ -16,6 +16,98 @@
       "message": "Some lines are more than 80 characters",
       "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "05428274_ddc302db",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:13:26Z",
+      "side": 1,
+      "message": "I think this is somewhat of a TODO, but we should migrate WebPSafeCalloc to return __sized_by, which would make this go away.",
+      "range": {
+        "startLine": 32,
+        "startChar": 76,
+        "endLine": 32,
+        "endChar": 90
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "becce0bb_ae4a0fe5",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:13:26Z",
+      "side": 1,
+      "message": "Do you wanna remove these comments? Probably somewhat redundant/overly verbose",
+      "range": {
+        "startLine": 35,
+        "startChar": 9,
+        "endLine": 35,
+        "endChar": 76
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f940e94_1549cf7a",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:13:26Z",
+      "side": 1,
+      "message": "Since these are going to be somewhat littered around the codebase, I wonder if we should do something like `WEBP_FBOUNDS_SELF_ASSIGN(color_cache-\u003ehash_bits)`, which expands to `color_cache-\u003ehash_bits \u003d color_cache-\u003ehash_bits`;\n\nIt would make it easier for developers to know why the self-assign was there, and also if fbounds-safety ever gets smart enough, we may not need them",
+      "range": {
+        "startLine": 37,
+        "startChar": 6,
+        "endLine": 37,
+        "endChar": 82
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02995769_cae59dad",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-23T16:13:26Z",
+      "side": 1,
+      "message": "This will go away once we mark WebPSafeCalloc as __sized_by. Should we put a TODO here to remove this once that happens, or just go through and do a manual review of all `__unsafe_forge_*` functions at the end?",
+      "range": {
+        "startLine": 41,
+        "startChar": 26,
+        "endLine": 41,
+        "endChar": 55
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
