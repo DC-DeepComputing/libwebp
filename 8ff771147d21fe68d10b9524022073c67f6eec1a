@@ -1,0 +1,164 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78c881e_39d9aaea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "To match libwebp style, there are other comments that can be made in nallocinc.h. We can treat that as contributed code and leave it as is. I would also like a way to disable nalloc; have a build flag to enable it would be best (`WEBP_FUZZER_ENABLE_NALLOC` or so)",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58173b07_263b7a83",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "use `nullptr` in C++ code.",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96be201c_c966925e",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "make this `const uint8_t*` (see the next line)",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "203e9c26_69c356b3",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "`const uint8_t*`",
+      "range": {
+        "startLine": 36,
+        "startChar": 32,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691dc40b_3ed618f0",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "`nullptr`",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c630b056_c855dce9",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "move this to the next line:\n\n```\n}  // extern \"C\"\n```",
+      "range": {
+        "startLine": 394,
+        "startChar": 18,
+        "endLine": 394,
+        "endChar": 34
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e4d5a7b_d1067236",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "`nullptr`",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9f2bbd89_25ed71bd",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-24T17:44:04Z",
+      "side": 1,
+      "message": "`const uint8_t*`",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
