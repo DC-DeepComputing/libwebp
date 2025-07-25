@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "81826ece_3c43d778",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-25T18:18:52Z",
+      "side": 1,
+      "message": "Just so it\u0027s documented: I\u0027ll make another pass on this after I get the clang toolchain installed and have a bit of time to get familiar with how the annotations are used.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
