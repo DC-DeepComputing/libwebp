@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "386bb9dc_067f0ebf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:58:28Z",
+      "side": 1,
+      "message": "\u003e Ok for build time, did you mean something at runtime ? NALLOC_FREQ can already be used to have more or less allocations failures\n\nIf the default for `NALLOC_FREQ` when the environment variable is undefined means no allocations will fail then this should be OK.",
+      "parentUuid": "f32f0775_e13d6051",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6

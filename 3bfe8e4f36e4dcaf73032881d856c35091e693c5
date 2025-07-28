@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b5d573b_2d6d7572",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:58:28Z",
+      "side": 1,
+      "message": "This can be moved into the header to avoid repetition. Like I mentioned in my other comment, if the default behavior is that no allocations fail, then this might be unnecessary.",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c5f10d7_c5d308af",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:58:28Z",
+      "side": 1,
+      "message": "How about calling the header `nalloc.h`?",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "48285218_46c1d03f",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:58:28Z",
+      "side": 1,
+      "message": "This header should have an include guard.",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
