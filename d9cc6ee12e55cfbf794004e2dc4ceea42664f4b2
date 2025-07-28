@@ -34,6 +34,74 @@
       "parentUuid": "81826ece_3c43d778",
       "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93f529ae_83c99e6d",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:54:07Z",
+      "side": 1,
+      "message": "Should we instead do per-file flags rather than per-directory for this?",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feca8dc6_4b04b57a",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:54:07Z",
+      "side": 1,
+      "message": "This and the \u0027end\u0027 comment at line 116 can be removed since they\u0027re isolated to this header.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6190c479_1866d460",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:54:07Z",
+      "side": 1,
+      "message": "Indent this 2 spaces.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1966fabc_abfa715f",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:54:07Z",
+      "side": 1,
+      "message": "indent this and the next line by 1 more space.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

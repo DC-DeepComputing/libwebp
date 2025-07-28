@@ -199,6 +199,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fa73c7d7_ad036ec5",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T22:54:07Z",
+      "side": 1,
+      "message": "\u003e We can annotate functions x-module with _most_ annotations, except `__indexable` and `__bidi_indexable`. So we can use `__counted_by`, `__sized_by`, etc.\n\u003e \n\u003e \u003eDo we need an option or in the case where a header is included in multiple places you add the file level pragma to mark the file as unannotated and build them all with the bounds-safety flag?\n\u003e \n\u003e This is an option I\u0027ve considered, but it felt like it was too much noise/churn on the codebase. I was assuming you\u0027d like this to be isolated to one place while we iterate. Enabling -fbounds-safety for all of libwebp would consist of:\n\u003e \n\u003e - Including src/util/bounds_safety.h in every file\n\u003e - Prepending WEBP_ASSUME_UNSAFE_INDEXABLE_ABI to all files\n\u003e - Replacing memcpy/memset/memmove with the macros provided in bounds_safety.h\n\u003e \n\u003e I\u0027m fine with this approach as well if you\u0027d prefer it :)\n\nIn testing some of the examples given in the docs, I\u0027ve found that things like `__counted_by` only need to appear with the definition since the annotations affect the local code. ABI breaking annotations are likely different.\n\nAs things stand now, the code does not build with this option enabled. Let\u0027s go with this structure for now and get things building in the next change.",
+      "parentUuid": "7eb18909_ba9319e3",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1bda00b0_3a7c5292",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 12
