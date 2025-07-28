@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aba3d7d7_1767e65b",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T23:37:49Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t really have strong feelings, but this seems somewhat simpler for now and seems to meet our partial-adoption process. Happy to hear your thoughts though\n\nMy preference is only that the `-DWEBP_ENABLE_FBOUNDS_SAFETY\u003d1` config is buildable soon so we can test it as changes are made.",
+      "parentUuid": "bab9ca7e_afe208e3",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feca8dc6_4b04b57a",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 20
