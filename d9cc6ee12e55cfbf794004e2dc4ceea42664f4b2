@@ -91,6 +91,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b674ce9_5c70835c",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:39:44Z",
+      "side": 1,
+      "message": "I can chain a CL to this one with the memcpy\u0027s sorted so it\u0027s buildable, or put it in this change :)",
+      "parentUuid": "aba3d7d7_1767e65b",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feca8dc6_4b04b57a",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 20
