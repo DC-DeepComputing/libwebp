@@ -143,6 +143,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "102bc7ba_e2c4fa10",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T23:50:07Z",
+      "side": 1,
+      "message": "\u003e Ah yeah, sorry. Both the pragma and the memcpy changes are needed. Also, ack, sounds good. I have the pragma and memcpy changes ready fwiw\n\nSounds good. We can land this and then I\u0027ll enable the presubmit with your change that gets it buildable.",
+      "parentUuid": "1288e7b4_1ea267c5",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "feca8dc6_4b04b57a",
