@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bab9ca7e_afe208e3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:23:03Z",
+      "side": 1,
+      "message": "I don\u0027t really have strong feelings, but this seems somewhat simpler for now and seems to meet our partial-adoption process. Happy to hear your thoughts though",
+      "parentUuid": "93f529ae_83c99e6d",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feca8dc6_4b04b57a",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 20
@@ -66,6 +84,24 @@
       "writtenOn": "2025-07-28T22:54:07Z",
       "side": 1,
       "message": "This and the \u0027end\u0027 comment at line 116 can be removed since they\u0027re isolated to this header.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf1709d1_9468bf81",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "feca8dc6_4b04b57a",
       "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -87,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "277a5b3d_bc128641",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6190c479_1866d460",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1966fabc_abfa715f",
@@ -100,6 +154,24 @@
       "writtenOn": "2025-07-28T22:54:07Z",
       "side": 1,
       "message": "indent this and the next line by 1 more space.",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "255eb2b1_d6ce7119",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 20
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:23:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1966fabc_abfa715f",
       "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

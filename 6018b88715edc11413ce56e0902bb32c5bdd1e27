@@ -215,6 +215,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1edd4414_693f9db3",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 12
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:23:03Z",
+      "side": 1,
+      "message": "It makes sense that `__counted_by` only needs to be on the definition, since it\u0027s enforced by the caller. I\u0027m not sure if that will change in the future, but I would guess not.\n\n\u003eAs things stand now, the code does not build with this option enabled. Let\u0027s go with this structure for now and get things building in the next change.\n\nRe getting things building in the next change, I agree. the code _should_ build once we replace memcpy with WEBP_UNSAFE_MEMCPY (and memset/memmove). Resolving :) and thanks for all the discussion",
+      "parentUuid": "fa73c7d7_ad036ec5",
+      "revId": "6018b88715edc11413ce56e0902bb32c5bdd1e27",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1bda00b0_3a7c5292",
