@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f32f0775_e13d6051",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Ok for build time, did you mean something at runtime ? NALLOC_FREQ can already be used to have more or less allocations failures",
+      "parentUuid": "f78c881e_39d9aaea",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-24T17:44:04Z",
       "side": 1,
       "message": "use `nullptr` in C++ code.",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "177ef5aa_ce0b553c",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "58173b07_263b7a83",
       "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -48,6 +84,30 @@
       "writtenOn": "2025-07-24T17:44:04Z",
       "side": 1,
       "message": "make this `const uint8_t*` (see the next line)",
+      "range": {
+        "startLine": 33,
+        "startChar": 31,
+        "endLine": 33,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "127f0fc7_87d58d4e",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "96be201c_c966925e",
       "range": {
         "startLine": 33,
         "startChar": 31,
@@ -81,6 +141,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afefcd0b_4a2b612b",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "203e9c26_69c356b3",
+      "range": {
+        "startLine": 36,
+        "startChar": 32,
+        "endLine": 36,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "691dc40b_3ed618f0",
@@ -94,6 +178,24 @@
       "writtenOn": "2025-07-24T17:44:04Z",
       "side": 1,
       "message": "`nullptr`",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53a6c4cf_4fa13582",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "691dc40b_3ed618f0",
       "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -121,6 +223,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "69c34689_8683afcc",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 394,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c630b056_c855dce9",
+      "range": {
+        "startLine": 394,
+        "startChar": 18,
+        "endLine": 394,
+        "endChar": 34
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e4d5a7b_d1067236",
@@ -138,6 +264,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4758e4f9_511ba749",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7e4d5a7b_d1067236",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9f2bbd89_25ed71bd",
@@ -151,6 +295,30 @@
       "writtenOn": "2025-07-24T17:44:04Z",
       "side": 1,
       "message": "`const uint8_t*`",
+      "range": {
+        "startLine": 32,
+        "startChar": 32,
+        "endLine": 32,
+        "endChar": 47
+      },
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1a0e9d1_cc7a1e9a",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-28T18:39:01Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9f2bbd89_25ed71bd",
       "range": {
         "startLine": 32,
         "startChar": 32,
