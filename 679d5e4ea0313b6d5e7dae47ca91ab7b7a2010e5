@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f93e3744_e5894a97",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 21
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T23:53:06Z",
+      "side": 1,
+      "message": "Nit: It seems better for this to match the next line:\n\n```\n  target_compile_definitions(webputils PRIVATE WEBP_SUPPORT_FBOUNDS_SAFETY\u003d1)\n```",
+      "revId": "679d5e4ea0313b6d5e7dae47ca91ab7b7a2010e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f37392ed_593e4b39",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-07-28T23:53:06Z",
+      "side": 1,
+      "message": "Nit: Change `#if` to `#ifdef`",
+      "revId": "679d5e4ea0313b6d5e7dae47ca91ab7b7a2010e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
