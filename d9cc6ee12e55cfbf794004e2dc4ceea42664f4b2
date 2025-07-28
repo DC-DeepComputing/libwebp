@@ -125,6 +125,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1288e7b4_1ea267c5",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-28T23:44:19Z",
+      "side": 1,
+      "message": "Ah yeah, sorry. Both the pragma and the memcpy changes are needed. Also, ack, sounds good. I have the pragma and memcpy changes ready fwiw",
+      "parentUuid": "ff5ea643_70c859c4",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "feca8dc6_4b04b57a",
