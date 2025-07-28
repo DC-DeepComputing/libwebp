@@ -109,6 +109,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ff5ea643_70c859c4",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 20
+      },
+      "lineNbr": 418,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-28T23:42:53Z",
+      "side": 1,
+      "message": "\u003e I can chain a CL to this one with the memcpy\u0027s sorted so it\u0027s buildable, or put it in this change :)\n\n\nI think there\u0027s more than that. We can land this and then focus on getting the build to work. Seems like we will need that pragma in each file for now.\n\n```\nFAILED: CMakeFiles/webputils.dir/src/utils/quant_levels_utils.c.o \nsrc/utils/quant_levels_utils.c:56:34: error: array subscript on single pointer \u0027data\u0027 must use a constant index of 0 to be in bounds\n   56 |       num_levels_in +\u003d (freq[data[n]] \u003d\u003d 0);\n      |                              ~~~~^~\nsrc/utils/quant_levels_utils.c:57:23: error: array subscript on single pointer \u0027data\u0027 must use a constant index of 0 to be in bounds\n   57 |       if (min_s \u003e data[n]) min_s \u003d data[n];\n...\n```",
+      "parentUuid": "1b674ce9_5c70835c",
+      "revId": "d9cc6ee12e55cfbf794004e2dc4ceea42664f4b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "feca8dc6_4b04b57a",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 20
