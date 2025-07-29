@@ -15,8 +15,11 @@
 #include <assert.h>
 #include <stddef.h>
 
+#include "src/utils/bounds_safety.h"
 #include "src/webp/types.h"
 #include "src/utils/quant_levels_utils.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #define NUM_SYMBOLS     256
 

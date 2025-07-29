@@ -15,9 +15,12 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "src/utils/bounds_safety.h"
 #include "src/utils/color_cache_utils.h"
 #include "src/webp/types.h"
 #include "src/utils/utils.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 //------------------------------------------------------------------------------
 // VP8LColorCache.
@@ -46,6 +49,6 @@ void VP8LColorCacheCopy(const VP8LColorCache* const src,
   assert(src != NULL);
   assert(dst != NULL);
   assert(src->hash_bits == dst->hash_bits);
-  memcpy(dst->colors, src->colors,
+  WEBP_UNSAFE_MEMCPY(dst->colors, src->colors,
          ((size_t)1u << dst->hash_bits) * sizeof(*dst->colors));
 }
