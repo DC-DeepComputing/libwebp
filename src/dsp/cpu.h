@@ -119,7 +119,7 @@
 // inclusion of arm64_neon.h; Visual Studio 2019 includes this file in
 // arm_neon.h. Compile errors were seen with Visual Studio 2019 16.4 with
 // vtbl4_u8(); a fix was made in 16.6.
-#if defined(_MSC_VER) && \
+#if defined(_MSC_VER) &&                      \
     ((_MSC_VER >= 1700 && defined(_M_ARM)) || \
      (_MSC_VER >= 1926 && (defined(_M_ARM64) || defined(_M_ARM64EC))))
 #define WEBP_USE_NEON
@@ -195,7 +195,7 @@
 #define WEBP_DSP_INIT(func)                                         \
   do {                                                              \
     static volatile VP8CPUInfo func##_last_cpuinfo_used =           \
-        (VP8CPUInfo)&func##_last_cpuinfo_used;                      \
+        (VP8CPUInfo) & func##_last_cpuinfo_used;                    \
     static pthread_mutex_t func##_lock = PTHREAD_MUTEX_INITIALIZER; \
     if (pthread_mutex_lock(&func##_lock)) break;                    \
     if (func##_last_cpuinfo_used != VP8GetCPUInfo) func();          \
@@ -206,7 +206,7 @@
 #define WEBP_DSP_INIT(func)                               \
   do {                                                    \
     static volatile VP8CPUInfo func##_last_cpuinfo_used = \
-        (VP8CPUInfo)&func##_last_cpuinfo_used;            \
+        (VP8CPUInfo) & func##_last_cpuinfo_used;          \
     if (func##_last_cpuinfo_used == VP8GetCPUInfo) break; \
     func();                                               \
     func##_last_cpuinfo_used = VP8GetCPUInfo;             \
