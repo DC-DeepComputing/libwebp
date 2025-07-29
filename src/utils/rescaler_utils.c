@@ -18,8 +18,11 @@
 
 #include "src/dsp/dsp.h"
 #include "src/webp/types.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/rescaler_utils.h"
 #include "src/utils/utils.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 //------------------------------------------------------------------------------
 
@@ -78,7 +81,7 @@ int WebPRescalerInit(WebPRescaler* const rescaler,
   }
   rescaler->irow = work;
   rescaler->frow = work + num_channels * dst_width;
-  memset(work, 0, (size_t)total_size);
+  WEBP_UNSAFE_MEMSET(work, 0, (size_t)total_size);
 
   WebPRescalerDspInit();
   return 1;
