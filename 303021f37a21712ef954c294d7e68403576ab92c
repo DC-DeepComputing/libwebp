@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5030926_e34a08db",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-29T18:09:54Z",
+      "side": 1,
+      "message": "https://build.webmproject.org/jenkins/job/libwebp__patch_check/3749/console\n\n```\nSource files with lines longer than 80 characters, split them and post a new patch:\nsrc/utils/huffman_encode_utils.c(234):           WEBP_UNSAFE_MEMMOVE(tree + (k + 1), tree + k, (tree_size - k) * sizeof(*tree));\nsrc/utils/palette.c(403):         WEBP_UNSAFE_MEMCPY(palette, palette_sorted, num_colors * sizeof(*palette));\n```\n\nI\u0027m reviewing the initial run of clang-format. After that, these kinds of things will take care of themselves.",
+      "revId": "303021f37a21712ef954c294d7e68403576ab92c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
