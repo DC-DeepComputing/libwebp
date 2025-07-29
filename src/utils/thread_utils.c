@@ -14,8 +14,11 @@
 #include <assert.h>
 #include <string.h>   // for memset()
 
+#include "src/utils/bounds_safety.h"
 #include "src/utils/thread_utils.h"
 #include "src/utils/utils.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #ifdef WEBP_USE_THREAD
 
@@ -262,7 +265,7 @@ static void ChangeState(WebPWorker* const worker, WebPWorkerStatus new_status) {
 //------------------------------------------------------------------------------
 
 static void Init(WebPWorker* const worker) {
-  memset(worker, 0, sizeof(*worker));
+  WEBP_UNSAFE_MEMSET(worker, 0, sizeof(*worker));
   worker->status = NOT_OK;
 }
 

@@ -22,8 +22,11 @@
 #include "src/dsp/cpu.h"
 #include "src/utils/bit_reader_inl_utils.h"
 #include "src/utils/bit_reader_utils.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/endian_inl_utils.h"
 #include "src/utils/utils.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 //------------------------------------------------------------------------------
 // VP8BitReader
@@ -277,7 +280,7 @@ static void PrintBitTraces(void) {
 void BitTrace(const struct VP8BitReader* const br, const char label[]) {
   int i, pos;
   if (!init_done) {
-    memset(kLabels, 0, sizeof(kLabels));
+    WEBP_UNSAFE_MEMSET(kLabels, 0, sizeof(kLabels));
     atexit(PrintBitTraces);
     buf_start = br->buf;
     init_done = 1;
