@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ff7cefd_207d6207",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-29T18:55:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2b5d573b_2d6d7572",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c5f10d7_c5d308af",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "41287cf8_19256080",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-29T18:55:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8c5f10d7_c5d308af",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "48285218_46c1d03f",
@@ -48,6 +84,24 @@
       "writtenOn": "2025-07-28T22:58:28Z",
       "side": 1,
       "message": "This header should have an include guard.",
+      "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3e16dc7_587928ca",
+        "filename": "tests/fuzzer/nallocinc.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-29T18:55:11Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "48285218_46c1d03f",
       "revId": "3bfe8e4f36e4dcaf73032881d856c35091e693c5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

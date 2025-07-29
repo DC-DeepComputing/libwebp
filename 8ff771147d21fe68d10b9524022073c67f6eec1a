@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0f6da1b6_49e56681",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-29T18:55:11Z",
+      "side": 1,
+      "message": "Well, now the default build (without WEBP_FUZZER_ENABLE_NALLOC) does not make any allocations fail\n\nBut, I still would like to have oss-fuzz run with allocations failing\n\nSo, the default runtime, if build was with WEBP_FUZZER_ENABLE_NALLOC, is to make allocations fail...\n\nI am adding a new randomization feature : one run out of 2 will not have allocations failure, while the other out of 2 will fail at a random frequency between 1/32 and 1/2^20",
+      "parentUuid": "386bb9dc_067f0ebf",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
