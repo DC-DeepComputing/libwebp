@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1a9f2046_cccfe2cf",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 21
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-29T00:00:28Z",
+      "side": 1,
+      "message": "This macro needs to be defined for all of libwebp, even though the annotations will only be applied to webputils. \n\nOtherwise, when files outside of webputils import files that are in webputils, bounds_safety.h will evaluate differently, causing the annotations to disappear",
+      "parentUuid": "f93e3744_e5894a97",
+      "revId": "679d5e4ea0313b6d5e7dae47ca91ab7b7a2010e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f37392ed_593e4b39",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 21
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-28T23:53:06Z",
       "side": 1,
       "message": "Nit: Change `#if` to `#ifdef`",
+      "revId": "679d5e4ea0313b6d5e7dae47ca91ab7b7a2010e5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45f0b3c8_a348b6fd",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 21
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-07-29T00:00:28Z",
+      "side": 1,
+      "message": "Fixed :)",
+      "parentUuid": "f37392ed_593e4b39",
       "revId": "679d5e4ea0313b6d5e7dae47ca91ab7b7a2010e5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
