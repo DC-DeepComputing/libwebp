@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efbfd50_6042b105",
+        "filename": "examples/anim_diff.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T03:44:59Z",
+      "side": 0,
+      "message": "```\n  ok \u003d CompareValues(img1-\u003ecanvas_width, img2-\u003ecanvas_width,\n                     \"Canvas width mismatch\") \u0026\u0026\n       ok;\n```",
+      "revId": "86924ed5cda425597b1ca3b073438bb87c330684",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
