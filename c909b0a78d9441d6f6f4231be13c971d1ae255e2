@@ -1,0 +1,112 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fa51ce7_453984db",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "Does `nalloc.h` have a canonical source? If so, it would be good to add a link that shows what this version was based on.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43a58268_f93122e9",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "merge this with the earlier group of includes.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6d6fef6_8be840fe",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "merge this with the earlier group of includes.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "004de613_77cf2141",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "merge this with the earlier group of includes.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e304da0f_72af7098",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "To match the style in the rest of the project use `WEBP_TESTS_FUZZER_NALLOC_H_`",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d84f1e06_88804ce1",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "add `  // NALLOC_LIBBACKTRACE`",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

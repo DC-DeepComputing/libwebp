@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7d807a70_e756c68b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-30T22:36:36Z",
+      "side": 1,
+      "message": "\u003e Well, now the default build (without WEBP_FUZZER_ENABLE_NALLOC) does not make any allocations fail\n\u003e \n\u003e But, I still would like to have oss-fuzz run with allocations failing\n\u003e \n\u003e So, the default runtime, if build was with WEBP_FUZZER_ENABLE_NALLOC, is to make allocations fail...\n\u003e \n\u003e I am adding a new randomization feature : one run out of 2 will not have allocations failure, while the other out of 2 will fail at a random frequency between 1/32 and 1/2^20\n\nThis sounds reasonable, though decreasing the low end might find some (less likely to occur) bugs. I think it makes sense to be able to allow normal fuzzing to occur without allocation failures. If that\u0027s possible with the same binary then great. I don\u0027t see that happening in the current patchset, though. With none of the environment variables defined the nalloc code should be a noop, correct?",
+      "parentUuid": "0f6da1b6_49e56681",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
