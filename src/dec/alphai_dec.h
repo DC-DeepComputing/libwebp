@@ -28,7 +28,8 @@ struct VP8LDecoder;  // Defined in dec/vp8li.h.
 
 typedef struct ALPHDecoder ALPHDecoder;
 struct ALPHDecoder {
-  int width;
+  int
+    width;
   int height;
   int method;
   WEBP_FILTER_TYPE filter;
