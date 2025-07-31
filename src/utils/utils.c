@@ -17,9 +17,12 @@
 #include <stdlib.h>
 #include <string.h>  // for memcpy()
 
+#include "src/utils/bounds_safety.h"
 #include "src/utils/palette.h"
 #include "src/webp/encode.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 // If PRINT_MEM_INFO is defined, extra info (like total memory used, number of
 // alloc/free etc) is printed. For debugging/tuning purpose only (it's slow,
@@ -239,7 +242,7 @@ void WebPCopyPlane(const uint8_t* src, int src_stride, uint8_t* dst,
   assert(src != NULL && dst != NULL);
   assert(abs(src_stride) >= width && abs(dst_stride) >= width);
   while (height-- > 0) {
-    memcpy(dst, src, width);
+    WEBP_UNSAFE_MEMCPY(dst, src, width);
     src += src_stride;
     dst += dst_stride;
   }

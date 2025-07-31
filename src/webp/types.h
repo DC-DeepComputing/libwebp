@@ -16,6 +16,10 @@
 
 #include <stddef.h>  // IWYU pragma: export for size_t
 
+#include "../utils/bounds_safety.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
+
 #ifndef _MSC_VER
 #include <inttypes.h>  // IWYU pragma: export
 #if defined(__cplusplus) || !defined(__STRICT_ANSI__) || \
