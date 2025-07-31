@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "623177eb_27e2facb",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T21:31:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cfbc8194_6135b93f",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc37f64d_8c7021f6",
@@ -48,6 +66,24 @@
       "writtenOn": "2025-07-31T20:19:57Z",
       "side": 1,
       "message": "Make this `#include \"./nalloc.h\"` and move it to the start of the group.",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89259a33_f048c691",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T21:31:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "fc37f64d_8c7021f6",
       "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +107,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "84c52ec5_f01ba317",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T21:31:39Z",
+      "side": 1,
+      "message": "Trying with my clang-format 20",
+      "parentUuid": "c2890c78_adea75ac",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f91152b9_92408a9a",
         "filename": "tests/fuzzer/webp_info_fuzzer.cc",
         "patchSetId": 10
@@ -82,6 +136,24 @@
       "writtenOn": "2025-07-31T20:19:57Z",
       "side": 1,
       "message": "Move this before line 20 and add `./`",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6392d62_a9cade17",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T21:31:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f91152b9_92408a9a",
       "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
