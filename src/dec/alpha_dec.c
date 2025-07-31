@@ -10,6 +10,7 @@
 // Alpha-plane decompression.
 //
 // Author: Skal (pascal.massimino@gmail.com)
+// test
 
 #include <assert.h>
 #include <stdlib.h>
