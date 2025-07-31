@@ -76,6 +76,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "43a28dab_43faee4e",
+        "filename": "src/utils/thread_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:59:46Z",
+      "side": 1,
+      "message": "\u003e Maybe append `//` to break lines\n\u003e \n\u003e Below too\n\nInstead of this style of comment I converted them to the more normal `/*lpThreadAttributes\u003d*/` style.",
+      "parentUuid": "a3f30d85_5804814a",
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c2e247f_0942c1d7",
@@ -89,6 +107,30 @@
       "writtenOn": "2025-07-31T09:07:56Z",
       "side": 1,
       "message": "It looks like this should fit? No need for a line break.\n\nSame below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 29,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4697a7fa_e9a1abde",
+        "filename": "src/webp/format_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:59:46Z",
+      "side": 1,
+      "message": "\u003e It looks like this should fit? No need for a line break.\n\u003e \n\u003e Same below.\n\nThere are other instances like this throughout. I think it happens when there are multi-line comments. This happens with newer versions too. I don\u0027t know if there\u0027s a good way to prevent this. C-style comments get the same treatment.\n\nThe comment can be merged, but then you get a continued line along with the alignment:\n\n```\n#define VP8L_IMAGE_SIZE_BITS \\\n  14                         // Number of bits used to store width and height.\n```\n\n`TRANSFORM_PRESENT` behaves better because there\u0027s no horizontal alignment:\n\n```\n#define TRANSFORM_PRESENT \\\n  1  // The bit to be written when next data to be read is a transform.\n```\n\nGiven we\u0027re going to get a line break I merged the comments and let clang-format handle the alignment.",
+      "parentUuid": "3c2e247f_0942c1d7",
       "range": {
         "startLine": 29,
         "startChar": 29,
