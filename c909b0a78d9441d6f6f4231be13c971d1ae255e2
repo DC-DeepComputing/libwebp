@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8c24a95_b31fbfba",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "4fa51ce7_453984db",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "43a58268_f93122e9",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-07-30T22:36:36Z",
       "side": 1,
       "message": "merge this with the earlier group of includes.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22185538_6b121277",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "43a58268_f93122e9",
       "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de280f00_6d0050d8",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b6d6fef6_8be840fe",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "004de613_77cf2141",
@@ -65,6 +119,24 @@
       "writtenOn": "2025-07-30T22:36:36Z",
       "side": 1,
       "message": "merge this with the earlier group of includes.",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7b72440_648214d4",
+        "filename": "tests/fuzzer/imageio_fuzzer.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "004de613_77cf2141",
       "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -92,6 +164,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a739fbc8_68c74d43",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e304da0f_72af7098",
+      "range": {
+        "startLine": 25,
+        "startChar": 8,
+        "endLine": 25,
+        "endChar": 16
+      },
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d84f1e06_88804ce1",
@@ -105,6 +201,24 @@
       "writtenOn": "2025-07-30T22:36:36Z",
       "side": 1,
       "message": "add `  // NALLOC_LIBBACKTRACE`",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6e855c7_5cc14e51",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "Ok, but I will go on with just remove these lines as we do not use libbacktrace\n\nASAN may provide __sanitizer_symbolize_pc if we want to exclude some backtraces from allocations failures but I experienced troubles having it on curl fuzzer even if it works on simple tests https://github.com/curl/curl-fuzzer/pull/173",
+      "parentUuid": "d84f1e06_88804ce1",
       "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }

@@ -92,6 +92,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "395a8eab_500f0262",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-07-31T10:06:17Z",
+      "side": 1,
+      "message": "\u003e decreasing the low end might find some (less likely to occur) bugs\n\nWhich number do you want to decrease ? 1/32 ? 1/2^20 ?\n\n\u003e I think it makes sense to be able to allow normal fuzzing to occur without allocation failures.\n\nThat is possible and default build if you do not build with DWEBP_FUZZER_ENABLE_NALLOC\n\n\u003e If that\u0027s possible with the same binary then great\n\nI am adding that possibility. If you built with DWEBP_FUZZER_ENABLE_NALLOC, but want to run without allocations failures, you can use env variable `NALLOC_FREQ\u003d0`\n\n\u003e With none of the environment variables defined the nalloc code should be a noop, correct?\n\nI do not agree as I want allocations to fail on ossfuzz, and ossfuzz will not define NALLOC_FREQ or such...\nIs the solution `NALLOC_FREQ\u003d0` good enough for you ?",
+      "parentUuid": "7d807a70_e756c68b",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
