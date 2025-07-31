@@ -17,9 +17,12 @@
 #include <stdlib.h>
 #include <string.h>  // for memcpy()
 
+#include "src/utils/bounds_safety.h"
 #include "src/utils/palette.h"
 #include "src/webp/encode.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 // If PRINT_MEM_INFO is defined, extra info (like total memory used, number of
 // alloc/free etc) is printed. For debugging/tuning purpose only (it's slow,
@@ -228,9 +231,11 @@ void WebPSafeFree(void* const ptr) {
 
 // Public API functions.
 
-void* WebPMalloc(size_t size) { return WebPSafeMalloc(1, size); }
+void* WEBP_SINGLE WebPMalloc(size_t size) {
+  return WEBP_UNSAFE_FORGE_SINGLE(void*, WebPSafeMalloc(1, size));
+}
 
-void WebPFree(void* ptr) { WebPSafeFree(ptr); }
+void WebPFree(void* WEBP_SINGLE ptr) { WebPSafeFree(ptr); }
 
 //------------------------------------------------------------------------------
 
@@ -239,7 +244,7 @@ void WebPCopyPlane(const uint8_t* src, int src_stride, uint8_t* dst,
   assert(src != NULL && dst != NULL);
   assert(abs(src_stride) >= width && abs(dst_stride) >= width);
   while (height-- > 0) {
-    memcpy(dst, src, width);
+    WEBP_UNSAFE_MEMCPY(dst, src, width);
     src += src_stride;
     dst += dst_stride;
   }
