@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7eebe33_ad5b73a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T17:27:00Z",
+      "side": 1,
+      "message": "This needs to go at the bottom of the message (in the footer).",
+      "revId": "97133fd35169338816fbac0e1366ad5b12101a8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a3b2af3_0918b3bb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T17:27:00Z",
+      "side": 1,
+      "message": "moves this above `Change-Id:`.",
+      "revId": "97133fd35169338816fbac0e1366ad5b12101a8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1b82a319_4e192e38",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T17:27:00Z",
+      "side": 1,
+      "message": "delete this and then abandon this change.",
+      "revId": "97133fd35169338816fbac0e1366ad5b12101a8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
