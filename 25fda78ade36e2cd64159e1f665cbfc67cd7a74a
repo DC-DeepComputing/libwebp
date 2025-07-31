@@ -123,6 +123,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d518cd0b_def1351a",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T22:04:55Z",
+      "side": 1,
+      "message": "\u003e Trying with my clang-format 20\n\nThanks",
+      "parentUuid": "84c52ec5_f01ba317",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f91152b9_92408a9a",

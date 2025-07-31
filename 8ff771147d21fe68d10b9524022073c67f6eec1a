@@ -146,6 +146,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e17c7f54_9b4414e3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T22:04:55Z",
+      "side": 1,
+      "message": "\u003e \u003e NALLOC_FREQ\u003d0 and a default of 0\n\u003e \n\u003e But then, oss-fuzz will not run with allocations failures\n\u003e \n\u003e Do you see a way to achieve that ?\n\nThe Dockerfile can have an `ENV` entry added:\n\nhttps://github.com/google/oss-fuzz/blob/master/projects/git/Dockerfile#L37",
+      "parentUuid": "b3042194_296874e7",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
