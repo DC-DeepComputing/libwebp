@@ -59,6 +59,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1b004d5_20e7fb6d",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T21:06:35Z",
+      "side": 1,
+      "message": "\u003e I wonder why a space is added here\n\nI think it\u0027s to align it to the column on line 218, but it wouldn\u0027t do that if clang-format was enabled across the entire block...",
+      "parentUuid": "cb49afbb_57adea21",
+      "range": {
+        "startLine": 207,
+        "startChar": 7,
+        "endLine": 207,
+        "endChar": 8
+      },
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a3f30d85_5804814a",
