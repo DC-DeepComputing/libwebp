@@ -1,0 +1,174 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65efbe6b_a330a286",
+        "filename": "examples/webpinfo.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "Default does:\n\n```\nstatic const uint32_t kWebPChunkTags[CHUNK_TYPES] \u003d {\n    MKFOURCC(\u0027V\u0027, \u0027P\u0027, \u00278\u0027, \u0027 \u0027), MKFOURCC(\u0027V\u0027, \u0027P\u0027, \u00278\u0027, \u0027L\u0027),\n    MKFOURCC(\u0027V\u0027, \u0027P\u0027, \u00278\u0027, \u0027X\u0027), MKFOURCC(\u0027A\u0027, \u0027L\u0027, \u0027P\u0027, \u0027H\u0027),\n    MKFOURCC(\u0027A\u0027, \u0027N\u0027, \u0027I\u0027, \u0027M\u0027), MKFOURCC(\u0027A\u0027, \u0027N\u0027, \u0027M\u0027, \u0027F\u0027),\n    MKFOURCC(\u0027I\u0027, \u0027C\u0027, \u0027C\u0027, \u0027P\u0027), MKFOURCC(\u0027E\u0027, \u0027X\u0027, \u0027I\u0027, \u0027F\u0027),\n    MKFOURCC(\u0027X\u0027, \u0027M\u0027, \u0027P\u0027, \u0027 \u0027),\n};\n```\n\nwhich might be fine, but it caught my eye when reviewing.",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "23338463_d5d0b12f",
+        "filename": "src/dec/buffer_dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "Without the `//` the values would get mixed causing the comment to be incorrect.",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53c7381d_77d802f2",
+        "filename": "src/dec/vp8_dec.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "This is why the style guide forbids this format. We can break instances of these up in another commit.",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df129440_2c81f4eb",
+        "filename": "src/dsp/alpha_processing.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "These should have {}s",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d1c2719_33c39e89",
+        "filename": "src/dsp/cost_mips32.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "The strings needed to have some whitespace removed to avoid breaking before `\\n\\t` after adjusting the indent. Otherwise:\n\n```\n\n      \".set      push                                                        \"\n      \"\\n\\t\"\n```",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efa847c8_ddd83af0",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "```\n        (VP8CPUInfo) \u0026 func##_last_cpuinfo_used;                    \\\n```",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e98e20fa_870ba399",
+        "filename": "src/dsp/dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "these were packed without the trailing `,`:\n\n```\n  const uint8_t vals[4] \u003d {\n      AVG3(top[-1], top[0], top[1]), AVG3(top[0], top[1], top[2]),\n      AVG3(top[1], top[2], top[3]), AVG3(top[2], top[3], top[4])};\n```",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "17cb401c_e84d269b",
+        "filename": "src/dsp/dec_mips_dsp_r2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 940,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "`uint8_t*(DST)` is a bit unfortunate; `uint8_t* DST` would probably work.",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55e766c5_a92508c6",
+        "filename": "src/dsp/enc_mips_dsp_r2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 375,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "`WEBP_RESTRICT(DST)` is ugly, but works. It becomes `__restrict__(dst)` a fix would be to drop the `()`s.",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cda88854_101c96e3",
+        "filename": "src/dsp/lossless_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T05:30:29Z",
+      "side": 0,
+      "message": "without the added `ull` we ended up with:\n\n```\nconst uint64_t kSLog2Table[LOG_LOOKUP_IDX_MAX] \u003d {0,\n                                                  0,\n                                                  16777216,\n                                                  39886887,\n...\n```",
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
