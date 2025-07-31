@@ -16,6 +16,87 @@
       "message": "This is a big change. If you\u0027d prefer I can split it on directories. If not and you want to focus on structural changes in the review you can turn off whitespace in the diff settings or download the patch and use `git show -w`.\n\nFeel free to make other suggestions for improving readability or reject the subjective ones I made. Really the only critical ones are the macros with stringification and inline assembly which become a mess.",
       "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8cf57e71_10508ea9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2025-07-31T09:07:56Z",
+      "side": 1,
+      "message": "Thanks for doing this! The big change is fine with me. I reviewed most files and skipped some SIMD .c ones.",
+      "parentUuid": "e4baffa7_910bbae7",
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cb49afbb_57adea21",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2025-07-31T09:07:56Z",
+      "side": 1,
+      "message": "I wonder why a space is added here",
+      "range": {
+        "startLine": 207,
+        "startChar": 7,
+        "endLine": 207,
+        "endChar": 8
+      },
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3f30d85_5804814a",
+        "filename": "src/utils/thread_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2025-07-31T09:07:56Z",
+      "side": 1,
+      "message": "Maybe append `//` to break lines\n\nBelow too",
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c2e247f_0942c1d7",
+        "filename": "src/webp/format_constants.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2025-07-31T09:07:56Z",
+      "side": 1,
+      "message": "It looks like this should fit? No need for a line break.\n\nSame below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 29,
+        "endLine": 30,
+        "endChar": 4
+      },
+      "revId": "e254e9eb7eeaf2c4daf3a6d72f5a45c7a63a592b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }

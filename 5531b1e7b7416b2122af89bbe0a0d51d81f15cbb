@@ -169,6 +169,29 @@
       "message": "without the added `ull` we ended up with:\n\n```\nconst uint64_t kSLog2Table[LOG_LOOKUP_IDX_MAX] \u003d {0,\n                                                  0,\n                                                  16777216,\n                                                  39886887,\n...\n```",
       "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca7f92b3_5725fe92",
+        "filename": "src/mux/muxi.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2025-07-31T09:07:56Z",
+      "side": 0,
+      "message": "That was ugly.",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 197,
+        "endChar": 29
+      },
+      "revId": "5531b1e7b7416b2122af89bbe0a0d51d81f15cbb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
