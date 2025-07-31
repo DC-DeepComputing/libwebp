@@ -11,8 +11,8 @@
 //
 // Author: Skal (pascal.massimino@gmail.com)
 
-#include <assert.h>
 #include <stdlib.h>
+#include <assert.h>
 
 #include "src/dec/alphai_dec.h"
 #include "src/dec/vp8_dec.h"

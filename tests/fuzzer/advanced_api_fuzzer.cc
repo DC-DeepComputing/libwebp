@@ -43,7 +43,8 @@ void AdvancedApiTest(std::string_view blob, uint8_t factor_u8, bool flip,
   // Using two independent criteria ensures that all combinations of options
   // can reach each path at the decoding stage, with meaningful differences.
 
-  const uint8_t value = fuzz_utils::FuzzHash(data, size);
+  const uint8_t value 
+    = fuzz_utils::FuzzHash(data, size);
   const float factor = factor_u8 / 255.f;  // 0-1
 
   config.options.flip = flip;
