@@ -110,6 +110,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "67fd0e36_70ddaf29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "\u003e \u003e decreasing the low end might find some (less likely to occur) bugs\n\u003e \n\u003e Which number do you want to decrease ? 1/32 ? 1/2^20 ?\n\u003e \n\u003e \u003e I think it makes sense to be able to allow normal fuzzing to occur without allocation failures.\n\u003e \n\u003e That is possible and default build if you do not build with DWEBP_FUZZER_ENABLE_NALLOC\n\u003e \n\u003e \u003e If that\u0027s possible with the same binary then great\n\u003e \n\u003e I am adding that possibility. If you built with DWEBP_FUZZER_ENABLE_NALLOC, but want to run without allocations failures, you can use env variable `NALLOC_FREQ\u003d0`\n\u003e \n\u003e \u003e With none of the environment variables defined the nalloc code should be a noop, correct?\n\u003e \n\u003e I do not agree as I want allocations to fail on ossfuzz, and ossfuzz will not define NALLOC_FREQ or such...\n\u003e Is the solution `NALLOC_FREQ\u003d0` good enough for you ?\n\n`NALLOC_FREQ\u003d0` and a default of 0 when it\u0027s not present at all would make sense. In that case the extra define isn\u0027t necessary. You can remove that and document the behavior in the commit message.",
+      "parentUuid": "395a8eab_500f0262",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6

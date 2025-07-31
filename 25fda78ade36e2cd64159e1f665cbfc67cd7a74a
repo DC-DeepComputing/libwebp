@@ -1,0 +1,89 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aab6387a_15b82a29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "Vincent, any more comments here?",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfbc8194_6135b93f",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "To match the style use `#include \"./nalloc.h\"` and move this after `#include \"./fuzz_utils.h\"`.",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc37f64d_8c7021f6",
+        "filename": "tests/fuzzer/dec_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "Make this `#include \"./nalloc.h\"` and move it to the start of the group.",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2890c78_adea75ac",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "We\u0027re switching the project to clang-format. If you\u0027d like to you can format this file with: `clang-format-19 -i --style\u003dGoogle tests/fuzzer/nalloc.h`",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f91152b9_92408a9a",
+        "filename": "tests/fuzzer/webp_info_fuzzer.cc",
+        "patchSetId": 10
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "Move this before line 20 and add `./`",
+      "revId": "25fda78ade36e2cd64159e1f665cbfc67cd7a74a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

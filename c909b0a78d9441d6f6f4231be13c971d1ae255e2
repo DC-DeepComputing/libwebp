@@ -221,6 +221,24 @@
       "parentUuid": "d84f1e06_88804ce1",
       "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f37d8ee_45889915",
+        "filename": "tests/fuzzer/nalloc.h",
+        "patchSetId": 9
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-07-31T20:19:57Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "c6e855c7_5cc14e51",
+      "revId": "c909b0a78d9441d6f6f4231be13c971d1ae255e2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
