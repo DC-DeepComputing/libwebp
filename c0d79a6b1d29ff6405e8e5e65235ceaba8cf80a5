@@ -16,6 +16,24 @@
       "message": "For this work, no changes to `src/webp/*.h` or `sharpyuv/sharpyuv{,_csp}.h` should be made. These are public headers. The compile errors are due to this header not being available when the library is installed.",
       "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "baca766d_79dfb752",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-01T05:41:07Z",
+      "side": 1,
+      "message": "Right, I hinted a bit in the CL description that we may need to add utils/bounds_safety.h to the install. \n\nsrc/webp/types.h exports WebPMalloc and WebPFree, which would default to __single without WEBP_ASSUME_UNSAFE_INDEXABLE_ABI. \n\nIm not sure if there\u0027s a better way to do this. The paths forward I see are:\n\n1) Move the two functions out of types.h\n2) Import utils/bounds_safety.h and provide it as part of the install (which we\u0027ll need to do if we ever annotate public functions)\n3) Provide a minimal version of bounds_safety.h which provides __sized_by or the pragma behind WEBP_ASSUME_UNSAFE_INDEXABLE_ABI\n\nThere\u0027s probably some more options I\u0027m unaware of, though :) Happy to hear your thoughts",
+      "parentUuid": "27ce3a92_d9618e22",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
