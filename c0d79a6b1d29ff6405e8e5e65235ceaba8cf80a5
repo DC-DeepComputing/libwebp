@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "27ce3a92_d9618e22",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-01T02:31:46Z",
+      "side": 1,
+      "message": "For this work, no changes to `src/webp/*.h` or `sharpyuv/sharpyuv{,_csp}.h` should be made. These are public headers. The compile errors are due to this header not being available when the library is installed.",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
