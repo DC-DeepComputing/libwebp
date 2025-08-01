@@ -43,6 +43,23 @@
 #define __has_builtin(x) 0
 #endif
 
+// Checks that help figure out which SIMD instructions are possible on the
+// current platform. Used only when building a universal binary on macOS.
+#if defined(__APPLE__)
+#if defined(__x86_64__)
+#define WEBP_CAN_HAVE_SSE2
+#define WEBP_CAN_HAVE_SSE41
+#define WEBP_CAN_HAVE_AVX2
+#elif defined(__aarch64__)
+#define WEBP_CAN_HAVE_NEON
+#endif
+// MIPS intrinsics are not supported on macOS, but we have to define them
+// so that the check happens.
+#define WEBP_CAN_HAVE_MIPS32
+#define WEBP_CAN_HAVE_MIPS_DSP_R2
+#define WEBP_CAN_HAVE_MSA
+#endif
+
 //------------------------------------------------------------------------------
 // x86 defines.
 
