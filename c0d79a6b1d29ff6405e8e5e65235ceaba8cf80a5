@@ -52,6 +52,24 @@
       "parentUuid": "baca766d_79dfb752",
       "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5aae0389_72e80d36",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-01T23:31:21Z",
+      "side": 1,
+      "message": "Ack.\n\nIn order to make things build this way, I had to add WEBP_SINGLE to WebPMalloc/WebBPFree inside of src/utils/utils.c, that way they matched what was defined in webp/types.h. I\u0027ve updated the CL so you can see what this looks like.\n\nAs we\u0027re continuing to annotate, we\u0027ll need to convert all call sites from WebPMalloc to `WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(T, WebPMalloc(size), size)`.\n\nThe good news is, there\u0027s no callers of WebPMalloc inside of webputils. So we should be good for now. :)",
+      "parentUuid": "a88e7553_98b57426",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
