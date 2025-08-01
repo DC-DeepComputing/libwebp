@@ -189,7 +189,23 @@
 #endif
 #endif
 
-#if defined(WEBP_USE_THREAD) && !defined(_WIN32)
+#if defined(WEBP_USE_THREAD)
+#if defined(_WIN32)
+#include <windows.h>  // NOLINT
+
+// clang-format off
+#define WEBP_DSP_INIT(func)                                         \
+  do {                                                              \
+    static volatile VP8CPUInfo func##_last_cpuinfo_used =           \
+        (VP8CPUInfo)&func##_last_cpuinfo_used;                      \
+    static SRWLOCK func##_lock = SRWLOCK_INIT;                      \
+    AcquireSRWLockExclusive(&func##_lock);                          \
+    if (func##_last_cpuinfo_used != VP8GetCPUInfo) func();          \
+    func##_last_cpuinfo_used = VP8GetCPUInfo;                       \
+    ReleaseSRWLockExclusive(&func##_lock);                          \
+  } while (0)
+// clang-format on
+#else                 // !defined(_WIN32)
 #include <pthread.h>  // NOLINT
 
 // clang-format off
@@ -204,7 +220,8 @@
     (void)pthread_mutex_unlock(&func##_lock);                       \
   } while (0)
 // clang-format on
-#else   // !(defined(WEBP_USE_THREAD) && !defined(_WIN32))
+#endif                // defined(_WIN32)
+#else                 // !defined(WEBP_USE_THREAD)
 // clang-format off
 #define WEBP_DSP_INIT(func)                               \
   do {                                                    \
@@ -215,7 +232,7 @@
     func##_last_cpuinfo_used = VP8GetCPUInfo;             \
   } while (0)
 // clang-format on
-#endif  // defined(WEBP_USE_THREAD) && !defined(_WIN32)
+#endif                // defined(WEBP_USE_THREAD)
 
 // Defines an Init + helper function that control multiple initialization of
 // function pointers / tables.
