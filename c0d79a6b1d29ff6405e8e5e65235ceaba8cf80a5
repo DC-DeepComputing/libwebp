@@ -34,6 +34,24 @@
       "parentUuid": "27ce3a92_d9618e22",
       "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a88e7553_98b57426",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-01T23:21:11Z",
+      "side": 1,
+      "message": "\u003e Right, I hinted a bit in the CL description that we may need to add utils/bounds_safety.h to the install. \n\u003e \n\u003e src/webp/types.h exports WebPMalloc and WebPFree, which would default to __single without WEBP_ASSUME_UNSAFE_INDEXABLE_ABI. \n\u003e \n\u003e Im not sure if there\u0027s a better way to do this. The paths forward I see are:\n\u003e \n\u003e 1) Move the two functions out of types.h\n\nThis changes the library API (which can be done, but usually needs to be considered); we ask that returned buffers be freed with `WebPFree`.\n\n\u003e 2) Import utils/bounds_safety.h and provide it as part of the install (which we\u0027ll need to do if we ever annotate public functions)\n\nI\u0027d prefer to hold off on doing that. To me ideally this is a safety mechanism that is not user visible / impacting. Once it affects the public interface it will need to propagate to other libraries. I don\u0027t think we can enforce this.\n\n\u003e 3) Provide a minimal version of bounds_safety.h which provides __sized_by or the pragma behind WEBP_ASSUME_UNSAFE_INDEXABLE_ABI\n\u003e \n\nLet\u0027s start with internal only. I\u0027d like to see how this progresses before we make these annotations public.\n\n\u003e There\u0027s probably some more options I\u0027m unaware of, though :) Happy to hear your thoughts",
+      "parentUuid": "baca766d_79dfb752",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
