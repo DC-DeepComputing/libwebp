@@ -164,6 +164,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "960b7bd0_2a213a9e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-01T09:17:07Z",
+      "side": 1,
+      "message": "Dockerfile is only used for building fuzz targets, not running them.\n\nA possible hack is to have the fuzz targets use their own file name with LLVMFuzzerInitialize parsing argv[0] and only use nalloc if their file name ends with `nalloc`, see for example trick done here https://github.com/OISF/suricata/blob/master/src/tests/fuzz/fuzz_applayerparserparse.c#L43\n\nThen oss-fuzz build script can copy dec_fuzzer to dec_fuzzer_nalloc and run both",
+      "parentUuid": "e17c7f54_9b4414e3",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
