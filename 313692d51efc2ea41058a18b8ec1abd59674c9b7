@@ -1,0 +1,55 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62e086a9_7f6aaa88",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 198,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-02T02:30:27Z",
+      "side": 1,
+      "message": "I think we can initialize this variable to NULL. I don\u0027t know why it is initialized to its own address.",
+      "revId": "313692d51efc2ea41058a18b8ec1abd59674c9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ad587ed_f4ac434c",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 204,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-02T02:30:27Z",
+      "side": 1,
+      "message": "These two lines can be rewritten as follows:\n\n```\n    if (func##_last_cpuinfo_used !\u003d VP8GetCPUInfo) { \\\n      func();                                        \\\n      func##_last_cpuinfo_used \u003d VP8GetCPUInfo;      \\\n    }                                                \\\n```",
+      "revId": "313692d51efc2ea41058a18b8ec1abd59674c9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c4dc597a_e522fcd2",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-02T02:30:27Z",
+      "side": 1,
+      "message": "These three lines can be replaced by the new code I proposed at line 204.",
+      "revId": "313692d51efc2ea41058a18b8ec1abd59674c9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
