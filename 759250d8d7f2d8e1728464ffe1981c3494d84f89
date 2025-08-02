@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b493e2c1_dc356ecc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-02T21:10:24Z",
+      "side": 1,
+      "message": "This CL is libwebp\u0027s equivalent of my libaom CL https://aomedia-review.googlesource.com/c/aom/+/102621.\n\nI handled the `WaitForSingleObject()` macro in a different way in this CL: I simply deleted it without expanding the only invocation of this macro. I\u0027d like to make the same change to libaom.",
+      "revId": "759250d8d7f2d8e1728464ffe1981c3494d84f89",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
