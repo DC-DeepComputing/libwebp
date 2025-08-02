@@ -70,6 +70,24 @@
       "parentUuid": "a88e7553_98b57426",
       "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e7f01d5_33628a60",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-02T00:09:54Z",
+      "side": 1,
+      "message": "\u003eOnce it affects the public interface it will need to propagate to other libraries. I don\u0027t think we can enforce this.\n\nAlso as a reminder, the annotations that were applied in webp/types.h are non-actuating and wouldn\u0027t affect ABI or usage. All existing code continues to function exactly the same. I do understand the desire to keep this hidden for the time being though :)",
+      "parentUuid": "5aae0389_72e80d36",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
