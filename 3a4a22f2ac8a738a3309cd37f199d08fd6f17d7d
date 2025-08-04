@@ -16,6 +16,23 @@
       "message": "James: Could you submit these two CLs for me? Thanks.",
       "revId": "3a4a22f2ac8a738a3309cd37f199d08fd6f17d7d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7cf19ad_be64d11e",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-04T21:55:21Z",
+      "side": 1,
+      "message": "Actually you need to include `\u003cwindows.h\u003e` before checking `_WIN32_WINNT`",
+      "revId": "3a4a22f2ac8a738a3309cd37f199d08fd6f17d7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
