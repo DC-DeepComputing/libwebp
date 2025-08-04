@@ -37,6 +37,29 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f5b5d694_0f7f2644",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 211,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-04T21:05:07Z",
+      "side": 1,
+      "message": "We can probably remove `volatile` here too in a follow up. The intent was to influence the compiler to avoid code reorganization, though that was never guaranteed.",
+      "range": {
+        "startLine": 211,
+        "startChar": 9,
+        "endLine": 211,
+        "endChar": 17
+      },
+      "revId": "313692d51efc2ea41058a18b8ec1abd59674c9b7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "c4dc597a_e522fcd2",
         "filename": "src/dsp/cpu.h",
         "patchSetId": 3
