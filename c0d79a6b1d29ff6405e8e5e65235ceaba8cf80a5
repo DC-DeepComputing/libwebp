@@ -88,6 +88,24 @@
       "parentUuid": "5aae0389_72e80d36",
       "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e8b2bc0_601fe345",
+        "filename": "src/webp/types.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-04T22:21:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "5e7f01d5_33628a60",
+      "revId": "c0d79a6b1d29ff6405e8e5e65235ceaba8cf80a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
