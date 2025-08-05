@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6210cf86_ef1b6445",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-05T02:15:13Z",
+      "side": 1,
+      "message": "Thanks for the fix. When the test fails cmake adds `-mno-avx2 -mno-sse4.1 -mno-sse2` which causes the issue.",
+      "revId": "f35df3a70ead34c1dab1a7cf7817739dcd8a1370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc5eb0ea_8c3e5c9c",
+        "filename": "cmake/cpu.cmake",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-05T02:15:13Z",
+      "side": 1,
+      "message": "This project uses `cmake-format` (0.6.13). You can run `cmake-format -i` on this section or remove the spaces after `if` to match the rest of the code.",
+      "range": {
+        "startLine": 25,
+        "startChar": 4,
+        "endLine": 25,
+        "endChar": 5
+      },
+      "revId": "f35df3a70ead34c1dab1a7cf7817739dcd8a1370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "76f143eb_12d38a94",
+        "filename": "src/dsp/cpu.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-05T02:15:13Z",
+      "side": 1,
+      "message": "Since this is used only by cmake, how about relocating this to the compile check there for now.",
+      "revId": "f35df3a70ead34c1dab1a7cf7817739dcd8a1370",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
