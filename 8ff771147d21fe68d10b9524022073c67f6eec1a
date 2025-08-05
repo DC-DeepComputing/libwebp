@@ -182,6 +182,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c54440dd_94303ad5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-05T01:45:51Z",
+      "side": 1,
+      "message": "\u003e Dockerfile is only used for building fuzz targets, not running them.\n\u003e \n\u003e A possible hack is to have the fuzz targets use their own file name with LLVMFuzzerInitialize parsing argv[0] and only use nalloc if their file name ends with `nalloc`, see for example trick done here https://github.com/OISF/suricata/blob/master/src/tests/fuzz/fuzz_applayerparserparse.c#L43\n\u003e \n\u003e Then oss-fuzz build script can copy dec_fuzzer to dec_fuzzer_nalloc and run both\n\nHaving separate binaries that would use a different environment sounds fine to me.",
+      "parentUuid": "960b7bd0_2a213a9e",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
