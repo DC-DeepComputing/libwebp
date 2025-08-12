@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8a1e799_fd87f308",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-12T23:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5c2a14e1_c13b9ae2",
+      "revId": "abd20cbc938927e4c546b4c628beea1190f85d8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36fc0ef1_e590b226",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-12T23:26:34Z",
       "side": 1,
       "message": "Run `clang-format` on this file (we run the tool against the whole file in the presubmit) or apply the diff from the console:\n\n```\ndiff --git a/src/utils/bit_reader_utils.h b/src/utils/bit_reader_utils.h\nindex 4e7a2d6d..efb217a5 100644\n--- a/src/utils/bit_reader_utils.h\n+++ b/src/utils/bit_reader_utils.h\n@@ -146,12 +146,12 @@ int32_t VP8GetSignedValue(VP8BitReader* const br, int num_bits,\n typedef uint64_t vp8l_val_t;  // right now, this bit-reader can only use 64bit.\n \n typedef struct {\n-  vp8l_val_t val;      // pre-fetched bits\n+  vp8l_val_t val;                           // pre-fetched bits\n   const uint8_t* WEBP_COUNTED_BY(len) buf;  // input byte buffer\n-  size_t len;          // buffer length\n-  size_t pos;          // byte position in buf\n-  int bit_pos;         // current bit-reading position in val\n-  int eos;             // true if a bit was read past the end of buffer\n+  size_t len;                               // buffer length\n+  size_t pos;                               // byte position in buf\n+  int bit_pos;  // current bit-reading position in val\n+  int eos;      // true if a bit was read past the end of buffer\n } VP8LBitReader;\n \n void VP8LInitBitReader(VP8LBitReader* const br,\n```",
+      "revId": "abd20cbc938927e4c546b4c628beea1190f85d8a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed195d5_f38c7175",
+        "filename": "src/utils/bit_reader_utils.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-12T23:39:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "36fc0ef1_e590b226",
       "revId": "abd20cbc938927e4c546b4c628beea1190f85d8a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
