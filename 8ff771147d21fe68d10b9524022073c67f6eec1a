@@ -218,6 +218,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d57053f4_d9f8014b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-12T20:39:23Z",
+      "side": 1,
+      "message": "\u003e Or similar to one of your earlier patchsets, having a build time macro to set the frequency could work.\n\nThe build-time macro WEBP_FUZZER_ENABLE_NALLOC is available already, but it is just a boolean...\n\n\u003e Having separate binaries that would use a different environment sounds fine to me.\n\nWill do that\n\nThis looks a good idea as it will also show the difference between the 2 targets in oss-fuzz coverage reports",
+      "parentUuid": "ea087f50_766f48f1",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "58173b07_263b7a83",
         "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
         "patchSetId": 6
