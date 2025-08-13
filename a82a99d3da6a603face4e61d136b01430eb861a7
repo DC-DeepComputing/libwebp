@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4d0fbde_a4ca8d8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-13T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e9e7578_337ec64c",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bc44350b_f5ed0d4c",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-13T17:25:14Z",
       "side": 1,
       "message": "This extra blank line can be removed.",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bff8c53a_6ee5dfc4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-13T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bc44350b_f5ed0d4c",
       "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af83ebd7_1676da6f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-13T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89c0b352_b6c66b37",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b20c0175_d5b0a2f8",
@@ -65,6 +119,24 @@
       "writtenOn": "2025-08-13T17:25:14Z",
       "side": 1,
       "message": "This line can be removed.",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3156696f_fe3f6cca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-13T18:35:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b20c0175_d5b0a2f8",
       "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
