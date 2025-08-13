@@ -16,6 +16,40 @@
       "message": "From the log:\n\n```\n  The commit subject: \u0027Adds fbounds-safety annotations for `bit_depths` defined in `src/utils/huffman_encode_utils.c` between lines 140 and 149.\u0027 is too long! (121 characters)\n  Try to keep this to 50 or less (up to 65 is permitted for non-reverts).\n  https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines\n```\n\nTrim this down and use the imperative in the subject (\u0027Add ...\u0027 not \u0027Adds ...\u0027)",
       "revId": "701ca28f4514404b8287fdbdbd39155fc252f85c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "782e206a_929b143e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:25:21Z",
+      "side": 1,
+      "message": "This extra blank line can be removed.",
+      "revId": "701ca28f4514404b8287fdbdbd39155fc252f85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb184403_78ded7a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:25:21Z",
+      "side": 1,
+      "message": "This line can be removed.",
+      "revId": "701ca28f4514404b8287fdbdbd39155fc252f85c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
