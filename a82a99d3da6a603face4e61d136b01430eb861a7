@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e9e7578_337ec64c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:23:34Z",
+      "side": 1,
+      "message": "From the log:\n\n```\n  The commit subject: \u0027Adds fbounds-safety annotations for `VP8LBitReader` defined in `src/utils/bit_reader_utils.h` between lines 148 and 155.\u0027 is too long! (120 characters)\n  Try to keep this to 50 or less (up to 65 is permitted for non-reverts).\n  https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines\n```\n\nTrim this down and use the imperative in the subject (\u0027Add ...\u0027 not \u0027Adds ...\u0027).",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89c0b352_b6c66b37",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:23:34Z",
+      "side": 1,
+      "message": "It would be nice if these were wrapped to 72 characters.",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
