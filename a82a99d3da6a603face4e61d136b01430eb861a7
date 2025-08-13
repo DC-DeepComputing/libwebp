@@ -20,6 +20,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bc44350b_f5ed0d4c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:25:14Z",
+      "side": 1,
+      "message": "This extra blank line can be removed.",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "89c0b352_b6c66b37",
         "filename": "/COMMIT_MSG",
         "patchSetId": 6
@@ -31,6 +48,23 @@
       "writtenOn": "2025-08-13T17:23:34Z",
       "side": 1,
       "message": "It would be nice if these were wrapped to 72 characters.",
+      "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b20c0175_d5b0a2f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-13T17:25:14Z",
+      "side": 1,
+      "message": "This line can be removed.",
       "revId": "a82a99d3da6a603face4e61d136b01430eb861a7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
