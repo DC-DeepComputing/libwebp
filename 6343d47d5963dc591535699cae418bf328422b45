@@ -16,6 +16,24 @@
       "message": "This is too easily removed in a cleanup. Max, we were talking about a macro for this to avoid `-Wself-assign` and give some reasoning for it in the bounds-safety build.",
       "revId": "6343d47d5963dc591535699cae418bf328422b45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b536021_98718b6a",
+        "filename": "src/utils/bit_reader_inl_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-13T23:03:22Z",
+      "side": 1,
+      "message": "Ack, will send a CL your way to put this behind a macro.",
+      "parentUuid": "d86a21d5_4a65f1fb",
+      "revId": "6343d47d5963dc591535699cae418bf328422b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
