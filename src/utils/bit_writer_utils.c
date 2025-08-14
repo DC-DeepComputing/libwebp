@@ -49,10 +49,11 @@ static int BitWriterResize(VP8BitWriter* const bw, size_t extra_size) {
   }
   if (bw->pos > 0) {
     assert(bw->buf != NULL);
-    WEBP_UNSAFE_MEMCPY(new_buf, bw->buf, bw->pos);
+    WEBP_UNSAFE_MEMCPY(new_buf, (uint8_t* WEBP_UNSAFE_INDEXABLE)bw->buf,
+                       bw->pos);
   }
-  WebPSafeFree(bw->buf);
-  bw->buf = new_buf;
+  WebPSafeFree((uint8_t* WEBP_UNSAFE_INDEXABLE)bw->buf);
+  bw->buf = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, new_buf, new_size);
   bw->max_pos = new_size;
   return 1;
 }
