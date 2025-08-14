@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c3a1171_8b26cb5d",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T20:39:25Z",
+      "side": 1,
+      "message": "Why do we need to add the `(uint8_t* WEBP_UNSAFE_INDEXABLE)` cast? This is unfortunate.",
+      "range": {
+        "startLine": 52,
+        "startChar": 32,
+        "endLine": 52,
+        "endChar": 64
+      },
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5f655ee_37605b0c",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T20:39:25Z",
+      "side": 1,
+      "message": "It is also unfortunate that we need this extra annotation. Note that `new_size` is assigned to `bw-\u003emax_pos` in the next line, so we still satisfy the annotaton in src/utils/bit_writer_utils.h that `buf` is sized by `max_pos`.",
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
