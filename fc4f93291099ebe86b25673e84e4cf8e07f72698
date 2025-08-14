@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8bc194ab_b189ad31",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T18:57:52Z",
+      "side": 1,
+      "message": "Can the assignment order be kept as `buf`/`cur`/`end` or was there a compile error?\n\n```\ntypedef struct {\n...\n  uint8_t* WEBP_ENDED_BY(end) buf;     // start of buffer\n  uint8_t* WEBP_UNSAFE_INDEXABLE cur;  // current write position\n  uint8_t* end;                        // end of buffer\n...\n} VP8LBitWriter;\n```",
+      "revId": "fc4f93291099ebe86b25673e84e4cf8e07f72698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
