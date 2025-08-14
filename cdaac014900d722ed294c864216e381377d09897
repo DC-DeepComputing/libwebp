@@ -16,6 +16,23 @@
       "message": "Arman, does the change in patchset 3 look good to you?",
       "revId": "cdaac014900d722ed294c864216e381377d09897",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "46e8d5c5_5af391c3",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T22:21:46Z",
+      "side": 1,
+      "message": "I think a more intuitive annotation is one that updates the (pointer, size) pair at the same time, i.e., something like this:\n\n```\n__some_annotation((bw-\u003ebuf, bw-\u003emax_pos) \u003d (new_buf, new_size));\n```",
+      "revId": "cdaac014900d722ed294c864216e381377d09897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
