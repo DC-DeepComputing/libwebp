@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "dbd91ba9_63404545",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T22:35:29Z",
+      "side": 1,
+      "message": "Max: It would be good to replace this kind of self-assignment with an annotation. The self-assignments look strange and may leave a bad impression on potential users of this tool.",
+      "revId": "47a744d582c6515c91c0259b625d94aa5e0eaa5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d051721a_1a7be0eb",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 5
