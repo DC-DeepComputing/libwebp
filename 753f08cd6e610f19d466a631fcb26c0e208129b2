@@ -3,6 +3,23 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e667f2eb_e5b83ed9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T21:08:04Z",
+      "side": 1,
+      "message": "I updated the commit message to remove the unneeded compile error resolution steps.",
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "8c3a1171_8b26cb5d",
         "filename": "src/utils/bit_writer_utils.c",
         "patchSetId": 2
@@ -48,6 +65,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "29c68f3c_c1f993b4",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T21:08:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5d65dee7_46d0ce61",
+      "range": {
+        "startLine": 52,
+        "startChar": 32,
+        "endLine": 52,
+        "endChar": 64
+      },
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2273ba65_42045aa0",
@@ -61,6 +102,24 @@
       "writtenOn": "2025-08-14T20:55:56Z",
       "side": 1,
       "message": "Removing this cast doesn\u0027t cause a build failure either.",
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75e32266_243e3746",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T21:08:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2273ba65_42045aa0",
       "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
