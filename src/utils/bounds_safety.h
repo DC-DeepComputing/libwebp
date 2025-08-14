@@ -110,4 +110,24 @@
 #define WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(typ, ptr, size) ((typ)(ptr))
 
 #endif  // WEBP_SUPPORT_FBOUNDS_SAFETY
+
+#if defined(__clang__)
+
+#define _WEBP_DIAG_SELF_ASSIGN_PUSH() \
+  _Pragma("clang diagnostic push");   \
+  _Pragma("clang diagnostic ignored \"-Wself-assign\"");
+#define _WEBP_DIAG_SELF_ASSIGN_POP() _Pragma("clang diagnostic pop")
+
+#else  // defined(__clang__)
+// GCC and MSVC don't appear to have a diagnostic equivalent to -Wself-assign.
+#define _WEBP_DIAG_SELF_ASSIGN_PUSH()
+#define _WEBP_DIAG_SELF_ASSIGN_POP()
+
+#endif  // defined(__clang__)
+
+#define WEBP_SELF_ASSIGN(x)     \
+  _WEBP_DIAG_SELF_ASSIGN_PUSH() \
+  x = x;                        \
+  _WEBP_DIAG_SELF_ASSIGN_POP()
+
 #endif  // WEBP_UTILS_BOUNDS_SAFETY_H_
