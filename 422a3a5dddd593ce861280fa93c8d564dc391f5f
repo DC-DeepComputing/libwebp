@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd97c36c_866bccff",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T00:41:58Z",
+      "side": 1,
+      "message": "Nit: I suggest reordering these two lines to match the declaration order:\n\n```\ntypedef struct {\n  ...\n  const uint8_t* buf;  // input byte buffer\n  size_t len;          // buffer length\n  ...\n} VP8LBitReader;\n```",
+      "revId": "422a3a5dddd593ce861280fa93c8d564dc391f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3c8f195_47a949ad",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T00:41:58Z",
+      "side": 1,
+      "message": "Nit: This assignment can be omitted because it will be overwritten by line 154.",
+      "revId": "422a3a5dddd593ce861280fa93c8d564dc391f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
