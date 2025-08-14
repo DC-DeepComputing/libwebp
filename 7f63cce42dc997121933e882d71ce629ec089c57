@@ -34,6 +34,24 @@
       "parentUuid": "93eddb41_77aeb6ad",
       "revId": "7f63cce42dc997121933e882d71ce629ec089c57",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bada89b_69e31048",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T18:58:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "d6749494_dc0785d3",
+      "revId": "7f63cce42dc997121933e882d71ce629ec089c57",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
