@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1109ba54_6b37e02b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T19:00:04Z",
+      "side": 1,
+      "message": "This will need to be rebase against the current main branch to fix the presubmit check (we moved to using clang-format). I\u0027ll run the rebase in the gerrit UI. You can update your local branch too.",
+      "revId": "a4b2c9117850ae2503ccf7352c96ab6ef73aef08",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
