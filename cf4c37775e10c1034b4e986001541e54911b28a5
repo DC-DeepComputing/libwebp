@@ -80,6 +80,24 @@
       "message": "James: The formatting looks bad. Should we move the comments before the struct members?\n\n```\n  // Code lengths of the symbols.\n  uint8_t* WEBP_COUNTED_BY(num_symbols) code_lengths;\n  // Symbol Codes.\n  uint16_t* WEBP_COUNTED_BY(num_symbols) codes;\n```",
       "revId": "cf4c37775e10c1034b4e986001541e54911b28a5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2aca4352_850545af",
+        "filename": "src/utils/huffman_encode_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T18:36:40Z",
+      "side": 1,
+      "message": "\u003e James: The formatting looks bad. Should we move the comments before the struct members?\n\u003e \n\u003e ```\n\u003e   // Code lengths of the symbols.\n\u003e   uint8_t* WEBP_COUNTED_BY(num_symbols) code_lengths;\n\u003e   // Symbol Codes.\n\u003e   uint16_t* WEBP_COUNTED_BY(num_symbols) codes;\n\u003e ```\n\nGood point. I\u0027ll make that change here.",
+      "parentUuid": "b13e2c4d_716ec0b1",
+      "revId": "cf4c37775e10c1034b4e986001541e54911b28a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
