@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d051721a_1a7be0eb",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T19:47:46Z",
+      "side": 1,
+      "message": "As a follow up we might consider making this a noop when `WEBP_SUPPORT_FBOUNDS_SAFETY` is disabled. We can start with this and see if there are any issues.",
+      "revId": "47a744d582c6515c91c0259b625d94aa5e0eaa5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
