@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "082f20f5_f7cfc568",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 143,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T18:43:52Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dd97c36c_866bccff",
+      "revId": "422a3a5dddd593ce861280fa93c8d564dc391f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3c8f195_47a949ad",
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-14T00:41:58Z",
       "side": 1,
       "message": "Nit: This assignment can be omitted because it will be overwritten by line 154.",
+      "revId": "422a3a5dddd593ce861280fa93c8d564dc391f5f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c79b6d5_a6cf8954",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T18:43:52Z",
+      "side": 1,
+      "message": "\u003e Nit: This assignment can be omitted because it will be overwritten by line 154.\n\nI\u0027ll handle that in another change. I wonder why we didn\u0027t see a static analysis warning for this dead assignment.",
+      "parentUuid": "b3c8f195_47a949ad",
       "revId": "422a3a5dddd593ce861280fa93c8d564dc391f5f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
