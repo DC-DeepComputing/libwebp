@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b2bc90c_2e5d2775",
+        "filename": "src/utils/bit_writer_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T20:08:15Z",
+      "side": 1,
+      "message": "I\u0027ll relocate the comment to the line above in the next patchset.",
+      "revId": "fe6e7dc7b16c290aa781bf242f1e272b6abe1418",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
