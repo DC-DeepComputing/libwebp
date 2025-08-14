@@ -16,6 +16,24 @@
       "message": "Can the assignment order be kept as `buf`/`cur`/`end` or was there a compile error?\n\n```\ntypedef struct {\n...\n  uint8_t* WEBP_ENDED_BY(end) buf;     // start of buffer\n  uint8_t* WEBP_UNSAFE_INDEXABLE cur;  // current write position\n  uint8_t* end;                        // end of buffer\n...\n} VP8LBitWriter;\n```",
       "revId": "fc4f93291099ebe86b25673e84e4cf8e07f72698",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "158932f1_3830857d",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2025-08-14T22:28:32Z",
+      "side": 1,
+      "message": "This was mentioned in the commit message:\n\n```\n- The assignments to `bw-\u003ebuf`, `bw-\u003eend`, and `bw-\u003ecur` (lines\n  231-233) were reordered and updated to use the local\n  `allocated_buf` variable on the right-hand side. This satisfies the\n  consecutive assignment requirement imposed by `WEBP_ENDED_BY(end)`\n  on `bw-\u003ebuf`.\n```\n\nWe can reorder the fields in the declaration.",
+      "parentUuid": "8bc194ab_b189ad31",
+      "revId": "fc4f93291099ebe86b25673e84e4cf8e07f72698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
