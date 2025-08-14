@@ -270,6 +270,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "626e7833_e6204d7c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-14T13:04:05Z",
+      "side": 1,
+      "message": "I just pushed this\n\n+ I notice that oss-fuzz is not using corpus nor dictionary\n\nIt should be\n```\n    cp fuzz_seed_corpus.zip $OUT/${TARGET_FUZZER}_seed_corpus.zip\n    cp tests/fuzzer/fuzz.dict $OUT/${TARGET_FUZZER}.dict\n```",
+      "parentUuid": "ac06158a_48531e5f",
+      "revId": "8ff771147d21fe68d10b9524022073c67f6eec1a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "58173b07_263b7a83",
