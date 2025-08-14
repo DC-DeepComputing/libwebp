@@ -52,6 +52,24 @@
       "parentUuid": "8bc194ab_b189ad31",
       "revId": "fc4f93291099ebe86b25673e84e4cf8e07f72698",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6be240c8_8f03fa71",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T23:17:21Z",
+      "side": 1,
+      "message": "\u003e The model requires that assignments to `buf` and `end` to be side by side, with no side effects between them (https://clang.llvm.org/docs/BoundsSafety.html#maintaining-correctness-of-bounds-annotations). We can change the order in struct definition.\n\nThanks, I just wanted to confirm my understanding. The order can be changed separately since it\u0027s not a key part of this change.",
+      "parentUuid": "7863af4d_b6872841",
+      "revId": "fc4f93291099ebe86b25673e84e4cf8e07f72698",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
