@@ -43,6 +43,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "55fee381_a9fefe73",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 4293737
+      },
+      "writtenOn": "2025-08-14T17:48:22Z",
+      "side": 1,
+      "message": "We will need to. It will probably be send out in a separate CL.",
+      "parentUuid": "44e074f9_bd5d462f",
+      "range": {
+        "startLine": 170,
+        "startChar": 54,
+        "endLine": 170,
+        "endChar": 63
+      },
+      "revId": "cf4c37775e10c1034b4e986001541e54911b28a5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b13e2c4d_716ec0b1",
         "filename": "src/utils/huffman_encode_utils.h",
         "patchSetId": 3
