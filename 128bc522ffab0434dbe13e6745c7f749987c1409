@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a96f9924_2f431691",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-14T00:32:19Z",
+      "side": 1,
+      "message": "Looking a bit closer, it seems just putting the self-assignment in a macro prevents the warning, which is a bit surprising?\n\nhttps://godbolt.org/z/bGzWjbeor",
+      "revId": "128bc522ffab0434dbe13e6745c7f749987c1409",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
