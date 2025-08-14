@@ -227,10 +227,13 @@ static int VP8LBitWriterResize(VP8LBitWriter* const bw, size_t extra_size) {
   if (current_size > 0) {
     WEBP_UNSAFE_MEMCPY(allocated_buf, bw->buf, current_size);
   }
-  WebPSafeFree(bw->buf);
-  bw->buf = allocated_buf;
-  bw->cur = bw->buf + current_size;
-  bw->end = bw->buf + allocated_size;
+  uint8_t* const new_buf = allocated_buf;
+  uint8_t* const new_cur = new_buf + current_size;
+  uint8_t* const new_end = new_buf + allocated_size;
+  WebPSafeFree((void*)bw->buf);
+  bw->buf = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, new_buf, allocated_size);
+  bw->cur = new_cur;
+  bw->end = WEBP_UNSAFE_FORGE_SINGLE(uint8_t*, new_end);
   return 1;
 }
 
