@@ -24,6 +24,47 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d65dee7_46d0ce61",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T20:55:56Z",
+      "side": 1,
+      "message": "\u003e Why do we need to add the `(uint8_t* WEBP_UNSAFE_INDEXABLE)` cast? This is unfortunate.\n\nRemoving this doesn\u0027t cause a build failure for me.",
+      "parentUuid": "8c3a1171_8b26cb5d",
+      "range": {
+        "startLine": 52,
+        "startChar": 32,
+        "endLine": 52,
+        "endChar": 64
+      },
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2273ba65_42045aa0",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T20:55:56Z",
+      "side": 1,
+      "message": "Removing this cast doesn\u0027t cause a build failure either.",
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "f5f655ee_37605b0c",
@@ -55,6 +96,24 @@
       "side": 1,
       "message": "\u003e It is also unfortunate that we need this extra annotation. Note that `new_size` is assigned to `bw-\u003emax_pos` in the next line, so we still satisfy the annotaton in src/utils/bit_writer_utils.h that `buf` is sized by `max_pos`.\n\n\nI think that\u0027s touched on in the commit message:\n\nThis annotation introduced a new build error in the `BitWriterResize`\nfunction (`src/utils/bit_writer_utils.c`, lines 53-54) when assigning\nthe result of `WebPSafeMalloc` (an `__unsafe_indexable` pointer) to the\nnow-annotated `bw-\u003ebuf`. This was resolved by:\n1. Casting `bw-\u003ebuf` to `(uint8_t* __unsafe_indexable)` before passing\n   it to `WEBP_UNSAFE_MEMCPY` (line 50) and `WebPSafeFree` (line 52).\n2. Using `bw-\u003ebuf \u003d __unsafe_forge_bidi_indexable(uint8_t*, new_buf,\n   new_size);` (line 53) to create a properly bounded pointer from the\n  `malloc` result (`new_buf`) using its size (`new_size`) before\n  assigning it to `bw-\u003ebuf`.",
       "parentUuid": "f5f655ee_37605b0c",
+      "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e4a3f1_9a16e125",
+        "filename": "src/utils/bit_writer_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-14T20:55:56Z",
+      "side": 1,
+      "message": "\u003e \u003e It is also unfortunate that we need this extra annotation. Note that `new_size` is assigned to `bw-\u003emax_pos` in the next line, so we still satisfy the annotaton in src/utils/bit_writer_utils.h that `buf` is sized by `max_pos`.\n\u003e \n\u003e \n\u003e I think that\u0027s touched on in the commit message:\n\u003e \n\u003e This annotation introduced a new build error in the `BitWriterResize`\n\u003e function (`src/utils/bit_writer_utils.c`, lines 53-54) when assigning\n\u003e the result of `WebPSafeMalloc` (an `__unsafe_indexable` pointer) to the\n\u003e now-annotated `bw-\u003ebuf`. This was resolved by:\n\u003e 1. Casting `bw-\u003ebuf` to `(uint8_t* __unsafe_indexable)` before passing\n\u003e    it to `WEBP_UNSAFE_MEMCPY` (line 50) and `WebPSafeFree` (line 52).\n\u003e 2. Using `bw-\u003ebuf \u003d __unsafe_forge_bidi_indexable(uint8_t*, new_buf,\n\u003e    new_size);` (line 53) to create a properly bounded pointer from the\n\u003e   `malloc` result (`new_buf`) using its size (`new_size`) before\n\u003e   assigning it to `bw-\u003ebuf`.\n\nRemoving this change results in:\n\n\n```\nsrc/utils/bit_writer_utils.c:56:11: error: assigning to \u0027uint8_t *__single __sized_by_or_null(max_pos)\u0027 (aka \u0027unsigned char *__single\u0027) from incompatible type \u0027uint8_t *__unsafe_indexable\u0027 (aka \u0027unsigned char *__unsafe_indexable\u0027) casts away \u0027__unsafe_indexable\u0027 qualifier; use \u0027__unsafe_forge_single\u0027 or \u0027__unsafe_forge_bidi_indexable\u0027 to perform this conversion\n   56 |   bw-\u003ebuf \u003d new_buf; // WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, new_buf, new_size);\n      |           ^ ~~~~~~~\nsrc/utils/bit_writer_utils.c:57:15: error: assignment to \u0027bw-\u003emax_pos\u0027 requires corresponding assignment to \u0027uint8_t *__single __sized_by_or_null(max_pos)\u0027 (aka \u0027unsigned char *__single\u0027) \u0027bw-\u003ebuf\u0027; add self assignment \u0027bw-\u003ebuf \u003d bw-\u003ebuf\u0027 if the value has not changed\n   57 |   bw-\u003emax_pos \u003d new_size;\n      |      \n\n```",
+      "parentUuid": "55748543_54882a40",
       "revId": "753f08cd6e610f19d466a631fcb26c0e208129b2",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
