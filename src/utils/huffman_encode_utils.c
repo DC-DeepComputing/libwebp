@@ -34,8 +34,11 @@ static int ValuesShouldBeCollapsedToStrideAverage(int a, int b) {
 
 // Change the population counts in a way that the consequent
 // Huffman tree compression, especially its RLE-part, give smaller output.
-static void OptimizeHuffmanForRle(int length, uint8_t* const good_for_rle,
-                                  uint32_t* const counts) {
+static void OptimizeHuffmanForRle(int length,
+                                  uint8_t* const WEBP_COUNTED_BY(length)
+                                      good_for_rle,
+                                  uint32_t* const WEBP_COUNTED_BY(length)
+                                      counts) {
   // 1) Let's make the Huffman code more compatible with rle encoding.
   int i;
   for (; length >= 0; --length) {
@@ -167,11 +170,10 @@ static void SetBitDepths(const HuffmanTree* const tree,
 // we are not planning to use this with extremely long blocks.
 //
 // See https://en.wikipedia.org/wiki/Huffman_coding
-static void GenerateOptimalTree(const uint32_t* const histogram,
-                                int histogram_size, HuffmanTree* tree,
-                                int tree_depth_limit,
-                                uint8_t* WEBP_COUNTED_BY(histogram_size)
-                                    const bit_depths) {
+static void GenerateOptimalTree(
+    const uint32_t* const WEBP_COUNTED_BY(histogram_size) histogram,
+    int histogram_size, HuffmanTree* tree, int tree_depth_limit,
+    uint8_t* WEBP_COUNTED_BY(histogram_size) const bit_depths) {
   uint32_t count_min;
   HuffmanTree* tree_pool;
   int tree_size_orig = 0;
@@ -413,10 +415,17 @@ void VP8LCreateHuffmanTree(uint32_t* const histogram, int tree_depth_limit,
                            uint8_t* const buf_rle, HuffmanTree* const huff_tree,
                            HuffmanTreeCode* const huff_code) {
   const int num_symbols = huff_code->num_symbols;
-  WEBP_UNSAFE_MEMSET(buf_rle, 0, num_symbols * sizeof(*buf_rle));
-  OptimizeHuffmanForRle(num_symbols, buf_rle, histogram);
-  GenerateOptimalTree(histogram, num_symbols, huff_tree, tree_depth_limit,
-                      huff_code->code_lengths);
+  uint32_t* const __bidi_indexable bounded_histogram =
+      __unsafe_forge_bidi_indexable(uint32_t*, histogram,
+                                    (size_t)num_symbols * sizeof(uint32_t));
+  uint8_t* const __bidi_indexable bounded_buf_rle =
+      __unsafe_forge_bidi_indexable(uint8_t*, buf_rle,
+                                    (size_t)num_symbols * sizeof(uint8_t));
+
+  WEBP_UNSAFE_MEMSET(bounded_buf_rle, 0, num_symbols * sizeof(*buf_rle));
+  OptimizeHuffmanForRle(num_symbols, bounded_buf_rle, bounded_histogram);
+  GenerateOptimalTree(bounded_histogram, num_symbols, huff_tree,
+                      tree_depth_limit, huff_code->code_lengths);
   // Create the actual bit codes for the bit lengths.
   ConvertBitDepthsToSymbols(huff_code);
 }
