@@ -70,6 +70,24 @@
       "parentUuid": "43b258ae_9ed6b948",
       "revId": "6343d47d5963dc591535699cae418bf328422b45",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c36f0366_d73b0c52",
+        "filename": "src/utils/bit_reader_inl_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T00:45:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d9a4971c_811fbe17",
+      "revId": "6343d47d5963dc591535699cae418bf328422b45",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
