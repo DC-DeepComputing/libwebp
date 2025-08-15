@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e7f8f077_c3dcbac7",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:08:03Z",
+      "side": 1,
+      "message": "\u003e We\u0027ll get \"mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]\".\n\nSorry it wasn\u0027t clear, I meant move this statement to line 31 not move the declaration here.\n\nAt line 31 the following should work:\n\n```\n  uint32_t* colors \u003d (uint32_t*)WebPSafeCalloc((uint64_t)hash_size,\n                                               sizeof(*color_cache-\u003ecolors));\n```",
+      "parentUuid": "bb594e04_2b0267e2",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df731d3a_8511eacb",
         "filename": "src/utils/color_cache_utils.c",
         "patchSetId": 6
