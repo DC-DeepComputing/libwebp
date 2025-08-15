@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de3b894a_337e925d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T03:49:05Z",
+      "side": 1,
+      "message": "Max there are some old comment from you. Can you check whether they still apply?",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a82b6b1_27b76ba4",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T03:49:05Z",
+      "side": 1,
+      "message": "This can be merged with line 31.",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "df731d3a_8511eacb",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T03:49:05Z",
+      "side": 1,
+      "message": "Prefer a positive condition here (`if (colors \u003d\u003d NULL)`). Then the remaining code can be unindented.",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b89c0451_08adcfbc",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T03:49:05Z",
+      "side": 1,
+      "message": "Prefer `sizeof(*color_cache-\u003ecolors)` over `sizeof(uint32_t)`",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

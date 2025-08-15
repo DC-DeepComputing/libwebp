@@ -346,6 +346,30 @@
       },
       "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cc563f6e_0a66072b",
+        "filename": "src/utils/color_cache_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T03:49:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b634d1cb_b2fb4310",
+      "range": {
+        "startLine": 31,
+        "startChar": 18,
+        "endLine": 31,
+        "endChar": 47
+      },
+      "revId": "f0f8ab440a0514d4ee7a65a59a6bcc6ad9b05ba1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
