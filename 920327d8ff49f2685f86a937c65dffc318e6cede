@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "00d9cf3e_0754bc4d",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 336,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:45:39Z",
+      "side": 1,
+      "message": "`current_token` is only incremented, can this just be `WEBP_INDEXABLE`? That compiles.",
+      "range": {
+        "startLine": 336,
+        "startChar": 20,
+        "endLine": 336,
+        "endChar": 39
+      },
+      "revId": "920327d8ff49f2685f86a937c65dffc318e6cede",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
