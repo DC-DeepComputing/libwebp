@@ -16,6 +16,24 @@
       "message": "Now that this is bounded, can `memset` be used?",
       "revId": "b491b861ca2211c5ae05a8364d0f465ada5dd4c0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fb49125_837ee8d1",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T19:58:08Z",
+      "side": 1,
+      "message": "@mxms@google.com",
+      "parentUuid": "8b590e3d_04bfceb9",
+      "revId": "b491b861ca2211c5ae05a8364d0f465ada5dd4c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
