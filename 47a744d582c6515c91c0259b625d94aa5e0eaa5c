@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "0fe82230_85ff73fe",
+        "filename": "src/utils/bounds_safety.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-15T03:24:54Z",
+      "side": 1,
+      "message": "Agreed. I spoke with one of the engineers behind -fbounds-safety last week and she mentioned that there\u0027s room to add an additional annotation that would remove the need in some cases. I think it\u0027s something they\u0027re consider :)",
+      "parentUuid": "dbd91ba9_63404545",
+      "revId": "47a744d582c6515c91c0259b625d94aa5e0eaa5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "d051721a_1a7be0eb",
         "filename": "src/utils/bounds_safety.h",
         "patchSetId": 5
