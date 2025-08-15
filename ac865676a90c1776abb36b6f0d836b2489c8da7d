@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30d73bd4_83348897",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T20:15:22Z",
+      "side": 1,
+      "message": "`color_cache-\u003ehash_bits` could be cleared to 0 on error, but that\u0027s separate from the change. The behavior is consistent before and after the patch.",
+      "revId": "ac865676a90c1776abb36b6f0d836b2489c8da7d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
