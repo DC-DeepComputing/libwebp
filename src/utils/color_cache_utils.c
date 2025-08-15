@@ -28,20 +28,31 @@ WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 int VP8LColorCacheInit(VP8LColorCache* const color_cache, int hash_bits) {
   const int hash_size = 1 << hash_bits;
+  uint32_t* colors;
   assert(color_cache != NULL);
   assert(hash_bits > 0);
-  color_cache->colors = (uint32_t*)WebPSafeCalloc((uint64_t)hash_size,
-                                                  sizeof(*color_cache->colors));
-  if (color_cache->colors == NULL) return 0;
-  color_cache->hash_shift = 32 - hash_bits;
-  color_cache->hash_bits = hash_bits;
-  return 1;
+
+  colors = (uint32_t*)WebPSafeCalloc((uint64_t)hash_size,
+                                     sizeof(*color_cache->colors));
+
+  if (colors != NULL) {
+    color_cache->hash_shift = 32 - hash_bits;
+    color_cache->hash_bits = hash_bits;
+    color_cache->colors = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+        uint32_t*, colors, (size_t)hash_size * sizeof(uint32_t));
+    return 1;
+  } else {
+    color_cache->colors = NULL;
+    WEBP_SELF_ASSIGN(color_cache->hash_bits);
+    return 0;
+  }
 }
 
 void VP8LColorCacheClear(VP8LColorCache* const color_cache) {
   if (color_cache != NULL) {
     WebPSafeFree(color_cache->colors);
     color_cache->colors = NULL;
+    WEBP_SELF_ASSIGN(color_cache->hash_bits);
   }
 }
 
