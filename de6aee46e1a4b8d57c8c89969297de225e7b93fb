@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d172d681_c295afc6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T18:21:33Z",
+      "side": 1,
+      "message": "See https://chromium-review.googlesource.com/c/webm/libwebp/+/6852355/1..2 for the fix.",
+      "revId": "de6aee46e1a4b8d57c8c89969297de225e7b93fb",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
