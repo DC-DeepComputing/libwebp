@@ -55,6 +55,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "bb594e04_2b0267e2",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T15:50:39Z",
+      "side": 1,
+      "message": "We\u0027ll get \"mixing declarations and code is a C99 extension [-Wdeclaration-after-statement]\".",
+      "parentUuid": "4a82b6b1_27b76ba4",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "df731d3a_8511eacb",
         "filename": "src/utils/color_cache_utils.c",
         "patchSetId": 6
@@ -66,6 +84,24 @@
       "writtenOn": "2025-08-15T03:49:05Z",
       "side": 1,
       "message": "Prefer a positive condition here (`if (colors \u003d\u003d NULL)`). Then the remaining code can be unindented.",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "345b30dd_d3e6016f",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T15:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df731d3a_8511eacb",
       "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -83,6 +119,24 @@
       "writtenOn": "2025-08-15T03:49:05Z",
       "side": 1,
       "message": "Prefer `sizeof(*color_cache-\u003ecolors)` over `sizeof(uint32_t)`",
+      "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b04e9e4_735a8e5f",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T15:50:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b89c0451_08adcfbc",
       "revId": "1ec39d97fae82e4246a0c4a3c0f421a9d61fd40a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
