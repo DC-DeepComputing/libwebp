@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b590e3d_04bfceb9",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:35:57Z",
+      "side": 1,
+      "message": "Now that this is bounded, can `memset` be used?",
+      "revId": "b491b861ca2211c5ae05a8364d0f465ada5dd4c0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
