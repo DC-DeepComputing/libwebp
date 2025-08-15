@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "973b3d1c_652e3cf8",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:03:19Z",
+      "side": 1,
+      "message": "This is a fuzztest, not based on libfuzzer. I think you want a custom main like https://github.com/google/fuzztest/blob/main/fuzztest/fuzztest_gtest_main.cc.\n\nSee: https://github.com/google/fuzztest/blob/main/fuzztest/init_fuzztest.h",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "99cf1e51_6cfb0b20",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:03:19Z",
+      "side": 1,
+      "message": "Break this long line and use an array:\n\n```\nFUZZ_NALLOC_TARGETS\u003d($(git grep nalloc_init tests/fuzzer/*.cc \\\n  | cut -d. -f1 \\\n  | cut -d/ -f3))\n```",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "998feabf_509c887f",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:03:19Z",
+      "side": 1,
+      "message": "change this to `\"${FUZZ_NALLOC_TARGETS[@]}\"` (keep the quotes)",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35c78a47_b234d9fd",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-15T19:03:19Z",
+      "side": 1,
+      "message": "Use a 2 space indent.",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
