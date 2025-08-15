@@ -16,6 +16,24 @@
       "message": "remove the else and deindent since the other branch returns.",
       "revId": "7956e33b7cfd65496513ab9616628435e3e13f42",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad318697_172f8016",
+        "filename": "src/utils/color_cache_utils.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T19:34:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcb619b7_c3438b94",
+      "revId": "7956e33b7cfd65496513ab9616628435e3e13f42",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
