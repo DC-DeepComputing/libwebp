@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "03d58f30_2db338b6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-15T00:30:20Z",
+      "side": 1,
+      "message": "LGTM. I actually had a similar patch. Thanks.",
+      "parentUuid": "8ad00f74_d7b8368f",
+      "revId": "cdaac014900d722ed294c864216e381377d09897",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "46e8d5c5_5af391c3",
         "filename": "src/utils/bit_writer_utils.c",
         "patchSetId": 3
