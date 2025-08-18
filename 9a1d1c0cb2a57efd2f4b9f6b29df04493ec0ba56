@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2148da4_3ff08bb4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-18T21:14:10Z",
+      "side": 1,
+      "message": "Make this \u0027Add\u0027 instead of \u0027Adds\u0027",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 4
+      },
+      "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "7048b427_5526a11a",
@@ -14,6 +37,41 @@
       "writtenOn": "2025-08-15T19:31:45Z",
       "side": 1,
       "message": "The analysis and GenerateOptimalTree need a closer look.",
+      "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d224963_0fa66df2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-18T21:14:10Z",
+      "side": 1,
+      "message": "\u003e The analysis and GenerateOptimalTree need a closer look.\n\nThis looks correct as `tree_pool` will be offset up to `num_symbols` from `tree` to start and then will work with 2 elements from `tree` at a time in `GenerateOptimalTree`",
+      "parentUuid": "7048b427_5526a11a",
+      "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2929b7e2_0e0d496b",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-18T21:14:10Z",
+      "side": 1,
+      "message": "Can this be `memmove` now that `tree` is annotated? The code compiles with the change.",
       "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
