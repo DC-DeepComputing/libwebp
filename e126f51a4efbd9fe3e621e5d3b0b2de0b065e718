@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ee36ea34_9fdcc2c2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-19T02:23:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96fec003_8b991431",
+      "range": {
+        "startLine": 26,
+        "startChar": 16,
+        "endLine": 27,
+        "endChar": 54
+      },
+      "revId": "e126f51a4efbd9fe3e621e5d3b0b2de0b065e718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "44aa47a8_dfbf85c1",
         "filename": "src/utils/huffman_encode_utils.c",
         "patchSetId": 3
