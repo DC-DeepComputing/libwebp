@@ -69,6 +69,30 @@
       },
       "revId": "e126f51a4efbd9fe3e621e5d3b0b2de0b065e718",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "00d6752b_45fb562a",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-19T02:18:19Z",
+      "side": 1,
+      "message": "Agreed, I think this is a tradeoff that we\u0027d look for your guidance on where to land. My suggestion would be to always use the strictest bound (i.e. prefer indexable over bidi_indexable), but I do agree that it leaves you more flexibility and less refactor-overhead in the future. \n\nWe\u0027ll also need to measure the performance overhead to see if there\u0027s any measurable difference between the two. If there is none, then maybe developer flexibility is the easier one to prioritize :)",
+      "parentUuid": "dc839ac1_d08e5199",
+      "range": {
+        "startLine": 360,
+        "startChar": 15,
+        "endLine": 360,
+        "endChar": 28
+      },
+      "revId": "e126f51a4efbd9fe3e621e5d3b0b2de0b065e718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
