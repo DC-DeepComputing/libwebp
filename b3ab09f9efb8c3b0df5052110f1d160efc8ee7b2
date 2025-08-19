@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf4a9c06_98d5698b",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 420,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-19T18:50:57Z",
+      "side": 1,
+      "message": "prefer `sizeof(*histogram)`",
+      "range": {
+        "startLine": 420,
+        "startChar": 68,
+        "endLine": 420,
+        "endChar": 76
+      },
+      "revId": "b3ab09f9efb8c3b0df5052110f1d160efc8ee7b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba0ef42e_3fec863f",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 423,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-19T18:50:57Z",
+      "side": 1,
+      "message": "prefer `sizeof(*buf_rle`)",
+      "range": {
+        "startLine": 423,
+        "startChar": 61,
+        "endLine": 423,
+        "endChar": 76
+      },
+      "revId": "b3ab09f9efb8c3b0df5052110f1d160efc8ee7b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
