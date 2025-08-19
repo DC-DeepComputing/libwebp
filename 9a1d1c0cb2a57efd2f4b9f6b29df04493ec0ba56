@@ -98,6 +98,24 @@
       "message": "Can this be `memmove` now that `tree` is annotated? The code compiles with the change.",
       "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2b75eaa6_34e3a956",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-19T06:32:29Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "2929b7e2_0e0d496b",
+      "revId": "9a1d1c0cb2a57efd2f4b9f6b29df04493ec0ba56",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
