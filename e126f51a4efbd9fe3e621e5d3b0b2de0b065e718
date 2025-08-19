@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44aa47a8_dfbf85c1",
+        "filename": "src/utils/huffman_encode_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 360,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-08-19T02:01:34Z",
+      "side": 1,
+      "message": "As a note @jzern@google.com, Arman and I talked about this earlier today. I think given that there\u0027s subtraction here on `current_token`, it may need to be bidi_indexable in the future. I think this works now because `starting_token` is default `__unsafe_indexable`, and so I would guess that `__bidi_indexable - __unsafe_indexable` is still `__unsafe_indexable`.\n\nNonetheless, I\u0027m not super confident in this analysis, but we can fix it once we remove the WEBP_ASSUME_UNSAFE_INDEXABLE_ABI at the top of the files.",
+      "range": {
+        "startLine": 360,
+        "startChar": 15,
+        "endLine": 360,
+        "endChar": 28
+      },
+      "revId": "e126f51a4efbd9fe3e621e5d3b0b2de0b065e718",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
