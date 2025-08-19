@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "829d5172_6efc67e2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-19T18:55:22Z",
+      "side": 1,
+      "message": "This will need to be rebased. There are conflicts after https://chromium-review.googlesource.com/c/webm/libwebp/+/6854044.",
+      "revId": "b3ab09f9efb8c3b0df5052110f1d160efc8ee7b2",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bf4a9c06_98d5698b",
         "filename": "src/utils/huffman_encode_utils.c",
         "patchSetId": 3
