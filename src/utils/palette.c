@@ -163,8 +163,8 @@ int GetColorPalette(const WebPPicture* const pic, uint32_t* const palette) {
 // no benefit to re-organize them greedily. A monotonic development
 // would be spotted in green-only situations (like lossy alpha) or gray-scale
 // images.
-static int PaletteHasNonMonotonousDeltas(const uint32_t* const palette,
-                                         int num_colors) {
+static int PaletteHasNonMonotonousDeltas(
+    const uint32_t* const WEBP_COUNTED_BY(num_colors) palette, int num_colors) {
   uint32_t predict = 0x000000;
   int i;
   uint8_t sign_found = 0x00;
@@ -187,8 +187,9 @@ static int PaletteHasNonMonotonousDeltas(const uint32_t* const palette,
   return (sign_found & (sign_found << 1)) != 0;  // two consequent signs.
 }
 
-static void PaletteSortMinimizeDeltas(const uint32_t* const palette_sorted,
-                                      int num_colors, uint32_t* const palette) {
+static void PaletteSortMinimizeDeltas(
+    const uint32_t* const WEBP_COUNTED_BY(num_colors) palette_sorted,
+    int num_colors, uint32_t* const WEBP_COUNTED_BY(num_colors) palette) {
   uint32_t predict = 0x00000000;
   int i, k;
   WEBP_UNSAFE_MEMCPY(palette, palette_sorted, num_colors * sizeof(*palette));
@@ -304,10 +305,10 @@ struct Sum {
   uint32_t sum;
 };
 
-static int PaletteSortModifiedZeng(const WebPPicture* const pic,
-                                   const uint32_t* const palette_in,
-                                   uint32_t num_colors,
-                                   uint32_t* const palette) {
+static int PaletteSortModifiedZeng(
+    const WebPPicture* const pic,
+    const uint32_t* const WEBP_COUNTED_BY(num_colors) palette_in,
+    uint32_t num_colors, uint32_t* const WEBP_COUNTED_BY(num_colors) palette) {
   uint32_t i, j, ind;
   uint8_t remapping[MAX_PALETTE_SIZE];
   uint32_t* cooccurrence;
@@ -391,8 +392,10 @@ static int PaletteSortModifiedZeng(const WebPPicture* const pic,
 // -----------------------------------------------------------------------------
 
 int PaletteSort(PaletteSorting method, const struct WebPPicture* const pic,
-                const uint32_t* const palette_sorted, uint32_t num_colors,
-                uint32_t* const palette) {
+                const uint32_t* const WEBP_COUNTED_BY(num_colors)
+                    palette_sorted,
+                uint32_t num_colors,
+                uint32_t* const WEBP_COUNTED_BY(num_colors) palette) {
   switch (method) {
     case kSortedDefault:
       if (palette_sorted[0] == 0 && num_colors > 17) {
