@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b8fdf40_67c2a286",
+        "filename": "src/utils/rescaler_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T20:09:48Z",
+      "side": 1,
+      "message": "\u003e This is really the most unfortunate part of these annotations (and the self-assign). Experimenting a bit it seems conditionals are part of what triggers this. Restore the assigments to `dst_width` and `num_channels` to their original positions and move the remaining 3 lines after the assignment to `num_channels`.\n\n(Don\u0027t forget to update the reasoning in the commit message.)",
+      "parentUuid": "ea9b6c21_8249f3d8",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 50
+      },
+      "revId": "3ea14e1a43b7559cd4dce4ee824357224a04f625",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ad71bb87_93489c29",
         "filename": "src/utils/rescaler_utils.c",
         "patchSetId": 3
