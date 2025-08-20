@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c05e5685_1b2e197a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T21:11:55Z",
+      "side": 1,
+      "message": "This seems to be off by when using the original file as a reference. Maybe it came from an earlier run? It\u0027s not critical, but I\u0027m not sure if it\u0027s something to review on the tooling side.",
+      "range": {
+        "startLine": 17,
+        "startChar": 51,
+        "endLine": 17,
+        "endChar": 59
+      },
+      "revId": "4cdb42070f9180edf9ffbbcddb3fab0b80877fb4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
