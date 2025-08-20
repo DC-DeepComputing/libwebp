@@ -34,6 +34,24 @@
       "parentUuid": "62cc1515_8611a0b1",
       "revId": "1b12516bea9b104108706d23e8e9cdf47070a2c1",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a0e1006_30d4cd3d",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T20:21:01Z",
+      "side": 1,
+      "message": "\u003e Done. The forge was added\n\u003e for the stack-allocated `sorted` array (line 266) for consistency,\n\u003e although it was not strictly necessary to fix the compilation error.\n\nThanks. At one level it makes sense for consistency, but in the end it confused me because of the fixed size, so maybe others would be too.",
+      "parentUuid": "184b5462_051b9b5f",
+      "revId": "1b12516bea9b104108706d23e8e9cdf47070a2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
