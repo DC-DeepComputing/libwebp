@@ -30,7 +30,8 @@ WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 int WebPRescalerInit(WebPRescaler* const rescaler, int src_width,
                      int src_height, uint8_t* const dst, int dst_width,
                      int dst_height, int dst_stride, int num_channels,
-                     rescaler_t* const work) {
+                     rescaler_t* const WEBP_COUNTED_BY(2ULL * dst_width *
+                                                       num_channels) work) {
   const int x_add = src_width, x_sub = dst_width;
   const int y_add = src_height, y_sub = dst_height;
   const uint64_t total_size = 2ull * dst_width * num_channels * sizeof(*work);
@@ -40,13 +41,11 @@ int WebPRescalerInit(WebPRescaler* const rescaler, int src_width,
   rescaler->y_expand = (src_height < dst_height);
   rescaler->src_width = src_width;
   rescaler->src_height = src_height;
-  rescaler->dst_width = dst_width;
   rescaler->dst_height = dst_height;
   rescaler->src_y = 0;
   rescaler->dst_y = 0;
   rescaler->dst = dst;
   rescaler->dst_stride = dst_stride;
-  rescaler->num_channels = num_channels;
 
   // for 'x_expand', we use bilinear interpolation
   rescaler->x_add = rescaler->x_expand ? (x_sub - 1) : x_add;
@@ -79,6 +78,8 @@ int WebPRescalerInit(WebPRescaler* const rescaler, int src_width,
     rescaler->fy_scale = WEBP_RESCALER_FRAC(1, rescaler->x_add);
     // rescaler->fxy_scale is unused here.
   }
+  rescaler->dst_width = dst_width;
+  rescaler->num_channels = num_channels;
   rescaler->irow = work;
   rescaler->frow = work + num_channels * dst_width;
   WEBP_UNSAFE_MEMSET(work, 0, (size_t)total_size);
@@ -135,8 +136,19 @@ int WebPRescalerImport(WebPRescaler* const rescaler, int num_lines,
          !WebPRescalerHasPendingOutput(rescaler)) {
     if (rescaler->y_expand) {
       rescaler_t* const tmp = rescaler->irow;
-      rescaler->irow = rescaler->frow;
-      rescaler->frow = tmp;
+      const size_t count = (size_t)rescaler->dst_width * rescaler->num_channels;
+      // Swap irow/frow and update the dependencies for the bounds-checker.
+      // Since 'rescaler' (a pointer parameter) is treated as __unsafe_indexable
+      // due to WEBP_ASSUME_UNSAFE_INDEXABLE_ABI, reads of rescaler->irow and
+      // rescaler->frow are also treated as __unsafe_indexable. 'tmp' is thus
+      // inferred as __unsafe_indexable. We need to forge them back to safe
+      // pointers for the assignment to the annotated fields.
+      WEBP_SELF_ASSIGN(rescaler->dst_width);
+      WEBP_SELF_ASSIGN(rescaler->num_channels);
+      rescaler->irow = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+          rescaler_t*, rescaler->frow, count * sizeof(rescaler_t));
+      rescaler->frow = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+          rescaler_t*, tmp, count * sizeof(rescaler_t));
     }
     WebPRescalerImportRow(rescaler, src);
     if (!rescaler->y_expand) {  // Accumulate the contribution of the new row.
