@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b2c96e1_7546de2f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T19:35:23Z",
+      "side": 1,
+      "message": "This is unfortunate. I\u0027ll remove this parameter after this lands.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "02cfde301b5c92e1990a8d16bae1ac6385f3e77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c4786f0_d5273ab8",
+        "filename": "src/utils/filters_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T19:35:23Z",
+      "side": 1,
+      "message": "Let\u0027s use `width * height` which is more common. We\u0027re probably not 100% consistent unfortunately.",
+      "range": {
+        "startLine": 29,
+        "startChar": 43,
+        "endLine": 29,
+        "endChar": 56
+      },
+      "revId": "02cfde301b5c92e1990a8d16bae1ac6385f3e77c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
