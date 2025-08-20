@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62cc1515_8611a0b1",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 280,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-20T19:49:46Z",
+      "side": 1,
+      "message": "Only this annotation is needed. The other one can be removed since it seems  that a statically known size is enough.",
+      "revId": "1b12516bea9b104108706d23e8e9cdf47070a2c1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
