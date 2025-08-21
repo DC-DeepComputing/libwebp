@@ -56,13 +56,14 @@ static WEBP_INLINE uint32_t GetNextKey(uint32_t key, int len) {
 
 // Stores code in table[0], table[step], table[2*step], ..., table[end].
 // Assumes that end is an integer multiple of step.
-static WEBP_INLINE void ReplicateValue(HuffmanCode* table, int step, int end,
-                                       HuffmanCode code) {
-  assert(end % step == 0);
+static WEBP_INLINE void ReplicateValue(HuffmanCode* WEBP_COUNTED_BY(end) table,
+                                       int step, int end, HuffmanCode code) {
+  int current_end = end;
+  assert(current_end % step == 0);
   do {
-    end -= step;
-    table[end] = code;
-  } while (end > 0);
+    current_end -= step;
+    table[current_end] = code;
+  } while (current_end > 0);
 }
 
 // Returns the table width of the next 2nd level table. count is the histogram
@@ -83,10 +84,21 @@ static WEBP_INLINE int NextTableBitSize(
 
 // sorted[code_lengths_size] is a pre-allocated array for sorting symbols
 // by code length.
+<<<<<<< PATCH SET (b036fbb53338562901aead901066094bdd8c7f86 Add fbounds-safety annotations in `huffman_util.c/.h`.)
+static int BuildHuffmanTable(
+    HuffmanCode* const WEBP_COUNTED_BY_OR_NULL(1 << root_bits) root_table,
+    int root_bits, const int code_lengths[], int code_lengths_size,
+    uint16_t sorted[]) {
+||||||| BASE      (ddcdfa6a4271cac0dd2c2eab1b7cc3c01620c33c Refactor libwebp anim_encode curr prev rectangles)
+static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
+                             const int code_lengths[], int code_lengths_size,
+                             uint16_t sorted[]) {
+=======
 static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
                              const int code_lengths[], int code_lengths_size,
                              uint16_t WEBP_COUNTED_BY_OR_NULL(code_lengths_size)
                                  sorted[]) {
+>>>>>>> BASE      (2074cb4ba1ec5a03362ea671eb0b263e340cb011 Merge "Add fbounds-safety annotations for `WebPRescaler`." i)
   HuffmanCode* table = root_table;  // next available space in table
   int total_size = 1 << root_bits;  // total size root table + 2nd level table
   int len;                          // current code length
@@ -149,7 +161,9 @@ static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
       HuffmanCode code;
       code.bits = 0;
       code.value = (uint16_t)sorted[0];
-      ReplicateValue(table, 1, total_size, code);
+      ReplicateValue(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+                         HuffmanCode*, table, total_size * sizeof(HuffmanCode)),
+                     1, total_size, code);
     }
     return total_size;
   }
@@ -177,7 +191,10 @@ static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
         HuffmanCode code;
         code.bits = (uint8_t)len;
         code.value = (uint16_t)sorted[symbol++];
-        ReplicateValue(&table[key], step, table_size, code);
+        ReplicateValue(
+            WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(HuffmanCode*, &table[key],
+                                             table_size * sizeof(HuffmanCode)),
+            step, table_size, code);
         key = GetNextKey(key, len);
       }
     }
@@ -207,7 +224,10 @@ static int BuildHuffmanTable(HuffmanCode* const root_table, int root_bits,
         if (root_table != NULL) {
           code.bits = (uint8_t)(len - root_bits);
           code.value = (uint16_t)sorted[symbol++];
-          ReplicateValue(&table[key >> root_bits], step, table_size, code);
+          ReplicateValue(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+                             HuffmanCode*, &table[key >> root_bits],
+                             table_size * sizeof(HuffmanCode)),
+                         step, table_size, code);
         }
         key = GetNextKey(key, len);
       }
@@ -250,12 +270,17 @@ int VP8LBuildHuffmanTable(HuffmanTables* const root_table, int root_bits,
     // We need at least 'total_size' but if that value is small, it is better to
     // allocate a big chunk to prevent more allocations later. 'segment_size' is
     // therefore chosen (any other arbitrary value could be chosen).
-    next->size = total_size > segment_size ? total_size : segment_size;
-    next->start =
-        (HuffmanCode*)WebPSafeMalloc(next->size, sizeof(*next->start));
-    if (next->start == NULL) {
-      WebPSafeFree(next);
-      return 0;
+    {
+      const int next_size =
+          total_size > segment_size ? total_size : segment_size;
+      HuffmanCode* WEBP_BIDI_INDEXABLE const next_start =
+          (HuffmanCode*)WebPSafeMalloc(next_size, sizeof(*next_start));
+      if (next_start == NULL) {
+        WebPSafeFree(next);
+        return 0;
+      }
+      next->size = next_size;
+      next->start = next_start;
     }
     next->curr_table = next->start;
     next->next = NULL;
@@ -266,17 +291,29 @@ int VP8LBuildHuffmanTable(HuffmanTables* const root_table, int root_bits,
   if (code_lengths_size <= SORTED_SIZE_CUTOFF) {
     // use local stack-allocated array.
     uint16_t sorted[SORTED_SIZE_CUTOFF];
-    BuildHuffmanTable(root_table->curr_segment->curr_table, root_bits,
-                      code_lengths, code_lengths_size, sorted);
+    BuildHuffmanTable(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+                          HuffmanCode*, root_table->curr_segment->curr_table,
+                          (1 << root_bits) * sizeof(HuffmanCode)),
+                      root_bits, code_lengths, code_lengths_size, sorted);
   } else {  // rare case. Use heap allocation.
     uint16_t* const sorted =
         (uint16_t*)WebPSafeMalloc(code_lengths_size, sizeof(*sorted));
     if (sorted == NULL) return 0;
+<<<<<<< PATCH SET (b036fbb53338562901aead901066094bdd8c7f86 Add fbounds-safety annotations in `huffman_util.c/.h`.)
+    BuildHuffmanTable(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+                          HuffmanCode*, root_table->curr_segment->curr_table,
+                          (1 << root_bits) * sizeof(HuffmanCode)),
+                      root_bits, code_lengths, code_lengths_size, sorted);
+||||||| BASE      (ddcdfa6a4271cac0dd2c2eab1b7cc3c01620c33c Refactor libwebp anim_encode curr prev rectangles)
+    BuildHuffmanTable(root_table->curr_segment->curr_table, root_bits,
+                      code_lengths, code_lengths_size, sorted);
+=======
     BuildHuffmanTable(
         root_table->curr_segment->curr_table, root_bits, code_lengths,
         code_lengths_size,
         WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
             uint16_t*, sorted, (size_t)code_lengths_size * sizeof(*sorted)));
+>>>>>>> BASE      (2074cb4ba1ec5a03362ea671eb0b263e340cb011 Merge "Add fbounds-safety annotations for `WebPRescaler`." i)
     WebPSafeFree(sorted);
   }
   return total_size;
@@ -288,10 +325,18 @@ int VP8LHuffmanTablesAllocate(int size, HuffmanTables* huffman_tables) {
   huffman_tables->curr_segment = root;
   root->next = NULL;
   // Allocate root.
-  root->start = (HuffmanCode*)WebPSafeMalloc(size, sizeof(*root->start));
-  if (root->start == NULL) return 0;
+  {
+    HuffmanCode* WEBP_BIDI_INDEXABLE const start =
+        (HuffmanCode*)WebPSafeMalloc(size, sizeof(*root->start));
+    if (start == NULL) {
+      root->start = NULL;
+      root->size = 0;
+      return 0;
+    }
+    root->size = size;
+    root->start = start;
+  }
   root->curr_table = root->start;
-  root->size = size;
   return 1;
 }
 
@@ -303,6 +348,7 @@ void VP8LHuffmanTablesDeallocate(HuffmanTables* const huffman_tables) {
   next = current->next;
   WebPSafeFree(current->start);
   current->start = NULL;
+  current->size = 0;
   current->next = NULL;
   current = next;
   // Free the following nodes.
