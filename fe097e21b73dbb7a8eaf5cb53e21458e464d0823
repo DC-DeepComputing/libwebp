@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e4f02c2_b5807a43",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "huffman_utils",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da3d756c_15802585",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "prefer `sizeof(*table)`",
+      "range": {
+        "startLine": 154,
+        "startChar": 66,
+        "endLine": 154,
+        "endChar": 77
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2d78e63_2fd6f43d",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "This one doesn\u0027t look accurate since we\u0027re offsetting `table` by `key` to start. The upper bound given will overestimate the remaining size, no?",
+      "range": {
+        "startLine": 184,
+        "startChar": 12,
+        "endLine": 185,
+        "endChar": 79
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60eebac5_a67bf534",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "prefer `sizeof(*table)`",
+      "range": {
+        "startLine": 185,
+        "startChar": 65,
+        "endLine": 185,
+        "endChar": 76
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "623aa14e_7da95fd0",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "Same comment here about the upper bound.",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 68
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "700706c4_1aacb29a",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "prefer `sizeof(*table)`",
+      "range": {
+        "startLine": 218,
+        "startChar": 49,
+        "endLine": 218,
+        "endChar": 60
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a0bccbae_be427163",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-21T20:45:29Z",
+      "side": 1,
+      "message": "prefer `sizeof(*root_table-\u003ecurr_segment-\u003ecurr_table)`.",
+      "range": {
+        "startLine": 294,
+        "startChar": 38,
+        "endLine": 294,
+        "endChar": 49
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
