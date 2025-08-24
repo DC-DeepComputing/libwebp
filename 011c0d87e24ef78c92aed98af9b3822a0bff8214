@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3b2a6447_48822400",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-24T19:54:59Z",
+      "side": 1,
+      "message": "Well, I tested and it works (when you pass the --fuzz arg)\n\nI debugged it and here is the stack trace\n```\n    #1 0x55c7db3876da in LLVMFuzzerInitialize /src/libwebp/tests/fuzzer/dec_fuzzer.cc:29:3\n    #2 0x55c7db51e064 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:650:5\n    #3 0x55c7db50e883 in fuzztest::internal::FuzzTestExternalEngineAdaptor::RunInFuzzingMode(int*, char***, fuzztest::internal::Configuration const\u0026) /src/libwebp/build/_deps/fuzztest-src/fuzztest/internal/compatibility_mode.cc:92:3\n    #4 0x55c7db503944 in fuzztest::internal::GTest_TestAdaptor::TestBody() /src/libwebp/build/_deps/fuzztest-src/./fuzztest/internal/googletest_adaptor.h:83:7\n    #5 0x55c7db78c77e in void testing::internal::HandleSehExceptionsInMethodIfSupported\u003ctesting::Test, void\u003e(testing::Test*, void (testing::Test::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2612:10\n    #6 0x55c7db78c77e in void testing::internal::HandleExceptionsInMethodIfSupported\u003ctesting::Test, void\u003e(testing::Test*, void (testing::Test::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2648:14\n    #7 0x55c7db78c38c in testing::Test::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2687:5\n    #8 0x55c7db790632 in testing::TestInfo::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2836:11\n    #9 0x55c7db793815 in testing::TestSuite::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:3015:30\n    #10 0x55c7db7ca78b in testing::internal::UnitTestImpl::RunAllTests() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:5920:44\n    #11 0x55c7db7c946e in bool testing::internal::HandleSehExceptionsInMethodIfSupported\u003ctesting::internal::UnitTestImpl, bool\u003e(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2612:10\n    #12 0x55c7db7c946e in bool testing::internal::HandleExceptionsInMethodIfSupported\u003ctesting::internal::UnitTestImpl, bool\u003e(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2648:14\n    #13 0x55c7db7c8e7f in testing::UnitTest::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:5484:10\n    #14 0x55c7db49dfc2 in RUN_ALL_TESTS() /src/libwebp/build/_deps/googletest-src/googletest/include/gtest/gtest.h:2317:73\n    #15 0x55c7db49dfc2 in main /src/libwebp/build/_deps/fuzztest-src/fuzztest/fuzztest_gtest_main.cc:28:10\n```\n\nSo, I can keep cmake link_fuzztest which uses fuzztest_gtest_main.cc\n\nRight ?",
+      "parentUuid": "973b3d1c_652e3cf8",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99cf1e51_6cfb0b20",
         "filename": "tests/fuzzer/oss-fuzz/build.sh",
         "patchSetId": 15
@@ -31,6 +49,24 @@
       "writtenOn": "2025-08-15T19:03:19Z",
       "side": 1,
       "message": "Break this long line and use an array:\n\n```\nFUZZ_NALLOC_TARGETS\u003d($(git grep nalloc_init tests/fuzzer/*.cc \\\n  | cut -d. -f1 \\\n  | cut -d/ -f3))\n```",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "459e86f6_0d69e368",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-24T19:54:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "99cf1e51_6cfb0b20",
       "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -52,6 +88,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "847c0456_67b1d165",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-24T19:54:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "998feabf_509c887f",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35c78a47_b234d9fd",
@@ -65,6 +119,24 @@
       "writtenOn": "2025-08-15T19:03:19Z",
       "side": 1,
       "message": "Use a 2 space indent.",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42d7b78b_d26d488a",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 15
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-24T19:54:59Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "35c78a47_b234d9fd",
       "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
