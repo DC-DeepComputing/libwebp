@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7b5fa3f_9ee3724e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-25T18:44:12Z",
+      "side": 1,
+      "message": "We\u0027ll need to sync https://chromium.googlesource.com/webm/libwebp-test-data with this change.",
+      "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
