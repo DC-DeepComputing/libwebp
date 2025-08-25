@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e318dd08_51f6db76",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-25T18:54:24Z",
+      "side": 1,
+      "message": "\u003e Well, I tested and it works (when you pass the --fuzz arg)\n\u003e \n\u003e I debugged it and here is the stack trace\n\u003e ```\n\u003e     #1 0x55c7db3876da in LLVMFuzzerInitialize /src/libwebp/tests/fuzzer/dec_fuzzer.cc:29:3\n\u003e     #2 0x55c7db51e064 in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) /src/llvm-project/compiler-rt/lib/fuzzer/FuzzerDriver.cpp:650:5\n\u003e     #3 0x55c7db50e883 in fuzztest::internal::FuzzTestExternalEngineAdaptor::RunInFuzzingMode(int*, char***, fuzztest::internal::Configuration const\u0026) /src/libwebp/build/_deps/fuzztest-src/fuzztest/internal/compatibility_mode.cc:92:3\n\u003e     #4 0x55c7db503944 in fuzztest::internal::GTest_TestAdaptor::TestBody() /src/libwebp/build/_deps/fuzztest-src/./fuzztest/internal/googletest_adaptor.h:83:7\n\u003e     #5 0x55c7db78c77e in void testing::internal::HandleSehExceptionsInMethodIfSupported\u003ctesting::Test, void\u003e(testing::Test*, void (testing::Test::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2612:10\n\u003e     #6 0x55c7db78c77e in void testing::internal::HandleExceptionsInMethodIfSupported\u003ctesting::Test, void\u003e(testing::Test*, void (testing::Test::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2648:14\n\u003e     #7 0x55c7db78c38c in testing::Test::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2687:5\n\u003e     #8 0x55c7db790632 in testing::TestInfo::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2836:11\n\u003e     #9 0x55c7db793815 in testing::TestSuite::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:3015:30\n\u003e     #10 0x55c7db7ca78b in testing::internal::UnitTestImpl::RunAllTests() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:5920:44\n\u003e     #11 0x55c7db7c946e in bool testing::internal::HandleSehExceptionsInMethodIfSupported\u003ctesting::internal::UnitTestImpl, bool\u003e(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2612:10\n\u003e     #12 0x55c7db7c946e in bool testing::internal::HandleExceptionsInMethodIfSupported\u003ctesting::internal::UnitTestImpl, bool\u003e(testing::internal::UnitTestImpl*, bool (testing::internal::UnitTestImpl::*)(), char const*) /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:2648:14\n\u003e     #13 0x55c7db7c8e7f in testing::UnitTest::Run() /src/libwebp/build/_deps/googletest-src/googletest/src/gtest.cc:5484:10\n\u003e     #14 0x55c7db49dfc2 in RUN_ALL_TESTS() /src/libwebp/build/_deps/googletest-src/googletest/include/gtest/gtest.h:2317:73\n\u003e     #15 0x55c7db49dfc2 in main /src/libwebp/build/_deps/fuzztest-src/fuzztest/fuzztest_gtest_main.cc:28:10\n\u003e ```\n\u003e \n\u003e So, I can keep cmake link_fuzztest which uses fuzztest_gtest_main.cc\n\u003e \n\u003e Right ?\n\nThis doesn\u0027t seem well documented and I don\u0027t see any other examples mixing the two. My concern is if the underlying fuzzing engine changes then this may not be called.",
+      "parentUuid": "3b2a6447_48822400",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99cf1e51_6cfb0b20",
         "filename": "tests/fuzzer/oss-fuzz/build.sh",
         "patchSetId": 15
