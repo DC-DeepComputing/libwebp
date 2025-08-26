@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "505b6e8a_350b1018",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-26T17:57:15Z",
+      "side": 1,
+      "message": "\u003e Done with https://chromium-review.googlesource.com/c/webm/libwebp-test-data/+/6884987\n\nYou can submit this and rerun the presubmit. If needed we can check for the presence of this change in the presubmit to checkout the correct version of the test data.",
+      "parentUuid": "1415db45_64dead29",
+      "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ee29a8cd_2d5c622a",
