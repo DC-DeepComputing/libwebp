@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ada9b0ed_4da463b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3e4f02c2_b5807a43",
+      "range": {
+        "startLine": 7,
+        "startChar": 35,
+        "endLine": 7,
+        "endChar": 47
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da3d756c_15802585",
@@ -37,6 +61,30 @@
       "writtenOn": "2025-08-21T20:45:29Z",
       "side": 1,
       "message": "prefer `sizeof(*table)`",
+      "range": {
+        "startLine": 154,
+        "startChar": 66,
+        "endLine": 154,
+        "endChar": 77
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a64f9c1_ee1322c0",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "da3d756c_15802585",
       "range": {
         "startLine": 154,
         "startChar": 66,
@@ -93,6 +141,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f09ee06_a9318eb0",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Changed `BuildHuffmanTable` parameter `root_table` to `WEBP_BIDI_INDEXABLE` to cover secondary tables and updated call sites to forge bounds using `total_size` (since with explicitly annotating the local variable `table` as `WEBP_BIDI_INDEXABLE`, `table` inherits its bounds from `root_table`). This allowed removing unsafe forging inside `BuildHuffmanTable`. Tightened bounds for `ReplicateValue` to `WEBP_COUNTED_BY(end - step + 1)`.",
+      "parentUuid": "b2d78e63_2fd6f43d",
+      "range": {
+        "startLine": 184,
+        "startChar": 12,
+        "endLine": 185,
+        "endChar": 79
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d60a3090_626a481b",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "60eebac5_a67bf534",
+      "range": {
+        "startLine": 185,
+        "startChar": 65,
+        "endLine": 185,
+        "endChar": 76
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "623aa14e_7da95fd0",
@@ -106,6 +202,30 @@
       "writtenOn": "2025-08-21T20:45:29Z",
       "side": 1,
       "message": "Same comment here about the upper bound.",
+      "range": {
+        "startLine": 216,
+        "startChar": 0,
+        "endLine": 217,
+        "endChar": 68
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3199e73a_724da75c",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 217,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Check the comment above.",
+      "parentUuid": "623aa14e_7da95fd0",
       "range": {
         "startLine": 216,
         "startChar": 0,
@@ -139,6 +259,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "48ffa9cc_5d622d8c",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "700706c4_1aacb29a",
+      "range": {
+        "startLine": 218,
+        "startChar": 49,
+        "endLine": 218,
+        "endChar": 60
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0217a10_61a15428",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 218,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Ack.",
+      "parentUuid": "700706c4_1aacb29a",
+      "range": {
+        "startLine": 218,
+        "startChar": 49,
+        "endLine": 218,
+        "endChar": 60
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a0bccbae_be427163",
@@ -152,6 +320,30 @@
       "writtenOn": "2025-08-21T20:45:29Z",
       "side": 1,
       "message": "prefer `sizeof(*root_table-\u003ecurr_segment-\u003ecurr_table)`.",
+      "range": {
+        "startLine": 294,
+        "startChar": 38,
+        "endLine": 294,
+        "endChar": 49
+      },
+      "revId": "fe097e21b73dbb7a8eaf5cb53e21458e464d0823",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e691aabe_3db3caea",
+        "filename": "src/utils/huffman_utils.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-08-26T23:39:46Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "a0bccbae_be427163",
       "range": {
         "startLine": 294,
         "startChar": 38,
