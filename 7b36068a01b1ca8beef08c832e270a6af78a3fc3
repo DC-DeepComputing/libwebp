@@ -34,6 +34,29 @@
       "parentUuid": "f7b5fa3f_9ee3724e",
       "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee29a8cd_2d5c622a",
+        "filename": "src/dsp/yuv.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 248,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-26T17:56:12Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by Spellchecker: \"re-used\" is a possible misspelling of \"reused\".\n\nTo bypass Spellchecker, add a ...\n\n\"re-used\" is a possible misspelling of \"reused\".\n\nTo bypass Spellchecker, add a footer with DISABLE_SPELLCHECKER",
+      "range": {
+        "startLine": 248,
+        "startChar": 60,
+        "endLine": 248,
+        "endChar": 67
+      },
+      "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
