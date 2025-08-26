@@ -16,6 +16,24 @@
       "message": "We\u0027ll need to sync https://chromium.googlesource.com/webm/libwebp-test-data with this change.",
       "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1415db45_64dead29",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-08-26T16:10:42Z",
+      "side": 1,
+      "message": "Done with https://chromium-review.googlesource.com/c/webm/libwebp-test-data/+/6884987",
+      "parentUuid": "f7b5fa3f_9ee3724e",
+      "revId": "7b36068a01b1ca8beef08c832e270a6af78a3fc3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
