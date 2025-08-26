@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "59b83349_34e83de0",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-26T18:03:15Z",
+      "side": 1,
+      "message": "Indent this block two more spaces, it\u0027s within the inner for loop.",
+      "revId": "b4c300129e6bbeea427dbaf309070841af27af58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22d60a82_b210a1a6",
+        "filename": "tests/fuzzer/oss-fuzz/build.sh",
+        "patchSetId": 17
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-26T18:03:15Z",
+      "side": 1,
+      "message": "Break this long line:\n\n```\n    sed -i -e \u0027s/^\\$this_dir/NALLOQ_FREQ\u003d32 \\$this_dir/\u0027 \\\n      $OUT/${TARGET_FUZZER}_nalloc\n```",
+      "revId": "b4c300129e6bbeea427dbaf309070841af27af58",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
