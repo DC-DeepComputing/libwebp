@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fe77a3f5_7d4cfdd2",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-08-26T08:40:45Z",
+      "side": 1,
+      "message": "Ok, so now that I understand better, I am switching to\n- not duplicating the binary\n- duplicating the wrapper script, to add an env variable before the call of the target\n\nAnd by the way, oss-fuzz is not using corpus nor dictionary",
+      "parentUuid": "e318dd08_51f6db76",
+      "revId": "011c0d87e24ef78c92aed98af9b3822a0bff8214",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "99cf1e51_6cfb0b20",
         "filename": "tests/fuzzer/oss-fuzz/build.sh",
         "patchSetId": 15
