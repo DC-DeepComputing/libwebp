@@ -16,6 +16,24 @@
       "message": "There are some more md5s embedded in the presubmit. I\u0027ll update those.",
       "revId": "2ec5538e08ba691e0d61b82962a61e2fe02baff7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e571b979_268d8fb4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-26T19:14:31Z",
+      "side": 1,
+      "message": "\u003e There are some more md5s embedded in the presubmit. I\u0027ll update those.\n\nKind of a big diff in one of the test_lossless.sh files:\n\n```\nlossless_vec_1_0.webp.pgm grid.pgm differ: byte 270, line 4 is 272 M-: 245 M-%\n```\n\nI\u0027ll get the others updated to see if there are any more.",
+      "parentUuid": "9d2bf122_2c085ada",
+      "revId": "2ec5538e08ba691e0d61b82962a61e2fe02baff7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
