@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0a498a4_32887689",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-08-27T17:17:43Z",
+      "side": 1,
+      "message": "This now needs https://chromium-review.googlesource.com/c/webm/libwebp-test-data/+/6886158. The check in the presubmit is a little unstable since it\u0027s using the hash for this patchset. New patchsets will break it, but it will stabilize after this is submitted.",
+      "revId": "40e66d58a4e4aec48bcd349abbeabe93d3bbe130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
