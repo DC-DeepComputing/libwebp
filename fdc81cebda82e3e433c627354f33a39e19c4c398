@@ -33,6 +33,29 @@
       "message": "The run I scheduled earlier was on patchset 18. Patchset 19 should clear after the rerun I just scheduled.",
       "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4b1dcdbc_9f74699d",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-09-01T21:02:43Z",
+      "side": 1,
+      "message": "Has it been suggested to have one object that could do those two opeartions in the constructor and nalloc_end() in the destructor? Just to make sure nalloc_end() is always called.",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
