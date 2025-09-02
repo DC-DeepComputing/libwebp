@@ -56,6 +56,30 @@
       },
       "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8b1e39b_da480c21",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 4230816
+      },
+      "writtenOn": "2025-09-02T06:44:59Z",
+      "side": 1,
+      "message": "I would say that current code is simple enough to see that nalloc is ended every time and it feels a bit artificial to construct a C++ object just to run C functions that act on global values.\n\nWe could also have `nalloc_start` later (after WebPAnimDecoderNew), what do you think ? (to focus on WebPAnimDecoderGetNext and not on WebPGetFeatures)\n\nSide note : `nalloc_init` can be called only once per the lifetime of the program (like per `LLVMFuzzerInitialize`), when `nalloc_start` needs to be called for every input.",
+      "parentUuid": "4b1dcdbc_9f74699d",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
