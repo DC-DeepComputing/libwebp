@@ -54,7 +54,12 @@ static WEBP_INLINE int CheckSizeOverflow(uint64_t size) {
 // somewhere (like: malloc(num_pixels * sizeof(*something))). That's why this
 // safe malloc() borrows the signature from calloc(), pointing at the dangerous
 // underlying multiply involved.
+<<<<<<< PATCH SET (f5f7ceeb940bc9808519f227ffa40481e0e42bc5 Adds fbounds-safety annotations in `quant_levels_dec_utils.c)
+WEBP_EXTERN void* WEBP_SIZED_BY_OR_NULL(nmemb * size)
+||||||| BASE      (fd2c2cc05ba40715a77e8bd75b0e893977e671c7 Merge "Add canvas carryover to libwebp anim_encode" into mai)
+=======
 WEBP_EXTERN void* WEBP_SIZED_BY_OR_NULL(nmemb* size)
+>>>>>>> BASE      (3779daa97f89e007e2c8121a8d4b514ad6dcda56 Merge "Add fbounds-safety annotations in `huffman_utils.c/.h)
     WebPSafeMalloc(uint64_t nmemb, size_t size);
 // Note that WebPSafeCalloc() expects the second argument type to be 'size_t'
 // in order to favor the "calloc(num_foo, sizeof(foo))" pattern.
