@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0197ea22_efef0ffe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-09T02:09:15Z",
+      "side": 1,
+      "message": "The failure is only in the test with `-fbounds-safety` enabled. The md5 is what is produced when there\u0027s no output. The command is aborting:\n\n```\n./dwebp -pgm lossy_alpha1.webp -crop 0 0 160 120 -o - -alpha_dither -noasm\nIllegal instruction (core dumped)\n```",
+      "revId": "c7296590f221481a078cd3cb9386eefbeabe4bc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
