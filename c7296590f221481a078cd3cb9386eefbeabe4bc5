@@ -16,6 +16,24 @@
       "message": "The failure is only in the test with `-fbounds-safety` enabled. The md5 is what is produced when there\u0027s no output. The command is aborting:\n\n```\n./dwebp -pgm lossy_alpha1.webp -crop 0 0 160 120 -o - -alpha_dither -noasm\nIllegal instruction (core dumped)\n```",
       "revId": "c7296590f221481a078cd3cb9386eefbeabe4bc5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31acd26a_b3e7a4d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-09-17T19:58:29Z",
+      "side": 1,
+      "message": "Changed `src` and `dst` annotations from `WEBP_SIZED_BY(...)` to `WEBP_INDEXABLE`. Since these pointers are advanced during processing while `stride` and `height` remain constant, this annotation led to a bounds safety check failure during pointer arithmetic.",
+      "parentUuid": "0197ea22_efef0ffe",
+      "revId": "c7296590f221481a078cd3cb9386eefbeabe4bc5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
