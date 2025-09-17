@@ -80,6 +80,30 @@
       },
       "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "887370d9_a121eed9",
+        "filename": "tests/fuzzer/animdecoder_fuzzer.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-09-17T13:43:53Z",
+      "side": 1,
+      "message": "Sure, let\u0027s merge that for now. If there is significant code refactoring, we can implement what I proposed.",
+      "parentUuid": "a8b1e39b_da480c21",
+      "range": {
+        "startLine": 33,
+        "startChar": 2,
+        "endLine": 34,
+        "endChar": 27
+      },
+      "revId": "fdc81cebda82e3e433c627354f33a39e19c4c398",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
