@@ -22,6 +22,30 @@
       },
       "revId": "4c6fe5188dc71fe23e924c226950151b0ffa6984",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "43cc1827_56af687d",
+        "filename": "src/utils/quant_levels_dec_utils.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-09-17T22:32:52Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "9054e7ed_6e9b6d83",
+      "range": {
+        "startLine": 31,
+        "startChar": 49,
+        "endLine": 31,
+        "endChar": 53
+      },
+      "revId": "4c6fe5188dc71fe23e924c226950151b0ffa6984",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
