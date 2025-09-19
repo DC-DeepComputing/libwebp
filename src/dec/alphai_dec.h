@@ -17,8 +17,11 @@
 #include "src/dec/vp8_dec.h"
 #include "src/dec/webpi_dec.h"
 #include "src/dsp/dsp.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/filters_utils.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #ifdef __cplusplus
 extern "C" {

@@ -21,9 +21,12 @@ extern "C" {
 #include <stddef.h>
 
 #include "src/dec/vp8_dec.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/rescaler_utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 //------------------------------------------------------------------------------
 // WebPDecParams: Decoding output parameters. Transient internal object.
