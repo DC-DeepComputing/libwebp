@@ -20,12 +20,15 @@
 #include "src/dec/vp8i_dec.h"
 #include "src/dec/vp8li_dec.h"
 #include "src/dec/webpi_dec.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/bit_reader_utils.h"
 #include "src/utils/thread_utils.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/format_constants.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 // In append mode, buffer allocations increase as multiples of this value.
 // Needs to be a power of 2.

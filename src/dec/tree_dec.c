@@ -17,9 +17,12 @@
 #include "src/dec/vp8_dec.h"
 #include "src/dec/vp8i_dec.h"
 #include "src/dsp/cpu.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/bit_reader_inl_utils.h"
 #include "src/utils/bit_reader_utils.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #if !defined(USE_GENERIC_TREE)
 #if !defined(__arm__) && !defined(_M_ARM) && !WEBP_AARCH64 && !defined(__wasm__)
@@ -247,7 +250,7 @@ static const uint8_t kBModesProba[NUM_BMODES][NUM_BMODES][NUM_BMODES - 1] = {
      {112, 19, 12, 61, 195, 128, 48, 4, 24}}};
 
 void VP8ResetProba(VP8Proba* const proba) {
-  memset(proba->segments, 255u, sizeof(proba->segments));
+  WEBP_UNSAFE_MEMSET(proba->segments, 255u, sizeof(proba->segments));
   // proba->bands[][] is initialized later
 }
 
@@ -278,8 +281,8 @@ static void ParseIntraMode(VP8BitReader* const br, VP8Decoder* const dec,
             ? (VP8GetBit(br, 128, "pred-modes") ? TM_PRED : H_PRED)
             : (VP8GetBit(br, 163, "pred-modes") ? V_PRED : DC_PRED);
     block->imodes[0] = ymode;
-    memset(top, ymode, 4 * sizeof(*top));
-    memset(left, ymode, 4 * sizeof(*left));
+    WEBP_UNSAFE_MEMSET(top, ymode, 4 * sizeof(*top));
+    WEBP_UNSAFE_MEMSET(left, ymode, 4 * sizeof(*left));
   } else {
     uint8_t* modes = block->imodes;
     int y;
@@ -316,7 +319,7 @@ static void ParseIntraMode(VP8BitReader* const br, VP8Decoder* const dec,
 #endif  // USE_GENERIC_TREE
         top[x] = ymode;
       }
-      memcpy(modes, top, 4 * sizeof(*top));
+      WEBP_UNSAFE_MEMCPY(modes, top, 4 * sizeof(*top));
       modes += 4;
       left[y] = ymode;
     }
