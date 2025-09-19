@@ -14,8 +14,11 @@
 #include "src/dec/common_dec.h"
 #include "src/dec/vp8_dec.h"
 #include "src/dec/vp8i_dec.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/bit_reader_utils.h"
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 static WEBP_INLINE int clip(int v, int M) { return v < 0 ? 0 : v > M ? M : v; }
 

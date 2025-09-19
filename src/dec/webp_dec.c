@@ -20,12 +20,15 @@
 #include "src/dec/vp8i_dec.h"
 #include "src/dec/vp8li_dec.h"
 #include "src/dec/webpi_dec.h"
+#include "src/utils/bounds_safety.h"
 #include "src/utils/rescaler_utils.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
 #include "src/webp/format_constants.h"
 #include "src/webp/mux_types.h"  // ALPHA_FLAG
 #include "src/webp/types.h"
+
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 //------------------------------------------------------------------------------
 // RIFF layout is:
@@ -67,8 +70,8 @@ static VP8StatusCode ParseRIFF(const uint8_t** const data,
   assert(riff_size != NULL);
 
   *riff_size = 0;  // Default: no RIFF present.
-  if (*data_size >= RIFF_HEADER_SIZE && !memcmp(*data, "RIFF", TAG_SIZE)) {
-    if (memcmp(*data + 8, "WEBP", TAG_SIZE)) {
+  if (*data_size >= RIFF_HEADER_SIZE && !WEBP_UNSAFE_MEMCMP(*data, "RIFF", TAG_SIZE)) {
+    if (WEBP_UNSAFE_MEMCMP(*data + 8, "WEBP", TAG_SIZE)) {
       return VP8_STATUS_BITSTREAM_ERROR;  // Wrong image file signature.
     } else {
       const uint32_t size = GetLE32(*data + TAG_SIZE);
@@ -113,7 +116,7 @@ static VP8StatusCode ParseVP8X(const uint8_t** const data,
     return VP8_STATUS_NOT_ENOUGH_DATA;  // Insufficient data.
   }
 
-  if (!memcmp(*data, "VP8X", TAG_SIZE)) {
+  if (!WEBP_UNSAFE_MEMCMP(*data, "VP8X", TAG_SIZE)) {
     int width, height;
     uint32_t flags;
     const uint32_t chunk_size = GetLE32(*data + TAG_SIZE);
@@ -198,7 +201,7 @@ static VP8StatusCode ParseOptionalChunks(const uint8_t** const data,
     // parsed all the optional chunks.
     // Note: This check must occur before the check 'buf_size < disk_chunk_size'
     // below to allow incomplete VP8/VP8L chunks.
-    if (!memcmp(buf, "VP8 ", TAG_SIZE) || !memcmp(buf, "VP8L", TAG_SIZE)) {
+    if (!WEBP_UNSAFE_MEMCMP(buf, "VP8 ", TAG_SIZE) || !WEBP_UNSAFE_MEMCMP(buf, "VP8L", TAG_SIZE)) {
       return VP8_STATUS_OK;
     }
 
@@ -206,7 +209,7 @@ static VP8StatusCode ParseOptionalChunks(const uint8_t** const data,
       return VP8_STATUS_NOT_ENOUGH_DATA;
     }
 
-    if (!memcmp(buf, "ALPH", TAG_SIZE)) {  // A valid ALPH header.
+    if (!WEBP_UNSAFE_MEMCMP(buf, "ALPH", TAG_SIZE)) {  // A valid ALPH header.
       *alpha_data = buf + CHUNK_HEADER_SIZE;
       *alpha_size = chunk_size;
     }
@@ -230,8 +233,8 @@ static VP8StatusCode ParseVP8Header(const uint8_t** const data_ptr,
                                     size_t riff_size, size_t* const chunk_size,
                                     int* const is_lossless) {
   const uint8_t* const data = *data_ptr;
-  const int is_vp8 = !memcmp(data, "VP8 ", TAG_SIZE);
-  const int is_vp8l = !memcmp(data, "VP8L", TAG_SIZE);
+  const int is_vp8 = !WEBP_UNSAFE_MEMCMP(data, "VP8 ", TAG_SIZE);
+  const int is_vp8l = !WEBP_UNSAFE_MEMCMP(data, "VP8L", TAG_SIZE);
   const uint32_t minimal_size =
       TAG_SIZE + CHUNK_HEADER_SIZE;  // "WEBP" + "VP8 nnnn" OR
                                      // "WEBP" + "VP8Lnnnn"
@@ -301,7 +304,7 @@ static VP8StatusCode ParseHeadersInternal(const uint8_t* data, size_t data_size,
   if (data == NULL || data_size < RIFF_HEADER_SIZE) {
     return VP8_STATUS_NOT_ENOUGH_DATA;
   }
-  memset(&hdrs, 0, sizeof(hdrs));
+  WEBP_UNSAFE_MEMSET(&hdrs, 0, sizeof(hdrs));
   hdrs.data = data;
   hdrs.data_size = data_size;
 
@@ -345,7 +348,7 @@ static VP8StatusCode ParseHeadersInternal(const uint8_t* data, size_t data_size,
 
   // Skip over optional chunks if data started with "RIFF + VP8X" or "ALPH".
   if ((found_riff && found_vp8x) ||
-      (!found_riff && !found_vp8x && !memcmp(data, "ALPH", TAG_SIZE))) {
+      (!found_riff && !found_vp8x && !WEBP_UNSAFE_MEMCMP(data, "ALPH", TAG_SIZE))) {
     status = ParseOptionalChunks(&data, &data_size, hdrs.riff_size,
                                  &hdrs.alpha_data, &hdrs.alpha_data_size);
     if (status != VP8_STATUS_OK) {
@@ -439,7 +442,7 @@ VP8StatusCode WebPParseHeaders(WebPHeaderStructure* const headers) {
 
 void WebPResetDecParams(WebPDecParams* const params) {
   if (params != NULL) {
-    memset(params, 0, sizeof(*params));
+    WEBP_UNSAFE_MEMSET(params, 0, sizeof(*params));
   }
 }
 
@@ -690,7 +693,7 @@ uint8_t* WebPDecodeYUV(const uint8_t* data, size_t data_size, int* width,
 
 static void DefaultFeatures(WebPBitstreamFeatures* const features) {
   assert(features != NULL);
-  memset(features, 0, sizeof(*features));
+  WEBP_UNSAFE_MEMSET(features, 0, sizeof(*features));
 }
 
 static VP8StatusCode GetFeatures(const uint8_t* const data, size_t data_size,
@@ -737,7 +740,7 @@ int WebPInitDecoderConfigInternal(WebPDecoderConfig* config, int version) {
   if (config == NULL) {
     return 0;
   }
-  memset(config, 0, sizeof(*config));
+  WEBP_UNSAFE_MEMSET(config, 0, sizeof(*config));
   DefaultFeatures(&config->input);
   if (!WebPInitDecBuffer(&config->output)) {
     return 0;
