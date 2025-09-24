@@ -50,6 +50,24 @@
       "message": "A couple of open comments. I\u0027ll need to make one more adjustment after you post the final patch and then maybe something after it lands.",
       "revId": "40e66d58a4e4aec48bcd349abbeabe93d3bbe130",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "51d4c7bf_69b012f2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-09-24T14:43:12Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "45fd0888_2d2b00d9",
+      "revId": "40e66d58a4e4aec48bcd349abbeabe93d3bbe130",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
