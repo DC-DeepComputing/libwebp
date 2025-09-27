@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8fa45b3_91528169",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4361748
+      },
+      "writtenOn": "2025-09-27T17:08:13Z",
+      "side": 1,
+      "message": "Hi, this patch adds a \"Community tools\" section to the README, referencing EcoMedia Manager.\nThe goal is to help developers discover open-source tools that complement libwebp by offering batch conversion with quality/metadata options.",
+      "revId": "83249b1df5ffe30089b0db925c1ff6328e3bc4df",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
