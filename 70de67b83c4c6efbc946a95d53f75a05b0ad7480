@@ -16,6 +16,24 @@
       "message": "This will get wiped out in the next release. You can set the author in the commit (`--author`) if the user has signed the CLA.",
       "revId": "70de67b83c4c6efbc946a95d53f75a05b0ad7480",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d9a03f7_bb430fab",
+        "filename": "AUTHORS",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-09-29T20:26:35Z",
+      "side": 1,
+      "message": "The author did not sign the CLA but gave us permission, cf https://groups.google.com/a/webmproject.org/d/msgid/webp-discuss/fea6e73d-414a-41cb-b2a4-efdebed97e9e%40protonmail.com.",
+      "parentUuid": "3e5c6db2_91a6cbf9",
+      "revId": "70de67b83c4c6efbc946a95d53f75a05b0ad7480",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
