@@ -16,6 +16,23 @@
       "message": "Hi, this CL only updates the README to add a \"Community tools\" section with EcoMedia Manager.  \nThe goal is to make it easier for developers to discover open-source tools that complement libwebp.  \nDocs-only, no code changes. Thanks!",
       "revId": "f0bbb8a5372bd4573858b43ac4c2ce9a2f5c4ef5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e6e5f46_c02c2228",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-09-29T14:28:32Z",
+      "side": 1,
+      "message": "There are quite a few tools that could be added there. We prefer to keep that repository WebP-centric. Maybe the WebP wikipedia page would be better suited?",
+      "revId": "f0bbb8a5372bd4573858b43ac4c2ce9a2f5c4ef5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
