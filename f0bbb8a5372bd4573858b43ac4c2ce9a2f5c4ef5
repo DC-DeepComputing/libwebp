@@ -33,6 +33,24 @@
       "message": "There are quite a few tools that could be added there. We prefer to keep that repository WebP-centric. Maybe the WebP wikipedia page would be better suited?",
       "revId": "f0bbb8a5372bd4573858b43ac4c2ce9a2f5c4ef5",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbbfdffe_0035221b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-29T18:36:13Z",
+      "side": 1,
+      "message": "\u003e There are quite a few tools that could be added there. We prefer to keep that repository WebP-centric. Maybe the WebP wikipedia page would be better suited?\n\nI agree. It\u0027s difficult to keep a list like this up to date. It would be better to rely on existing sources like wikipedia.org/wiki/WebP.",
+      "parentUuid": "2e6e5f46_c02c2228",
+      "revId": "f0bbb8a5372bd4573858b43ac4c2ce9a2f5c4ef5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
