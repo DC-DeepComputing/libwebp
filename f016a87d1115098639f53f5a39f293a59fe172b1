@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d99251d_22a2cb40",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-09-29T19:10:35Z",
+      "side": 1,
+      "message": "`Bug: 447862936` works here to give the context.",
+      "revId": "f016a87d1115098639f53f5a39f293a59fe172b1",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
