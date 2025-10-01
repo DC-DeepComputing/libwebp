@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "107d30d4_3eaec724",
+        "filename": "src/utils/bit_writer_utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 141,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-01T16:21:27Z",
+      "side": 0,
+      "message": "As a side effect this also clears a static analysis warning in some configurations (or maybe it was a warning in some old debug configurations about this always being true/false).",
+      "revId": "0e5f4ee3deaba5c4381877764005d981f652791f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
