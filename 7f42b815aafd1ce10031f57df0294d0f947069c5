@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c742fa0d_afdc3ad5",
+        "filename": "doc/api.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-10-06T20:58:22Z",
+      "side": 1,
+      "message": "`fully transparent`\n(this is only when alpha\u003d\u003d0)",
+      "revId": "7f42b815aafd1ce10031f57df0294d0f947069c5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
