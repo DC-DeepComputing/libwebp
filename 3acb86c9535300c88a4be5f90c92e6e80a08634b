@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9dc7653d_7cd422a9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-21T18:26:14Z",
+      "side": 1,
+      "message": "add `Bug: webp:432511225`",
+      "revId": "3acb86c9535300c88a4be5f90c92e6e80a08634b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96b382b1_62614237",
+        "filename": "src/webp/types.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-21T18:26:14Z",
+      "side": 1,
+      "message": "Remove this extra blank line (or rerun `clang-format-19`)",
+      "revId": "3acb86c9535300c88a4be5f90c92e6e80a08634b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
