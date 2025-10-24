@@ -196,7 +196,7 @@ WEBP_NODISCARD static int AppendToMemBuffer(WebPIDecoder* const idec,
     uint8_t* const new_buf =
         (uint8_t*)WebPSafeMalloc(extra_size, sizeof(*new_buf));
     if (new_buf == NULL) return 0;
-    if (old_base != NULL) memcpy(new_buf, old_base, current_size);
+    if (old_base != NULL) WEBP_UNSAFE_MEMCPY(new_buf, old_base, current_size);
     WebPSafeFree(mem->buf);
     mem->buf = new_buf;
     mem->buf_size = (size_t)extra_size;
@@ -205,7 +205,7 @@ WEBP_NODISCARD static int AppendToMemBuffer(WebPIDecoder* const idec,
   }
 
   assert(mem->buf != NULL);
-  memcpy(mem->buf + mem->end, data, data_size);
+  WEBP_UNSAFE_MEMCPY(mem->buf + mem->end, data, data_size);
   mem->end += data_size;
   assert(mem->end <= mem->buf_size);
 
@@ -401,7 +401,7 @@ static VP8StatusCode CopyParts0Data(WebPIDecoder* const idec) {
     if (part0_buf == NULL) {
       return VP8_STATUS_OUT_OF_MEMORY;
     }
-    memcpy(part0_buf, br->buf, part_size);
+    WEBP_UNSAFE_MEMCPY(part0_buf, br->buf, part_size);
     mem->part0_buf = part0_buf;
     VP8BitReaderSetBuffer(br, part0_buf, part_size);
   } else {
