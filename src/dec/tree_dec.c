@@ -316,7 +316,7 @@ static void ParseIntraMode(VP8BitReader* const br, VP8Decoder* const dec,
 #endif  // USE_GENERIC_TREE
         top[x] = ymode;
       }
-      memcpy(modes, top, 4 * sizeof(*top));
+      WEBP_UNSAFE_MEMCPY(modes, top, 4 * sizeof(*top));
       modes += 4;
       left[y] = ymode;
     }
