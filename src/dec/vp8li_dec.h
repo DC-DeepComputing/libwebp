@@ -15,7 +15,7 @@
 #ifndef WEBP_DEC_VP8LI_DEC_H_
 #define WEBP_DEC_VP8LI_DEC_H_
 
-#include <string.h>  // for memcpy()
+#include <string.h>  // for WEBP_UNSAFE_MEMCPY()
 
 #include "src/dec/vp8_dec.h"
 #include "src/dec/webpi_dec.h"
