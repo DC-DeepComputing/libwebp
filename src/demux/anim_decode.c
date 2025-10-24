@@ -190,7 +190,7 @@ WEBP_NODISCARD static int CopyCanvas(const uint8_t* src, uint8_t* dst,
   const uint64_t size = (uint64_t)width * height * NUM_CHANNELS;
   if (!CheckSizeOverflow(size)) return 0;
   assert(src != NULL && dst != NULL);
-  memcpy(dst, src, (size_t)size);
+  WEBP_UNSAFE_MEMCPY(dst, src, (size_t)size);
   return 1;
 }
 
