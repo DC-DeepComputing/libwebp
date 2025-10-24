@@ -116,7 +116,7 @@ static int RemapMemBuffer(MemBuffer* const mem, const uint8_t* data,
 
 static int InitMemBuffer(MemBuffer* const mem, const uint8_t* data,
                          size_t size) {
-  memset(mem, 0, sizeof(*mem));
+  WEBP_UNSAFE_MEMSET(mem, 0, sizeof(*mem));
   return RemapMemBuffer(mem, data, size);
 }
 
@@ -874,7 +874,7 @@ static int SetFrame(int frame_num, WebPIterator* const iter) {
 int WebPDemuxGetFrame(const WebPDemuxer* dmux, int frame, WebPIterator* iter) {
   if (iter == NULL) return 0;
 
-  memset(iter, 0, sizeof(*iter));
+  WEBP_UNSAFE_MEMSET(iter, 0, sizeof(*iter));
   iter->private_ = (void*)dmux;
   return SetFrame(frame, iter);
 }
@@ -945,7 +945,7 @@ int WebPDemuxGetChunk(const WebPDemuxer* dmux, const char fourcc[4],
                       int chunk_num, WebPChunkIterator* iter) {
   if (iter == NULL) return 0;
 
-  memset(iter, 0, sizeof(*iter));
+  WEBP_UNSAFE_MEMSET(iter, 0, sizeof(*iter));
   iter->private_ = (void*)dmux;
   return SetChunk(fourcc, chunk_num, iter);
 }
