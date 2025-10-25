@@ -16,6 +16,24 @@
       "message": "Add `Bug: 432511225` or `Bug: webp:432511225`",
       "revId": "04309dfed31329fca7c9b4a91b92d43449ebb963",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fc9c47_6c526776",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 13
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-10-25T20:40:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b8241870_405be2db",
+      "revId": "04309dfed31329fca7c9b4a91b92d43449ebb963",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
