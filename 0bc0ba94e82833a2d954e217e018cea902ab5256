@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed68483c_1249726f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-28T02:36:29Z",
+      "side": 1,
+      "message": "I\u0027m rerunning this change now. The jenkins instance got into a bad state over the weekend. The result may be more reliable from the current run.",
+      "revId": "0bc0ba94e82833a2d954e217e018cea902ab5256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
