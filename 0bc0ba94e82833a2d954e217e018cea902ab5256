@@ -16,6 +16,24 @@
       "message": "I\u0027m rerunning this change now. The jenkins instance got into a bad state over the weekend. The result may be more reliable from the current run.",
       "revId": "0bc0ba94e82833a2d954e217e018cea902ab5256",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc578bc4_88044461",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-28T02:40:26Z",
+      "side": 1,
+      "message": "\u003e I\u0027m rerunning this change now. The jenkins instance got into a bad state over the weekend. The result may be more reliable from the current run.\n\nThis just needs a `clang-format-19` run now:\n\n```\ndiff --git a/src/dec/vp8l_dec.c b/src/dec/vp8l_dec.c\nindex 4e46ec9f..e46859da 100644\n--- a/src/dec/vp8l_dec.c\n+++ b/src/dec/vp8l_dec.c\n@@ -400,7 +400,8 @@ static int ReadHuffmanCodes(VP8LDecoder* const dec, int xsize, int ysize,\n       }\n       // -1 means a value is unmapped, and therefore unused in the Huffman\n       // image.\n-      WEBP_UNSAFE_MEMSET(mapping, 0xff, num_htree_groups_max * sizeof(*mapping));\n+      WEBP_UNSAFE_MEMSET(mapping, 0xff,\n+                         num_htree_groups_max * sizeof(*mapping));\n       for (num_htree_groups \u003d 0, i \u003d 0; i \u003c huffman_pixs; ++i) {\n         // Get the current mapping for the group and remap the Huffman image.\n         int* const mapped_group \u003d \u0026mapping[huffman_image[i]];\n```",
+      "parentUuid": "ed68483c_1249726f",
+      "revId": "0bc0ba94e82833a2d954e217e018cea902ab5256",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
