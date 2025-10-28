@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "140ce086_7b89bfdb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-28T02:32:02Z",
+      "side": 1,
+      "message": "It would be good to add the reasoning here, namely:\n\n```\nconst int a \u003d VP8ksclip1[3 * (q0 - p0) + VP8ksclip1[p1 - q1]];\n```\n\n`3 * 255 + 127 \u003d 892` and `3 * -255 - 128 \u003d -893`\n\nand add a link to the table\u0027s use:\n\nhttps://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.6.0/src/dsp/dec.c#521",
+      "revId": "dcb60948f29792ace754a18467df1da54addec2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4638d164_dd48e2cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-10-28T02:32:02Z",
+      "side": 1,
+      "message": "It\u0027s possible we could pull these tables from the NEON build at least, since they\u0027re only used in the C code.",
+      "revId": "dcb60948f29792ace754a18467df1da54addec2f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
