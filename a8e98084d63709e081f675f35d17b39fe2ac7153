@@ -16,6 +16,24 @@
       "message": "Changing \u0027allocation\u0027 to \u0027alloc\u0027 should pass the presubmit check:\n\n```\n  The commit subject: \u0027VP8ApplyNearLossless: skip buffer allocation for small image shortcut\u0027 is too long! (69 characters)\n  Try to keep this to 50 or less (up to 65 is permitted for non-reverts).\n  https://www.git-scm.com/book/en/v2/Distributed-Git-Contributing-to-a-Project#_commit_guidelines\n ```",
       "revId": "a8e98084d63709e081f675f35d17b39fe2ac7153",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2e94f2a_3687fe4d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1243358
+      },
+      "writtenOn": "2025-11-11T15:28:26Z",
+      "side": 1,
+      "message": "Thanks, done!",
+      "parentUuid": "6ed1b776_c563e399",
+      "revId": "a8e98084d63709e081f675f35d17b39fe2ac7153",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
