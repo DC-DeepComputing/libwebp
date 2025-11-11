@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b697cd5_23e181a0",
+        "filename": "src/enc/near_lossless_enc.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-11T18:47:05Z",
+      "side": 1,
+      "message": "This is C99, the project is C90. Move the declaration back to its original position and initialize the variable here.",
+      "revId": "1843d9425ee95f043a9510cfab6bfc9440f1b119",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
