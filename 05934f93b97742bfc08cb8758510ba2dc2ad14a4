@@ -16,6 +16,24 @@
       "message": "Even though it is true, let\u0027s just fix the condition: is_alpha ? MODE_YUVA : MODE_YUV",
       "revId": "05934f93b97742bfc08cb8758510ba2dc2ad14a4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a196d2a_509e93d5",
+        "filename": "src/dec/io_dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-12T22:17:30Z",
+      "side": 1,
+      "message": "\u003e Even though it is true, let\u0027s just fix the condition: is_alpha ? MODE_YUVA : MODE_YUV\n\nThat\u0027s an option, but I figured why have a conditional if we don\u0027t need one. Having fewer branches is more readable too and this way the reader doesn\u0027t need to guess about what is different between the two in the function.",
+      "parentUuid": "854e8e5c_47216faa",
+      "revId": "05934f93b97742bfc08cb8758510ba2dc2ad14a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
