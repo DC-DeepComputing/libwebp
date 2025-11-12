@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f966a6_af5388d4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-11-12T10:04:13Z",
+      "side": 1,
+      "message": "The error is:\n The commit subject: \u0027VP8ApplyNearLossless: skip buffer allocation for small image shortcut\u0027 is too long! (69 characters)\n  Try to keep this to 50 or less (up to 65 is permitted for non-reverts).",
+      "revId": "5f719f6159d5921738d7371291b51cc78d2d85d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
