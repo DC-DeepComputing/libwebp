@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "854e8e5c_47216faa",
+        "filename": "src/dec/io_dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 578,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-11-12T10:09:23Z",
+      "side": 1,
+      "message": "Even though it is true, let\u0027s just fix the condition: is_alpha ? MODE_YUVA : MODE_YUV",
+      "revId": "05934f93b97742bfc08cb8758510ba2dc2ad14a4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
