@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b77ee11_4ff87a47",
+        "filename": "src/enc/near_lossless_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-12T22:11:25Z",
+      "side": 1,
+      "message": "This is a dead store. It might trigger static analysis warnings (in Coverity for instance, the version clang\u0027s static analyzer we\u0027re using didn\u0027t though).",
+      "revId": "b6faa1b3a10581964a781e04b99395c1d87fd612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
