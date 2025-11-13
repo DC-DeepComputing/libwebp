@@ -725,7 +725,10 @@ if(WEBP_BUILD_WEBP_JS)
   else()
     set(emscripten_stack_size "-sTOTAL_STACK=5MB")
   endif()
-  find_package(SDL2 REQUIRED)
+
+  set(USE_FLAGS "-s USE_SDL=2")
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${USE_FLAGS}")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${USE_FLAGS}")
   # wasm2js does not support SIMD.
   if(NOT WEBP_ENABLE_SIMD)
     # JavaScript version
