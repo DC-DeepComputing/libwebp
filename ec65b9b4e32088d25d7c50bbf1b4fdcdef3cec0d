@@ -16,6 +16,24 @@
       "message": "More info at https://wiki.libsdl.org/SDL2/README-emscripten#building-sdlemscripten",
       "revId": "ec65b9b4e32088d25d7c50bbf1b4fdcdef3cec0d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75dffb63_c128fcb9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-11-15T02:42:20Z",
+      "side": 1,
+      "message": "\u003e More info at https://wiki.libsdl.org/SDL2/README-emscripten#building-sdlemscripten\n\nThanks for looking into this. Maybe add this to the commit message so it\u0027s discoverable.",
+      "parentUuid": "ea7280de_344ad31a",
+      "revId": "ec65b9b4e32088d25d7c50bbf1b4fdcdef3cec0d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
