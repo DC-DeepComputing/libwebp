@@ -16,6 +16,24 @@
       "message": "This is a dead store. It might trigger static analysis warnings (in Coverity for instance, the version clang\u0027s static analyzer we\u0027re using didn\u0027t though).",
       "revId": "b6faa1b3a10581964a781e04b99395c1d87fd612",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3372037_9021ff0e",
+        "filename": "src/enc/near_lossless_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1243358
+      },
+      "writtenOn": "2025-11-17T15:45:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b77ee11_4ff87a47",
+      "revId": "b6faa1b3a10581964a781e04b99395c1d87fd612",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
