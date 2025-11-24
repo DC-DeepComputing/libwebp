@@ -37,7 +37,7 @@ struct FrameConfig {
   int timestamp;
   WebPConfig webp_config;
   fuzz_utils::CropOrScaleParams crop_or_scale_params;
-  int source_image_index;
+  fuzz_utils::WebPPictureCpp pic_cpp;
 };
 
 auto ArbitraryKMinKMax() {
@@ -54,8 +54,7 @@ auto ArbitraryKMinKMax() {
 int AddFrame(WebPAnimEncoder** const enc,
              const WebPAnimEncoderOptions& anim_config, int* const width,
              int* const height, int timestamp_ms,
-             const FrameConfig& frame_config, const uint8_t data[], size_t size,
-             uint32_t* const bit_pos) {
+             const FrameConfig& frame_config, uint32_t* const bit_pos) {
   if (enc == nullptr || width == nullptr || height == nullptr) {
     fprintf(stderr, "NULL parameters.\n");
     if (enc != nullptr) WebPAnimEncoderDelete(*enc);
@@ -63,8 +62,7 @@ int AddFrame(WebPAnimEncoder** const enc,
   }
 
   // Init the source picture.
-  WebPPicture pic = fuzz_utils::GetSourcePicture(
-      frame_config.source_image_index, frame_config.use_argb);
+  WebPPicture pic = fuzz_utils::CopyPictureCppToPicture(frame_config.pic_cpp);
 
   // Crop and scale.
   if (*enc == nullptr) {  // First frame will set canvas width and height.
@@ -131,15 +129,13 @@ int AddFrame(WebPAnimEncoder** const enc,
   return 1;
 }
 
-void AnimEncoderTest(std::string_view blob, bool minimize_size,
-                     std::pair<int, int> kmin_kmax, bool allow_mixed,
+void AnimEncoderTest(bool minimize_size, std::pair<int, int> kmin_kmax,
+                     bool allow_mixed,
                      const std::vector<FrameConfig>& frame_configs,
                      int optimization_index) {
   WebPAnimEncoder* enc = nullptr;
   int width = 0, height = 0, timestamp_ms = 0;
   uint32_t bit_pos = 0;
-  const uint8_t* const data = reinterpret_cast<const uint8_t*>(blob.data());
-  const size_t size = blob.size();
 
   fuzz_utils::SetOptimization(default_VP8GetCPUInfo, optimization_index);
 
@@ -158,7 +154,7 @@ void AnimEncoderTest(std::string_view blob, bool minimize_size,
   // For each frame.
   for (const FrameConfig& frame_config : frame_configs) {
     if (!AddFrame(&enc, anim_config, &width, &height, timestamp_ms,
-                  frame_config, data, size, &bit_pos)) {
+                  frame_config, &bit_pos)) {
       return;
     }
 
@@ -191,17 +187,31 @@ void AnimEncoderTest(std::string_view blob, bool minimize_size,
 
 }  // namespace
 
-FUZZ_TEST(AnimEncoder, AnimEncoderTest)
+FUZZ_TEST(AnimIndexEncoder, AnimEncoderTest)
     .WithDomains(
-        fuzztest::String(),
         /*minimize_size=*/fuzztest::Arbitrary<bool>(), ArbitraryKMinKMax(),
         /*allow_mixed=*/fuzztest::Arbitrary<bool>(),
-        fuzztest::VectorOf(
-            fuzztest::StructOf<FrameConfig>(
-                fuzztest::InRange<int>(0, 1), fuzztest::InRange<int>(0, 131073),
-                fuzz_utils::ArbitraryWebPConfig(),
-                fuzz_utils::ArbitraryCropOrScaleParams(),
-                fuzztest::InRange<int>(0, fuzz_utils::kNumSourceImages - 1)))
+        fuzztest::VectorOf(fuzztest::StructOf<FrameConfig>(
+                               fuzztest::InRange<int>(0, 1),
+                               fuzztest::InRange<int>(0, 131073),
+                               fuzz_utils::ArbitraryWebPConfig(),
+                               fuzz_utils::ArbitraryCropOrScaleParams(),
+                               fuzz_utils::ArbitraryWebPPictureFromIndex()))
+            .WithMinSize(1)
+            .WithMaxSize(15),
+        /*optimization_index=*/
+        fuzztest::InRange<uint32_t>(0, fuzz_utils::kMaxOptimizationIndex));
+
+FUZZ_TEST(AnimArbitraryEncoder, AnimEncoderTest)
+    .WithDomains(
+        /*minimize_size=*/fuzztest::Arbitrary<bool>(), ArbitraryKMinKMax(),
+        /*allow_mixed=*/fuzztest::Arbitrary<bool>(),
+        fuzztest::VectorOf(fuzztest::StructOf<FrameConfig>(
+                               fuzztest::InRange<int>(0, 1),
+                               fuzztest::InRange<int>(0, 131073),
+                               fuzz_utils::ArbitraryWebPConfig(),
+                               fuzz_utils::ArbitraryCropOrScaleParams(),
+                               fuzz_utils::ArbitraryWebPPicture()))
             .WithMinSize(1)
             .WithMaxSize(15),
         /*optimization_index=*/
