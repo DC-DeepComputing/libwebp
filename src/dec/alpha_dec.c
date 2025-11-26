@@ -106,7 +106,11 @@ WEBP_NODISCARD static int ALPHInit(ALPHDecoder* const dec, const uint8_t* data,
     ok = (alpha_data_size >= alpha_decoded_size);
   } else {
     assert(dec->method == ALPHA_LOSSLESS_COMPRESSION);
-    ok = VP8LDecodeAlphaHeader(dec, alpha_data, alpha_data_size);
+    ok = VP8LDecodeAlphaHeader(
+        dec,
+        WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(const uint8_t*, alpha_data,
+                                         alpha_data_size),
+        alpha_data_size);
   }
 
   return ok;
@@ -225,9 +229,12 @@ WEBP_NODISCARD const uint8_t* VP8DecompressAlphaRows(VP8Decoder* const dec,
       if (dec->alpha_dithering > 0) {
         uint8_t* const alpha =
             dec->alpha_plane + io->crop_top * width + io->crop_left;
-        if (!WebPDequantizeLevels(alpha, io->crop_right - io->crop_left,
-                                  io->crop_bottom - io->crop_top, width,
-                                  dec->alpha_dithering)) {
+        if (!WebPDequantizeLevels(
+                WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+                    uint8_t*, alpha,
+                    (size_t)width * (io->crop_bottom - io->crop_top)),
+                io->crop_right - io->crop_left, io->crop_bottom - io->crop_top,
+                width, dec->alpha_dithering)) {
           goto Error;
         }
       }
