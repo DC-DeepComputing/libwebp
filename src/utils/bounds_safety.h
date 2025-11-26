@@ -87,7 +87,29 @@
             WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, src, size), size); \
   } while (0)
 
-#else  // WEBP_SUPPORT_FBOUNDS_SAFETY
+#elif WEBP_SUPPORT_COUNTED_BY
+
+#define WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
+
+#define WEBP_COUNTED_BY(x) __attribute__((counted_by(x)))
+#define WEBP_COUNTED_BY_OR_NULL(x)
+#define WEBP_SIZED_BY(x)
+#define WEBP_SIZED_BY_OR_NULL(x)
+#define WEBP_ENDED_BY(x)
+
+#define WEBP_UNSAFE_INDEXABLE
+#define WEBP_SINGLE
+#define WEBP_INDEXABLE
+#define WEBP_BIDI_INDEXABLE
+
+#define WEBP_UNSAFE_MEMCPY(dst, src, size) memcpy(dst, src, size)
+#define WEBP_UNSAFE_MEMSET(dst, c, size) memset(dst, c, size)
+#define WEBP_UNSAFE_MEMMOVE(dst, src, size) memmove(dst, src, size)
+
+#define WEBP_UNSAFE_FORGE_SINGLE(typ, ptr) ((typ)(ptr))
+#define WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(typ, ptr, size) ((typ)(ptr))
+
+#else  // WEBP_SUPPORT_COUNTED_BY
 
 #define WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
