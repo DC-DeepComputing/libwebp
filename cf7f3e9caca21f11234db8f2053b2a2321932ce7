@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69f7d7fb_f585cb06",
+        "filename": "src/webp/decode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2025-11-26T05:22:20Z",
+      "side": 1,
+      "message": "these are the public headers. All these annotations make it hard to read and understand the signatures. Are they necessary?",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "cf7f3e9caca21f11234db8f2053b2a2321932ce7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
