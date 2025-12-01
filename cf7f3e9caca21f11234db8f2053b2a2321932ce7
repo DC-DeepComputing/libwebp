@@ -22,6 +22,30 @@
       },
       "revId": "cf7f3e9caca21f11234db8f2053b2a2321932ce7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1faab10e_f960cb9f",
+        "filename": "src/webp/decode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-01T22:16:16Z",
+      "side": 1,
+      "message": "\u003e these are the public headers. All these annotations make it hard to read and understand the signatures. Are they necessary?\n\nUnfortunately yes. We could make a clean version in a comment just before the declaration. Otherwise we have the reference in README.md or on developers.google.com/speed/webp.\n\n```\nsrc/dec/webp_dec.c:749:17: error: conflicting \u0027__counted_by\u0027 attribute with the previous function declaration\n  749 | int WebPGetInfo(const uint8_t* WEBP_COUNTED_BY(data_size) data,\n      |                 ^\nsrc/webp/decode.h:55:16: note: previous declaration is here\n   55 | WEBP_NODISCARD WEBP_EXTERN int WebPGetInfo(\n      |                ^\nsrc/webp/./types.h:68:21: note: expanded from macro \u0027WEBP_EXTERN\u0027\n   68 | #define WEBP_EXTERN extern __attribute__((visibility(\"default\")))\n```",
+      "parentUuid": "69f7d7fb_f585cb06",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "cf7f3e9caca21f11234db8f2053b2a2321932ce7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
