@@ -16,6 +16,24 @@
       "message": "I think moving most of these forges to a local variable would improve readability. Elsewhere we already have `bounded_` prefixed variables: `uint8_t* const bounded_alpha ...`",
       "revId": "feaf8d3eaa397a0e667ff6f56ac61c9ecda21873",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff870dc7_0cf686fe",
+        "filename": "src/dec/alpha_dec.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 232,
+      "author": {
+        "id": 4249865
+      },
+      "writtenOn": "2025-12-01T21:01:33Z",
+      "side": 1,
+      "message": "Refactored most `WEBP_UNSAFE_FORGE_BIDI_INDEXABLE` calls into local variables with    \n `WEBP_BIDI_INDEXABLE` annotation for better readability. Skipped one in `src/dec/vp8_dec.c` because it was already an assignment to a variable, not inside a function call argument list.                                                             \n                                                                                                                        \n Changes applied to:                                                                                                    \n - `src/dec/alpha_dec.c`: Refactored forges in `ALPHDecode` and `VP8DecompressAlphaRows`.                               \n - `src/dec/idec_dec.c`: Refactored forges in `DoRemap`, `DecodeWebPHeaders`, and `DecodeVP8FrameHeader`.               \n - `src/dec/vp8l_dec.c`: Refactored forges in `ReadHuffmanCodeLengths`, `ReadHuffmanCode`, and `VP8LDecodeHeader`.      \n - `src/dec/webp_dec.c`: Refactored forge in `WebPParseHeaders`.",
+      "parentUuid": "99959b81_828b3b50",
+      "revId": "feaf8d3eaa397a0e667ff6f56ac61c9ecda21873",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
