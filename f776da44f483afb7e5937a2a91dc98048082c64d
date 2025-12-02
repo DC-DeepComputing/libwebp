@@ -70,6 +70,24 @@
       "parentUuid": "0f7b4383_7d83cbc1",
       "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "268f9814_c052cdea",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T16:44:33Z",
+      "side": 1,
+      "message": "\u003e We could but this is code that is unique (no SSE implementation), not speed critical (to avoid a 64-bit multiplication) and there is nothing we would gain by making sure m2 fits in a uint32_t. Might as well keep it that way 😊\n\nExcept the reason that we\u0027re promoting the multiplication is unclear when looking at the code right now. A comment would help, and the range analysis you noted would be good to have there for reference.",
+      "parentUuid": "a65ca112_c785b867",
+      "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
