@@ -16,6 +16,24 @@
       "message": "I think these are the incorrect ids, they come up as invalid when I try to use them.",
       "revId": "4c7aaa92e4ff8a5d3c926263c72a717075f13156",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2857fe76_0c5a37d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T13:53:04Z",
+      "side": 1,
+      "message": "\u003e I think these are the incorrect ids, they come up as invalid when I try to use them.\n\n* https://issues.oss-fuzz.com/463913952\n* https://issues.oss-fuzz.com/463795905\n\nI updated the bugs to have a link to this change.",
+      "parentUuid": "789ad7bc_2c4cc8ba",
+      "revId": "4c7aaa92e4ff8a5d3c926263c72a717075f13156",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
