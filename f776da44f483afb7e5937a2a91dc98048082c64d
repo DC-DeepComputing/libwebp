@@ -52,6 +52,24 @@
       "parentUuid": "517b9a33_d0d8c1a2",
       "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a65ca112_c785b867",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-02T16:03:02Z",
+      "side": 1,
+      "message": "We could but this is code that is unique (no SSE implementation), not speed critical (to avoid a 64-bit multiplication) and there is nothing we would gain by making sure m2 fits in a uint32_t. Might as well keep it that way 😊",
+      "parentUuid": "0f7b4383_7d83cbc1",
+      "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
