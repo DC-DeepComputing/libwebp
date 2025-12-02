@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf10adbf_4f1f3631",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T13:30:42Z",
+      "side": 1,
+      "message": "Another way to appease Coverity might have been to store this to a 32-bit temporary. If you have the setup, can you test that?",
+      "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
