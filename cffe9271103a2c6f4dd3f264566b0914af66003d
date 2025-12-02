@@ -39,6 +39,30 @@
       },
       "revId": "cffe9271103a2c6f4dd3f264566b0914af66003d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f655119b_b238d2b3",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-02T17:06:08Z",
+      "side": 1,
+      "message": "which uses two nested loops of 4",
+      "parentUuid": "9170273a_88aaf855",
+      "range": {
+        "startLine": 273,
+        "startChar": 30,
+        "endLine": 273,
+        "endChar": 36
+      },
+      "revId": "cffe9271103a2c6f4dd3f264566b0914af66003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
