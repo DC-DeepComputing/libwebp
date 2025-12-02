@@ -46,6 +46,30 @@
       },
       "revId": "cf7f3e9caca21f11234db8f2053b2a2321932ce7",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a98ca68f_f89ca9ce",
+        "filename": "src/webp/decode.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-12-02T03:32:43Z",
+      "side": 1,
+      "message": "They are also necessary to ensure the invariants are upheld. For example, WEBP_COUNTED_BY in this case is enforced on the caller-side, so it needs to be in the signature of the function. \n\nWhile they are visual noise, I do think they can help the reader understand the relationship between the parameters a bit better. In the same vein, if you have suggestions to make this more readable, I\u0027ll happily put in the leg-work to implement them :)",
+      "parentUuid": "69f7d7fb_f585cb06",
+      "range": {
+        "startLine": 55,
+        "startChar": 15,
+        "endLine": 55,
+        "endChar": 26
+      },
+      "revId": "cf7f3e9caca21f11234db8f2053b2a2321932ce7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
