@@ -34,6 +34,24 @@
       "parentUuid": "bf10adbf_4f1f3631",
       "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f7b4383_7d83cbc1",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T13:59:10Z",
+      "side": 1,
+      "message": "\u003e m is at most 16 (for loop of 16)*(16*255) (max value in dc after Mean16x4 which has two double for loop of 4). Squared as (16*16*255)^2, this fits in a uint32_t. The fix is just for static analysis (you do uint32_t multiplication but store it in a uin64_t, is that ok ?)\n\nI was just wondering if we could get away from promoting it to 64-bit by storing it to a 32-bit temporary and then accumulating.",
+      "parentUuid": "517b9a33_d0d8c1a2",
+      "revId": "f776da44f483afb7e5937a2a91dc98048082c64d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
