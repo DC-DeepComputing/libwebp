@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6c9ce60_157b53ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T16:59:49Z",
+      "side": 1,
+      "message": "Thanks for following up.",
+      "revId": "cffe9271103a2c6f4dd3f264566b0914af66003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9170273a_88aaf855",
+        "filename": "src/enc/analysis_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-02T16:59:49Z",
+      "side": 1,
+      "message": "doublings?",
+      "range": {
+        "startLine": 273,
+        "startChar": 30,
+        "endLine": 273,
+        "endChar": 36
+      },
+      "revId": "cffe9271103a2c6f4dd3f264566b0914af66003d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
