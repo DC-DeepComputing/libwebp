@@ -34,6 +34,29 @@
       "parentUuid": "cbe23db9_f7f36c5b",
       "revId": "d587705ec3d08c59f1a1d8144b8a1f1b9ba3cd9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0274e55_f99c93bd",
+        "filename": "src/dec/idec_dec.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 3733880
+      },
+      "writtenOn": "2025-12-05T20:07:33Z",
+      "side": 1,
+      "message": "The self-assign was there due to how fbounds-safety works. Normally we\u0027re wrapping these in WEBP_SELF_ASSIGN so that they don\u0027t look redundant (as what happened here).\n\nThat being said, this subtraction wasn\u0027t in the original code (pre crrev.com/c/7205202), so I\u0027m also curious if this is correct? :o",
+      "range": {
+        "startLine": 158,
+        "startChar": 0,
+        "endLine": 158,
+        "endChar": 39
+      },
+      "revId": "d587705ec3d08c59f1a1d8144b8a1f1b9ba3cd9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
