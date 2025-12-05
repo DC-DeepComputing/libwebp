@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08e1c8b3_7ce7f55a",
+        "filename": "src/dec/idec_dec.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-05T15:17:19Z",
+      "side": 1,
+      "message": "This line is useless. Bug ?",
+      "revId": "b81f462050f2b8e822f57ea541c1ba712028ca98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
