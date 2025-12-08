@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb526935_890f48e9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-08T09:40:12Z",
+      "side": 1,
+      "message": "I am not sure on where to put those functions. We could create a msvc.h and add a few fixes in there. Like the \"#define snprintf _snprintf\" from mux/anim_encode.c",
+      "revId": "e4a9492a80bb98a667d82823b2405020dd303a53",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
