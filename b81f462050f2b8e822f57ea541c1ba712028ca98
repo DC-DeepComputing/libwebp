@@ -34,6 +34,24 @@
       "parentUuid": "08e1c8b3_7ce7f55a",
       "revId": "b81f462050f2b8e822f57ea541c1ba712028ca98",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33857a04_288e7c3a",
+        "filename": "src/dec/idec_dec.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-09T20:19:45Z",
+      "side": 1,
+      "message": "\u003e Done in https://chromium-review.googlesource.com/c/webm/libwebp/+/7232470\n\nLet\u0027s go with https://chromium-review.googlesource.com/c/webm/libwebp/+/7242256",
+      "parentUuid": "37b5892f_c5abe667",
+      "revId": "b81f462050f2b8e822f57ea541c1ba712028ca98",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
