@@ -16,6 +16,23 @@
       "message": "We do get warnings when compiled with older VS. Any idea why ?\nc:\\build\\precommit_windows64\\4.x\\opencv\\3rdparty\\libwebp\\src\\dsp\\lossless_avx2.c(76): warning C4752: found Intel(R) Advanced Vector Extensions; consider using /arch:AVX [C:\\build\\precommit_windows64\\build\\3rdparty\\libwebp\\libwebp.vcxproj]\nc:\\build\\precommit_windows64\\4.x\\opencv\\3rdparty\\libwebp\\src\\dsp\\lossless_avx2.c(178): warning C4752: found Intel(R) Advanced Vector Extensions; consider using /arch:AVX [C:\\build\\precommit_windows64\\build\\3rdparty\\libwebp\\libwebp.vcxproj]",
       "revId": "d7af7dd7cb395bc256f126c841139330afdde9a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1cf4690_bbcbf313",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-09T20:55:27Z",
+      "side": 1,
+      "message": "I know we said we wanted to take a stronger stance on compatible versions, but if this is important to OpenCV we can take it. I\u0027ll leave it to you.",
+      "revId": "d7af7dd7cb395bc256f126c841139330afdde9a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
