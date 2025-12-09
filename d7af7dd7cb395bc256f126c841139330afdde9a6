@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8230ac26_38c43561",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-09T15:23:49Z",
+      "side": 1,
+      "message": "We do get warnings when compiled with older VS. Any idea why ?\nc:\\build\\precommit_windows64\\4.x\\opencv\\3rdparty\\libwebp\\src\\dsp\\lossless_avx2.c(76): warning C4752: found Intel(R) Advanced Vector Extensions; consider using /arch:AVX [C:\\build\\precommit_windows64\\build\\3rdparty\\libwebp\\libwebp.vcxproj]\nc:\\build\\precommit_windows64\\4.x\\opencv\\3rdparty\\libwebp\\src\\dsp\\lossless_avx2.c(178): warning C4752: found Intel(R) Advanced Vector Extensions; consider using /arch:AVX [C:\\build\\precommit_windows64\\build\\3rdparty\\libwebp\\libwebp.vcxproj]",
+      "revId": "d7af7dd7cb395bc256f126c841139330afdde9a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
