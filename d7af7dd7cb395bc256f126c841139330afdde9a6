@@ -33,6 +33,24 @@
       "message": "I know we said we wanted to take a stronger stance on compatible versions, but if this is important to OpenCV we can take it. I\u0027ll leave it to you.",
       "revId": "d7af7dd7cb395bc256f126c841139330afdde9a6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cbaf881_3333bdf3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2025-12-12T12:07:31Z",
+      "side": 1,
+      "message": "Thx, let\u0027s go for it then.",
+      "parentUuid": "c1cf4690_bbcbf313",
+      "revId": "d7af7dd7cb395bc256f126c841139330afdde9a6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
