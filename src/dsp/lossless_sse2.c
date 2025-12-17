@@ -545,8 +545,10 @@ static void ConvertBGRAToRGBA_SSE2(const uint32_t* WEBP_RESTRICT src,
   const __m128i* in = (const __m128i*)src;
   __m128i* out = (__m128i*)dst;
   while (num_pixels >= 8) {
-    const __m128i A1 = _mm_loadu_si128(in++);
-    const __m128i A2 = _mm_loadu_si128(in++);
+    const __m128i A1 = _mm_loadu_si128(in);
+    in++;
+    const __m128i A2 = _mm_loadu_si128(in);
+    in++;
     const __m128i B1 = _mm_and_si128(A1, red_blue_mask);     // R 0 B 0
     const __m128i B2 = _mm_and_si128(A2, red_blue_mask);     // R 0 B 0
     const __m128i C1 = _mm_andnot_si128(red_blue_mask, A1);  // 0 G 0 A
@@ -557,8 +559,10 @@ static void ConvertBGRAToRGBA_SSE2(const uint32_t* WEBP_RESTRICT src,
     const __m128i E2 = _mm_shufflehi_epi16(D2, _MM_SHUFFLE(2, 3, 0, 1));
     const __m128i F1 = _mm_or_si128(E1, C1);
     const __m128i F2 = _mm_or_si128(E2, C2);
-    _mm_storeu_si128(out++, F1);
-    _mm_storeu_si128(out++, F2);
+    _mm_storeu_si128(out, F1);
+    out++;
+    _mm_storeu_si128(out, F2);
+    out++;
     num_pixels -= 8;
   }
   // left-overs
@@ -575,8 +579,10 @@ static void ConvertBGRAToRGBA4444_SSE2(const uint32_t* WEBP_RESTRICT src,
   const __m128i* in = (const __m128i*)src;
   __m128i* out = (__m128i*)dst;
   while (num_pixels >= 8) {
-    const __m128i bgra0 = _mm_loadu_si128(in++);  // bgra0|bgra1|bgra2|bgra3
-    const __m128i bgra4 = _mm_loadu_si128(in++);  // bgra4|bgra5|bgra6|bgra7
+    const __m128i bgra0 = _mm_loadu_si128(in);  // bgra0|bgra1|bgra2|bgra3
+    in++;
+    const __m128i bgra4 = _mm_loadu_si128(in);  // bgra4|bgra5|bgra6|bgra7
+    in++;
     const __m128i v0l = _mm_unpacklo_epi8(bgra0, bgra4);  // b0b4g0g4r0r4a0a4...
     const __m128i v0h = _mm_unpackhi_epi8(bgra0, bgra4);  // b2b6g2g6r2r6a2a6...
     const __m128i v1l = _mm_unpacklo_epi8(v0l, v0h);      // b0b2b4b6g0g2g4g6...
@@ -595,7 +601,8 @@ static void ConvertBGRAToRGBA4444_SSE2(const uint32_t* WEBP_RESTRICT src,
 #else
     const __m128i rgba = _mm_unpacklo_epi8(rgba0, rgba1);  // rgba0...rgba7
 #endif
-    _mm_storeu_si128(out++, rgba);
+    _mm_storeu_si128(out, rgba);
+    out++;
     num_pixels -= 8;
   }
   // left-overs
@@ -613,8 +620,10 @@ static void ConvertBGRAToRGB565_SSE2(const uint32_t* WEBP_RESTRICT src,
   const __m128i* in = (const __m128i*)src;
   __m128i* out = (__m128i*)dst;
   while (num_pixels >= 8) {
-    const __m128i bgra0 = _mm_loadu_si128(in++);  // bgra0|bgra1|bgra2|bgra3
-    const __m128i bgra4 = _mm_loadu_si128(in++);  // bgra4|bgra5|bgra6|bgra7
+    const __m128i bgra0 = _mm_loadu_si128(in);  // bgra0|bgra1|bgra2|bgra3
+    in++;
+    const __m128i bgra4 = _mm_loadu_si128(in);  // bgra4|bgra5|bgra6|bgra7
+    in++;
     const __m128i v0l = _mm_unpacklo_epi8(bgra0, bgra4);  // b0b4g0g4r0r4a0a4...
     const __m128i v0h = _mm_unpackhi_epi8(bgra0, bgra4);  // b2b6g2g6r2r6a2a6...
     const __m128i v1l = _mm_unpacklo_epi8(v0l, v0h);      // b0b2b4b6g0g2g4g6...
@@ -637,7 +646,8 @@ static void ConvertBGRAToRGB565_SSE2(const uint32_t* WEBP_RESTRICT src,
 #else
     const __m128i rgba = _mm_unpacklo_epi8(rg1, gb1);  // bgrb0...bgrb7
 #endif
-    _mm_storeu_si128(out++, rgba);
+    _mm_storeu_si128(out, rgba);
+    out++;
     num_pixels -= 8;
   }
   // left-overs
@@ -654,8 +664,10 @@ static void ConvertBGRAToBGR_SSE2(const uint32_t* WEBP_RESTRICT src,
   const uint8_t* const end = dst + num_pixels * 3;
   // the last storel_epi64 below writes 8 bytes starting at offset 18
   while (dst + 26 <= end) {
-    const __m128i bgra0 = _mm_loadu_si128(in++);  // bgra0|bgra1|bgra2|bgra3
-    const __m128i bgra4 = _mm_loadu_si128(in++);  // bgra4|bgra5|bgra6|bgra7
+    const __m128i bgra0 = _mm_loadu_si128(in);  // bgra0|bgra1|bgra2|bgra3
+    in++;
+    const __m128i bgra4 = _mm_loadu_si128(in);  // bgra4|bgra5|bgra6|bgra7
+    in++;
     const __m128i a0l = _mm_and_si128(bgra0, mask_l);  // bgr0|0|bgr0|0
     const __m128i a4l = _mm_and_si128(bgra4, mask_l);  // bgr0|0|bgr0|0
     const __m128i a0h = _mm_and_si128(bgra0, mask_h);  // 0|bgr0|0|bgr0
