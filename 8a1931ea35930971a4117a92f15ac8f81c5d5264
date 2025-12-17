@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab35a661_53c5c87d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2025-12-17T11:50:15Z",
+      "side": 1,
+      "message": "I\u0027d argue that, for the greater good of everyone, the macro itself should be fixed...",
+      "revId": "8a1931ea35930971a4117a92f15ac8f81c5d5264",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
