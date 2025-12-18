@@ -86,7 +86,9 @@ static WEBP_INLINE int NextTableBitSize(
 // sorted[code_lengths_size] is a pre-allocated array for sorting symbols
 // by code length.
 static int BuildHuffmanTable(HuffmanCode* const WEBP_BIDI_INDEXABLE root_table,
-                             int root_bits, const int code_lengths[],
+                             int root_bits,
+                             const int WEBP_COUNTED_BY(code_lengths_size)
+                                 code_lengths[],
                              int code_lengths_size,
                              uint16_t WEBP_COUNTED_BY_OR_NULL(code_lengths_size)
                                  sorted[]) {

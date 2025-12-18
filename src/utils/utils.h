@@ -187,7 +187,9 @@ static WEBP_INLINE int BitsCtz(uint32_t n) {
 struct WebPPicture;
 
 // Copy width x height pixels from 'src' to 'dst' honoring the strides.
-WEBP_EXTERN void WebPCopyPlane(const uint8_t* src, int src_stride, uint8_t* dst,
+WEBP_EXTERN void WebPCopyPlane(const uint8_t* WEBP_UNSAFE_INDEXABLE src,
+                               int src_stride,
+                               uint8_t* WEBP_UNSAFE_INDEXABLE dst,
                                int dst_stride, int width, int height);
 
 // Copy ARGB pixels from 'src' to 'dst' honoring strides. 'src' and 'dst' are

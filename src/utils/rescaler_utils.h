@@ -75,7 +75,8 @@ int WebPRescaleNeededLines(const WebPRescaler* const rescaler,
 // Import multiple rows over all channels, until at least one row is ready to
 // be exported. Returns the actual number of lines that were imported.
 int WebPRescalerImport(WebPRescaler* const rescaler, int num_rows,
-                       const uint8_t* src, int src_stride);
+                       const uint8_t* WEBP_UNSAFE_INDEXABLE src,
+                       int src_stride);
 
 // Export as many rows as possible. Return the numbers of rows written.
 int WebPRescalerExport(WebPRescaler* const rescaler);
