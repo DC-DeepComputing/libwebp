@@ -130,7 +130,8 @@ int WebPRescaleNeededLines(const WebPRescaler* const rescaler,
 }
 
 int WebPRescalerImport(WebPRescaler* const rescaler, int num_lines,
-                       const uint8_t* src, int src_stride) {
+                       const uint8_t* WEBP_UNSAFE_INDEXABLE src,
+                       int src_stride) {
   int total_imported = 0;
   while (total_imported < num_lines &&
          !WebPRescalerHasPendingOutput(rescaler)) {
@@ -143,7 +144,10 @@ int WebPRescalerImport(WebPRescaler* const rescaler, int num_lines,
       WEBP_SELF_ASSIGN(rescaler->dst_width);
       WEBP_SELF_ASSIGN(rescaler->num_channels);
     }
-    WebPRescalerImportRow(rescaler, src);
+    WebPRescalerImportRow(
+        rescaler,
+        WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+            const uint8_t*, src, rescaler->num_channels * rescaler->src_width));
     if (!rescaler->y_expand) {  // Accumulate the contribution of the new row.
       int x;
       for (x = 0; x < rescaler->num_channels * rescaler->dst_width; ++x) {

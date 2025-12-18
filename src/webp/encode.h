@@ -324,9 +324,10 @@ struct WebPPicture {
   uint32_t pad1[2];         // padding for later use
 
   // ARGB input (mostly used for input to lossless compression)
-  uint32_t* argb;    // Pointer to argb (32 bit) plane.
-  int argb_stride;   // This is stride in pixels units, not bytes.
-  uint32_t pad2[3];  // padding for later use
+  uint32_t* WEBP_COUNTED_BY_OR_NULL(
+      argb_stride* height) argb;  // Pointer to argb (32 bit) plane.
+  int argb_stride;                // This is stride in pixels units, not bytes.
+  uint32_t pad2[3];               // padding for later use
 
   //   OUTPUT
   ///////////////

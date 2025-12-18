@@ -251,8 +251,9 @@ void WebPFree(void* WEBP_SINGLE ptr) { WebPSafeFree(ptr); }
 
 //------------------------------------------------------------------------------
 
-void WebPCopyPlane(const uint8_t* src, int src_stride, uint8_t* dst,
-                   int dst_stride, int width, int height) {
+void WebPCopyPlane(const uint8_t* WEBP_UNSAFE_INDEXABLE src, int src_stride,
+                   uint8_t* WEBP_UNSAFE_INDEXABLE dst, int dst_stride,
+                   int width, int height) {
   assert(src != NULL && dst != NULL);
   assert(abs(src_stride) >= width && abs(dst_stride) >= width);
   while (height-- > 0) {
