@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c130d8e_0d04f334",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-18T20:13:49Z",
+      "side": 1,
+      "message": "Add `Bug: 432511821`.",
+      "revId": "6c5ce44b8a9c979a17a5ce1bd2a446b200b34b2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db447a8_9fd4dc38",
+        "filename": "src/utils/rescaler_utils.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2025-12-18T20:13:49Z",
+      "side": 1,
+      "message": "As discussed in VC, this is a function pointer with nothing else annotated, so we should be able to avoid the overhead by dropping the forge.",
+      "revId": "6c5ce44b8a9c979a17a5ce1bd2a446b200b34b2b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
