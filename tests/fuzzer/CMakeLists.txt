@@ -17,7 +17,8 @@ macro(add_webp_fuzztest TEST_NAME)
   add_executable(${TEST_NAME} ${TEST_NAME}.cc)
   # FuzzTest bundles GoogleTest so no need to link to gtest libraries.
   target_link_libraries(${TEST_NAME} PRIVATE fuzz_utils webp ${ARGN})
-  target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_BINARY_DIR}/src)
+  target_include_directories(${TEST_NAME} PRIVATE ${CMAKE_BINARY_DIR}/src
+                                                  ${CMAKE_SOURCE_DIR})
   link_fuzztest(${TEST_NAME})
   add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME})
   set_property(
