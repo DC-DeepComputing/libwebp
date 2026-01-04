@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3262d370_3907d86e",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-04T15:11:29Z",
+      "side": 1,
+      "message": "this is an internal (non user-facing) function. I\u0027d say the params in SmoothParams should have been validated prior to getting here (these tests should be assert(), then).\nFirst step should probably be to write a \u0027static int ValidateParams(const Smooth* p)\u0027 ...)",
+      "revId": "cf3432777913532aedf00c5fb7fed3a2d5de3476",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
