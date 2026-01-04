@@ -16,6 +16,7 @@
 
 #include "src/utils/quant_levels_dec_utils.h"
 
+#include <assert.h>
 #include <string.h>  // for memset
 
 #include "src/utils/bounds_safety.h"
@@ -81,6 +82,17 @@ static WEBP_INLINE uint8_t clip_8b(int v) {
   return (!(v & CLIP_8b_MASK)) ? (uint8_t)(v >> DFIX) : (v < 0) ? 0u : 255u;
 }
 #undef CLIP_8b_MASK
+
+// validate params
+#if !defined(NDEBUG)
+static WEBP_INLINE int ValidateParams(const SmoothParams* p) {
+  if (p == NULL) return 0;
+  if (p->width <= 0 || p->height <= 0) return 0;
+  if (p->stride <= 0 || p->stride < p->width) return 0;
+  if (p->dst == NULL || p->average == NULL || p->correction == NULL) return 0;
+  return 1;
+}
+#endif
 
 // vertical accumulation
 static void VFilter(SmoothParams* const p) {
@@ -148,12 +160,19 @@ static void ApplyFilter(SmoothParams* const p) {
 #endif
   uint8_t* const WEBP_INDEXABLE dst = p->dst;
   int x;
+
+#if !defined(NDEBUG)
+  // internal invariant checks (debug-only)
+  assert(ValidateParams(p));
+#endif
+
   for (x = 0; x < w; ++x) {
     const int v = dst[x];
-    if (v < p->max && v > p->min) {
+    if (v > p->min && v < p->max) {
       const int c = (v << DFIX) + correction[average[x] - (v << LFIX)];
 #if defined(USE_DITHERING)
-      dst[x] = clip_8b(c + dither[x % DSIZE]);
+      // ordered dither index; compilers strength-reduce % when DSIZE is const
+      dst[x] = clip_8b(c + dither[(unsigned)x % DSIZE]);
 #else
       dst[x] = clip_8b(c);
 #endif
@@ -274,19 +293,26 @@ static void CleanupParams(SmoothParams* const p) { WebPSafeFree(p->mem); }
 int WebPDequantizeLevels(uint8_t* WEBP_SIZED_BY((size_t)stride* height)
                              const data,
                          int width, int height, int stride, int strength) {
-  int radius = 4 * strength / 100;
+  int radius;
 
   if (strength < 0 || strength > 100) return 0;
   if (data == NULL || width <= 0 || height <= 0) return 0;  // bad params
+  // each row must be able to hold at least 'width' bytes and be positive
+  if (stride <= 0 || stride < width) return 0;
+
+  radius = 4 * strength / 100;
 
   // limit the filter size to not exceed the image dimensions
   if (2 * radius + 1 > width) radius = (width - 1) >> 1;
   if (2 * radius + 1 > height) radius = (height - 1) >> 1;
 
-  if (radius > 0) {
+  if (radius <= 0) return 1;  // nothing to do
+
+  {
     SmoothParams p;
     WEBP_UNSAFE_MEMSET(&p, 0, sizeof(p));
     if (!InitParams(data, width, height, stride, radius, &p)) return 0;
+
     if (p.num_levels > 2) {
       for (; p.row < p.height; ++p.row) {
         VFilter(&p);  // accumulate average of input
@@ -294,6 +320,10 @@ int WebPDequantizeLevels(uint8_t* WEBP_SIZED_BY((size_t)stride* height)
         // before emitting some output.
         if (p.row >= p.radius) {
           HFilter(&p);
+#if !defined(NDEBUG)
+          // double-check internal invariants in debug builds
+          assert(ValidateParams(&p));
+#endif
           ApplyFilter(&p);
         }
       }
