@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "066b671e_fd24245e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-04T21:08:15Z",
+      "side": 1,
+      "message": "Thx for the fix. Do you have a reproducer case? If so, can you please open up a bug and put it in there? Thx https://developers.google.com/speed/webp/community#reporting_bugs",
+      "revId": "e18e9bb1f6a44dd117d950b99b074ac6d6db20d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34f7c533_4bb4c68a",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-04T21:08:15Z",
+      "side": 1,
+      "message": "For speed, this is already done by the compiler. I am curious about portability? Where does that help?",
+      "revId": "e18e9bb1f6a44dd117d950b99b074ac6d6db20d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "187d54ac_ea899c2f",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-04T21:08:15Z",
+      "side": 1,
+      "message": "Please keep the initial comments where appropriate to minimize the diffs.",
+      "revId": "e18e9bb1f6a44dd117d950b99b074ac6d6db20d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d01f5c5_d8d8af64",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 304,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-04T21:08:15Z",
+      "side": 1,
+      "message": "Can you please keep the comments with //.\nWe have two styles for the comments: starting with a capital letter and ending with a dot, or starting with a lower-case letter and no dot.",
+      "revId": "e18e9bb1f6a44dd117d950b99b074ac6d6db20d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
