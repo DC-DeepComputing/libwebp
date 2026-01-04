@@ -147,8 +147,15 @@ static void ApplyFilter(SmoothParams* const p) {
   const uint8_t* const dither = kOrderedDither[p->row % DSIZE];
 #endif
   uint8_t* const WEBP_INDEXABLE dst = p->dst;
-  int x;
-  for (x = 0; x < w; ++x) {
+  //nothing to do if pointers are bad or row capacity is zero.
+  if (dst == NULL || average == NULL || p->stride <= 0 || w <= 0) {
+    return;
+  }
+
+  // never touch more bytes than actually fit in the row buffer.
+  const int safe_w = (p->stride < w) ? p->stride : w;
+
+  for (int x = 0; x < safe_w; ++x) {
     const int v = dst[x];
     if (v < p->max && v > p->min) {
       const int c = (v << DFIX) + correction[average[x] - (v << LFIX)];
@@ -272,12 +279,15 @@ static int InitParams(uint8_t* WEBP_SIZED_BY((size_t)stride* height) const data,
 static void CleanupParams(SmoothParams* const p) { WebPSafeFree(p->mem); }
 
 int WebPDequantizeLevels(uint8_t* WEBP_SIZED_BY((size_t)stride* height)
-                             const data,
+                            const data,
                          int width, int height, int stride, int strength) {
   int radius = 4 * strength / 100;
 
   if (strength < 0 || strength > 100) return 0;
   if (data == NULL || width <= 0 || height <= 0) return 0;  // bad params
+
+  //reject rows that can't hold 'width' bytes.
+  if (stride < width) return 0;
 
   // limit the filter size to not exceed the image dimensions
   if (2 * radius + 1 > width) radius = (width - 1) >> 1;
