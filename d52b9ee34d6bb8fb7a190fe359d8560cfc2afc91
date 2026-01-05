@@ -1,5 +1,40 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0e57a94_e1497a35",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T22:05:45Z",
+      "side": 1,
+      "message": "Note `./` won\u0027t help if `-Ipath/to/sharpyuv` is used, though for system includes we don\u0027t do that.",
+      "revId": "d52b9ee34d6bb8fb7a190fe359d8560cfc2afc91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5d2a4824_c218ed93",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T22:05:45Z",
+      "side": 1,
+      "message": "When building from source the in tree header would be wanted. I\u0027m assuming some of the cmake changes affect the include path search order?",
+      "revId": "d52b9ee34d6bb8fb7a190fe359d8560cfc2afc91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
