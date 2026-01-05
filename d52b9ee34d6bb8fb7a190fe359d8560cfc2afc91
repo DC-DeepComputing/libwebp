@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f0d75e94_70454302",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-05T22:33:32Z",
+      "side": 1,
+      "message": "Well if -Ipath_to_sharpyuv is used, we are fine. Not if -Ipath_to_sharpyuv/sharpyuv is used but I don\u0027t see why that would be used.",
+      "parentUuid": "a0e57a94_e1497a35",
+      "revId": "d52b9ee34d6bb8fb7a190fe359d8560cfc2afc91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5d2a4824_c218ed93",
         "filename": "sharpyuv/sharpyuv_dsp.h",
         "patchSetId": 12
@@ -31,6 +49,24 @@
       "writtenOn": "2026-01-05T22:05:45Z",
       "side": 1,
       "message": "When building from source the in tree header would be wanted. I\u0027m assuming some of the cmake changes affect the include path search order?",
+      "revId": "d52b9ee34d6bb8fb7a190fe359d8560cfc2afc91",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee8a5ef_6f45b7c2",
+        "filename": "sharpyuv/sharpyuv_dsp.h",
+        "patchSetId": 12
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-01-05T22:33:32Z",
+      "side": 1,
+      "message": "Exactly. THe system paths should be put at the end now.",
+      "parentUuid": "5d2a4824_c218ed93",
       "revId": "d52b9ee34d6bb8fb7a190fe359d8560cfc2afc91",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
