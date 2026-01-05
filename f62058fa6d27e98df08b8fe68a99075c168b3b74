@@ -1,0 +1,106 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a00f22a_2d529b0b",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 164,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "assert() already checks for NDEBUG \u003d\u003e https://en.cppreference.com/w/c/error/assert",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7e9a217_6fff4d26",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 171,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "please keep the changes to the minimal functional \u0027fixes\u0027 only and not cosmetics",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0264cecf_80ffa51f",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "why the cast? avoid \u0027unsigned\u0027 in favour of uint32_t instead",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e70bf42a_c3d7c6ea",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 303,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "unneeded change",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7bb3f64_4e45185b",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 309,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "unnecessary change",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "012547ca_1f5c6207",
+        "filename": "src/utils/quant_levels_dec_utils.c",
+        "patchSetId": 14
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-01-05T07:17:18Z",
+      "side": 1,
+      "message": "unneeded. And no need to double check here if it\u0027s done in ApplyFilter()",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
