@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1cf1efac_6e83b8a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:31:20Z",
+      "side": 1,
+      "message": "In general it\u0027s better to fuzz top-level public functions in this project as internal functions are allowed to make assumptions about their input. In this case, adding extra assertions makes sense, but this commit message is misleading. Please change it to say that additional asserts are added to validate the parameters.",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e8d3c7a_a35124eb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 14
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-05T23:31:20Z",
+      "side": 1,
+      "message": "Add `Bug: 473226723`.",
+      "revId": "f62058fa6d27e98df08b8fe68a99075c168b3b74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "1a00f22a_2d529b0b",
         "filename": "src/utils/quant_levels_dec_utils.c",
         "patchSetId": 14
