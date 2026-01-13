@@ -16,6 +16,23 @@
       "message": "This change hardens VP8LoadFinalBytes() against malformed or truncated\nVP8 bitstreams.\n\nFuzzing revealed that VP8LoadFinalBytes() could read past buf_end_ when\ninvoked after the bitreader had already consumed all available input,\nresulting in a heap out-of-bounds read. While this is typically reached\nonly with invalid input, the code is part of the VP8 decoding path and\nshould not assume remaining bytes are always present.\n\nThe patch adds explicit bounds checks to ensure tail-byte loading only\noccurs when data is available, preventing out-of-bounds reads while\npreserving behavior for valid streams.\n\nImpact: crash / potential information disclosure on crafted input.\n\n```\n./vp8_bitreader_fuzzer_v2: Running 1 inputs 1 time(s) each.\nRunning: crash-a9cae48ff6cba86dec514000aa7ed895ab25b787\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\u003d\u003d32723\u003d\u003dERROR: AddressSanitizer: heap-buffer-overflow on address 0x7c51d39e3071 at pc 0x555ab6892947 bp 0x7ffe4906ad20 sp 0x7ffe4906ad18\nREAD of size 1 at 0x7c51d39e3071 thread T0\n    #0 0x555ab6892946 in VP8LoadFinalBytes /home/kali/libwebp/src/utils/bit_reader_utils.c:93:26\n    #1 0x555ab6890fe8 in LLVMFuzzerTestOneInput (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x154fe8) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n    #2 0x555ab678c81f in fuzzer::Fuzzer::ExecuteCallback(unsigned char const*, unsigned long) (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x5081f) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n    #3 0x555ab6775083 in fuzzer::RunOneTest(fuzzer::Fuzzer*, char const*, unsigned long) (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x39083) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n    #4 0x555ab677affc in fuzzer::FuzzerDriver(int*, char***, int (*)(unsigned char const*, unsigned long)) (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x3effc) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n    #5 0x555ab67a5e46 in main (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x69e46) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n    #6 0x7ff1d4629f67  (/usr/lib/x86_64-linux-gnu/libc.so.6+0x29f67) (BuildId: 666f6ca8b64b431bce510d38dfe7792d7cf4202c)\n    #7 0x7ff1d462a024 in __libc_start_main (/usr/lib/x86_64-linux-gnu/libc.so.6+0x2a024) (BuildId: 666f6ca8b64b431bce510d38dfe7792d7cf4202c)\n    #8 0x555ab676f950 in _start (/home/kali/libwebp/build/vp8_bitreader_fuzzer_v2+0x33950) (BuildId: 6ebe1031a3bcd318fc67abfd84318edf1185ead4)\n\nAddress 0x7c51d39e3071 is a wild pointer inside of access range of size 0x000000000001.\nSUMMARY: AddressSanitizer: heap-buffer-overflow /home/kali/libwebp/src/utils/bit_reader_utils.c:93:26 in VP8LoadFinalBytes\nShadow bytes around the buggy address:\n0x7c51d39e2d80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n0x7c51d39e2e00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n0x7c51d39e2e80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n0x7c51d39e2f00: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n0x7c51d39e2f80: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa\n\u003d\u003e0x7c51d39e3000: f\n```",
       "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5054746e_49389bdf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-13T19:57:36Z",
+      "side": 1,
+      "message": "Thanks for the patch, but this is an internal function. How was the error produced?",
+      "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
