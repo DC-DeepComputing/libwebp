@@ -84,8 +84,16 @@ const uint8_t kVP8NewRange[128] = {
     241, 243, 245, 247, 249, 251, 253, 127};
 
 void VP8LoadFinalBytes(VP8BitReader* const br) {
-  assert(br != NULL && br->buf != NULL);
-  // Only read 8bits at a time
+  assert(br != NULL);
+
+  // Minimal hardening: never dereference invalid buffer pointers.
+  if (br->buf == NULL || br->buf_end == NULL || br->buf > br->buf_end) {
+    br->eof = 1;
+    br->bits = 0;
+    return;
+  }
+
+  // Only read 8 bits at a time.
   if (br->buf < br->buf_end) {
     br->bits += 8;
     br->value = (bit_t)(*br->buf++) | (br->value << 8);
@@ -95,7 +103,7 @@ void VP8LoadFinalBytes(VP8BitReader* const br) {
     br->bits += 8;
     br->eof = 1;
   } else {
-    br->bits = 0;  // This is to avoid undefined behaviour with shifts.
+    br->bits = 0;  // Avoid undefined behavior with shifts.
   }
 }
 
