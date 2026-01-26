@@ -33,6 +33,59 @@
       "message": "Thanks for the patch, but this is an internal function. How was the error produced?",
       "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9639fa2d_93ee418c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4583474
+      },
+      "writtenOn": "2026-01-26T17:52:16Z",
+      "side": 1,
+      "message": "Although VP8LoadFinalBytes() is internal, it is reachable during VP8 decode when a malformed or truncated bitstream causes tail-byte loading after all input has already been consumed (buf_ \u003d\u003d buf_end_).\nIn that case the function reads past buf_end_, leading to a heap OOB read.",
+      "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eb48f2d4_90db3a25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4583474
+      },
+      "writtenOn": "2026-01-26T17:52:16Z",
+      "side": 1,
+      "message": "Thanks. The issue was found via fuzzing of the VP8 bitreader. With malformed or truncated VP8 streams, VP8LoadFinalBytes() can be reached with br-\u003ebuf at or past br-\u003ebuf_end, leading to an out-of-bounds read. This patch adds defensive bounds checks without affecting valid decode paths.",
+      "parentUuid": "5054746e_49389bdf",
+      "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c57a0f17_21bd2020",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4583474
+      },
+      "writtenOn": "2026-01-26T17:52:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3fb096e2_68b055a4",
+      "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
