@@ -86,6 +86,24 @@
       "parentUuid": "3fb096e2_68b055a4",
       "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b6c0c25_9d54af9f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-01-27T20:15:59Z",
+      "side": 1,
+      "message": "\u003e Thanks. The issue was found via fuzzing of the VP8 bitreader. With malformed or truncated VP8 streams, VP8LoadFinalBytes() can be reached with br-\u003ebuf at or past br-\u003ebuf_end, leading to an out-of-bounds read. This patch adds defensive bounds checks without affecting valid decode paths.\n\nThe bitreader is an internal interface which is protected by other validations in the decoder. This patch would only make sense if the issue was reproducible with a webp file decoded through the public interface.",
+      "parentUuid": "eb48f2d4_90db3a25",
+      "revId": "03ca461c4f6d10e2e77b4811cbe5071bca78ad5c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
