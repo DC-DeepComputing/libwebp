@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9e87166_04a78f42",
+        "filename": "src/demux/anim_decode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 1001562
+      },
+      "writtenOn": "2026-02-06T21:19:26Z",
+      "side": 1,
+      "message": "In `ZeroFillCanvas()` and `CopyCanvas()`, we are recalculating the size of buffers (`buf`, `src`, and `dst`) that were allocated successfully. Therefore `size` must be within the range of the `size_t` type. This means we can delete the `CheckSizeOverflow(size)` calls or change them to assertions.\n\nBetter yet, we can store the size of the `dec-\u003ecurr_frame` and `dec-\u003eprev_frame_disposed` buffers, and pass the buffer size (instead of `canvas_width` and `canvas_height`) to `ZeroFillCanvas()` and `CopyCanvas()`.",
+      "revId": "d29e00aa708243ff9945989a0e4e3c8cf6dbf152",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
