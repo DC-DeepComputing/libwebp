@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "46138f0a_35c21102",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-28T03:02:01Z",
+      "side": 1,
+      "message": "It\u0027s annoying that linkification differs by host. `BUG:` will be updated by `git-watcher`, but only `Bug:` will linkify here it seems.",
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "5ff60c83_b4f0f989",
         "filename": "CMakeLists.txt",
         "patchSetId": 6
