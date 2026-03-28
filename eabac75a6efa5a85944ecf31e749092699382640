@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff60c83_b4f0f989",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-28T03:01:05Z",
+      "side": 1,
+      "message": "I need to check, may I never added a `cmake-format` test to the presubmit:\n\n```\ndiff --git a/CMakeLists.txt b/CMakeLists.txt\nindex 1b0a7488..96c7de95 100644\n--- a/CMakeLists.txt\n+++ b/CMakeLists.txt\n@@ -758,8 +758,9 @@ if(WEBP_BUILD_ANIM_UTILS)\n   add_library(anim_util STATIC ${ANIM_UTIL_SRCS})\n   target_include_directories(\n     anim_util\n-    PUBLIC $\u003cBUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}/src\u003e\n-           $\u003cINSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}\u003e)\n+    PUBLIC\n+      $\u003cBUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR};${CMAKE_CURRENT_BINARY_DIR}/src\u003e\n+      $\u003cINSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}\u003e)\n   target_link_libraries(anim_util PUBLIC webp GIF::GIF)\n \n   # anim_diff\n```",
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74976ec7_d3e46d98",
+        "filename": "examples/anim_util.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-28T03:01:05Z",
+      "side": 1,
+      "message": "Any risk of overflow here? A 4GB GIF might be tough to create.",
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7edf32d6_82677e69",
+        "filename": "tests/fuzzer/anim_util_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-03-28T03:01:05Z",
+      "side": 1,
+      "message": "I guess we should have a string_view version of this and maybe other functions.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
