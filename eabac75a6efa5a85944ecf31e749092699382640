@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1015e09e_0489e893",
+        "filename": "CMakeLists.txt",
+        "patchSetId": 6
+      },
+      "lineNbr": 761,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-03-30T08:04:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ff60c83_b4f0f989",
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74976ec7_d3e46d98",
@@ -54,6 +72,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "2f626608_16a3178f",
+        "filename": "examples/anim_util.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 305,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-03-30T08:04:58Z",
+      "side": 1,
+      "message": "Yes, and more will be caught with this fuzzer. A GIF is 64K by 64k at most",
+      "parentUuid": "74976ec7_d3e46d98",
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "7edf32d6_82677e69",
         "filename": "tests/fuzzer/anim_util_fuzzer.cc",
         "patchSetId": 6
@@ -65,6 +101,30 @@
       "writtenOn": "2026-03-28T03:01:05Z",
       "side": 1,
       "message": "I guess we should have a string_view version of this and maybe other functions.",
+      "range": {
+        "startLine": 31,
+        "startChar": 6,
+        "endLine": 31,
+        "endChar": 43
+      },
+      "revId": "eabac75a6efa5a85944ecf31e749092699382640",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20d51a55_fb465362",
+        "filename": "tests/fuzzer/anim_util_fuzzer.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-03-30T08:04:58Z",
+      "side": 1,
+      "message": "Ack",
+      "parentUuid": "7edf32d6_82677e69",
       "range": {
         "startLine": 31,
         "startChar": 6,
