@@ -16,7 +16,10 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <string>
 #include <string_view>
+
+#include "gtest/gtest.h"
 
 #include "./fuzz_utils.h"
 #include "./nalloc.h"
@@ -79,3 +82,12 @@ End:
 FUZZ_TEST(AnimDecoder, AnimDecoderTest)
     .WithDomains(fuzztest::String().WithMaxSize(fuzz_utils::kMaxWebPFileSize +
                                                 1));
+
+TEST(AnimDecoder, Buganizer498967090) {
+  AnimDecoderTest(std::string(
+      "ALPH\000\000\000\000\000\000\000\000\003\000\000\000\014EBPVP8 "
+      "\030\000\000\0000\001\000\235\001*\002\000\001\000\003\0004%"
+      "\244\000\003~\000*\316\373\224\"AFM\"<0\334\"\231J\002`"
+      "\256\233\233\233\233\272\000\000",
+      72));
+}
