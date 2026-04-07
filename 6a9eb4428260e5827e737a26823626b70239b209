@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b22ff040_fb6175dc",
+        "filename": "examples/anim_diff.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-07T17:17:55Z",
+      "side": 1,
+      "message": "We have this infrastructure now, but in more performance focused loops we probably want to switch this to incrementing the pointers if possible.",
+      "revId": "6a9eb4428260e5827e737a26823626b70239b209",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
