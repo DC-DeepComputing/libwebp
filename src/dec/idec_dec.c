@@ -195,6 +195,7 @@ WEBP_NODISCARD static int AppendToMemBuffer(WebPIDecoder* const idec,
       (mem->buf == NULL) ? NULL : mem->buf + mem->start;
   const uint8_t* const old_base =
       need_compressed_alpha ? dec->alpha_data : old_start;
+  ptrdiff_t safe_offset = 0;
   assert(mem->buf != NULL || mem->start == 0);
   assert(mem->mode == MEM_MODE_APPEND);
   if (data_size > MAX_CHUNK_PAYLOAD) {
@@ -211,6 +212,12 @@ WEBP_NODISCARD static int AppendToMemBuffer(WebPIDecoder* const idec,
     uint8_t* const new_buf =
         (uint8_t*)WebPSafeMalloc(extra_size, sizeof(*new_buf));
     if (new_buf == NULL) return 0;
+
+    if (old_start != NULL) {
+      safe_offset = (ptrdiff_t)((uintptr_t)(new_buf + new_mem_start) -
+                                (uintptr_t)old_start);
+    }
+
     if (old_base != NULL) WEBP_UNSAFE_MEMCPY(new_buf, old_base, current_size);
     WebPSafeFree(mem->buf);
     mem->buf = new_buf;
@@ -224,7 +231,7 @@ WEBP_NODISCARD static int AppendToMemBuffer(WebPIDecoder* const idec,
   mem->end += data_size;
   assert(mem->end <= mem->buf_size);
 
-  DoRemap(idec, mem->buf + mem->start - old_start);
+  DoRemap(idec, safe_offset);
   return 1;
 }
 
