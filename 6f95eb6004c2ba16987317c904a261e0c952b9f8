@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d9276cf4_ffe25249",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T05:20:20Z",
+      "side": 1,
+      "message": "I just read this. I think you should file a bug and prove that there\u0027s an issue here. There\u0027s plenty of logic like this through this and other libraries.",
+      "revId": "6f95eb6004c2ba16987317c904a261e0c952b9f8",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
