@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed74ca95_21a47117",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4766597
+      },
+      "writtenOn": "2026-04-11T05:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d80b6a6b_cb8c431a",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cea38bc_fc6ef4fa",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "138ec09f_2ffb8e8b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 4766597
+      },
+      "writtenOn": "2026-04-11T05:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6cea38bc_fc6ef4fa",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d5e0ddeb_f77cc059",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-04-11T04:54:43Z",
       "side": 1,
       "message": "Once you have a bug id add `Bug: \u003cbug id\u003e` here.",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44438cc4_dbc44236",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 4766597
+      },
+      "writtenOn": "2026-04-11T05:47:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d5e0ddeb_f77cc059",
       "revId": "626684437490d96374ad22f35614f1568050dd74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
