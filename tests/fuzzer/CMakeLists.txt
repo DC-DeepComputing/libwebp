@@ -53,6 +53,7 @@ link_fuzztest(fuzz_utils)
 
 add_webp_fuzztest(advanced_api_fuzzer webpdecode webpdspdecode webputilsdecode)
 add_webp_fuzztest(dec_fuzzer)
+add_webp_fuzztest(idec_ub_fuzzer)
 add_webp_fuzztest(enc_dec_fuzzer webpdecode webpdspdecode webputilsdecode)
 add_webp_fuzztest(enc_fuzzer imagedec)
 add_webp_fuzztest(huffman_fuzzer webpdecode webpdspdecode webputilsdecode)
