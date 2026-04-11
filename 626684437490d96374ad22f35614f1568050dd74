@@ -1,6 +1,57 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d80b6a6b_cb8c431a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T04:54:43Z",
+      "side": 1,
+      "message": "Please file an issue so we can track this bug:\n\nhttps://issues.webmproject.org/issues/new?component\u003d1618983\u0026template\u003d2024050",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cea38bc_fc6ef4fa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T04:54:43Z",
+      "side": 1,
+      "message": "Please reformat this commit message to have the lines be \u003c\u003d 72 characters.",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5e0ddeb_f77cc059",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T04:54:43Z",
+      "side": 1,
+      "message": "Once you have a bug id add `Bug: \u003cbug id\u003e` here.",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bff51bf1_b1019ae4",
@@ -14,6 +65,41 @@
       "writtenOn": "2026-04-11T03:14:35Z",
       "side": 1,
       "message": "Hi Mr. Zern,\n\nI am submitting a mitigation for a compiler-induced Use-After-Free primitive in AppendToMemBuffer, alongside an OSS-Fuzz reproducer. Please note: The Jenkins compiler tests passed flawlessly across all architectures, but the build failed solely because the Warnings-NG plugin threw a server configuration error (Reference build recorder is not configured... All reported issues will be considered outstanding). It is falsely attributing 21 pre-existing repository warnings to this patch set. Could you please review the patch, and manually override or retrigger the Jenkins bot when you have a moment?",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d3994b_252ffbd0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T04:54:43Z",
+      "side": 1,
+      "message": "\u003e Hi Mr. Zern,\n\u003e \n\u003e I am submitting a mitigation for a compiler-induced Use-After-Free primitive in AppendToMemBuffer, alongside an OSS-Fuzz reproducer. Please note: The Jenkins compiler tests passed flawlessly across all architectures, but the build failed solely because the Warnings-NG plugin threw a server configuration error (Reference build recorder is not configured... All reported issues will be considered outstanding). It is falsely attributing 21 pre-existing repository warnings to this patch set. Could you please review the patch, and manually override or retrigger the Jenkins bot when you have a moment?\n\nThe failure is legitimate. You can see this in the individual logs:\n\n```\n19:56:34 ../../../libwebp/src/dec/idec_dec.c: In function \u0027AppendToMemBuffer\u0027:\n19:56:34 ../../../libwebp/src/dec/idec_dec.c:206:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n19:56:34   206 |   ptrdiff_t safe_offset \u003d 0;\n19:56:34       |   ^~~~~~~~~\n```\n\nOr the warnings listed at the top-level of the compile jobs:\n\nhttps://build.webmproject.org/jenkins/job/libwebp__compile/7199/",
+      "parentUuid": "bff51bf1_b1019ae4",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ac7fca09_63b9dbe1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-11T04:54:43Z",
+      "side": 1,
+      "message": "Thanks for the patch. Once the build clears the team will take a look at this next week.",
       "revId": "626684437490d96374ad22f35614f1568050dd74",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
