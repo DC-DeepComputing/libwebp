@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bff51bf1_b1019ae4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4766597
+      },
+      "writtenOn": "2026-04-11T03:14:35Z",
+      "side": 1,
+      "message": "Hi Mr. Zern,\n\nI am submitting a mitigation for a compiler-induced Use-After-Free primitive in AppendToMemBuffer, alongside an OSS-Fuzz reproducer. Please note: The Jenkins compiler tests passed flawlessly across all architectures, but the build failed solely because the Warnings-NG plugin threw a server configuration error (Reference build recorder is not configured... All reported issues will be considered outstanding). It is falsely attributing 21 pre-existing repository warnings to this patch set. Could you please review the patch, and manually override or retrigger the Jenkins bot when you have a moment?",
+      "revId": "626684437490d96374ad22f35614f1568050dd74",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
