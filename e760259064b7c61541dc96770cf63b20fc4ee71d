@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "37334623_ce3e1e70",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560128
+      },
+      "writtenOn": "2026-04-12T14:15:34Z",
+      "side": 1,
+      "message": "For context, this resolves a perf regression on wasm-vips\u0027 benchmarks when building with Emscripten 5.0.4 or later.\n\nBefore:\n```\nwebp wasm-vips-buffer-file x 13.07 ops/sec ±0.42% (65 runs sampled)\nwebp wasm-vips-buffer-buffer x 13.11 ops/sec ±0.31% (65 runs sampled)\nwebp wasm-vips-file-file x 13.07 ops/sec ±0.17% (65 runs sampled)\nwebp wasm-vips-file-buffer x 13.09 ops/sec ±0.18% (65 runs sampled)\n```\n\nAfter:\n```\nwebp wasm-vips-buffer-file x 20.30 ops/sec ±0.71% (53 runs sampled)\nwebp wasm-vips-buffer-buffer x 20.48 ops/sec ±0.24% (53 runs sampled)\nwebp wasm-vips-file-file x 20.35 ops/sec ±0.29% (53 runs sampled)\nwebp wasm-vips-file-buffer x 20.47 ops/sec ±0.18% (53 runs sampled)\n```",
+      "revId": "e760259064b7c61541dc96770cf63b20fc4ee71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
