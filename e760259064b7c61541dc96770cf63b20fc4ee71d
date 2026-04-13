@@ -69,6 +69,24 @@
       "parentUuid": "e0c435ba_50162605",
       "revId": "e760259064b7c61541dc96770cf63b20fc4ee71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e775f576_78f98a97",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560128
+      },
+      "writtenOn": "2026-04-13T09:05:32Z",
+      "side": 1,
+      "message": "Great, I\u0027ve just rebased again.",
+      "parentUuid": "881ac3a5_a6ad9581",
+      "revId": "e760259064b7c61541dc96770cf63b20fc4ee71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
