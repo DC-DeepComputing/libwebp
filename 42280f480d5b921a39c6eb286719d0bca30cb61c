@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df48aee5_6b3e95d0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-04-13T09:04:30Z",
+      "side": 1,
+      "message": "jzern@, I did not merge that internally. You probably want to merge https://chromium-review.git.corp.google.com/c/webm/libwebp/+/7752647 too",
+      "revId": "42280f480d5b921a39c6eb286719d0bca30cb61c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
