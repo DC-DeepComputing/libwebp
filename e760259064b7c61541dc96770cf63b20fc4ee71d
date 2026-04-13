@@ -33,6 +33,24 @@
       "message": "Can you please rebase and push ? That should fix the build failure",
       "revId": "e760259064b7c61541dc96770cf63b20fc4ee71d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e0c435ba_50162605",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560128
+      },
+      "writtenOn": "2026-04-13T09:02:29Z",
+      "side": 1,
+      "message": "I ran `git rebase origin --force` since there was nothing to rebase onto. If that doesn\u0027t work, then https://chromium-review.googlesource.com/c/webm/libwebp/+/7751739 probably needs to land first.",
+      "parentUuid": "bfe2b0c5_23dcb1c5",
+      "revId": "e760259064b7c61541dc96770cf63b20fc4ee71d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
