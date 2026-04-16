@@ -16,6 +16,24 @@
       "message": "Nice. Aside from the use of sad, the old version was doing more than necessary by collecting the unused upper lanes.",
       "revId": "5156fbf66438e1cb627effd2ebbd175fd9efb2dd",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c4ee996_a93089b7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-04-16T21:15:53Z",
+      "side": 1,
+      "message": "Thx. I also tried having only one sad but that requires more port 5 usage (shuffle or shift or unpack). Slower.",
+      "parentUuid": "2e349ed3_54adad9a",
+      "revId": "5156fbf66438e1cb627effd2ebbd175fd9efb2dd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
