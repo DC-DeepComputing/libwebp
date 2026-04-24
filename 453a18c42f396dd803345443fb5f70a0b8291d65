@@ -16,6 +16,24 @@
       "message": "Without this, building with `-DWEBP_ENABLE_SIMD\u003dON` on Emscripten fails:\n```\n/src/build/deps/webp/src/dsp/enc_sse41.c:131:5: error: call to undeclared function \u0027VP8Transpose_2_4x4_16b\u0027; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]\n  131 |     VP8Transpose_2_4x4_16b(\u0026b0, \u0026b1, \u0026b2, \u0026b3, \u0026tmp_0, \u0026tmp_1, \u0026tmp_2, \u0026tmp_3);\n      |     ^\n1 error generated.\n```",
       "revId": "453a18c42f396dd803345443fb5f70a0b8291d65",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed1fabba_7fc477a3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-04-24T18:25:53Z",
+      "side": 1,
+      "message": "\u003e Without this, building with `-DWEBP_ENABLE_SIMD\u003dON` on Emscripten fails:\n\u003e ```\n\u003e /src/build/deps/webp/src/dsp/enc_sse41.c:131:5: error: call to undeclared function \u0027VP8Transpose_2_4x4_16b\u0027; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]\n\u003e   131 |     VP8Transpose_2_4x4_16b(\u0026b0, \u0026b1, \u0026b2, \u0026b3, \u0026tmp_0, \u0026tmp_1, \u0026tmp_2, \u0026tmp_3);\n\u003e       |     ^\n\u003e 1 error generated.\n\u003e ```\n\nThanks for the fix. Looks like we\u0027re missing coverage for this in https://build.webmproject.org/jenkins/view/webp/job/libwebp__compile_webp_js/. I\u0027ll try adding something when I get a chance.",
+      "parentUuid": "894c1974_87b6ef35",
+      "revId": "453a18c42f396dd803345443fb5f70a0b8291d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
