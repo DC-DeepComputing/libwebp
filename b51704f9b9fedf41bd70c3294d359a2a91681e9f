@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e2a6b8_75835b0b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560128
+      },
+      "writtenOn": "2026-04-24T13:44:28Z",
+      "side": 1,
+      "message": "On CMake, you could disable this with:\n```\n-DCMAKE_C_FLAGS_INIT\u003d\"-U__AVX2__\"\n```\n\n(since `-mno-avx2` doesn\u0027t work on Emscripten)",
+      "revId": "b51704f9b9fedf41bd70c3294d359a2a91681e9f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
