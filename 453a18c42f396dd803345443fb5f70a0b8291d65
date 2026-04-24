@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "894c1974_87b6ef35",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1560128
+      },
+      "writtenOn": "2026-04-24T13:37:59Z",
+      "side": 1,
+      "message": "Without this, building with `-DWEBP_ENABLE_SIMD\u003dON` on Emscripten fails:\n```\n/src/build/deps/webp/src/dsp/enc_sse41.c:131:5: error: call to undeclared function \u0027VP8Transpose_2_4x4_16b\u0027; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]\n  131 |     VP8Transpose_2_4x4_16b(\u0026b0, \u0026b1, \u0026b2, \u0026b3, \u0026tmp_0, \u0026tmp_1, \u0026tmp_2, \u0026tmp_3);\n      |     ^\n1 error generated.\n```",
+      "revId": "453a18c42f396dd803345443fb5f70a0b8291d65",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
