@@ -153,6 +153,7 @@ static void ImportOneRow(const uint8_t* const r_ptr, const uint8_t* const g_ptr,
   const int step = (rgb_bit_depth > 8) ? rgb_step / 2 : rgb_step;
   int i = 0;
   const int w = (pic_width + 1) & ~1;
+  const int max_val = (1 << rgb_bit_depth) - 1;
   do {
     const int off = i * step;
     const int shift = GetPrecisionShift(rgb_bit_depth);
@@ -161,9 +162,12 @@ static void ImportOneRow(const uint8_t* const r_ptr, const uint8_t* const g_ptr,
       dst[i + 1 * w] = Shift(g_ptr[off], shift);
       dst[i + 2 * w] = Shift(b_ptr[off], shift);
     } else {
-      dst[i + 0 * w] = Shift(((uint16_t*)r_ptr)[off], shift);
-      dst[i + 1 * w] = Shift(((uint16_t*)g_ptr)[off], shift);
-      dst[i + 2 * w] = Shift(((uint16_t*)b_ptr)[off], shift);
+      const int r = ((const uint16_t*)r_ptr)[off];
+      const int g = ((const uint16_t*)g_ptr)[off];
+      const int b = ((const uint16_t*)b_ptr)[off];
+      dst[i + 0 * w] = Shift(r > max_val ? max_val : r, shift);
+      dst[i + 1 * w] = Shift(g > max_val ? max_val : g, shift);
+      dst[i + 2 * w] = Shift(b > max_val ? max_val : b, shift);
     }
   } while (++i < pic_width);
   if (pic_width & 1) {  // replicate rightmost pixel
