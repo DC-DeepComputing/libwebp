@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c65b8cc3_3278794c",
+        "filename": ".gitignore",
+        "patchSetId": 4
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-05-18T11:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "02d36289_cc8de74b",
+      "revId": "fc7ebbe2c69a5db52b626a3b6126415aa0e73392",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b47d455e_7f274926",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c5e678_e2dcc659",
+        "filename": "tests/fuzzer/CMakeLists.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-05-18T11:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b47d455e_7f274926",
+      "revId": "fc7ebbe2c69a5db52b626a3b6126415aa0e73392",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3727b180_0b2935c4",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-05-13T17:21:31Z",
       "side": 1,
       "message": "`static_cast\u003csize_t\u003e`",
+      "revId": "fc7ebbe2c69a5db52b626a3b6126415aa0e73392",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e51d253c_845b42e8",
+        "filename": "tests/fuzzer/sharpyuv_fuzzer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-05-18T11:56:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3727b180_0b2935c4",
       "revId": "fc7ebbe2c69a5db52b626a3b6126415aa0e73392",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
