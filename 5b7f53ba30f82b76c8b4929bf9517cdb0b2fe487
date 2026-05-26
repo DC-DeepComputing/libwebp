@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "969f60b9_76df7a46",
+        "filename": "src/utils/bit_reader_utils.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1243635
+      },
+      "writtenOn": "2026-05-26T06:16:03Z",
+      "side": 1,
+      "message": "This makes the (incorrect) reader-side comment match the existing (correct) writer-side comment.\n\nhttps://github.com/webmproject/libwebp/blob/6178b1db7e5564da10c1ad41ea3a52706fd9dcd1/src/utils/bit_reader_utils.c#L74\n\nhttps://github.com/webmproject/libwebp/blob/6178b1db7e5564da10c1ad41ea3a52706fd9dcd1/src/utils/bit_writer_utils.c#L96",
+      "revId": "5b7f53ba30f82b76c8b4929bf9517cdb0b2fe487",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
