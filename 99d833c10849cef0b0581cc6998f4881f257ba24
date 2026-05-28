@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f240e70_e2c4e2b5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4875187
+      },
+      "writtenOn": "2026-05-28T23:15:42Z",
+      "side": 1,
+      "message": "Hi John and Milad\n\nI hope this finds you well. I\u0027m reaching out because I\u0027ve been working on a set of VSX (PPC64) optimizations for libwebp and would be grateful for your review.\n\nGiven your deep experience with PPC64 from your work on the V8 port, you\u0027re exactly the kind of reviewer I\u0027d trust to catch correctness or performance issues with the VSX intrinsics.\n\nI\u0027m of course happy to work around your schedule — there\u0027s no urgency, and I appreciate any time you can spare.\n\nThank you in advance for considering it.\n\nBest regards,\n\nTrung Lê",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
