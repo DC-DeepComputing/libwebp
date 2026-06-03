@@ -3,6 +3,40 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "66cb2936_38e1ac64",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-03T17:07:12Z",
+      "side": 1,
+      "message": "Thanks for the patch. Out of curiosity, is there a particular use case for libwebp on PPC? I\u0027m just wondering what applications are being run there nowadays.",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8caf228f_08c989cc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-03T17:07:12Z",
+      "side": 1,
+      "message": "This change contains many independent pieces. I suggest breaking this into separate changes (they can be made dependencies in gerrit by making the changes on top of each other).\n\nA good way to break this up would be to add build support, then cpu detection, followed by individual optimizations split by file.\n\nIn other libraries, like libvpx, we disabled CI support for PPC some time ago and left it to others to handle testing and maintenance (there are bugs if you\u0027re interested).\n\nIn this case we might add compile support, but I think this will be something we treat as low priority like the MIPS optimizations.",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f240e70_e2c4e2b5",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
