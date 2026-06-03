@@ -141,9 +141,9 @@ static uint8_t* AllocateExternalBuffer(WebPDecoderConfig* config,
   } else {  // YUV and YUVA
     const int has_alpha = WebPIsAlphaMode(output_buffer->colorspace);
     uint8_t* tmp;
-    uint32_t stride = w + 3;
-    uint32_t uv_stride = (w + 1) / 2 + 13;
-    uint32_t total_size =
+    const size_t stride = w + 3;
+    const size_t uv_stride = (w + 1) / 2 + 13;
+    const size_t total_size =
         stride * h * (has_alpha ? 2 : 1) + 2 * uv_stride * (h + 1) / 2;
     assert(format >= YUV && format <= YUVA);
     external_buffer = (uint8_t*)WebPMalloc(total_size);
