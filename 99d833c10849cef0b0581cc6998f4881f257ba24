@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cea2486a_3cc21658",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4875187
+      },
+      "writtenOn": "2026-06-04T12:27:31Z",
+      "side": 1,
+      "message": "Great thanks for your feedback. This is for the Firefox PPC64",
+      "parentUuid": "66cb2936_38e1ac64",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8caf228f_08c989cc",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-06-03T17:07:12Z",
       "side": 1,
       "message": "This change contains many independent pieces. I suggest breaking this into separate changes (they can be made dependencies in gerrit by making the changes on top of each other).\n\nA good way to break this up would be to add build support, then cpu detection, followed by individual optimizations split by file.\n\nIn other libraries, like libvpx, we disabled CI support for PPC some time ago and left it to others to handle testing and maintenance (there are bugs if you\u0027re interested).\n\nIn this case we might add compile support, but I think this will be something we treat as low priority like the MIPS optimizations.",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "604d86a4_f297a9ad",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4875187
+      },
+      "writtenOn": "2026-06-04T12:27:31Z",
+      "side": 1,
+      "message": "\u003e A good way to break this up would be to add build support, then cpu detection, followed by individual optimizations split by file.\n\nWill do\n\n\u003e In other libraries, like libvpx, we disabled CI support for PPC some time ago and left it to others to handle testing and maintenance (there are bugs if you\u0027re interested).\n\nYes, I am. I can also try to set up PPC64 GitHub Runner (sponsored by IBM) on my GitHub mirror repository.",
+      "parentUuid": "8caf228f_08c989cc",
       "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -66,6 +102,24 @@
       "side": 1,
       "message": "Hello,\n\nUnfortunately we wont be able to help review this change. We explicitly maintain the V8 engine on IBM platforms (and its dependencies), not libwebp or any other changes unrelated to V8.",
       "parentUuid": "4f240e70_e2c4e2b5",
+      "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f05a25c_a51fb18f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4875187
+      },
+      "writtenOn": "2026-06-04T12:27:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cf1581d5_cbfbcafa",
       "revId": "99d833c10849cef0b0581cc6998f4881f257ba24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
