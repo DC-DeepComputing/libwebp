@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "528e96cf_fa322bf1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-09T02:30:26Z",
+      "side": 1,
+      "message": "This also passes https://chromium.googlesource.com/webm/libwebp-test-data under emulation.",
+      "revId": "1a118087bacbdfffce3d23ed8e141440d1816d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f892d87e_0e55075e",
