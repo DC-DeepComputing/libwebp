@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8c42d185_34ec35ea",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1537182
+      },
+      "writtenOn": "2026-06-16T17:18:48Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1ecaffd0_a3a68bb2",
+      "range": {
+        "startLine": 9,
+        "startChar": 8,
+        "endLine": 9,
+        "endChar": 12
+      },
+      "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "3d830097_2b6aa80a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2026-06-16T02:25:37Z",
       "side": 1,
       "message": "From the description, it sounds like only the paths are important. The name of the xcframework could stay the same, no?",
+      "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80198fad_8b402d44",
+        "filename": "xcframeworkbuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1537182
+      },
+      "writtenOn": "2026-06-16T17:18:48Z",
+      "side": 1,
+      "message": "Yes it could, so I can do whatever you\u0027d prefer here but I thought matching the case of the files on disk seemed nicest.",
+      "parentUuid": "7eb8f258_63f94a98",
       "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
