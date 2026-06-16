@@ -98,6 +98,24 @@
       "parentUuid": "7eb8f258_63f94a98",
       "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "641260a3_750e2e94",
+        "filename": "xcframeworkbuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-06-16T18:20:01Z",
+      "side": 1,
+      "message": "\u003e Yes it could, so I can do whatever you\u0027d prefer here but I thought matching the case of the files on disk seemed nicest.\n\nFor compatibility I think it\u0027s best to keep what we have. If we were going to change the file names then all the frameworks could be made lowercase.",
+      "parentUuid": "80198fad_8b402d44",
+      "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
