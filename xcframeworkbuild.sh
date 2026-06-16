@@ -69,7 +69,7 @@ readonly TARGETDIR="${TOPDIR}/WebP.xcframework"
 readonly DECTARGETDIR="${TOPDIR}/WebPDecoder.xcframework"
 readonly MUXTARGETDIR="${TOPDIR}/WebPMux.xcframework"
 readonly DEMUXTARGETDIR="${TOPDIR}/WebPDemux.xcframework"
-readonly SHARPYUVTARGETDIR="${TOPDIR}/SharpYuv.xcframework"
+readonly SHARPYUVTARGETDIR="${TOPDIR}/sharpyuv.xcframework"
 readonly DEVELOPER=$(xcode-select --print-path)
 readonly DEVROOT="${DEVELOPER}/Toolchains/XcodeDefault.xctoolchain"
 readonly PLATFORMSROOT="${DEVELOPER}/Platforms"
@@ -96,10 +96,9 @@ update_headers_path() {
   for d in $(find "$1" -path "*/Headers"); do
     subdir="$d/$framework_name"
     if [[ -d "$subdir" ]]; then
-      # SharpYuv will have a sharpyuv subdirectory. macOS is case insensitive,
-      # but for consistency with the other frameworks, rename the directory to
-      # match the case of the framework name.
-      mv "$(echo ${subdir} | tr 'A-Z' 'a-z')" "$subdir"
+      # Some headers are already installed in a subdirectory matching the
+      # source tree's casing, e.g. sharpyuv. Preserve that layout.
+      continue
     else
       mkdir "$subdir"
       mv "$d/"*.h "$subdir"
