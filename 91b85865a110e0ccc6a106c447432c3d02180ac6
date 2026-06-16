@@ -116,6 +116,24 @@
       "parentUuid": "80198fad_8b402d44",
       "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bad71a6_ac0a75e5",
+        "filename": "xcframeworkbuild.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1537182
+      },
+      "writtenOn": "2026-06-16T20:12:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641260a3_750e2e94",
+      "revId": "91b85865a110e0ccc6a106c447432c3d02180ac6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
