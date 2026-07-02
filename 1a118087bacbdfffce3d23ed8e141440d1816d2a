@@ -33,6 +33,24 @@
       "message": "I got delayed in switching the project to C11. We\u0027re planning on doing that after the next release is made. For now this should conform to C90 (with the gnu extension for `//` style comments). Please address the following warnings:\n\n```\n../../../src/dsp/dec_vsx.c: In function \u0027DoFilter2_VSX\u0027:\n../../../src/dsp/dec_vsx.c:168:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  168 |   const i8x16 v3 \u003d SignedShift3(vec_adds(a, vec_splats((signed char)3)));\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027Load8x4\u0027:\n../../../src/dsp/dec_vsx.c:207:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  207 |   const u8x16 A0 \u003d vec_xl(0, (unsigned char*)a0);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027Load16x4\u0027:\n../../../src/dsp/dec_vsx.c:221:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  221 |   const u8x16 t1 \u003d *p1, t2 \u003d *q0;\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027Store16x4\u0027:\n../../../src/dsp/dec_vsx.c:241:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  241 |   u8x16 q0s \u003d vec_mergeh(t, q1), q1s \u003d vec_mergel(t, q1);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027ComplexMask\u0027:\n../../../src/dsp/dec_vsx.c:315:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  315 |   const u8x16 tm \u003d\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027DoFilter4\u0027:\n../../../src/dsp/dec_vsx.c:341:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  341 |   const i8x16 a3 \u003d SignedShift3(vec_adds(t1, vec_splats((signed char)4)));\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c:346:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  346 |   const i8x16 t \u003d vec_add(a3, (i8x16)kSignBit);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027VFilter16i_VSX\u0027:\n../../../src/dsp/dec_vsx.c:417:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  417 |     u8x16 p3 \u003d vec_xl(0, p - 4 * s), p2 \u003d vec_xl(0, p - 3 * s);\n      |     ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027HFilter16_VSX\u0027:\n../../../src/dsp/dec_vsx.c:439:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  439 |   const u8x16 m \u003d ComplexMask(p3, p2, p1, p0, q0, q1, q2, q3, thresh, ithresh);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027HFilter16i_VSX\u0027:\n../../../src/dsp/dec_vsx.c:450:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  450 |     u8x16 p3, p2, p1, p0, q0, q1, q2, q3;\n      |     ^~~~~\n../../../src/dsp/dec_vsx.c:453:5: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  453 |     const u8x16 m \u003d\n      |     ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027VFilter8i_VSX\u0027:\n../../../src/dsp/dec_vsx.c:500:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  500 |   u8x16 p3 \u003d LoadUV(u - 4 * s, v - 4 * s), p2 \u003d LoadUV(u - 3 * s, v - 3 * s);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027HFilter8_VSX\u0027:\n../../../src/dsp/dec_vsx.c:517:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  517 |   const u8x16 m \u003d ComplexMask(p3, p2, p1, p0, q0, q1, q2, q3, thresh, ithresh);\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c: In function \u0027HFilter8i_VSX\u0027:\n../../../src/dsp/dec_vsx.c:527:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  527 |   u8x16 p3, p2, p1, p0, q0, q1, q2, q3;\n      |   ^~~~~\n../../../src/dsp/dec_vsx.c:530:3: warning: ISO C90 forbids mixed declarations and code [-Wdeclaration-after-statement]\n  530 |   const u8x16 m \u003d ComplexMask(p3, p2, p1, p0, q0, q1, q2, q3, thresh, ithresh);\n      |   ^~~~~\n```",
       "revId": "1a118087bacbdfffce3d23ed8e141440d1816d2a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "610cd201_c79d9a2b",
+        "filename": "src/dsp/dec_vsx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4875187
+      },
+      "writtenOn": "2026-07-02T20:03:36Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f892d87e_0e55075e",
+      "revId": "1a118087bacbdfffce3d23ed8e141440d1816d2a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
