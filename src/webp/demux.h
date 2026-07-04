@@ -54,6 +54,8 @@
 #include "./mux_types.h"
 #include "./types.h"
 
+WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -207,7 +209,8 @@ struct WebPChunkIterator {
 // Call WebPDemuxReleaseChunkIterator() when use of the iterator is complete.
 // NOTE: 'dmux' must persist for the lifetime of the iterator.
 WEBP_NODISCARD WEBP_EXTERN int WebPDemuxGetChunk(const WebPDemuxer* dmux,
-                                                 const char fourcc[4],
+                                                 const char WEBP_SIZED_BY(4)
+                                                     fourcc[4],
                                                  int chunk_number,
                                                  WebPChunkIterator* iter);
 
