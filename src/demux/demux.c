@@ -37,7 +37,7 @@ typedef struct {
   size_t end;       // end location
   size_t riff_end;  // riff chunk end location, can be > end.
   size_t buf_size;  // size of the buffer
-  const uint8_t* buf;
+  const uint8_t* WEBP_COUNTED_BY(buf_size) buf;
 } MemBuffer;
 
 typedef struct {
@@ -107,7 +107,8 @@ int WebPGetDemuxVersion(void) {
 // -----------------------------------------------------------------------------
 // MemBuffer
 
-static int RemapMemBuffer(MemBuffer* const mem, const uint8_t* data,
+static int RemapMemBuffer(MemBuffer* const mem,
+                          const uint8_t* WEBP_COUNTED_BY(size) data,
                           size_t size) {
   if (size < mem->buf_size) return 0;  // can't remap to a shorter buffer!
 
@@ -116,7 +117,8 @@ static int RemapMemBuffer(MemBuffer* const mem, const uint8_t* data,
   return 1;
 }
 
-static int InitMemBuffer(MemBuffer* const mem, const uint8_t* data,
+static int InitMemBuffer(MemBuffer* const mem,
+                         const uint8_t* WEBP_COUNTED_BY(size) data,
                          size_t size) {
   WEBP_UNSAFE_MEMSET(mem, 0, sizeof(*mem));
   return RemapMemBuffer(mem, data, size);
@@ -900,7 +902,8 @@ void WebPDemuxReleaseIterator(WebPIterator* iter) { (void)iter; }
 // -----------------------------------------------------------------------------
 // Chunk iteration
 
-static int ChunkCount(const WebPDemuxer* const dmux, const char fourcc[4]) {
+static int ChunkCount(const WebPDemuxer* const dmux,
+                      const char WEBP_COUNTED_BY(4) fourcc[4]) {
   const uint8_t* const mem_buf = dmux->mem.buf;
   const Chunk* c;
   int count = 0;
@@ -912,7 +915,8 @@ static int ChunkCount(const WebPDemuxer* const dmux, const char fourcc[4]) {
 }
 
 static const Chunk* GetChunk(const WebPDemuxer* const dmux,
-                             const char fourcc[4], int chunk_num) {
+                             const char WEBP_COUNTED_BY(4) fourcc[4],
+                             int chunk_num) {
   const uint8_t* const mem_buf = dmux->mem.buf;
   const Chunk* c;
   int count = 0;
@@ -924,7 +928,7 @@ static const Chunk* GetChunk(const WebPDemuxer* const dmux,
   return c;
 }
 
-static int SetChunk(const char fourcc[4], int chunk_num,
+static int SetChunk(const char WEBP_COUNTED_BY(4) fourcc[4], int chunk_num,
                     WebPChunkIterator* const iter) {
   const WebPDemuxer* const dmux = (WebPDemuxer*)iter->private_;
   int count;
@@ -946,8 +950,9 @@ static int SetChunk(const char fourcc[4], int chunk_num,
   return 0;
 }
 
-int WebPDemuxGetChunk(const WebPDemuxer* dmux, const char fourcc[4],
-                      int chunk_num, WebPChunkIterator* iter) {
+int WebPDemuxGetChunk(const WebPDemuxer* dmux,
+                      const char WEBP_COUNTED_BY(4) fourcc[4], int chunk_num,
+                      WebPChunkIterator* iter) {
   if (iter == NULL) return 0;
 
   WEBP_UNSAFE_MEMSET(iter, 0, sizeof(*iter));
