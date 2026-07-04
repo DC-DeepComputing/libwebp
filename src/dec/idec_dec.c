@@ -686,7 +686,7 @@ WebPIDecoder* WebPIDecode(const uint8_t* WEBP_COUNTED_BY(data_size) data,
   WebPBitstreamFeatures tmp_features;
   WebPBitstreamFeatures* const features =
       (config == NULL) ? &tmp_features : &config->input;
-  memset(&tmp_features, 0, sizeof(tmp_features));
+  WEBP_UNSAFE_MEMSET(&tmp_features, 0, sizeof(tmp_features));
 
   // Parse the bitstream's features, if requested:
   if (data != NULL && data_size > 0) {

@@ -50,7 +50,7 @@ int WebPRescalerInit(WebPRescaler* const rescaler, int src_width,
   rescaler->num_channels = num_channels;
   rescaler->irow = work;
   rescaler->frow = work + num_channels * dst_width;
-  memset(work, 0, (size_t)total_size);
+  WEBP_UNSAFE_MEMSET(work, 0, (size_t)total_size);
 
   // for 'x_expand', we use bilinear interpolation
   rescaler->x_add = rescaler->x_expand ? (x_sub - 1) : x_add;
