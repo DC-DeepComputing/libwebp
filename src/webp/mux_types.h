@@ -58,7 +58,7 @@ typedef enum WebPMuxAnimBlend {
 // (ICC profile, metadata) and WebP compressed image data.
 // 'bytes' memory must be allocated using WebPMalloc() and such.
 struct WebPData {
-  const uint8_t* bytes;
+  const uint8_t* WEBP_COUNTED_BY(size) bytes;
   size_t size;
 };
 
