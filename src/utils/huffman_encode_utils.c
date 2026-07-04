@@ -235,7 +235,8 @@ static void GenerateOptimalTree(
               break;
             }
           }
-          memmove(tree + (k + 1), tree + k, (tree_size - k) * sizeof(*tree));
+          WEBP_UNSAFE_MEMMOVE(tree + (k + 1), tree + k,
+                              (tree_size - k) * sizeof(*tree));
           tree[k].total_count = count;
           tree[k].value = -1;
 
@@ -425,7 +426,7 @@ void VP8LCreateHuffmanTree(uint32_t* const histogram, int tree_depth_limit,
       WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(uint8_t*, buf_rle,
                                        (size_t)num_symbols * sizeof(*buf_rle));
 
-  memset(bounded_buf_rle, 0, num_symbols * sizeof(*buf_rle));
+  WEBP_UNSAFE_MEMSET(bounded_buf_rle, 0, num_symbols * sizeof(*buf_rle));
   OptimizeHuffmanForRle(num_symbols, bounded_buf_rle, bounded_histogram);
   GenerateOptimalTree(
       bounded_histogram, num_symbols,
