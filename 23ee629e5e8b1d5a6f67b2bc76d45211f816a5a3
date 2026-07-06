@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09e20618_1b4713ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-06T19:40:23Z",
+      "side": 1,
+      "message": "Thank\u0027s for patch, but this is a work in progress that is being tracked by https://issues.webmproject.org/432511225 and its child issues. We have some automation to work through this, no need to duplicate the effort.\n\nAt least some of the changes in this patchset don\u0027t look to be necessary given the buffers are already annotated.",
+      "revId": "23ee629e5e8b1d5a6f67b2bc76d45211f816a5a3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
