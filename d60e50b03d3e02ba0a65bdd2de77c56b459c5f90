@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7b9c383_a4e3a891",
+        "filename": "src/dsp/dec_vsx.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-06T19:42:49Z",
+      "side": 1,
+      "message": "From the log, please apply this patch:\n\n```\ndiff --git a/src/dsp/dec_vsx.c b/src/dsp/dec_vsx.c\nindex 0b223407..2a96c1e2 100644\n--- a/src/dsp/dec_vsx.c\n+++ b/src/dsp/dec_vsx.c\n@@ -677,7 +677,7 @@ static void TM8uv_VSX(uint8_t* dst) {\n #if (__BYTE_ORDER__ \u003d\u003d __ORDER_BIG_ENDIAN__)\n #define SRLI(x, n) vec_sld((x), zero, (n))\n #define SLLI(x, n) vec_sld(zero, (x), 16 - (n))\n-#define INS16(v, val, i) \\\n+#define INS16(v, val, i)                                              \\\n   ((u8x16)vec_insert((short)__builtin_bswap16((unsigned short)(val)), \\\n                      (i16x8)(v), (i)))\n #else\n```",
+      "revId": "d60e50b03d3e02ba0a65bdd2de77c56b459c5f90",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
