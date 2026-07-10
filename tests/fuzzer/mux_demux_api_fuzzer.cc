@@ -20,6 +20,7 @@
 #include <string_view>
 
 #include "./fuzz_utils.h"
+#include "gtest/gtest.h"
 #include "webp/demux.h"
 #include "webp/mux.h"
 #include "webp/mux_types.h"
@@ -137,6 +138,50 @@ void MuxDemuxApiTest(std::string_view data_in, bool use_mux_api,
 }
 
 }  // namespace
+
+TEST(MuxDemuxApi, SetChunkFromOwnedReference) {
+  static constexpr uint8_t kPayload[] = {1, 2, 3, 4, 5};
+  const WebPData input = {kPayload, sizeof(kPayload)};
+  WebPData reference;
+  WebPData result;
+  WebPMux* const mux = WebPMuxNew();
+  ASSERT_NE(mux, nullptr);
+
+  ASSERT_EQ(WebPMuxSetChunk(mux, "TEST", &input, /*copy_data=*/1), WEBP_MUX_OK);
+  ASSERT_EQ(WebPMuxGetChunk(mux, "TEST", &reference), WEBP_MUX_OK);
+  ASSERT_EQ(WebPMuxSetChunk(mux, "TEST", &reference, /*copy_data=*/0),
+            WEBP_MUX_OK);
+  ASSERT_EQ(WebPMuxGetChunk(mux, "TEST", &result), WEBP_MUX_OK);
+  ASSERT_EQ(result.size, sizeof(kPayload));
+  EXPECT_EQ(memcmp(result.bytes, kPayload, sizeof(kPayload)), 0);
+
+  WebPMuxDelete(mux);
+}
+
+TEST(MuxDemuxApi, RejectsAggregateSizeOverflow) {
+  static constexpr uint8_t kLossless1x1[] = {0x2f, 0x00, 0x00, 0x00, 0x00,
+                                             0x07, 0x10, 0xfd, 0x8f, 0xfe,
+                                             0x07, 0x22, 0xa2, 0xff, 0x01};
+  static constexpr uint8_t kByte = 0;
+  const WebPData image = {kLossless1x1, 0xf0000000u};
+  const WebPData large_data = {&kByte, 0xf0000000u};
+  WebPMux* const mux = WebPMuxNew();
+  ASSERT_NE(mux, nullptr);
+  ASSERT_EQ(WebPMuxSetImage(mux, &image, /*copy_data=*/0), WEBP_MUX_OK);
+  for (const char* const fourcc : {"ICCP", "EXIF", "XMP ", "TEST"}) {
+    ASSERT_EQ(WebPMuxSetChunk(mux, fourcc, &large_data, /*copy_data=*/0),
+              WEBP_MUX_OK);
+  }
+
+  WebPData assembled;
+  WebPDataInit(&assembled);
+  EXPECT_EQ(WebPMuxAssemble(mux, &assembled), WEBP_MUX_BAD_DATA);
+  EXPECT_EQ(assembled.bytes, nullptr);
+  EXPECT_EQ(assembled.size, 0u);
+
+  WebPDataClear(&assembled);
+  WebPMuxDelete(mux);
+}
 
 FUZZ_TEST(MuxDemuxApi, MuxDemuxApiTest)
     .WithDomains(

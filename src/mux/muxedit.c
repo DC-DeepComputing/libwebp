@@ -14,6 +14,7 @@
 
 #include <assert.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <string.h>
 
 #include "src/dec/vp8_dec.h"
@@ -183,11 +184,51 @@ static WebPMuxError MuxDeleteAllNamedData(WebPMux* const mux, uint32_t tag) {
   return DeleteChunks(MuxGetChunkListFromId(mux, id), tag);
 }
 
+// Returns true if 'data' overlaps storage owned by a chunk in 'chunk_list'.
+// Pointer values are converted to uintptr_t to avoid undefined relational
+// comparisons between pointers to different objects.
+static int ChunkListOwnsDataRange(const WebPChunk* chunk_list,
+                                  const WebPData* const data) {
+  const uintptr_t data_start = (uintptr_t)data->bytes;
+  if (data->bytes == NULL || data->size == 0) return 0;
+  while (chunk_list != NULL) {
+    if (chunk_list->owner && chunk_list->data.bytes != NULL &&
+        chunk_list->data.size != 0) {
+      const uintptr_t chunk_start = (uintptr_t)chunk_list->data.bytes;
+      const int overlaps =
+          (data_start <= chunk_start)
+              ? chunk_start - data_start < data->size
+              : data_start - chunk_start < chunk_list->data.size;
+      if (overlaps) return 1;
+    }
+    chunk_list = chunk_list->next;
+  }
+  return 0;
+}
+
+static int ImageListOwnsDataRange(const WebPMuxImage* images,
+                                  const WebPData* const data) {
+  while (images != NULL) {
+    if (ChunkListOwnsDataRange(images->header, data) ||
+        ChunkListOwnsDataRange(images->alpha, data) ||
+        ChunkListOwnsDataRange(images->img, data) ||
+        ChunkListOwnsDataRange(images->unknown, data)) {
+      return 1;
+    }
+    images = images->next;
+  }
+  return 0;
+}
+
 //------------------------------------------------------------------------------
 // Set API(s).
 
 WebPMuxError WebPMuxSetChunk(WebPMux* mux, const char fourcc[4],
                              const WebPData* chunk_data, int copy_data) {
+  WebPChunk chunk;
+  WebPChunk* staged_chunk = NULL;
+  WebPChunk** chunk_list;
+  WebPChunkId id;
   uint32_t tag;
   WebPMuxError err;
   if (mux == NULL || fourcc == NULL || chunk_data == NULL ||
@@ -195,13 +236,40 @@ WebPMuxError WebPMuxSetChunk(WebPMux* mux, const char fourcc[4],
     return WEBP_MUX_INVALID_ARGUMENT;
   }
   tag = ChunkGetTagFromFourCC(fourcc);
+  id = ChunkGetIdFromTag(tag);
+  if (IsWPI(id)) return WEBP_MUX_INVALID_ARGUMENT;
+  chunk_list = MuxGetChunkListFromId(mux, id);
+
+  // Stage the replacement before mutating the mux. A zero-copy reference
+  // returned by WebPMuxGetChunk() can point into the chunk being replaced; in
+  // that case retain API behavior by making a private copy before deletion.
+  ChunkInit(&chunk);
+  err = ChunkAssignData(
+      &chunk, chunk_data,
+      copy_data || ChunkListOwnsDataRange(*chunk_list, chunk_data), tag);
+  if (err != WEBP_MUX_OK) return err;
+  err = ChunkSetHead(&chunk, &staged_chunk);
+  if (err != WEBP_MUX_OK) {
+    ChunkRelease(&chunk);
+    return err;
+  }
 
   // Delete existing chunk(s) with the same 'fourcc'.
   err = MuxDeleteAllNamedData(mux, tag);
-  if (err != WEBP_MUX_OK && err != WEBP_MUX_NOT_FOUND) return err;
+  if (err != WEBP_MUX_OK && err != WEBP_MUX_NOT_FOUND) {
+    ChunkListDelete(&staged_chunk);
+    return err;
+  }
 
-  // Add the given chunk.
-  return MuxSet(mux, tag, chunk_data, copy_data);
+  // Commit the staged chunk. Known chunk lists are empty here. Preserve the
+  // existing behavior for unknown chunks when another FourCC occupies the
+  // shared unknown-chunk list.
+  if (*chunk_list != NULL) {
+    ChunkListDelete(&staged_chunk);
+    return WEBP_MUX_NOT_FOUND;
+  }
+  *chunk_list = staged_chunk;
+  return WEBP_MUX_OK;
 }
 
 // Creates a chunk from given 'data' and sets it as 1st chunk in 'chunk_list'.
@@ -245,6 +313,7 @@ static WebPMuxError SetAlphaAndImageChunks(const WebPData* const bitstream,
 WebPMuxError WebPMuxSetImage(WebPMux* mux, const WebPData* bitstream,
                              int copy_data) {
   WebPMuxImage wpi;
+  WebPMuxImage* staged_images = NULL;
   WebPMuxError err;
 
   if (mux == NULL || bitstream == NULL || bitstream->bytes == NULL ||
@@ -252,18 +321,21 @@ WebPMuxError WebPMuxSetImage(WebPMux* mux, const WebPData* bitstream,
     return WEBP_MUX_INVALID_ARGUMENT;
   }
 
-  if (mux->images != NULL) {
-    // Only one 'simple image' can be added in mux. So, remove present images.
-    DeleteAllImages(&mux->images);
-  }
-
   MuxImageInit(&wpi);
-  err = SetAlphaAndImageChunks(bitstream, copy_data, &wpi);
+  // Stage the complete replacement before deleting the current image list.
+  // If a no-copy input overlaps mux-owned image storage, force a private copy
+  // so the staged image remains valid across the commit step.
+  err = SetAlphaAndImageChunks(
+      bitstream, copy_data || ImageListOwnsDataRange(mux->images, bitstream),
+      &wpi);
   if (err != WEBP_MUX_OK) goto Err;
 
-  // Add this WebPMuxImage to mux.
-  err = MuxImagePush(&wpi, &mux->images);
+  err = MuxImagePush(&wpi, &staged_images);
   if (err != WEBP_MUX_OK) goto Err;
+
+  // Commit only after all parsing, copying and allocations have succeeded.
+  DeleteAllImages(&mux->images);
+  mux->images = staged_images;
 
   // All is well.
   return WEBP_MUX_OK;
@@ -337,7 +409,6 @@ Err:  // Something bad happened.
 
 WebPMuxError WebPMuxSetAnimationParams(WebPMux* mux,
                                        const WebPMuxAnimParams* params) {
-  WebPMuxError err;
   uint8_t data[ANIM_CHUNK_SIZE];
   const WebPData anim = {data, ANIM_CHUNK_SIZE};
 
@@ -346,14 +417,11 @@ WebPMuxError WebPMuxSetAnimationParams(WebPMux* mux,
     return WEBP_MUX_INVALID_ARGUMENT;
   }
 
-  // Delete any existing ANIM chunk(s).
-  err = MuxDeleteAllNamedData(mux, kChunks[IDX_ANIM].tag);
-  if (err != WEBP_MUX_OK && err != WEBP_MUX_NOT_FOUND) return err;
-
-  // Set the animation parameters.
+  // WebPMuxSetChunk() stages the replacement before deleting the old ANIM
+  // chunk, preserving the current parameters if allocation fails.
   PutLE32(data, params->bgcolor);
   PutLE16(data + 4, params->loop_count);
-  return MuxSet(mux, kChunks[IDX_ANIM].tag, &anim, 1);
+  return WebPMuxSetChunk(mux, "ANIM", &anim, 1);
 }
 
 WebPMuxError WebPMuxSetCanvasSize(WebPMux* mux, int width, int height) {
@@ -590,14 +658,33 @@ static WebPMuxError MuxCleanup(WebPMux* const mux) {
   return WEBP_MUX_OK;
 }
 
-// Total size of a list of images.
-static size_t ImageListDiskSize(const WebPMuxImage* wpi_list) {
-  size_t size = 0;
-  while (wpi_list != NULL) {
-    size += MuxImageDiskSize(wpi_list);
-    wpi_list = wpi_list->next;
+static int AddToSize(size_t value, size_t* const size) {
+  if (value > SIZE_MAX - *size) return 0;
+  *size += value;
+  return 1;
+}
+
+static int ChunkListDiskSizeChecked(const WebPChunk* chunk_list,
+                                    size_t* const size) {
+  while (chunk_list != NULL) {
+    if (!AddToSize(ChunkDiskSize(chunk_list), size)) return 0;
+    chunk_list = chunk_list->next;
   }
-  return size;
+  return 1;
+}
+
+static int ImageListDiskSizeChecked(const WebPMuxImage* images,
+                                    size_t* const size) {
+  while (images != NULL) {
+    if (!ChunkListDiskSizeChecked(images->header, size) ||
+        !ChunkListDiskSizeChecked(images->alpha, size) ||
+        !ChunkListDiskSizeChecked(images->img, size) ||
+        !ChunkListDiskSizeChecked(images->unknown, size)) {
+      return 0;
+    }
+    images = images->next;
+  }
+  return 1;
 }
 
 // Write out the given list of images into 'dst'.
@@ -632,10 +719,16 @@ WebPMuxError WebPMuxAssemble(WebPMux* mux, WebPData* assembled_data) {
   if (err != WEBP_MUX_OK) return err;
 
   // Allocate data.
-  size = ChunkListDiskSize(mux->vp8x) + ChunkListDiskSize(mux->iccp) +
-         ChunkListDiskSize(mux->anim) + ImageListDiskSize(mux->images) +
-         ChunkListDiskSize(mux->exif) + ChunkListDiskSize(mux->xmp) +
-         ChunkListDiskSize(mux->unknown) + RIFF_HEADER_SIZE;
+  if (!AddToSize(RIFF_HEADER_SIZE, &size) ||
+      !ChunkListDiskSizeChecked(mux->vp8x, &size) ||
+      !ChunkListDiskSizeChecked(mux->iccp, &size) ||
+      !ChunkListDiskSizeChecked(mux->anim, &size) ||
+      !ImageListDiskSizeChecked(mux->images, &size) ||
+      !ChunkListDiskSizeChecked(mux->exif, &size) ||
+      !ChunkListDiskSizeChecked(mux->xmp, &size) ||
+      !ChunkListDiskSizeChecked(mux->unknown, &size) || size > UINT32_MAX) {
+    return WEBP_MUX_BAD_DATA;
+  }
 
   data = (uint8_t*)WebPSafeMalloc(1ULL, size);
   if (data == NULL) return WEBP_MUX_MEMORY_ERROR;
