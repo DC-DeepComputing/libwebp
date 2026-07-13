@@ -16,6 +16,24 @@
       "message": "This change contains too many independent changes, as evidenced by the bullet point descriptions in this change message. It would be better to split this change on logical boundaries so each proposed fix can be analyzed separately.\n\nI have not review the change, but the Get/Set interaction may be a part of the API contract, though it\u0027s possible some documentation is missing.",
       "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8635a847_1533567d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4966962
+      },
+      "writtenOn": "2026-07-13T20:01:51Z",
+      "side": 1,
+      "message": "Thanks, I’ll split the changes. Regarding the Get/Set interaction, the current API documentation states that WebPMuxGetChunk() returns a non-owning reference and that WebPMuxSetChunk(... , copy_data \u003d 1) copies the provided data. It does not state that mux-owned input is prohibited or invalidated before the setter consumes it.\n\nIn the current implementation , webPMuxSetChunk() deletes the existing same-FourCC chunk before calling MuxSet(). Consequently, passing the result WebPMuxGetChunk() back with copy_data \u003d 1 causes the copy to read freed storage. A minimal ASan reproducer reports heap-use-after-free. I’ll isolate that behavior and its regression test into a focused change so the API-contract question can be reviewed separately.",
+      "parentUuid": "2fdb6ae8_04bfce10",
+      "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
