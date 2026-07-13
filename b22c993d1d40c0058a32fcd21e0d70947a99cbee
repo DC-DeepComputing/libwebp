@@ -34,6 +34,24 @@
       "parentUuid": "2fdb6ae8_04bfce10",
       "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a0ad31d_92342798",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-07-13T22:02:11Z",
+      "side": 1,
+      "message": "\u003e Thanks, I’ll split the changes. Regarding the Get/Set interaction, the current API documentation states that WebPMuxGetChunk() returns a non-owning reference and that WebPMuxSetChunk(... , copy_data \u003d 1) copies the provided data. It does not state that mux-owned input is prohibited or invalidated before the setter consumes it.\n\u003e \n\u003e In the current implementation , webPMuxSetChunk() deletes the existing same-FourCC chunk before calling MuxSet(). Consequently, passing the result WebPMuxGetChunk() back with copy_data \u003d 1 causes the copy to read freed storage. A minimal ASan reproducer reports heap-use-after-free. I’ll isolate that behavior and its regression test into a focused change so the API-contract question can be reviewed separately.\n\nI\u0027m not sure it would make sense to send the pointer obtained via Get back to Set. We can simply update the documentation about pointer lifetimes.",
+      "parentUuid": "8635a847_1533567d",
+      "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
