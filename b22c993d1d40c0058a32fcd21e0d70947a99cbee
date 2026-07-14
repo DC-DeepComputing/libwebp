@@ -52,6 +52,24 @@
       "parentUuid": "8635a847_1533567d",
       "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "943b4e5a_214797ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4966962
+      },
+      "writtenOn": "2026-07-14T15:12:13Z",
+      "side": 1,
+      "message": "Thanks for clarifying. Would the intended resolution be to document that references returned by WebPMuxGetChunk() are invalidated when the mux is modified and therefore must not be passed to WebPMuxSetChunk() with copy_data \u003d 0? for  copy_data \u003d 1, the API states that the supplied data will be copied, and the reference is valid when the setter is entered. Would you prefer retaining a narrow copy-before-delete fix and regression test for that case, or should aliasing mux-owned storage also be explicitly unsupported for copy_data \u003d 1?",
+      "parentUuid": "7a0ad31d_92342798",
+      "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
