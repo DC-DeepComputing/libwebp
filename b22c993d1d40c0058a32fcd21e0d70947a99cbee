@@ -70,6 +70,24 @@
       "parentUuid": "7a0ad31d_92342798",
       "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac87fe6e_20ec2f0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 4966962
+      },
+      "writtenOn": "2026-07-21T15:21:59Z",
+      "side": 1,
+      "message": "Hi James, gentle ping on the API-contract question above. Patch set 4 is green. I’m happy to either narrow the code fix and regression test specifically to copy_data \u003d 1 while documenting the lifetime  restriction for copy_data \u003d 0, or replace the implementation change with documentation if aliasing mux-owned storage is intended to be unsupported in both modes. Could you confirm which direction you\nprefer? Thanks.",
+      "parentUuid": "943b4e5a_214797ed",
+      "revId": "b22c993d1d40c0058a32fcd21e0d70947a99cbee",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
