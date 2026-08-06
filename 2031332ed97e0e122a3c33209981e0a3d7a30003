@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ee1c565_2053124f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-06T21:47:32Z",
+      "side": 1,
+      "message": "Thanks for the patch and good catch. This is the right way to validate two untrusted parameters.",
+      "revId": "2031332ed97e0e122a3c33209981e0a3d7a30003",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
