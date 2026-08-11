@@ -588,7 +588,6 @@ static int BackwardReferencesLz77Box(int xsize, int ysize,
                                      VP8LBackwardRefs* const refs) {
   int i;
   const int pix_count = xsize * ysize;
-  uint16_t* counts;
   int window_offsets[WINDOW_OFFSETS_SIZE_MAX] = {0};
   int window_offsets_new[WINDOW_OFFSETS_SIZE_MAX] = {0};
   int window_offsets_size = 0;
@@ -598,16 +597,15 @@ static int BackwardReferencesLz77Box(int xsize, int ysize,
   int best_offset_prev = -1, best_length_prev = -1;
   if (counts_ini == NULL) return 0;
 
-  // counts[i] counts how many times a pixel is repeated starting at position i.
-  i = pix_count - 2;
-  counts = counts_ini + i;
-  counts[1] = 1;
-  for (; i >= 0; --i, --counts) {
+  // counts_ini[i] counts how many times a pixel is repeated starting at
+  // position i.
+  counts_ini[pix_count - 1] = 1;
+  for (i = pix_count - 2; i >= 0; --i) {
     if (argb[i] == argb[i + 1]) {
       // Max out the counts to MAX_LENGTH.
-      counts[0] = counts[1] + (counts[1] != MAX_LENGTH);
+      counts_ini[i] = counts_ini[i + 1] + (counts_ini[i + 1] != MAX_LENGTH);
     } else {
-      counts[0] = 1;
+      counts_ini[i] = 1;
     }
   }
 
