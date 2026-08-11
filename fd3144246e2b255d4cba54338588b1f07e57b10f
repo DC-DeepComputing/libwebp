@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fed86914_7a8f5dbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-11T18:07:18Z",
+      "side": 1,
+      "message": "The last failure was infrastructure related. The next one should pass.",
+      "revId": "fd3144246e2b255d4cba54338588b1f07e57b10f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
