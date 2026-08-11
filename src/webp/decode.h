@@ -24,7 +24,7 @@ WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 extern "C" {
 #endif
 
-#define WEBP_DECODER_ABI_VERSION 0x0210  // MAJOR(8b) + MINOR(8b)
+#define WEBP_DECODER_ABI_VERSION 0x0211  // MAJOR(8b) + MINOR(8b)
 
 // Note: forward declaring enumerations is not allowed in (strict) C and C++,
 // the types are left here for reference.
