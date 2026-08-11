@@ -16,6 +16,24 @@
       "message": "This would be reflected in the library version. The ABI hasn\u0027t changed.",
       "revId": "2f436ab28f99686aa4799787a462d59313d9fb04",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69d6f0d4_8f2d0325",
+        "filename": "src/webp/decode.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-08-11T21:10:27Z",
+      "side": 1,
+      "message": "Removed version bump.",
+      "parentUuid": "6859c55e_644698d8",
+      "revId": "2f436ab28f99686aa4799787a462d59313d9fb04",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
