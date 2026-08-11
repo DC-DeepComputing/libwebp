@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4444fa5c_ea72f4f7",
+        "filename": "src/enc/backward_references_enc.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 595,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-11T17:40:24Z",
+      "side": 1,
+      "message": "please rename counts_ini to counts. And replace xsize * ysize below by pix_count. Thx sir !",
+      "revId": "df7511048e49f14bb7f73f5c7c18651290e35554",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
