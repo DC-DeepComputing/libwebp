@@ -581,13 +581,14 @@ static int AllocateAndInitRescaler(VP8LDecoder* const dec, VP8Io* const io) {
   const int out_width = io->scaled_width;
   const int in_height = io->mb_h;
   const int out_height = io->scaled_height;
-  const uint64_t work_size = 2 * num_channels * (uint64_t)out_width;
+  const uint64_t work_size = WebPRescalerWorkSize(
+      in_width, in_height, out_width, out_height, num_channels);
   rescaler_t* WEBP_BIDI_INDEXABLE work;  // Rescaler work area.
   const uint64_t scaled_data_size = (uint64_t)out_width;
   uint32_t* WEBP_BIDI_INDEXABLE
       scaled_data;  // Temporary storage for scaled BGRA data.
-  const uint64_t memory_size = sizeof(*dec->rescaler) +
-                               work_size * sizeof(*work) +
+  const uint64_t memory_size = sizeof(*dec->rescaler) + WEBP_ALIGN_CST +
+                               work_size +
                                scaled_data_size * sizeof(*scaled_data);
   uint8_t* WEBP_BIDI_INDEXABLE memory =
       (uint8_t*)WebPSafeMalloc(memory_size, sizeof(*memory));
@@ -599,8 +600,9 @@ static int AllocateAndInitRescaler(VP8LDecoder* const dec, VP8Io* const io) {
 
   dec->rescaler = (WebPRescaler*)memory;
   memory += sizeof(*dec->rescaler);
-  work = (rescaler_t*)memory;
-  memory += work_size * sizeof(*work);
+  work = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(rescaler_t*, WEBP_ALIGN(memory),
+                                          work_size);
+  memory = (uint8_t*)work + work_size;
   scaled_data = (uint32_t*)memory;
 
   if (!WebPRescalerInit(dec->rescaler, in_width, in_height,
