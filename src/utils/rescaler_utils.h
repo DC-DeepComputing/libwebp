@@ -18,7 +18,10 @@
 extern "C" {
 #endif
 
+#include <limits.h>
+
 #include "src/utils/bounds_safety.h"
+#include "src/utils/utils.h"
 #include "src/webp/types.h"
 
 WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
@@ -29,11 +32,13 @@ WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
   ((uint32_t)(((uint64_t)(x) << WEBP_RESCALER_RFIX) / (y)))
 
 // Structure used for on-the-fly rescaling
-typedef uint32_t rescaler_t;  // type for side-buffer
+typedef uint32_t rescaler_t;        // type for side-buffer
+typedef uint64_t rescaler_accum_t;  // type for 64-bit accumulator buffer
 typedef struct WebPRescaler WebPRescaler;
 struct WebPRescaler {
   int x_expand;               // true if we're expanding in the x direction
   int y_expand;               // true if we're expanding in the y direction
+  int use_64bit;              // true if 64-bit accumulator is used
   int num_channels;           // bytes to jump between pixels
   uint32_t fx_scale;          // fixed-point scaling factors
   uint32_t fy_scale;          // ''
@@ -47,17 +52,52 @@ struct WebPRescaler {
   uint8_t* dst;
   int dst_stride;
   // work buffer
-  rescaler_t* WEBP_COUNTED_BY(dst_width* num_channels) irow;
+  rescaler_t* WEBP_COUNTED_BY_OR_NULL(dst_width* num_channels) irow;
   rescaler_t* WEBP_COUNTED_BY(dst_width* num_channels) frow;
+  rescaler_accum_t* WEBP_COUNTED_BY_OR_NULL(dst_width* num_channels) irow64;
 };
+
+// Returns 1 if a 64-bit accumulator is needed to avoid integer overflow during
+// scaling, 0 otherwise.
+static WEBP_INLINE int WebPRescalerNeeds64Bit(int src_width, int src_height,
+                                              int dst_width, int dst_height) {
+  if (src_height >= dst_height && dst_height > 0) {
+    // In horizontal downscaling (src_width >= dst_width), each input row
+    // contributes at most 255 * src_width to frow. In horizontal upscaling
+    // (src_width < dst_width), bilinear expansion scales contributions by
+    // x_add = dst_width - 1, giving at most 255 * (dst_width - 1) per row.
+    // During vertical downscaling, up to ceil(src_height / dst_height) rows
+    // accumulate in irow before an export cycle.
+    const uint64_t max_row_contrib = (src_width >= dst_width)
+                                         ? (uint64_t)src_width
+                                         : (uint64_t)(dst_width - 1);
+    const uint64_t num_rows =
+        (uint64_t)(src_height + dst_height - 1) / dst_height;
+    const uint64_t max_accum = (uint64_t)255 * max_row_contrib * num_rows;
+    return max_accum > UINT_MAX;
+  }
+  return 0;
+}
+
+// Returns the required scratch work buffer size in bytes for the given
+// scaling dimensions and channel count.
+static WEBP_INLINE uint64_t WebPRescalerWorkSize(int src_width, int src_height,
+                                                 int dst_width, int dst_height,
+                                                 int num_channels) {
+  const uint64_t num_elements = (uint64_t)dst_width * num_channels;
+  const uint64_t work_size =
+      WebPRescalerNeeds64Bit(src_width, src_height, dst_width, dst_height)
+          ? num_elements * (sizeof(rescaler_accum_t) + sizeof(rescaler_t))
+          : 2 * num_elements * sizeof(rescaler_t);
+  return (work_size + WEBP_ALIGN_CST) & ~(uint64_t)WEBP_ALIGN_CST;
+}
 
 // Initialize a rescaler given scratch area 'work' and dimensions of src & dst.
 // Returns false in case of error.
 int WebPRescalerInit(WebPRescaler* const rescaler, int src_width,
                      int src_height, uint8_t* const dst, int dst_width,
                      int dst_height, int dst_stride, int num_channels,
-                     rescaler_t* const WEBP_COUNTED_BY(2ULL * dst_width *
-                                                       num_channels) work);
+                     rescaler_t* const work);
 
 // If either 'scaled_width' or 'scaled_height' (but not both) is 0 the value
 // will be calculated preserving the aspect ratio, otherwise the values are
