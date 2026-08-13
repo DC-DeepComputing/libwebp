@@ -1644,7 +1644,7 @@ static int AllocateInternalBuffers32b(VP8LDecoder* const dec, int final_width) {
   const uint64_t num_pixels = (uint64_t)dec->width * dec->height;
   // Scratch buffer corresponding to top-prediction row for transforming the
   // first row in the row-blocks. Not needed for paletted alpha.
-  const uint64_t cache_top_pixels = (uint16_t)final_width;
+  const uint64_t cache_top_pixels = final_width;
   // Scratch buffer for temporary BGRA storage. Not needed for paletted alpha.
   const uint64_t cache_pixels = (uint64_t)final_width * NUM_ARGB_CACHE_ROWS;
   // Scratch buffer to accumulate RGBA values (hence 4*)for YUV conversion.
