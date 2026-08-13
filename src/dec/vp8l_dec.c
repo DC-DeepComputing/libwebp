@@ -1417,8 +1417,8 @@ static int ExpandColorMap(int num_colors, VP8LTransform* const transform) {
   return 1;
 }
 
-static int ReadTransform(int* const xsize, int const* ysize,
-                         VP8LDecoder* const dec) {
+// Only 'xsize' can be modified (by COLOR_INDEXING_TRANSFORM).
+static int ReadTransform(int* const xsize, int ysize, VP8LDecoder* const dec) {
   int ok = 1;
   VP8LBitReader* const br = &dec->br;
   VP8LTransform* transform = &dec->transforms[dec->next_transform];
@@ -1433,7 +1433,7 @@ static int ReadTransform(int* const xsize, int const* ysize,
 
   transform->type = type;
   transform->xsize = *xsize;
-  transform->ysize = *ysize;
+  transform->ysize = ysize;
   transform->data = NULL;
   ++dec->next_transform;
   assert(dec->next_transform <= NUM_TRANSFORMS);
@@ -1566,7 +1566,7 @@ static int DecodeImageStream(int xsize, int ysize, int is_level0,
   // Read the transforms (may recurse).
   if (is_level0) {
     while (ok && VP8LReadBits(br, 1)) {
-      ok = ReadTransform(&transform_xsize, &transform_ysize, dec);
+      ok = ReadTransform(&transform_xsize, transform_ysize, dec);
     }
   }
 
