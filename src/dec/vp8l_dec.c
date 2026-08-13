@@ -328,6 +328,7 @@ static int ReadHuffmanCode(int alphabet_size, VP8LDecoder* const dec,
     const int first_symbol_len_code = VP8LReadBits(br, 1);
     // The first code is either 1 bit or 8 bit code.
     int symbol = VP8LReadBits(br, (first_symbol_len_code == 0) ? 1 : 8);
+    // 'symbol' can exceed 'alphabet_size', but not code_lengths[]'s size.
     code_lengths[symbol] = 1;
     // The second code (if present), is always 8 bits long.
     if (num_symbols == 2) {
