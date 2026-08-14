@@ -16,6 +16,24 @@
       "message": "(presubmit) *The commit subject: \u0027config_enc: bound alpha_compression and alpha_filtering from above\u0027 is too long! (66 characters)*",
       "revId": "3941dc098fd53a8b510933cec48d5f073d21be24",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67667a1a_e9f5886f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-14T04:13:46Z",
+      "side": 1,
+      "message": "\u003e (presubmit) *The commit subject: \u0027config_enc: bound alpha_compression and alpha_filtering from above\u0027 is too long! (66 characters)*\n\n65 is OK, 50 is the target.",
+      "parentUuid": "44bb4341_e0a6f599",
+      "revId": "3941dc098fd53a8b510933cec48d5f073d21be24",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
