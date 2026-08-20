@@ -54,6 +54,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "b02f10df_8673214a",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-08-20T20:11:50Z",
+      "side": 1,
+      "message": "i added a guard checking GCC \u003e\u003d 8. Otherwise, UNROLL macro stays empty.",
+      "parentUuid": "13c3f4f0_b63646bb",
+      "revId": "965665bbb038646df6440ef95073ae053621c91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "615f4728_d4884687",
         "filename": "src/dsp/lossless_enc_neon.c",
         "patchSetId": 3
