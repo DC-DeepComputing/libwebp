@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad7f7003_77805b9b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-20T18:23:02Z",
+      "side": 1,
+      "message": "bryce on a Pixel 6 goes from ~21.321s -\u003e ~20.108s using the defaults.",
+      "revId": "965665bbb038646df6440ef95073ae053621c91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9ab312b4_20825984",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-20T18:23:02Z",
+      "side": 1,
+      "message": "This is nice. Another thing I\u0027ve been thinking we could use is `#pragma clang loop vectorize(disable)` when we have tail loops. Often the compiler will autovectorize these too.",
+      "revId": "965665bbb038646df6440ef95073ae053621c91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "13c3f4f0_b63646bb",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-20T18:23:02Z",
+      "side": 1,
+      "message": "This came in with the gcc 8 series:\n\nhttps://gcc.gnu.org/gcc-8/changes.html\n\n*A new pragma GCC unroll has been implemented in the C family of languages, as well as Fortran and Ada, so as to make it possible for the user to have a finer-grained control over the loop unrolling optimization.*\n\n---\n\n[Foundational support](https://github.com/google/oss-policies-info/blob/main/foundational-cxx-support-matrix.md) has moved to gcc 10, but this seems easy to handle.",
+      "revId": "965665bbb038646df6440ef95073ae053621c91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "615f4728_d4884687",
+        "filename": "src/dsp/lossless_enc_neon.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 149,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-20T18:23:02Z",
+      "side": 1,
+      "message": "I have a `AddVector_NEON` from long ago, but at the time the vectorized C was just as good; though I\u0027d have to guess which compiler I was using back in 2024.",
+      "revId": "965665bbb038646df6440ef95073ae053621c91f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
