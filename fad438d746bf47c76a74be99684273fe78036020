@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b7b7851_5a61f59e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-24T18:36:09Z",
+      "side": 1,
+      "message": "Thanks for the patch, but the goal of https://issues.webmproject.org/432511225 was only to add annotations in higher level functions. The dsp code is meant to be high performance and any validation is expected to have already occurred.",
+      "revId": "fad438d746bf47c76a74be99684273fe78036020",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
