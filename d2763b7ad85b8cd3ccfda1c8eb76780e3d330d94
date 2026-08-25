@@ -24,6 +24,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fad8ef_83f06275",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-08-25T16:41:28Z",
+      "side": 1,
+      "message": "all renamed to \u0027diff_mask\u0027 and such",
+      "parentUuid": "b480f435_93b10cde",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "d2763b7ad85b8cd3ccfda1c8eb76780e3d330d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67f01a12_f366f016",
@@ -37,6 +61,24 @@
       "writtenOn": "2026-08-25T16:03:06Z",
       "side": 1,
       "message": "Also add \u0026 0xff to not have narrow warnings",
+      "revId": "d2763b7ad85b8cd3ccfda1c8eb76780e3d330d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f8d460_967d5839",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-08-25T16:41:28Z",
+      "side": 1,
+      "message": "done",
+      "parentUuid": "67f01a12_f366f016",
       "revId": "d2763b7ad85b8cd3ccfda1c8eb76780e3d330d94",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
