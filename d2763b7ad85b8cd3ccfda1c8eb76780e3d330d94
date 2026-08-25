@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b480f435_93b10cde",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-25T16:03:06Z",
+      "side": 1,
+      "message": "constant_mask should be renamed to: non_constant_mask no ?",
+      "range": {
+        "startLine": 108,
+        "startChar": 2,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "d2763b7ad85b8cd3ccfda1c8eb76780e3d330d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67f01a12_f366f016",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 113,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-25T16:03:06Z",
+      "side": 1,
+      "message": "Also add \u0026 0xff to not have narrow warnings",
+      "revId": "d2763b7ad85b8cd3ccfda1c8eb76780e3d330d94",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
