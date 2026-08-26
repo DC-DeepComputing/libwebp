@@ -33,6 +33,24 @@
       "message": "This lowers by a few percents the encoding speed over our usual corpuses",
       "revId": "3ed2aba79731b27c1dbcafaf3d126fa313169fc0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fd28072_bf3342fc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-08-26T15:54:10Z",
+      "side": 1,
+      "message": "\u0027lower the encoding speed\u0027 as in: it\u0027s _slower_\u0027 ??",
+      "parentUuid": "214c43d3_84d33e2f",
+      "revId": "3ed2aba79731b27c1dbcafaf3d126fa313169fc0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
