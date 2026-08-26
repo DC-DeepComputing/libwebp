@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65659eb9_e9fc00a5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-26T15:36:20Z",
+      "side": 1,
+      "message": "Nice. I confirm a 2-3 % compression speedup on our datasets.",
+      "revId": "05d51830eb9185dd0302afbd0ca9fec41e746227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2ebe6c4_c0d2887f",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-26T15:36:20Z",
+      "side": 1,
+      "message": "Only used in if (effective_mask !\u003d 0xf) so please move definition there.",
+      "revId": "05d51830eb9185dd0302afbd0ca9fec41e746227",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
