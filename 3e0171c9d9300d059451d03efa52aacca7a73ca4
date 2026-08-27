@@ -1,0 +1,78 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "258962c6_761775e4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-27T15:55:03Z",
+      "side": 1,
+      "message": "I get similar numbers. I still need to understand fully the code",
+      "revId": "3e0171c9d9300d059451d03efa52aacca7a73ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "654759b0_e036a3de",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 351,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-27T15:55:03Z",
+      "side": 1,
+      "message": "color is order[at], keep it this way (the compiler should see it is constant)",
+      "revId": "3e0171c9d9300d059451d03efa52aacca7a73ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df08c15_f806798f",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 367,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-27T15:55:03Z",
+      "side": 1,
+      "message": "keep that line as int64_t and the one below too to avoid casts all over",
+      "revId": "3e0171c9d9300d059451d03efa52aacca7a73ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "abaf2338_2325b9c6",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-08-27T15:55:03Z",
+      "side": 1,
+      "message": "at_cost\u003d\u003dbest will be clearer",
+      "range": {
+        "startLine": 391,
+        "startChar": 10,
+        "endLine": 391,
+        "endChar": 25
+      },
+      "revId": "3e0171c9d9300d059451d03efa52aacca7a73ca4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
