@@ -98,12 +98,25 @@ WEBP_EXTERN int VP8EstimateQuality(const uint8_t* const data, size_t size);
 //     currently supported.
 // width, height: width and height of the image in pixels
 // Returns 0 on failure.
+// May return early with an approximate score once it's confidently away
+// from the decision thresholds.
+//   => use SharpYuvEstimate420RiskFull() for backward-compatibility
 WEBP_EXTERN int SharpYuvEstimate420Risk(const void* r_ptr, const void* g_ptr,
                                         const void* b_ptr, int rgb_step,
                                         int rgb_stride, int rgb_bit_depth,
                                         int width, int height,
                                         const SharpYuvOptions* options,
                                         float* score);
+
+// Same as SharpYuvEstimate420Risk(), but always scans the full image for an
+// exact score, at the cost of speed on large images.
+WEBP_EXTERN int SharpYuvEstimate420RiskFull(const void* r_ptr,
+                                            const void* g_ptr,
+                                            const void* b_ptr, int rgb_step,
+                                            int rgb_stride, int rgb_bit_depth,
+                                            int width, int height,
+                                            const SharpYuvOptions* options,
+                                            float* score);
 
 //------------------------------------------------------------------------------
 

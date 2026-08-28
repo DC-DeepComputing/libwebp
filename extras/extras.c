@@ -14,6 +14,7 @@
 
 #include <assert.h>
 #include <limits.h>
+#include <math.h>  // for fabs, ceil
 #include <string.h>
 
 #include "./sharpyuv_risk_table.h"
@@ -25,7 +26,7 @@
 #include "webp/types.h"
 
 #define XTRA_MAJ_VERSION 1
-#define XTRA_MIN_VERSION 6
+#define XTRA_MIN_VERSION 7
 #define XTRA_REV_VERSION 0
 
 //------------------------------------------------------------------------------
@@ -208,6 +209,7 @@ static int SharpYuvConvertToYuvSharpnessIndex(
              precomputed_scores_table_sampling;
 }
 
+// TODO(later): use SIMD variants already used in SharpYuvConvert() if possible
 static void SharpYuvRowToYuvSharpnessIndex(
     const uint8_t* r_ptr, const uint8_t* g_ptr, const uint8_t* b_ptr,
     int rgb_step, int rgb_bit_depth, int width, uint16_t* dst,
@@ -224,6 +226,115 @@ static void SharpYuvRowToYuvSharpnessIndex(
   }
 }
 
+//------------------------------------------------------------------------------
+// Progressive scoring: scan rows in bit-reversed dispersed 8px bands,
+// checking after every band, and bail out once the score has settled
+// clearly away from the kRiskThresholds[] decision thresholds.
+// "Settled" means the current std-dev over the last WINDOW_SIZE bands is
+// small relative to the distance to the cutoff.
+
+static const int kBandHeight = 8;
+static const double kRiskThresholds[2] = {40.0, 70.0};
+
+#define WINDOW_SIZE 32
+static const double kFracZScore = 8.0;
+static const double kFracMarginFloor = 0.1;  // percentage points
+static const double kScoreZScore = 5.0;
+static const double kScoreMarginFloor = 2.0;  // score points (0-100 scale)
+static const double kFracCutoff = 1.0;  // percent; matches FinalizeRiskScore
+
+// Circular buffer of WINDOW_SIZE values, with running sum/sumsq.
+typedef struct {
+  double values[WINDOW_SIZE];
+  double sum, sumsq;
+  int count;  // saturates at WINDOW_SIZE
+  int next;   // next slot to overwrite
+} MovingWindow;
+
+static void MovingWindowInit(MovingWindow* const w) {
+  memset(w, 0, sizeof(*w));
+}
+
+// Pushes 'value' and returns the resulting margin: HUGE_VAL until the
+// window is full, else z_score * std-dev (floored at margin_floor).
+static double MovingWindowPush(MovingWindow* const w, double value,
+                               double z_score, double margin_floor) {
+  double mean, variance, margin;
+  if (w->count == WINDOW_SIZE) {
+    const double old = w->values[w->next];
+    w->sum -= old;
+    w->sumsq -= old * old;
+  } else {
+    ++w->count;
+  }
+  w->values[w->next] = value;
+  w->sum += value;
+  w->sumsq += value * value;
+  w->next = (w->next + 1) % WINDOW_SIZE;
+
+  if (w->count < WINDOW_SIZE) return HUGE_VAL;
+  mean = w->sum / w->count;
+  variance = w->sumsq / w->count - mean * mean;
+  margin = z_score * sqrt((variance > 0.) ? variance : 0.);
+  return (margin > margin_floor) ? margin : margin_floor;
+}
+
+#undef WINDOW_SIZE
+
+// Reverses the low 'bits' bits of v, bits in [0, 16].
+static int BitReversal16b(int v, int bits) {
+  int r = 0;
+  int i;
+  for (i = 0; i < bits; ++i) {
+    r = (r << 1) | (v & 1);
+    v >>= 1;
+  }
+  return r;
+}
+
+static const int kNoiseLevel = 4;
+
+// Scores one adjacent row-pair (row1 = above, row2 = below) and accumulates
+// into '*sum' / '*count'.
+static void ScoreRowPair(const uint16_t* row1, const uint16_t* row2,
+                         int width, const uint8_t precomputed_scores_table[],
+                         int sampling3, int64_t* sum, int64_t* count) {
+  int i;
+  for (i = 0; i < width - 1; ++i) {
+    const int idx0 = row1[i + 0];
+    const int idx1 = row1[i + 1];
+    const int idx2 = row2[i + 0];
+    const int score = precomputed_scores_table[idx0 + sampling3 * idx1] +
+                      precomputed_scores_table[idx0 + sampling3 * idx2] +
+                      precomputed_scores_table[idx1 + sampling3 * idx2];
+    if (score > kNoiseLevel) {
+      *sum += score;
+      ++*count;
+    }
+  }
+}
+
+// Derives the risk score in [0:100] from the accumulators collected so far
+// (full or partial coverage). '*frac_out', if not NULL, gets the percentage
+// of evaluated pixels relative to the 1% noise-floor cutoff.
+static double FinalizeRiskScore(int64_t sum, int64_t count, int width,
+                                int height, int64_t rows_scored,
+                                double* const frac_out) {
+  const double cnt = (double)count;
+  double total_score = (cnt > 0) ? (double)sum / cnt : 0.;
+  // Pixels evaluated so far, scaled by how many rows were actually scored.
+  const double effective_area =
+      (rows_scored > 0)
+          ? (double)width * height * (double)rows_scored / (height - 1.)
+          : 0.;
+  // If less than 1% of pixels were evaluated -> below noise level.
+  const double frac = (effective_area > 0.) ? 100. * cnt / effective_area : 0.;
+  if (frac_out != NULL) *frac_out = frac;
+  if (frac < 1.) total_score = 0.;
+  // Rescale to [0:100]
+  return (total_score > 25.) ? 100. : total_score * 100. / 25.;
+}
+
 #define SAFE_ALLOC(W, H, T) ((T*)WebPSafeMalloc((uint64_t)(W) * (H), sizeof(T)))
 
 static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
@@ -232,20 +343,25 @@ static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
                           const SharpYuvOptions* options,
                           const uint8_t precomputed_scores_table[],
                           int precomputed_scores_table_sampling,
-                          float* score_out) {
+                          int full_scan, float* score_out) {
   const int sampling3 = precomputed_scores_table_sampling *
                         precomputed_scores_table_sampling *
                         precomputed_scores_table_sampling;
-  const int kNoiseLevel = 4;
-  // int64_t accumulation is potentially faster than double.
+  // Use faster int64_t accumulation instead of double. A score is at most
+  // 3 * 255, so even a 16k x 16k image stays under 2^38.
   int64_t sum = 0;
   int64_t count = 0;
-  double total_score;
-  // Rows of indices in
+  int64_t rows_scored = 0;
+  MovingWindow frac_trend, score_trend;
   uint16_t* row1 = SAFE_ALLOC(width, 1, uint16_t);
   uint16_t* row2 = SAFE_ALLOC(width, 1, uint16_t);
   uint16_t* tmp;
-  int i, j;
+  // height is capped well under 16 bits (WEBP_MAX_DIMENSION), so num_bands
+  // stays small and bits stays under 16, as required by BitReversal16b().
+  const int num_bands = (height - 1 + kBandHeight - 1) / kBandHeight;
+  int bits = 0;
+  int cursor = 0;
+  int k;
 
   if (row1 == NULL || row2 == NULL) {
     WebPFree(row1);
@@ -253,57 +369,71 @@ static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
     return 0;
   }
 
-  // Convert the first row ahead.
-  SharpYuvRowToYuvSharpnessIndex(r_ptr, g_ptr, b_ptr, rgb_step, rgb_bit_depth,
-                                 width, row2, options->yuv_matrix,
-                                 precomputed_scores_table_sampling);
+  while ((1 << bits) < num_bands) ++bits;
+  assert(bits <= 16);
+  MovingWindowInit(&frac_trend);
+  MovingWindowInit(&score_trend);
 
-  for (j = 1; j < height; ++j) {
-    r_ptr += rgb_stride;
-    g_ptr += rgb_stride;
-    b_ptr += rgb_stride;
-    // Swap row 1 and row 2.
-    tmp = row1;
-    row1 = row2;
-    row2 = tmp;
-    // Convert the row below.
-    SharpYuvRowToYuvSharpnessIndex(r_ptr, g_ptr, b_ptr, rgb_step, rgb_bit_depth,
-                                   width, row2, options->yuv_matrix,
-                                   precomputed_scores_table_sampling);
-    for (i = 0; i < width - 1; ++i) {
-      const int idx0 = row1[i + 0];
-      const int idx1 = row1[i + 1];
-      const int idx2 = row2[i + 0];
-      const int score = precomputed_scores_table[idx0 + sampling3 * idx1] +
-                        precomputed_scores_table[idx0 + sampling3 * idx2] +
-                        precomputed_scores_table[idx1 + sampling3 * idx2];
-      if (score > kNoiseLevel) {
-        sum += score;
-        ++count;
+  for (k = 0; k < num_bands; ++k) {
+    int band, j, last_band;
+    do {
+      band = BitReversal16b(cursor, bits);
+      ++cursor;
+    } while (band >= num_bands);
+    j = band * kBandHeight;
+    last_band = (j + 1 + kBandHeight < height) ? j + 1 + kBandHeight : height;
+    SharpYuvRowToYuvSharpnessIndex(
+        r_ptr + (size_t)j * rgb_stride, g_ptr + (size_t)j * rgb_stride,
+        b_ptr + (size_t)j * rgb_stride, rgb_step, rgb_bit_depth, width, row1,
+        options->yuv_matrix, precomputed_scores_table_sampling);
+    for (++j; j < last_band; ++j) {
+      SharpYuvRowToYuvSharpnessIndex(
+          r_ptr + (size_t)j * rgb_stride, g_ptr + (size_t)j * rgb_stride,
+          b_ptr + (size_t)j * rgb_stride, rgb_step, rgb_bit_depth, width,
+          row2, options->yuv_matrix, precomputed_scores_table_sampling);
+      ScoreRowPair(row1, row2, width, precomputed_scores_table, sampling3,
+                   &sum, &count);
+      tmp = row1;
+      row1 = row2;
+      row2 = tmp;
+      ++rows_scored;
+    }
+
+    // Checked every band (negligible cost compared to above)
+    if (!full_scan) {
+      double frac;
+      const double candidate =
+          FinalizeRiskScore(sum, count, width, height, rows_scored, &frac);
+      const double frac_margin =
+          MovingWindowPush(&frac_trend, frac, kFracZScore, kFracMarginFloor);
+      const double score_margin = MovingWindowPush(
+          &score_trend, candidate, kScoreZScore, kScoreMarginFloor);
+      if (fabs(frac - kFracCutoff) >= frac_margin &&
+          fabs(candidate - kRiskThresholds[0]) >= score_margin &&
+          fabs(candidate - kRiskThresholds[1]) >= score_margin) {
+        WebPFree(row1);
+        WebPFree(row2);
+        *score_out = (float)candidate;
+        return 1;
       }
     }
   }
-  total_score = (count > 0) ? (double)sum / count : 0.;
-
-  // If less than 1% of pixels were evaluated -> below noise level.
-  if (100. * count / (width * height) < 1.) total_score = 0.;
-
-  // Rescale to [0:100]
-  total_score = (total_score > 25.) ? 100. : total_score * 100. / 25.;
 
   WebPFree(row1);
   WebPFree(row2);
-
-  *score_out = (float)total_score;
+  *score_out = (float)FinalizeRiskScore(sum, count, width, height,
+                                        rows_scored, NULL);
   return 1;
 }
 
 #undef SAFE_ALLOC
 
-int SharpYuvEstimate420Risk(const void* r_ptr, const void* g_ptr,
-                            const void* b_ptr, int rgb_step, int rgb_stride,
-                            int rgb_bit_depth, int width, int height,
-                            const SharpYuvOptions* options, float* score) {
+static int SharpYuvEstimate420RiskImpl(const void* r_ptr, const void* g_ptr,
+                                       const void* b_ptr, int rgb_step,
+                                       int rgb_stride, int rgb_bit_depth,
+                                       int width, int height,
+                                       const SharpYuvOptions* options,
+                                       int full_scan, float* score) {
   if (width < 1 || height < 1 || width == INT_MAX || height == INT_MAX ||
       r_ptr == NULL || g_ptr == NULL || b_ptr == NULL || options == NULL ||
       score == NULL) {
@@ -321,7 +451,27 @@ int SharpYuvEstimate420Risk(const void* r_ptr, const void* g_ptr,
   return DoEstimateRisk(
       (const uint8_t*)r_ptr, (const uint8_t*)g_ptr, (const uint8_t*)b_ptr,
       rgb_step, rgb_stride, rgb_bit_depth, width, height, options,
-      kSharpYuvPrecomputedRisk, kSharpYuvPrecomputedRiskYuvSampling, score);
+      kSharpYuvPrecomputedRisk, kSharpYuvPrecomputedRiskYuvSampling,
+      full_scan, score);
+}
+
+int SharpYuvEstimate420Risk(const void* r_ptr, const void* g_ptr,
+                            const void* b_ptr, int rgb_step, int rgb_stride,
+                            int rgb_bit_depth, int width, int height,
+                            const SharpYuvOptions* options, float* score) {
+  return SharpYuvEstimate420RiskImpl(r_ptr, g_ptr, b_ptr, rgb_step, rgb_stride,
+                                     rgb_bit_depth, width, height, options,
+                                     /*full_scan=*/0, score);
+}
+
+int SharpYuvEstimate420RiskFull(const void* r_ptr, const void* g_ptr,
+                                const void* b_ptr, int rgb_step,
+                                int rgb_stride, int rgb_bit_depth, int width,
+                                int height, const SharpYuvOptions* options,
+                                float* score) {
+  return SharpYuvEstimate420RiskImpl(r_ptr, g_ptr, b_ptr, rgb_step, rgb_stride,
+                                     rgb_bit_depth, width, height, options,
+                                     /*full_scan=*/1, score);
 }
 
 //------------------------------------------------------------------------------
