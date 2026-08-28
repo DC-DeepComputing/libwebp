@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3122e966_e7106d97",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 12
+      },
+      "lineNbr": 348,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-08-28T17:25:25Z",
+      "side": 1,
+      "message": "Some clang-format version differences:\n\n```\ndiff --git a/src/utils/palette.c b/src/utils/palette.c\nindex 1b16d0c5..3daa0652 100644\n--- a/src/utils/palette.c\n+++ b/src/utils/palette.c\n@@ -345,9 +345,9 @@ static void MinLACutProfile(const uint32_t* WEBP_RESTRICT const cooccurrence,\n // Returns order[j] as if the segment order[at + 1, m] had been shifted left\n // by one, and order[at] inserted as the new order[m]. Lets MinLASlotCosts()\n // work in-place without actually shifting order[].\n-static WEBP_INLINE uint32_t ActualColorIdx(\n-    const uint8_t* WEBP_RESTRICT const order, uint32_t at, uint32_t m,\n-    uint32_t j) {\n+static WEBP_INLINE uint32_t\n+ActualColorIdx(const uint8_t* WEBP_RESTRICT const order, uint32_t at,\n+               uint32_t m, uint32_t j) {\n   return (j \u003d\u003d m) ? order[at] : (j \u003c at) ? order[j] : order[j + 1];\n }\n \n```",
+      "revId": "5af7be24ebeafdce1fd83f784f94d3c5335a24d5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
