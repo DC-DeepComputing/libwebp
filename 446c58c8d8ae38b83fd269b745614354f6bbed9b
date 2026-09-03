@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4bcf3b4c_4a14fa55",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-03T12:54:05Z",
+      "side": 1,
+      "message": "Selectively collect histograms to avoid gathering, similar to UpdateHisto()",
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cb8b3e2_9262cff1",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-03T12:54:05Z",
+      "side": 1,
+      "message": "If plane \u003e 0 (RGB), the Alpha\u003d0 cleanup (line 323) might force residuals to 0. If the Alpha plane is not constant (diff_mask \u0026 1) or is constant 0 (plane_value[0] \u003d\u003d 0), the closed-form contribution for RGB planes might be incorrect for mode 0. This is safe if Alpha is constant and non-zero.",
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d59c0a06_1d1065fd",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-03T12:54:05Z",
+      "side": 1,
+      "message": "With WEBP_NEAR_LOSSLESS, , you actually need to use the quantized residual not the exact one. \n\nconst uint32_t effective_mask \u003d (start_x \u003e 0 \u0026\u0026 start_y \u003e 0 \u0026\u0026 max_quantization \u003d\u003d 1) ...",
+      "range": {
+        "startLine": 517,
+        "startChar": 35,
+        "endLine": 517,
+        "endChar": 36
+      },
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
