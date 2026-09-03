@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a3e24d1b_79d0002a",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-03T12:38:16Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: This scalar tail has a logic error. Pointer A and B were not advanced during the SIMD loop (which used A + i), but here you are using A[0] and A[1] while incrementing the pointers. This means if the SIMD loop processed 16 samples (i\u003d16), this tail will incorrectly re-process data starting from A[0] instead of A[16].\n\nYou should either advance the pointers before the loop:\nA +\u003d i; B +\u003d i;\nor use the index:\nA[i + 0], A[i + 1]... (and don\u0027t increment A/B in the loop).\n\nNote that SharpYuvFilterRow32_AVX2 correctly uses the index approach.",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 0
+      },
+      "revId": "dae45a195da200cd25c47417e4f6ad780cd846d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
