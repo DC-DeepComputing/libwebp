@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7def00ce_3a460786",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 13
+      },
+      "lineNbr": 316,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-03T13:07:48Z",
+      "side": 1,
+      "message": "Maybe clearer: Minimizes the co-occurrence linear arrangement cost",
+      "revId": "d38bdbf02c7715ca578a2c30c7456f5ae8eeffe7",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
