@@ -227,21 +227,29 @@ static void SharpYuvRowToYuvSharpnessIndex(
 }
 
 //------------------------------------------------------------------------------
-// Progressive scoring: scan rows in bit-reversed dispersed 8px bands,
-// checking after every band, and bail out once the score has settled
-// clearly away from the kRiskThresholds[] decision thresholds.
-// "Settled" means the current std-dev over the last WINDOW_SIZE bands is
-// small relative to the distance to the cutoff.
+// Progressive scoring: the image is scanned by horizontal bands, each
+// kBandHeight rows tall and spanning the full image width. Bands are visited
+// in bit-reversal order in order to maximize the spread during partial scan,
+// while ensuring that the full image will eventually get covered.
+// See https://en.wikipedia.org/wiki/Bit-reversal_permutation.
+// The running score is checked after every band, and the scan returns early
+// once we'd confidently inside a decision band, away from the decision values
+// in SharpYuvRiskThresholds[]. Here, "confidently" means the current std-dev
+// over the last WINDOW_SIZE bands is small relative to the distance to the
+// cutoff (see MovingWindowRecord()).
 
 static const int kBandHeight = 8;
-static const double kRiskThresholds[2] = {40.0, 70.0};
+// Mirrors the low/medium/high risk boundaries documented in extras.h; keep
+// in sync since callers may rely on these exact values.
+const double SharpYuvRiskThresholds[2] = {40.0, 70.0};
 
 #define WINDOW_SIZE 32
 static const double kFracZScore = 8.0;
-static const double kFracMarginFloor = 0.1;  // percentage points
+static const double kFracMinMargin = 0.1;  // percentage points
 static const double kScoreZScore = 5.0;
-static const double kScoreMarginFloor = 2.0;  // score points (0-100 scale)
-static const double kFracCutoff = 1.0;  // percent; matches FinalizeRiskScore
+static const double kScoreMinMargin = 2.0;  // score points (0-100 scale)
+static const double kFracCutoff = 1.0;  // percent
+static const double kMaxScore = 25.0;   // pre-rescale score saturation point
 
 // Circular buffer of WINDOW_SIZE values, with running sum/sumsq.
 typedef struct {
@@ -255,10 +263,13 @@ static void MovingWindowInit(MovingWindow* const w) {
   memset(w, 0, sizeof(*w));
 }
 
-// Pushes 'value' and returns the resulting margin: HUGE_VAL until the
-// window is full, else z_score * std-dev (floored at margin_floor).
-static double MovingWindowPush(MovingWindow* const w, double value,
-                               double z_score, double margin_floor) {
+// Records 'value' and returns how far (in 'value' units) the trend still
+// needs to move before we reach confidence: HUGE_VAL until the window is
+// full, else z_score * std-dev (floored at 'min_margin').
+// 'min_margin' guards against a near-zero std-dev falsely reading as
+// confident when 'value' still sits close to its cutoff.
+static double MovingWindowRecord(MovingWindow* const w, double value,
+                                 double z_score, double min_margin) {
   double mean, variance, margin;
   if (w->count == WINDOW_SIZE) {
     const double old = w->values[w->next];
@@ -276,7 +287,7 @@ static double MovingWindowPush(MovingWindow* const w, double value,
   mean = w->sum / w->count;
   variance = w->sumsq / w->count - mean * mean;
   margin = z_score * sqrt((variance > 0.) ? variance : 0.);
-  return (margin > margin_floor) ? margin : margin_floor;
+  return (margin > min_margin) ? margin : min_margin;
 }
 
 #undef WINDOW_SIZE
@@ -316,26 +327,25 @@ static void ScoreRowPair(const uint16_t* row1, const uint16_t* row2, int width,
 
 // Derives the risk score in [0:100] from the accumulators collected so far
 // (full or partial coverage). '*frac_out', if not NULL, gets the percentage
-// of evaluated pixels relative to the 1% noise-floor cutoff.
+// of the image area effectively covered by 'rows_scored' rows so far, to be
+// compared against kFracCutoff by the caller's progressive-scan trend check.
 static double FinalizeRiskScore(int64_t sum, int64_t count, int width,
                                 int height, int64_t rows_scored,
                                 double* const frac_out) {
   const double cnt = (double)count;
   double total_score = (cnt > 0) ? (double)sum / cnt : 0.;
-  // Pixels evaluated so far, scaled by how many rows were actually scored.
+  // pixels evaluated so far, scaled by how many rows were actually scored
   const double effective_area =
       (rows_scored > 0)
           ? (double)width * height * (double)rows_scored / (height - 1.)
           : 0.;
-  // If less than 1% of pixels were evaluated -> below noise level.
   const double frac = (effective_area > 0.) ? 100. * cnt / effective_area : 0.;
   if (frac_out != NULL) *frac_out = frac;
-  if (frac < 1.) total_score = 0.;
-  // Rescale to [0:100]
-  return (total_score > 25.) ? 100. : total_score * 100. / 25.;
+  // if less than kFracCutoff% of pixels were evaluated -> need more rows
+  if (frac < kFracCutoff) return 0.;
+  // rescale to [0:100]
+  return (total_score > kMaxScore) ? 100. : total_score * 100. / kMaxScore;
 }
-
-#define SAFE_ALLOC(W, H, T) ((T*)WebPSafeMalloc((uint64_t)(W) * (H), sizeof(T)))
 
 static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
                           const uint8_t* b_ptr, int rgb_step, int rgb_stride,
@@ -353,9 +363,11 @@ static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
   int64_t count = 0;
   int64_t rows_scored = 0;
   MovingWindow frac_trend, score_trend;
-  uint16_t* row1 = SAFE_ALLOC(width, 1, uint16_t);
-  uint16_t* row2 = SAFE_ALLOC(width, 1, uint16_t);
-  uint16_t* tmp;
+  // single allocation for the row1/row2 pair
+  uint16_t* const rows =
+      (uint16_t*)WebPSafeMalloc((uint64_t)width * 2, sizeof(uint16_t));
+  uint16_t* row1 = rows;
+  uint16_t* row2 = (rows != NULL) ? rows + width : NULL;
   // height is capped well under 16 bits (WEBP_MAX_DIMENSION), so num_bands
   // stays small and bits stays under 16, as required by BitReversal16b().
   const int num_bands = (height - 1 + kBandHeight - 1) / kBandHeight;
@@ -363,30 +375,30 @@ static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
   int cursor = 0;
   int k;
 
-  if (row1 == NULL || row2 == NULL) {
-    WebPFree(row1);
-    WebPFree(row2);
-    return 0;
-  }
+  if (rows == NULL) return 0;
 
   while ((1 << bits) < num_bands) ++bits;
   assert(bits <= 16);
   MovingWindowInit(&frac_trend);
   MovingWindowInit(&score_trend);
 
+  // Visit bands in bit-reversed order (band offsets: 0, 1/2, 1/4, 3/4, ...)
+  // instead of top-to-bottom. Each additional band evenly improves coverage
+  // and updates the trends until we get an early meaningful estimate.
   for (k = 0; k < num_bands; ++k) {
-    int band, j, last_band;
+    int band, j, last_row;
+    uint16_t* tmp;
     do {
       band = BitReversal16b(cursor, bits);
       ++cursor;
     } while (band >= num_bands);
     j = band * kBandHeight;
-    last_band = (j + 1 + kBandHeight < height) ? j + 1 + kBandHeight : height;
+    last_row = (j + 1 + kBandHeight < height) ? j + 1 + kBandHeight : height;
     SharpYuvRowToYuvSharpnessIndex(
         r_ptr + (size_t)j * rgb_stride, g_ptr + (size_t)j * rgb_stride,
         b_ptr + (size_t)j * rgb_stride, rgb_step, rgb_bit_depth, width, row1,
         options->yuv_matrix, precomputed_scores_table_sampling);
-    for (++j; j < last_band; ++j) {
+    for (++j; j < last_row; ++j) {
       SharpYuvRowToYuvSharpnessIndex(
           r_ptr + (size_t)j * rgb_stride, g_ptr + (size_t)j * rgb_stride,
           b_ptr + (size_t)j * rgb_stride, rgb_step, rgb_bit_depth, width, row2,
@@ -399,34 +411,30 @@ static int DoEstimateRisk(const uint8_t* r_ptr, const uint8_t* g_ptr,
       ++rows_scored;
     }
 
-    // Checked every band (negligible cost compared to above)
+    // trend check after every band (negligible cost compared to row scoring)
     if (!full_scan) {
       double frac;
       const double candidate =
           FinalizeRiskScore(sum, count, width, height, rows_scored, &frac);
       const double frac_margin =
-          MovingWindowPush(&frac_trend, frac, kFracZScore, kFracMarginFloor);
-      const double score_margin = MovingWindowPush(
-          &score_trend, candidate, kScoreZScore, kScoreMarginFloor);
+          MovingWindowRecord(&frac_trend, frac, kFracZScore, kFracMinMargin);
+      const double score_margin = MovingWindowRecord(
+          &score_trend, candidate, kScoreZScore, kScoreMinMargin);
       if (fabs(frac - kFracCutoff) >= frac_margin &&
-          fabs(candidate - kRiskThresholds[0]) >= score_margin &&
-          fabs(candidate - kRiskThresholds[1]) >= score_margin) {
-        WebPFree(row1);
-        WebPFree(row2);
+          fabs(candidate - SharpYuvRiskThresholds[0]) >= score_margin &&
+          fabs(candidate - SharpYuvRiskThresholds[1]) >= score_margin) {
+        WebPFree(rows);
         *score_out = (float)candidate;
         return 1;
       }
     }
   }
 
-  WebPFree(row1);
-  WebPFree(row2);
+  WebPFree(rows);
   *score_out =
       (float)FinalizeRiskScore(sum, count, width, height, rows_scored, NULL);
   return 1;
 }
-
-#undef SAFE_ALLOC
 
 static int SharpYuvEstimate420RiskImpl(const void* r_ptr, const void* g_ptr,
                                        const void* b_ptr, int rgb_step,
