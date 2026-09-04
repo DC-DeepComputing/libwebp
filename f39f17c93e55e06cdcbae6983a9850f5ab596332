@@ -1,0 +1,297 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c078b08_7ffe6db5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "Thanks, this looks nice in general, I just found the code a bit confusing to read.",
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8b404c1_da4bb9d7",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "maybe a clearer wording or a link to https://en.wikipedia.org/wiki/Bit-reversal_permutation would help readers unfamiliar with this technique",
+      "range": {
+        "startLine": 230,
+        "startChar": 37,
+        "endLine": 230,
+        "endChar": 49
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6f21f3ac_2dbb6cd6",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "clarify that 8px is the height and the bands span the whole width",
+      "range": {
+        "startLine": 230,
+        "startChar": 60,
+        "endLine": 230,
+        "endChar": 63
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a53275c4_8cb996be",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "This whole comment is very useful but explaining things again/in more detail inline in DoEstimateRisk would help.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 48
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96625706_3a0fd35b",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "Worth mentioning that these are the score thresholds mentioned in the documentation in extra.h\nMaybe we should consider adding actual constants to the .h actually, since now it\u0027s more important for the caller to use those exact values.",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 54
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7538c87c_2a33bd0d",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "then why is it not used there?",
+      "range": {
+        "startLine": 244,
+        "startChar": 52,
+        "endLine": 244,
+        "endChar": 77
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a54b169b_fd9ce3b9",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "margin of error?",
+      "range": {
+        "startLine": 258,
+        "startChar": 44,
+        "endLine": 258,
+        "endChar": 50
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "907c3301_6e41777a",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "This description of \u0027frac\u0027 makes no sense to me.\nI think \u0027frac\u0027 should be computed outside of this function and passed as a parameter.",
+      "range": {
+        "startLine": 318,
+        "startChar": 31,
+        "endLine": 319,
+        "endChar": 61
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6de931b_fc020d1f",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "kFracCutoff?",
+      "range": {
+        "startLine": 333,
+        "startChar": 13,
+        "endLine": 333,
+        "endChar": 15
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90300574_67e24306",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "this 25 could also be a constant as it\u0027s used twice here",
+      "range": {
+        "startLine": 335,
+        "startChar": 24,
+        "endLine": 335,
+        "endChar": 26
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1804cc0b_d8d9816e",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "\"last_band\" is confusing. I think this is actually the last row (in the band)?",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 13
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e4f7a21_9bb3c273",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "absolete comment? what\u0027s \"above\"?",
+      "range": {
+        "startLine": 402,
+        "startChar": 6,
+        "endLine": 402,
+        "endChar": 61
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e4f8cc76_f324f070",
+        "filename": "extras/extras.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 103,
+      "author": {
+        "id": 1306477
+      },
+      "writtenOn": "2026-09-04T11:37:14Z",
+      "side": 1,
+      "message": "Nit: \"Use SharpYuvEstimate420RiskFull() for the legacy behavior of always scanning the full image.\"",
+      "range": {
+        "startLine": 103,
+        "startChar": 0,
+        "endLine": 103,
+        "endChar": 68
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
