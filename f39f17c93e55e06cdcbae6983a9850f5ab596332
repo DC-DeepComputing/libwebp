@@ -64,6 +64,54 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "87d83e2f_2f7aff23",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e8b404c1_da4bb9d7",
+      "range": {
+        "startLine": 230,
+        "startChar": 37,
+        "endLine": 230,
+        "endChar": 49
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d4d5d88_fe2b2f21",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 230,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f21f3ac_2dbb6cd6",
+      "range": {
+        "startLine": 230,
+        "startChar": 60,
+        "endLine": 230,
+        "endChar": 63
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53275c4_8cb996be",
@@ -77,6 +125,30 @@
       "writtenOn": "2026-09-04T11:37:14Z",
       "side": 1,
       "message": "This whole comment is very useful but explaining things again/in more detail inline in DoEstimateRisk would help.",
+      "range": {
+        "startLine": 230,
+        "startChar": 0,
+        "endLine": 234,
+        "endChar": 48
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a0de78_5bb52730",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 234,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "added extra details in MovingWindowRecord() and inside the loop",
+      "parentUuid": "a53275c4_8cb996be",
       "range": {
         "startLine": 230,
         "startChar": 0,
@@ -110,6 +182,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eedcfcf_fd1d558f",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 237,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "exposed the values as public SharpYuvRiskThresholds[] in the .h now (and bumped the VERSION number)",
+      "parentUuid": "96625706_3a0fd35b",
+      "range": {
+        "startLine": 237,
+        "startChar": 0,
+        "endLine": 237,
+        "endChar": 54
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7538c87c_2a33bd0d",
@@ -123,6 +219,30 @@
       "writtenOn": "2026-09-04T11:37:14Z",
       "side": 1,
       "message": "then why is it not used there?",
+      "range": {
+        "startLine": 244,
+        "startChar": 52,
+        "endLine": 244,
+        "endChar": 77
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "69e83a08_d40c1fb4",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "indeed! done",
+      "parentUuid": "7538c87c_2a33bd0d",
       "range": {
         "startLine": 244,
         "startChar": 52,
@@ -156,6 +276,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35beb0b3_368394c6",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 258,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "clarified the doc",
+      "parentUuid": "a54b169b_fd9ce3b9",
+      "range": {
+        "startLine": 258,
+        "startChar": 44,
+        "endLine": 258,
+        "endChar": 50
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "907c3301_6e41777a",
@@ -169,6 +313,30 @@
       "writtenOn": "2026-09-04T11:37:14Z",
       "side": 1,
       "message": "This description of \u0027frac\u0027 makes no sense to me.\nI think \u0027frac\u0027 should be computed outside of this function and passed as a parameter.",
+      "range": {
+        "startLine": 318,
+        "startChar": 31,
+        "endLine": 319,
+        "endChar": 61
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63bd81a6_eae0185c",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "clarified the description.\nFor \u0027frac\u0027, well if we extract it from this function there\u0027s not much left in it",
+      "parentUuid": "907c3301_6e41777a",
       "range": {
         "startLine": 318,
         "startChar": 31,
@@ -202,6 +370,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a36b2bc_9a1986fc",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 333,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6de931b_fc020d1f",
+      "range": {
+        "startLine": 333,
+        "startChar": 13,
+        "endLine": 333,
+        "endChar": 15
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90300574_67e24306",
@@ -215,6 +407,30 @@
       "writtenOn": "2026-09-04T11:37:14Z",
       "side": 1,
       "message": "this 25 could also be a constant as it\u0027s used twice here",
+      "range": {
+        "startLine": 335,
+        "startChar": 24,
+        "endLine": 335,
+        "endChar": 26
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f25ba2d7_8c34f324",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 335,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "90300574_67e24306",
       "range": {
         "startLine": 335,
         "startChar": 24,
@@ -248,6 +464,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9bc0d3e_b2be4c5f",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 384,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1804cc0b_d8d9816e",
+      "range": {
+        "startLine": 384,
+        "startChar": 4,
+        "endLine": 384,
+        "endChar": 13
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5e4f7a21_9bb3c273",
@@ -261,6 +501,30 @@
       "writtenOn": "2026-09-04T11:37:14Z",
       "side": 1,
       "message": "absolete comment? what\u0027s \"above\"?",
+      "range": {
+        "startLine": 402,
+        "startChar": 6,
+        "endLine": 402,
+        "endChar": 61
+      },
+      "revId": "f39f17c93e55e06cdcbae6983a9850f5ab596332",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "24bd6f00_935f83e8",
+        "filename": "extras/extras.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 402,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T05:50:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5e4f7a21_9bb3c273",
       "range": {
         "startLine": 402,
         "startChar": 6,
