@@ -35,6 +35,63 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "b55d2822_b8b62da7",
+        "filename": "src/dec/io_dec.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T10:14:44Z",
+      "side": 1,
+      "message": "these *_size are now actually byte counts, not number-of-elements to be multiplied by sizeof(something). I\u0027d call the *_bytes instead, for clarity. Same at 508 below.",
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "26366287_c6037699",
+        "filename": "src/dsp/rescaler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 155,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T10:14:44Z",
+      "side": 1,
+      "message": "new code is very similar to WebPRescalerExportRowShrink_C() (line 129) except the accumulator type. Should we -yikes- consider a MACRO to prevent them two from drifting apart in the future?",
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ffe884_84812110",
+        "filename": "src/dsp/rescaler.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 213,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T10:14:44Z",
+      "side": 1,
+      "message": "can this case be true at all? We have \u0027src_width \u003d\u003d 1 \u0026\u0026 dst_width \u003c\u003d 2\u0027, and src_height \u003d\u003d dst_height \u003c\u003d MAX_DIMENSION, so it seems that accum can never reach UINT_MAX.\nI\u0027d remove this branch and \u0027assert(!wrk-\u003euse_64bit)\u0027 if that\u0027s the case.",
+      "range": {
+        "startLine": 213,
+        "startChar": 0,
+        "endLine": 213,
+        "endChar": 6
+      },
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a44724fb_e89f3e9a",
@@ -48,6 +105,29 @@
       "writtenOn": "2026-09-03T19:56:22Z",
       "side": 1,
       "message": "An alternate solution is to simply make this `uint64_t`, but that will unnecessarily hurt performance for normal cases.",
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "32ec5a3a_8bd96ab7",
+        "filename": "src/utils/rescaler_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T10:14:44Z",
+      "side": 1,
+      "message": "not sure they need to be WEBP_INLINE\u0027d here. They could go to the .c as non-critical.\nSame for  WebPRescalerWorkSize() below at :84",
+      "range": {
+        "startLine": 62,
+        "startChar": 4,
+        "endLine": 62,
+        "endChar": 5
+      },
       "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -71,6 +151,23 @@
         "endLine": 84,
         "endChar": 18
       },
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7e817e0_9a14e70b",
+        "filename": "tests/fuzzer/enc_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T10:14:44Z",
+      "side": 1,
+      "message": "add a new patch to cover the extreme cases you mentioned too.",
       "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
