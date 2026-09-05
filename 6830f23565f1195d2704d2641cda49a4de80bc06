@@ -50,6 +50,29 @@
       "message": "An alternate solution is to simply make this `uint64_t`, but that will unnecessarily hurt performance for normal cases.",
       "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe2c3b73_48109fa6",
+        "filename": "src/utils/rescaler_utils.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T06:16:24Z",
+      "side": 1,
+      "message": "couldn\u0027t this function do the WebPSafeMalloc() itself? (and WEBP_ALIGN())\nI see vp8l_dec.c:590 is _also_ folding the scaled_data alloc into the memory chunk, but i consider it code-smell at this point (a separate alloc there would be more readable)",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 18
+      },
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
