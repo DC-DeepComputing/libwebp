@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a26b747_ebfbd289",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T12:31:47Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bcf3b4c_4a14fa55",
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cb8b3e2_9262cff1",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "19cfe394_ad0f150a",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T12:31:47Z",
+      "side": 1,
+      "message": "good catch, fixed.",
+      "parentUuid": "6cb8b3e2_9262cff1",
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d59c0a06_1d1065fd",
@@ -48,6 +84,30 @@
       "writtenOn": "2026-09-03T12:54:05Z",
       "side": 1,
       "message": "With WEBP_NEAR_LOSSLESS, , you actually need to use the quantized residual not the exact one. \n\nconst uint32_t effective_mask \u003d (start_x \u003e 0 \u0026\u0026 start_y \u003e 0 \u0026\u0026 max_quantization \u003d\u003d 1) ...",
+      "range": {
+        "startLine": 517,
+        "startChar": 35,
+        "endLine": 517,
+        "endChar": 36
+      },
+      "revId": "446c58c8d8ae38b83fd269b745614354f6bbed9b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa70d8af_05ce9b39",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T12:31:47Z",
+      "side": 1,
+      "message": "ah! good catch.",
+      "parentUuid": "d59c0a06_1d1065fd",
       "range": {
         "startLine": 517,
         "startChar": 35,
