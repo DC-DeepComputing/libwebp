@@ -22,6 +22,30 @@
       },
       "revId": "dae45a195da200cd25c47417e4f6ad780cd846d4",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7fb60a3d_e0f2e895",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-05T13:38:30Z",
+      "side": 1,
+      "message": "right, the index-based loop is better. Fixed, good catch!",
+      "parentUuid": "a3e24d1b_79d0002a",
+      "range": {
+        "startLine": 142,
+        "startChar": 0,
+        "endLine": 142,
+        "endChar": 0
+      },
+      "revId": "dae45a195da200cd25c47417e4f6ad780cd846d4",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
