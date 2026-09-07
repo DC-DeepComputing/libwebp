@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bedc117c_cdf404b2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T21:26:04Z",
+      "side": 1,
+      "message": "i changed the context layout and retrained the NN on the CLIC trainset, mostly.\nBetter balance of the scoring.\n\nMaybe we should have a \u0027-nn \u003cint\u003e\u0027 option to activate the neural net top-K selection.",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
