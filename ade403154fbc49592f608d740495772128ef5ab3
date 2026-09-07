@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7bf1eab_97a214b2",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "there\u0027s no real risk (tmp[] is max 2^14 bit-depth pixel values accumulated over 1 row (2^16), so fits inside an int32 even. The uint64_t is purely defensive. _mm256_hadd_epi32 is tricky and involves reordering the lanes... Not worth the extra code over the simplicity of this tmp[8] summation.",
+      "parentUuid": "db1d428f_f6853026",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "38255c6a_ba261e3e",
@@ -31,6 +49,30 @@
       "writtenOn": "2026-09-07T09:01:30Z",
       "side": 1,
       "message": "rename Y to v for consistency with C\u0027s FixedPointInterpolation",
+      "range": {
+        "startLine": 396,
+        "startChar": 55,
+        "endLine": 396,
+        "endChar": 56
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1d11ab24_a4eb0c3b",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38255c6a_ba261e3e",
       "range": {
         "startLine": 396,
         "startChar": 55,
@@ -81,6 +123,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "976b0045_5ea7ff67",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "good question: the \u00277\u0027 here is GAMMA_TO_LINEAR_BITS - LINEAR_TO_GAMMA_TAB_BITS, that\u0027s 16 - 9 \u003d 7.\nAnd tab_value_shift is \u0027SHARPYUV_GAMMA_TO_LINEAR_BITS - bit_depth\u0027, in the positive direction. C\u0027s implementation uses `Shift()`, which analyzes the sign.",
+      "parentUuid": "68c52b80_5b82cad6",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbef4910_10344327",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "hmm... the C-code (sharpyuv/sharpyuv_gamma.c:91...) _also_ shifts before subtraction.",
+      "parentUuid": "5186b1f3_dc1dcba0",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6df3f229_90ed9433",
@@ -94,6 +178,30 @@
       "writtenOn": "2026-09-07T09:01:30Z",
       "side": 1,
       "message": "Please fix this WARNING reported by autoreview issue finding: Since `sum` is known to be positive (it is a sum of products of absolute differences), `_mm256_srli_epi32` (logical shift) would be more conventional than `srai` (arithmetic shift), though the result is the same here.",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 410,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ab931e82_a7c9ed86",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "i prefer the \u0027srli\u0027 because it signals strongly that \u0027this should never be negative\u0027. Kind of an assert.",
+      "parentUuid": "6df3f229_90ed9433",
       "range": {
         "startLine": 410,
         "startChar": 0,
@@ -121,6 +229,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08f9230_744ec192",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4444a3b9_d2eb4e2f",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "62397d2b_56b973b8",
@@ -138,6 +264,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a87ce6d_cc65b6c5",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "fair. The bit_depth values are {8,10,12,16}, thus shift_right lands in {0,2,4,4}. A negative shift would be a problem for SSE2/AVX2 (not NEON!)",
+      "parentUuid": "62397d2b_56b973b8",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de146f08_bd99ac1d",
@@ -151,6 +295,24 @@
       "writtenOn": "2026-09-07T09:01:30Z",
       "side": 1,
       "message": "assert(shift_right \u003e\u003d 0); just to be safe",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "75442588_39eb8a9f",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de146f08_bd99ac1d",
       "revId": "ade403154fbc49592f608d740495772128ef5ab3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
@@ -178,6 +340,30 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d4f2581_8044f73c",
+        "filename": "sharpyuv/sharpyuv_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "same: sharpyuv/sharpyuv_gamma.c:91 also shifts before subtraction.",
+      "parentUuid": "ad51c47f_cfcb84ad",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9b51f2ec_fb4da822",
@@ -191,6 +377,24 @@
       "writtenOn": "2026-09-07T09:01:30Z",
       "side": 1,
       "message": "RGBToGray for consistency with C",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3424f36c_e6666abf",
+        "filename": "sharpyuv/sharpyuv_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:18:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9b51f2ec_fb4da822",
       "revId": "ade403154fbc49592f608d740495772128ef5ab3",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
