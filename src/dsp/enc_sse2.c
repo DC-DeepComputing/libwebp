@@ -21,6 +21,7 @@
 
 #include "src/dsp/common_sse2.h"
 #include "src/dsp/cpu.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/enc/cost_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/utils/utils.h"
@@ -1531,6 +1532,61 @@ static int Quantize2Blocks_SSE2(int16_t in[32], int16_t out[32],
 }
 
 //------------------------------------------------------------------------------
+// Intra4 NN mode-ranking forward pass (see src/enc/nn_intra4_enc.h)
+
+static WEBP_INLINE int32_t SumS32x4_SSE2(__m128i v) {
+  const __m128i shuf = _mm_shuffle_epi32(v, _MM_SHUFFLE(2, 3, 0, 1));
+  const __m128i sums = _mm_add_epi32(v, shuf);
+  const __m128i shuf2 = _mm_shuffle_epi32(sums, _MM_SHUFFLE(1, 0, 3, 2));
+  const __m128i result = _mm_add_epi32(sums, shuf2);
+  return _mm_cvtsi128_si32(result);
+}
+
+// Dot product of two int16 arrays of length 'n'. _mm_madd_epi16 does
+// exactly the int16x8 pairwise-multiply-then-add this needs, in one
+// instruction (widening to int32, no overflow risk: see
+// src/dsp/nn_intra4_dims.h).
+static WEBP_INLINE int32_t DotProductQ_SSE2(const int16_t* WEBP_RESTRICT a,
+                                            const int16_t* WEBP_RESTRICT b,
+                                            int n) {
+  __m128i acc = _mm_setzero_si128();
+  int i = 0;
+  for (; i + 8 <= n; i += 8) {
+    const __m128i va = _mm_loadu_si128((const __m128i*)(a + i));
+    const __m128i vb = _mm_loadu_si128((const __m128i*)(b + i));
+    acc = _mm_add_epi32(acc, _mm_madd_epi16(va, vb));
+  }
+  {
+    int32_t sum = SumS32x4_SSE2(acc);
+    for (; i < n; ++i) sum += (int32_t)a[i] * b[i];
+    return sum;
+  }
+}
+
+// perform the forward-pass
+static void NNIntra4Score_SSE2(const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+                               const int16_t* WEBP_RESTRICT ctx,
+                               int32_t* WEBP_RESTRICT scores) {
+  int16_t h1[NN_HIDDEN], h2[NN_HIDDEN];
+  int i;
+
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    const int32_t sum =
+        weights->b1[i] + DotProductQ_SSE2(weights->w1[i], ctx, NN_INPUT_DIM);
+    h1[i] = NNRescaleReLU(sum, NN_SHIFT_1);
+  }
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    const int32_t sum =
+        weights->b2[i] + DotProductQ_SSE2(weights->w2[i], h1, NN_HIDDEN);
+    h2[i] = NNRescaleReLU(sum, NN_SHIFT_2);
+  }
+  for (i = 0; i < NUM_BMODES; ++i) {
+    scores[i] =
+        weights->b3[i] + DotProductQ_SSE2(weights->w3[i], h2, NN_HIDDEN);
+  }
+}
+
+//------------------------------------------------------------------------------
 // Entry point
 
 extern void VP8EncDspInitSSE2(void);
@@ -1554,6 +1610,7 @@ WEBP_TSAN_IGNORE_FUNCTION void VP8EncDspInitSSE2(void) {
   VP8TDisto4x4 = Disto4x4_SSE2;
   VP8TDisto16x16 = Disto16x16_SSE2;
   VP8Mean16x4 = Mean16x4_SSE2;
+  VP8NNIntra4Score = NNIntra4Score_SSE2;
 }
 
 #else  // !WEBP_USE_SSE2

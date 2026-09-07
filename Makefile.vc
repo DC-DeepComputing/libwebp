@@ -309,6 +309,7 @@ ENC_OBJS = \
     $(DIROBJ)\enc\histogram_enc.obj \
     $(DIROBJ)\enc\iterator_enc.obj \
     $(DIROBJ)\enc\near_lossless_enc.obj \
+    $(DIROBJ)\enc\nn_intra4_enc.obj \
     $(DIROBJ)\enc\picture_enc.obj \
     $(DIROBJ)\enc\picture_csp_enc.obj \
     $(DIROBJ)\enc\picture_psnr_enc.obj \

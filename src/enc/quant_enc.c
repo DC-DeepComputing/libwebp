@@ -20,8 +20,13 @@
 #include "src/dsp/dsp.h"
 #include "src/dsp/quant.h"
 #include "src/enc/cost_enc.h"
+#include "src/enc/nn_intra4_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/webp/types.h"
+
+// Number of modes (<=NUM_BMODES) kept after NN-based ranking
+// TODO(skal): expose this in the public WebPConfig encoding API.
+#define NN_INTRA4_TOPK 4
 
 #define DO_TRELLIS_I4 1
 #define DO_TRELLIS_I16 1  // not a huge gain, but ok at low bitrate.
@@ -1071,18 +1076,53 @@ static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
   do {
     const int kNumBlocks = 1;
     VP8ModeScore rd_i4;
-    int mode;
+    int mode, m;
     int best_mode = -1;
     const uint8_t* const src = src0 + VP8Scan[it->i4];
     const uint16_t* const mode_costs = GetCostModeI4(it, rd->modes_i4);
     uint8_t* best_block = best_blocks + VP8Scan[it->i4];
     uint8_t* tmp_dst = it->yuv_p + I4TMP;  // scratch buffer.
+    int ranked_modes[NN_INTRA4_TOPK];
+    int num_ranked;
+
+    // NN-based candidate ranking: cheaply score all modes, then only run
+    // the exact RD search on the top NN_INTRA4_TOPK ones.
+    if (NN_INTRA4_TOPK < NUM_BMODES) {
+      int32_t nn_scores[NUM_BMODES];
+      int32_t ranked_scores[NN_INTRA4_TOPK];
+      int16_t nn_ctx[NN_INPUT_DIM];
+      int kept = 0;
+      const VP8NNIntra4WeightsQ* const nn_weights =
+          VP8NNIntra4PickWeights(dqm->quant);
+      VP8NNIntra4GatherContext(it, nn_ctx);
+      VP8NNIntra4Score(nn_weights, nn_ctx, nn_scores);
+      for (m = 0; m < NUM_BMODES; ++m) {
+        const int32_t s = nn_scores[m];
+        if (kept == NN_INTRA4_TOPK && s <= ranked_scores[kept - 1]) {
+          continue;  // doesn't make the cut, skip
+        } else {     // else insert at the right spot
+          int n = (kept < NN_INTRA4_TOPK) ? kept++ : kept - 1;
+          while (n > 0 && ranked_scores[n - 1] < s) {
+            ranked_scores[n] = ranked_scores[n - 1];
+            ranked_modes[n] = ranked_modes[n - 1];
+            --n;
+          }
+          ranked_scores[n] = s;
+          ranked_modes[n] = m;
+        }
+      }
+      num_ranked = kept;
+    } else {  // all modes are evaluated
+      for (m = 0; m < NUM_BMODES; ++m) ranked_modes[m] = m;
+      num_ranked = NUM_BMODES;
+    }
 
     InitScore(&rd_i4);
     MakeIntra4Preds(it);
-    for (mode = 0; mode < NUM_BMODES; ++mode) {
+    for (m = 0; m < num_ranked; ++m) {
       VP8ModeScore rd_tmp;
       int16_t tmp_levels[16];
+      mode = ranked_modes[m];
 
       // Reconstruct
       rd_tmp.nz = ReconstructIntra4(it, tmp_levels, src, tmp_dst, mode)
