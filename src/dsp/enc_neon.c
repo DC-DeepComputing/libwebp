@@ -18,6 +18,7 @@
 #include <assert.h>
 
 #include "src/dsp/neon.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/enc/vp8i_enc.h"
 
 //------------------------------------------------------------------------------
@@ -1196,6 +1197,55 @@ static void Intra16Preds_NEON(uint8_t* WEBP_RESTRICT dst,
 #endif  // WEBP_AARCH64
 
 //------------------------------------------------------------------------------
+// NN forward-pass for ranking Intra4 modes
+
+static WEBP_INLINE int32_t SumS32x4_NEON(int32x4_t v) {
+  const int32x2_t sum2 = vadd_s32(vget_low_s32(v), vget_high_s32(v));
+  return vget_lane_s32(vpadd_s32(sum2, sum2), 0);
+}
+
+// Dot product of two int16 arrays of length 'n'.
+static WEBP_INLINE int32_t DotProductQ_NEON(const int16_t* WEBP_RESTRICT a,
+                                            const int16_t* WEBP_RESTRICT b,
+                                            int n) {
+  int32x4_t acc = vdupq_n_s32(0);
+  int i = 0;
+  for (; i + 8 <= n; i += 8) {
+    const int16x8_t va = vld1q_s16(a + i);
+    const int16x8_t vb = vld1q_s16(b + i);
+    acc = vmlal_s16(acc, vget_low_s16(va), vget_low_s16(vb));
+    acc = vmlal_s16(acc, vget_high_s16(va), vget_high_s16(vb));
+  }
+  {
+    int32_t sum = SumS32x4_NEON(acc);
+    for (; i < n; ++i) sum += (int32_t)a[i] * b[i];
+    return sum;
+  }
+}
+
+static void NNIntra4Score_NEON(const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+                               const int16_t* WEBP_RESTRICT ctx,
+                               int32_t* WEBP_RESTRICT scores) {
+  int16_t h1[NN_HIDDEN], h2[NN_HIDDEN];
+  int i;
+
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    const int32_t sum =
+        weights->b1[i] + DotProductQ_NEON(weights->w1[i], ctx, NN_INPUT_DIM);
+    h1[i] = NNRescaleReLU(sum, NN_SHIFT_1);
+  }
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    const int32_t sum =
+        weights->b2[i] + DotProductQ_NEON(weights->w2[i], h1, NN_HIDDEN);
+    h2[i] = NNRescaleReLU(sum, NN_SHIFT_2);
+  }
+  for (i = 0; i < NUM_BMODES; ++i) {
+    scores[i] =
+        weights->b3[i] + DotProductQ_NEON(weights->w3[i], h2, NN_HIDDEN);
+  }
+}
+
+//------------------------------------------------------------------------------
 // Entry point
 
 extern void VP8EncDspInitNEON(void);
@@ -1227,6 +1277,8 @@ WEBP_TSAN_IGNORE_FUNCTION void VP8EncDspInitNEON(void) {
   VP8EncQuantize2Blocks = Quantize2Blocks_NEON;
   VP8EncQuantizeBlockWHT = QuantizeBlock_NEON;
 #endif
+
+  VP8NNIntra4Score = NNIntra4Score_NEON;
 }
 
 #else  // !WEBP_USE_NEON
