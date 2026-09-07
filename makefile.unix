@@ -231,6 +231,7 @@ ENC_OBJS = \
     src/enc/histogram_enc.o \
     src/enc/iterator_enc.o \
     src/enc/near_lossless_enc.o \
+    src/enc/nn_intra4_enc.o \
     src/enc/picture_enc.o \
     src/enc/picture_csp_enc.o \
     src/enc/picture_psnr_enc.o \
