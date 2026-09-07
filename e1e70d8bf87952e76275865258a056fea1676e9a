@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bf66c2f2_15cb6b8f",
+        "filename": "src/enc/nn_intra4_enc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:50:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: The comment has some extra slashes and a trailing parenthesis that looks like a typo:\n// valid, i.e. called between VP8IteratorStartI4()/VP8IteratorRotateI4()\n// and MakeIntra4Preds().",
+      "range": {
+        "startLine": 33,
+        "startChar": 0,
+        "endLine": 33,
+        "endChar": 0
+      },
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a907c8b3_46158253",
+        "filename": "src/enc/quant_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:50:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: This variable is only used inside the `if (NN_INTRA4_TOPK \u003c NUM_BMODES)` block. It\u0027s better to move it there to avoid unnecessary stack allocation when pruning is disabled.",
+      "range": {
+        "startLine": 1086,
+        "startChar": 0,
+        "endLine": 1086,
+        "endChar": 0
+      },
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb2a93ad_9d9ec0b5",
+        "filename": "src/enc/quant_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:50:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: If NN_INTRA4_TOPK is ever set to a value \u003e\u003d NUM_BMODES (10), this loop will fill ranked_modes with indices 10, 11, etc. \nLater, at line 1122, these will be used as \u0027mode\u0027, which will cause an out-of-bounds access or crash in ReconstructIntra4.\n\nEven though it is hardcoded to 4 now, the logic should be:\nfor (m \u003d 0; m \u003c NUM_BMODES; ++m) ranked_modes[m] \u003d m;\n\nAnd the loop at line 1119 should probably use min(NN_INTRA4_TOPK, NUM_BMODES).",
+      "range": {
+        "startLine": 1114,
+        "startChar": 0,
+        "endLine": 1114,
+        "endChar": 0
+      },
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
