@@ -36,6 +36,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2ba3ccef_5d0ff84b",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:39:50Z",
+      "side": 1,
+      "message": "Done, added the effective_mask |\u003d 0x0eu forcing as suggested.",
+      "parentUuid": "e8f11212_20247caf",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1780ceaf_e88db9d9",
@@ -66,6 +84,24 @@
       "writtenOn": "2026-09-07T13:35:50Z",
       "side": 1,
       "message": "Done",
+      "parentUuid": "1780ceaf_e88db9d9",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e09a742_358b6d1b",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:39:50Z",
+      "side": 1,
+      "message": "Done.",
       "parentUuid": "1780ceaf_e88db9d9",
       "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
