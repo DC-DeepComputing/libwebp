@@ -1,0 +1,198 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db1d428f_f6853026",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 86,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "Is there really a risk for saturation or _mm256_hadd_epi32 could work?",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38255c6a_ba261e3e",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 396,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "rename Y to v for consistency with C\u0027s FixedPointInterpolation",
+      "range": {
+        "startLine": 396,
+        "startChar": 55,
+        "endLine": 396,
+        "endChar": 56
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68c52b80_5b82cad6",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "This is implementing https://chromium.googlesource.com/webm/libwebp/+/refs/tags/v1.6.0/sharpyuv/sharpyuv_gamma.c#107 and FixedPointInterpolation  But tab_value_shift should be 0 so no shift here right ? What about the shift by 7 above ? Where does it come from ? Why is tab_pos_shift_right \u003d\u003d 7 ?",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5186b1f3_dc1dcba0",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: This shifts the table entries down to the output bit depth *before* interpolation. In the C implementation (`SharpYuvLinearToGamma` in `sharpyuv_gamma.c`), the interpolation is performed at full precision (16.16) and only the final result is shifted down.\n\nShifting before interpolation loses precision and will likely cause this code to not be bit-exact with the C implementation, especially for lower bit depths or in steep parts of the gamma curve. You should perform the interpolation first and then shift the result.",
+      "range": {
+        "startLine": 405,
+        "startChar": 0,
+        "endLine": 405,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6df3f229_90ed9433",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 410,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: Since `sum` is known to be positive (it is a sum of products of absolute differences), `_mm256_srli_epi32` (logical shift) would be more conventional than `srai` (arithmetic shift), though the result is the same here.",
+      "range": {
+        "startLine": 410,
+        "startChar": 0,
+        "endLine": 410,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4444a3b9_d2eb4e2f",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "Rename RGBToGray for consistency",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62397d2b_56b973b8",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 431,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "assert(shift_right \u003e\u003d 0); to be safe",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de146f08_bd99ac1d",
+        "filename": "sharpyuv/sharpyuv_avx2.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 495,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "assert(shift_right \u003e\u003d 0); just to be safe",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad51c47f_cfcb84ad",
+        "filename": "sharpyuv/sharpyuv_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 361,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: Similar to the AVX2 implementation, shifting the table entries here before interpolation loses precision compared to the C fallback. Interpolate first, then shift down to `out_shift`.",
+      "range": {
+        "startLine": 361,
+        "startChar": 0,
+        "endLine": 361,
+        "endChar": 0
+      },
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9b51f2ec_fb4da822",
+        "filename": "sharpyuv/sharpyuv_neon.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:01:30Z",
+      "side": 1,
+      "message": "RGBToGray for consistency with C",
+      "revId": "ade403154fbc49592f608d740495772128ef5ab3",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
