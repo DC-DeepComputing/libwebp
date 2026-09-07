@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee5a6033_bc4f784a",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:35:50Z",
+      "side": 1,
+      "message": "aaah, right, i forgot about the \u0027-exact\u0027 case. Done.",
+      "parentUuid": "e8f11212_20247caf",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1780ceaf_e88db9d9",
@@ -31,6 +49,24 @@
       "writtenOn": "2026-09-07T09:44:41Z",
       "side": 1,
       "message": "(bin_is_mode0 \u0026\u0026 (plane \u003d\u003d 0 || exact || alpha_always_nonzero))",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5407e1e2_9dbabcdb",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T13:35:50Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1780ceaf_e88db9d9",
       "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
