@@ -20,6 +20,7 @@
 
 #include "src/dec/common_dec.h"
 #include "src/dsp/cpu.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/utils/bounds_safety.h"
 #include "src/webp/decode.h"
 #include "src/webp/types.h"
@@ -86,6 +87,14 @@ typedef void (*VP8Intra4Preds)(uint8_t* WEBP_RESTRICT dst,
 extern VP8Intra4Preds VP8EncPredLuma4;
 extern VP8IntraPreds VP8EncPredLuma16;
 extern VP8IntraPreds VP8EncPredChroma8;
+
+// Perform one forward-pass of the small intra4-selecting MLP.
+// ctx[NN_INPUT_DIM] is the neighbouring input context (int16, 14b-precision).
+// scores[NUM_BMODES] scores each mode as int32.
+typedef void (*VP8NNIntra4ScoreFunc)(
+    const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+    const int16_t* WEBP_RESTRICT ctx, int32_t* WEBP_RESTRICT scores);
+extern VP8NNIntra4ScoreFunc VP8NNIntra4Score;
 
 typedef int (*VP8Metric)(const uint8_t* WEBP_RESTRICT pix,
                          const uint8_t* WEBP_RESTRICT ref);

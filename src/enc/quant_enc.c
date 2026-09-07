@@ -20,8 +20,17 @@
 #include "src/dsp/dsp.h"
 #include "src/dsp/quant.h"
 #include "src/enc/cost_enc.h"
+#include "src/enc/nn_intra4_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/webp/types.h"
+
+// Number of modes (out of NUM_BMODES) kept after NN-based ranking, before
+// running them through the exact RD search below. Tune during benchmarking;
+// NUM_BMODES disables pruning entirely (useful to A/B against baseline).
+// TODO(skal): expose this as part of the public encoding API (e.g. an
+// "AI effort" knob in WebPConfig) instead of a compile-time constant, so
+// callers can trade off speed vs quality without rebuilding.
+#define NN_INTRA4_TOPK 4
 
 #define DO_TRELLIS_I4 1
 #define DO_TRELLIS_I16 1  // not a huge gain, but ok at low bitrate.
@@ -1071,18 +1080,76 @@ static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
   do {
     const int kNumBlocks = 1;
     VP8ModeScore rd_i4;
-    int mode;
+    int mode, m;
     int best_mode = -1;
     const uint8_t* const src = src0 + VP8Scan[it->i4];
     const uint16_t* const mode_costs = GetCostModeI4(it, rd->modes_i4);
     uint8_t* best_block = best_blocks + VP8Scan[it->i4];
     uint8_t* tmp_dst = it->yuv_p + I4TMP;  // scratch buffer.
+    int ranked_modes[NN_INTRA4_TOPK];
+    int16_t nn_ctx[NN_INPUT_DIM];
+
+    // NN-based candidate ranking: cheaply score all modes, then only run
+    // the exact RD search below (Reconstruct/SSE/cost) on the top-ranked
+    // NN_INTRA4_TOPK of them. Only the top NN_INTRA4_TOPK scores are ever
+    // used, so we maintain a bounded, sorted list of that size directly
+    // instead of sorting all NUM_BMODES scores. NUM_BMODES is a C enum
+    // constant (not a macro), so this has to be a runtime 'if', not '#if' --
+    // the optimizer still compiles the disabled branch away when
+    // NN_INTRA4_TOPK is a literal >= NUM_BMODES (used for A/B benchmarking
+    // against the unpruned baseline).
+    if (NN_INTRA4_TOPK < NUM_BMODES) {
+      int32_t nn_scores[NUM_BMODES];
+      int32_t ranked_scores[NN_INTRA4_TOPK];
+      int kept = 0;
+      const VP8NNIntra4WeightsQ* const nn_weights =
+          VP8NNIntra4PickWeights(dqm->quant);
+      NN_PROFILE_START(t_gather);
+      VP8NNIntra4GatherContext(it, nn_ctx);
+      NN_PROFILE_END(NN_PROF_GATHER, t_gather);
+      {
+        NN_PROFILE_START(t_score);
+        VP8NNIntra4Score(nn_weights, nn_ctx, nn_scores);
+        NN_PROFILE_END(NN_PROF_SCORE, t_score);
+      }
+      {
+        NN_PROFILE_START(t_select);
+        for (m = 0; m < NUM_BMODES; ++m) {
+          const int32_t s = nn_scores[m];
+          if (kept == NN_INTRA4_TOPK && s <= ranked_scores[kept - 1]) {
+            continue;  // doesn't make the cut, skip the insertion entirely.
+          }
+          {
+            int n = (kept < NN_INTRA4_TOPK) ? kept++ : kept - 1;
+            while (n > 0 && ranked_scores[n - 1] < s) {
+              ranked_scores[n] = ranked_scores[n - 1];
+              ranked_modes[n] = ranked_modes[n - 1];
+              --n;
+            }
+            ranked_scores[n] = s;
+            ranked_modes[n] = m;
+          }
+        }
+        NN_PROFILE_END(NN_PROF_SELECT, t_select);
+      }
+    } else {
+      for (m = 0; m < NN_INTRA4_TOPK; ++m) ranked_modes[m] = m;
+#ifdef WEBP_NN_INTRA4_DUMP
+      // Ground-truth data collection wants the *true* best mode (a full,
+      // unpruned RD search: build with NN_INTRA4_TOPK==NUM_BMODES to land
+      // here), but still needs the context gathered for every sample --
+      // the branch above only ranks candidates, it never touches nn_ctx.
+      VP8NNIntra4GatherContext(it, nn_ctx);
+#endif
+    }
 
     InitScore(&rd_i4);
     MakeIntra4Preds(it);
-    for (mode = 0; mode < NUM_BMODES; ++mode) {
+    NN_PROFILE_START(t_rd);
+    for (m = 0; m < NN_INTRA4_TOPK; ++m) {
       VP8ModeScore rd_tmp;
       int16_t tmp_levels[16];
+      mode = ranked_modes[m];
 
       // Reconstruct
       rd_tmp.nz = ReconstructIntra4(it, tmp_levels, src, tmp_dst, mode)
@@ -1118,6 +1185,7 @@ static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
                sizeof(rd_best.y_ac_levels[it->i4]));
       }
     }
+    NN_PROFILE_END(NN_PROF_RD, t_rd);
     SetRDScore(dqm->lambda_mode, &rd_i4);
     AddScore(&rd_best, &rd_i4);
     if (rd_best.score >= rd->score) {
@@ -1133,6 +1201,9 @@ static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
     }
     rd->modes_i4[it->i4] = best_mode;
     it->top_nz[it->i4 & 3] = it->left_nz[it->i4 >> 2] = (rd_i4.nz ? 1 : 0);
+#ifdef WEBP_NN_INTRA4_DUMP
+    VP8NNIntra4DumpSample(nn_ctx, dqm->quant, best_mode);
+#endif
   } while (VP8IteratorRotateI4(it, best_blocks));
 
   // finalize state
