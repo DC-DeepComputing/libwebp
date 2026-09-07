@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8f11212_20247caf",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 426,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:44:41Z",
+      "side": 1,
+      "message": "In near lossless, if alpha !\u003d0 but the planes are constant, the residuals are not because of pre-multiplication\n\nif (!exact \u0026\u0026 (diff_mask \u0026 1)) {\n    // If alpha is not constant and we perform alpha-zero cleanup, RGB residuals\n    // are not constant even if the planes are. Force scan for RGB.\n    effective_mask |\u003d 0x0eu;\n  }",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1780ceaf_e88db9d9",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 6
+      },
+      "lineNbr": 524,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-07T09:44:41Z",
+      "side": 1,
+      "message": "(bin_is_mode0 \u0026\u0026 (plane \u003d\u003d 0 || exact || alpha_always_nonzero))",
+      "revId": "95cd6faa0372a884cf1b61e32d21c76e04f7af3f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
