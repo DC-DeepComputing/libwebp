@@ -24,6 +24,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f59f375_1606d870",
+        "filename": "src/enc/nn_intra4_enc.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T15:50:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf66c2f2_15cb6b8f",
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a907c8b3_46158253",
@@ -47,6 +65,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5beb359_df0a3521",
+        "filename": "src/enc/quant_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1086,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T15:50:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a907c8b3_46158253",
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fb2a93ad_9d9ec0b5",
@@ -66,6 +102,24 @@
         "endLine": 1114,
         "endChar": 0
       },
+      "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82245e3c_22e28c66",
+        "filename": "src/enc/quant_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 1114,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-07T15:50:26Z",
+      "side": 1,
+      "message": "Done, thanks for catching this. Fixed the fill loop and made the RD-search loop use the actual ranked count (num_ranked) instead of NN_INTRA4_TOPK, so it stays safe if NN_INTRA4_TOPK is ever raised past NUM_BMODES.",
+      "parentUuid": "fb2a93ad_9d9ec0b5",
       "revId": "e1e70d8bf87952e76275865258a056fea1676e9a",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
