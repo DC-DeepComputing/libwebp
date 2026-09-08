@@ -16,6 +16,57 @@
       "message": "i changed the context layout and retrained the NN on the CLIC trainset, mostly.\nBetter balance of the scoring.\n\nMaybe we should have a \u0027-nn \u003cint\u003e\u0027 option to activate the neural net top-K selection.",
       "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa3c9eb5_8de5b103",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-08T12:31:48Z",
+      "side": 1,
+      "message": "Maybe assert that we have n a multiple of 8 and remove the trailing C.",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fa91514_2fb652f9",
+        "filename": "src/enc/nn_intra4_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-08T12:31:48Z",
+      "side": 1,
+      "message": "should that be SSE-ed to apply it to the whole context ?",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d772c73_0d0f5e36",
+        "filename": "src/enc/nn_intra4_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-08T12:31:48Z",
+      "side": 1,
+      "message": "Did you try to add a bit for \"have top\" (instead of replicating 0), to your context?",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
