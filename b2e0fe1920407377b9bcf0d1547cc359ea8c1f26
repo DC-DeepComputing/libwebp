@@ -33,6 +33,24 @@
       "message": "Actually the first line and first row, not just the corner",
       "revId": "b2e0fe1920407377b9bcf0d1547cc359ea8c1f26",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f9e5a2f_0a7cd33b",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 9
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-08T14:47:49Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "64e31d2c_192db3ce",
+      "revId": "b2e0fe1920407377b9bcf0d1547cc359ea8c1f26",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
