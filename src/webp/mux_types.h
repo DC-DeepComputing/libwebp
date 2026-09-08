@@ -58,7 +58,7 @@ typedef enum WebPMuxAnimBlend {
 // (ICC profile, metadata) and WebP compressed image data.
 // 'bytes' memory must be allocated using WebPMalloc() and such.
 struct WebPData {
-  const uint8_t* bytes;
+  const uint8_t* WEBP_COUNTED_BY_OR_NULL(size) bytes;
   size_t size;
 };
 
@@ -78,6 +78,19 @@ static WEBP_INLINE void WebPDataClear(WebPData* webp_data) {
   }
 }
 
+// Assigns size then bytes. With WEBP_COUNTED_BY_OR_NULL(size) on bytes,
+// capacity must be set before the pointer so the counted_by relationship
+// stays valid (same order as MemBuffer Remap).
+static WEBP_INLINE void WebPDataSet(WebPData* webp_data,
+                                    const uint8_t* WEBP_COUNTED_BY_OR_NULL(size)
+                                        bytes,
+                                    size_t size) {
+  if (webp_data != NULL) {
+    webp_data->size = size;
+    webp_data->bytes = bytes;
+  }
+}
+
 // Allocates necessary storage for 'dst' and copies the contents of 'src'.
 // Returns true on success.
 WEBP_NODISCARD static WEBP_INLINE int WebPDataCopy(const WebPData* src,
@@ -85,10 +98,14 @@ WEBP_NODISCARD static WEBP_INLINE int WebPDataCopy(const WebPData* src,
   if (src == NULL || dst == NULL) return 0;
   WebPDataInit(dst);
   if (src->bytes != NULL && src->size != 0) {
-    dst->bytes = (uint8_t*)WebPMalloc(src->size);
-    if (dst->bytes == NULL) return 0;
-    WEBP_UNSAFE_MEMCPY((void*)dst->bytes, src->bytes, src->size);
-    dst->size = src->size;
+    // WebPMalloc is ABI __single (void*); forge as uint8_t* with sized
+    // bounds in one step (void* is incomplete — cannot be the forge type).
+    // One declaration keeps -Wdeclaration-after-statement clean.
+    uint8_t* const bytes = WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(
+        uint8_t*, WebPMalloc(src->size), src->size);
+    if (bytes == NULL) return 0;
+    WEBP_UNSAFE_MEMCPY(bytes, src->bytes, src->size);
+    WebPDataSet(dst, bytes, src->size);
   }
   return 1;
 }
