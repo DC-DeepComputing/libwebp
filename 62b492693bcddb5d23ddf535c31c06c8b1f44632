@@ -35,6 +35,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d320d016_f7a669ac",
+        "filename": "src/dsp/enc_sse2.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1559,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-08T14:54:59Z",
+      "side": 1,
+      "message": "actually, we don\u0027t necessarily have n multiple of 8: the input vector is 49 elements, for instance.",
+      "parentUuid": "aa3c9eb5_8de5b103",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6fa91514_2fb652f9",
@@ -52,6 +70,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cadc0fb_7d3660a6",
+        "filename": "src/enc/nn_intra4_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-08T14:54:59Z",
+      "side": 1,
+      "message": "i think that\u0027s likely overkill, and the compiler will probably do it for us anyway",
+      "parentUuid": "6fa91514_2fb652f9",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d772c73_0d0f5e36",
@@ -65,6 +101,24 @@
       "writtenOn": "2026-09-08T12:31:48Z",
       "side": 1,
       "message": "Did you try to add a bit for \"have top\" (instead of replicating 0), to your context?",
+      "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae3c5f06_2272410e",
+        "filename": "src/enc/nn_intra4_enc.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-08T14:54:59Z",
+      "side": 1,
+      "message": "that\u0027s would complexify the training somehow, at this point. But could be a good idea to try next",
+      "parentUuid": "2d772c73_0d0f5e36",
       "revId": "62b492693bcddb5d23ddf535c31c06c8b1f44632",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
