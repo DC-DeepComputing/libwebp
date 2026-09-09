@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "297908e6_99f854b5",
+        "filename": "src/utils/palette.c",
+        "patchSetId": 16
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-09T22:21:18Z",
+      "side": 0,
+      "message": "```\n------------------------ \u003e8 ------------------------\ndiff --git a/src/utils/palette.c b/src/utils/palette.c\nindex b98fd9ca..220b630b 100644\n--- a/src/utils/palette.c\n+++ b/src/utils/palette.c\n@@ -230,7 +230,7 @@ static void PaletteSortMinimizeDeltas(\n \n // Finds the biggest cooccurrence in the matrix.\n static void CoOccurrenceFindMax(\n-    const uint32_t* const WEBP_COUNTED_BY(num_colors * num_colors) cooccurrence,\n+    const uint32_t* const WEBP_COUNTED_BY(num_colors* num_colors) cooccurrence,\n     uint32_t num_colors, uint8_t* const c1, uint8_t* const c2) {\n   // Find the index that is most frequently located adjacent to other\n   // (different) indexes.\n@@ -262,7 +262,7 @@ static int CoOccurrenceBuild(const WebPPicture* const pic,\n                              const uint32_t* const WEBP_COUNTED_BY(num_colors)\n                                  palette,\n                              uint32_t num_colors,\n-                             uint32_t* WEBP_COUNTED_BY(num_colors * num_colors)\n+                             uint32_t* WEBP_COUNTED_BY(num_colors* num_colors)\n                                  cooccurrence) {\n   uint32_t *lines, *line_top, *line_current, *line_tmp;\n   int x, y;\n@@ -459,8 +459,8 @@ static int PaletteMinLARefineColors(\n   if (cooccurrence \u003d\u003d NULL) return 0;\n   if (!CoOccurrenceBuild(pic, palette_in, num_colors,\n                          WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(\n-                           uint32_t*, cooccurrence,\n-                           num_colors * num_colors * sizeof(*cooccurrence)))) {\n+                             uint32_t*, cooccurrence,\n+                             num_colors* num_colors * sizeof(*cooccurrence)))) {\n     WebPSafeFree(cooccurrence);\n     return 0;\n   }\n@@ -493,16 +493,16 @@ static int PaletteSortModifiedZeng(\n   }\n   if (!CoOccurrenceBuild(pic, palette_in, num_colors,\n                          WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(\n-                           uint32_t*, cooccurrence,\n-                           num_colors * num_colors * sizeof(*cooccurrence)))) {\n+                             uint32_t*, cooccurrence,\n+                             num_colors* num_colors * sizeof(*cooccurrence)))) {\n     WebPSafeFree(cooccurrence);\n     return 0;\n   }\n \n   // Initialize the mapping list with the two best indices.\n   CoOccurrenceFindMax(WEBP_UNSAFE_FORGE_BIDI_INDEXABLE(\n-                        const uint32_t*, cooccurrence,\n-                        num_colors * num_colors * sizeof(*cooccurrence)),\n+                          const uint32_t*, cooccurrence,\n+                          num_colors* num_colors * sizeof(*cooccurrence)),\n                       num_colors, \u0026remapping[0], \u0026remapping[1]);\n \n   // We need to append and prepend to the list of remapping. To this end, we\n------------------------ \u003e8 ------------------------\n```\n\n`clang-format-19` has a bug with `WEBP_COUNTED_BY`.",
+      "revId": "73730abaee3595cf29a5e584f925b3da9bd525ba",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
