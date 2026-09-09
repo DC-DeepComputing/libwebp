@@ -233,21 +233,11 @@ void WebPSafeFree(void* const ptr) {
 
 // Public API functions.
 
-void* WEBP_SINGLE WebPMalloc(size_t size) {
-  // Currently WebPMalloc/WebPFree are declared in src/webp/types.h, which does
-  // not include bounds_safety.h. As such, the "default" annotation for the
-  // pointers they accept/return is __single.
-  //
-  // All callers will need to immediately cast the returned pointer to
-  // WEBP_BIDI_INDEXABLE or WEBP_INDEXABLE via
-  // WEBP_UNSAFE_FORGE_BIDI_INDEXABLE.
-  //
-  // TODO: https://issues.webmproject.org/432511225 - Remove this once we can
-  // annotate WebPMalloc/WebPFree.
-  return WEBP_UNSAFE_FORGE_SINGLE(void*, WebPSafeMalloc(1, size));
+void* WEBP_SIZED_BY_OR_NULL(size) WebPMalloc(size_t size) {
+  return WebPSafeMalloc(1, size);
 }
 
-void WebPFree(void* WEBP_SINGLE ptr) { WebPSafeFree(ptr); }
+void WebPFree(void* WEBP_UNSAFE_INDEXABLE ptr) { WebPSafeFree(ptr); }
 
 //------------------------------------------------------------------------------
 
