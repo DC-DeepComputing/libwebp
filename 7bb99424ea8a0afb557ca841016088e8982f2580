@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf0b59ae_788f80bb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-09T04:07:09Z",
+      "side": 1,
+      "message": "Presubmit will be: https://build.webmproject.org/jenkins/job/libwebp__commit_trigger/8033/",
+      "revId": "7bb99424ea8a0afb557ca841016088e8982f2580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
