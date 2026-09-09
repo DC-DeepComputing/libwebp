@@ -47,15 +47,23 @@ struct WebPAnimDecoder {
   WebPDecoderConfig config;  // Decoder config.
   // Note: we use a pointer to a function blending multiple pixels at a time to
   // allow possible inlining of per-pixel blending function.
-  BlendRowFunc blend_func;       // Pointer to the chose blend row function.
-  WebPAnimInfo info;             // Global info about the animation.
-  uint8_t* curr_frame;           // Current canvas (not disposed).
-  uint8_t* prev_frame_disposed;  // Previous canvas (properly disposed).
-  int prev_frame_timestamp;      // Previous frame timestamp (milliseconds).
-  WebPIterator prev_iter;        // Iterator object for previous frame.
-  int prev_frame_was_keyframe;   // True if previous frame was a keyframe.
-  int next_frame;                // Index of the next frame to be decoded
-                                 // (starting from 1).
+  BlendRowFunc blend_func;  // Pointer to the chose blend row function.
+  WebPAnimInfo info;        // Global info about the animation.
+
+  // Size in bytes of each canvas below. A plain member is used so that it can
+  // be named by WEBP_COUNTED_BY_OR_NULL(); a nested field such as
+  // 'info.canvas_width' is not accepted there.
+  size_t canvas_size;
+  // Current canvas (not disposed).
+  uint8_t* WEBP_COUNTED_BY_OR_NULL(canvas_size) curr_frame;
+  // Previous canvas (properly disposed).
+  uint8_t* WEBP_COUNTED_BY_OR_NULL(canvas_size) prev_frame_disposed;
+
+  int prev_frame_timestamp;     // Previous frame timestamp (milliseconds).
+  WebPIterator prev_iter;       // Iterator object for previous frame.
+  int prev_frame_was_keyframe;  // True if previous frame was a keyframe.
+  int next_frame;               // Index of the next frame to be decoded
+                                // (starting from 1).
 };
 
 static void DefaultDecoderOptions(WebPAnimDecoderOptions* const dec_options) {
@@ -137,12 +145,29 @@ WebPAnimDecoder* WebPAnimDecoderNewInternal(
   dec->info.frame_count = WebPDemuxGetI(dec->demux, WEBP_FF_FRAME_COUNT);
 
   // Note: calloc() because we fill frame with zeroes as well.
-  dec->curr_frame = (uint8_t*)WebPSafeCalloc(
-      dec->info.canvas_width * NUM_CHANNELS, dec->info.canvas_height);
-  if (dec->curr_frame == NULL) goto Error;
-  dec->prev_frame_disposed = (uint8_t*)WebPSafeCalloc(
-      dec->info.canvas_width * NUM_CHANNELS, dec->info.canvas_height);
-  if (dec->prev_frame_disposed == NULL) goto Error;
+  {
+    // 'canvas_size' and both canvases form __counted_by pairs, so the three
+    // must be assigned together with no side effect in between; the buffers
+    // are therefore held in locals until both allocations have succeeded.
+    const size_t canvas_size =
+        (size_t)dec->info.canvas_width * NUM_CHANNELS * dec->info.canvas_height;
+    uint8_t* WEBP_SIZED_BY_OR_NULL(canvas_size) const curr =
+        (uint8_t*)WebPSafeCalloc(dec->info.canvas_width * NUM_CHANNELS,
+                                 dec->info.canvas_height);
+    uint8_t* WEBP_SIZED_BY_OR_NULL(canvas_size) prev;
+    if (curr == NULL) goto Error;
+    prev = (uint8_t*)WebPSafeCalloc(dec->info.canvas_width * NUM_CHANNELS,
+                                    dec->info.canvas_height);
+    if (prev == NULL) {
+      // 'curr' is not yet owned by 'dec', so it is released here; the fields
+      // are still NULL and WebPAnimDecoderDelete() below is a no-op for them.
+      WebPSafeFree(curr);
+      goto Error;
+    }
+    dec->canvas_size = canvas_size;
+    dec->curr_frame = curr;
+    dec->prev_frame_disposed = prev;
+  }
 
   WebPAnimDecoderReset(dec);
   return dec;
@@ -165,36 +190,55 @@ static int IsFullFrame(int width, int height, int canvas_width,
 }
 
 // Clear the canvas to transparent.
-WEBP_NODISCARD static int ZeroFillCanvas(uint8_t* buf, uint32_t canvas_width,
+WEBP_NODISCARD static int ZeroFillCanvas(uint8_t* WEBP_COUNTED_BY(buf_size) buf,
+                                         size_t buf_size, uint32_t canvas_width,
                                          uint32_t canvas_height) {
   const uint64_t size =
       (uint64_t)canvas_width * canvas_height * NUM_CHANNELS * sizeof(*buf);
   if (!CheckSizeOverflow(size)) return 0;
-  WEBP_UNSAFE_MEMSET(buf, 0, (size_t)size);
+  if ((size_t)size > buf_size) return 0;
+  memset(buf, 0, (size_t)size);
   return 1;
 }
 
 // Clear given frame rectangle to transparent.
-static void ZeroFillFrameRect(uint8_t* buf, int buf_stride, int x_offset,
+static void ZeroFillFrameRect(uint8_t* WEBP_COUNTED_BY(buf_size) buf,
+                              size_t buf_size, int buf_stride, int x_offset,
                               int y_offset, int width, int height) {
   int j;
   const uint32_t x = (uint32_t)x_offset * NUM_CHANNELS;  // 26 bits
   const uint64_t y = (uint64_t)y_offset * buf_stride;
+  // 'row' keeps the bounds of 'buf', so each row write below is checked
+  // against the end of the canvas rather than being taken on trust.
+  uint8_t* WEBP_BIDI_INDEXABLE row = buf;
   assert(width * NUM_CHANNELS <= buf_stride);
-  buf += y + x;
+  if (height <= 0 || width <= 0) return;
+  // The rectangle is supplied by the caller; confirm it lies inside the
+  // canvas. Frames accepted by the demuxer always satisfy this, so this
+  // never fires for a bitstream that parsed successfully.
+  if (y + x + (uint64_t)(height - 1) * buf_stride +
+          (uint64_t)width * NUM_CHANNELS >
+      buf_size) {
+    return;
+  }
+  row += y + x;
   for (j = 0; j < height; ++j) {
-    WEBP_UNSAFE_MEMSET(buf, 0, width * NUM_CHANNELS);
-    buf += buf_stride;
+    memset(row, 0, width * NUM_CHANNELS);
+    row += buf_stride;
   }
 }
 
 // Copy width * height pixels from 'src' to 'dst'.
-WEBP_NODISCARD static int CopyCanvas(const uint8_t* src, uint8_t* dst,
-                                     uint32_t width, uint32_t height) {
+WEBP_NODISCARD static int CopyCanvas(const uint8_t* WEBP_COUNTED_BY(buf_size)
+                                         src,
+                                     uint8_t* WEBP_COUNTED_BY(buf_size) dst,
+                                     size_t buf_size, uint32_t width,
+                                     uint32_t height) {
   const uint64_t size = (uint64_t)width * height * NUM_CHANNELS;
   if (!CheckSizeOverflow(size)) return 0;
   assert(src != NULL && dst != NULL);
-  WEBP_UNSAFE_MEMCPY(dst, src, (size_t)size);
+  if ((size_t)size > buf_size) return 0;
+  memcpy(dst, src, (size_t)size);
   return 1;
 }
 
@@ -357,11 +401,12 @@ int WebPAnimDecoderGetNext(WebPAnimDecoder* dec, uint8_t** buf_ptr,
   is_key_frame = IsKeyFrame(&iter, &dec->prev_iter,
                             dec->prev_frame_was_keyframe, width, height);
   if (is_key_frame) {
-    if (!ZeroFillCanvas(dec->curr_frame, width, height)) {
+    if (!ZeroFillCanvas(dec->curr_frame, dec->canvas_size, width, height)) {
       goto Error;
     }
   } else {
-    if (!CopyCanvas(dec->prev_frame_disposed, dec->curr_frame, width, height)) {
+    if (!CopyCanvas(dec->prev_frame_disposed, dec->curr_frame, dec->canvas_size,
+                    width, height)) {
       goto Error;
     }
   }
@@ -432,13 +477,15 @@ int WebPAnimDecoderGetNext(WebPAnimDecoder* dec, uint8_t** buf_ptr,
   WebPDemuxReleaseIterator(&dec->prev_iter);
   dec->prev_iter = iter;
   dec->prev_frame_was_keyframe = is_key_frame;
-  if (!CopyCanvas(dec->curr_frame, dec->prev_frame_disposed, width, height)) {
+  if (!CopyCanvas(dec->curr_frame, dec->prev_frame_disposed, dec->canvas_size,
+                  width, height)) {
     goto Error;
   }
   if (dec->prev_iter.dispose_method == WEBP_MUX_DISPOSE_BACKGROUND) {
-    ZeroFillFrameRect(dec->prev_frame_disposed, width * NUM_CHANNELS,
-                      dec->prev_iter.x_offset, dec->prev_iter.y_offset,
-                      dec->prev_iter.width, dec->prev_iter.height);
+    ZeroFillFrameRect(dec->prev_frame_disposed, dec->canvas_size,
+                      width * NUM_CHANNELS, dec->prev_iter.x_offset,
+                      dec->prev_iter.y_offset, dec->prev_iter.width,
+                      dec->prev_iter.height);
   }
   ++dec->next_frame;
 
