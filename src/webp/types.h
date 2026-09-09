@@ -83,22 +83,6 @@ typedef long long int int64_t;
 // Macro to check ABI compatibility (same major revision number)
 #define WEBP_ABI_IS_INCOMPATIBLE(a, b) (((a) >> 8) != ((b) >> 8))
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-// Allocates 'size' bytes of memory. Returns NULL upon error. Memory
-// must be deallocated by calling WebPFree(). This function is made available
-// by the core 'libwebp' library.
-WEBP_NODISCARD WEBP_EXTERN void* WebPMalloc(size_t size);
-
-// Releases memory returned by the WebPDecode*() functions (from decode.h).
-WEBP_EXTERN void WebPFree(void* ptr);
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
 #include <string.h>  // For memcpy and friends
 
 #ifdef WEBP_SUPPORT_FBOUNDS_SAFETY
@@ -184,5 +168,25 @@ WEBP_EXTERN void WebPFree(void* ptr);
 // This macro exists to indicate intentionality with self-assignments and
 // silence -Wself-assign compiler warnings.
 #define WEBP_SELF_ASSIGN(x) x = x
+
+// Declared after the bounds-safety macros above so that the allocation size
+// can be attached to the returned pointer, as is done for WebPSafeMalloc() in
+// src/utils/utils.h.
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// Allocates 'size' bytes of memory. Returns NULL upon error. Memory
+// must be deallocated by calling WebPFree(). This function is made available
+// by the core 'libwebp' library.
+WEBP_NODISCARD WEBP_EXTERN void* WEBP_SIZED_BY_OR_NULL(size)
+    WebPMalloc(size_t size);
+
+// Releases memory returned by the WebPDecode*() functions (from decode.h).
+WEBP_EXTERN void WebPFree(void* WEBP_UNSAFE_INDEXABLE ptr);
+
+#ifdef __cplusplus
+}  // extern "C"
+#endif
 
 #endif  // WEBP_WEBP_TYPES_H_

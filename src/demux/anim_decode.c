@@ -368,8 +368,6 @@ int WebPAnimDecoderGetNext(WebPAnimDecoder* dec, uint8_t** buf_ptr,
 
   // Decode.
   {
-    const uint8_t* in = iter.fragment.bytes;
-    const size_t in_size = iter.fragment.size;
     const uint32_t stride = width * NUM_CHANNELS;  // at most 25 + 2 bits
     const uint64_t out_offset = (uint64_t)iter.y_offset * stride +
                                 (uint64_t)iter.x_offset * NUM_CHANNELS;  // 53b
@@ -381,7 +379,10 @@ int WebPAnimDecoderGetNext(WebPAnimDecoder* dec, uint8_t** buf_ptr,
     buf->size = (size_t)size;
     buf->rgba = dec->curr_frame + out_offset;
 
-    if (WebPDecode(in, in_size, config) != VP8_STATUS_OK) {
+    // Passed straight from the iterator so that the payload keeps the bounds
+    // declared by WebPData's __counted_by pair.
+    if (WebPDecode(iter.fragment.bytes, iter.fragment.size, config) !=
+        VP8_STATUS_OK) {
       goto Error;
     }
   }
