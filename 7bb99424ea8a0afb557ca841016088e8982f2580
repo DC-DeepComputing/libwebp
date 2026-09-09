@@ -33,6 +33,24 @@
       "message": "```\n------------------------ \u003e8 ------------------------\ndiff --git a/extras/extras.c b/extras/extras.c\nindex 2154b130..bc5518cd 100644\n--- a/extras/extras.c\n+++ b/extras/extras.c\n@@ -248,8 +248,8 @@ static const double kFracZScore \u003d 8.0;\n static const double kFracMinMargin \u003d 0.1;  // percentage points\n static const double kScoreZScore \u003d 5.0;\n static const double kScoreMinMargin \u003d 2.0;  // score points (0-100 scale)\n-static const double kFracCutoff \u003d 1.0;  // percent\n-static const double kMaxScore \u003d 25.0;   // pre-rescale score saturation point\n+static const double kFracCutoff \u003d 1.0;      // percent\n+static const double kMaxScore \u003d 25.0;  // pre-rescale score saturation point\n \n // Circular buffer of WINDOW_SIZE values, with running sum/sumsq.\n typedef struct {\n------------------------ \u003e8 ------------------------\n```",
       "revId": "7bb99424ea8a0afb557ca841016088e8982f2580",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c3bac0e_d6b699ff",
+        "filename": "extras/extras.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-09T05:34:19Z",
+      "side": 1,
+      "message": "applied",
+      "parentUuid": "baf51588_b2b4d90d",
+      "revId": "7bb99424ea8a0afb557ca841016088e8982f2580",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
