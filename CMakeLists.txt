@@ -422,7 +422,8 @@ target_include_directories(webputils PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
 add_library(webp $<TARGET_OBJECTS:webpdecode> $<TARGET_OBJECTS:webpdsp>
                  $<TARGET_OBJECTS:webpencode> $<TARGET_OBJECTS:webputils>)
 if(WEBP_ENABLE_FBOUNDS_SAFETY)
-  # Enable -fbounds-safety only for webputils and webpdecode(r) for now.
+  # Enable -fbounds-safety only for webputils, webpdecode(r) and webpdemux for
+  # now.
   add_definitions(-DWEBP_SUPPORT_FBOUNDS_SAFETY=1)
   target_compile_options(webputils PRIVATE -fbounds-safety)
   target_compile_options(webputilsdecode PRIVATE -fbounds-safety)
@@ -454,6 +455,9 @@ configure_pkg_config("src/libwebp.pc")
 # Build the webp demux library.
 add_library(webpdemux ${WEBP_DEMUX_SRCS})
 target_link_libraries(webpdemux webp)
+if(WEBP_ENABLE_FBOUNDS_SAFETY)
+  target_compile_options(webpdemux PRIVATE -fbounds-safety)
+endif()
 target_include_directories(
   webpdemux PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR}
   PUBLIC $<INSTALL_INTERFACE:include>)
