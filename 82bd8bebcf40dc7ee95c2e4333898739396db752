@@ -41,6 +41,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f776a40_f84b85e7",
+        "filename": "src/demux/demux.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 979,
+      "author": {
+        "id": 5144235
+      },
+      "writtenOn": "2026-09-10T02:10:57Z",
+      "side": 1,
+      "message": "Done. Used \u0027fourcc\u0027 to match the file -- in comments under src/ it\u0027s 634 for\n\u0027var\u0027 against 17 for |var| -- and the next line already says \u0027chunk.bytes\u0027.\nHappy to switch if you\u0027d rather.\n\nAlso swapped CHUNK_SIZE_BYTES for TAG_SIZE on the forge. Both are 4, but\nSetChunk() reads a tag. Object file comes out identical.",
+      "parentUuid": "a1540d40_375f69bc",
+      "revId": "82bd8bebcf40dc7ee95c2e4333898739396db752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a7ff292b_4fd86324",
@@ -60,6 +78,24 @@
         "endLine": 95,
         "endChar": 40
       },
+      "revId": "82bd8bebcf40dc7ee95c2e4333898739396db752",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9e12b43_65f78a80",
+        "filename": "src/webp/mux_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 5144235
+      },
+      "writtenOn": "2026-09-10T02:10:57Z",
+      "side": 1,
+      "message": "Neither one builds here. WEBP_BIDI_INDEXABLE and WEBP_INDEXABLE live in\nsrc/utils/bounds_safety.h, and this header only pulls in types.h.\n\nExposing them doesn\u0027t help either: WEBP_SUPPORT_FBOUNDS_SAFETY is set globally\n(CMakeLists.txt:427) while -fbounds-safety is per-target, and ptrcheck.h leaves\n__bidi_indexable undefined without the flag on purpose. With the swap,\nmuxinternal.c and muxedit.c both fail with \"expected \u0027;\u0027 at end of declaration\",\nsame for a TU including only mux.h. types.h:101 already draws that line.\n\nYou\u0027re right that it goes redundant long term, though. Drop the pragma and\n__sized_by_or_null deletes cleanly, I tried it. It just can\u0027t go first --\nmemcpy() won\u0027t take an __unsafe_indexable pointer.",
+      "parentUuid": "a7ff292b_4fd86324",
       "revId": "82bd8bebcf40dc7ee95c2e4333898739396db752",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
