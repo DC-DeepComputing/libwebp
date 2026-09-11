@@ -34,6 +34,23 @@
       "parentUuid": "3f473e05_4e840601",
       "revId": "8b9d88a5f4420be9d9c0cd1a43843ad6aa2f4aad",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c916bb8_b69361c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1289110
+      },
+      "writtenOn": "2026-09-11T15:13:10Z",
+      "side": 1,
+      "message": "I ran this patch compared to libwebp 177df1e on https://github.com/google-research-datasets/web-images. I get roughly -19% enc time at m6 and -5% at m2-5. Timings are too noisy to estimate dec time impact.",
+      "revId": "8b9d88a5f4420be9d9c0cd1a43843ad6aa2f4aad",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
