@@ -530,7 +530,7 @@ static int PaletteSortModifiedZeng(
       // Compute delta to know if we need to prepend or append the best index.
       int32_t delta = 0;
       const int32_t n = num_colors - num_sums;
-      for (ind = first, j = 0; (ind + j) % num_colors != last + 1; ++j) {
+      for (ind = first, j = 0; j < n; ++j) {
         const uint16_t l_j = remapping[(ind + j) % num_colors];
         delta += (n - 1 - 2 * (int32_t)j) *
                  (int32_t)cooccurrence[best_index * num_colors + l_j];
