@@ -67,6 +67,24 @@
       "message": "This feels like something that would get a unit test rather than relying on a fuzzer.",
       "revId": "068163d8b6333e096903072962bece75b68a5fde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78fef670_e58e4833",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-15T19:58:54Z",
+      "side": 1,
+      "message": "Right, we have put some tests in the fuzzers already, that\u0027s why I put it here. E.g. https://chromium.googlesource.com/webm/libwebp/+/refs/heads/main/tests/fuzzer/animation_api_fuzzer.cc#94",
+      "parentUuid": "7c1d469a_acc25332",
+      "revId": "068163d8b6333e096903072962bece75b68a5fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
