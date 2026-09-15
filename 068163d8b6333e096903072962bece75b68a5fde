@@ -50,6 +50,23 @@
       "message": "Presubmit: https://build.webmproject.org/jenkins/view/webp/job/libwebp__commit_trigger/8038/",
       "revId": "068163d8b6333e096903072962bece75b68a5fde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7c1d469a_acc25332",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-15T19:46:02Z",
+      "side": 1,
+      "message": "This feels like something that would get a unit test rather than relying on a fuzzer.",
+      "revId": "068163d8b6333e096903072962bece75b68a5fde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
