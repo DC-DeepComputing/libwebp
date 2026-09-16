@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89fe7323_8b23c290",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-16T18:24:09Z",
+      "side": 1,
+      "message": "`-Wdeclaration-after-statement`. Once we land all these and maybe fix the resize bug, I\u0027ll release and then we can upgrade to C11.",
+      "revId": "fcf3a58025492e953f34b8487e3c5b1fe181158c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
