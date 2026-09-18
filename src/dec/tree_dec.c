@@ -24,13 +24,16 @@
 WEBP_ASSUME_UNSAFE_INDEXABLE_ABI
 
 #if !defined(USE_GENERIC_TREE)
-#if !defined(__arm__) && !defined(_M_ARM) && !WEBP_AARCH64 && !defined(__wasm__)
-// using a table is ~1-2% slower on ARM. Prefer the coded-tree approach then.
+#if defined(__x86_64__) || defined(_M_X64)
+// The coded tree avoids the table lookup on x86-64.
+#define USE_GENERIC_TREE 0
+#elif !defined(__arm__) && !defined(_M_ARM) && !WEBP_AARCH64 && \
+    !defined(__wasm__)
 #define USE_GENERIC_TREE 1  // ALTERNATE_CODE
 #else
 #define USE_GENERIC_TREE 0
 #endif
-#endif  // USE_GENERIC_TREE
+#endif  // !defined(USE_GENERIC_TREE)
 
 #if (USE_GENERIC_TREE == 1)
 static const int8_t kYModesIntra4[18] = {
