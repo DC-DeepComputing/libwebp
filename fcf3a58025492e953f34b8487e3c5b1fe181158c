@@ -16,6 +16,24 @@
       "message": "`-Wdeclaration-after-statement`. Once we land all these and maybe fix the resize bug, I\u0027ll release and then we can upgrade to C11.",
       "revId": "fcf3a58025492e953f34b8487e3c5b1fe181158c",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "03a389df_bcdeeb51",
+        "filename": "src/enc/predictor_enc.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-21T18:24:16Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "89fe7323_8b23c290",
+      "revId": "fcf3a58025492e953f34b8487e3c5b1fe181158c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
