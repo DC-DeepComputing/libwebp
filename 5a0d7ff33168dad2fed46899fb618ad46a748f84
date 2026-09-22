@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "14b9e32e_96d43260",
+        "filename": "src/enc/backward_references_enc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-22T16:45:47Z",
+      "side": 1,
+      "message": "comment still relevant?",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
