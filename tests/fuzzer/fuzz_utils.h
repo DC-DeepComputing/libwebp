@@ -93,6 +93,8 @@ struct UniquePtrDeleter {
   void operator()(WebPDecoderConfig* config) const {
     WebPFreeDecBuffer(&config->output);
   }
+  void operator()(WebPDemuxer* demux) const { WebPDemuxDelete(demux); }
+  void operator()(WebPIterator* iter) const { WebPDemuxReleaseIterator(iter); }
 };
 
 // Like WebPPicture but with no C array.
