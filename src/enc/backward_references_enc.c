@@ -28,9 +28,6 @@
 
 #define MIN_BLOCK_SIZE 256  // minimum block size for backward references
 
-// 1M window (4M bytes) minus 120 special codes for short distances.
-#define WINDOW_SIZE ((1 << WINDOW_SIZE_BITS) - 120)
-
 // Minimum number of pixels for which it is cheaper to encode a
 // distance + length instead of each pixel as a literal.
 #define MIN_LENGTH 4
