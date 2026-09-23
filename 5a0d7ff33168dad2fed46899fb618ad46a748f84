@@ -3,6 +3,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "27c0ef97_d3d02a3e",
+        "filename": "src/dec/vp8l_dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-23T07:19:04Z",
+      "side": 1,
+      "message": "window_limit \u003d\u003d 0 special case is hidden here.\nYou could return PTRDIFF_MAX instead (as sentinel) and drop the tests \u0027if window_limit \u003d\u003d 0\u0027 special-casing in the code",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "14b9e32e_96d43260",
         "filename": "src/enc/backward_references_enc.h",
         "patchSetId": 1
@@ -14,6 +31,23 @@
       "writtenOn": "2026-09-22T16:45:47Z",
       "side": 1,
       "message": "comment still relevant?",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "857ed394_7e8e2f50",
+        "filename": "src/webp/format_constants.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-23T07:19:04Z",
+      "side": 1,
+      "message": "note there\u0027s also WINDOW_SIZE in extras.c",
       "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
