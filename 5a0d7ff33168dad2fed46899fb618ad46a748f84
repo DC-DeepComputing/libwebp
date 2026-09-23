@@ -18,6 +18,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4caf50f2_8cf03b7f",
+        "filename": "src/dec/vp8l_dec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1196,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-23T08:18:25Z",
+      "side": 1,
+      "message": "I\u0027ve never heard of that PTRDIFF_MAX. Probably some post C 89 thingy.",
+      "parentUuid": "27c0ef97_d3d02a3e",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "14b9e32e_96d43260",
@@ -35,6 +53,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "61347ce8_f6e7e61a",
+        "filename": "src/enc/backward_references_enc.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-23T08:18:25Z",
+      "side": 1,
+      "message": "Actually yes",
+      "parentUuid": "14b9e32e_96d43260",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "857ed394_7e8e2f50",
@@ -48,6 +84,24 @@
       "writtenOn": "2026-09-23T07:19:04Z",
       "side": 1,
       "message": "note there\u0027s also WINDOW_SIZE in extras.c",
+      "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28443054_936a2f51",
+        "filename": "src/webp/format_constants.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-09-23T08:18:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "857ed394_7e8e2f50",
       "revId": "5a0d7ff33168dad2fed46899fb618ad46a748f84",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
