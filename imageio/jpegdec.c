@@ -406,6 +406,15 @@ int ReadJpegDimensions(const uint8_t* const data, size_t data_size,
   (void)height;
   return 0;
 }
+
+int ReadJpegDimensions(const uint8_t* const data, size_t data_size,
+                       int* const width, int* const height) {
+  (void)data;
+  (void)data_size;
+  (void)width;
+  (void)height;
+  return 0;
+}
 #endif  // WEBP_HAVE_JPEG
 
 // -----------------------------------------------------------------------------
