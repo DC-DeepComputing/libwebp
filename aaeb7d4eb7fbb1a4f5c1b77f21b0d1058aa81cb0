@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c96bbb5_71e616f0",
+        "filename": "src/webp/mux_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-25T05:11:15Z",
+      "side": 1,
+      "message": "these comments are hard to parse.\nYou should add a single inline \"WebPDataSet(WebPData* data, bytes, size) {...}\" below (line 98) to perform a bytes/size assignment in one place (and explain what\u0027s going on with the assignment order requirements",
+      "revId": "aaeb7d4eb7fbb1a4f5c1b77f21b0d1058aa81cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
