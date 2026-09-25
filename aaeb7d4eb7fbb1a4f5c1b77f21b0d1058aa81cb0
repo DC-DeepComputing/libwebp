@@ -16,6 +16,24 @@
       "message": "these comments are hard to parse.\nYou should add a single inline \"WebPDataSet(WebPData* data, bytes, size) {...}\" below (line 98) to perform a bytes/size assignment in one place (and explain what\u0027s going on with the assignment order requirements",
       "revId": "aaeb7d4eb7fbb1a4f5c1b77f21b0d1058aa81cb0",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0e356216_df6fdd97",
+        "filename": "src/webp/mux_types.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 5149832
+      },
+      "writtenOn": "2026-09-25T15:03:20Z",
+      "side": 1,
+      "message": "Done — added WebPDataSet for capacity-first size/bytes assignment and switched WebPDataCopy + demux call sites.",
+      "parentUuid": "3c96bbb5_71e616f0",
+      "revId": "aaeb7d4eb7fbb1a4f5c1b77f21b0d1058aa81cb0",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
