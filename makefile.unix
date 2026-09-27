@@ -231,6 +231,7 @@ ENC_OBJS = \
     src/enc/histogram_enc.o \
     src/enc/iterator_enc.o \
     src/enc/near_lossless_enc.o \
+    src/enc/nn_intra_enc.o \
     src/enc/picture_enc.o \
     src/enc/picture_csp_enc.o \
     src/enc/picture_psnr_enc.o \
@@ -329,10 +330,15 @@ HDRS = \
     src/dsp/mips_macro.h \
     src/dsp/msa_macro.h \
     src/dsp/neon.h \
+    src/dsp/nn_intra4_dims.h \
     src/dsp/yuv.h \
     src/enc/backward_references_enc.h \
     src/enc/cost_enc.h \
     src/enc/histogram_enc.h \
+    src/enc/nn_i16_weights.h \
+    src/enc/nn_intra4_weights.h \
+    src/enc/nn_intra_enc.h \
+    src/enc/nn_proxy_weights.h \
     src/enc/vp8i_enc.h \
     src/enc/vp8li_enc.h \
     src/mux/animi.h \
