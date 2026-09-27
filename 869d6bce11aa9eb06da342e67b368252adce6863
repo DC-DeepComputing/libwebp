@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b80481c_8c7e7137",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 12
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-27T12:06:59Z",
+      "side": 1,
+      "message": "I revamp the Intra4 decision totally, and added a front-leading Intra16-policy decision that decides Intra16/Intra4",
+      "revId": "869d6bce11aa9eb06da342e67b368252adce6863",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
