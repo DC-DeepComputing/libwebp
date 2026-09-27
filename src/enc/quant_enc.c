@@ -20,8 +20,19 @@
 #include "src/dsp/dsp.h"
 #include "src/dsp/quant.h"
 #include "src/enc/cost_enc.h"
+#include "src/enc/nn_intra4_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/webp/types.h"
+
+// Ranker of the Intra4 modes used by the NN-assisted decisions:
+//   default: the linear 'proxy' ranker (see ProxyRank() below),
+//   WEBP_NN_INTRA4_MLP: the 8-bit pixel-context MLP.
+#if !defined(WEBP_NN_INTRA4_MLP) && !defined(WEBP_NN_INTRA4_PROXY)
+#define WEBP_NN_INTRA4_PROXY
+#endif
+#ifdef WEBP_NN_INTRA4_PROXY
+#include "src/enc/nn_proxy_weights.h"
+#endif
 
 #define DO_TRELLIS_I4 1
 #define DO_TRELLIS_I16 1  // not a huge gain, but ok at low bitrate.
@@ -867,7 +878,7 @@ static void CorrectDCValues(const VP8EncIterator* WEBP_RESTRICT const it,
   for (ch = 0; ch <= 1; ++ch) {
     const int8_t* const top = it->top_derr[it->x][ch];
     const int8_t* const left = it->left_derr[ch];
-    int16_t(*const c)[16] = &tmp[ch * 4];
+    int16_t (*const c)[16] = &tmp[ch * 4];
     int err0, err1, err2, err3;
     c[0][0] += (C1 * top[0] + C2 * left[0]) >> (DSHIFT - DSCALE);
     err0 = QuantizeSingle(&c[0][0], mtx);
@@ -979,8 +990,10 @@ static void SwapOut(VP8EncIterator* const it) {
   SwapPtr(&it->yuv_out, &it->yuv_out2);
 }
 
+// Evaluates the first 'num_modes' Intra16 prediction modes (all of them
+// [NUM_PRED_MODES], or just DC).
 static void PickBestIntra16(VP8EncIterator* WEBP_RESTRICT const it,
-                            VP8ModeScore* WEBP_RESTRICT rd) {
+                            VP8ModeScore* WEBP_RESTRICT rd, int num_modes) {
   const int kNumBlocks = 16;
   VP8SegmentInfo* const dqm = &it->enc->dqm[it->mb->segment];
   const int lambda = dqm->lambda_i16;
@@ -993,7 +1006,7 @@ static void PickBestIntra16(VP8EncIterator* WEBP_RESTRICT const it,
   int is_flat = IsFlatSource16(it->yuv_in + Y_OFF_ENC);
 
   rd->mode_i16 = -1;
-  for (mode = 0; mode < NUM_PRED_MODES; ++mode) {
+  for (mode = 0; mode < num_modes; ++mode) {
     uint8_t* const tmp_dst = it->yuv_out2 + Y_OFF_ENC;  // scratch buffer
     rd_cur->mode_i16 = mode;
 
@@ -1049,6 +1062,42 @@ static const uint16_t* GetCostModeI4(VP8EncIterator* WEBP_RESTRICT const it,
   return VP8FixedCostsI4[top][left];
 }
 
+#ifdef WEBP_NN_INTRA4_PROXY
+// Linear "proxy" ranking of the 10 Intra4 modes: the features are cheap,
+// all-integer, and derived from the raw predictions of the modes: how much
+// worse than the best mode its proxy RD score (SSE(prediction) + 2 * lambda *
+// H / 256) is, and how much more it costs to code (H). 'src' is the source
+// 4x4 block and 'preds' the block's 10 predictions (MakeIntra4Preds()). Fills
+// 'logits' with the score of each mode (units of 1/32).
+static void ProxyRank(const uint8_t* WEBP_RESTRICT src,
+                      const uint8_t* WEBP_RESTRICT preds,
+                      const uint16_t* WEBP_RESTRICT mode_costs, int lambda,
+                      int quant, int32_t logits[NUM_BMODES]) {
+  int64_t p[NUM_BMODES], pmin = INT64_MAX, r;
+  int32_t x[21];
+  int hmin = 65535, m, j;
+  for (m = 0; m < NUM_BMODES; ++m) {
+    p[m] = VP8SSE4x4(src, preds + VP8I4ModeOffsets[m]) +
+           (((int64_t)2 * lambda * mode_costs[m]) >> 8);
+    if (p[m] < pmin) pmin = p[m];
+    if (mode_costs[m] < hmin) hmin = mode_costs[m];
+  }
+  r = ((int64_t)1 << 32) / (pmin + 32);  // one division per block
+  x[0] = (quant - 64) * 64;
+  for (m = 0; m < NUM_BMODES; ++m) {
+    const int64_t dp = ((p[m] - pmin) * r) >> 23;
+    const int dh = mode_costs[m] - hmin;
+    x[1 + m] = (dp > 4096) ? 4096 : (int32_t)dp;
+    x[11 + m] = (dh > 4096) ? 4096 : dh;
+  }
+  for (m = 0; m < NUM_BMODES; ++m) {
+    int64_t acc = kNNProxyBias[m];
+    for (j = 0; j < 21; ++j) acc += (int64_t)kNNProxyWeights[m][j] * x[j];
+    logits[m] = (int32_t)(acc >> NN_PROXY_ACC_SHIFT);
+  }
+}
+#endif  // WEBP_NN_INTRA4_PROXY
+
 static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
                           VP8ModeScore* WEBP_RESTRICT const rd) {
   const VP8Encoder* const enc = it->enc;
@@ -1071,18 +1120,75 @@ static int PickBestIntra4(VP8EncIterator* WEBP_RESTRICT const it,
   do {
     const int kNumBlocks = 1;
     VP8ModeScore rd_i4;
-    int mode;
+    int mode, m;
     int best_mode = -1;
     const uint8_t* const src = src0 + VP8Scan[it->i4];
     const uint16_t* const mode_costs = GetCostModeI4(it, rd->modes_i4);
     uint8_t* best_block = best_blocks + VP8Scan[it->i4];
     uint8_t* tmp_dst = it->yuv_p + I4TMP;  // scratch buffer.
+    int ranked_modes[NUM_BMODES];
+    int32_t ranked_scores[NUM_BMODES];
+    // Number of modes kept after NN-based ranking (see WebPConfig::nn_level),
+    // and number of those actually evaluated with the exact RD-cost.
+    const int topk = enc->nn_topk;
+    int num_eval = topk;
+    int preds_done = 0;  // has MakeIntra4Preds() been called for this block?
+#if defined(WEBP_NN_INTRA4_PROXY)
+    // (no pixel context: see ProxyRank())
+#else  // WEBP_NN_INTRA4_MLP
+    int8_t nn_ctx[NN_INPUT_PAD];
+#endif
+
+    // NN-based candidate ranking: cheaply score all modes, then only run
+    // the exact RD search on the top 'topk' ones. If topk == NUM_BMODES,
+    // all the modes are evaluated and the NN is not even called.
+    if (topk < NUM_BMODES) {
+      int32_t nn_scores[NUM_BMODES];
+      int kept = 0;
+#if defined(WEBP_NN_INTRA4_PROXY)
+      MakeIntra4Preds(it);
+      preds_done = 1;
+      ProxyRank(src, it->yuv_p, mode_costs, lambda, dqm->quant, nn_scores);
+#else  // WEBP_NN_INTRA4_MLP
+      const VP8NNIntra4WeightsQ* const nn_weights =
+          VP8NNIntra4PickWeights(dqm->quant);
+      VP8NNIntra4GatherContext(it, nn_ctx);
+      VP8NNIntra4Score(nn_weights, nn_ctx, nn_scores);
+#endif
+      for (m = 0; m < NUM_BMODES; ++m) {
+        const int32_t s = nn_scores[m];
+        if (kept == topk && s <= ranked_scores[kept - 1]) {
+          continue;  // doesn't make the cut, skip
+        } else {     // else insert at the right spot
+          int n = (kept < topk) ? kept++ : kept - 1;
+          while (n > 0 && ranked_scores[n - 1] < s) {
+            ranked_scores[n] = ranked_scores[n - 1];
+            ranked_modes[n] = ranked_modes[n - 1];
+            --n;
+          }
+          ranked_scores[n] = s;
+          ranked_modes[n] = m;
+        }
+      }
+      // Clear winner: skip the RD evaluation of modes that score too far
+      // below the best-ranked one.
+      if (enc->nn_margin > 0) {
+        for (num_eval = 1; num_eval < topk; ++num_eval) {
+          if (ranked_scores[num_eval] < ranked_scores[0] - enc->nn_margin) {
+            break;
+          }
+        }
+      }
+    } else {  // all modes are evaluated
+      for (m = 0; m < NUM_BMODES; ++m) ranked_modes[m] = m;
+    }
 
     InitScore(&rd_i4);
-    MakeIntra4Preds(it);
-    for (mode = 0; mode < NUM_BMODES; ++mode) {
+    if (!preds_done) MakeIntra4Preds(it);
+    for (m = 0; m < num_eval; ++m) {
       VP8ModeScore rd_tmp;
       int16_t tmp_levels[16];
+      mode = ranked_modes[m];
 
       // Reconstruct
       rd_tmp.nz = ReconstructIntra4(it, tmp_levels, src, tmp_dst, mode)
@@ -1354,8 +1460,18 @@ int VP8Decimate(VP8EncIterator* WEBP_RESTRICT const it,
 
   if (rd_opt > RD_OPT_NONE) {
     it->do_trellis = (rd_opt >= RD_OPT_TRELLIS_ALL);
-    PickBestIntra16(it, rd);
-    if (method >= 2) {
+    // NN-assisted decision on what to look for (see VP8NNI16Policy()).
+    const VP8Encoder* const enc = it->enc;
+    const VP8NNI16PolicyType policy =
+        enc->nn_i16 ? VP8NNI16Policy(it, enc->dqm[it->mb->segment].quant,
+                                     IsFlatSource16(it->yuv_in + Y_OFF_ENC),
+                                     enc->nn_i16_bias)
+                    : NN_I16_POLICY_ALL;
+    PickBestIntra16(it, rd,
+                    (policy == NN_I16_POLICY_DC || policy == NN_I16_POLICY_I4)
+                        ? 1
+                        : NUM_PRED_MODES);
+    if (method >= 2 && policy >= NN_I16_POLICY_I4) {
       PickBestIntra4(it, rd);
     }
     PickBestUV(it, rd);

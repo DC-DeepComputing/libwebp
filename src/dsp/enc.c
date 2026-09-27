@@ -17,6 +17,7 @@
 
 #include "src/dsp/cpu.h"
 #include "src/dsp/dsp.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/utils/utils.h"
 #include "src/webp/types.h"
@@ -552,6 +553,59 @@ static void Intra4Preds_C(uint8_t* WEBP_RESTRICT dst,
 #endif  // !WEBP_NEON_OMIT_C_CODE || !WEBP_AARCH64 || BPS != 32
 
 //------------------------------------------------------------------------------
+// NN forward-pass for ranking Intra4 modes
+
+#ifdef WEBP_NN_INTRA4_MLP
+// 8-bit variant (see nn_intra4_dims.h).
+static void NNIntra4Score_C(const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+                            const int8_t* WEBP_RESTRICT ctx,
+                            int32_t* WEBP_RESTRICT scores) {
+  int8_t h1[NN_HIDDEN], h2[NN_HIDDEN];
+  int i, j;
+
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    int32_t sum = weights->b1[i];
+    for (j = 0; j < NN_INPUT_DIM; ++j) sum += weights->w1[i][j] * ctx[j];
+    h1[i] = NNRequantReLU(sum, weights->m1[i], weights->shift[0]);
+  }
+  for (i = 0; i < NN_HIDDEN; ++i) {
+    int32_t sum = weights->b2[i];
+    for (j = 0; j < NN_HIDDEN; ++j) sum += weights->w2[i][j] * h1[j];
+    h2[i] = NNRequantReLU(sum, weights->m2[i], weights->shift[1]);
+  }
+  for (i = 0; i < NUM_BMODES; ++i) {
+    int32_t sum = weights->b3[i];
+    for (j = 0; j < NN_HIDDEN; ++j) sum += weights->w3[i][j] * h2[j];
+    scores[i] = NNRequantLogit(sum, weights->m3[i], weights->shift[2]);
+  }
+}
+#endif  // WEBP_NN_INTRA4_MLP
+
+// Macroblock type decision NN (see nn_intra4_dims.h).
+static void NNI16Score_C(const VP8NNI16WeightsQ* WEBP_RESTRICT weights,
+                         const int8_t* WEBP_RESTRICT ctx,
+                         int32_t* WEBP_RESTRICT scores) {
+  int8_t h1[NNI16_H1], h2[NNI16_H2];
+  int i, j;
+
+  for (i = 0; i < NNI16_H1; ++i) {
+    int32_t sum = weights->b1[i];
+    for (j = 0; j < NN_INPUT_DIM; ++j) sum += weights->w1[i][j] * ctx[j];
+    h1[i] = NNRequantReLU(sum, weights->m1[i], weights->shift[0]);
+  }
+  for (i = 0; i < NNI16_H2; ++i) {
+    int32_t sum = weights->b2[i];
+    for (j = 0; j < NNI16_H1; ++j) sum += weights->w2[i][j] * h1[j];
+    h2[i] = NNRequantReLU(sum, weights->m2[i], weights->shift[1]);
+  }
+  for (i = 0; i < NNI16_OUT_PAD; ++i) {
+    int32_t sum = weights->b3[i];
+    for (j = 0; j < NNI16_H2; ++j) sum += weights->w3[i][j] * h2[j];
+    scores[i] = NNRequantLogit(sum, weights->m3[i], weights->shift[2]);
+  }
+}
+
+//------------------------------------------------------------------------------
 // Metric
 
 #if !WEBP_NEON_OMIT_C_CODE
@@ -749,6 +803,10 @@ VP8WHT VP8FTransformWHT;
 VP8Intra4Preds VP8EncPredLuma4;
 VP8IntraPreds VP8EncPredLuma16;
 VP8IntraPreds VP8EncPredChroma8;
+#ifdef WEBP_NN_INTRA4_MLP
+VP8NNIntra4ScoreFunc VP8NNIntra4Score;
+#endif  // WEBP_NN_INTRA4_MLP
+VP8NNI16ScoreFunc VP8NNI16Score;
 VP8Metric VP8SSE16x16;
 VP8Metric VP8SSE8x8;
 VP8Metric VP8SSE16x8;
@@ -800,6 +858,10 @@ WEBP_DSP_INIT_FUNC(VP8EncDspInit) {
 #if !WEBP_NEON_OMIT_C_CODE || !WEBP_AARCH64
   VP8EncPredLuma16 = Intra16Preds_C;
 #endif
+#ifdef WEBP_NN_INTRA4_MLP
+  VP8NNIntra4Score = NNIntra4Score_C;
+#endif  // WEBP_NN_INTRA4_MLP
+  VP8NNI16Score = NNI16Score_C;
 
   VP8FTransform2 = FTransform2_C;
   VP8EncPredChroma8 = IntraChromaPreds_C;

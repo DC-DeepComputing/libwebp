@@ -37,6 +37,9 @@ extern "C" {
 #define ENC_MIN_VERSION 6
 #define ENC_REV_VERSION 0
 
+// Dev flag selecting the Intra4 ranker: see the ranker doc at the top of
+// quant_enc.c. -nn's user-facing doc is in doc/tools.md.
+
 enum {
   MAX_LF_LEVELS = 64,       // Maximum loop filter level
   MAX_VARIABLE_LEVEL = 67,  // last (inclusive) level with variable cost
@@ -401,6 +404,10 @@ struct VP8Encoder {
   int method;               // 0=fastest, 6=best/slowest.
   VP8RDLevel rd_opt_level;  // Deduced from method.
   int max_i4_header_bits;   // partition #0 safeness factor
+  int nn_i16;               // if true, use the intra16/4 decision NN
+  int32_t nn_i16_bias[4];   // time bias of each policy (see VP8NNI16Policy)
+  int nn_topk;    // number of intra4 modes kept after NN ranking (1..10)
+  int nn_margin;  // if > 0, extra 'clear winner' early-out threshold
   int mb_header_limit;      // rough limit for header bits per MB
   int thread_level;         // derived from config->thread_level
   int do_search;            // derived from config->target_XXX
