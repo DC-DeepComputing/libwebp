@@ -213,6 +213,7 @@ model {
             include "histogram_enc.c"
             include "iterator_enc.c"
             include "near_lossless_enc.c"
+            include "nn_intra4_enc.c"
             include "picture_enc.c"
             include "picture_csp_enc.c"
             include "picture_psnr_enc.c"

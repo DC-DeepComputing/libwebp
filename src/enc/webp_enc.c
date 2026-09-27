@@ -19,6 +19,7 @@
 #include "src/dec/common_dec.h"
 #include "src/dsp/dsp.h"
 #include "src/enc/cost_enc.h"
+#include "src/enc/nn_intra4_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/enc/vp8li_enc.h"
 #include "src/utils/utils.h"
@@ -30,6 +31,40 @@
 #ifdef PRINT_MEMORY_INFO
 #include <stdio.h>
 #endif
+
+// NN-assisted decisions, per 'nn_level' (0 = none, increasing pruning):
+//   topk:   number of Intra4 modes kept after the NN ranking (10 = all: the
+//           NN is not even called),
+//   margin: 'clear winner' early-out (0 = none; 32 units = 1.0 in logits),
+//   i16_mu: time weight (in 1/1000) of the Intra16 / Intra4 decision NN;
+//           negative values make it more conservative than neutral
+//           (NN_I16_OFF: not used).
+typedef struct {
+  uint8_t topk;
+  int16_t margin;
+  int16_t i16_mu;
+} NNLevel;
+#define NN_NUM_LEVELS 11
+#define NN_I16_OFF (-32768)
+// Levels 1-4 prune only Intra4 (top-K + margin); 5-10 add the Intra16/
+// Intra4 decision NN, increasingly aggressive. Time saved / BD-rate cost
+// (mixed corpus, -m 4):
+//   1:  -4% / +0.1%     4: -15% / +0.5%     7: -27% / +1.6%    10: -38% / +6.3%
+//   2:  -7% / +0.2%     5: -18% / +0.8%     8: -31% / +2.7%
+//   3: -11% / +0.3%     6: -23% / +1.1%     9: -35% / +5.4%
+static const NNLevel kNNLevels[NN_NUM_LEVELS] = {
+    {10, 0, NN_I16_OFF},   // 0: exhaustive search (the NN is not used)
+    {6, 0, NN_I16_OFF},    // 1
+    {5, 0, NN_I16_OFF},    // 2
+    {6, 128, NN_I16_OFF},  // 3
+    {4, 128, NN_I16_OFF},  // 4  (recommended)
+    {4, 96, -93},          // 5
+    {4, 128, -12},         // 6
+    {4, 128, 110},         // 7
+    {4, 128, 272},         // 8
+    {4, 128, 679},         // 9
+    {2, 96, 882},          // 10
+};
 
 //------------------------------------------------------------------------------
 
@@ -105,6 +140,18 @@ static void MapConfigToTools(VP8Encoder* const enc) {
                       : (method >= 5) ? RD_OPT_TRELLIS
                       : (method >= 3) ? RD_OPT_BASIC
                                       : RD_OPT_NONE;
+  {
+    // NN-assisted decisions, as a function of config->nn_level.
+    const int level = (config->nn_level < 0) ? 0
+                      : (config->nn_level < NN_NUM_LEVELS)
+                          ? config->nn_level
+                          : NN_NUM_LEVELS - 1;
+    const NNLevel l = kNNLevels[level];
+    enc->nn_topk = l.topk;
+    enc->nn_margin = l.margin;  // 'clear winner' early-out (see quant_enc.c)
+    enc->nn_i16 = (l.i16_mu != NN_I16_OFF);
+    if (enc->nn_i16) VP8NNI16ComputeBias(l.i16_mu, enc->nn_i16_bias);
+  }
   enc->max_i4_header_bits =
       256 * 16 * 16 *                 // upper bound: up to 16bit per 4x4 block
       (limit * limit) / (100 * 100);  // ... modulated with a quadratic curve.
