@@ -37,6 +37,9 @@ extern "C" {
 #define ENC_MIN_VERSION 6
 #define ENC_REV_VERSION 0
 
+// Dev flag selecting the Intra4 ranker: see the ranker doc at the top of
+// nn_intra_enc.h. -nn's user-facing doc is in doc/tools.md.
+
 enum {
   MAX_LF_LEVELS = 64,       // Maximum loop filter level
   MAX_VARIABLE_LEVEL = 67,  // last (inclusive) level with variable cost
@@ -82,6 +85,7 @@ typedef enum {            // Rate-distortion optimization levels
 extern const uint16_t VP8Scan[16];
 extern const uint16_t VP8UVModeOffsets[4];
 extern const uint16_t VP8I16ModeOffsets[4];
+extern const uint16_t VP8I4ModeOffsets[NUM_BMODES];
 
 // Layout of prediction blocks
 // intra 16x16
@@ -401,10 +405,14 @@ struct VP8Encoder {
   int method;               // 0=fastest, 6=best/slowest.
   VP8RDLevel rd_opt_level;  // Deduced from method.
   int max_i4_header_bits;   // partition #0 safeness factor
-  int mb_header_limit;      // rough limit for header bits per MB
-  int thread_level;         // derived from config->thread_level
-  int do_search;            // derived from config->target_XXX
-  int use_tokens;           // if true, use token buffer
+  int nn_i16;               // if true, use the intra16/4 decision NN
+  int32_t nn_i16_bias[4];   // time bias of each policy (see VP8NNI16Policy)
+  int nn_topk;          // number of intra4 modes kept after NN ranking (1..10)
+  int nn_margin;        // if > 0, extra 'clear winner' early-out threshold
+  int mb_header_limit;  // rough limit for header bits per MB
+  int thread_level;     // derived from config->thread_level
+  int do_search;        // derived from config->target_XXX
+  int use_tokens;       // if true, use token buffer
 
   // Memory
   VP8MBInfo* mb_info;  // contextual macroblock infos (mb_w + 1)

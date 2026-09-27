@@ -44,6 +44,7 @@ int WebPConfigInitInternal(WebPConfig* config, WebPPreset preset, float quality,
   config->pass = 1;
   config->qmin = 0;
   config->qmax = 100;
+  config->nn_level = 0;  // off by default, for now: keep bit-identical output
   config->show_compressed = 0;
   config->preprocessing = 0;
   config->autofilter = 0;
@@ -114,6 +115,7 @@ int WebPValidateConfig(const WebPConfig* config) {
   if (config->qmin < 0 || config->qmax > 100 || config->qmin > config->qmax) {
     return 0;
   }
+  if (config->nn_level < 0 || config->nn_level > 10) return 0;
   if (config->show_compressed < 0 || config->show_compressed > 1) return 0;
   if (config->preprocessing < 0 || config->preprocessing > 7) return 0;
   if (config->partitions < 0 || config->partitions > 3) return 0;
