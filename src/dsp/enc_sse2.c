@@ -21,6 +21,7 @@
 
 #include "src/dsp/common_sse2.h"
 #include "src/dsp/cpu.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/enc/cost_enc.h"
 #include "src/enc/vp8i_enc.h"
 #include "src/utils/utils.h"
@@ -1531,6 +1532,133 @@ static int Quantize2Blocks_SSE2(int16_t in[32], int16_t out[32],
 }
 
 //------------------------------------------------------------------------------
+// Intra4 NN mode-ranking forward pass (see src/enc/nn_intra4_enc.h)
+
+// 8-bit pixel-context MLP variant.
+
+// Sign-extends 16 int8 to 2x8 int16.
+static WEBP_INLINE void S8ToS16_SSE2(__m128i v, __m128i* WEBP_RESTRICT lo,
+                                     __m128i* WEBP_RESTRICT hi) {
+  *lo = _mm_srai_epi16(_mm_unpacklo_epi8(v, v), 8);
+  *hi = _mm_srai_epi16(_mm_unpackhi_epi8(v, v), 8);
+}
+
+// Dot-products of 4 consecutive rows (stride NN_INPUT_PAD == 32 bytes) of
+// int8 weights with the int16-widened input vector x[4] (32 values).
+static WEBP_INLINE __m128i Dot4Rows_SSE2(const int8_t* WEBP_RESTRICT rows,
+                                         const __m128i x[4]) {
+  __m128i s[4];
+  int r;
+  for (r = 0; r < 4; ++r) {
+    const int8_t* const w = rows + r * NN_INPUT_PAD;
+    __m128i w0, w1, w2, w3;
+    S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(w + 0)), &w0, &w1);
+    S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(w + 16)), &w2, &w3);
+    s[r] = _mm_add_epi32(
+        _mm_add_epi32(_mm_madd_epi16(w0, x[0]), _mm_madd_epi16(w1, x[1])),
+        _mm_add_epi32(_mm_madd_epi16(w2, x[2]), _mm_madd_epi16(w3, x[3])));
+  }
+  {  // horizontal sums of the 4 vectors, packed as [sum0 sum1 sum2 sum3]
+    const __m128i a = _mm_add_epi32(_mm_unpacklo_epi32(s[0], s[1]),
+                                    _mm_unpackhi_epi32(s[0], s[1]));
+    const __m128i b = _mm_add_epi32(_mm_unpacklo_epi32(s[2], s[3]),
+                                    _mm_unpackhi_epi32(s[2], s[3]));
+    return _mm_add_epi32(_mm_unpacklo_epi64(a, b), _mm_unpackhi_epi64(a, b));
+  }
+}
+
+// Requantizes 4 int32 accumulators, see NNRequant().
+static WEBP_INLINE __m128i Requant4_SSE2(__m128i acc,
+                                         const int16_t* WEBP_RESTRICT m,
+                                         int shift) {
+  const __m128i acc_round = _mm_set1_epi32(1 << (NN_ACC_SHIFT - 1));
+  const __m128i a = _mm_packs_epi32(
+      _mm_srai_epi32(_mm_add_epi32(acc, acc_round), NN_ACC_SHIFT),
+      _mm_setzero_si128());
+  const __m128i mm = _mm_loadl_epi64((const __m128i*)m);
+  const __m128i p =
+      _mm_unpacklo_epi16(_mm_mullo_epi16(a, mm), _mm_mulhi_epi16(a, mm));
+  const __m128i rnd = _mm_set1_epi32(1 << (shift - 1));
+  return _mm_sra_epi32(_mm_add_epi32(p, rnd), _mm_cvtsi32_si128(shift));
+}
+
+// One hidden layer: 8 * groups outputs (<= 32), as int16x8 vectors (already
+// clamped to [0, NN_ACT_MAX] and hence directly usable as the next layer's
+// input).
+static WEBP_INLINE void HiddenLayer_SSE2(const int8_t* WEBP_RESTRICT w,
+                                         const int32_t* WEBP_RESTRICT b,
+                                         const int16_t* WEBP_RESTRICT m,
+                                         int shift, const __m128i x[4],
+                                         int groups, __m128i out[4]) {
+  const __m128i zero = _mm_setzero_si128();
+  const __m128i vmax = _mm_set1_epi16(NN_ACT_MAX);
+  int g;
+  for (g = 0; g < groups; ++g) {
+    const int j = 8 * g;
+    const __m128i lo = Requant4_SSE2(
+        _mm_add_epi32(Dot4Rows_SSE2(w + (j + 0) * NN_INPUT_PAD, x),
+                      _mm_loadu_si128((const __m128i*)(b + j + 0))),
+        m + j + 0, shift);
+    const __m128i hi = Requant4_SSE2(
+        _mm_add_epi32(Dot4Rows_SSE2(w + (j + 4) * NN_INPUT_PAD, x),
+                      _mm_loadu_si128((const __m128i*)(b + j + 4))),
+        m + j + 4, shift);
+    out[g] = _mm_min_epi16(_mm_max_epi16(_mm_packs_epi32(lo, hi), zero), vmax);
+  }
+}
+
+#ifdef WEBP_NN_INTRA4_MLP
+static void NNIntra4Score_SSE2(const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+                               const int8_t* WEBP_RESTRICT ctx,
+                               int32_t* WEBP_RESTRICT scores) {
+  __m128i x[4], h1[4], h2[4];
+  int32_t out[NN_OUT_PAD];
+  int g;
+  S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(ctx + 0)), &x[0], &x[1]);
+  S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(ctx + 16)), &x[2], &x[3]);
+  HiddenLayer_SSE2(&weights->w1[0][0], weights->b1, weights->m1,
+                   weights->shift[0], x, 4, h1);
+  HiddenLayer_SSE2(&weights->w2[0][0], weights->b2, weights->m2,
+                   weights->shift[1], h1, 4, h2);
+  for (g = 0; g < NN_OUT_PAD / 4; ++g) {
+    const __m128i acc =
+        _mm_add_epi32(Dot4Rows_SSE2(&weights->w3[4 * g][0], h2),
+                      _mm_loadu_si128((const __m128i*)(weights->b3 + 4 * g)));
+    const __m128i r =
+        Requant4_SSE2(acc, weights->m3 + 4 * g, weights->shift[2]);
+    // saturate to int16, then sign-extend back
+    const __m128i r16 = _mm_packs_epi32(r, r);
+    _mm_storeu_si128((__m128i*)(out + 4 * g),
+                     _mm_srai_epi32(_mm_unpacklo_epi16(r16, r16), 16));
+  }
+  memcpy(scores, out, NUM_BMODES * sizeof(scores[0]));
+}
+#endif  // WEBP_NN_INTRA4_MLP
+
+// Macroblock type decision NN, see NNI16Score_C().
+static void NNI16Score_SSE2(const VP8NNI16WeightsQ* WEBP_RESTRICT weights,
+                            const int8_t* WEBP_RESTRICT ctx,
+                            int32_t* WEBP_RESTRICT scores) {
+  __m128i x[4], h1[4], h2[4];
+  S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(ctx + 0)), &x[0], &x[1]);
+  S8ToS16_SSE2(_mm_loadu_si128((const __m128i*)(ctx + 16)), &x[2], &x[3]);
+  HiddenLayer_SSE2(&weights->w1[0][0], weights->b1, weights->m1,
+                   weights->shift[0], x, NNI16_H1 / 8, h1);
+  HiddenLayer_SSE2(&weights->w2[0][0], weights->b2, weights->m2,
+                   weights->shift[1], h1, NNI16_H2 / 8, h2);
+  h2[2] = h2[3] = _mm_setzero_si128();  // w3 rows are zero-padded to 32
+  {
+    const __m128i acc =
+        _mm_add_epi32(Dot4Rows_SSE2(&weights->w3[0][0], h2),
+                      _mm_loadu_si128((const __m128i*)weights->b3));
+    const __m128i r = Requant4_SSE2(acc, weights->m3, weights->shift[2]);
+    const __m128i r16 = _mm_packs_epi32(r, r);  // saturate to int16
+    _mm_storeu_si128((__m128i*)scores,
+                     _mm_srai_epi32(_mm_unpacklo_epi16(r16, r16), 16));
+  }
+}
+
+//------------------------------------------------------------------------------
 // Entry point
 
 extern void VP8EncDspInitSSE2(void);
@@ -1554,6 +1682,10 @@ WEBP_TSAN_IGNORE_FUNCTION void VP8EncDspInitSSE2(void) {
   VP8TDisto4x4 = Disto4x4_SSE2;
   VP8TDisto16x16 = Disto16x16_SSE2;
   VP8Mean16x4 = Mean16x4_SSE2;
+#ifdef WEBP_NN_INTRA4_MLP
+  VP8NNIntra4Score = NNIntra4Score_SSE2;
+#endif  // WEBP_NN_INTRA4_MLP
+  VP8NNI16Score = NNI16Score_SSE2;
 }
 
 #else  // !WEBP_USE_SSE2

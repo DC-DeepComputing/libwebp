@@ -16,8 +16,10 @@
 #if defined(WEBP_USE_NEON)
 
 #include <assert.h>
+#include <string.h>
 
 #include "src/dsp/neon.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/enc/vp8i_enc.h"
 
 //------------------------------------------------------------------------------
@@ -1196,6 +1198,116 @@ static void Intra16Preds_NEON(uint8_t* WEBP_RESTRICT dst,
 #endif  // WEBP_AARCH64
 
 //------------------------------------------------------------------------------
+// NN forward-pass for ranking Intra4 modes
+
+static WEBP_INLINE int32_t SumS32x4_NEON(int32x4_t v) {
+  const int32x2_t sum2 = vadd_s32(vget_low_s32(v), vget_high_s32(v));
+  return vget_lane_s32(vpadd_s32(sum2, sum2), 0);
+}
+
+// 8-bit pixel-context MLP variant.
+
+// Dot-product of a row of NN_INPUT_PAD (32) int8 weights with x0/x1.
+static WEBP_INLINE int32_t DotRow_NEON(const int8_t* WEBP_RESTRICT w,
+                                       int8x16_t x0, int8x16_t x1) {
+  const int8x16_t w0 = vld1q_s8(w + 0);
+  const int8x16_t w1 = vld1q_s8(w + 16);
+  int32x4_t acc = vpaddlq_s16(vmull_s8(vget_low_s8(w0), vget_low_s8(x0)));
+  acc = vpadalq_s16(acc, vmull_s8(vget_high_s8(w0), vget_high_s8(x0)));
+  acc = vpadalq_s16(acc, vmull_s8(vget_low_s8(w1), vget_low_s8(x1)));
+  acc = vpadalq_s16(acc, vmull_s8(vget_high_s8(w1), vget_high_s8(x1)));
+  return SumS32x4_NEON(acc);
+}
+
+// Requantizes 4 int32 accumulators, see NNRequant().
+static WEBP_INLINE int32x4_t Requant4_NEON(int32x4_t acc,
+                                           const int16_t* WEBP_RESTRICT m,
+                                           int32x4_t neg_shift) {
+  const int16x4_t a = vqmovn_s32(vrshrq_n_s32(acc, NN_ACC_SHIFT));
+  return vrshlq_s32(vmull_s16(a, vld1_s16(m)), neg_shift);
+}
+
+// One hidden layer: n outputs (multiple of 8, <= 32; int8, clamped to
+// [0, NN_ACT_MAX]).
+static WEBP_INLINE void HiddenLayer_NEON(const int8_t* WEBP_RESTRICT w,
+                                         const int32_t* WEBP_RESTRICT b,
+                                         const int16_t* WEBP_RESTRICT m,
+                                         int shift, int8x16_t x0, int8x16_t x1,
+                                         int n, int8_t out[NN_HIDDEN]) {
+  const int32x4_t neg_shift = vdupq_n_s32(-shift);
+  const int32x4_t zero = vdupq_n_s32(0);
+  const int32x4_t vmax = vdupq_n_s32(NN_ACT_MAX);
+  int32_t acc[NN_HIDDEN];
+  int j;
+  for (j = 0; j < n; ++j) {
+    acc[j] = b[j] + DotRow_NEON(w + j * NN_INPUT_PAD, x0, x1);
+  }
+  for (j = 0; j < n; j += 8) {
+    int32x4_t lo = Requant4_NEON(vld1q_s32(acc + j + 0), m + j + 0, neg_shift);
+    int32x4_t hi = Requant4_NEON(vld1q_s32(acc + j + 4), m + j + 4, neg_shift);
+    lo = vminq_s32(vmaxq_s32(lo, zero), vmax);
+    hi = vminq_s32(vmaxq_s32(hi, zero), vmax);
+    vst1_s8(out + j, vmovn_s16(vcombine_s16(vmovn_s32(lo), vmovn_s32(hi))));
+  }
+}
+
+#ifdef WEBP_NN_INTRA4_MLP
+static void NNIntra4Score_NEON(const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+                               const int8_t* WEBP_RESTRICT ctx,
+                               int32_t* WEBP_RESTRICT scores) {
+  int8_t h1[NN_HIDDEN], h2[NN_HIDDEN];
+  int32_t acc[NN_OUT_PAD], out[NN_OUT_PAD];
+  const int32x4_t neg_shift = vdupq_n_s32(-weights->shift[2]);
+  int j;
+  HiddenLayer_NEON(&weights->w1[0][0], weights->b1, weights->m1,
+                   weights->shift[0], vld1q_s8(ctx + 0), vld1q_s8(ctx + 16),
+                   NN_HIDDEN, h1);
+  HiddenLayer_NEON(&weights->w2[0][0], weights->b2, weights->m2,
+                   weights->shift[1], vld1q_s8(h1 + 0), vld1q_s8(h1 + 16),
+                   NN_HIDDEN, h2);
+  {
+    const int8x16_t x0 = vld1q_s8(h2 + 0), x1 = vld1q_s8(h2 + 16);
+    for (j = 0; j < NN_OUT_PAD; ++j) {
+      acc[j] = weights->b3[j] + DotRow_NEON(&weights->w3[j][0], x0, x1);
+    }
+  }
+  for (j = 0; j < NN_OUT_PAD; j += 4) {
+    const int32x4_t r =
+        Requant4_NEON(vld1q_s32(acc + j), weights->m3 + j, neg_shift);
+    vst1q_s32(out + j, vmovl_s16(vqmovn_s32(r)));  // saturate to int16
+  }
+  memcpy(scores, out, NUM_BMODES * sizeof(scores[0]));
+}
+#endif  // WEBP_NN_INTRA4_MLP
+
+// Macroblock type decision NN, see NNI16Score_C().
+static void NNI16Score_NEON(const VP8NNI16WeightsQ* WEBP_RESTRICT weights,
+                            const int8_t* WEBP_RESTRICT ctx,
+                            int32_t* WEBP_RESTRICT scores) {
+  int8_t h1[NN_HIDDEN], h2[NN_HIDDEN];
+  int32_t acc[NNI16_OUT_PAD];
+  const int32x4_t neg_shift = vdupq_n_s32(-weights->shift[2]);
+  int j;
+  HiddenLayer_NEON(&weights->w1[0][0], weights->b1, weights->m1,
+                   weights->shift[0], vld1q_s8(ctx + 0), vld1q_s8(ctx + 16),
+                   NNI16_H1, h1);
+  memset(h2, 0, sizeof(h2));  // w3 rows are zero-padded to 32
+  HiddenLayer_NEON(&weights->w2[0][0], weights->b2, weights->m2,
+                   weights->shift[1], vld1q_s8(h1 + 0), vld1q_s8(h1 + 16),
+                   NNI16_H2, h2);
+  {
+    const int8x16_t x0 = vld1q_s8(h2 + 0), x1 = vld1q_s8(h2 + 16);
+    for (j = 0; j < NNI16_OUT_PAD; ++j) {
+      acc[j] = weights->b3[j] + DotRow_NEON(&weights->w3[j][0], x0, x1);
+    }
+  }
+  {
+    const int32x4_t r = Requant4_NEON(vld1q_s32(acc), weights->m3, neg_shift);
+    vst1q_s32(scores, vmovl_s16(vqmovn_s32(r)));  // saturate to int16
+  }
+}
+
+//------------------------------------------------------------------------------
 // Entry point
 
 extern void VP8EncDspInitNEON(void);
@@ -1227,6 +1339,11 @@ WEBP_TSAN_IGNORE_FUNCTION void VP8EncDspInitNEON(void) {
   VP8EncQuantize2Blocks = Quantize2Blocks_NEON;
   VP8EncQuantizeBlockWHT = QuantizeBlock_NEON;
 #endif
+
+#ifdef WEBP_NN_INTRA4_MLP
+  VP8NNIntra4Score = NNIntra4Score_NEON;
+#endif  // WEBP_NN_INTRA4_MLP
+  VP8NNI16Score = NNI16Score_NEON;
 }
 
 #else  // !WEBP_USE_NEON

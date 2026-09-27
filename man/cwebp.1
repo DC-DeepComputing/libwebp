@@ -192,6 +192,17 @@ Disable strong filtering (if filtering is being used thanks to the
 Use more accurate and sharper RGB->YUV conversion. Note that this process is
 slower than the default 'fast' RGB->YUV conversion.
 .TP
+.BI \-nn " int
+Specify the amount of neural-network-assisted encoding decisions, between 0
+and 10. At 0, no neural network is used and all the candidates (e.g. the 10
+prediction modes of a 4x4 luma block) are evaluated with the exact rate-distortion
+cost: this is the slowest, and the most exhaustive setting. Higher values let a
+small neural network pre-select the most promising candidates, so that fewer of
+them are evaluated: encoding is faster, at the price of a (usually small) loss
+in compression efficiency: roughly 4% faster at level 1 (for +0.1% file size at
+equal quality), 15% at level 4 (+0.5%), 23% at level 6 (+1.1%) and 38% at
+level 10 (+6%). Default is 0, for now (backward compatibility).
+.TP
 .BI \-sns " int
 Specify the amplitude of the spatial noise shaping. Spatial noise shaping
 (or \fBsns\fP for short) refers to a general collection of built\-in algorithms

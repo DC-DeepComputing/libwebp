@@ -211,7 +211,7 @@ static inline auto ArbitraryWebPConfig() {
          int alpha_filtering, int alpha_quality, int pass, int preprocessing,
          int partitions, int partition_limit, int emulate_jpeg_size,
          int thread_level, int low_memory, int near_lossless, int exact,
-         int use_delta_palette, int use_sharp_yuv) -> WebPConfig {
+         int use_delta_palette, int use_sharp_yuv, int nn_level) -> WebPConfig {
         WebPConfig config;
         if (!WebPConfigInit(&config)) assert(false);
         config.lossless = lossless;
@@ -239,6 +239,7 @@ static inline auto ArbitraryWebPConfig() {
         config.exact = exact;
         config.use_delta_palette = use_delta_palette;
         config.use_sharp_yuv = use_sharp_yuv;
+        config.nn_level = nn_level;
         if (!WebPValidateConfig(&config)) assert(false);
         return config;
       },
@@ -265,7 +266,8 @@ static inline auto ArbitraryWebPConfig() {
       /*near_lossless=*/fuzztest::InRange<int>(0, 5),
       /*exact=*/fuzztest::InRange<int>(0, 1),
       /*use_delta_palette=*/fuzztest::InRange<int>(0, 1),
-      /*use_sharp_yuv=*/fuzztest::InRange<int>(0, 1));
+      /*use_sharp_yuv=*/fuzztest::InRange<int>(0, 1),
+      /*nn_level=*/fuzztest::InRange<int>(0, 10));
 }
 
 // Like WebPDecoderOptions but with no C array.

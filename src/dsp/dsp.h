@@ -20,6 +20,7 @@
 
 #include "src/dec/common_dec.h"
 #include "src/dsp/cpu.h"
+#include "src/dsp/nn_intra4_dims.h"
 #include "src/utils/bounds_safety.h"
 #include "src/webp/decode.h"
 #include "src/webp/types.h"
@@ -101,6 +102,23 @@ typedef void (*VP8Intra4Preds)(uint8_t* WEBP_RESTRICT dst,
 extern VP8Intra4Preds VP8EncPredLuma4;
 extern VP8IntraPreds VP8EncPredLuma16;
 extern VP8IntraPreds VP8EncPredChroma8;
+
+#ifdef WEBP_NN_INTRA4_MLP
+// Perform one forward-pass of the small intra4-selecting MLP.
+// ctx[NN_INPUT_PAD] is int8 (pixel - 128), scores[NUM_BMODES] are int32
+// logits in 1/NN_LOGIT_SCALE units.
+typedef void (*VP8NNIntra4ScoreFunc)(
+    const VP8NNIntra4WeightsQ* WEBP_RESTRICT weights,
+    const int8_t* WEBP_RESTRICT ctx, int32_t* WEBP_RESTRICT scores);
+extern VP8NNIntra4ScoreFunc VP8NNIntra4Score;
+#endif  // WEBP_NN_INTRA4_MLP
+
+// Macroblock type decision NN: ctx[NN_INPUT_PAD] int8,
+// scores[NNI16_OUT_PAD].
+typedef void (*VP8NNI16ScoreFunc)(const VP8NNI16WeightsQ* WEBP_RESTRICT weights,
+                                  const int8_t* WEBP_RESTRICT ctx,
+                                  int32_t* WEBP_RESTRICT scores);
+extern VP8NNI16ScoreFunc VP8NNI16Score;
 
 typedef int (*VP8Metric)(const uint8_t* WEBP_RESTRICT pix,
                          const uint8_t* WEBP_RESTRICT ref);
