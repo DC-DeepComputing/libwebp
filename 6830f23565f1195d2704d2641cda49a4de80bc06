@@ -170,6 +170,24 @@
       "message": "add a new patch to cover the extreme cases you mentioned too.",
       "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cdb05fc0_55646fd5",
+        "filename": "tests/fuzzer/enc_dec_fuzzer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 220,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-27T02:04:13Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a7e817e0_9a14e70b",
+      "revId": "6830f23565f1195d2704d2641cda49a4de80bc06",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
