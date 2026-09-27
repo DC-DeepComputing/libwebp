@@ -22,7 +22,7 @@
 extern "C" {
 #endif
 
-#define WEBP_ENCODER_ABI_VERSION 0x0210  // MAJOR(8b) + MINOR(8b)
+#define WEBP_ENCODER_ABI_VERSION 0x0220  // MAJOR(8b) + MINOR(8b)
 
 // Note: forward declaring enumerations is not allowed in (strict) C and C++,
 // the types are left here for reference.
@@ -161,6 +161,11 @@ struct WebPConfig {
 
   int qmin;  // minimum permissible quality factor
   int qmax;  // maximum permissible quality factor
+
+  int nn_level;  // amount of neural-network-assisted pruning of mode-decision
+                 // candidates, in [0..10]. 0 = off (default, for backward
+                 // compatibility). Higher = faster, larger files: ~4%
+                 // faster/+0.1% at level 1, up to ~38% faster/+6% at 10.
 };
 
 // Enumerate some predefined settings for WebPConfig, depending on the type

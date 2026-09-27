@@ -43,6 +43,7 @@ ENC_SOURCES =
 ENC_SOURCES += cost.c
 ENC_SOURCES += enc.c
 ENC_SOURCES += lossless_enc.c
+ENC_SOURCES += nn_intra4_dims.h
 ENC_SOURCES += quant.h
 ENC_SOURCES += ssim.c
 
