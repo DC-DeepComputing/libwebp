@@ -58,6 +58,8 @@ Options:
 -strong ................ use strong filter instead of simple (default)
 -nostrong .............. use simple filter instead of strong
 -sharp_yuv ............. use sharper (and slower) RGB->YUV conversion
+-nn <int> .............. amount of NN-assisted decisions (0=off, 10=max),
+                         default=0
 -partition_limit <int> . limit quality to fit the 512k limit on
                          the first partition (0=no degradation ... 100=full)
 -pass <int> ............ analysis pass number (1..10)

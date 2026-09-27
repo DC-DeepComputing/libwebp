@@ -617,6 +617,10 @@ static void HelpLong(void) {
   printf(
       "  -sharp_yuv ............. use sharper (and slower) RGB->YUV "
       "conversion\n");
+  printf(
+      "  -nn <int> .............. amount of NN-assisted decisions "
+      "(0=off, 10=max),\n"
+      "                           default=0\n");
   printf("  -partition_limit <int> . limit quality to fit the 512k limit on\n");
   printf(
       "                           "
@@ -866,6 +870,8 @@ int main(int argc, const char* argv[]) {
       config.filter_sharpness = ExUtilGetInt(argv[++c], 0, &parse_error);
     } else if (!strcmp(argv[c], "-sharp_yuv")) {
       config.use_sharp_yuv = 1;
+    } else if (!strcmp(argv[c], "-nn") && c + 1 < argc) {
+      config.nn_level = ExUtilGetInt(argv[++c], 0, &parse_error);
     } else if (!strcmp(argv[c], "-pass") && c + 1 < argc) {
       config.pass = ExUtilGetInt(argv[++c], 0, &parse_error);
     } else if (!strcmp(argv[c], "-qrange") && c + 2 < argc) {
