@@ -140,6 +140,7 @@ enc_srcs := \
     src/enc/histogram_enc.c \
     src/enc/iterator_enc.c \
     src/enc/near_lossless_enc.c \
+    src/enc/nn_intra_enc.c \
     src/enc/picture_enc.c \
     src/enc/picture_csp_enc.c \
     src/enc/picture_psnr_enc.c \
