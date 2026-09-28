@@ -302,6 +302,12 @@ int main(int argc, const char* argv[]) {
     } else if (!strcmp(argv[c], "-incremental")) {
       incremental = 1;
     } else if (!strcmp(argv[c], "--")) {
+      if (c < argc - 2) {
+        fprintf(stderr, "Unexpected argument '%s' after the input file\n",
+                argv[c + 2]);
+        Help();
+        FREE_WARGV_AND_RETURN(EXIT_FAILURE);
+      }
       if (c < argc - 1) in_file = (const char*)GET_WARGV(argv, ++c);
       break;
     } else if (argv[c][0] == '-') {

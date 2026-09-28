@@ -988,6 +988,13 @@ int main(int argc, const char* argv[]) {
     } else if (!strcmp(argv[c], "-v")) {
       verbose = 1;
     } else if (!strcmp(argv[c], "--")) {
+      if (c + 2 < argc) {
+        fprintf(stderr,
+                "Error! Unexpected argument '%s' after the input file\n",
+                argv[c + 2]);
+        HelpLong();
+        FREE_WARGV_AND_RETURN(EXIT_FAILURE);
+      }
       if (c + 1 < argc) in_file = (const char*)GET_WARGV(argv, ++c);
       break;
     } else if (argv[c][0] == '-') {

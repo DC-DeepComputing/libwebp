@@ -257,6 +257,13 @@ int main(int argc, const char* argv[]) {
       verbose = 1;
       enc_options.verbose = 1;
     } else if (!strcmp(argv[c], "--")) {
+      if (c < argc - 2) {
+        fprintf(stderr,
+                "Error! Unexpected argument '%s' after the input file\n",
+                argv[c + 2]);
+        Help();
+        FREE_WARGV_AND_RETURN(EXIT_FAILURE);
+      }
       if (c < argc - 1) in_file = GET_WARGV(argv, ++c);
       break;
     } else if (argv[c][0] == '-') {
