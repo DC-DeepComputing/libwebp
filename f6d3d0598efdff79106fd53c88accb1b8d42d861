@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dc8f3e1_529b4059",
+        "filename": "src/enc/picture_rescale_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-09-28T19:59:29Z",
+      "side": 1,
+      "message": "note that this \"+ WEBP_ALIGN_CST\" only works becaue we\u0027re allocating uint8_t.\nAll these would be worth a WebPSafeAlignedMalloc() returning the pair { work_mem , work }",
+      "revId": "f6d3d0598efdff79106fd53c88accb1b8d42d861",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
