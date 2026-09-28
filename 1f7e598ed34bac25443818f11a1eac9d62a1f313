@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c977d74_9d6cf819",
+        "filename": "src/dec/io_dec.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 320,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-28T04:05:51Z",
+      "side": 1,
+      "message": "`y_work_bytes` sounded a bit off since we were still carrying other `_size` variables.",
+      "range": {
+        "startLine": 320,
+        "startChar": 17,
+        "endLine": 320,
+        "endChar": 34
+      },
+      "revId": "1f7e598ed34bac25443818f11a1eac9d62a1f313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f94e46b7_c2efd8ed",
+        "filename": "src/dec/vp8l_dec.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 601,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-28T04:05:51Z",
+      "side": 1,
+      "message": "You know who may have gotten a little carried away with the split, could merge the `rescaler` and `memory` back, but this is not a frequent alloc/dealloc path.",
+      "revId": "1f7e598ed34bac25443818f11a1eac9d62a1f313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2df7d261_6ed1c698",
+        "filename": "src/dsp/rescaler.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-28T04:05:51Z",
+      "side": 1,
+      "message": "This was the right call.",
+      "revId": "1f7e598ed34bac25443818f11a1eac9d62a1f313",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
