@@ -185,7 +185,8 @@ WEBP_NODISCARD static int ImportYUVAFromRGBA(
       WebPImportYUVAFromRGBA(r_ptr, g_ptr, b_ptr, a_ptr, step, rgb_stride,
                              has_alpha, width, height, tmp_rgb,
                              picture->y_stride, picture->uv_stride,
-                             picture->a_stride, dst_y, dst_u, dst_v, dst_a);
+                             picture->uv_stride, picture->a_stride,
+                             dst_y, dst_u, dst_v, dst_a);
       if (height & 1) {
         dst_y += (height - 1) * (ptrdiff_t)picture->y_stride;
         dst_u += (height >> 1) * (ptrdiff_t)picture->uv_stride;
