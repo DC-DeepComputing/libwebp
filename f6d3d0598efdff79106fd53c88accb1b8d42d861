@@ -16,6 +16,24 @@
       "message": "note that this \"+ WEBP_ALIGN_CST\" only works becaue we\u0027re allocating uint8_t.\nAll these would be worth a WebPSafeAlignedMalloc() returning the pair { work_mem , work }",
       "revId": "f6d3d0598efdff79106fd53c88accb1b8d42d861",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60659a95_03ff1c15",
+        "filename": "src/enc/picture_rescale_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-09-30T22:52:36Z",
+      "side": 1,
+      "message": "\u003e note that this \"+ WEBP_ALIGN_CST\" only works becaue we\u0027re allocating uint8_t.\n\u003e All these would be worth a WebPSafeAlignedMalloc() returning the pair { work_mem , work }\n\nYou\u0027re right, that\u0027s a good TODO(later). We can\u0027t do a type specific allocator, but could have an option to specify larger alignment padding.",
+      "parentUuid": "4dc8f3e1_529b4059",
+      "revId": "f6d3d0598efdff79106fd53c88accb1b8d42d861",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
