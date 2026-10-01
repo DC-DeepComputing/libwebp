@@ -34,6 +34,24 @@
       "parentUuid": "4dc8f3e1_529b4059",
       "revId": "f6d3d0598efdff79106fd53c88accb1b8d42d861",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0efbff78_7e78eb25",
+        "filename": "src/enc/picture_rescale_enc.c",
+        "patchSetId": 7
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-10-01T14:07:26Z",
+      "side": 1,
+      "message": "agreed, SGTM",
+      "parentUuid": "60659a95_03ff1c15",
+      "revId": "f6d3d0598efdff79106fd53c88accb1b8d42d861",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
