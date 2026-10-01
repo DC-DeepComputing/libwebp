@@ -631,14 +631,19 @@ static void HistogramBuild(int xsize, int histo_bits,
 }
 
 // Copies the histograms and computes its bit_cost.
-static void HistogramCopyAndAnalyze(VP8LHistogramSet* const orig_histo,
-                                    VP8LHistogramSet* const image_histo) {
-  int i;
+// Returns 0 in case of memory allocation error.
+WEBP_NODISCARD static int HistogramCopyAndAnalyze(
+    VP8LHistogramSet* const orig_histo, VP8LHistogramSet* const image_histo) {
+  int i, num_trivial = 0;
+  const int max_size = orig_histo->max_size;
   VP8LHistogram** const orig_histograms = orig_histo->histograms;
   VP8LHistogram** const histograms = image_histo->histograms;
-  assert(image_histo->max_size == orig_histo->max_size);
+  uint16_t* const trivial_histos =
+      (uint16_t*)WebPSafeMalloc(max_size, sizeof(*trivial_histos));
+  if (trivial_histos == NULL) return 0;
+  assert(image_histo->max_size == max_size);
   image_histo->size = 0;
-  for (i = 0; i < orig_histo->max_size; ++i) {
+  for (i = 0; i < max_size; ++i) {
     VP8LHistogram* const histo = orig_histograms[i];
     ComputeHistogramCost(histo);
 
@@ -651,11 +656,41 @@ static void HistogramCopyAndAnalyze(VP8LHistogramSet* const orig_histo,
       assert(i > 0);
       orig_histograms[i] = NULL;
     } else {
+      int is_trivial = 1;
+      int k;
+      for (k = 0; k < 5; ++k) {
+        if (histo->trivial_symbol[k] == VP8L_NON_TRIVIAL_SYM &&
+            histo->is_used[k]) {
+          is_trivial = 0;
+          break;
+        }
+      }
+      if (is_trivial) {
+        // Check whether the trivial histogram has already been added.
+        int j;
+        for (j = 0; j < num_trivial; ++j) {
+          const int tri_idx = trivial_histos[j];
+          if (memcmp(histo->trivial_symbol, histograms[tri_idx]->trivial_symbol,
+                     sizeof(histo->trivial_symbol)) == 0) {
+            break;
+          }
+        }
+        if (j < num_trivial) {
+          // If so, add it to the existing one and do not copy it.
+          const int tri_idx = trivial_histos[j];
+          HistogramAdd(histo, histograms[tri_idx], histograms[tri_idx]);
+          continue;
+        }
+        // Otherwise, copy it and add it to the list of trivial histograms.
+        trivial_histos[num_trivial++] = image_histo->size;
+      }
       // Copy histograms from orig_histo[] to image_histo[].
       HistogramCopy(histo, histograms[image_histo->size]);
       ++image_histo->size;
     }
   }
+  WebPSafeFree(trivial_histos);
+  return 1;
 }
 
 // Partition histograms to different entropy bins for three dominant (literal,
@@ -1160,7 +1195,10 @@ int VP8LGetHistoImageSymbols(int xsize, int ysize,
 
   // Construct the histograms from backward references.
   HistogramBuild(xsize, histogram_bits, refs, orig_histo);
-  HistogramCopyAndAnalyze(orig_histo, image_histo);
+  if (!HistogramCopyAndAnalyze(orig_histo, image_histo)) {
+    WebPEncodingSetError(pic, VP8_ENC_ERROR_OUT_OF_MEMORY);
+    goto Error;
+  }
   entropy_combine =
       (image_histo->size > entropy_combine_num_bins * 2) && (quality < 100);
 
