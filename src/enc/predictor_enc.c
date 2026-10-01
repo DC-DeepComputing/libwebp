@@ -364,6 +364,7 @@ static WEBP_INLINE uint32_t* GetAccumulatedHisto(uint32_t* all_accumulated,
 static void GetBestPredictorForTile(const uint32_t* const all_argb,
                                     int subsampling_index, int tile_x,
                                     int tile_y, int tiles_per_row,
+                                    uint32_t tile_num_pixels,
                                     uint32_t* all_accumulated_argb,
                                     uint32_t** const all_modes,
                                     uint32_t* const all_pred_histos) {
@@ -387,8 +388,20 @@ static void GetBestPredictorForTile(const uint32_t* const all_argb,
   for (mode = 0; mode < kNumPredModes; ++mode) {
     const uint32_t* const histo_argb =
         GetHistoArgbConst(all_argb, subsampling_index, mode);
-    const int64_t cur_diff = PredictionCostSpatialHistogram(
-        accumulated_argb, histo_argb, mode, left_mode, above_mode);
+    int64_t cur_diff;
+    // If all residuals are 0 (trivial histogram at 0) and the mode matches
+    // left_mode or above_mode, no other mode can achieve a smaller cost.
+    if ((mode == left_mode || mode == above_mode) &&
+        histo_argb[0 * 256] == tile_num_pixels &&
+        histo_argb[1 * 256] == tile_num_pixels &&
+        histo_argb[2 * 256] == tile_num_pixels &&
+        histo_argb[3 * 256] == tile_num_pixels) {
+      best_histo = histo_argb;
+      best_mode = mode;
+      break;
+    }
+    cur_diff = PredictionCostSpatialHistogram(accumulated_argb, histo_argb,
+                                              mode, left_mode, above_mode);
 
     if (cur_diff < best_diff) {
       best_histo = histo_argb;
@@ -750,10 +763,14 @@ static void GetBestPredictorsAndSubSampling(
     while (1) {
       const uint32_t super_tile_x = tile_x >> subsampling_index;
       const uint32_t super_tile_y = tile_y >> subsampling_index;
-      const uint32_t super_tiles_per_row =
-          VP8LSubSampleSize(width, min_bits + subsampling_index);
+      const int super_bits = min_bits + subsampling_index;
+      const uint32_t super_tiles_per_row = VP8LSubSampleSize(width, super_bits);
+      const uint32_t max_x =
+          GetMin(1 << super_bits, width - (int)(super_tile_x << super_bits));
+      const uint32_t max_y =
+          GetMin(1 << super_bits, height - (int)(super_tile_y << super_bits));
       GetBestPredictorForTile(all_argb, subsampling_index, super_tile_x,
-                              super_tile_y, super_tiles_per_row,
+                              super_tile_y, super_tiles_per_row, max_x * max_y,
                               all_accumulated_argb, all_modes, all_pred_histos);
       if (subsampling_index == max_subsampling_index) break;
 
