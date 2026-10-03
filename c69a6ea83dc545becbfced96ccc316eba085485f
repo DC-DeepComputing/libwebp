@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b84a985_2b596eb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5211592
+      },
+      "writtenOn": "2026-10-03T09:01:43Z",
+      "side": 1,
+      "message": "Patch set 5 addresses Pascal’s inline feedback: it defers assigning the selected encoded data until the applicable encode(s) complete, uses one size-selection block guarded by allow_mixed, and removes the redundant WebPDataInit(full_image) from the error path. Local clang-format and diff checks passed; the ASan/UBSan reproducer and standalone regression test passed on the patched tree with the unpatched control reproducing the double free. The integrated FuzzTest target remains unvalidated in the local toolchain.",
+      "revId": "c69a6ea83dc545becbfced96ccc316eba085485f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}

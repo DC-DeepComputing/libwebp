@@ -22,6 +22,30 @@
       },
       "revId": "948ed0c11b23b050db6c41b445f31096f9a50637",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55c232f5_7104d9c0",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 5211592
+      },
+      "writtenOn": "2026-10-03T09:01:43Z",
+      "side": 1,
+      "message": "Thanks — addressed in patch set 5. The candidate data is assigned to full_image only after the applicable encode(s) succeed, with one size-selection block guarded by enc-\u003eoptions.allow_mixed. The redundant WebPDataInit(full_image) on the error path was removed because the caller already initializes the output.",
+      "parentUuid": "2b32956a_2eceb5c1",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1704,
+        "endChar": 27
+      },
+      "revId": "948ed0c11b23b050db6c41b445f31096f9a50637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
