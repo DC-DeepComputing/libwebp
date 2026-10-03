@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b32956a_2eceb5c1",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1704,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-10-03T06:05:11Z",
+      "side": 1,
+      "message": "The copy-out to \u0027full_image\u0027 now appears three times. It can be a single decision after the encodes:\n\n  if (!DecodeFrameOntoCanvas(frame, canvas_buf)) goto Err;\n  if (!EncodeFrame(\u0026enc-\u003elast_config, canvas_buf, \u0026mem1)) goto Err;\n  if (enc-\u003eoptions.allow_mixed \u0026\u0026\n      !EncodeFrame(\u0026enc-\u003elast_config_reversed, canvas_buf, \u0026mem2)) {\n    goto Err;\n  }\n  if (enc-\u003eoptions.allow_mixed \u0026\u0026 mem2.size \u003c mem1.size) {\n    GetEncodedData(\u0026mem2, full_image);\n    WebPMemoryWriterClear(\u0026mem1);\n  } else {\n    GetEncodedData(\u0026mem1, full_image);\n    WebPMemoryWriterClear(\u0026mem2);  // no-op if unused\n  }\n  return 1;\n\nErr:\n  WebPMemoryWriterClear(\u0026mem1);\n  WebPMemoryWriterClear(\u0026mem2);\n  return 0;\n\nThe \u0027allow_mixed\u0027 check in the size comparison is needed: an unused mem2 has size 0 and would otherwise always win.\n\nThe WebPDataInit(full_image) and its comment in Err can go: \u0027full_image\u0027 is no longer written before success, and the caller already initializes it.",
+      "range": {
+        "startLine": 1685,
+        "startChar": 0,
+        "endLine": 1704,
+        "endChar": 27
+      },
+      "revId": "948ed0c11b23b050db6c41b445f31096f9a50637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
