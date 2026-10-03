@@ -715,10 +715,11 @@ static int Disto16x16_NEON(const uint8_t* WEBP_RESTRICT const a,
 
 //------------------------------------------------------------------------------
 
-static void CollectHistogram_NEON(const uint8_t* WEBP_RESTRICT ref,
-                                  const uint8_t* WEBP_RESTRICT pred,
-                                  int start_block, int end_block,
-                                  VP8Histogram* WEBP_RESTRICT const histo) {
+// Heavily used: keep this function's entry point boundary-aligned to avoid a
+// several-percent regression seen on arm64/Apple clang.
+static WEBP_TARGET_ALIGN_FUNC(64) void CollectHistogram_NEON(
+    const uint8_t* WEBP_RESTRICT ref, const uint8_t* WEBP_RESTRICT pred,
+    int start_block, int end_block, VP8Histogram* WEBP_RESTRICT const histo) {
   const uint16x8_t max_coeff_thresh = vdupq_n_u16(MAX_COEFF_THRESH);
   int j;
   int distribution[MAX_COEFF_THRESH + 1] = {0};

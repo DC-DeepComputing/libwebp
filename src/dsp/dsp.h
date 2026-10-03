@@ -65,6 +65,22 @@ extern "C" {
 #endif
 
 //------------------------------------------------------------------------------
+// WEBP_TARGET_ALIGN_FUNC
+
+// Pins a function's entry point to an N-byte boundary; no-op if unsupported.
+#if defined(__has_attribute)
+#if __has_attribute(aligned)
+#define WEBP_TARGET_ALIGN_FUNC(bytes) __attribute__((aligned(bytes)))
+#else
+#define WEBP_TARGET_ALIGN_FUNC(bytes)
+#endif
+#elif defined(__GNUC__)
+#define WEBP_TARGET_ALIGN_FUNC(bytes) __attribute__((aligned(bytes)))
+#else
+#define WEBP_TARGET_ALIGN_FUNC(bytes)
+#endif
+
+//------------------------------------------------------------------------------
 // Init stub generator
 
 // Defines an init function stub to ensure each module exposes a symbol,
