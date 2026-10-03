@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a540be4_ef2d1a16",
+        "filename": "src/dsp/rescaler.c",
+        "patchSetId": 8
+      },
+      "lineNbr": 196,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-10-03T04:59:21Z",
+      "side": 1,
+      "message": "This path is needed for cases like 16383x16383 -\u003e 524288x1. With this branch, we don\u0027t need the `ratio \u003d\u003d 0` check.",
+      "revId": "b4d85eea95fcd080d5669aed26cfebfb9c086d03",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
