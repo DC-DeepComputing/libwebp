@@ -244,3 +244,86 @@ TEST(AnimIndexEncoder, Buganizer498967191) {
                    GetWebPPicture(0, true)}},
       1);
 }
+
+namespace {
+
+struct AbortProgressState {
+  bool armed = false;
+  int max_percent = -1;
+  int abort_count = 0;
+};
+
+int AbortOnSecondEncode(int percent, const WebPPicture* picture) {
+  auto* const state = static_cast<AbortProgressState*>(picture->user_data);
+  if (!state->armed) return 1;
+  if (percent > state->max_percent) {
+    state->max_percent = percent;
+    return 1;
+  }
+  ++state->abort_count;
+  return 0;
+}
+
+struct AnimEncoderTestObjects {
+  WebPAnimEncoder* encoder = nullptr;
+  WebPPicture picture;
+  WebPData output;
+  bool picture_initialized;
+
+  AnimEncoderTestObjects() : picture_initialized(WebPPictureInit(&picture)) {
+    WebPDataInit(&output);
+  }
+
+  ~AnimEncoderTestObjects() {
+    WebPAnimEncoderDelete(encoder);
+    if (picture_initialized) WebPPictureFree(&picture);
+    WebPDataClear(&output);
+  }
+};
+
+}  // namespace
+
+TEST(AnimIndexEncoder, MixedSingleFrameAbortedSecondEncodeDoesNotDoubleFree) {
+  constexpr int kCanvasSize = 64;
+  constexpr int kBlockSize = 16;
+  WebPAnimEncoderOptions options;
+  WebPConfig config;
+  AbortProgressState progress_state;
+  AnimEncoderTestObjects objects;
+
+  ASSERT_TRUE(objects.picture_initialized);
+  ASSERT_TRUE(WebPAnimEncoderOptionsInit(&options));
+  options.allow_mixed = 1;
+  objects.encoder = WebPAnimEncoderNew(kCanvasSize, kCanvasSize, &options);
+  ASSERT_NE(objects.encoder, nullptr);
+
+  WebPPicture& picture = objects.picture;
+  picture.width = kCanvasSize;
+  picture.height = kCanvasSize;
+  picture.use_argb = 1;
+  ASSERT_TRUE(WebPPictureAlloc(&picture));
+  for (int y = 0; y < kCanvasSize; ++y) {
+    for (int x = 0; x < kCanvasSize; ++x) {
+      picture.argb[y * picture.argb_stride + x] = 0x00000000u;
+    }
+  }
+  for (int y = 0; y < kBlockSize; ++y) {
+    for (int x = 0; x < kBlockSize; ++x) {
+      picture.argb[y * picture.argb_stride + x] = 0xff804020u;
+    }
+  }
+  picture.progress_hook = AbortOnSecondEncode;
+  picture.user_data = &progress_state;
+
+  ASSERT_TRUE(WebPConfigInit(&config));
+  config.lossless = 0;
+  config.quality = 75;
+  ASSERT_TRUE(WebPAnimEncoderAdd(objects.encoder, &picture, 0, &config));
+  ASSERT_TRUE(WebPAnimEncoderAdd(objects.encoder, nullptr, 100, nullptr));
+
+  // Arm only for OptimizeSingleFrame() during Assemble(). The first encode
+  // reaches a higher progress percentage; the alternate encode restarts lower.
+  progress_state.armed = true;
+  EXPECT_FALSE(WebPAnimEncoderAssemble(objects.encoder, &objects.output));
+  EXPECT_EQ(progress_state.abort_count, 1);
+}
