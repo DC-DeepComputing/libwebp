@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62bf12b7_9d7ab92a",
+        "filename": "src/enc/picture_psnr_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-10-04T06:34:09Z",
+      "side": 1,
+      "message": "aren\u0027t the strides allowed to be negative? (in which case \u0027abs(src_stride)\u0027 would help here)",
+      "revId": "91505ed91fcefa81f6c79a87a1d0740701e4e565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
