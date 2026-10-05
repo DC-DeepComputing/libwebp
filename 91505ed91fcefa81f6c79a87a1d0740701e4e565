@@ -34,6 +34,24 @@
       "parentUuid": "62bf12b7_9d7ab92a",
       "revId": "91505ed91fcefa81f6c79a87a1d0740701e4e565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e08770da_db3302af",
+        "filename": "src/enc/picture_psnr_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-05T11:46:49Z",
+      "side": 1,
+      "message": "Sorry, different code. Here, the strides are size_t for some reason but shouldn\u0027t be ....",
+      "parentUuid": "c6edb7de_101af2b0",
+      "revId": "91505ed91fcefa81f6c79a87a1d0740701e4e565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
