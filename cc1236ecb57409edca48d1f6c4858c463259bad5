@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4c93410_49578612",
+        "filename": "imageio/pngdec.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 79,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-10-05T14:44:59Z",
+      "side": 1,
+      "message": "wot?!",
+      "revId": "cc1236ecb57409edca48d1f6c4858c463259bad5",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
