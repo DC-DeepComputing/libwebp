@@ -52,6 +52,24 @@
       "parentUuid": "c6edb7de_101af2b0",
       "revId": "91505ed91fcefa81f6c79a87a1d0740701e4e565",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d9b4f41e_0055bb3c",
+        "filename": "src/enc/picture_psnr_enc.c",
+        "patchSetId": 2
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-10-06T09:51:20Z",
+      "side": 1,
+      "message": "iirc, i think they turned size_t for safety reason against overflow at some point",
+      "parentUuid": "e08770da_db3302af",
+      "revId": "91505ed91fcefa81f6c79a87a1d0740701e4e565",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
