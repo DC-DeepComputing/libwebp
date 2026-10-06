@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "718710d8_32061f4a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5212422
+      },
+      "writtenOn": "2026-10-06T14:23:58Z",
+      "side": 1,
+      "message": "Thanks for the quick reviews, Vincent and Yannis! I don\u0027t have submit permission on this repo, so could one of you please submit this CL when you get a chance? Thank you!",
+      "revId": "652631be0333123a69dab036f5586894fc743ea6",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
