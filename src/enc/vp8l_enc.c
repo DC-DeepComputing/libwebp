@@ -100,19 +100,18 @@ static WEBP_INLINE uint8_t HashPix(uint32_t pix) {
   return ((((uint64_t)pix + (pix >> 19)) * 0x39c5fba7ull) & 0xffffffffu) >> 24;
 }
 
-WEBP_NODISCARD static int AnalyzeEntropy(const uint32_t* argb, int width,
-                                         int height, int argb_stride,
-                                         int use_palette, int palette_size,
-                                         int transform_bits,
-                                         EntropyIx* const min_entropy_ix,
-                                         int* const red_and_blue_always_zero) {
+WEBP_NODISCARD static int AnalyzeEntropy(
+    const uint32_t* argb, int width, int height, int argb_stride,
+    int use_palette, int palette_size, int transform_bits,
+    EntropyIx* const min_entropy_ix,
+    int* const red_and_blue_transformed_always_zero) {
   Histograms* histo;
 
   if (use_palette && palette_size <= 16) {
     // In the case of small palettes, we pack 2, 4 or 8 pixels together. In
     // practice, small palettes are better than any other transform.
     *min_entropy_ix = kPalette;
-    *red_and_blue_always_zero = 1;
+    *red_and_blue_transformed_always_zero = 1;
     return 1;
   }
 
@@ -205,7 +204,7 @@ WEBP_NODISCARD static int AnalyzeEntropy(const uint32_t* argb, int width,
         }
       }
       assert((int)*min_entropy_ix <= last_mode_to_analyze);
-      *red_and_blue_always_zero = 1;
+      *red_and_blue_transformed_always_zero = 1;
       // Let's check if the histogram of the chosen entropy mode has
       // non-zero red and blue values. If all are zero, we can later skip
       // the cross color optimization.
@@ -222,7 +221,7 @@ WEBP_NODISCARD static int AnalyzeEntropy(const uint32_t* argb, int width,
             &histo->category[kHistoPairs[*min_entropy_ix][1]];
         for (i = 1; i < NUM_BUCKETS; ++i) {
           if (((*red_histo)[i] | (*blue_histo)[i]) != 0) {
-            *red_and_blue_always_zero = 0;
+            *red_and_blue_transformed_always_zero = 0;
             break;
           }
         }
@@ -329,7 +328,8 @@ static void AddPaletteSortingConfigs(
 
 WEBP_NODISCARD static int EncoderAnalyze(
     VP8LEncoder* const enc, CrunchConfig crunch_configs[CRUNCH_CONFIGS_MAX],
-    int* const crunch_configs_size, int* const red_and_blue_always_zero) {
+    int* const crunch_configs_size,
+    int* const red_and_blue_transformed_always_zero) {
   const WebPPicture* const pic = enc->pic;
   const int width = pic->width;
   const int height = pic->height;
@@ -370,7 +370,7 @@ WEBP_NODISCARD static int EncoderAnalyze(
     n_lz77s = (enc->palette_size > 0 && enc->palette_size <= 16) ? 2 : 1;
     if (!AnalyzeEntropy(pic->argb, width, height, pic->argb_stride, use_palette,
                         enc->palette_size, transform_bits, &min_entropy_ix,
-                        red_and_blue_always_zero)) {
+                        red_and_blue_transformed_always_zero)) {
       return 0;
     }
     if (method == 6 && config->quality == 100) {
@@ -378,6 +378,14 @@ WEBP_NODISCARD static int EncoderAnalyze(
       // Go brute force on all transforms.
       *crunch_configs_size = 0;
       for (i = 0; i < kNumEntropyIx; ++i) {
+        // Subtracting green when red and blue are already always 0 only
+        // duplicates the negated green channel into red and blue.
+        if ((i == kSubGreen || i == kSpatialSubGreen) &&
+            *red_and_blue_transformed_always_zero &&
+            min_entropy_ix != kSubGreen && min_entropy_ix != kSpatialSubGreen &&
+            (pic->argb[0] & 0x00ff00ffu) == 0) {
+          continue;
+        }
         // We can only apply kPalette or kPaletteAndSpatial if we can indeed use
         // a palette.
         if ((i != kPalette && i != kPaletteAndSpatial) || use_palette) {
@@ -1510,7 +1518,7 @@ typedef struct {
   VP8LEncoder* enc;
   CrunchConfig crunch_configs[CRUNCH_CONFIGS_MAX];
   int num_crunch_configs;
-  int red_and_blue_always_zero;
+  int red_and_blue_transformed_always_zero;
   WebPAuxStats* stats;
 } StreamEncodeContext;
 
@@ -1522,7 +1530,8 @@ WEBP_NODISCARD static int EncodeStreamHook(void* input, void* data2) {
   VP8LEncoder* const enc = params->enc;
   const CrunchConfig* const crunch_configs = params->crunch_configs;
   const int num_crunch_configs = params->num_crunch_configs;
-  const int red_and_blue_always_zero = params->red_and_blue_always_zero;
+  const int red_and_blue_transformed_always_zero =
+      params->red_and_blue_transformed_always_zero;
 #if !defined(WEBP_DISABLE_STATS)
   WebPAuxStats* const stats = params->stats;
 #endif
@@ -1565,7 +1574,8 @@ WEBP_NODISCARD static int EncodeStreamHook(void* input, void* data2) {
     if (low_effort || enc->use_palette) {
       enc->use_cross_color = 0;
     } else {
-      enc->use_cross_color = red_and_blue_always_zero ? 0 : enc->use_predict;
+      enc->use_cross_color =
+          red_and_blue_transformed_always_zero ? 0 : enc->use_predict;
     }
     // Reset any parameter in the encoder that is set in the previous iteration.
     enc->cache_bits = 0;
@@ -1699,7 +1709,7 @@ int VP8LEncodeStream(const WebPConfig* const config,
   CrunchConfig crunch_configs[CRUNCH_CONFIGS_MAX];
   int num_crunch_configs_main, num_crunch_configs_side = 0;
   int idx;
-  int red_and_blue_always_zero = 0;
+  int red_and_blue_transformed_always_zero = 0;
   WebPWorker worker_main, worker_side;
   StreamEncodeContext params_main, params_side;
   // The main thread uses picture->stats, the side thread uses stats_side.
@@ -1721,7 +1731,7 @@ int VP8LEncodeStream(const WebPConfig* const config,
 
   // Analyze image (entropy, num_palettes etc)
   if (!EncoderAnalyze(enc_main, crunch_configs, &num_crunch_configs_main,
-                      &red_and_blue_always_zero) ||
+                      &red_and_blue_transformed_always_zero) ||
       !EncoderInit(enc_main)) {
     WebPEncodingSetError(picture, VP8_ENC_ERROR_OUT_OF_MEMORY);
     goto Error;
@@ -1752,7 +1762,8 @@ int VP8LEncodeStream(const WebPConfig* const config,
       StreamEncodeContext* const param =
           (idx == 0) ? &params_main : &params_side;
       param->config = config;
-      param->red_and_blue_always_zero = red_and_blue_always_zero;
+      param->red_and_blue_transformed_always_zero =
+          red_and_blue_transformed_always_zero;
       if (idx == 0) {
         param->picture = picture;
         param->stats = picture->stats;
