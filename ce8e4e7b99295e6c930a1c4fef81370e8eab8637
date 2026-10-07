@@ -16,6 +16,29 @@
       "message": "Thanks ! That is indeed a terrible bug. Though in practice, there should not be too many images like that.",
       "revId": "ce8e4e7b99295e6c930a1c4fef81370e8eab8637",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ead4c0cf_91425ef4",
+        "filename": "tests/fuzzer/simple_api_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-07T09:13:50Z",
+      "side": 1,
+      "message": "Please fix this WARNING reported by autoreview issue finding: If `ASSERT_EQ(width, kSize)` or the height check below fails, the test will return immediately and leak the memory allocated for `rgba` by `WebPDecodeRGBA`.\\n\\nConsider using a smart pointer with a custom deleter to ensure proper cleanup, e.g.:\\n```cpp\\nstd::unique_ptr\u003cuint8_t, decltype(\u0026WebPFree)\u003e rgba_guard(rgba, WebPFree);\\n```\\nor conditionally calling `WebPFree` and returning if the sizes don\u0027t match. (Using `EXPECT_EQ` without an early return would prevent the leak, but could lead to out-of-bounds reads in the `for` loop).",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 0
+      },
+      "revId": "ce8e4e7b99295e6c930a1c4fef81370e8eab8637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
