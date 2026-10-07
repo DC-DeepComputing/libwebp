@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ce0b002_a48d7980",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-07T08:52:46Z",
+      "side": 1,
+      "message": "Thanks ! That is indeed a terrible bug. Though in practice, there should not be too many images like that.",
+      "revId": "ce8e4e7b99295e6c930a1c4fef81370e8eab8637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
