@@ -39,6 +39,30 @@
       },
       "revId": "ce8e4e7b99295e6c930a1c4fef81370e8eab8637",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6e7221e_e4244800",
+        "filename": "tests/fuzzer/simple_api_fuzzer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 5212422
+      },
+      "writtenOn": "2026-10-07T10:18:30Z",
+      "side": 1,
+      "message": "Done in PS2: rgba is now owned by a unique_ptr with WebPFree as the deleter, so the ASSERT_* early returns can no longer leak it. Thanks for catching this.",
+      "parentUuid": "ead4c0cf_91425ef4",
+      "range": {
+        "startLine": 208,
+        "startChar": 0,
+        "endLine": 208,
+        "endChar": 0
+      },
+      "revId": "ce8e4e7b99295e6c930a1c4fef81370e8eab8637",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
