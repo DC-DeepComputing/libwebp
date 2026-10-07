@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0a8f6db_ff0a6027",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5212422
+      },
+      "writtenOn": "2026-10-07T10:20:20Z",
+      "side": 1,
+      "message": "FYI: I used AI assistance to audit the code and draft these patches and their tests (this applies to CL 8517226 and CL 8526972 as well). Each fix was reproduced under ASan/UBSan clang builds on my machine (the test fails on main and passes with the patch) before upload.",
+      "revId": "6391cf3f2386f214d611864da952be94ce60d040",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
