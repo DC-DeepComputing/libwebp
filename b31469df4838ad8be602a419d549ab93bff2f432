@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c5e5081_d819abbf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5212422
+      },
+      "writtenOn": "2026-10-07T13:31:11Z",
+      "side": 1,
+      "message": "With AI assistance, I prepared this patch and its regression test. I verified the issue and the fix locally with Clang ASan/UBSan.",
+      "revId": "b31469df4838ad8be602a419d549ab93bff2f432",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
