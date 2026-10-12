@@ -64,6 +64,11 @@ WEBP_NODISCARD static int AdjustAndCheckRectangle(const WebPPicture* const pic,
 int WebPPictureCopy(const WebPPicture* src, WebPPicture* dst) {
   if (src == NULL || dst == NULL) return 0;
   if (src == dst) return 1;
+  if (!src->use_argb) {
+    if (src->y == NULL || src->u == NULL || src->v == NULL) return 0;
+  } else {
+    if (src->argb == NULL) return 0;
+  }
 
   PictureGrabSpecs(src, dst);
   if (!src->use_argb && src->a == NULL) {
@@ -78,7 +83,7 @@ int WebPPictureCopy(const WebPPicture* src, WebPPicture* dst) {
                   HALVE(dst->width), HALVE(dst->height));
     WebPCopyPlane(src->v, src->uv_stride, dst->v, dst->uv_stride,
                   HALVE(dst->width), HALVE(dst->height));
-    if (dst->a != NULL) {
+    if (src->a != NULL && dst->a != NULL) {
       WebPCopyPlane(src->a, src->a_stride, dst->a, dst->a_stride, dst->width,
                     dst->height);
     }
@@ -112,18 +117,28 @@ int WebPPictureView(const WebPPicture* src, int left, int top, int width,
   dst->width = width;
   dst->height = height;
   if (!src->use_argb) {
-    dst->y = src->y + (ptrdiff_t)top * src->y_stride + left;
-    dst->u = src->u + (ptrdiff_t)(top >> 1) * src->uv_stride + (left >> 1);
-    dst->v = src->v + (ptrdiff_t)(top >> 1) * src->uv_stride + (left >> 1);
-    dst->y_stride = src->y_stride;
-    dst->uv_stride = src->uv_stride;
+    if (src->y != NULL) {
+      dst->y = src->y + (ptrdiff_t)top * src->y_stride + left;
+      dst->y_stride = src->y_stride;
+    }
+    if (src->u != NULL) {
+      dst->u = src->u + (ptrdiff_t)(top >> 1) * src->uv_stride + (left >> 1);
+    }
+    if (src->v != NULL) {
+      dst->v = src->v + (ptrdiff_t)(top >> 1) * src->uv_stride + (left >> 1);
+    }
+    if (src->u != NULL || src->v != NULL) {
+      dst->uv_stride = src->uv_stride;
+    }
     if (src->a != NULL) {
       dst->a = src->a + (ptrdiff_t)top * src->a_stride + left;
       dst->a_stride = src->a_stride;
     }
   } else {
-    dst->argb = src->argb + (ptrdiff_t)top * src->argb_stride + left;
-    dst->argb_stride = src->argb_stride;
+    if (src->argb != NULL) {
+      dst->argb = src->argb + (ptrdiff_t)top * src->argb_stride + left;
+      dst->argb_stride = src->argb_stride;
+    }
   }
   return 1;
 }
@@ -138,7 +153,11 @@ int WebPPictureCrop(WebPPicture* pic, int left, int top, int width,
 
   if (pic == NULL) return 0;
   if (!AdjustAndCheckRectangle(pic, &left, &top, width, height)) return 0;
-
+  if (!pic->use_argb) {
+    if (pic->y == NULL || pic->u == NULL || pic->v == NULL) return 0;
+  } else {
+    if (pic->argb == NULL) return 0;
+  }
   PictureGrabSpecs(pic, &tmp);
   if (!pic->use_argb && pic->a == NULL) {
     tmp.colorspace = (WebPEncCSP)(tmp.colorspace & ~WEBP_CSP_ALPHA_BIT);
@@ -160,7 +179,7 @@ int WebPPictureCrop(WebPPicture* pic, int left, int top, int width,
     WebPCopyPlane(pic->v + uv_offset, pic->uv_stride, tmp.v, tmp.uv_stride,
                   HALVE(width), HALVE(height));
 
-    if (tmp.a != NULL) {
+    if (pic->a != NULL && tmp.a != NULL) {
       const ptrdiff_t a_offset = (ptrdiff_t)top * pic->a_stride + left;
       WebPCopyPlane(pic->a + a_offset, pic->a_stride, tmp.a, tmp.a_stride,
                     width, height);
@@ -220,6 +239,13 @@ int WebPPictureRescale(WebPPicture* picture, int width, int height) {
   int status = VP8_ENC_OK;
 
   if (!WebPValidatePicture(picture)) return 0;
+  if (!picture->use_argb) {
+    if (picture->y == NULL || picture->u == NULL || picture->v == NULL) {
+      return 0;
+    }
+  } else {
+    if (picture->argb == NULL) return 0;
+  }
   prev_width = picture->width;
   prev_height = picture->height;
   if (!WebPRescalerGetScaledDimensions(prev_width, prev_height, &width,
