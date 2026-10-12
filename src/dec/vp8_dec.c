@@ -248,6 +248,7 @@ static VP8StatusCode ParsePartitions(VP8Decoder* const dec,
     sz += 3;
   }
   VP8InitBitReader(dec->parts + last_part, part_start, size_left);
+  dec->last_part_is_short = (size_left < sizeof(lbit_t));
   if (part_start < buf_end) return VP8_STATUS_OK;
   return dec->incremental
              ? VP8_STATUS_SUSPENDED  // Init is ok, but there's not enough data

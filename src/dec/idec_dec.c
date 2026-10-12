@@ -453,6 +453,14 @@ static VP8StatusCode DecodePartition0(WebPIDecoder* const idec) {
     }
     return IDecError(idec, status);
   }
+  // DoRemap() extends the last partition's bit reader in place as data
+  // arrives. If that reader was set up on less than a word, it has loaded its
+  // bytes one at a time and would then switch to word loads at different
+  // positions than WebPDecode(), which changes the decoded bits of a partition
+  // starting with 0xff. Wait for more data, unless the chunk is complete.
+  if (dec->last_part_is_short && MemDataSize(&idec->mem) < idec->chunk_size) {
+    return VP8_STATUS_SUSPENDED;
+  }
 
   // Allocate/Verify output buffer now
   dec->status =

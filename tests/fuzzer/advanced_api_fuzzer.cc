@@ -340,3 +340,73 @@ TEST(AdvancedApi, Buganizer498966235) {
       fuzz_utils::WebPDecoderOptionsCpp{
           0, 0, 1, 5, 10, 5, 9, 0, 1, 3, 0, 72, 0, 83, {0, 0, 0, 0, 0}});
 }
+
+// An incremental update that ends 1 to 7 bytes into the last token partition
+// sets up that partition's bit reader on less than a word. Extending it as
+// more data arrives must not change the decoded pixels, which it did when the
+// partition starts with 0xff (not produced by the encoder, but decodable).
+TEST(AdvancedApi, IncrementalUpdateInShortLastPartition) {
+  constexpr int kWidth = 128;
+  constexpr int kHeight = 128;
+
+  std::vector<uint8_t> rgb(kWidth * kHeight * 3);
+  for (int y = 0; y < kHeight; ++y) {
+    for (int x = 0; x < kWidth; ++x) {
+      const size_t i = 3u * (y * kWidth + x);
+      rgb[i + 0] = static_cast<uint8_t>(x * 13 + y * 7 + (x ^ y));
+      rgb[i + 1] = static_cast<uint8_t>(x * 3 + y * 17);
+      rgb[i + 2] = static_cast<uint8_t>((x ^ (y * 5)) + x * 11);
+    }
+  }
+  uint8_t* encoded = nullptr;
+  const size_t encoded_size =
+      WebPEncodeRGB(rgb.data(), kWidth, kHeight, kWidth * 3, 75.f, &encoded);
+  ASSERT_NE(encoded, nullptr);
+  // Simple lossy format: RIFF header, "VP8 " chunk header, 10-byte key frame
+  // header, partition #0, then the only token partition.
+  ASSERT_GT(encoded_size, 30u);
+  ASSERT_EQ(std::memcmp(encoded + 12, "VP8 ", 4), 0);
+  const uint32_t frame_tag =
+      encoded[20] | (encoded[21] << 8) | (encoded[22] << 16);
+  const size_t last_part_start = 30 + (frame_tag >> 5);
+  ASSERT_LT(last_part_start + 8, encoded_size);
+  encoded[last_part_start] = 0xff;
+
+  WebPDecoderConfig ref_config;
+  ASSERT_TRUE(WebPInitDecoderConfig(&ref_config));
+  ref_config.output.colorspace = MODE_RGBA;
+  ASSERT_EQ(WebPDecode(encoded, encoded_size, &ref_config), VP8_STATUS_OK);
+
+  for (const bool append : {false, true}) {
+    for (size_t cut = last_part_start + 1; cut < last_part_start + 8; ++cut) {
+      WebPDecoderConfig config;
+      ASSERT_TRUE(WebPInitDecoderConfig(&config));
+      config.output.colorspace = MODE_RGBA;
+      WebPIDecoder* const idec = WebPIDecode(nullptr, 0, &config);
+      ASSERT_NE(idec, nullptr);
+      if (append) {
+        EXPECT_EQ(WebPIAppend(idec, encoded, cut), VP8_STATUS_SUSPENDED);
+        ASSERT_EQ(WebPIAppend(idec, encoded + cut, encoded_size - cut),
+                  VP8_STATUS_OK);
+      } else {
+        EXPECT_EQ(WebPIUpdate(idec, encoded, cut), VP8_STATUS_SUSPENDED);
+        ASSERT_EQ(WebPIUpdate(idec, encoded, encoded_size), VP8_STATUS_OK);
+      }
+      for (int y = 0; y < kHeight; ++y) {
+        ASSERT_EQ(std::memcmp(config.output.u.RGBA.rgba +
+                                  y * config.output.u.RGBA.stride,
+                              ref_config.output.u.RGBA.rgba +
+                                  y * ref_config.output.u.RGBA.stride,
+                              kWidth * 4),
+                  0)
+            << (append ? "WebPIAppend" : "WebPIUpdate") << " cut " << cut
+            << " row " << y;
+      }
+      WebPIDelete(idec);
+      WebPFreeDecBuffer(&config.output);
+    }
+  }
+
+  WebPFreeDecBuffer(&ref_config.output);
+  WebPFree(encoded);
+}

@@ -220,6 +220,9 @@ struct VP8Decoder {
   uint32_t num_parts_minus_one;
   // per-partition boolean decoders.
   VP8BitReader parts[MAX_NUM_PARTITIONS];
+  // True if the last partition's decoder was set up on less than a word of
+  // data (see ParsePartitions()).
+  int last_part_is_short;
 
   // Dithering strength, deduced from decoding options
   int dither;              // whether to use dithering or not
