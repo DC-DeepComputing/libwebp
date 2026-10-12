@@ -221,3 +221,55 @@ TEST(SimpleApi, ManyHuffmanGroupsUsedOutOfOrder) {
   }
   EXPECT_EQ(num_wrong_pixels, 0);
 }
+
+// A lossless alpha stream using only the color indexing transform is decoded
+// 8 bits per pixel. If its last symbol lies past the end of the ALPH chunk,
+// the image must be rejected, like the same stream decoded as ARGB is.
+TEST(SimpleApi, TruncatedPalettedAlphaIsRejected) {
+  constexpr uint8_t kAlpha[] = {0x1f, 0x20, 0x20, 0x21, 0x53, 0xf1, 0x5b, 0x22,
+                                0x22, 0x32, 0xa0, 0xa8, 0x6d, 0x1b, 0x88, 0x5c,
+                                0x0f, 0x22, 0xd5, 0x38, 0x0d, 0x6e, 0xf7, 0x1d,
+                                0x81, 0x46, 0x46, 0xdd, 0x33, 0x53, 0x3f, 0x0e};
+  // 16x16 lossy frame.
+  constexpr uint8_t kVP8[] = {0x50, 0x01, 0x00, 0x9d, 0x01, 0x2a, 0x10, 0x00,
+                              0x10, 0x00, 0x07, 0x40, 0x96, 0x25, 0xa4, 0x00,
+                              0x04, 0x74, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+  auto make_webp = [&](size_t num_padding_bytes) {
+    std::vector<uint8_t> webp = {'R', 'I', 'F', 'F', 0,   0,
+                                 0,   0,   'W', 'E', 'B', 'P'};
+    auto put_chunk = [&webp](const char* tag,
+                             const std::vector<uint8_t>& payload) {
+      webp.insert(webp.end(), tag, tag + 4);
+      for (int i = 0; i < 4; ++i) {
+        webp.push_back((payload.size() >> (8 * i)) & 0xff);
+      }
+      webp.insert(webp.end(), payload.begin(), payload.end());
+      if (payload.size() & 1) webp.push_back(0);
+    };
+    // Alpha flag, 16x16 canvas.
+    put_chunk("VP8X", {0x10, 0, 0, 0, 15, 0, 0, 15, 0, 0});
+    std::vector<uint8_t> alph = {1};  // lossless, no filtering
+    alph.insert(alph.end(), std::begin(kAlpha), std::end(kAlpha));
+    alph.resize(alph.size() + num_padding_bytes, 0);
+    put_chunk("ALPH", alph);
+    put_chunk("VP8 ", std::vector<uint8_t>(std::begin(kVP8), std::end(kVP8)));
+    for (int i = 0; i < 4; ++i) {
+      webp[4 + i] = ((webp.size() - 8) >> (8 * i)) & 0xff;
+    }
+    return webp;
+  };
+
+  int width, height;
+  const std::vector<uint8_t> truncated = make_webp(0);
+  const std::unique_ptr<uint8_t, decltype(&WebPFree)> rgba(
+      WebPDecodeRGBA(truncated.data(), truncated.size(), &width, &height),
+      WebPFree);
+  EXPECT_EQ(rgba.get(), nullptr);
+
+  // With its last bits present, the stream decodes.
+  const std::vector<uint8_t> complete = make_webp(1);
+  const std::unique_ptr<uint8_t, decltype(&WebPFree)> complete_rgba(
+      WebPDecodeRGBA(complete.data(), complete.size(), &width, &height),
+      WebPFree);
+  EXPECT_NE(complete_rgba.get(), nullptr);
+}

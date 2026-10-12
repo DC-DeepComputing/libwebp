@@ -1383,7 +1383,9 @@ WEBP_NODISCARD static int DecodeAlphaData(VP8LDecoder* const dec,
 
 End:
   br->eos = VP8LIsEndOfStream(br);
-  if (!ok || (br->eos && src < src_end)) {
+  // Alpha data is never decoded incrementally: as in DecodeImageData(), having
+  // read past the end of the stream is an error, even for the last pixels.
+  if (!ok || br->eos) {
     return VP8LSetError(
         dec, br->eos ? VP8_STATUS_SUSPENDED : VP8_STATUS_BITSTREAM_ERROR);
   }
