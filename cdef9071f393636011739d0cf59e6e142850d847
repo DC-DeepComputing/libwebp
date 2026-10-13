@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a3bb854d_152be4ad",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-13T15:38:39Z",
+      "side": 1,
+      "message": "Hi, sorry, I submitted a bunch of fixes lately. Can you please rebase to see if your test is not already fixed by https://chromium-review.git.corp.google.com/c/webm/libwebp/+/8570738 ? Thx",
+      "revId": "cdef9071f393636011739d0cf59e6e142850d847",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
