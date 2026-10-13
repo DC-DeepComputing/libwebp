@@ -16,6 +16,24 @@
       "message": "Hi, sorry, I submitted a bunch of fixes lately. Can you please rebase to see if your test is not already fixed by https://chromium-review.git.corp.google.com/c/webm/libwebp/+/8570738 ? Thx",
       "revId": "cdef9071f393636011739d0cf59e6e142850d847",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6c1f3b0_9e67e21b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 5234360
+      },
+      "writtenOn": "2026-10-13T16:02:12Z",
+      "side": 1,
+      "message": "Thanks, rebased onto abd0127e (which includes 8570738) as patch set 2, no conflicts.\n\n8570738 does not cover this one: DecodeRemaining() in idec_dec.c still loops to dec-\u003emb_h, while ParseFrame() stops at dec-\u003ebr_mb_y. On abd0127e without this change, the new AdvancedApi.IncrementalCropStopsAtCropBottom test still fails (offset 6590 vs 3295), and the MSan reproducer (cropped lossy decode through WebPIUpdate()/WebPIAppend()) still reports use-of-uninitialized-value in NeedsFilter2_C, origin AllocateMemory() in frame_dec.c. With threads, the incremental decode still returns VP8_STATUS_BITSTREAM_ERROR where WebPDecode() succeeds. With patch set 2 the test passes and the reproducers are clean.",
+      "parentUuid": "a3bb854d_152be4ad",
+      "revId": "cdef9071f393636011739d0cf59e6e142850d847",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
