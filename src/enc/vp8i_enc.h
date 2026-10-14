@@ -459,7 +459,8 @@ WEBP_NODISCARD int VP8EncTokenLoop(VP8Encoder* const enc);
 
 // in webpenc.c
 // Assign an error code to a picture. Return false for convenience.
-int WebPEncodingSetError(const WebPPicture* const pic, WebPEncodingError error);
+WEBP_EXTERN int WebPEncodingSetError(const WebPPicture* const pic,
+                                     WebPEncodingError error);
 WEBP_NODISCARD int WebPReportProgress(const WebPPicture* const pic, int percent,
                                       int* const percent_store);
 

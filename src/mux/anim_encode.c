@@ -17,6 +17,7 @@
 #include <stdlib.h>  // for abs()
 #include <string.h>
 
+#include "src/enc/vp8i_enc.h"
 #include "src/mux/animi.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
@@ -1599,6 +1600,15 @@ int WebPAnimEncoderAdd(WebPAnimEncoder* enc, WebPPicture* frame, int timestamp,
     return 0;
   }
   MarkNoError(enc);
+
+  if (!enc->is_first_frame && enc->count == 0) {
+    // WebPAnimEncoderAssemble() flushed all frames, including the previous one.
+    if (frame != NULL) {
+      WebPEncodingSetError(frame, VP8_ENC_ERROR_INVALID_CONFIGURATION);
+    }
+    MarkError(enc, "ERROR adding frame: animation already assembled");
+    return 0;
+  }
 
   if (!enc->is_first_frame) {
     // Make sure timestamps are non-decreasing (integer wrap-around is OK).
