@@ -52,6 +52,24 @@
       "parentUuid": "e593d3fc_492b1b73",
       "revId": "25785357175493111beea794b03e9157dbfb50fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "361e23e6_5a8269cb",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 5234360
+      },
+      "writtenOn": "2026-10-15T08:37:16Z",
+      "side": 1,
+      "message": "Done in patch set 3: back to frame-\u003eerror_code as in the other checks below, and vp8i_enc.h is unchanged.",
+      "parentUuid": "ba833833_7b905246",
+      "revId": "25785357175493111beea794b03e9157dbfb50fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
