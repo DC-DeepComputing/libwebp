@@ -34,6 +34,24 @@
       "parentUuid": "656ef8af_4d053229",
       "revId": "25785357175493111beea794b03e9157dbfb50fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba833833_7b905246",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-15T08:32:57Z",
+      "side": 1,
+      "message": "ah right, sorry about that. Can you actually revert and do like you did before ? frame-\u003eerror_code \u003d VP8_ENC_ERROR_INVALID_CONFIGURATION; is actually done a few lines below. Let\u0027s keep that behavior.",
+      "parentUuid": "e593d3fc_492b1b73",
+      "revId": "25785357175493111beea794b03e9157dbfb50fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
