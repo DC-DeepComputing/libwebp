@@ -16,6 +16,24 @@
       "message": "Please use WebPEncodingSetError, do not set the error by end",
       "revId": "25785357175493111beea794b03e9157dbfb50fa",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e593d3fc_492b1b73",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 1606,
+      "author": {
+        "id": 5234360
+      },
+      "writtenOn": "2026-10-15T08:28:48Z",
+      "side": 1,
+      "message": "Done. WebPEncodingSetError() is now WEBP_EXTERN in vp8i_enc.h so that libwebpmux links against it in shared builds (as VP8GetInfo() is for the mux reader).",
+      "parentUuid": "656ef8af_4d053229",
+      "revId": "25785357175493111beea794b03e9157dbfb50fa",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
