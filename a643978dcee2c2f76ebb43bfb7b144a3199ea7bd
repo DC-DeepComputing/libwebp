@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66b96085_e0003dff",
+        "filename": "src/dsp/upsampling_vsx.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-10-16T10:40:45Z",
+      "side": 1,
+      "message": "`u16x8` appears to be unused in this file, so it can probably be safely removed.",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 0
+      },
+      "revId": "a643978dcee2c2f76ebb43bfb7b144a3199ea7bd",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
