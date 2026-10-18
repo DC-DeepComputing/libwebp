@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ac4ad2f_fbed8188",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 20
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-10-18T04:56:53Z",
+      "side": 1,
+      "message": "Rebase. `clang-format` was updated from version 19 to 21.",
+      "revId": "8bda68ca9022d43e3769dc9935793c41ca4e1e97",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
