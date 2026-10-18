@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "db4b0835_ba9e54d7",
+        "filename": "examples/cwebp.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-10-18T05:02:23Z",
+      "side": 1,
+      "message": "For compatibility this would be better as a non-fatal warning.\n\nNote the documentation covers this behavior:\n\nhttps://developers.google.com/speed/webp/docs/cwebp#options\n\n```\n-- string\nExplicitly specify the input file. This option is useful if the input file starts with an \u0027-\u0027 for instance. This option must appear last. Any other options afterward will be ignored.\n```",
+      "revId": "1a31bb6f6026ac06579b5d527ec53064322aebfe",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
