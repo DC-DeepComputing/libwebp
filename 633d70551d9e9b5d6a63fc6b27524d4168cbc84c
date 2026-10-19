@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50b9972c_7fbe6425",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 10
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-10-19T00:52:59Z",
+      "side": 1,
+      "message": "This may be similar to https://chromium-review.googlesource.com/c/webm/libwebp/+/8376622. Please rebase this change on the current main branch as the files have changed in the past month and merge conflicts are reported in the gerrit UI.",
+      "revId": "633d70551d9e9b5d6a63fc6b27524d4168cbc84c",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
