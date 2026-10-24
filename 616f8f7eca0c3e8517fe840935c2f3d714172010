@@ -16,6 +16,24 @@
       "message": "Sorry for the slow response. There have been some changes to these files over the past month. Please rebase your two changes against the current main branch.",
       "revId": "616f8f7eca0c3e8517fe840935c2f3d714172010",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4784e02b_8a7eb879",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-10-24T17:12:20Z",
+      "side": 1,
+      "message": "\u003e Sorry for the slow response. There have been some changes to these files over the past month. Please rebase your two changes against the current main branch.\n\nLooks like there is another patch in flight for this too:\n\nhttps://chromium-review.googlesource.com/c/webm/libwebp/+/8371203",
+      "parentUuid": "8f99a94f_3c036a1f",
+      "revId": "616f8f7eca0c3e8517fe840935c2f3d714172010",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
