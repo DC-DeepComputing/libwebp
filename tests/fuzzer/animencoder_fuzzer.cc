@@ -18,6 +18,7 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
+#include <cstring>
 #include <limits>
 #include <memory>
 #include <utility>
@@ -26,6 +27,7 @@
 #include "./fuzz_utils.h"
 #include "gtest/gtest.h"
 #include "src/dsp/cpu.h"
+#include "src/mux/animi.h"
 #include "webp/encode.h"
 #include "webp/mux.h"
 #include "webp/mux_types.h"
@@ -332,4 +334,122 @@ TEST(AnimIndexEncoder, AddAfterAssemble) {
   EXPECT_EQ(std::vector<uint8_t>(data.bytes, data.bytes + data.size),
             assembled);
   WebPDataClear(&data);
+}
+
+// A frame whose ARGB rows do not fit in 32-bit byte addressing must be
+// rejected up front instead of being copied with an overflowing
+// '4 * argb_stride' byte stride.
+TEST(AnimIndexEncoder, AddRejectsUnboundedArgbStride) {
+  constexpr int kSize = 64;
+  const std::unique_ptr<WebPAnimEncoder, decltype(&WebPAnimEncoderDelete)> enc(
+      WebPAnimEncoderNew(kSize, kSize, nullptr), WebPAnimEncoderDelete);
+  ASSERT_NE(enc.get(), nullptr);
+  WebPConfig config;
+  ASSERT_TRUE(WebPConfigInit(&config));
+  config.lossless = 1;
+  config.method = 0;
+  WebPPicture pic;
+  ASSERT_TRUE(WebPPictureInit(&pic));
+  pic.use_argb = 1;
+  pic.width = kSize;
+  pic.height = kSize;
+  ASSERT_TRUE(WebPPictureAlloc(&pic));
+  pic.argb_stride = 1 << 30;  // 4 * argb_stride overflows 'int'.
+  EXPECT_FALSE(WebPAnimEncoderAdd(enc.get(), &pic, 0, &config));
+  EXPECT_EQ(pic.error_code, VP8_ENC_ERROR_BAD_DIMENSION);
+  EXPECT_STRNE(WebPAnimEncoderGetError(enc.get()), "");
+  WebPPictureFree(&pic);
+}
+
+// WebPAnimEncoderRefineRect() must apply the same canvas bounds as
+// WebPAnimEncoderNewInternal(): a canvas spanning MAX_IMAGE_AREA pixels or
+// more is rejected instead of having its rectangle searched. The picture
+// buffers are intentionally smaller than the declared geometry: the pictures
+// must be rejected before any pixel is accessed.
+TEST(AnimEncoderRefineRect, RejectsOversizedCanvas) {
+  constexpr int kSize = 1 << 16;  // kSize * kSize == MAX_IMAGE_AREA.
+  std::vector<uint32_t> pixels(16);
+  WebPPicture prev, curr;
+  ASSERT_TRUE(WebPPictureInit(&prev));
+  ASSERT_TRUE(WebPPictureInit(&curr));
+  prev.use_argb = curr.use_argb = 1;
+  prev.width = curr.width = kSize;
+  prev.height = curr.height = kSize;
+  prev.argb_stride = curr.argb_stride = kSize;
+  prev.argb = curr.argb = pixels.data();
+  EXPECT_EQ(WebPAnimEncoderNew(kSize, kSize, nullptr), nullptr);
+  int x = 0, y = 0, w = kSize, h = kSize;
+  EXPECT_EQ(WebPAnimEncoderRefineRect(&prev, &curr, /*is_lossless=*/1, 70.f, &x,
+                                      &y, &w, &h),
+            0);
+}
+
+// 'row * argb_stride' used to overflow 'int' for rows >= 2048 with this
+// geometry, wrapping the row offsets out of the buffer. Such canvases must be
+// rejected up front instead.
+TEST(AnimEncoderRefineRect, RejectsOverflowingStride) {
+  constexpr int kSize = 4096;
+  constexpr int kStride = 1 << 20;  // kSize * kStride == MAX_IMAGE_AREA.
+  std::vector<uint32_t> pixels(16);
+  WebPPicture prev, curr;
+  ASSERT_TRUE(WebPPictureInit(&prev));
+  ASSERT_TRUE(WebPPictureInit(&curr));
+  prev.use_argb = curr.use_argb = 1;
+  prev.width = curr.width = kSize;
+  prev.height = curr.height = kSize;
+  prev.argb_stride = curr.argb_stride = kStride;
+  prev.argb = curr.argb = pixels.data();
+  int x = 0, y = 0, w = kSize, h = kSize;
+  EXPECT_EQ(WebPAnimEncoderRefineRect(&prev, &curr, /*is_lossless=*/1, 70.f, &x,
+                                      &y, &w, &h),
+            0);
+}
+
+// Row padding is allowed: identical pixels must produce identical rectangles
+// with and without padding.
+TEST(AnimEncoderRefineRect, PaddedStride) {
+  constexpr int kSize = 64;
+  constexpr int kPaddedStride = 96;
+  std::vector<uint32_t> prev_tight(kSize * kSize, 0xff102030u);
+  std::vector<uint32_t> curr_tight = prev_tight;
+  std::vector<uint32_t> prev_padded(kPaddedStride * kSize, 0u);
+  std::vector<uint32_t> curr_padded(kPaddedStride * kSize, 0u);
+  for (int y = 24; y < 32; ++y) {
+    for (int x = 20; x < 28; ++x) {
+      curr_tight[y * kSize + x] = 0xff405060u;
+    }
+  }
+  for (int y = 0; y < kSize; ++y) {
+    memcpy(&prev_padded[y * kPaddedStride], &prev_tight[y * kSize],
+           kSize * sizeof(uint32_t));
+    memcpy(&curr_padded[y * kPaddedStride], &curr_tight[y * kSize],
+           kSize * sizeof(uint32_t));
+  }
+  WebPPicture prev_a, curr_a, prev_b, curr_b;
+  ASSERT_TRUE(WebPPictureInit(&prev_a));
+  ASSERT_TRUE(WebPPictureInit(&curr_a));
+  ASSERT_TRUE(WebPPictureInit(&prev_b));
+  ASSERT_TRUE(WebPPictureInit(&curr_b));
+  prev_a.use_argb = curr_a.use_argb = 1;
+  prev_b.use_argb = curr_b.use_argb = 1;
+  prev_a.width = curr_a.width = prev_b.width = curr_b.width = kSize;
+  prev_a.height = curr_a.height = prev_b.height = curr_b.height = kSize;
+  prev_a.argb_stride = curr_a.argb_stride = kSize;
+  prev_b.argb_stride = curr_b.argb_stride = kPaddedStride;
+  prev_a.argb = prev_tight.data();
+  curr_a.argb = curr_tight.data();
+  prev_b.argb = prev_padded.data();
+  curr_b.argb = curr_padded.data();
+  int x_a = 0, y_a = 0, w_a = kSize, h_a = kSize;
+  int x_b = 0, y_b = 0, w_b = kSize, h_b = kSize;
+  ASSERT_EQ(WebPAnimEncoderRefineRect(&prev_a, &curr_a, /*is_lossless=*/1, 70.f,
+                                      &x_a, &y_a, &w_a, &h_a),
+            1);
+  ASSERT_EQ(WebPAnimEncoderRefineRect(&prev_b, &curr_b, /*is_lossless=*/1, 70.f,
+                                      &x_b, &y_b, &w_b, &h_b),
+            1);
+  EXPECT_EQ(x_a, x_b);
+  EXPECT_EQ(y_a, y_b);
+  EXPECT_EQ(w_a, w_b);
+  EXPECT_EQ(h_a, h_b);
 }
