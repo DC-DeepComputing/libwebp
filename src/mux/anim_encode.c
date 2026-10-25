@@ -218,6 +218,26 @@ int WebPAnimEncoderOptionsInitInternal(WebPAnimEncoderOptions* enc_options,
 // making it a no-op for lossless (see WebPEncode()).
 #define TRANSPARENT_COLOR 0x00000000
 
+// Returns 1 if the ARGB buffer of 'pic' is within the bounds the animation
+// encoder can address safely, 0 otherwise:
+// - rows must fit in 32-bit byte addressing (|argb_stride| <= INT_MAX / 4),
+//   as required by the '4 * argb_stride' byte-stride computations;
+// - rows must not overlap (|argb_stride| >= width), like in the stride checks
+//   of WebPValidatePicture();
+// - the buffer must span fewer than MAX_IMAGE_AREA pixels, the canvas limit
+//   enforced by WebPAnimEncoderNewInternal().
+static int CheckARGBBounds(const WebPPicture* const pic) {
+  int64_t abs_stride;
+  assert(pic != NULL);
+  if (pic->argb == NULL || pic->width <= 0 || pic->height <= 0) return 0;
+  abs_stride = (pic->argb_stride < 0) ? -(int64_t)pic->argb_stride
+                                      : (int64_t)pic->argb_stride;
+  if (abs_stride > INT_MAX / 4) return 0;
+  if (abs_stride < pic->width) return 0;
+  if (abs_stride * pic->height >= MAX_IMAGE_AREA) return 0;
+  return 1;
+}
+
 static void ClearRectangle(WebPPicture* const picture, int left, int top,
                            int width, int height) {
   int j;
@@ -640,6 +660,7 @@ int WebPAnimEncoderRefineRect(const WebPPicture* const prev_canvas,
       curr_canvas->height <= 0 || *width <= 0 || *height <= 0 ||
       !prev_canvas->use_argb || !curr_canvas->use_argb ||
       prev_canvas->argb == NULL || curr_canvas->argb == NULL ||
+      !CheckARGBBounds(prev_canvas) || !CheckARGBBounds(curr_canvas) ||
       !(quality >= 0.f && quality <= 100.f)) {
     return 0;
   }
@@ -1641,6 +1662,12 @@ int WebPAnimEncoderAdd(WebPAnimEncoder* enc, WebPPicture* frame, int timestamp,
         MarkError(enc, "ERROR converting frame from YUV(A) to ARGB");
         return 0;
       }
+    }
+
+    if (!CheckARGBBounds(frame)) {
+      frame->error_code = VP8_ENC_ERROR_BAD_DIMENSION;
+      MarkError(enc, "ERROR adding frame: invalid ARGB buffer or stride");
+      return 0;
     }
 
     if (encoder_config != NULL) {
