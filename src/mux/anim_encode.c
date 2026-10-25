@@ -17,6 +17,7 @@
 #include <stdlib.h>  // for abs()
 #include <string.h>
 
+#include "src/enc/vp8i_enc.h"
 #include "src/mux/animi.h"
 #include "src/utils/utils.h"
 #include "src/webp/decode.h"
@@ -633,13 +634,12 @@ int WebPAnimEncoderRefineRect(const WebPPicture* const prev_canvas,
                               int* const width, int* const height) {
   FrameRectangle rect;
   int right, left, bottom, top;
-  if (prev_canvas == NULL || curr_canvas == NULL || x_offset == NULL ||
-      y_offset == NULL || width == NULL || height == NULL ||
+  if (!WebPValidateAllocatedPicture(prev_canvas) ||
+      !WebPValidateAllocatedPicture(curr_canvas) ||
       prev_canvas->width != curr_canvas->width ||
-      prev_canvas->height != curr_canvas->height || curr_canvas->width <= 0 ||
-      curr_canvas->height <= 0 || *width <= 0 || *height <= 0 ||
-      !prev_canvas->use_argb || !curr_canvas->use_argb ||
-      prev_canvas->argb == NULL || curr_canvas->argb == NULL ||
+      prev_canvas->height != curr_canvas->height || !prev_canvas->use_argb ||
+      !curr_canvas->use_argb || x_offset == NULL || y_offset == NULL ||
+      width == NULL || height == NULL || *width <= 0 || *height <= 0 ||
       !(quality >= 0.f && quality <= 100.f)) {
     return 0;
   }
@@ -1631,7 +1631,13 @@ int WebPAnimEncoderAdd(WebPAnimEncoder* enc, WebPPicture* frame, int timestamp,
       return 0;
     }
 
+    if (!WebPValidateAllocatedPicture(frame)) {
+      MarkError(enc, "ERROR adding frame: invalid ARGB buffer or stride");
+      return 0;
+    }
+
     if (!frame->use_argb) {  // Convert frame from YUV(A) to ARGB.
+      frame->error_code = VP8_ENC_OK;
       if (enc->options.verbose) {
         fprintf(stderr,
                 "WARNING: Converting frame from YUV(A) to ARGB format; "
