@@ -218,7 +218,7 @@ uint8_t* ChunkListEmit(const WebPChunk* chunk_list, uint8_t* dst) {
 size_t ChunkListDiskSize(const WebPChunk* chunk_list) {
   size_t size = 0;
   while (chunk_list != NULL) {
-    size += ChunkDiskSize(chunk_list);
+    size = MuxAddRiffSize(size, ChunkDiskSize(chunk_list));
     chunk_list = chunk_list->next;
   }
   return size;
@@ -372,10 +372,18 @@ WebPMuxError MuxImageGetNth(const WebPMuxImage** wpi_list, uint32_t nth,
 // Size of an image.
 size_t MuxImageDiskSize(const WebPMuxImage* const wpi) {
   size_t size = 0;
-  if (wpi->header != NULL) size += ChunkDiskSize(wpi->header);
-  if (wpi->alpha != NULL) size += ChunkDiskSize(wpi->alpha);
-  if (wpi->img != NULL) size += ChunkDiskSize(wpi->img);
-  if (wpi->unknown != NULL) size += ChunkListDiskSize(wpi->unknown);
+  if (wpi->header != NULL) {
+    size = MuxAddRiffSize(size, ChunkDiskSize(wpi->header));
+  }
+  if (wpi->alpha != NULL) {
+    size = MuxAddRiffSize(size, ChunkDiskSize(wpi->alpha));
+  }
+  if (wpi->img != NULL) {
+    size = MuxAddRiffSize(size, ChunkDiskSize(wpi->img));
+  }
+  if (wpi->unknown != NULL) {
+    size = MuxAddRiffSize(size, ChunkListDiskSize(wpi->unknown));
+  }
   return size;
 }
 
