@@ -35,6 +35,20 @@ extern "C" {
 #define MUX_MIN_VERSION 6
 #define MUX_REV_VERSION 0
 
+// Maximum serialized RIFF extent accepted by the mux reader. The RIFF size
+// field excludes the tag and size prefix. The sentinel also fits in size_t on
+// 32-bit targets.
+#define MAX_RIFF_SIZE ((size_t)MAX_CHUNK_PAYLOAD + CHUNK_HEADER_SIZE)
+
+// Add disk sizes without overflowing size_t. Preserve an out-of-range result
+// through subsequent additions so callers can reject it before allocation.
+static WEBP_INLINE size_t MuxAddRiffSize(size_t size, size_t added_size) {
+  if (size > MAX_RIFF_SIZE || added_size > MAX_RIFF_SIZE - size) {
+    return MAX_RIFF_SIZE + 1;
+  }
+  return size + added_size;
+}
+
 // Chunk object.
 typedef struct WebPChunk WebPChunk;
 struct WebPChunk {
@@ -161,7 +175,7 @@ static WEBP_INLINE size_t ChunkDiskSize(const WebPChunk* chunk) {
   return SizeWithPadding(data_size);
 }
 
-// Total size of a list of chunks.
+// Total size of a list of chunks, saturated at MAX_RIFF_SIZE + 1.
 size_t ChunkListDiskSize(const WebPChunk* chunk_list);
 
 // Write out the given list of chunks into 'dst'.
@@ -210,7 +224,7 @@ WebPMuxError MuxImageDeleteNth(WebPMuxImage** wpi_list, uint32_t nth);
 WebPMuxError MuxImageGetNth(const WebPMuxImage** wpi_list, uint32_t nth,
                             WebPMuxImage** wpi);
 
-// Total size of the given image.
+// Total size of the given image, saturated at MAX_RIFF_SIZE + 1.
 size_t MuxImageDiskSize(const WebPMuxImage* const wpi);
 
 // Write out the given image into 'dst'.
@@ -218,6 +232,10 @@ uint8_t* MuxImageEmit(const WebPMuxImage* const wpi, uint8_t* dst);
 
 //------------------------------------------------------------------------------
 // Helper methods for mux.
+
+// Calculate the RIFF extent without allocating or reading chunk payloads.
+// Returns WEBP_MUX_BAD_DATA and sets *size to zero if the extent is too large.
+WebPMuxError MuxGetRiffSize(const WebPMux* mux, size_t* size);
 
 // Checks if the given image list contains at least one image with alpha.
 int MuxHasAlpha(const WebPMuxImage* images);
