@@ -581,14 +581,31 @@ static WebPMuxError MuxCleanup(WebPMux* const mux) {
   return WEBP_MUX_OK;
 }
 
-// Total size of a list of images.
+// Total size of a list of images, saturated at MAX_RIFF_SIZE + 1.
 static size_t ImageListDiskSize(const WebPMuxImage* wpi_list) {
   size_t size = 0;
   while (wpi_list != NULL) {
-    size += MuxImageDiskSize(wpi_list);
+    size = MuxAddRiffSize(size, MuxImageDiskSize(wpi_list));
     wpi_list = wpi_list->next;
   }
   return size;
+}
+
+WebPMuxError MuxGetRiffSize(const WebPMux* mux, size_t* size) {
+  const size_t chunk_sizes[] = {
+      ChunkListDiskSize(mux->vp8x),   ChunkListDiskSize(mux->iccp),
+      ChunkListDiskSize(mux->anim),   ImageListDiskSize(mux->images),
+      ChunkListDiskSize(mux->exif),   ChunkListDiskSize(mux->xmp),
+      ChunkListDiskSize(mux->unknown)};
+  size_t total_size = RIFF_HEADER_SIZE;
+  size_t i;
+  *size = 0;
+  for (i = 0; i < sizeof(chunk_sizes) / sizeof(chunk_sizes[0]); ++i) {
+    total_size = MuxAddRiffSize(total_size, chunk_sizes[i]);
+  }
+  if (total_size > MAX_RIFF_SIZE) return WEBP_MUX_BAD_DATA;
+  *size = total_size;
+  return WEBP_MUX_OK;
 }
 
 // Write out the given list of images into 'dst'.
@@ -622,12 +639,11 @@ WebPMuxError WebPMuxAssemble(WebPMux* mux, WebPData* assembled_data) {
   err = CreateVP8XChunk(mux);
   if (err != WEBP_MUX_OK) return err;
 
-  // Allocate data.
-  size = ChunkListDiskSize(mux->vp8x) + ChunkListDiskSize(mux->iccp) +
-         ChunkListDiskSize(mux->anim) + ImageListDiskSize(mux->images) +
-         ChunkListDiskSize(mux->exif) + ChunkListDiskSize(mux->xmp) +
-         ChunkListDiskSize(mux->unknown) + RIFF_HEADER_SIZE;
+  // Validate every accumulated extent before allocating the output buffer.
+  err = MuxGetRiffSize(mux, &size);
+  if (err != WEBP_MUX_OK) return err;
 
+  // Allocate data.
   data = (uint8_t*)WebPSafeMalloc(1ULL, size);
   if (data == NULL) return WEBP_MUX_MEMORY_ERROR;
 

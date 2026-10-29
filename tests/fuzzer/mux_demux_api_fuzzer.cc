@@ -17,12 +17,14 @@
 #include <array>
 #include <cstddef>
 #include <cstdint>
+#include <limits>
 #include <memory>
 #include <string_view>
 #include <utility>
 
 #include "./fuzz_utils.h"
 #include "gtest/gtest.h"
+#include "src/mux/muxi.h"
 #include "webp/demux.h"
 #include "webp/mux.h"
 #include "webp/mux_types.h"
@@ -268,4 +270,167 @@ TEST(MuxDemuxApi, SetCanvasSizeLargeArea) {
   EXPECT_EQ(WebPMuxSetCanvasSize(mux, 5, 0), WEBP_MUX_INVALID_ARGUMENT);
   EXPECT_EQ(WebPMuxSetCanvasSize(mux, 0, 0), WEBP_MUX_OK);
   WebPMuxDelete(mux);
+}
+
+// These size-only tests use null payloads and never allocate or emit RIFF data.
+// Full assembly below uses small, fully backed chunk buffers.
+TEST(MuxDemuxApi, RiffSizeAdditionBounds) {
+  const size_t limit = MAX_RIFF_SIZE;
+  EXPECT_EQ(MuxAddRiffSize(0, 0), 0u);
+  EXPECT_EQ(MuxAddRiffSize(limit - 1, 1), limit);
+  EXPECT_EQ(MuxAddRiffSize(limit, 0), limit);
+  EXPECT_EQ(MuxAddRiffSize(limit, 1), limit + 1);
+  EXPECT_EQ(MuxAddRiffSize(limit + 1, 0), limit + 1);
+  EXPECT_EQ(MuxAddRiffSize(0, limit + 1), limit + 1);
+  EXPECT_EQ(MuxAddRiffSize(std::numeric_limits<size_t>::max(), 1), limit + 1);
+  EXPECT_EQ(MuxAddRiffSize(1, std::numeric_limits<size_t>::max()), limit + 1);
+}
+
+TEST(MuxDemuxApi, ChunkListRiffSizeBounds) {
+  std::array<WebPChunk, 3> chunks = {};
+  for (size_t i = 0; i < chunks.size(); ++i) {
+    chunks[i].data.size = MAX_CHUNK_PAYLOAD / 3;
+    if (i + 1 < chunks.size()) chunks[i].next = &chunks[i + 1];
+  }
+  EXPECT_EQ(ChunkListDiskSize(nullptr), 0u);
+  EXPECT_EQ(ChunkListDiskSize(&chunks[2]), ChunkDiskSize(&chunks[2]));
+  EXPECT_EQ(ChunkListDiskSize(chunks.data()), MAX_RIFF_SIZE + 1);
+  WebPMux mux = {};
+  mux.unknown = chunks.data();
+  size_t size = 1;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_BAD_DATA);
+  EXPECT_EQ(size, 0u);
+}
+
+TEST(MuxDemuxApi, ImageRiffSizeBounds) {
+  std::array<WebPChunk, 3> chunks = {};
+  for (auto& chunk : chunks) chunk.data.size = MAX_CHUNK_PAYLOAD / 3;
+  WebPMuxImage image = {};
+  EXPECT_EQ(MuxImageDiskSize(&image), 0u);
+  image.header = &chunks[0];
+  image.alpha = &chunks[1];
+  image.img = &chunks[2];
+  EXPECT_EQ(MuxImageDiskSize(&image), MAX_RIFF_SIZE + 1);
+  // Include per-image unknown chunks in the same bounded accumulation.
+  image.img = nullptr;
+  image.unknown = &chunks[2];
+  EXPECT_EQ(MuxImageDiskSize(&image), MAX_RIFF_SIZE + 1);
+  image.header = nullptr;
+  image.alpha = nullptr;
+  chunks[2].next = &chunks[0];
+  chunks[0].next = &chunks[1];
+  EXPECT_EQ(MuxImageDiskSize(&image), MAX_RIFF_SIZE + 1);
+}
+
+TEST(MuxDemuxApi, ImageListRiffSizeBounds) {
+  std::array<WebPChunk, 3> chunks = {};
+  std::array<WebPMuxImage, 3> images = {};
+  for (size_t i = 0; i < images.size(); ++i) {
+    chunks[i].data.size = MAX_CHUNK_PAYLOAD / 3;
+    images[i].img = &chunks[i];
+    if (i + 1 < images.size()) images[i].next = &images[i + 1];
+  }
+  WebPMux mux = {};
+  mux.images = images.data();
+  size_t size = 1;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_BAD_DATA);
+  EXPECT_EQ(size, 0u);
+}
+
+TEST(MuxDemuxApi, CrossListRiffSizeBounds) {
+  WebPChunk iccp = {};
+  WebPChunk exif = {};
+  iccp.data.size = MAX_CHUNK_PAYLOAD / 2;
+  exif.data.size = MAX_CHUNK_PAYLOAD / 2;
+  WebPMux mux = {};
+  mux.iccp = &iccp;
+  mux.exif = &exif;
+  size_t size = 1;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_BAD_DATA);
+  EXPECT_EQ(size, 0u);
+}
+
+TEST(MuxDemuxApi, RiffSizeIncludesHeaderAndPadding) {
+  WebPMux mux = {};
+  WebPChunk chunk = {};
+  size_t size = 0;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_OK);
+  EXPECT_EQ(size, static_cast<size_t>(RIFF_HEADER_SIZE));
+  mux.unknown = &chunk;
+  chunk.data.size = MAX_RIFF_SIZE - RIFF_HEADER_SIZE - CHUNK_HEADER_SIZE;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_OK);
+  EXPECT_EQ(size, MAX_RIFF_SIZE);
+  --chunk.data.size;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_OK);
+  EXPECT_EQ(size, MAX_RIFF_SIZE);
+  chunk.data.size += 2;
+  EXPECT_EQ(MuxGetRiffSize(&mux, &size), WEBP_MUX_BAD_DATA);
+  EXPECT_EQ(size, 0u);
+}
+
+TEST(MuxDemuxApi, AssembleMultipleChunksAndFrames) {
+  uint8_t* encoded = nullptr;
+  const size_t encoded_size =
+      WebPEncodeLosslessRGBA(kImgAlphaData, kImgAlphaWidth, kImgAlphaHeight,
+                             kImgAlphaWidth * 4, &encoded);
+  const std::unique_ptr<uint8_t, decltype(&WebPFree)> encoded_owner(encoded,
+                                                                    WebPFree);
+  ASSERT_NE(encoded, nullptr);
+  ASSERT_GT(encoded_size, 0u);
+  const WebPData image = {encoded, encoded_size};
+  for (const bool animation : {false, true}) {
+    SCOPED_TRACE(animation);
+    const std::unique_ptr<WebPMux, fuzz_utils::UniquePtrDeleter> mux(
+        WebPMuxNew());
+    ASSERT_NE(mux, nullptr);
+    if (animation) {
+      const WebPMuxAnimParams params = {0, 0};
+      ASSERT_EQ(WebPMuxSetAnimationParams(mux.get(), &params), WEBP_MUX_OK);
+      WebPMuxFrameInfo frame = {};
+      frame.bitstream = image;
+      frame.id = WEBP_CHUNK_ANMF;
+      frame.duration = 10;
+      for (int i = 0; i < 3; ++i) {
+        ASSERT_EQ(WebPMuxPushFrame(mux.get(), &frame, 1), WEBP_MUX_OK);
+      }
+    } else {
+      ASSERT_EQ(WebPMuxSetImage(mux.get(), &image, 1), WEBP_MUX_OK);
+    }
+    // Different unknown tags coexist in one list. Setting the same tag replaces
+    // its prior value. Exercise both odd and even payload sizes.
+    const std::array<const char*, 5> tags = {"ICCP", "EXIF", "UNK1", "UNK2",
+                                             "UNK3"};
+    const uint8_t payload[] = {1, 2, 3, 4, 5};
+    for (size_t i = 0; i < tags.size(); ++i) {
+      const WebPData chunk = {payload, i + 1};
+      ASSERT_EQ(WebPMuxSetChunk(mux.get(), tags[i], &chunk, 1), WEBP_MUX_OK);
+    }
+    int num_unknown = 0;
+    ASSERT_EQ(WebPMuxNumChunks(mux.get(), WEBP_CHUNK_UNKNOWN, &num_unknown),
+              WEBP_MUX_OK);
+    EXPECT_EQ(num_unknown, 3);
+    WebPData assembled = {};
+    const WebPMuxError err = WebPMuxAssemble(mux.get(), &assembled);
+    const std::unique_ptr<WebPData, decltype(&WebPDataClear)> assembled_owner(
+        &assembled, WebPDataClear);
+    ASSERT_EQ(err, WEBP_MUX_OK);
+    size_t expected_size = 0;
+    ASSERT_EQ(MuxGetRiffSize(mux.get(), &expected_size), WEBP_MUX_OK);
+    EXPECT_EQ(assembled.size, expected_size);
+    const std::unique_ptr<WebPDemuxer, fuzz_utils::UniquePtrDeleter> demux(
+        WebPDemux(&assembled));
+    ASSERT_NE(demux, nullptr);
+    EXPECT_EQ(WebPDemuxGetI(demux.get(), WEBP_FF_FRAME_COUNT),
+              animation ? 3u : 1u);
+    for (size_t i = 0; i < tags.size(); ++i) {
+      WebPChunkIterator iter = {};
+      ASSERT_TRUE(WebPDemuxGetChunk(demux.get(), tags[i], 1, &iter));
+      EXPECT_EQ(iter.chunk.size, i + 1);
+      EXPECT_EQ(
+          std::string_view(reinterpret_cast<const char*>(iter.chunk.bytes),
+                           iter.chunk.size),
+          std::string_view(reinterpret_cast<const char*>(payload), i + 1));
+      WebPDemuxReleaseChunkIterator(&iter);
+    }
+  }
 }
