@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1555ef98_600add28",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T16:06:26Z",
+      "side": 1,
+      "message": "Please replace that block with:\n\n  if (!WebPValidateAllocatedPicture(prev_canvas) ||\n      !WebPValidateAllocatedPicture(curr_canvas) ||\n      prev_canvas-\u003ewidth !\u003d curr_canvas-\u003ewidth ||\n      prev_canvas-\u003eheight !\u003d curr_canvas-\u003eheight || !prev_canvas-\u003euse_argb ||\n      !curr_canvas-\u003euse_argb || x_offset \u003d\u003d NULL || y_offset \u003d\u003d NULL ||\n      width \u003d\u003d NULL || height \u003d\u003d NULL || *width \u003c\u003d 0 || *height \u003c\u003d 0 ||\n      !(quality \u003e\u003d 0.f \u0026\u0026 quality \u003c\u003d 100.f))\n      \n(and make WEBP_NODISCARD WEBP_EXTERN int WebPValidatePicture   in vp8i_enc.h  (same with WebPValidateAllocatedPicture))",
+      "revId": "6be377d4a9d98f734d51935a01c30c55147a473d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1e843d9_78ce3819",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T16:06:26Z",
+      "side": 1,
+      "message": "That should be done above if (!frame-\u003euse_argb)  (because WebPPictureYUVAToARGB is called there). Therefore set frame-\u003eerror_code \u003d VP8_ENC_OK; right below  if (!frame-\u003euse_argb) {",
+      "revId": "6be377d4a9d98f734d51935a01c30c55147a473d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
