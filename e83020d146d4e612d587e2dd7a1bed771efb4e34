@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4880143e_b7336acc",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T19:56:27Z",
+      "side": 1,
+      "message": "You just need to call WebPValidateAllocatedPicture here. CheckARGBBounds is not needed I believe.",
+      "revId": "e83020d146d4e612d587e2dd7a1bed771efb4e34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
