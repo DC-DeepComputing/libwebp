@@ -34,6 +34,24 @@
       "parentUuid": "4880143e_b7336acc",
       "revId": "e83020d146d4e612d587e2dd7a1bed771efb4e34",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3c7c520_36f63925",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 4
+      },
+      "lineNbr": 1654,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:26:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "435e81bf_c2039f36",
+      "revId": "e83020d146d4e612d587e2dd7a1bed771efb4e34",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
