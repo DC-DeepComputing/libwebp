@@ -52,6 +52,24 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "431e6601_deae4c85",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T22:07:18Z",
+      "side": 1,
+      "message": "Done - now MarkError2(enc, \"ERROR adding frame. WebPEncodingError\", frame-\u003eerror_code), so the validator\u0027s code comes through unchanged.",
+      "parentUuid": "6626cac9_9bda2aef",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1458c6e8_65a7c100",
@@ -65,6 +83,30 @@
       "writtenOn": "2026-11-04T21:40:43Z",
       "side": 1,
       "message": "Since `frame` can be a YUV(A) picture (as indicated by the check `!frame-\u003euse_argb` below), the error message should probably say \"invalid picture buffer or stride\" or similar, instead of specifically \"ARGB\".",
+      "range": {
+        "startLine": 1635,
+        "startChar": 0,
+        "endLine": 1635,
+        "endChar": 0
+      },
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "86aeb51a_8a884b0e",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T22:07:18Z",
+      "side": 1,
+      "message": "Done - the MarkError2 message no longer mentions ARGB, so it also covers YUV(A) frames.",
+      "parentUuid": "1458c6e8_65a7c100",
       "range": {
         "startLine": 1635,
         "startChar": 0,
@@ -115,6 +157,48 @@
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0034234_d6599630",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T22:07:18Z",
+      "side": 1,
+      "message": "The line is gone, so there is no placement question. If you meant the WebPValidateAllocatedPicture call should move above the dimension check, say the word and I\u0027ll move it.",
+      "parentUuid": "8e9c3d88_3549e1ae",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2571ceef_599931bd",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T22:07:18Z",
+      "side": 1,
+      "message": "Done - removed it. You\u0027re right that it breaks the oldest-error rule, and nothing here needed a clean slate.",
+      "parentUuid": "fcd478ec_98ed7200",
+      "range": {
+        "startLine": 1640,
+        "startChar": 0,
+        "endLine": 1640,
+        "endChar": 0
+      },
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f966f06a_9f1abe43",
@@ -128,6 +212,24 @@
       "writtenOn": "2026-11-04T21:50:52Z",
       "side": 1,
       "message": "Those tests will trigger asan. You need to choose values that fail, e.g. argb_stride \u003d (1 \u003c\u003c 29) + 16 (\u003e INT_MAX / 4), argb_stride \u003d width - 1 (\u003c width), width \u003e INT_MAX / 4, or argb \u003d nullptr.",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fffd8502_c4962ec7",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T22:07:18Z",
+      "side": 1,
+      "message": "Done - replaced both tests with one that uses values the validator rejects: stride over INT_MAX/4, stride below the width, width over INT_MAX/4, and a NULL buffer. The buffers stay tiny, so an accidental pass would still surface as an ASAN read.",
+      "parentUuid": "f966f06a_9f1abe43",
       "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
