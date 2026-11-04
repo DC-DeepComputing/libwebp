@@ -113,6 +113,23 @@
       },
       "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f966f06a_9f1abe43",
+        "filename": "tests/fuzzer/animencoder_fuzzer.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 369,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:50:52Z",
+      "side": 1,
+      "message": "Those tests will trigger asan. You need to choose values that fail, e.g. argb_stride \u003d (1 \u003c\u003c 29) + 16 (\u003e INT_MAX / 4), argb_stride \u003d width - 1 (\u003c width), width \u003e INT_MAX / 4, or argb \u003d nullptr.",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
