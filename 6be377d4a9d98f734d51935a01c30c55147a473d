@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6571b3ba_7b75c286",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 656,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T19:34:43Z",
+      "side": 1,
+      "message": "Done — the block now uses WebPValidateAllocatedPicture() exactly as suggested, and both validators are declared WEBP_NODISCARD WEBP_EXTERN in vp8i_enc.h. Thank you!",
+      "parentUuid": "1555ef98_600add28",
+      "revId": "6be377d4a9d98f734d51935a01c30c55147a473d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e1e843d9_78ce3819",
         "filename": "src/mux/anim_encode.c",
         "patchSetId": 3
@@ -31,6 +49,24 @@
       "writtenOn": "2026-11-04T16:06:26Z",
       "side": 1,
       "message": "That should be done above if (!frame-\u003euse_argb)  (because WebPPictureYUVAToARGB is called there). Therefore set frame-\u003eerror_code \u003d VP8_ENC_OK; right below  if (!frame-\u003euse_argb) {",
+      "revId": "6be377d4a9d98f734d51935a01c30c55147a473d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7dd5da90_63d0a565",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 1667,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-04T19:34:43Z",
+      "side": 1,
+      "message": "Done — the bounds check now runs above the conversion, and frame-\u003eerror_code \u003d VP8_ENC_OK; sits right below if (!frame-\u003euse_argb) {. Thank you!",
+      "parentUuid": "e1e843d9_78ce3819",
       "revId": "6be377d4a9d98f734d51935a01c30c55147a473d",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
