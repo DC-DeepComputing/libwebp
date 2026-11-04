@@ -16,6 +16,86 @@
       "message": "nhy",
       "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6626cac9_9bda2aef",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1634,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:40:43Z",
+      "side": 1,
+      "message": "MarkError2(enc, \"ERROR adding frame. WebPEncodingError\",\n                 frame-\u003eerror_code);\nis better",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1458c6e8_65a7c100",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1635,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:40:43Z",
+      "side": 1,
+      "message": "Since `frame` can be a YUV(A) picture (as indicated by the check `!frame-\u003euse_argb` below), the error message should probably say \"invalid picture buffer or stride\" or similar, instead of specifically \"ARGB\".",
+      "range": {
+        "startLine": 1635,
+        "startChar": 0,
+        "endLine": 1635,
+        "endChar": 0
+      },
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8e9c3d88_3549e1ae",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:40:43Z",
+      "side": 1,
+      "message": "THat should be right after   if (frame !\u003d NULL) { line 1627",
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fcd478ec_98ed7200",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 5
+      },
+      "lineNbr": 1640,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-04T21:40:43Z",
+      "side": 1,
+      "message": "Is there a specific reason to reset the `error_code` here? If the caller provided a `frame` with an existing `error_code`, this violates the principle that the oldest error is preserved (as implemented in `WebPEncodingSetError`). If it\u0027s not strictly necessary, we should probably remove this line.",
+      "range": {
+        "startLine": 1640,
+        "startChar": 0,
+        "endLine": 1640,
+        "endChar": 0
+      },
+      "revId": "981f8de4db2212749a85f4c248722e7ab9d0278f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
