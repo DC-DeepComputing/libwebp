@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7a77a4f_184e50f4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-06T14:34:13Z",
+      "side": 1,
+      "message": "Undefined references: https://build.webmproject.org/jenkins/job/libwebp__compile/7537/config\u003dshared,host\u003dcmake-clang/console",
+      "revId": "5520cf3cc61e15bc5776fab385c06e1164772291",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
