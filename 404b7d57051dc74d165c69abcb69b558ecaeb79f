@@ -52,6 +52,24 @@
       "parentUuid": "8eabf4f0_13f324f9",
       "revId": "404b7d57051dc74d165c69abcb69b558ecaeb79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c1407ec0_49e0e848",
+        "filename": "src/enc/vp8i_enc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-08T13:46:33Z",
+      "side": 1,
+      "message": "You\u0027re right about the ABI, and the follow-up works for me. WebPPictureView() calls WebPValidateAllocatedPicture() first (src/enc/picture_rescale_enc.c:100), so routing both call sites through it keeps the validation and drops the exports. Nothing to add from my side.",
+      "parentUuid": "8eabf4f0_13f324f9",
+      "revId": "404b7d57051dc74d165c69abcb69b558ecaeb79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
