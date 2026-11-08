@@ -39,6 +39,30 @@
       },
       "revId": "12e27784adebb082f576c373945a27f270043ead",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19355cec_411fdc18",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 5274529
+      },
+      "writtenOn": "2026-11-08T13:46:39Z",
+      "side": 1,
+      "message": "Fair point. It stays ptrdiff_t to match the casts already in this file; if you\u0027d rather have the int64_t headroom I can send a follow-up.",
+      "parentUuid": "9128f7d6_4ff0b42c",
+      "range": {
+        "startLine": 225,
+        "startChar": 43,
+        "endLine": 225,
+        "endChar": 52
+      },
+      "revId": "12e27784adebb082f576c373945a27f270043ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
