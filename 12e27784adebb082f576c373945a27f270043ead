@@ -16,6 +16,29 @@
       "message": "Thx, I had not touched that file publicly yet. There is more to come.",
       "revId": "12e27784adebb082f576c373945a27f270043ead",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9128f7d6_4ff0b42c",
+        "filename": "src/mux/anim_encode.c",
+        "patchSetId": 3
+      },
+      "lineNbr": 225,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-11-08T02:21:01Z",
+      "side": 1,
+      "message": "If we wanted to be thorough, then `int64_t` would be better as `ptrdiff_t` is 32-bit on 32-bit systems and could overflow. We have this pattern elsewhere, however, and extremely large images are infeasible with 32-bit.",
+      "range": {
+        "startLine": 225,
+        "startChar": 43,
+        "endLine": 225,
+        "endChar": 52
+      },
+      "revId": "12e27784adebb082f576c373945a27f270043ead",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
