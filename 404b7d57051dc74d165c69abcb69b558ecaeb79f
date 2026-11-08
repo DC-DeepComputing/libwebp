@@ -16,6 +16,24 @@
       "message": "This changes the ABI. Please do not expose internal functions just for tests.",
       "revId": "404b7d57051dc74d165c69abcb69b558ecaeb79f",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8eabf4f0_13f324f9",
+        "filename": "src/enc/vp8i_enc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-11-08T00:57:09Z",
+      "side": 1,
+      "message": "\u003e This changes the ABI. Please do not expose internal functions just for tests.\n\nSorry this adds use in anim_encode.c. Still, changes to the ABI should be done thoughtfully. I don\u0027t think this is the best candidate for a public function.",
+      "parentUuid": "0da202e6_eddbd725",
+      "revId": "404b7d57051dc74d165c69abcb69b558ecaeb79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
