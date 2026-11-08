@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0da202e6_eddbd725",
+        "filename": "src/enc/vp8i_enc.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 501,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-11-08T00:53:56Z",
+      "side": 1,
+      "message": "This changes the ABI. Please do not expose internal functions just for tests.",
+      "revId": "404b7d57051dc74d165c69abcb69b558ecaeb79f",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
