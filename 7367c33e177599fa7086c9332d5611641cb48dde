@@ -16,6 +16,24 @@
       "message": "\u003e One question: WebPDataSet is added to a public header (mux_types.h). Do you want it exposed there, or should it be an internal helper?\n\nThis is a public header, please make this internal for now.",
       "revId": "7367c33e177599fa7086c9332d5611641cb48dde",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30ec3648_47e46b9c",
+        "filename": "src/webp/mux_types.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 5149832
+      },
+      "writtenOn": "2026-11-08T18:46:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d993c249_96c86f10",
+      "revId": "7367c33e177599fa7086c9332d5611641cb48dde",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ]
 }
