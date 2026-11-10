@@ -35,12 +35,12 @@ void WebPInfoTest(std::string_view data) {
   webp_info.show_summary = 0;
   webp_info.show_diagnosis = 0;
   webp_info.parse_bitstream = 1;
-  WebPData webp_data = {reinterpret_cast<const uint8_t*>(data.data()),
+  WebPData webp_data = {reinterpret_cast<const uint8_t *>(data.data()),
                         data.size()};
   AnalyzeWebP(&webp_info, &webp_data);
   nalloc_end();
 }
 
 FUZZ_TEST(WebPInfo, WebPInfoTest)
-    .WithDomains(fuzztest::String().WithMaxSize(fuzz_utils::kMaxWebPFileSize +
-                                                1));
+    .WithDomains(fuzz_utils::ArbitraryImageWithSeeds(
+        fuzz_utils::FuzzSeedFormat::kWebPOnly));
