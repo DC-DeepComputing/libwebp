@@ -12,6 +12,22 @@
 #ifndef WEBP_UTILS_BOUNDS_SAFETY_H_
 #define WEBP_UTILS_BOUNDS_SAFETY_H_
 
+/* CMake generates webp_bounds_safety_build.h in the build directory and
+ * installs it next to this header. Include it so a consumer of a
+ * -fbounds-safety build still sees ABI-changing annotations even if they
+ * did not pass -DWEBP_SUPPORT_FBOUNDS_SAFETY.
+ * See https://issues.webmproject.org/432511225.
+ */
+#ifndef WEBP_SUPPORT_FBOUNDS_SAFETY
+#if defined(__has_include)
+#if __has_include("webp_bounds_safety_build.h")
+#include "webp_bounds_safety_build.h"
+#elif __has_include("webp/webp_bounds_safety_build.h")
+#include "webp/webp_bounds_safety_build.h"
+#endif
+#endif  /* defined(__has_include) */
+#endif  /* WEBP_SUPPORT_FBOUNDS_SAFETY */
+
 #ifdef WEBP_SUPPORT_FBOUNDS_SAFETY
 
 #include <ptrcheck.h>
@@ -34,9 +50,9 @@
 // vanish or there'll be an ABI mismatch, which may fail to compile or have
 // worse behaviors at runtime.
 //
-// TODO: https://issues.webmproject.org/432511225 - In the future, we should
-// have CMake append to a header file (like this one) that libwebp was built
-// with -fbounds-safety, so that we know to never make annotations vanish.
+// CMake generates and installs src/webp/webp_bounds_safety_build.h (included
+// above) so a -fbounds-safety build of libwebp records WEBP_SUPPORT_FBOUNDS_SAFETY
+// for consumers. See https://issues.webmproject.org/432511225.
 
 // The annotations below are ABI breaking as they turn normal pointers into
 // "wide" pointers. Breaking them down:

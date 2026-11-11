@@ -108,6 +108,22 @@ WEBP_EXTERN void WebPFree(void* ptr);
 
 #include <string.h>  // For memcpy and friends
 
+/* CMake generates webp_bounds_safety_build.h in the build directory and
+ * installs it next to this header. Include it so a consumer of a
+ * -fbounds-safety build still sees ABI-changing annotations even if they
+ * did not pass -DWEBP_SUPPORT_FBOUNDS_SAFETY.
+ * See https://issues.webmproject.org/432511225.
+ */
+#ifndef WEBP_SUPPORT_FBOUNDS_SAFETY
+#if defined(__has_include)
+#if __has_include("webp_bounds_safety_build.h")
+#include "webp_bounds_safety_build.h"
+#elif __has_include("webp/webp_bounds_safety_build.h")
+#include "webp/webp_bounds_safety_build.h"
+#endif
+#endif  /* defined(__has_include) */
+#endif  /* WEBP_SUPPORT_FBOUNDS_SAFETY */
+
 #ifdef WEBP_SUPPORT_FBOUNDS_SAFETY
 
 // As explained in src/utils/bounds_safety.h, the below macros are defined

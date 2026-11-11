@@ -279,6 +279,22 @@ configure_file(${CMAKE_CURRENT_LIST_DIR}/cmake/config.h.in
                ${CMAKE_CURRENT_BINARY_DIR}/src/webp/config.h @ONLY)
 add_definitions(-DHAVE_CONFIG_H)
 
+# Record whether this build used -fbounds-safety in an installed header so
+# ABI-changing annotations cannot vanish in a consumer translation unit.
+# See https://issues.webmproject.org/432511225 and src/utils/bounds_safety.h.
+if(WEBP_ENABLE_FBOUNDS_SAFETY)
+  set(WEBP_SUPPORT_FBOUNDS_SAFETY 1)
+endif()
+configure_file(
+  ${CMAKE_CURRENT_LIST_DIR}/cmake/webp_bounds_safety_build.h.in
+  ${CMAKE_CURRENT_BINARY_DIR}/src/webp/webp_bounds_safety_build.h @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/src/webp/webp_bounds_safety_build.h
+        DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/webp)
+# So in-tree compilation of public headers can include the generated file as
+# "webp_bounds_safety_build.h" or "webp/webp_bounds_safety_build.h".
+include_directories(${CMAKE_CURRENT_BINARY_DIR}/src
+                    ${CMAKE_CURRENT_BINARY_DIR}/src/webp)
+
 # Set the version numbers.
 macro(set_version FILE TARGET_NAME NAME_IN_MAKEFILE)
   file(READ ${CMAKE_CURRENT_SOURCE_DIR}/${FILE} SOURCE_FILE)
@@ -422,7 +438,9 @@ target_include_directories(webputils PRIVATE ${CMAKE_CURRENT_BINARY_DIR}
 add_library(webp $<TARGET_OBJECTS:webpdecode> $<TARGET_OBJECTS:webpdsp>
                  $<TARGET_OBJECTS:webpencode> $<TARGET_OBJECTS:webputils>)
 if(WEBP_ENABLE_FBOUNDS_SAFETY)
-  # Enable -fbounds-safety only for webputils and webpdecode(r) for now.
+  # Enable -fbounds-safety for the parts of the codebase which support it.
+  # The generated webp_bounds_safety_build.h also records this for consumers.
+  # This expects an experimental toolchain.
   add_definitions(-DWEBP_SUPPORT_FBOUNDS_SAFETY=1)
   target_compile_options(webputils PRIVATE -fbounds-safety)
   target_compile_options(webputilsdecode PRIVATE -fbounds-safety)
