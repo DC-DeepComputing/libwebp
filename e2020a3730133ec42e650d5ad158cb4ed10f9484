@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51b6ae48_c1050782",
+        "filename": "src/utils/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-11-12T21:00:37Z",
+      "side": 1,
+      "message": "this must slow down the debug runs, no?",
+      "revId": "e2020a3730133ec42e650d5ad158cb4ed10f9484",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
