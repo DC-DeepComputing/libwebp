@@ -16,6 +16,24 @@
       "message": "this must slow down the debug runs, no?",
       "revId": "e2020a3730133ec42e650d5ad158cb4ed10f9484",
       "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "de4ce132_9a78e589",
+        "filename": "src/utils/utils.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 163,
+      "author": {
+        "id": 1140964
+      },
+      "writtenOn": "2026-11-12T21:01:39Z",
+      "side": 1,
+      "message": "Not really no, it is not used much",
+      "parentUuid": "51b6ae48_c1050782",
+      "revId": "e2020a3730133ec42e650d5ad158cb4ed10f9484",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
     }
   ],
   "submitRequirementResults": [
