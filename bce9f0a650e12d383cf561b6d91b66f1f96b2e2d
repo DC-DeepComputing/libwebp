@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d6c6bd54_f04ae5d3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1002219
+      },
+      "writtenOn": "2026-11-12T06:03:49Z",
+      "side": 1,
+      "message": "Add `Bug: 579995046`",
+      "revId": "bce9f0a650e12d383cf561b6d91b66f1f96b2e2d",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ]
+}
