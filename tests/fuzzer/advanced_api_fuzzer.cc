@@ -558,3 +558,41 @@ TEST(AdvancedApi, RawAndTruncatedChunkIncrementalConsistency) {
     WebPFree(encoded);
   }
 }
+
+// Partition #0 is 7 bytes here, so VP8GetHeaders() prefetches all of its
+// remaining intra-mode bits into dec->br.value (leaving
+// br->buf == br->buf_end, i.e. part_size == 0 in CopyParts0Data()).
+TEST(AdvancedApi, IncrementalPrefetchedPartition0) {
+  static constexpr uint8_t kWebP[] = {
+      'R',  'I',  'F',  'F',  0x22, 0x00, 0x00, 0x00, 'W',  'E', 'B',  //
+      'P',  'V',  'P',  '8',  ' ',  0x16, 0x00, 0x00, 0x00,            //
+      0xf0, 0x00, 0x00,                          // keyframe, part0_len=7
+      0x9d, 0x01, 0x2a, 0x01, 0x00, 0x01, 0x00,  // 1x1 dimensions
+      0x00, 0x00, 0x00, 0x00, 0x00, 0x0d, 0xc0,  // 7-byte partition #0
+      0x00, 0x00, 0x00, 0x00, 0x00,              // token partition
+  };
+
+  WebPDecoderConfig ref_config;
+  ASSERT_TRUE(WebPInitDecoderConfig(&ref_config));
+  ASSERT_EQ(WebPDecode(kWebP, sizeof(kWebP), &ref_config), VP8_STATUS_OK);
+
+  for (bool use_update : {false, true}) {
+    WebPDecoderConfig config;
+    ASSERT_TRUE(WebPInitDecoderConfig(&config));
+    WebPIDecoder* const idec = WebPIDecode(nullptr, 0, &config);
+    ASSERT_NE(idec, nullptr);
+    VP8StatusCode status = VP8_STATUS_SUSPENDED;
+    for (size_t i = 0; i < sizeof(kWebP) && status == VP8_STATUS_SUSPENDED;
+         ++i) {
+      status = use_update ? WebPIUpdate(idec, kWebP, i + 1)
+                          : WebPIAppend(idec, kWebP + i, 1);
+    }
+    EXPECT_EQ(status, VP8_STATUS_OK);
+    if (status == VP8_STATUS_OK) {
+      CompareDecBuffers(config.output, ref_config.output);
+    }
+    WebPIDelete(idec);
+    WebPFreeDecBuffer(&config.output);
+  }
+  WebPFreeDecBuffer(&ref_config.output);
+}
