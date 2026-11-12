@@ -1,5 +1,23 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0cfabff_f18c6630",
+        "filename": "src/dsp/dsp.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 244,
+      "author": {
+        "id": 1000898
+      },
+      "writtenOn": "2026-11-12T21:00:50Z",
+      "side": 1,
+      "message": "no speed implication? I guess it\u0027s just the raw-C implementation after all...",
+      "revId": "85755959324890521629da408901d79c87728e0b",
+      "serverId": "3ce6091f-6c88-37e8-8c75-72f92ae8dfba"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
